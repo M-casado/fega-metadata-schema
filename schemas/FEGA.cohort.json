@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/blob/main/schemas/FEGA.cohort.json",
+  "type": "object",
+  "title": "FEGA Cohort metadata schema",
+  "meta:version": "0.0.0",
+  "$async": true,
+  "description": "Metadata entity representing Cohort",
+  "@context": {
+    "ega": "https://identifiers.org/ega:",
+    "entityDoc": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/blob/main/schemas/FEGA.cohort.json#",
+    "properties": "@nest",
+    "cohortId": {
+      "@id": "entityDoc:cohortId",
+      "@type": "@id"
+    },
+    "studyId": {
+      "@id": "entityDoc:studyId",
+      "@type": "@id"
+    }
+  },
+  "properties": {
+    "cohortId": {
+      "@id": "entityDoc:cohortId",
+      "type": "string",
+      "description": "Unique identifier for the cohort, expanded with the ega prefix for JSON-LD.",
+      "examples": ["ega:EGAC00000000001"]
+    },
+    "studyId": {
+      "@id": "entityDoc:studyId",
+      "type": "string",
+      "description": "Unique identifier for the study, expanded with the ega prefix for JSON-LD.",
+      "examples": ["ega:EGAS00000000001"]
+    }
+  },
+  "required": ["cohortId", "studyId"]
+}
