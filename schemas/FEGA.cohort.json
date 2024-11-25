@@ -1,16 +1,16 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/blob/main/schemas/FEGA.cohort.json",
+  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/FEGA.cohort.json",
   "type": "object",
   "title": "FEGA Cohort metadata schema",
   "meta:version": "0.0.0",
   "$async": true,
   "description": "Metadata entity representing Cohort",
   "@context": [
-    "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/blob/main/schemas/FEGA.common-definitions.json",
+    "./FEGA.common-definitions.json",
     {
       "ega": "https://identifiers.org/ega:",
-      "entities": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/blob/main/schemas/",
+      "entities": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/",
       "cohort": "entities:FEGA.cohort.json",
       "entityDoc": "entities:FEGA.cohort.json#",
       "prov": "https://www.w3.org/ns/prov#",
