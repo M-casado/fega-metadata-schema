@@ -1,0 +1,59 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/blob/main/schemas/FEGA.common-definitions.json",
+    "type": "object",
+    "title": "FEGA common metadata definitions",
+    "meta:version": "0.0.0",
+    "$async": true,
+    "description": "Metadata schema for common definitions",
+    "@context": {
+        "entities": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/blob/main/schemas/",
+        "cohort": "entities:FEGA.cohort.json",
+        "study": "entities:FEGA.study.json",
+        "instance": "entities:FEGA.instance.json",
+        "protocol": "entities:FEGA.protocol.json",
+        "biomaterial": "entities:FEGA.biomaterial.json",
+        "datafile": "entities:FEGA.datafile.json",
+        "dataset": "entities:FEGA.dataset.json",
+        "policy": "entities:FEGA.policy.json",
+        "DAC": "entities:FEGA.DAC.json"
+    },
+    "$defs": {
+        "curieGeneralPattern": {
+            "type": "string",
+            "title": "Compact URI (CURIE) pattern",
+            "description": "A [W3C Compact URI](https://www.w3.org/TR/curie/) formatted string. A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax. Even though we do not restrict prefixes, we recommend that the term used as ``prefix`` is uniformely resolved. In other words, it is better to use prefixes (e.g. 'ensembl') from identifiers.org.",
+            "minLength": 1,
+            "pattern": "^\\w[^:]*:.+$",
+            "examples": ["ensembl:ENSG00000139618", "HGNC:11535", "data:1026", "EFO:0003815"]
+        },    
+        "ontologyTerm": {
+            "type": "object",
+            "title": "Ontology term",
+            "description": "This property represents an ontology term (a.k.a. class). It consists on two properties: the term identifier (termId) and its label (termLabel). This property and its structure is inherited across many other elements in the schemas. It is there, when inherited, where the real ontology constraint is put in place (e.g. using 'graphRestriction' keywords). Based on phenopacket's [OntologyClass](https://phenopacket-schema.readthedocs.io/en/latest/ontologyclass.html)",
+            "required": ["termId"],
+            "properties": {
+                "termId": {
+                    "type": "string",
+                    "title": "ID of the term",
+                    "description": "The identifier of an ontology term must be in CURIE format (check property 'curieGeneralPattern'). Whether a specific term is valid or not according to an ontology hierarchy is checked at each specific termId using ontology validation keywords (e.g. 'graphRestriction').",
+                    "minLength": 1,
+                    "allOf": [
+                        {
+                            "title": "General CURIE pattern",
+                            "$ref": "./FEGA.common-definitions.json#/$defs/curieGeneralPattern"
+                        }
+                    ],
+                    "examples": [ "MONDO:0100096", "EFO:0003101", "EFO:0005518",  "EFO:0002944",  "EFO:0003813" ]
+                },
+                "termLabel": {
+                    "type": "string",
+                    "title": "Label of the term",
+                    "description": "The label of a term is the human-readable string associated with the identifier. It is not required that it matches the label of the termId within the referenced ontology, although it should. This is due to the fact that the source of truth will always be the termId, and not the label, which adds more context.",
+                    "minLength": 1,
+                    "examples": [ "COVID-19", "Axila skin", "bone marrow cell", "astrocyte", "oligodendrocyte", "Unknown", "Unaffected", "homo sapiens" ]
+                }
+            }
+        }
+    }
+}

@@ -6,19 +6,28 @@
   "meta:version": "0.0.0",
   "$async": true,
   "description": "Metadata entity representing Cohort",
-  "@context": {
-    "ega": "https://identifiers.org/ega:",
-    "entityDoc": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/blob/main/schemas/FEGA.cohort.json#",
-    "properties": "@nest",
-    "cohortId": {
-      "@id": "entityDoc:cohortId",
-      "@type": "@id"
-    },
-    "studyId": {
-      "@id": "entityDoc:studyId",
-      "@type": "@id"
+  "@context": [
+    "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/blob/main/schemas/FEGA.common-definitions.json",
+    {
+      "ega": "https://identifiers.org/ega:",
+      "entities": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/blob/main/schemas/",
+      "cohort": "entities:FEGA.cohort.json",
+      "entityDoc": "entities:FEGA.cohort.json#",
+      "prov": "https://www.w3.org/ns/prov#",
+      "schema": "http://schema.org/",
+      "properties": "@nest",
+      "cohortId": {
+        "@id": "entityDoc:cohortId",
+        "@type": "@id"
+      },
+      "studyId": {
+        "@id": "entityDoc:studyId",
+        "@type": "@id"
+      },
+      "sameAs": "schema:sameAs",
+      "wasUsedBy": "prov:wasUsedBy"
     }
-  },
+  ],
   "properties": {
     "cohortId": {
       "@id": "entityDoc:cohortId",
@@ -31,6 +40,28 @@
       "type": "string",
       "description": "Unique identifier for the study, expanded with the ega prefix for JSON-LD.",
       "examples": ["ega:EGAS00000000001"]
+    },
+    "sameAs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "@id": { "type": "string", "format": "uri" },
+          "@type": { "type": "string", "enum": ["cohort"] }
+        },
+        "required": ["@id"]
+      }
+    },
+    "wasUsedBy": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "@id": { "type": "string", "format": "uri" },
+          "@type": { "type": "string" }
+        },
+        "required": ["@id"]
+      }
     }
   },
   "required": ["cohortId", "studyId"]
