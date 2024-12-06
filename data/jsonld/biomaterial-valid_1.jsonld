@@ -1,0 +1,22 @@
+{
+  "schema": {
+      "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/blob/main/schemas/FEGA.biomaterial.json"
+  },
+  "data": {
+      "@context": {
+        "biologicalSex": "http://purl.obolibrary.org/obo/PATO_0000047",
+        "subjectId": "http://purl.org/fega/subjectID",
+        "isPartOf": "http://schema.org/isPartOf"
+      },
+      "@type": "https://fega.org/ontology/Individual",
+      "biomaterial_type": "individual",
+      "phenotypicSex": {
+          "termId": "PATO:0000383",
+          "termLabel": "female"
+      },
+      "subjectId": "http://purl.org/fega/ega:EGAI00000001",
+      "biomaterialName": "Donor 123",
+      "isPartOf": "http://purl.org/fega/ega:EGAC00000001"
+  }
+}
+  

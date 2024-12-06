@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/blob/main/schemas/FEGA.graph.json",
+  "type": "object",
+  "title": "FEGA Graph metadata schema",
+  "meta:version": "0.0.0",
+  "$async": true,
+  "description": "Metadata entity representing multiple entities in a @graph JSON-LD",
+  "@context": {
+  },
+  "required": ["@graph"],
+  "properties": {
+    "@graph": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "@id": { "type": "string", "format": "uri" },
+          "@type": { "type": "string" }
+        },
+        "required": ["@id", "@type"]
+      }
+    }
+  }
+}

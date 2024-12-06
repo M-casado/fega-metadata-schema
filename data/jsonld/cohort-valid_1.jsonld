@@ -1,0 +1,32 @@
+{
+  "schema": {
+      "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/FEGA.cohort.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/FEGA.cohort.json",
+    "@id": "ega:EGAC00000000001",
+    "cohortId": "ega:EGAC00000000001",
+    "studyId": "ega:EGAS00000000001",
+    "sameAs": [
+      {
+        "@id": "ega:EGAC00000000002",
+        "@type": "cohort"
+      },
+      {
+        "@id": "ega:EGAC00000000003",
+        "@type": "cohort"
+      }
+    ],
+    "wasUsedBy": [
+      {
+        "@id": "ega:EGAC00000000003"
+      }
+    ],
+    "used": [
+      {
+        "@id": "ega:EGAI00000000001",
+        "@type": "biomaterial"
+      }
+    ]
+  }        
+}
