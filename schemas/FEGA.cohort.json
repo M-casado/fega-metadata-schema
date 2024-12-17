@@ -28,6 +28,12 @@
       "used": { "@reverse": "wasUsedBy" }
     }
   ],
+  "allOf": [
+    { 
+      "title": "Base constraints for JSON-LD",
+      "$ref": "./FEGA.jsonld-schema.json" 
+    }
+  ],
   "properties": {
     "cohortId": {
       "@id": "entityDoc:cohortId",
