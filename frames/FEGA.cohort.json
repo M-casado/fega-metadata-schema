@@ -1,0 +1,24 @@
+{
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/FEGA.cohort.json",
+    "@id": "ega:EGAC00000000001",
+    "cohortId": {},
+    "studyId": {},
+    "sameAs": [
+      {
+        "@id": {},
+        "@type": {}
+      }
+    ],
+    "wasUsedBy": [
+      {
+        "@id": {}
+      }
+    ],
+    "used": [
+      {
+        "@id": {},
+        "@type": {}
+      }
+    ]
+}
+  
