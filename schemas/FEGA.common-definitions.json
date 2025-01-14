@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2019-09/schema",
-    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/blob/main/schemas/FEGA.common-definitions.json",
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/FEGA.common-definitions.json",
     "type": "object",
     "title": "FEGA common metadata definitions",
     "meta:version": "0.0.0",
@@ -26,7 +26,8 @@
             "minLength": 1,
             "pattern": "^\\w[^:]*:.+$",
             "examples": ["ensembl:ENSG00000139618", "HGNC:11535", "data:1026", "EFO:0003815"]
-        },    
+        },
+
         "ontologyTerm": {
             "type": "object",
             "title": "Ontology term",
@@ -54,6 +55,33 @@
                     "examples": [ "COVID-19", "Axila skin", "bone marrow cell", "astrocyte", "oligodendrocyte", "Unknown", "Unaffected", "homo sapiens" ]
                 }
             }
+        },
+        
+        "relationshipObject": {
+            "type": "object",
+            "title": "",
+            "description": "",
+            "properties": {
+              "@id": {
+                "type": "string",
+                "examples": [ "cohort", "biomaterial" ],
+                "anyOf": [
+                    {
+                        "format": "uri"
+                    },
+                    {
+                        "$ref": "./FEGA.common-definitions.json#/$defs/curieGeneralPattern"
+                    }
+                ]
+              },
+              "@type": {
+                "type": "string",
+                "minLength": 1,
+                "examples": [ "cohort", "biomaterial" ]
+              }
+            },
+            "required": ["@id"]
         }
+      
     }
 }
