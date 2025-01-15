@@ -9,11 +9,7 @@
   "@context": [
     "./FEGA.common-definitions.json",
     {
-      "ega": "https://identifiers.org/ega:",
-      "entities": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/",
       "entityDoc": "entities:FEGA.cohort.json#",
-      "prov": "https://www.w3.org/ns/prov#",
-      "schema": "http://schema.org/",
       "properties": "@nest",
       "cohortId": {
         "@id": "entityDoc:cohortId",
@@ -33,13 +29,11 @@
   ],
   "properties": {
     "cohortId": {
-      "@id": "entityDoc:cohortId",
       "type": "string",
       "description": "Unique identifier for the cohort, expanded with the EGA prefix for JSON-LD.",
       "examples": ["ega:EGAC00000000001"]
     },
     "studyId": {
-      "@id": "entityDoc:studyId",
       "type": "string",
       "description": "Unique identifier for the study, expanded with the EGA prefix for JSON-LD.",
       "examples": ["ega:EGAS00000000001"]
@@ -54,7 +48,7 @@
     "used": {
       "$ref": "./FEGA.common-definitions.json#/$defs/used"
     }
-    
+
   },
   "required": ["cohortId", "studyId"]
 }

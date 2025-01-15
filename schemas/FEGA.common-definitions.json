@@ -7,7 +7,7 @@
     "$async": true,
     "description": "Metadata schema for common definitions",
     "@context": {
-        "entities": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/blob/main/schemas/",
+        "entities": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/",
         "cohort": "entities:FEGA.cohort.json",
         "study": "entities:FEGA.study.json",
         "instance": "entities:FEGA.instance.json",
@@ -17,6 +17,11 @@
         "dataset": "entities:FEGA.dataset.json",
         "policy": "entities:FEGA.policy.json",
         "DAC": "entities:FEGA.DAC.json",
+
+        "ega": "https://identifiers.org/ega:",
+        "prov": "https://www.w3.org/ns/prov#",
+        "schema": "http://schema.org/",
+        "commonDefinitionsDoc": "entities:FEGA.common-definitions.json#",
 
         "sameAs": "schema:sameAs",
         "wasUsedBy": "prov:wasUsedBy",
