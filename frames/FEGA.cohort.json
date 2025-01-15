@@ -1,24 +1,25 @@
 {
-    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/FEGA.cohort.json",
-    "@id": "ega:EGAC00000000001",
-    "cohortId": {},
-    "studyId": {},
-    "sameAs": [
-      {
-        "@id": {},
-        "@type": {}
-      }
-    ],
-    "wasUsedBy": [
-      {
-        "@id": {}
-      }
-    ],
-    "used": [
-      {
-        "@id": {},
-        "@type": {}
-      }
-    ]
+  "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/FEGA.cohort.json",
+  "@type": "cohort",
+  "@embed": "@always",
+  "@explicit": false,
+
+  "cohortId": {},
+  "studyId": {},
+
+  "sameAs": [
+    {
+      "@embed": "@never"
+    }
+  ],
+  "wasUsedBy": [
+    {
+      "@embed": "@never"
+    }
+  ],
+  "used": [
+    {
+      "@embed": "@never"
+    }
+  ]
 }
-  
