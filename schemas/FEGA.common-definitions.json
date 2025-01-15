@@ -23,10 +23,17 @@
         "schema": "http://schema.org/",
         "commonDefinitionsDoc": "entities:FEGA.common-definitions.json#",
 
-        "sameAs": "schema:sameAs",
-        "wasUsedBy": "prov:wasUsedBy",
+        "sameAs": {
+            "@id": "schema:sameAs",
+            "@container": "@set"
+        },
+        "wasUsedBy": {
+            "@id": "prov:wasUsedBy",
+            "@container": "@set"
+        },
         "used": {
-          "@reverse": "wasUsedBy"
+          "@reverse": "wasUsedBy",
+          "@container": "@set"
         }
   
     },
