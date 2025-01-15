@@ -22,11 +22,6 @@
       "studyId": {
         "@id": "entityDoc:studyId",
         "@type": "@id"
-      },
-      "sameAs": "schema:sameAs",
-      "wasUsedBy": "prov:wasUsedBy",
-      "used": {
-        "@reverse": "wasUsedBy"
       }
     }
   ],
@@ -49,33 +44,17 @@
       "description": "Unique identifier for the study, expanded with the EGA prefix for JSON-LD.",
       "examples": ["ega:EGAS00000000001"]
     },
+    
     "sameAs": {
-      "type": "array",
-      "description": "Other cohorts or entities considered equivalent to this cohort",
-      "minItems": 1,
-      "uniqueItems": true,
-      "items": {
-        "$ref": "./FEGA.common-definitions.json#/$defs/relationshipObject"
-      }
+      "$ref": "./FEGA.common-definitions.json#/$defs/sameAs"
     },
     "wasUsedBy": {
-      "type": "array",
-      "description": "Entities that used this cohort",
-      "minItems": 1,
-      "uniqueItems": true,
-      "items": {
-        "$ref": "./FEGA.common-definitions.json#/$defs/relationshipObject"
-      }
+      "$ref": "./FEGA.common-definitions.json#/$defs/wasUsedBy"
     },
     "used": {
-      "type": "array",
-      "description": "Entities used by this cohort (@reverse of wasUsedBy)",
-      "minItems": 1,
-      "uniqueItems": true,
-      "items": {
-        "$ref": "./FEGA.common-definitions.json#/$defs/relationshipObject"
-      }
+      "$ref": "./FEGA.common-definitions.json#/$defs/used"
     }
+    
   },
   "required": ["cohortId", "studyId"]
 }

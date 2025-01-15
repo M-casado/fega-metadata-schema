@@ -16,7 +16,14 @@
         "datafile": "entities:FEGA.datafile.json",
         "dataset": "entities:FEGA.dataset.json",
         "policy": "entities:FEGA.policy.json",
-        "DAC": "entities:FEGA.DAC.json"
+        "DAC": "entities:FEGA.DAC.json",
+
+        "sameAs": "schema:sameAs",
+        "wasUsedBy": "prov:wasUsedBy",
+        "used": {
+          "@reverse": "wasUsedBy"
+        }
+  
     },
     "$defs": {
         "curieGeneralPattern": {
@@ -57,14 +64,14 @@
             }
         },
         
-        "relationshipObject": {
+        "relationshipItem": {
             "type": "object",
-            "title": "",
-            "description": "",
+            "title": "Relationship item",
+            "description": "This entity is expected to be referenced where needed, as it contains the basic format of a relationship item. Each of the items is expected to be one of the ends of the possible relationships in a linked metadata entity.",
             "properties": {
               "@id": {
                 "type": "string",
-                "examples": [ "cohort", "biomaterial" ],
+                "examples": [ "ega:EGAC00000000001", "biosample:SAMEA112654070", "https://www.ebi.ac.uk/biosamples/samples/SAMEA112654070" ],
                 "anyOf": [
                     {
                         "format": "uri"
@@ -81,7 +88,31 @@
               }
             },
             "required": ["@id"]
-        }
-      
+        },
+
+        "relationshipArray": {
+            "type": "array",
+            "description": "This entity is expected to be referenced where needed, as it contains the basic format of a relationship array. These arrays contain relationship items and semantically represent a type of relationship or linkage across entities in the linked data space.",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItem"
+            }
+        },
+
+        "sameAs": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",      
+            "description": "Other cohorts or entities considered equivalent to this cohort"
+        },
+
+        "wasUsedBy": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",      
+            "description": "Entities that used this cohort"
+        },
+
+        "used": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",      
+            "description": "Entities used by this cohort (@reverse of wasUsedBy)"
+        }      
     }
 }
