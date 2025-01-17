@@ -18,7 +18,8 @@
       "studyId": {
         "@id": "entityDoc:studyId",
         "@type": "@id"
-      }
+      },
+      "phenotypicSex": "http://example.org/phenotypicSex"
     }
   ],
   "allOf": [

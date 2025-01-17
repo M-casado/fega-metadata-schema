@@ -23,9 +23,16 @@
         "ega": "identifiers:ega:",
         "prov": "https://www.w3.org/ns/prov#",
         "schema": "http://schema.org/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
 
         "efo": "identifiers:efo:",
         "pato": "identifiers:PATO:",
+
+        "termId": {
+          "@id": "commonDefinitionsDoc:termId",           
+          "@type": "@id"
+        },
+        "termLabel": "rdfs:label",
 
         "sameAs": {
             "@id": "schema:sameAs",
