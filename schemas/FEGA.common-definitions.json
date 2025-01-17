@@ -17,11 +17,15 @@
         "dataset": "entities:FEGA.dataset.json",
         "policy": "entities:FEGA.policy.json",
         "DAC": "entities:FEGA.DAC.json",
+        "commonDefinitionsDoc": "entities:FEGA.common-definitions.json#",
 
-        "ega": "https://identifiers.org/ega:",
+        "identifiers": "https://identifiers.org/",
+        "ega": "identifiers:ega:",
         "prov": "https://www.w3.org/ns/prov#",
         "schema": "http://schema.org/",
-        "commonDefinitionsDoc": "entities:FEGA.common-definitions.json#",
+
+        "efo": "identifiers:efo:",
+        "pato": "identifiers:PATO:",
 
         "sameAs": {
             "@id": "schema:sameAs",
@@ -50,7 +54,7 @@
         "ontologyTerm": {
             "type": "object",
             "title": "Ontology term",
-            "description": "This property represents an ontology term (a.k.a. class). It consists on two properties: the term identifier (termId) and its label (termLabel). This property and its structure is inherited across many other elements in the schemas. It is there, when inherited, where the real ontology constraint is put in place (e.g. using 'graphRestriction' keywords). Based on phenopacket's [OntologyClass](https://phenopacket-schema.readthedocs.io/en/latest/ontologyclass.html)",
+            "description": "This property represents an ontology term (a.k.a. class). It consists on two properties: the term identifier (termId) and its label (termLabel). This property and its structure is inherited across many other elements in the schemas. It is there, when inherited, where the real ontology constraint is put in place (e.g. using 'graphRestriction' keywords). Similar to phenopacket's [OntologyClass](https://phenopacket-schema.readthedocs.io/en/latest/ontologyclass.html)",
             "required": ["termId"],
             "properties": {
                 "termId": {
@@ -96,7 +100,7 @@
               "@type": {
                 "type": "string",
                 "minLength": 1,
-                "examples": [ "cohort", "biomaterial" ]
+                "examples": [ "cohort", "biomaterial", "xsd:integer" ]
               }
             },
             "required": ["@id"]
@@ -114,17 +118,17 @@
 
         "sameAs": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",      
-            "description": "Other cohorts or entities considered equivalent to this cohort"
+            "description": "Relationship referencing other entities considered equivalent to the root entity."
         },
 
         "wasUsedBy": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",      
-            "description": "Entities that used this cohort"
+            "description": "Relationship referencing other entities by which the the root entity was used."
         },
 
         "used": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",      
-            "description": "Entities used by this cohort (@reverse of wasUsedBy)"
+            "description": "Relationship referencing other entities that used the root entity"
         }      
     }
 }

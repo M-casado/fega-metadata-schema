@@ -6,6 +6,10 @@
     "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/FEGA.cohort.json",
     "@id": "ega:EGAC00000000001",
     "cohortId": "ega:EGAC00000000001",
+    "phenotypicSex": {
+      "termId": "PATO:0000383",
+      "termLabel": "female"
+    },
     "studyId": "ega:EGAS00000000001",
     "sameAs": [
       {
