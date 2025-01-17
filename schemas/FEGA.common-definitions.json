@@ -19,6 +19,9 @@
         "DAC": "entities:FEGA.DAC.json",
         "commonDefinitionsDoc": "entities:FEGA.common-definitions.json#",
 
+        "@base": "commonDefinitionsDoc",
+        "@vocab": "#",
+
         "identifiers": "https://identifiers.org/",
         "ega": "identifiers:ega:",
         "prov": "https://www.w3.org/ns/prov#",
@@ -29,7 +32,7 @@
         "pato": "identifiers:PATO:",
 
         "termId": {
-          "@id": "commonDefinitionsDoc:termId",           
+          "@id": "@id",           
           "@type": "@id"
         },
         "termLabel": "rdfs:label",

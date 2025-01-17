@@ -10,6 +10,9 @@
     "./FEGA.common-definitions.json",
     {
       "entityDoc": "entities:FEGA.cohort.json#",
+      "@base": "entityDoc",
+      "@vocab": "#",
+
       "properties": "@nest",
       "cohortId": {
         "@id": "entityDoc:cohortId",
@@ -19,7 +22,7 @@
         "@id": "entityDoc:studyId",
         "@type": "@id"
       },
-      "phenotypicSex": "http://example.org/phenotypicSex"
+      "phenotypicSex": "entityDoc:phenotypicSex"
     }
   ],
   "allOf": [
@@ -29,6 +32,13 @@
     }
   ],
   "properties": {
+    "test1": {
+      "type": "string",
+      "title": "test #!"
+    },
+    "test2": {
+      "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+    },
     "phenotypicSex": {
       "type": "object",
       "title": "TEST",
