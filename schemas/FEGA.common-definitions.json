@@ -7,6 +7,9 @@
     "$async": true,
     "description": "Metadata schema for common definitions",
     "@context": {
+        "id": "@id",
+        "label": "rdfs:label",
+
         "entities": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/",
         "cohort": "entities:FEGA.cohort.json",
         "study": "entities:FEGA.study.json",
@@ -19,14 +22,12 @@
         "DAC": "entities:FEGA.DAC.json",
         "commonDefinitionsDoc": "entities:FEGA.common-definitions.json#",
 
-        "@base": "commonDefinitionsDoc",
-        "@vocab": "#",
-
         "identifiers": "https://identifiers.org/",
         "ega": "identifiers:ega:",
         "prov": "https://www.w3.org/ns/prov#",
         "schema": "http://schema.org/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "beaconRepo": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/refs/heads/main/models/json/beacon-v2-default-model/",
 
         "efo": "identifiers:efo:",
         "pato": "identifiers:PATO:",
@@ -123,7 +124,21 @@
             "uniqueItems": true,
             "items": {
                 "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItem"
-            }
+            },
+            "examples": [
+                [
+                    {
+                        "@id": "ega:EGAC00000000002",
+                        "@type": "cohort"
+                    },
+                    {
+                        "@id": "ega:EGAC00000000003"
+                    },
+                    {
+                        "@id": "https://github.com/EGA-archive/fega-metadata-schema"
+                    }
+                ]
+            ]
         },
 
         "sameAs": {
