@@ -5,63 +5,39 @@
   "title": "FEGA Cohort metadata schema",
   "meta:version": "0.0.0",
   "$async": true,
-  "description": "Metadata entity representing Cohort in JSON-LD",
+  "description": "A FEGA Cohort.",
+  "required": ["cohortId", "studyId"],
+  "$comment": "@Context for Beacon's entities is unfinished. Just a draft of the root properties for now.",
   "@context": [
     "./FEGA.common-definitions.json",
     {
       "entityDoc": "entities:FEGA.cohort.json#",
-      "@base": "entityDoc",
-      "@vocab": "#",
-
       "properties": "@nest",
-      "cohortId": {
-        "@id": "entityDoc:cohortId",
-        "@type": "@id"
+
+      "beaconDoc": "beaconRepo:cohorts/defaultSchema.json#",
+      "cohortDataTypes": {
+        "@id": "beaconDoc:cohortDataTypes",
+        "@container": "@set"
       },
-      "studyId": {
-        "@id": "entityDoc:studyId",
-        "@type": "@id"
-      },
-      "phenotypicSex": "entityDoc:phenotypicSex"
+      "cohortDesign": "beaconDoc:cohortDesign",
+      "cohortSize": "beaconDoc:cohortSize",
+      "cohortType": "schema:category",
+      "collectionEvents": "schema:Collection",
+      "exclusionCriteria": "beaconDoc:exclusionCriteria",
+      "inclusionCriteria": "beaconDoc:inclusionCriteria"
     }
   ],
   "allOf": [
     { 
       "title": "Base constraints for JSON-LD",
       "$ref": "./FEGA.jsonld-schema.json"
+    },
+    { 
+      "title": "Compatibility with Beacon v2 Cohort JSON Schema",
+      "$ref": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/refs/heads/main/models/json/beacon-v2-default-model/cohorts/defaultSchema.json"
     }
   ],
   "properties": {
-    "test1": {
-      "type": "string",
-      "title": "test #!"
-    },
-    "test2": {
-      "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
-    },
-    "phenotypicSex": {
-      "type": "object",
-      "title": "TEST",
-      "allOf": [
-        {
-          "title": "Inherited ontologyTerm structure of termId and termLabel",
-          "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
-        }
-      ],
-      "properties": {        
-        "termId": {
-          "graphRestriction": {
-            "ontologies": ["obo:efo"],
-            "classes": ["PATO:0001894"],
-            "relations": ["rdfs:subClassOf"],
-            "direct": true,
-            "include_self": false
-          },
-          "examples": [ "PATO:0000383", "PATO:0000384" ]
-        }
-      }
-    },
-
     "cohortId": {
       "type": "string",
       "description": "Unique identifier for the cohort, expanded with the EGA prefix for JSON-LD.",
@@ -76,13 +52,9 @@
     "sameAs": {
       "$ref": "./FEGA.common-definitions.json#/$defs/sameAs"
     },
+
     "wasUsedBy": {
       "$ref": "./FEGA.common-definitions.json#/$defs/wasUsedBy"
-    },
-    "used": {
-      "$ref": "./FEGA.common-definitions.json#/$defs/used"
-    }
-
-  },
-  "required": ["cohortId", "studyId"]
+    }    
+  }  
 }

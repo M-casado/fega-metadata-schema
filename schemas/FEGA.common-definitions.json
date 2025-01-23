@@ -9,6 +9,7 @@
     "@context": {
         "id": "@id",
         "label": "rdfs:label",
+        "name": "schema:name",
 
         "entities": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/",
         "cohort": "entities:FEGA.cohort.json",
@@ -32,25 +33,34 @@
         "efo": "identifiers:efo:",
         "pato": "identifiers:PATO:",
 
-        "termId": {
-          "@id": "@id",           
-          "@type": "@id"
-        },
-        "termLabel": "rdfs:label",
-
         "sameAs": {
             "@id": "schema:sameAs",
             "@container": "@set"
         },
         "wasUsedBy": {
-            "@id": "prov:wasUsedBy",
+            "@reverse": "used",
             "@container": "@set"
         },
         "used": {
-          "@reverse": "wasUsedBy",
-          "@container": "@set"
+            "@id": "prov:used",
+            "@container": "@set"
+        },
+        "wasGeneratedBy": {
+            "@id": "prov:wasGeneratedBy",
+            "@container": "@set"
+        },
+        "wasDerivedFrom": {
+            "@id": "prov:wasDerivedFrom",
+            "@container": "@set"
+        },
+        "wasAttributedTo": {
+            "@id": "prov:wasAttributedTo",
+            "@container": "@set"
+        },        
+        "actedOnBehalfOf": {
+            "@id": "prov:actedOnBehalfOf",
+            "@container": "@set"
         }
-  
     },
     "$defs": {
         "curieGeneralPattern": {
@@ -68,7 +78,7 @@
             "description": "This property represents an ontology term (a.k.a. class). It consists on two properties: the term identifier (termId) and its label (termLabel). This property and its structure is inherited across many other elements in the schemas. It is there, when inherited, where the real ontology constraint is put in place (e.g. using 'graphRestriction' keywords). Similar to phenopacket's [OntologyClass](https://phenopacket-schema.readthedocs.io/en/latest/ontologyclass.html)",
             "required": ["termId"],
             "properties": {
-                "termId": {
+                "id": {
                     "type": "string",
                     "title": "ID of the term",
                     "description": "The identifier of an ontology term must be in CURIE format (check property 'curieGeneralPattern'). Whether a specific term is valid or not according to an ontology hierarchy is checked at each specific termId using ontology validation keywords (e.g. 'graphRestriction').",
@@ -81,7 +91,7 @@
                     ],
                     "examples": [ "MONDO:0100096", "EFO:0003101", "EFO:0005518",  "EFO:0002944",  "EFO:0003813" ]
                 },
-                "termLabel": {
+                "label": {
                     "type": "string",
                     "title": "Label of the term",
                     "description": "The label of a term is the human-readable string associated with the identifier. It is not required that it matches the label of the termId within the referenced ontology, although it should. This is due to the fact that the source of truth will always be the termId, and not the label, which adds more context.",
@@ -154,6 +164,30 @@
         "used": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",      
             "description": "Relationship referencing other entities that used the root entity"
-        }      
+        },
+
+        "wasGeneratedBy": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "$comment": "TBD #!",
+            "description": ""
+        },
+
+        "wasDerivedFrom": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "$comment": "TBD #!",
+            "description": ""
+        },
+
+        "wasAttributedTo": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "$comment": "TBD #!",
+            "description": ""
+        },
+
+        "actedOnBehalfOf": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "$comment": "TBD #!",
+            "description": ""
+        }
     }
 }
