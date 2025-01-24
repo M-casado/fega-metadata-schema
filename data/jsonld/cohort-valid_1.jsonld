@@ -1,16 +1,59 @@
 {
   "schema": {
-      "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/FEGA.cohort.json"
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/FEGA.cohort.json"
   },
   "data": {
     "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/FEGA.cohort.json",
-    "@id": "ega:EGAC00000000001",
-    "cohortId": "ega:EGAC00000000001",
-    "phenotypicSex": {
-      "termId": "PATO:0000383",
-      "termLabel": "female"
+    "name": "GCAT Genomes for Life",
+    "@type": "cohort",
+    "description": "Example description. Most fields taken from Beacon v2 GH repository: https://github.com/ga4gh-beacon/beacon-v2/blob/main/models/json/beacon-v2-default-model/cohorts/examples/cohorts-MID-example.json",
+    "cohortDataTypes": [
+        {
+            "id": "OGMS:0000015",
+            "label": "clinical history"
+        },
+        {
+          "id": "OBI:0000070",
+          "label": "genotyping assay"
+        },
+        {
+          "id": "OMIABIS:0000060",
+          "label": "survey data"
+        }
+    ],
+    "cohortDesign": {
+        "id": "OMIABIS:0001019",
+        "label": "longitudinal study design"
     },
-    "studyId": "ega:EGAS00000000001",
+    "cohortSize": 20000,
+    "cohortType": "study-defined",
+    "id": "ega:cohort0001",
+    "inclusionCriteria": {
+        "ageRange": {
+            "end": {
+                "iso8601duration": "P40Y"
+            },
+            "start": {
+                "iso8601duration": "P18Y"
+            }
+        },
+        "genders": [
+            {
+                "id": "NCIT:C16576",
+                "label": "female"
+            },
+            {
+                "id": "NCIT:C20197",
+                "label": "male"
+            }
+        ],
+        "locations": [
+            {
+                "id": "GAZ:00004501",
+                "label": "Catalonia Autonomous Community"
+            }
+        ]
+    },
     "sameAs": [
       {
         "@id": "ega:EGAC00000000002",
@@ -20,17 +63,6 @@
         "@id": "ega:EGAC00000000003",
         "@type": "cohort"
       }
-    ],
-    "wasUsedBy": [
-      {
-        "@id": "ega:EGAC00000000003"
-      }
-    ],
-    "used": [
-      {
-        "@id": "ega:EGAI00000000001",
-        "@type": "biomaterial"
-      }
     ]
-  }        
+  }
 }

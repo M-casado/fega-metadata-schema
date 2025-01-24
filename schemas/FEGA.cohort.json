@@ -38,12 +38,7 @@
     }
   ],
   "properties": {
-    "cohortId": {
-      "type": "string",
-      "description": "Unique identifier for the cohort, expanded with the EGA prefix for JSON-LD.",
-      "examples": ["ega:EGAC00000000001"]
-    },
-    "studyId": {
+    "description": {
       "type": "string",
       "description": "Unique identifier for the study, expanded with the EGA prefix for JSON-LD.",
       "examples": ["ega:EGAS00000000001"]

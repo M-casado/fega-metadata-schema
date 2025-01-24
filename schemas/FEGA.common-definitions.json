@@ -10,6 +10,7 @@
         "id": "@id",
         "label": "rdfs:label",
         "name": "schema:name",
+        "description": "schema:description",
 
         "entities": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/",
         "cohort": "entities:FEGA.cohort.json",
