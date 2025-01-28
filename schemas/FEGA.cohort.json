@@ -40,8 +40,8 @@
   "properties": {
     "description": {
       "type": "string",
-      "description": "Unique identifier for the study, expanded with the EGA prefix for JSON-LD.",
-      "examples": ["ega:EGAS00000000001"]
+      "description": "Description of the cohort.",
+      "examples": ["This cohort encompasses 10.000 individuals that share the variant X at chromosome 10. Subjects were mainly recruited at ..."]
     },
     
     "sameAs": {
