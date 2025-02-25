@@ -30,7 +30,24 @@
           "title": "Inherited ontologyTerm structure of termId and termLabel",
           "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
         }
-      ]
+      ],
+      "properties": {        
+        "termId": {
+          "title": "Ontology constraints for this specific termId",
+          "graphRestriction": {
+            "ontologies": ["obo:efo"],
+            "classes": ["PATO:0001894"],
+            "relations": ["rdfs:subClassOf"],
+            "direct": true,
+            "include_self": false
+          },
+          "examples": [ "PATO:0000383", "PATO:0000384" ]
+        },
+        "termLabel": {
+          "type": "string",
+          "description": "Human-readable label for the term, corresponding to the termId."
+        }
+      }
     },
     "subjectId": {
       "type": "string",
