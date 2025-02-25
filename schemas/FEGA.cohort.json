@@ -30,7 +30,7 @@
   "allOf": [
     { 
       "title": "Base constraints for JSON-LD",
-      "$ref": "./FEGA.jsonld-schema.json"
+      "$ref": "./json-ld.org/FEGA.jsonld-schema.json"
     },
     { 
       "title": "Compatibility with Beacon v2 Cohort JSON Schema",
