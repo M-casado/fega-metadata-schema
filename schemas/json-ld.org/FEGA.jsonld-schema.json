@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2019-09/schema",
-    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/FEGA.jsonld-schema.json",
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/json-ld.org/FEGA.jsonld-schema.json",
     "title": "Schema for JSON-LD",
     "description": "Schema for JSON-LD documents, including all JSON-LD specific properties and constraints. This schema is an updated version of the original at 'https://github.com/json-ld/json-ld.org/blob/main/schemas/jsonld-schema.json' to comply with JSON Schema draft 2019-09. Draft 2019-09 or above is a technical requirement for FEGA's validation due to Biovalidator's compatibility. This software or document includes material copied from or derived from [jsonld-schema.json](https://github.com/json-ld/json-ld.org/blob/main/schemas/jsonld-schema.json). Copyright © 2023 World Wide Web Consortium. https://www.w3.org/copyright/software-license-2023/",
     "$defs": {
