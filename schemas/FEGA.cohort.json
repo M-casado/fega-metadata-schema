@@ -6,7 +6,6 @@
   "meta:version": "0.0.0",
   "$async": true,
   "description": "A FEGA Cohort.",
-  "required": ["cohortId", "studyId"],
   "$comment": "@Context for Beacon's entities is unfinished. Just a draft of the root properties for now.",
   "@context": [
     "./FEGA.common-definitions.json",
