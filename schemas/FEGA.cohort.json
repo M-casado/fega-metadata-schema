@@ -34,7 +34,7 @@
     },
     { 
       "title": "Compatibility with Beacon v2 Cohort JSON Schema",
-      "$ref": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/refs/heads/main/models/json/beacon-v2-default-model/cohorts/defaultSchema.json"
+      "$comment": "Reference to be added (#!) when Biovalidator supports Draft 2020. Add $ref to 'main' or versioned release -- https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/main/models/json/beacon-v2-default-model/cohorts/defaultSchema.json"
     }
   ],
   "properties": {
