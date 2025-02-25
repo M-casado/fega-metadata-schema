@@ -12,7 +12,7 @@
         "name": "schema:name",
         "description": "schema:description",
 
-        "entities": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/",
+        "entities": "https://raw.githubusercontent.com/M-casado/fega-metadata-schemamain/schemas/",
         "cohort": "entities:FEGA.cohort.json",
         "study": "entities:FEGA.study.json",
         "instance": "entities:FEGA.instance.json",
@@ -29,7 +29,7 @@
         "prov": "https://www.w3.org/ns/prov#",
         "schema": "http://schema.org/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-        "beaconRepo": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/refs/heads/main/models/json/beacon-v2-default-model/",
+        "beaconRepo": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/main/models/json/beacon-v2-default-model/",
 
         "efo": "identifiers:efo:",
         "pato": "identifiers:PATO:",
