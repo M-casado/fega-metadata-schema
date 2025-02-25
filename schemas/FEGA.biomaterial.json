@@ -25,12 +25,6 @@
       "title": "Phenotypic sex",
       "meta:propertyCurie": "PATO:0001894",
       "description": "An organismal quality inhering in a bearer by virtue of the bearer's physical expression of sexual characteristics.",
-      "allOf": [
-        {
-          "title": "Inherited ontologyTerm structure of termId and termLabel",
-          "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
-        }
-      ],
       "properties": {        
         "termId": {
           "title": "Ontology constraints for this specific termId",
