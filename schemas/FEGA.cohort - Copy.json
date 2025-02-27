@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/FEGA.cohort.json",
+  "type": "object",
+  "title": "FEGA Cohort metadata schema",
+  "meta:version": "0.0.0",
+  "$async": true,
+  "description": "A FEGA Cohort.",
+  "required": ["cohortId", "studyId"],
+  "@context": [
+    "./FEGA.common-definitions.json",
+    {
+      "entityDoc": "entities:FEGA.cohort.json#",
+      "properties": "@nest",
+      "cohortId": {
+        "@id": "entityDoc:cohortId",
+        "@type": "@id"
+      },
+      "studyId": {
+        "@id": "entityDoc:studyId",
+        "@type": "@id"
+      },
+      "phenotypicSex": "entityDoc:phenotypicSex"
+    }
+  ],
+  "allOf": [
+    { 
+      "title": "Base constraints for JSON-LD",
+      "$ref": "./FEGA.jsonld-schema.json"
+    },
+    { 
+      "title": "Compatibility with Beacon v2 Cohort JSON Schema",
+      "$ref": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/refs/heads/main/models/json/beacon-v2-default-model/cohorts/defaultSchema.json"
+    }
+  ],
+  "properties": {
+    
+
+    "cohortId": {
+      "type": "string",
+      "description": "Unique identifier for the cohort, expanded with the EGA prefix for JSON-LD.",
+      "examples": ["ega:EGAC00000000001"]
+    },
+    "studyId": {
+      "type": "string",
+      "description": "Unique identifier for the study, expanded with the EGA prefix for JSON-LD.",
+      "examples": ["ega:EGAS00000000001"]
+    },
+    
+    "sameAs": {
+      "$ref": "./FEGA.common-definitions.json#/$defs/sameAs"
+    },
+    "wasUsedBy": {
+      "$ref": "./FEGA.common-definitions.json#/$defs/wasUsedBy"
+    },
+    "used": {
+      "$ref": "./FEGA.common-definitions.json#/$defs/used"
+    },
+
+    "phenotypicSex": {
+      "type": "object",
+      "title": "TEST",
+      "allOf": [
+        {
+          "title": "Inherited ontologyTerm structure of termId and termLabel",
+          "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+        }
+      ],
+      "properties": {        
+        "id": {
+          "graphRestriction": {
+            "ontologies": ["obo:efo"],
+            "classes": ["PATO:0001894"],
+            "relations": ["rdfs:subClassOf"],
+            "direct": true,
+            "include_self": false
+          },
+          "examples": [ "PATO:0000383", "PATO:0000384" ]
+        }
+      }
+    }
+
+  },
+  
+
+  
+}
