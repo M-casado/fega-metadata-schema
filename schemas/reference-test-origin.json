@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/reference-test-origin.json",
+  "type": "object",
+  "$async": true,
+  "allOf": [
+    { 
+      "title": "Base constraints for JSON-LD",
+      "$ref": "./json-ld.org/FEGA.jsonld-schema.json"
+    }
+  ],
+  "required": ["description"],
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "Description of the cohort.",
+      "examples": ["This cohort encompasses 10.000 individuals that share the variant X at chromosome 10. Subjects were mainly recruited at ..."]
+    }   
+  }  
+}
