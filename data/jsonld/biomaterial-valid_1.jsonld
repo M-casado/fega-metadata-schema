@@ -1,6 +1,6 @@
 {
   "schema": {
-      "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/blob/main/schemas/FEGA.biomaterial.json"
+      "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.biomaterial.json"
   },
   "data": {
       "@context": {
