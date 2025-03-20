@@ -101,6 +101,49 @@
                 }
             }
         },
+
+        "biologicalMacromoleculeTerm": {
+            "type": "object",
+            "title": "Biological Macromolecule Term",
+            "meta:propertyCurie": "EFO:0004446",
+            "allOf": [
+                {
+                    "title": "Inherited ontologyTerm structure of termId and termLabel",
+                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                }
+            ],
+            "properties": {
+                "termId": {
+                    "title": "Ontology constraints for this specific termId",
+                    "graphRestriction": {
+                        "ontologies": ["obo:efo"],
+                        "classes": ["EFO:0004446"],
+                        "relations": ["rdfs:subClassOf"],
+                        "direct": false,
+                        "include_self": false
+                    },
+                    "examples": [ "CHEBI:33697", "EFO:0008479" ]
+                }
+            }
+        },
+
+        "homoSapiensTerm": {
+            "type": "object",
+            "title": "Homo Sapiens Term",
+            "meta:propertyCurie": "NCBITaxon:9606",
+            "allOf": [
+                {
+                    "title": "Inherited ontologyTerm structure of termId and termLabel",
+                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                }
+            ],
+            "properties": {
+                "termId": {
+                    "type": "string",
+                    "enum": ["NCBITaxon:9606"]
+                }
+            }
+        },
         
         "relationshipItem": {
             "type": "object",

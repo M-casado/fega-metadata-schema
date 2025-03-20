@@ -5,21 +5,34 @@
   "title": "FEGA Biomaterial metadata schema",
   "meta:version": "0.0.0",
   "$async": true,
-  "description": "Metadata entity representing Biomaterial",
-  "@context": {
-    "biomaterial_type": "http://purl.obolibrary.org/obo/BFO_0000040",
-    "phenotypicSex": "http://purl.obolibrary.org/obo/PATO_0001894",
-    "termId": "@id",
-    "termLabel": "http://www.w3.org/2000/01/rdf-schema#label",
-    "subjectId": "http://purl.org/fega/subjectID",
-    "isPartOf": "http://schema.org/isPartOf"
-  },
+  "description": "A FEGA Biomaterial. Contains information about any biological material, from whole organisms to subcellular components and macromolecules",
+  "$comment": "@Context for Beacon's entities is still a draft.",
+  "@context": [
+    "./FEGA.common-definitions.json",
+    {
+      "entityDoc": "entities:FEGA.biomaterial.json#",
+      "properties": "@nest"
+    }
+  ],
+  "required": ["biomaterialType"],
   "properties": {
-    "biomaterial_type": {
-      "type": "string", 
-      "enum": ["individual", "sample"],
-      "description": "The type of biomaterial, which can either be 'individual' (a person) or 'sample' (a biological sample from an individual)."
+    "biomaterialType": {
+      "type": "string",
+      "title": "Biomaterial type",
+      "meta:propertyCurie": "BFO:0000040",
+      "description": "The type of biomaterial.",
+      "enum": [
+        "biofilm",
+        "biological macromolecule",
+        "cell culture",
+        "organism",
+        "organism part",
+        "pool",
+        "specimen",
+        "tissue culture"
+      ]
     },
+
     "phenotypicSex": {
       "type": "object",
       "title": "Phenotypic sex",
@@ -61,12 +74,17 @@
   },
   "anyOf": [
     {
-      "properties": {
-        "biomaterial_type": {
-          "enum": ["individual"]
+      "title": "Requirements for organisms (individuals)",
+      "allOf": [
+        {
+          "properties": {
+            "biomaterialType": {
+              "enum": ["organism"]
+            }
+          },
+          "required": ["biomaterialType", "phenotypicSex", "subjectId"]
         }
-      },
-      "required": ["biomaterial_type", "phenotypicSex", "subjectId"]
+      ]
     }
   ]
 }

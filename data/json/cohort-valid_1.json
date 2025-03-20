@@ -1,9 +1,0 @@
-{
-    "schema": {
-        "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/schemas/FEGA.cohort.json"
-    },
-    "data": {
-        "cohortId": "ega:EGAC00000000001",
-        "studyId": "ega:EGAS00000000001"
-    }
-}
