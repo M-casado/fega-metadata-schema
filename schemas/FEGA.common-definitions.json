@@ -27,6 +27,9 @@
         "identifiers": "https://identifiers.org/",
         "ega": "identifiers:ega:",
         "prov": "https://www.w3.org/ns/prov#",
+        "prov-o": "https://www.w3.org/TR/prov-o/#",
+        "owl": "https://www.w3.org/2002/07/owl#",
+        "skos": "https://www.w3.org/2009/08/skos-reference/skos.html#",
         "schema": "http://schema.org/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "beaconRepo": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/main/models/json/beacon-v2-default-model/",
@@ -64,6 +67,93 @@
         }
     },
     "$defs": {
+        "label": {
+            "type": "string",
+            "title": "Label",
+            "description": "A human-readable name, short title, or display label for the entity (e.g. subject id, cohort title, dataset title, etc.).",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "skos:prefLabel",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "match_string": "label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-04-15"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "https://schema.org/name",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-04-15"
+                },
+                {
+                  "predicate_id": "skos:closeMatch",
+                  "object_id": "dct:title",
+                  "mapping_justification": "semapv:ManualMappingCuration",
+                  "match_string": "title",
+                  "author_id": ["orcid:0000-0002-7747-6256"],
+                  "creator_id": ["orcid:0000-0002-7747-6256"],
+                  "reviewer_id": [""],
+                  "confidence": 1.0,
+                  "mapping_date": "2025-04-15"
+                }
+            ],
+            "minLength": 1,
+            "examples": [
+                "Case 001",
+                "UK Biobank Cohort",
+                "Cardio-Study 2025",
+                "RNA-Seq Data for Subject X",
+                "Omics Cohort #42"
+              ]
+        },
+
+        "description": {
+            "type": "string",
+            "description": "A description of the item.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "schema:description",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "description",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-04-11"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "rdfs:comment",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-04-11"
+                }
+            ],
+            "minLength": 1,
+            "examples": [
+                "This cohort encompasses 10,000 individuals who share the variant X at chromosome 10. Subjects were mainly recruited at ...",
+                "This dataset describes the context and methodology behind an omics experiment for differential expression analysis ...",
+                "Data file containing alignment for ... analysis.",
+                "The data policy of institution XYZ."
+              ]
+        },
+
         "curieGeneralPattern": {
             "type": "string",
             "title": "Compact URI (CURIE) pattern",
@@ -76,13 +166,13 @@
         "ontologyTerm": {
             "type": "object",
             "title": "Ontology term",
-            "description": "This property represents an ontology term (a.k.a. class). It consists on two properties: the term identifier (termId) and its label (termLabel). This property and its structure is inherited across many other elements in the schemas. It is there, when inherited, where the real ontology constraint is put in place (e.g. using 'graphRestriction' keywords). Similar to phenopacket's [OntologyClass](https://phenopacket-schema.readthedocs.io/en/latest/ontologyclass.html)",
-            "required": ["termId"],
+            "description": "This property represents an ontology term (a.k.a. class). It consists on two properties: the term identifier (id) and its label (label). This property and its structure is inherited across many other elements in the schemas. It is there, when inherited, where the real ontology constraint is put in place (e.g. using 'graphRestriction' keywords). Similar to phenopacket's [OntologyClass](https://phenopacket-schema.readthedocs.io/en/latest/ontologyclass.html)",
+            "required": ["id"],
             "properties": {
                 "id": {
                     "type": "string",
                     "title": "ID of the term",
-                    "description": "The identifier of an ontology term must be in CURIE format (check property 'curieGeneralPattern'). Whether a specific term is valid or not according to an ontology hierarchy is checked at each specific termId using ontology validation keywords (e.g. 'graphRestriction').",
+                    "description": "The identifier of an ontology term must be in CURIE format (check property 'curieGeneralPattern'). Whether a specific term is valid or not according to an ontology hierarchy is checked at each specific id using ontology validation keywords (e.g. 'graphRestriction').",
                     "minLength": 1,
                     "allOf": [
                         {
@@ -95,7 +185,7 @@
                 "label": {
                     "type": "string",
                     "title": "Label of the term",
-                    "description": "The label of a term is the human-readable string associated with the identifier. It is not required that it matches the label of the termId within the referenced ontology, although it should. This is due to the fact that the source of truth will always be the termId, and not the label, which adds more context.",
+                    "description": "The label of a term is the human-readable string associated with the identifier. It is not required that it matches the label of the id within the referenced ontology, although it should. This is due to the fact that the source of truth will always be the id, and not the label, which adds more context.",
                     "minLength": 1,
                     "examples": [ "COVID-19", "Axila skin", "bone marrow cell", "astrocyte", "oligodendrocyte", "Unknown", "Unaffected", "homo sapiens" ]
                 }
@@ -108,19 +198,19 @@
             "meta:propertyCurie": "EFO:0004446",
             "allOf": [
                 {
-                    "title": "Inherited ontologyTerm structure of termId and termLabel",
+                    "title": "Inherited ontologyTerm structure of id and label",
                     "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
                 }
             ],
             "properties": {
-                "termId": {
-                    "title": "Ontology constraints for this specific termId",
+                "id": {
+                    "title": "Ontology constraints for this specific id",
                     "graphRestriction": {
                         "ontologies": ["obo:efo"],
                         "classes": ["EFO:0004446"],
                         "relations": ["rdfs:subClassOf"],
                         "direct": false,
-                        "include_self": false
+                        "includeSelf": false
                     },
                     "examples": [ "CHEBI:33697", "EFO:0008479" ]
                 }
@@ -128,17 +218,18 @@
         },
 
         "homoSapiensTerm": {
+            "$comment": "#! Not in use currently, to be amended if not needed",
             "type": "object",
             "title": "Homo Sapiens Term",
             "meta:propertyCurie": "NCBITaxon:9606",
             "allOf": [
                 {
-                    "title": "Inherited ontologyTerm structure of termId and termLabel",
+                    "title": "Inherited ontologyTerm structure of id and label",
                     "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
                 }
             ],
             "properties": {
-                "termId": {
+                "id": {
                     "type": "string",
                     "enum": ["NCBITaxon:9606"]
                 }
@@ -195,8 +286,407 @@
             ]
         },
 
+        "HL7NullFlavor": {
+            "title": "HL7 Null Flavor",
+            "description": "Captures why a value is missing, unknown, or inapplicable, per a subset of the HL7 Null Flavor codes. See more details at 'https://build.fhir.org/ig/HL7/UTG/CodeSystem-v3-NullFlavor.html'.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "https://build.fhir.org/ig/HL7/UTG/CodeSystem-v3-NullFlavor.html",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "NullFlavor",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-04-11"
+                }
+            ],
+            "type": "string",
+            "enum": [
+                "ASKU",
+                "MSK",
+                "NA",
+                "NASK",
+                "NAV",
+                "NI",
+                "OTH",
+                "UNK"
+            ],
+            "meta:enum": {
+                "ASKU": "HL7 NullFlavor Code 'ASKU'. Display Name: 'Asked But Unknown'. Definition: 'The value was sought but the source does not know it.' Example: 'A participant was asked about their precise birth time, but they had no knowledge of it.'",
+                "MSK": "HL7 NullFlavor Code 'MSK'. Display Name: 'Masked'. Definition: 'Information is intentionally withheld, typically due to privacy or confidentiality.' Example: 'A patient's exact residential address is masked from public view for confidentiality.'",
+                "NA": "HL7 NullFlavor Code 'NA'. Display Name: 'Not Applicable'. Definition: 'A value is conceptually not relevant or cannot exist in this context.' Example: 'Trying to capture the last menstrual cycle for a male patient is not applicable.'",
+                "NASK": "HL7 NullFlavor Code 'NASK'. Display Name: 'Not Asked'. Definition: 'No attempt was made to collect or ascertain the value.' Example: 'A survey question about smoking history was omitted, so no data was collected.'",
+                "NAV": "HL7 NullFlavor Code 'NAV'. Display Name: 'Not Available'. Definition: 'Information is temporarily absent but may become available later.' Example: 'A patient's lab result is pending and will be provided once finalized.'",
+                "NI": "HL7 NullFlavor Code 'NI'. Display Name: 'No Information'. Definition: 'Absolutely no details are available at any level.' Example: 'A record for a visit exists, but no demographic or clinical data were recorded at all.'",
+                "OTH": "HL7 NullFlavor Code 'OTH'. Display Name: 'Other'. Definition: 'A valid value exists, but it is not represented in the known code set or categories.' Example: 'The schema's enum for a field does not include the value at hand.'",
+                "UNK": "HL7 NullFlavor Code 'UNK'. Display Name: 'Unknown'. Definition: 'A suitable value is applicable but is not currently known.' Example: 'A patient's middle name is valid information to collect, but it is not documented.'"
+            }
+        },
+
+        "disease": {
+            "type": "object",
+            "title": "",
+            "description": "",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/main/models/json/beacon-v2-default-model/common/disease.json",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-04-23"
+                },
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/disease.html#disease",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "term",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-04-23"
+                }
+            ],
+            "required": ["term"],
+            "properties": {
+                "term": {
+                    "type": "object",
+                    "title": "Disease term",
+                    "description": "Denotes the diagnosis by means of an ontology class. Use term IDs and Labels from multiple ontologies (e.g., EFO, MONDO, HP, SNOMED, ORDO...). Other common classifications (e.g., ICD10 or OMIM) are included through one of these ontologies (e.g., ORDO).",
+                    "meta:sssomMappings": [
+                        {
+                            "predicate_id": "skos:exactMatch",
+                            "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/disease.html#term",
+                            "mapping_justification": "semapv:LexicalMatching",
+                            "object_match_field": "rdfs:label",
+                            "subject_match_field": "rdfs:label",
+                            "match_string": "term",
+                            "author_id": ["orcid:0000-0002-7747-6256"],
+                            "creator_id": ["orcid:0000-0002-7747-6256"],
+                            "reviewer_id": [""],
+                            "confidence": 1.0,
+                            "mapping_date": "2025-04-15"
+                        },
+                        {
+                            "predicate_id": "skos:exactMatch",
+                            "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/main/models/json/beacon-v2-default-model/common/disease.json#diseaseCode",
+                            "mapping_justification": "semapv:ManualMappingCuration",
+                            "object_match_field": "rdfs:comment",
+                            "subject_match_field": "rdfs:comment",
+                            "author_id": ["orcid:0000-0002-7747-6256"],
+                            "creator_id": ["orcid:0000-0002-7747-6256"],
+                            "reviewer_id": [""],
+                            "confidence": 1.0,
+                            "mapping_date": "2025-04-15"
+                        },
+                        {
+                            "predicate_id": "skos:narrowMatch",
+                            "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.Diagnosis.'diagnosis'",
+                            "mapping_justification": "semapv:ManualMappingCuration",
+                            "object_match_field": "rdfs:comment",
+                            "subject_match_field": "rdfs:comment",
+                            "author_id": ["orcid:0000-0002-7747-6256"],
+                            "creator_id": ["orcid:0000-0002-7747-6256"],
+                            "reviewer_id": [""],
+                            "confidence": 0.8,
+                            "mapping_date": "2025-04-23",
+                            "comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object. GDI's definition of 'diagnosis' falls under 'disease' mainly due to the allowed values given for a diagnosis: SNOMED 'Disease'."
+                        }
+                    ],
+                    "allOf": [
+                        {
+                            "title": "Inherited ontologyTerm structure of term id and label",
+                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                        }
+                    ],
+                    "anyOf": [
+                        { "$ref": "./FEGA.common-definitions.json#/$defs/diseaseEfo" },
+                        { "$ref": "./FEGA.common-definitions.json#/$defs/diseaseOrdo" },
+                        { "$ref": "./FEGA.common-definitions.json#/$defs/diseaseMondo" },
+                        { "$ref": "./FEGA.common-definitions.json#/$defs/diseaseHp" },
+                        { "$ref": "./FEGA.common-definitions.json#/$defs/diseaseDoid" },
+                        { "$ref": "./FEGA.common-definitions.json#/$defs/diseaseSnomed" }
+                    ],
+                    "examples": [
+                        {
+                            "id": "MONDO:0003982",
+                            "label": "bilateral breast carcinoma"
+                        }
+                    ]
+                },
+                "excluded": {
+                  "type": "boolean",
+                  "title": "Excluded",
+                  "description": "Property that specifies whether the disease was observed or not. Similar to phenopacket's 'excluded' property, by default it is 'false', which means that the disease was observed (i.e. it's not excluded). Therefore it is only required (as 'true') in cases to indicate that the disease was looked for, but found to be absent. The terms 'not excluded' (i.e. false) and 'excluded' (i.e. true) correlate with the common notation of 'case' versus 'control', respectively. More formally, this modifier indicates the logical negation of the ontology term used as disease term. For example, if the disease term is 'measles', and 'excluded' is 'true', then it's implied that a diagnosis for 'measles' was attempted, but the individual did not have such disease, thus being considered part of the 'control' group for that specific disease.",
+                  "meta:sssomMappings": [
+                    {
+                        "predicate_id": "skos:exactMatch",
+                        "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/disease.html#excluded",
+                        "mapping_justification": "semapv:LexicalMatching",
+                        "object_match_field": "rdfs:label",
+                        "subject_match_field": "rdfs:label",
+                        "match_string": "term",
+                        "author_id": ["orcid:0000-0002-7747-6256"],
+                        "creator_id": ["orcid:0000-0002-7747-6256"],
+                        "reviewer_id": [""],
+                        "confidence": 1.0,
+                        "mapping_date": "2025-04-15"
+                    }
+                  ],
+                  "default": false
+                },
+                "onset": {
+                    "title": "Compatibility with Beacon v2 JSON Schema",
+                    "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+                    "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/common/disease.json#ageOfOnset"
+                },
+                "familyHistory": {
+                    "title": "Compatibility with Beacon v2 JSON Schema",
+                    "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+                    "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/common/disease.json#familyHistory"
+                },
+                "severity": {
+                    "title": "Compatibility with Beacon v2 JSON Schema",
+                    "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+                    "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/common/disease.json#severity"
+                },
+                "diseaseStage": {
+                    "title": "Compatibility with Beacon v2 JSON Schema",
+                    "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+                    "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/common/disease.json#stage"
+                },
+                "clinicalTnmFinding": {
+                    "$comment": "#! TBD: evaluate its need as a property. Taken from Phenopackets: https://phenopacket-schema.readthedocs.io/en/latest/disease.html#disease"
+                },
+                "primarySite": {
+                    "$comment": "#! TBD: evaluate its need as a property. Taken from Phenopackets: https://phenopacket-schema.readthedocs.io/en/latest/disease.html#disease"
+                },
+                "laterality": {
+                    "$comment": "#! TBD: evaluate its need as a property. Taken from Phenopackets: https://phenopacket-schema.readthedocs.io/en/latest/disease.html#disease"
+                }
+            }
+        },
+
+        "diseaseEfo": {
+            "allOf": [
+                {
+                    "title": "Inherited ontologyTerm structure of term id and label",
+                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                }
+            ],
+            "properties": {
+                "id": {
+                    "title": "Ontology constraints for this specific id",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:efo"],
+                        "classes": ["EFO:0000408"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false
+                    },
+                    "examples": [ "MONDO:0003982", "EFO:0009483", "MONDO:0016523" ]
+                },
+                "label": {
+                    "title": "Ontology constraints for this specific label",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:efo"],
+                        "classes": ["EFO:0000408"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false,
+                        "queryFields": [ "label" ]
+                    },
+                    "examples": [ "bilateral breast carcinoma", "breast disease", "bronchogenic cyst" ]
+                }
+            }
+        },
+
+        "diseaseOrdo": {
+            "allOf": [
+                {
+                    "title": "Inherited ontologyTerm structure of term id and label",
+                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                }
+            ],
+            "properties": {
+                "id": {
+                    "title": "Ontology constraints for this specific id",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:ordo"],
+                        "classes": ["ORDO:377788"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false
+                    },
+                    "examples": [ "ORDO:86849", "ORDO:86852", "ORDO:98842" ]
+                },
+                "label": {
+                    "title": "Ontology constraints for this specific label",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:ordo"],
+                        "classes": ["ORDO:377788"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false,
+                        "queryFields": [ "label" ]
+                    },
+                    "examples": [ "Acute basophilic leukemia", "B-cell prolymphocytic leukemia", "Lymphomatoid papulosis" ]
+                }
+            }
+        },
+
+        "diseaseMondo": {
+            "allOf": [
+                {
+                    "title": "Inherited ontologyTerm structure of term id and label",
+                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                }
+            ],
+            "properties": {
+                "id": {
+                    "title": "Ontology constraints for this specific id",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:mondo"],
+                        "classes": ["MONDO:0700096"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false
+                    },
+                    "examples": [ "MONDO:0013662", "MONDO:0009303", "MONDO:0003687" ]
+                },
+                "label": {
+                    "title": "Ontology constraints for this specific label",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:mondo"],
+                        "classes": ["MONDO:0700096"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false,
+                        "queryFields": [ "label" ]
+                    },
+                    "examples": [ "Barrett esophagus", "anti-glomerular basement membrane disease", "endocardium cancer" ]
+                }
+            }
+        },
+
+        "diseaseHp": {
+            "allOf": [
+                {
+                    "title": "Inherited ontologyTerm structure of term id and label",
+                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                }
+            ],
+            "properties": {
+                "id": {
+                    "title": "Ontology constraints for this specific id",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:hp"],
+                        "classes": ["HP:0000118"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false
+                    },
+                    "examples": [ "HP:0008929", "HP:0012541", "HP:0025421" ]
+                },
+                "label": {
+                    "title": "Ontology constraints for this specific label",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:hp"],
+                        "classes": ["HP:0000118"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false,
+                        "queryFields": [ "label" ]
+                    },
+                    "examples": [ "Asymmetric short stature", "Cephalohematoma", "Pneumomediastinum" ]
+                }
+            }
+        },
+
+        "diseaseDoid": {
+            "allOf": [
+                {
+                    "title": "Inherited ontologyTerm structure of term id and label",
+                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                }
+            ],
+            "properties": {
+                "id": {
+                    "title": "Ontology constraints for this specific id",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:doid"],
+                        "classes": ["DOID:4"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false
+                    },
+                    "examples": [ "DOID:11665", "DOID:6088", "DOID:1307" ]
+                },
+                "label": {
+                    "title": "Ontology constraints for this specific label",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:doid"],
+                        "classes": ["DOID:4"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false,
+                        "queryFields": [ "label" ]
+                    },
+                    "examples": [ "Patau syndrome", "acute stress disorder", "dementia" ]
+                }
+            }
+        },
+
+        "diseaseSnomed": {
+            "allOf": [
+                {
+                    "title": "Inherited ontologyTerm structure of term id and label",
+                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                }
+            ],
+            "properties": {
+                "id": {
+                    "title": "Ontology constraints for this specific id",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:snomed"],
+                        "classes": ["SNOMED:64572001"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false
+                    },
+                    "examples": [ "SNOMED:229629003", "SNOMED:87144001", "SNOMED:361268000" ]
+                },
+                "label": {
+                    "title": "Ontology constraints for this specific label",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:snomed"],
+                        "classes": ["SNOMED:64572001"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false,
+                        "queryFields": [ "label" ]
+                    },
+                    "examples": [ "Idiopathic stammering (disorder)", "Acne indurata (disorder)", "Alcohol-induced epilepsy (disorder)" ]
+                }
+            }
+        },
+
         "sameAs": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",      
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "schema:sameAs",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "sameAs",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-04-11"
+                }
+            ],
             "description": "Relationship referencing other entities considered equivalent to the root entity."
         },
 
@@ -206,13 +696,43 @@
         },
 
         "used": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",      
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "prov-o:used",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "used",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-04-11"
+                }
+            ],
             "description": "Relationship referencing other entities that used the root entity"
         },
 
         "wasGeneratedBy": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
             "$comment": "TBD #!",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "prov-o:wasGeneratedBy",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "wasGeneratedBy",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-04-11"
+                }
+            ],
             "description": ""
         },
 
