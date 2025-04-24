@@ -752,6 +752,27 @@
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
             "$comment": "TBD #!",
             "description": ""
+        },
+
+        "isPartOf": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "$comment": "TBD #!",
+            "description": "",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dcterms:isPartOf",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "isPartOf",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-04-24"
+                }
+            ]
         }
     }
 }
