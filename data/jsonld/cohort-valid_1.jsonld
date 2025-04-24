@@ -63,6 +63,12 @@
         "@id": "ega:EGAC00000000003",
         "@type": "cohort"
       }
+    ],
+    "isPartOf": [
+      {
+        "@id": "ega:EGAS00000000001",
+        "@type": "study"
+      }
     ]
   }
 }

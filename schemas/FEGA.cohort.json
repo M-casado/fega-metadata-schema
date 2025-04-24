@@ -6,13 +6,12 @@
   "meta:version": "0.0.0",
   "$async": true,
   "description": "A FEGA Cohort.",
-  "$comment": "@Context for Beacon's entities is unfinished. Just a draft of the root properties for now.",
+  "$comment": "@Context for Beacon's entities is unfinished. Just a draft of the root properties for now. Ideally they'll have the context of their schemas embedded in them, so we can reference. Not quite there yet though.",
   "@context": [
     "./FEGA.common-definitions.json",
     {
       "entityDoc": "entities:FEGA.cohort.json#",
       "properties": "@nest",
-
       "beaconDoc": "beaconRepo:cohorts/defaultSchema.json#",
       "cohortDataTypes": {
         "@id": "beaconDoc:cohortDataTypes",
@@ -34,7 +33,7 @@
     {
       "title": "Compatibility with Beacon v2 JSON Schema",
       "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
-      "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/cohorts/defaultSchema.json"    
+      "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/cohorts/defaultSchema.json"
 
     }
   ],
@@ -49,6 +48,10 @@
 
     "wasUsedBy": {
       "$ref": "./FEGA.common-definitions.json#/$defs/wasUsedBy"
-    }    
+    },
+    
+    "isPartOf": {
+      "$ref": "./FEGA.common-definitions.json#/$defs/wasUsedBy"
+    }
   }  
 }
