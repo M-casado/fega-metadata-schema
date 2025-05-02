@@ -6,85 +6,1101 @@
   "meta:version": "0.0.0",
   "$async": true,
   "description": "A FEGA Biomaterial. Contains information about any biological material, from whole organisms to subcellular components and macromolecules",
-  "$comment": "@Context for Beacon's entities is still a draft.",
   "@context": [
     "./FEGA.common-definitions.json",
     {
       "entityDoc": "entities:FEGA.biomaterial.json#",
-      "properties": "@nest"
+      "properties": "@nest",
+      "biomaterialType": "http://purl.obolibrary.org/obo/BFO_0000040"
     }
   ],
   "required": ["biomaterialType"],
-  "properties": {
-    "biomaterialType": {
-      "type": "string",
-      "title": "Biomaterial type",
-      "meta:propertyCurie": "BFO:0000040",
-      "description": "The type of biomaterial.",
-      "enum": [
-        "biofilm",
-        "biological macromolecule",
-        "cell culture",
-        "organism",
-        "organism part",
-        "pool",
-        "specimen",
-        "tissue culture"
+  "anyOf": [
+    { "$ref": "#/$defs/organismChecklist" },
+    { "$ref": "#/$defs/organismPartChecklist" }
+  ],
+  "$defs": {
+    "commonBiomaterialDefs": {
+      "type": "object",
+      "title": "Common Biomaterial definitions",
+      "description": "Common biomaterial definitions that every Biomaterial **can** (but not necessarily *must*) inherit. These are later constrained for each type of biomaterial at their respective checklists (e.g., 'dateOfBirth' is not expected to be given for a tissue culture)",
+      "properties": {
+        "biomaterialType": {
+          "type": "object",
+          "title": "Biomaterial type",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:broadMatch",
+              "object_id": "BFO:0000040",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-04-15"
+            },
+            {
+              "predicate_id": "skos:closeMatch",
+              "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/biosample.html#sample-type",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 0.9,
+              "mapping_date": "2025-05-02"
+            },
+            {
+              "predicate_id": "skos:closeMatch",
+              "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.Sample.Biospecimen_Type",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 0.9,
+              "mapping_date": "2025-05-02",
+              "comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object."
+            }
+          ],
+          "description": "The type of biomaterial.",
+          "required": ["id", "label"],
+          "allOf": [
+            {
+              "title": "Inherited ontologyTerm structure of term id and label",
+              "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+            }
+          ],
+          "properties": {
+            "id": {
+              "title": "Ontology constraints for this specific term id",
+              "graphRestriction": {
+                "ontologies": ["obo:efo"],
+                "classes": ["BFO:0000040"],
+                "relations": ["rdfs:subClassOf"],
+                "$comment": "It would be best to have the 'direct' keyword back to Biovalidator, and add it here as 'direct': true. This makes the constraint more restrictive, allowing only IDs that are direct children of BFO:0000040, rather than allowing 'anything' below it. Either we add that, or eventually a 'enum' with the specific ontology IDs we want, which kind of defeats the purpose of having the ontology keyword.",
+                "includeSelf": false
+              },
+              "examples": [ "OBI:0100026", "BTO:0002690" ]
+            },
+            "label": {
+              "type": "string",
+              "title": "Term label",
+              "description": "Human-readable label for the term, corresponding to the term id.",
+              "enum": [
+                "biofilm",
+                "biological macromolecule",
+                "cell culture",
+                "organism",
+                "organism part",
+                "pool",
+                "tissue culture"
+              ],
+              "allOf": [
+                {
+                  "graphRestriction": {
+                    "$comment": "This statement keeps our 'enum' always aligned with the ontology labels. It may be better to just keep the enum. Up for discussion.",
+                    "ontologies": [ "obo:efo" ],
+                    "classes": [ "BFO:0000040" ],
+                    "relations": ["rdfs:subClassOf"],
+                    "queryFields": [ "label" ],
+                    "includeSelf": false
+                  }
+                }
+              ]
+            }
+          }
+        },
+
+        "id": {
+          "type": "string",
+          "title": "Biomaterial Record ID",
+          "description": "Globally unique record-level identifier for the biomaterial. Must be a URI or CURIE (e.g., fega:EGAN000000001).",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "schema:identifier",
+              "mapping_justification": "semapv:LexicalMatching",
+              "match_string": "id",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-04-15"
+            }
+          ],
+          "anyOf": [
+            {
+              "format": "uri"
+            },
+            {
+              "$ref": "./FEGA.common-definitions.json#/$defs/curieGeneralPattern"
+            }
+          ],
+          "examples": ["fega:EGAN00001000620", "fega:EGAN00000000001", "https://ega-archive.org/biomaterials/EGAN00000000001"]
+        },
+
+        "label": {
+          "$ref": "./FEGA.common-definitions.json#/$defs/label",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:narrowMatch",
+              "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/individuals/defaultSchema.json#id",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 0.8,
+              "mapping_date": "2025-04-15"
+            },
+            {
+              "predicate_id": "skos:narrowMatch",
+              "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.Subject.'subject id'",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-04-15"
+            },
+            {
+              "predicate_id": "skos:narrowMatch",
+              "object_id": "NCIT:C83083",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-04-15"
+            }        
+          ],
+          "examples": ["subject-001", "SAMPLE1234", "ND-ABCD", "cancer-04-batch-6"]
+        },
+
+        "description": {
+          "$ref": "./FEGA.common-definitions.json#/$defs/description"
+        },
+
+        "sex": {
+          "type": "object",
+          "title": "Individual's sex",
+          "required": ["phenotypicSex"],
+          "properties": {
+            "phenotypicSex": {
+              "type": "object",
+              "title": "Phenotypic sex",
+              "meta:sssomMappings": [
+                {
+                  "predicate_id": "skos:exactMatch",
+                  "object_id": "PATO:0001894",
+                  "mapping_justification": "semapv:LexicalMatching",
+                  "object_match_field": "rdfs:label",
+                  "subject_match_field": "rdfs:label",
+                  "match_string": "phenotypic sex",
+                  "author_id": ["orcid:0000-0002-7747-6256"],
+                  "creator_id": ["orcid:0000-0002-7747-6256"],
+                  "reviewer_id": [""],
+                  "confidence": 1.0,
+                  "mapping_date": "2025-04-11"
+                },
+                {
+                  "predicate_id": "skos:closeMatch",
+                  "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/individuals/defaultSchema.json#sex",
+                  "mapping_justification": "semapv:LexicalMatching",
+                  "object_match_field": "rdfs:label",
+                  "subject_match_field": "rdfs:label",
+                  "match_string": "sex",
+                  "author_id": ["orcid:0000-0002-7747-6256"],
+                  "creator_id": ["orcid:0000-0002-7747-6256"],
+                  "reviewer_id": [""],
+                  "confidence": 0.8,
+                  "mapping_date": "2025-04-11"
+                },
+                {
+                  "predicate_id": "skos:closeMatch",
+                  "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/sex.html#sex",
+                  "mapping_justification": "semapv:LexicalMatching",
+                  "object_match_field": "rdfs:label",
+                  "subject_match_field": "rdfs:label",
+                  "match_string": "sex",
+                  "author_id": ["orcid:0000-0002-7747-6256"],
+                  "creator_id": ["orcid:0000-0002-7747-6256"],
+                  "reviewer_id": [""],
+                  "confidence": 0.8,
+                  "mapping_date": "2025-04-11"
+                },
+                {
+                  "predicate_id": "skos:closeMatch",
+                  "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.Subject.'biological sex at birth'#https://www.hl7.org/fhir/us/core/ValueSet-birthsex.html",
+                  "mapping_justification": "semapv:LexicalMatching",
+                  "object_match_field": "rdfs:label",
+                  "subject_match_field": "rdfs:label",
+                  "match_string": "sex",
+                  "author_id": ["orcid:0000-0002-7747-6256"],
+                  "creator_id": ["orcid:0000-0002-7747-6256"],
+                  "reviewer_id": [""],
+                  "confidence": 0.75,
+                  "mapping_date": "2025-04-11",
+                  "comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object."
+                }
+              ],
+              "description": "An organismal quality inhering in a bearer by virtue of the bearer's physical expression of sexual characteristics.",
+              "allOf": [
+                {
+                  "title": "Inherited ontologyTerm structure of term id and label",
+                  "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                }
+              ],
+              "properties": {
+                "id": {
+                  "title": "Ontology constraints for this specific term id",
+                  "$comment": "#! To be done: add the codes for the uncertainty elements as well. Either through HL7, NCIT, or similar.",
+                  "graphRestriction": {
+                    "ontologies": ["obo:efo"],
+                    "classes": ["PATO:0001894"],
+                    "relations": ["rdfs:subClassOf"],
+                    "includeSelf": false
+                  },
+                  "examples": [ "PATO:0000383", "PATO:0000384" ]
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Human-readable label for the term, corresponding to the term id.",
+                  "anyOf": [
+                    {
+                      "graphRestriction": {
+                        "$comment": "This statement keeps our 'enum' always aligned with the ontology labels",
+                        "ontologies": ["obo:efo"],
+                        "classes": ["PATO:0001894"],
+                        "relations": ["rdfs:subClassOf"],
+                        "queryFields": [ "label" ],
+                        "includeSelf": false
+                      }
+                    },
+                    {
+                      "title": "Uncertainty terms definition",
+                      "$ref": "./FEGA.common-definitions.json#/$defs/HL7NullFlavor"
+                    },
+                    {
+                      "title": "Compatibility with Beacon v2 JSON Schema",
+                      "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+                      "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/individuals/defaultSchema.json#sex"
+                    }
+                  ]
+                }
+              }
+            },
+            "karyotypicSex": {
+              "type": "object",
+              "title": "Karyotypic sex",
+              "meta:sssomMappings": [
+                {
+                  "predicate_id": "skos:exactMatch",
+                  "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/individuals/defaultSchema.json#karyotypicSex",
+                  "mapping_justification": "semapv:LexicalMatching",
+                  "object_match_field": "rdfs:label",
+                  "subject_match_field": "rdfs:label",
+                  "match_string": "karyotypic sex",
+                  "author_id": ["orcid:0000-0002-7747-6256"],
+                  "creator_id": ["orcid:0000-0002-7747-6256"],
+                  "reviewer_id": [""],
+                  "confidence": 1.0,
+                  "mapping_date": "2025-04-11"
+                },
+                {
+                  "predicate_id": "skos:exactMatch",
+                  "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/karyotypicsex.html#karyotypicsex",
+                  "mapping_justification": "semapv:LexicalMatching",
+                  "object_match_field": "rdfs:label",
+                  "subject_match_field": "rdfs:label",
+                  "match_string": "karyotypic sex",
+                  "author_id": ["orcid:0000-0002-7747-6256"],
+                  "creator_id": ["orcid:0000-0002-7747-6256"],
+                  "reviewer_id": [""],
+                  "confidence": 1.0,
+                  "mapping_date": "2025-04-11"
+                }
+              ],
+              "description": "Number and appearance of sexual chromosomes in the nucleus of a eukaryotic cell. It implies a formal karyotype was performed.",
+              "allOf": [
+                {
+                  "title": "Compatibility with Beacon v2 JSON Schema",
+                  "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+                  "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/individuals/defaultSchema.json#karyotypicSex"
+                }
+              ]
+            }
+          }
+        },
+
+        "dateOfBirth": {
+          "type": "string",
+          "title": "Date of birth",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/individual.html#date-of-birth",
+              "mapping_justification": "semapv:LexicalMatching",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "match_string": "date of birth",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-04-11"
+            },
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.Subject.'birth date'",
+              "mapping_justification": "semapv:LexicalMatching",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "match_string": "birth date",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-04-11",
+              "comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object."
+            }
+          ],
+          "description": "The individual's date of birth as a valid ISO 8601 (RFC 3339) date-time string. If only the date is known (e.g., you lack precise minutes or hours), you can set the time to 00:00:00Z, for example '1970-01-01T00:00:00Z'.",
+          "format": "date-time",
+          "examples": ["1970-01-01T00:00:00Z", "1990-05-03T12:30:00Z"]
+        },
+
+        "birthPlace": {
+          "type": "object",
+          "title": "Birth place",
+          "description": "Country of origin of the individual (birthplace or residence place regardless of ethnicity). Value from GAZ Geographic Location ontology (GAZ:00000448), e.g. GAZ:00002459 (United States of America).",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "https://schema.org/birthPlace",
+              "mapping_justification": "semapv:LexicalMatching",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "match_string": "birthplace",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-04-15"
+            },
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/individuals/defaultSchema.json#geographicOrigin",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-04-15"
+            },
+            {
+              "predicate_id": "skos:narrowMatch",
+              "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.Subject.'country of origin'",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 0.8,
+              "mapping_date": "2025-04-15",
+              "comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object."
+            }
+          ],
+          "allOf": [
+            {
+              "title": "Inherited ontologyTerm structure of term id and label",
+              "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+            }
+          ],
+          "properties": {        
+            "id": {
+              "title": "Ontology constraints for this specific term id",
+              "graphRestriction": {
+                "ontologies": ["obo:gaz"],
+                "classes": ["NCIT:C25464"],
+                "relations": ["rdfs:subClassOf"],
+                "includeSelf": false
+              }
+            },
+            "label": {
+              "type": "string",
+              "title": "Ontology constraints for this specific term label",
+              "allOf": [
+                {
+                  "graphRestriction": {
+                    "ontologies": ["obo:gaz"],
+                    "classes": ["NCIT:C25464"],
+                    "relations": ["rdfs:subClassOf"],
+                    "queryFields": [ "label" ],
+                    "includeSelf": false
+                  }
+                }
+              ]          
+            }
+          },
+          "examples": [
+            {
+              "id": "GAZ:00002955",
+              "label": "Slovenia"
+            },
+            {
+              "id": "GAZ:00002939",
+              "label": "Poland"
+            }
+          ]
+        },
+
+        "ethnicity": {
+          "title": "Ethnicity",
+          "description": "Population category of the organism. Defined in terms of cultural, religious, tribal or other social similarities, excluding geography-based descriptors (use 'birthPlace' to encode that information). It is recommended to use terms belonging to 'ethnicity category' ([HANCESTRO:0601](http://purl.obolibrary.org/obo/HANCESTRO_0601)).",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:closeMatch",
+              "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/individuals/defaultSchema.json#geographicOrigin",
+              "mapping_justification": "semapv:LexicalMatching",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "match_string": "ethnicity",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-04-25"
+            },
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "HANCESTRO:0601",
+              "mapping_justification": "semapv:LexicalMatching",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "match_string": "ethnicity",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-04-25"
+            }
+          ],
+          "allOf": [
+            {
+              "title": "Inherited ontologyTerm structure of term id and label",
+              "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+            }
+          ],
+          "examples": [
+            {
+              "id": "HANCESTRO:0316",
+              "label": "Amish"
+            },
+            {
+              "id": "AfPO:0000355",
+              "label": "Andalusian"
+            }
+          ]
+        },
+
+        "ancestry": {
+          "type": "array",
+          "title": "Exposures",
+          "description": "List of ancestry components that characterize the biomaterial.",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+              "$ref": "./FEGA.common-definitions.json#/$defs/ancestryComponent"
+          }
+        },
+
+        "exposures": {
+          "type": "array",
+          "title": "Exposures",
+          "description": "List of environmental exposures.",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+              "$ref": "./FEGA.common-definitions.json#/$defs/exposure"
+          }
+        },
+
+        "interventionsOrProcedures": {
+          "$comment": "#! Taken from Beacon v2. It's similar to Phenopacket's 'procedure', but represented in a sort of flat way. Procedures is later reused in the 'Biosamples' of Beacon, in a more generic way. Rather than referencing it, and given our FEGA way of representing processes, I would suggest to, once we have the FEGA.process.json, reference here in an array. Rather than a 'biomaterial (organism) --> Procedure (clinical procedure) --> biomaterial (organism)' which can easily become unnecessarily convoluted, we could just serve those procedures for organisms (individuals) flat here. That raises the question of whether we'll do the same for other biomaterials -- In theory no, as we would want for more Biosamples to appear through the process tree."
+        },
+
+        "measurements": {
+          "type": "array",
+          "title": "Measurements",
+          "description": "List of measurement(s) (and their associated metadata) that were performed on the biomaterial. These capture quantitative, ordinal (e.g., absent/present), or categorical measurements. It can be used to describe clinically relevant biomarkers (e.g., 'Human Papillomavirus-18 Positive' NCIT:C131711, or 'HER2/Neu Positive' NCIT:C68748)",
+          "$comment": "Similar to 'treatments' and ''collectionDetails', we should generalize the 'measurements' into a 'process'. To make it make sense inside a generic entity, we would simply need to constraint the, now defined, properties of a measurement, into a 'checklist' of process.",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:narrowMatch",
+              "object_id": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/biosamples/defaultSchema.json#diagnosticMarkers",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1,
+              "mapping_date": "2025-05-02"
+            },
+            {
+              "predicate_id": "skos:narrowMatch",
+              "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/biosample.html#diagnostic-markers",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1,
+              "mapping_date": "2025-05-02"
+            }
+          ],
+          "minItems": 1,
+          "uniqueItems": true,
+          "allOf": [
+            {
+              "title": "Compatibility with Beacon v2 JSON Schema",
+              "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+              "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/individuals/defaultSchema.json#measures"
+            }
+          ]
+        },
+
+        "pedigrees": {
+          "title": "Pedigree",
+          "description": "This element is used to describe the family relationships of each organism with regards to their shared diseases.",
+          "$comment": "Representation of 'pedigrees' as embedded properties within 'individuals' (a.k.a. organism biomaterial) is slightly ambiguous, and can easily lead to duplicated and discrepant records. See more here: https://github.com/ga4gh-beacon/beacon-v2/issues/218.",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/individuals/defaultSchema.json#pedigrees",
+              "mapping_justification": "semapv:LexicalMatching",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "match_string": "pedigree",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1,
+              "mapping_date": "2025-04-28"
+            },
+            {
+              "predicate_id": "skos:closeMatch",
+              "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/pedigree.html#pedigree",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "match_string": "pedigree",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 0.6,
+              "mapping_date": "2025-04-28"
+            }
+          ],
+          "allOf": [
+            {
+              "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+              "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/individuals/defaultSchema.json#pedigrees"
+            }
+          ]
+        },
+
+        "phenotypicFeatures": {
+          "type": "array",
+          "title": "Phenotypic features",
+          "description": "List of phenotypicFeature(s) (and their associated metadata) that characterize the biomaterial.",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+              "$ref": "./FEGA.common-definitions.json#/$defs/phenotypicFeature"
+          }
+        },
+
+        "diagnoses": {
+          "type": "array",
+          "title": "Diagnoses",
+          "description": "List of diagnoses (and their associated metadata) attributed to the Biomaterial. The scope of the diagnosis is set by the 'biomaterialType'. For example, if in an 'organism' type of Biomaterial, diagnoses are Clincial Diagnoses; if in a 'organism part', then they are Pathological Diagnoses.",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+              "$ref": "./FEGA.common-definitions.json#/$defs/diagnosis"
+          }
+        },
+
+        "treatments": {
+          "title": "Treatments",
+          "description": "Treatment(s) prescribed/administered to the biomaterial.",
+          "$comment": "For now we've taken plainly Beacon's 'treatments' entity, but GDI's definition is more detailed. We may want to enhance this array of treatments in the future with GDI's. Also, we may want to restrict the 'treatments' use to only 'organism' types of biomaterials: otherwise, it may overlap semantically with the 'protocol + process' space, and people may use 'experimental sample treatments' as this property. Furthermore, we may want to allow in this property to also reference a protocol entity, so it's either a 'treatment' or a protocol that describes such treatment. Furthermore, we should replace the whole 'treatments' specific definition, with a reference to 'process' instead, with their appropriate checklists for 'treatment'.",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/individuals/defaultSchema.json#treatments",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "match_string": "treatments",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1,
+              "mapping_date": "2025-04-28"
+            },
+            {
+              "predicate_id": "skos:broadMatch",
+              "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.Subject.'Treatment'",
+              "mapping_justification": "semapv:LexicalMatching",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "match_string": "treatment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1,
+              "mapping_date": "2025-04-28",
+              "comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object."
+            }
+          ],
+          "allOf": [
+            {
+              "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+              "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/individuals/defaultSchema.json#treatments"
+            }
+          ]
+        },
+
+        "timeAtLastEncounter": {
+          "title": "Time at Last Encounter",
+          "description": "When the individual was last seen or the the age of the individual at the time of collection of organism parts or phenotypic observations. It is specified using a TimeElement, which can represent an time in several different ways, either precisely or within a range. For example, an AgeRange element, which can represent a range of ages such as 10-14 years (age can be represented in this was to protect privacy of study participants).",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/individual.html#time-at-last-encounter",
+              "mapping_justification": "semapv:LexicalMatching",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "match_string": "time at last encounter",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-04-15"
+            },
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.Subject.'date of last follow up'",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-04-11",
+              "comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object."
+            }
+          ],
+          "allOf": [
+            {
+              "title": "Compatibility with Beacon v2 JSON Schema",
+              "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+              "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/common/timeElement.json"
+            }
+          ],
+          "examples": [
+            { "iso8601duration": "P25Y" },
+            "2026-02-01T10:15:30Z",
+            { "id": "HPO:0003623", "label": "Neonatal onset" },
+            { "id": "NCIT:C49685", "label": "Adult 18-65 Years Old" },
+            { "start": "2023-01-01T00:00:00Z", "end": "2025-01-01T00:00:00Z" },
+            {
+              "start": { "iso8601duration": "P18Y" },
+              "end": { "iso8601duration": "P59Y" }
+            },
+            { "days": 2, "weeks": 33 }
+          ]
+        },
+
+        "taxonomy": {
+          "title": "Taxonomy of biomaterial",
+          "description": "Taxonomy of the biomaterial, representing the species (e.g., NCBITaxon:9606 for 'Homo sapiens') it contains or sources from. For resources where there may be more than one organism being studied it is advisable to indicate the taxonomic identifier of that organism, to its most specific level.",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/individual.html#taxonomy",
+              "mapping_justification": "semapv:LexicalMatching",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "match_string": "time at last encounter",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-04-24"
+            },
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.Sample.organism",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 0.9,
+              "mapping_date": "2025-05-02",
+              "comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object."
+            }
+            
+          ],
+          "allOf": [
+            {
+              "title": "Inherited ontologyTerm structure of term id and label",
+              "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+            }
+          ],
+          "properties": {
+            "id": {
+              "title": "Ontology constraints for this specific term id",
+              "graphRestriction": {
+                "ontologies": ["obo:efo"],
+                "classes": ["OBI:0100026"],
+                "relations": ["rdfs:subClassOf"],
+                "includeSelf": false
+              },
+              "examples": [ "NCBITaxon:9606", "NCBITaxon:10090", "NCBITaxon:562" ]
+            },
+            "label": {
+              "type": "string",
+              "title": "Ontology constraints for this specific term label",
+              "graphRestriction": {
+                "ontologies": [ "obo:efo" ],
+                "classes": [ "OBI:0100026" ],
+                "relations": ["rdfs:subClassOf"],
+                "queryFields": [ "label" ],
+                "includeSelf": false
+              },
+              "examples": [ "Homo sapiens", "Mus musculus", "Escherichia coli" ]
+            }
+          }
+        },
+
+        "vitalStatus": {
+          "$ref": "./FEGA.common-definitions.json#/$defs/vitalStatus"
+        },
+
+        "samplingSource": {
+          "title": "Sampling source",
+          "description": "Biological source (e.g., 'cerebrospinal fluid') from which this biomaterial was obtained.",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/biosample.html#sampled-tissue",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "match_string": "time at last encounter",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-05-02"
+            },
+            {
+              "predicate_id": "skos:broadMatch",
+              "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/biosamples/defaultSchema.json#sampleOriginDetail",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1,
+              "mapping_date": "2025-05-02",
+              "$comment": "https://github.com/ga4gh-beacon/beacon-v2/issues/224"
+            },
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.Sample.'Anatomical sample location'",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 0.9,
+              "mapping_date": "2025-05-02",
+              "comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object."
+            }
+          ],
+          "allOf": [
+              {
+                  "$ref": "./FEGA.common-definitions.json#/$defs/anatomicalEntity"
+              }
+          ],
+          "$comment": "Beacon's definition includes more than just anatomical entities: includes BTO and OBI ontologies, for things like a specific tissue culture (e.g., HEK-293T). If deemed worth it, we may want to expand the 'allOf' here other ontology constraints."
+        },
+        "storageConditions": {
+          "type": "array",
+          "title": "Storage conditions",
+          "description": "Current storage conditions (e.g., temperature, medium, preservation...) of the biomaterial. Recommended terms are from SNOMED (e.g., 'Temperature ranges (qualifier value)' SNOMED:277975002) and OBI (e.g, 'specimen with known storage state' OBI:0001472).",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/biosamples/defaultSchema.json#sampleStorage",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-05-02"
+            },
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/biosample.html#sample-storage",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-05-02"
+            },
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.Sample.Storage_Conditions",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 0.9,
+              "mapping_date": "2025-05-02"
+            }
+          ],
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+              "title": "Inherited ontologyTerm structure of id and label",
+              "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+          },
+          "$comment": "Unsure if to constraint the terms and/or labels to a set of ontologies (e.g., SNOMED), or leave it open like now.",
+          "examples": [
+            [
+              { "id": "OBI:0000922", "label": "frozen specimen" }
+            ],
+            [
+              { "id": "OBI:0000950", "label": "paraffin specimen" }
+            ]
+          ]
+        },
+        "samplingAge": {
+          "title": "Sampling age",
+          "description": "Age of the biomaterial (e.g., an 'organism') from which this biomaterial (e.g., 'organismPart') derived at the time of the sampling.",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/biosample.html#time_of_collection",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "match_string": "time at last encounter",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-05-02"
+            },
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/biosamples/defaultSchema.json#collectionMoment",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1,
+              "mapping_date": "2025-05-02",
+              "$comment": "https://github.com/ga4gh-beacon/beacon-v2/issues/224"
+            }
+          ],
+          "allOf": [
+            {
+              "title": "Compatibility with Beacon v2 JSON Schema",
+              "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+              "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/common/timeElement.json"
+            }
+          ],
+          "examples": [
+            { "iso8601duration": "P25Y" },
+            { "id": "NCIT:C49685", "label": "Adult 18-65 Years Old" }
+          ]
+        },
+        "samplingDate": {
+          "type": "string",
+          "title": "Sampling date",
+          "description": "Date that the sampling of this biomaterial took place.",
+          "format": "date",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/biosamples/defaultSchema.json#collectionDate",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1,
+              "mapping_date": "2025-05-02"
+            },
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.Sample.date",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-05-02"
+            },
+            {
+              "predicate_id": "skos:closeMatch",
+              "object_id": "EFO:0000689",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-05-02"
+            }
+          ],
+          "examples": ["2025-05-02"]
+        },
+        
+        "sameAs": {
+          "$ref": "./FEGA.common-definitions.json#/$defs/sameAs"
+        },
+
+        "wasUsedBy": {
+          "$ref": "./FEGA.common-definitions.json#/$defs/wasUsedBy"
+        },
+
+        "wasDerivedFrom": {
+          "$ref": "./FEGA.common-definitions.json#/$defs/wasDerivedFrom"
+        },
+
+        "wasGeneratedBy": {
+          "$comment": "#! All the collection details (date, sampling site, performers...) would go into the 'process' that is referenced here. In the FEGA model, the collection details are associated to a process, rather than to an atommical 'biomaterial' property. On the other hand, most downstream bioinformatic analysis may only take a look at 'sample' tables, and may not traverse the process path. Thus, later on it may be convenient to add read-only fields at the sample level (e.g., 'collectionDetails'), automatically propagated from the 'process' that generated them. This creates two sources of truth, for which we would need read-only to be enforced.",
+          "$ref": "./FEGA.common-definitions.json#/$defs/wasGeneratedBy"
+        }
+      }      
+    },
+
+    "organismChecklist": {
+      "title": "Organism checklist",
+      "description": "Checklist of required and allowed biomaterial properties for this type of biomaterial.",
+      "allOf": [
+        { "$ref": "#/$defs/commonBiomaterialDefs" },
+        { 
+          "properties": {
+            "biomaterialType": {
+              "properties": { "label": { "const": "organism" } }
+            }
+          }
+        },
+        { 
+          "title": "Required biomaterial properties for this type of biomaterial.",
+          "required": ["id", "label", "sex"] 
+        },
+        {
+          "title": "Forbidden biomaterial properties for this type of biomaterial.",
+          "properties": {
+            "collectionSite": false,
+            "collectionDate": false,
+            "description": false,
+            "#! - Finish once Biomaterial is complete": "#!"
+          }
+        }
       ]
     },
 
-    "phenotypicSex": {
-      "type": "object",
-      "title": "Phenotypic sex",
-      "meta:propertyCurie": "PATO:0001894",
-      "description": "An organismal quality inhering in a bearer by virtue of the bearer's physical expression of sexual characteristics.",
+    "organismPartChecklist": {
+      "title": "Organism Part checklist",
+      "description": "Checklist of required and allowed biomaterial properties for this type of biomaterial.",
       "allOf": [
-        {
-          "title": "Inherited ontologyTerm structure of termId and termLabel",
-          "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
-        }
-      ],
-      "properties": {        
-        "termId": {
-          "title": "Ontology constraints for this specific termId",
-          "graphRestriction": {
-            "ontologies": ["obo:efo"],
-            "classes": ["PATO:0001894"],
-            "relations": ["rdfs:subClassOf"],
-            "direct": true,
-            "include_self": false
-          },
-          "examples": [ "PATO:0000383", "PATO:0000384" ]
-        },
-        "termLabel": {
-          "type": "string",
-          "description": "Human-readable label for the term, corresponding to the termId."
-        }
-      }
-    },
-    "subjectId": {
-      "type": "string",
-      "description": "A unique identifier for the subject (individual) from which this biomaterial is derived."
-    },
-    "isPartOf": {
-      "type": "string",
-      "format": "uri",
-      "description": "URI pointing to the cohort to which this biomaterial (individual or sample) belongs."
-    }
-  },
-  "anyOf": [
-    {
-      "title": "Requirements for organisms (individuals)",
-      "allOf": [
-        {
+        { "$ref": "#/$defs/commonBiomaterialDefs" },
+        { 
           "properties": {
             "biomaterialType": {
-              "enum": ["organism"]
+              "properties": { "label": { "const": "organism part" } }
             }
-          },
-          "required": ["biomaterialType", "phenotypicSex", "subjectId"]
+          }
+        },
+        {
+          "title": "Required biomaterial properties for this type of biomaterial.",
+          "required": ["id", "label"]
+        },
+        {
+          "title": "Forbidden biomaterial properties for this type of biomaterial.",
+          "$comment": "Instead of 'forbidding' entities, we could choose to specifically 'allow' a set of properties. Would be relatively simple to refactor 'common' $defs, and then add specific properties to each checklist.",
+          "properties": {
+            "sex": false,
+            "dateOfBirth": false,
+            "birthPlace": false,
+            "ethnicity": false,
+            "ancestry": false,
+            "interventionsOrProcedures": false,
+            "pedigrees": false,
+            "timeAtLastEncounter": false,
+            "vitalStatus": false
+          }
         }
       ]
+    },
+
+    "cellCultureChecklist": {
+      "$comment": "#! TBD once first internal reviews of the Biomaterial are done."
+    },
+    "tissueCultureChecklist": {
+      "$comment": "#! TBD once first internal reviews of the Biomaterial are done."
+    },
+    "biofilmChecklist": {
+      "$comment": "#! TBD once first internal reviews of the Biomaterial are done."
+    },
+    "biologicalMacromoleculeChecklist": {
+      "$comment": "#! TBD once first internal reviews of the Biomaterial are done."
+    },
+    "poolChecklist": {
+      "$comment": "#! TBD once first internal reviews of the Biomaterial are done."
     }
-  ]
+  }
 }

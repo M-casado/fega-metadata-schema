@@ -32,7 +32,7 @@
         "skos": "https://www.w3.org/2009/08/skos-reference/skos.html#",
         "schema": "http://schema.org/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-        "beaconRepo": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/main/models/json/beacon-v2-default-model/",
+        "beaconRepo": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/",
 
         "efo": "identifiers:efo:",
         "pato": "identifiers:PATO:",
@@ -241,7 +241,7 @@
             "title": "Relationship item",
             "description": "This entity is expected to be referenced where needed, as it contains the basic format of a relationship item. Each of the items is expected to be one of the ends of the possible relationships in a linked metadata entity.",
             "properties": {
-              "@id": {
+              "id": {
                 "type": "string",
                 "examples": [ "ega:EGAC00000000001", "biosample:SAMEA112654070", "https://www.ebi.ac.uk/biosamples/samples/SAMEA112654070" ],
                 "anyOf": [
@@ -259,7 +259,7 @@
                 "examples": [ "cohort", "biomaterial", "xsd:integer" ]
               }
             },
-            "required": ["@id"]
+            "required": ["id"]
         },
 
         "relationshipArray": {
@@ -273,14 +273,14 @@
             "examples": [
                 [
                     {
-                        "@id": "ega:EGAC00000000002",
+                        "id": "ega:EGAC00000000002",
                         "@type": "cohort"
                     },
                     {
-                        "@id": "ega:EGAC00000000003"
+                        "id": "ega:EGAC00000000003"
                     },
                     {
-                        "@id": "https://github.com/EGA-archive/fega-metadata-schema"
+                        "id": "https://github.com/EGA-archive/fega-metadata-schema"
                     }
                 ]
             ]
@@ -327,39 +327,86 @@
             }
         },
 
-        "disease": {
+        "diagnosis": {
             "type": "object",
-            "title": "",
-            "description": "",
+            "title": "Diagnosis",
+            "description": "A diagnosis (e.g., Marfan syndrome — MONDO:0007043): a clinical or research conclusion about the underlying cause of the biomaterial abnormalities. It is an inference: clinicians or researchers review multiple observations and decide that they collectively point to a specific disorder. Unlike a 'phenotypicFeature', a diagnosis is not itself observed; it is a hypothesis that explains why those observations occur. This entity can be used for both clinical diagnosis (if within a biomaterial of type 'organism') and pathological diagnosis (if within a biomaterial of type other than 'organism').",
             "meta:sssomMappings": [
                 {
-                    "predicate_id": "skos:exactMatch",
-                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/main/models/json/beacon-v2-default-model/common/disease.json",
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/common/disease.json",
                     "mapping_justification": "semapv:ManualMappingCuration",
-                    "object_match_field": "rdfs:label",
-                    "subject_match_field": "rdfs:label",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
                     "author_id": ["orcid:0000-0002-7747-6256"],
                     "creator_id": ["orcid:0000-0002-7747-6256"],
                     "reviewer_id": [""],
-                    "confidence": 1.0,
+                    "confidence": 0.8,
                     "mapping_date": "2025-04-23"
                 },
                 {
-                    "predicate_id": "skos:exactMatch",
+                    "predicate_id": "skos:closeMatch",
                     "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/disease.html#disease",
-                    "mapping_justification": "semapv:LexicalMatching",
-                    "object_match_field": "rdfs:label",
-                    "subject_match_field": "rdfs:label",
-                    "match_string": "term",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
                     "author_id": ["orcid:0000-0002-7747-6256"],
                     "creator_id": ["orcid:0000-0002-7747-6256"],
                     "reviewer_id": [""],
-                    "confidence": 1.0,
+                    "confidence": 0.8,
                     "mapping_date": "2025-04-23"
+                },
+                {
+                    "predicate_id": "skos:narrowMatch",
+                    "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.Diagnosis",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 0.8,
+                    "mapping_date": "2025-04-23",
+                    "$comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object."
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/biosample.html#histological-diagnosis",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 0.8,
+                    "mapping_date": "2025-05-02"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/biosamples/defaultSchema.json#histologicalDiagnosis",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 0.8,
+                    "mapping_date": "2025-05-02"
                 }
             ],
-            "required": ["term"],
+            "required": ["diagnosisType", "term"],
             "properties": {
+                "diagnosisType": {
+                    "type": "string",
+                    "title": "Diagnosis type",
+                    "description": "Classifies the diagnosis by the primary evidence used to establish it.",
+                    "enum": ["clinical", "pathological", "molecular"],
+                    "meta:enum": {
+                        "clinical": "Inference made from clinical presentation (signs, symptoms, imaging, standard laboratory tests) before or without tissue confirmation.",
+                        "pathological": "Conclusion reached by examining tissue or cells (histology, cytology, immunohistochemistry, gross pathology).",
+                        "molecular": "Diagnosis supported predominantly by molecular evidence such as DNA/RNA sequencing, gene-expression profiling, methylation arrays or proteomics."
+                    }
+                },
                 "term": {
                     "type": "object",
                     "title": "Disease term",
@@ -380,7 +427,7 @@
                         },
                         {
                             "predicate_id": "skos:exactMatch",
-                            "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/main/models/json/beacon-v2-default-model/common/disease.json#diseaseCode",
+                            "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/common/disease.json#diseaseCode",
                             "mapping_justification": "semapv:ManualMappingCuration",
                             "object_match_field": "rdfs:comment",
                             "subject_match_field": "rdfs:comment",
@@ -392,7 +439,7 @@
                         },
                         {
                             "predicate_id": "skos:narrowMatch",
-                            "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.Diagnosis.'diagnosis'",
+                            "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.Diagnosis.diagnosis",
                             "mapping_justification": "semapv:ManualMappingCuration",
                             "object_match_field": "rdfs:comment",
                             "subject_match_field": "rdfs:comment",
@@ -401,7 +448,7 @@
                             "reviewer_id": [""],
                             "confidence": 0.8,
                             "mapping_date": "2025-04-23",
-                            "comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object. GDI's definition of 'diagnosis' falls under 'disease' mainly due to the allowed values given for a diagnosis: SNOMED 'Disease'."
+                            "$comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object. GDI's definition of 'diagnosis' falls under 'disease' mainly due to the allowed values given for a diagnosis: SNOMED 'Disease'."
                         }
                     ],
                     "allOf": [
@@ -442,6 +489,20 @@
                         "reviewer_id": [""],
                         "confidence": 1.0,
                         "mapping_date": "2025-04-15"
+                    },
+                    {
+                        "predicate_id": "skos:broadMatch",
+                        "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/biosample.html#material-sample",
+                        "mapping_justification": "semapv:LexicalMatching",
+                        "object_match_field": "rdfs:label",
+                        "subject_match_field": "rdfs:label",
+                        "match_string": "term",
+                        "author_id": ["orcid:0000-0002-7747-6256"],
+                        "creator_id": ["orcid:0000-0002-7747-6256"],
+                        "reviewer_id": [""],
+                        "confidence": 0.6,
+                        "mapping_date": "2025-05-02",
+                        "$comment": "The material_sample from phenopackets allows the user to define whether a sample is reference (a.k.a. control) or abnormal (a.k.a. case). This information can be encoded easily in the diagnosis, introducing the ability to specify **for which** diagnosis (i.e. disease) a sample may be control or case."
                     }
                   ],
                   "default": false
@@ -466,16 +527,254 @@
                     "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
                     "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/common/disease.json#stage"
                 },
-                "clinicalTnmFinding": {
-                    "$comment": "#! TBD: evaluate its need as a property. Taken from Phenopackets: https://phenopacket-schema.readthedocs.io/en/latest/disease.html#disease"
-                },
                 "primarySite": {
-                    "$comment": "#! TBD: evaluate its need as a property. Taken from Phenopackets: https://phenopacket-schema.readthedocs.io/en/latest/disease.html#disease"
+                    "title": "Primary site",
+                    "description": "Primary (affected) anatomical site of the disease.",
+                    "allOf": [
+                        {
+                            "$ref": "./FEGA.common-definitions.json#/$defs/anatomicalEntity"
+                        }
+                    ]
                 },
                 "laterality": {
-                    "$comment": "#! TBD: evaluate its need as a property. Taken from Phenopackets: https://phenopacket-schema.readthedocs.io/en/latest/disease.html#disease"
+                    "title": "Laterality",
+                    "description": "The term used to indicate laterality of diagnosis, if applicable. Recommended terms are children of 'geometric modifier' (EFO:0001648).",
+                    "allOf": [
+                        {
+                            "title": "Inherited ontologyTerm structure of term id and label",
+                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                        }
+                    ],
+                    "examples": [
+                        {
+                            "id": "EFO:0001658",
+                            "label": "left"
+                        },
+                        {
+                            "id": "EFO:0001660",
+                            "label": "medial"
+                        }
+                    ]
+                },                
+                "diagnosisTime": {
+                    "title": "Diagnosis time",
+                    "description": "When the diagnosis was performed. The time element offers flexibility to define the moment of diagnosis in different ways (e.g., age of organism, timestamp, etc.).",
+                    "allOf": [
+                        {
+                            "title": "Compatibility with Beacon v2 JSON Schema",
+                            "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+                            "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/common/timeElement.json"    
+                        }
+                    ],
+                    "examples": [
+                        "2026-02-01T10:15:30Z",
+                        { "iso8601duration": "P25Y" },
+                        { "id": "NCIT:C49685", "label": "Adult 18-65 Years Old" }
+                    ]
+                },
+                "tumorAttributes": {
+                    "type": "object",
+                    "title": "Tumor attributes",
+                    "description": "Tumor-specific modifiers of a neoplasm diagnosis.",
+                    "properties": {
+                        "tnmFindings": {
+                            "type": "array",
+                            "title": "TNM Findings",
+                            "description": "Primary tumor (T), regional lymph-node (N) and distant-metastasis (M) categories. AJCC / UICC stage that integrates T, N and M categories (e.g. *Stage IIA*). Tumor stage as classified by the TNM system. T describes the size (for specific size use 'tumorSize') of the tumor and whether it has invaded nearby tissue; N describes regional lymph nodes that are involved; M describes distant metastasis (spread of cancer from one body part to another). Recommended terms include children of EFO 'tumor stage' (EFO:0004925), NCIt 'Cancer TNM Finding' (NCIT:C48232) and SNOMED 'Tumor finding (finding)' (SNOMED:395557000).",
+                            "meta:sssomMappings": [
+                                {
+                                    "predicate_id": "skos:closeMatch",
+                                    "object_id": "EFO:0004925",
+                                    "mapping_justification": "semapv:ManualMappingCuration",
+                                    "object_match_field": "rdfs:comment",
+                                    "subject_match_field": "rdfs:comment",
+                                    "author_id": ["orcid:0000-0002-7747-6256"],
+                                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                                    "reviewer_id": [""],
+                                    "confidence": 0.8,
+                                    "mapping_date": "2025-05-01"
+                                },
+                                {
+                                    "predicate_id": "skos:closeMatch",
+                                    "object_id": "SNOMED:395557000",
+                                    "mapping_justification": "semapv:ManualMappingCuration",
+                                    "object_match_field": "rdfs:comment",
+                                    "subject_match_field": "rdfs:comment",
+                                    "author_id": ["orcid:0000-0002-7747-6256"],
+                                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                                    "reviewer_id": [""],
+                                    "confidence": 0.8,
+                                    "mapping_date": "2025-05-01"
+                                },
+                                {
+                                    "predicate_id": "skos:closeMatch",
+                                    "object_id": "NCIT:C48232",
+                                    "mapping_justification": "semapv:ManualMappingCuration",
+                                    "object_match_field": "rdfs:comment",
+                                    "subject_match_field": "rdfs:comment",
+                                    "author_id": ["orcid:0000-0002-7747-6256"],
+                                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                                    "reviewer_id": [""],
+                                    "confidence": 0.8,
+                                    "mapping_date": "2025-05-01"
+                                }
+                            ],
+                            "minItems": 1,
+                            "uniqueItems": true,        
+                            "items": {
+                                "title": "Inherited ontologyTerm structure of id and label",
+                                "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                            },
+                            "examples": [
+                                [
+                                    {
+                                        "id": "EFO:0004929",
+                                        "label": "M0 distant metastasis stage"
+                                    },
+                                    {
+                                        "id": "EFO:0004942",
+                                        "label": "T3b tumor stage"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "id": "NCIT:C48764",
+                                        "label": "pT2 TNM Finding"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "id": "SNOMED:30893008"
+                                    }
+                                ]
+                            ]
+                        },
+                        "tumorGrade": {
+                            "title": "Tumor grade",
+                            "description": "Histological or nuclear grade of the tumor. Use NCIt (children term of NCIT:C28076: 'Disease Grade Qualifier') or SNOMED morphology grade classes. See the [tumor grade fact sheet](https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-grade).",
+                            "meta:sssomMappings": [
+                              {
+                                "predicate_id": "skos:exactMatch",
+                                "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/biosample.html#tumor-grade",
+                                "mapping_justification": "semapv:LexicalMatching",
+                                "object_match_field": "rdfs:label",
+                                "subject_match_field": "rdfs:label",
+                                "match_string": "tumorGrade",
+                                "author_id": ["orcid:0000-0002-7747-6256"],
+                                "creator_id": ["orcid:0000-0002-7747-6256"],
+                                "reviewer_id": [""],
+                                "confidence": 1,
+                                "mapping_date": "2025-05-01"
+                            }
+                            ],
+                            "allOf": [
+                                {
+                                    "title": "Inherited ontologyTerm structure of term id and label",
+                                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                                }
+                            ],
+                            "examples": [
+                                {
+                                    "id": "NCIT:C28078",
+                                    "label": "Grade 2" 
+                                },
+                                {
+                                    "id": "NCIT:C155942",
+                                    "label": "Tumor Regression Score 1" 
+                                }
+                            ]
+                        },
+                        "tumorProgression": {
+                            "title": "Tumor progression",
+                            "description": "This field can be used to indicate if a specimen is from the primary tumor, a metastasis or a recurrence. There are multiple ways of representing this using ontology terms, and the terms chosen should have a specific meaning that is application specific. For example a term from the following NCIT terms from the Neoplasm by Special Category can be chosen: 'Primary Neoplasm' (NCIT:C8509), 'Metastatic Neoplasm' (NCIT:C3261), 'Recurrent Neoplasm' (NCIT:C4798).",
+                            "meta:sssomMappings": [
+                              {
+                                "predicate_id": "skos:exactMatch",
+                                "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/biosample.html#tumor-progression",
+                                "mapping_justification": "semapv:LexicalMatching",
+                                "object_match_field": "rdfs:label",
+                                "subject_match_field": "rdfs:label",
+                                "match_string": "tumorProgression",
+                                "author_id": ["orcid:0000-0002-7747-6256"],
+                                "creator_id": ["orcid:0000-0002-7747-6256"],
+                                "reviewer_id": [""],
+                                "confidence": 1,
+                                "mapping_date": "2025-05-02"
+                            }
+                            ],
+                            "allOf": [
+                                {
+                                    "title": "Inherited ontologyTerm structure of term id and label",
+                                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                                }
+                            ],
+                            "examples": [
+                                {
+                                    "id": "NCIT:C8509",
+                                    "label": "Primary Neoplasm" 
+                                },
+                                {
+                                    "id": "NCIT:C3261",
+                                    "label": "Metastatic Neoplasm" 
+                                }
+                            ]
+                        },
+                        "tumorSize": {
+                            "type": "array",
+                            "title": "tumor size measurements",
+                            "description": "One or more measurements of the diagnosed tumor.",
+                            "meta:sssomMappings": [
+                                {
+                                    "predicate_id": "skos:closeMatch",
+                                    "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.TNM.Tumor_size",
+                                    "mapping_justification": "semapv:ManualMappingCuration",
+                                    "object_match_field": "rdfs:label",
+                                    "subject_match_field": "rdfs:label",
+                                    "author_id": ["orcid:0000-0002-7747-6256"],
+                                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                                    "reviewer_id": [""],
+                                    "confidence": 0.9,
+                                    "mapping_date": "2025-05-02",
+                                    "$comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object."
+                                }
+                            ],
+                            "minItems": 1,
+                            "uniqueItems": true,
+                            "items": {
+                                "$ref": "./FEGA.common-definitions.json#/$defs/quantity"
+                            }
+                        },
+                        "stagingSystemVersion": {
+                            "type": "string",
+                            "title": "Staging system version",
+                            "description": "Edition and/or year of the staging system used (e.g. 'AJCC 8th ed. (2018)').",
+                            "examples": ["AJCC 8th Edition (2018)"],
+                            "meta:sssomMappings": [
+                                {
+                                    "predicate_id": "skos:closeMatch",
+                                    "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.TNM.version",
+                                    "mapping_justification": "semapv:ManualMappingCuration",
+                                    "object_match_field": "rdfs:label",
+                                    "subject_match_field": "rdfs:label",
+                                    "author_id": ["orcid:0000-0002-7747-6256"],
+                                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                                    "reviewer_id": [""],
+                                    "confidence": 0.9,
+                                    "mapping_date": "2025-05-02",
+                                    "$comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object."
+                                }
+                            ]
+                        }
+                    }
                 }
-            }
+            },
+            "anyOf": [
+                {
+                    "title": "Laterality and Primary Site dependency",
+                    "if":   { "required": ["laterality"] },
+                    "then": { "required": ["primarySite"] }
+                }
+            ]
         },
 
         "diseaseEfo": {
@@ -670,6 +969,594 @@
             }
         },
 
+        "phenotypicFeature": {
+            "title": "Phenotypic feature",
+            "description": "A phenotypic feature is an observable trait (e.g., Aortic root dilation — HP:0002616) that chracterizes a biomaterial. It is a direct observation: something seen, measured, or reported about a biomaterial. Unlike a 'disease', a phenotypic feature makes no claim about underlying cause; it simply records what is (or is not) present.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/phenotype.html",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "PhenotypicFeature",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-04-28"
+                },
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/common/phenotypicFeature.json",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "PhenotypicFeature",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-04-28"
+                },
+                {
+                    "predicate_id": "skos:broadMatch",
+                    "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.Diagnosis",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 0.7,
+                    "mapping_date": "2025-04-24",
+                    "$comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object."
+                }
+            ],
+            "allOf": [
+                {
+                "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+                "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/common/phenotypicFeature.json"
+                }
+            ]
+        },
+
+        "vitalStatus": {
+            "type": "object",
+            "title": "Vital Status",
+            "description": "Represents whether the organism is living or dead (or unknown) at the timepoint when the metadata was collected and/or reported. In practice, this element is useful in cohort studies in which the association of some treatment or genetic variation is compared with mortality. For many other applications, it may not be necessary to use a vitalStatus element.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/vital-status.html#vitalstatus",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "vitalStatus",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-04-24"
+                }
+            ],
+            "required": ["status"],
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "title": "Status",
+                    "description": "",
+                    "meta:sssomMappings": [
+                        {
+                            "predicate_id": "skos:exactMatch",
+                            "object_id": "PATO:0000169",
+                            "mapping_justification": "semapv:ManualMappingCuration",
+                            "object_match_field": "rdfs:comment",
+                            "subject_match_field": "rdfs:comment",
+                            "match_string": "vitalStatus",
+                            "author_id": ["orcid:0000-0002-7747-6256"],
+                            "creator_id": ["orcid:0000-0002-7747-6256"],
+                            "reviewer_id": [""],
+                            "confidence": 1.0,
+                            "mapping_date": "2025-04-24"
+                        }
+                    ],
+                    "anyOf": [
+                        {
+                            "enum": [ "alive", "dead" ],
+                            "meta:enum": {
+                                "alive": "PATO:0001421",
+                                "dead": "PATO:0001422"                                
+                            }
+                        },
+                        {
+                            "title": "Uncertainty terms definition",
+                            "$ref": "./FEGA.common-definitions.json#/$defs/HL7NullFlavor"
+                        }
+                    ],
+                    "examples": [ "alive", "dead", "UNK" ]
+                },
+                "timeOfDeath": {
+                    "title": "Time of death",
+                    "description": "Represents the time of death of the organism. Not to be used if the organism is not known to be dead.",
+                    "allOf": [
+                        {
+                            "title": "Compatibility with Beacon v2 JSON Schema",
+                            "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+                            "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/common/timeElement.json"    
+                        }
+                    ],
+                    "examples": [
+                        {
+                            "iso8601duration": "P32Y6M1D"
+                        },
+                        {
+                            "start": {"iso8601duration": "P20Y"},
+                            "end": {"iso8601duration": "P21Y"}
+                        }
+                    ]
+                },
+                "causeOfDeath": {
+                    "title": "Cause of death",
+                    "description": "Represents the cause of death of the organism. Not to be used if the organism is not known to be dead.",
+                    "$comment": "I don't think restricting the ontology term here is doable, since this could be quite literally anything in the semantic space.",
+                    "allOf": [
+                        {
+                            "title": "Inherited ontologyTerm structure of id and label",
+                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                        }
+                    ],
+                    "examples": [
+                        {
+                            "id": "SNOMED:217082002",
+                            "label": "Accidental fall (event)"
+                        },
+                        {
+                            "id": "SNOMED:215841000",
+                            "label": "Hit by boat while water skiing (event)"
+                        },
+                        {
+                            "id": "SNOMED:297186008"
+                        }
+                    ]
+                },
+                "survivalTimeInDays": {
+                    "type": "integer",
+                    "title": "Survival time in days",
+                    "description": "Number of days the organism was alive after their primary diagnosis.",
+                    "examples": [ 1, 10, 5]
+                }
+            }
+        },
+
+        "exposure": {
+            "type": "object",
+            "title": "Exposure",
+            "description": "Represents a single environmental exposure.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:narrowMatch",
+                    "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/exposure.html#exposure",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "exposure",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-04-24"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/common/exposure.json",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "exposure",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-04-24"
+                },
+                {
+                    "predicate_id": "skos:narrowMatch",
+                    "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.'Environmental Exposure'",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "match_string": "exposure",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-04-24",
+                    "$comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object."
+                }
+            ],
+            "required": [ "type", "occurence" ],
+            "properties": {
+                "type": {
+                    "title": "Type of exposure",
+                    "description": "The primary ontology class which describes the exposure. Terms from the [Environment Exposure Ontology (ECTO)](https://www.ebi.ac.uk/ols4/ontologies/ecto) are recommended, but not exclusive.",
+                    "allOf": [
+                        {
+                            "title": "Inherited ontologyTerm structure of id and label",
+                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                        }
+                    ],
+                    "examples": [
+                        {
+                            "id": "CHEBI:25540",
+                            "label": "neonicotinoid insectide"
+                        },
+                        {
+                            "id": "CHEBI:25442",
+                            "label": "mycotoxin"
+                        }
+                    ]
+                },
+                "negated": {
+                    "type": "boolean",
+                    "title": "Negated exposure",
+                    "description": "Flag to indicate whether the exposure occurred or not. Default is 'false', in other words the exposure has occurred. Therefore it is **only** required in cases to indicate that the exposure was deemed *not* to have happened. More formally, this modifier indicates the logical negation of the ontologyTerm used in the 'type' property. CAUTION It is imperative to check this field for correct interpretation of the exposure!",
+                    "examples": [ true, false ]
+                },
+                "route": {
+                    "title": "Route of exposure",
+                    "description": "Mechanism of the exposure. Ontology terms from the [NCIT](https://www.ebi.ac.uk/ols4/ontologies/ncit) are recommended for this purpose.",
+                    "allOf": [
+                        {
+                            "title": "Inherited ontologyTerm structure of id and label",
+                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                        }
+                    ],
+                    "examples": [
+                        {
+                            "id": "NCIT:C28229",
+                            "label": "Ingestion"
+                        },
+                        {
+                            "id": "NCIT:C28160"
+                        }
+                    ]
+                },
+                "modifiers": {
+                    "type": "array",
+                    "title": "Modifiers of the exposure",
+                    "description": "Characteristics of the exposure.",
+                    "minItems": 1,
+                    "uniqueItems": true,        
+                    "items": {
+                        "title": "Inherited ontologyTerm structure of id and label",
+                        "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                    },
+                    "$comment": "Again, I'm unsure if to constraint the terms and/or labels to a set of ontologies (e.g., ECTO), or leave it open like now.",
+                    "examples": [
+                        [
+                            {
+                                "id": "NCIT:C94596",
+                                "label": "Cumulative Exposure"
+                            },
+                            {
+                                "id": "ECTO:9000821",
+                                "label": "high-dose exposure"
+                            }
+                        ]
+                    ]
+                },
+                "occurence": {
+                    "title": "Occurence",
+                    "description": "When the exposure occurred. The timeElement offers flexibility (e.g., age of the organism, timestamp, period of time...).",
+                    "allOf": [
+                        {
+                            "title": "Compatibility with Beacon v2 JSON Schema",
+                            "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+                            "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/common/timeElement.json"    
+                        }
+                    ],
+                    "examples": [ 
+                        "2018-03-01T00:00:00Z",
+                        {
+                            "start": {"iso8601duration": "P45Y6M1D"},
+                            "end": {"iso8601duration": "P45Y11M1D"}
+                        }
+                    ]
+                },
+                "evidence": {
+                    "type": "",
+                    "title": "",
+                    "description": "Evidences for how the exposure was determined.",
+                    "minItems": 1,
+                    "uniqueItems": true,        
+                    "items": {
+                        "title": "Inherited ontologyTerm structure of id and label",
+                        "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                    },
+                    "examples": [
+                        [
+                            {
+                                "id": "ECO:0006154",
+                                "label": "self-reported patient statement evidence"
+                            }
+                        ],
+                        [
+                            {
+                                "id": "ECO:0000205",
+                                "label": "curator inference"
+                            },
+                            {
+                                "id": "ECO:0008026",
+                                "label": "coordinate mapping to geographic property shapefiles used in manual assertion"
+                            }
+                        ]
+                    ]
+                },
+                "unit": {
+                    "title": "Unit of exposure",
+                    "description": "Unit of the exposure. Recommended to use terms from the Units of measurement Ontology ((UO)[https://www.ebi.ac.uk/ols4/ontologies/uo]) or children terms of the NCIT 'Unit by Category' (NCIT:C42568).",
+                    "meta:sssomMappings": [
+                        {
+                            "predicate_id": "skos:exactMatch",
+                            "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/common/exposure.json#unit",
+                            "mapping_justification": "semapv:ManualMappingCuration",
+                            "object_match_field": "rdfs:label",
+                            "subject_match_field": "rdfs:label",
+                            "author_id": ["orcid:0000-0002-7747-6256"],
+                            "creator_id": ["orcid:0000-0002-7747-6256"],
+                            "reviewer_id": [""],
+                            "confidence": 1.0,
+                            "mapping_date": "2025-04-25"
+                        }
+                    ],
+                    "allOf": [
+                        {
+                            "title": "Inherited ontologyTerm structure of id and label",
+                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                        }
+                    ]
+                },
+                "value": {
+                    "type": "number",
+                    "title": "Value of unit",
+                    "description": "Quantification of the exposure.",
+                    "meta:sssomMappings": [
+                        {
+                            "predicate_id": "skos:exactMatch",
+                            "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/common/exposure.json#value",
+                            "mapping_justification": "semapv:ManualMappingCuration",
+                            "object_match_field": "rdfs:label",
+                            "subject_match_field": "rdfs:label",
+                            "author_id": ["orcid:0000-0002-7747-6256"],
+                            "creator_id": ["orcid:0000-0002-7747-6256"],
+                            "reviewer_id": [""],
+                            "confidence": 1.0,
+                            "mapping_date": "2025-04-25"
+                        }
+                    ],
+                    "$comment": "I thought of adding a 'minimum' of 0, but I guess there may be a weird case of 'negated' exposure where someone may want to measure 'how much the exposure' was negated."
+                },
+                "description": {
+                    "type": "",
+                    "title": "Exposure description",
+                    "description": "Free-text description of the exposure. Only to be used to encompass additional information that otherwise could not be added by using the other exposure fields. In other words, use the other curated fields to provide the key information about the exposure.",
+                    "minLength": 1,
+                    "examples": [ "Accidental arsenic ingestion from a herbal medicine product", "Patient got burnt with the Electric Kettle when making tea" ]
+                }
+            }
+        },
+
+        "ancestryComponent": {
+            "type": "object",
+            "title": "Ancestry component",
+            "description": "Population category of a biomaterial. Defined using ancestry informative markers (AIMs) based on genetic/genomic data.",
+            "$comment": "Similar to ethnicity, we could want to be restrictive and validate the ontology term IDs and labels, rather than a plain recommendation.",
+            "meta:sssomMappings": [
+                {
+                "predicate_id": "skos:exactMatch",
+                "object_id": "HANCESTRO:0004",
+                "mapping_justification": "semapv:LexicalMatching",
+                "object_match_field": "rdfs:label",
+                "subject_match_field": "rdfs:label",
+                "match_string": "ancestry",
+                "author_id": ["orcid:0000-0002-7747-6256"],
+                "creator_id": ["orcid:0000-0002-7747-6256"],
+                "reviewer_id": [""],
+                "confidence": 1.0,
+                "mapping_date": "2025-04-25"
+                }
+            ],
+            "required": ["term"],
+            "properties": {
+                "term": {
+                    "title": "Ancestry term",
+                    "description": "Term encoding the ancestry of the biomaterial. Recommended values come from the 'ancestry category' ([HANCESTRO:0004](http://purl.obolibrary.org/obo/HANCESTRO_0004))",
+                    "allOf": [
+                        {
+                            "title": "Inherited ontologyTerm structure of term id and label",
+                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                        }
+                    ]
+                },
+                "method": {
+                    "title": "Method of inference",
+                    "description": "Technique or information source used to assign the ancestry. Recommended values come from the Evidence & Conclusion Ontology (ECO) (e.g., ECO:0006395 for 'self-reported ancestry evidence') or the Ontology for Biomedical Investigations (OBI) (e.g., OBI:0200051 for 'principal components analysis dimensionality reduction').",
+                    "allOf": [
+                        {
+                            "title": "Inherited ontologyTerm structure of term id and label",
+                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                        }
+                    ],
+                    "examples": [
+                        {
+                            "id": "ECO:0006395",
+                            "label": "self-reported ancestry evidence"
+                        },
+                        {
+                            "id": "ECO:0007206",
+                            "label": "intermethylated site amplification evidence used in automatic assertion"
+                        },
+                        {
+                            "id": "OBI:0200051",
+                            "label": "principal components analysis dimensionality reduction"
+                        }
+                    ]
+                },
+                "proportion": {
+                    "type": "number",
+                    "title": "Genomic proportion",
+                    "description": "Estimated fraction of the genome assigned to this ancestry category, expressed as a value between 0 and 1.",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "examples": [0.72, 0.1]
+                  }
+            },
+            "examples": [
+                {
+                    "term": {
+                        "id": "HANCESTRO:0498",
+                        "label": "Filipino"
+                    },
+                    "method": {
+                        "id": "ECO:0006395",
+                        "label": "self-reported ancestry evidence"
+                    }
+                },
+                {
+                    "term": {
+                        "id": "HANCESTRO:0758",
+                        "label": "Basque in France (HGDP)"
+                    },
+                    "method": {
+                        "id": "ECO:0007206"
+                    },
+                    "portion": 0.4
+                }
+            ]
+        },
+
+        "anatomicalEntity": {
+            "title": "Anatomical entity",
+            "description": "Biological entity that is either an individual member of a biological species or constitutes the structural organization of an individual member of a biological species.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "UBERON:0001062",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "anatomical entity",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-05-01"
+                }
+            ],
+            "allOf": [
+                {
+                    "title": "Inherited ontologyTerm structure of term id and label",
+                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                }
+            ],
+            "properties": {
+                "id": {
+                    "title": "Ontology constraints for this specific id",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:uberon"],
+                        "classes": ["UBERON:0001062"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false
+                    },
+                    "examples": [ "UBERON:0001264", "UBERON:0003622", "UBERON:0005035" ]
+                },
+                "label": {
+                    "title": "Ontology constraints for this specific label",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:uberon"],
+                        "classes": ["UBERON:0001062"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false,
+                        "queryFields": [ "label" ]
+                    },
+                    "examples": [ "pancreas", "manual digit 2", "mucosa of left main bronchus" ]
+                }
+            }
+        },
+
+        "quantity": {
+            "type": "object",
+            "required": ["value", "unit"],
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/quantity.html#rstquantity",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-05-02"
+                }
+            ],
+            "properties": {
+                "value": {
+                    "type": "number",
+                    "title": "Value",
+                    "description": "Numeric value of the measured quantity.",
+                    "examples": [45, 12.3]
+                },
+                "unit": {
+                    "title": "Unit",
+                    "description": "Unit of the measured quantity. Recommended terms are children of: 'unit' (UO:0000000) from the the [Units of measurement ontology (UO)](https://www.ebi.ac.uk/ols4/ontologies/uo); or 'Unit of Measure' (NCIT:C25709) from the NCIt.",
+                    "allOf": [
+                        {
+                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                        }
+                    ],
+                    "examples": [
+                        {
+                            "id": "NCIT:C28253",
+                            "label": "Milligram"
+                        },
+                        {
+                            "id": "UO:0000316",
+                            "label": "cells per microliter"
+                        }
+                    ]
+                },
+                "method": {
+                    "title": "Method",
+                    "description": "Method of measurement of the quantity. Defined either as a qualified reference or an ontology term.",
+                    "anyOf": [
+                        {
+                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                        },
+                        {
+                            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItem"
+                        }
+                    ],
+                    "examples": [
+                        {
+                            "id": "https://www.protocols.io/view/fluorescence-measurement-j8nlkeek5l5r/v1"
+                        },
+                        {
+                            "id": "OBI:0002730",
+                            "label": "pathogen detection by Rapid Analyte Measurement Platform assay"
+                        }
+                    ]
+                },
+                "referenceRange": {
+                    "title": "Compatibility with Beacon v2 JSON Schema",
+                    "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+                    "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/common/referenceRange.json"
+                }
+            }
+        },
+        
         "sameAs": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",      
             "meta:sssomMappings": [
