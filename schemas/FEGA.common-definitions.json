@@ -1574,12 +1574,12 @@
                     "mapping_date": "2025-04-11"
                 }
             ],
-            "description": "Relationship referencing other entities considered equivalent to the root entity."
+            "description": "Relationship referencing other entities (object) considered equivalent to the root entity (subject)."
         },
 
         "wasUsedBy": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",      
-            "description": "Relationship referencing other entities by which the the root entity was used."
+            "description": "Relationship referencing other entities (object) by which the the root entity (subject) was used."
         },
 
         "used": {
@@ -1599,12 +1599,12 @@
                     "mapping_date": "2025-04-11"
                 }
             ],
-            "description": "Relationship referencing other entities that used the root entity"
+            "description": "Relationship referencing other entities (object) that used the root entity (subject)."
         },
 
         "wasGeneratedBy": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
-            "$comment": "TBD #!",
+            "description": "Array of relationships referencing the activity, workflow step or other entity (object) that generated (i.e. first brought into existence) the root entity (subject).",
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
@@ -1618,33 +1618,121 @@
                     "reviewer_id": [""],
                     "confidence": 1.0,
                     "mapping_date": "2025-04-11"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "schema:creator",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 0.8,
+                    "mapping_date": "2025-05-22"
                 }
-            ],
-            "description": ""
+            ]
         },
 
         "wasDerivedFrom": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
-            "$comment": "TBD #!",
-            "description": ""
+            "description": "Array of relationships referencing source entities (object) from which the root entity (subject) is transformed, updated or otherwise derived.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "prov-o:wasDerivedFrom",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "wasDerivedFrom",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-05-22"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "schema:isBasedOn",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 0.8,
+                    "mapping_date": "2025-05-22"
+                }
+            ]
         },
 
         "wasAttributedTo": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
-            "$comment": "TBD #!",
-            "description": ""
+            "description": "Array of relationships linking the object agent (person, organisation or software) that is responsible for or contributed to the existence, content or state of the root (subject) entity.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "prov-o:wasAttributedTo",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "wasAttributedTo",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-05-22"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "schema:creator",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 0.75,
+                    "mapping_date": "2025-05-22"
+                }
+            ]
         },
 
         "actedOnBehalfOf": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
-            "$comment": "TBD #!",
-            "description": ""
+            "description": "Array of relationships indicating delegation: the root agent (subject) carried out an activity on behalf of another agent (object).",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "prov-o:actedOnBehalfOf",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "actedOnBehalfOf",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-05-22"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "schema:sourceOrganization",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 0.6,
+                    "mapping_date": "2025-05-22"
+                }
+            ]
         },
 
         "isPartOf": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
-            "$comment": "TBD #!",
-            "description": "",
+            "description": "Array of relationships pointing to a broader resource (object) (study, dataset, publication, collection, project, etc.) of which the root entity (subject) forms a logical or physical part.",
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
@@ -1658,8 +1746,37 @@
                     "reviewer_id": [""],
                     "confidence": 1.0,
                     "mapping_date": "2025-04-24"
+                },
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "schema:isPartOf",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "isPartOf",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-05-22"
                 }
             ]
+        },
+
+        "hasParent": {
+            "$comment": "#! TBD: schema:parent, also reversible with the children"
+        },        
+        "hasChild": {
+            "$comment": "#! TBD: schema:children"
+        },
+        "hasSibling": {
+            "$comment": "#! TBD: schema:sibling"
+        },
+        "hasSpouse": {
+            "$comment": "#! TBD: schema:spouse"
+        },
+        "relatedTo": {
+            "$comment": "#! TBD: schema:relatedTo"
         }
     }
 }

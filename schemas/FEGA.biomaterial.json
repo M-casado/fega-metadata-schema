@@ -11,7 +11,7 @@
     {
       "entityDoc": "entities:FEGA.biomaterial.json#",
       "properties": "@nest",
-      "biomaterialType": "http://purl.obolibrary.org/obo/BFO_0000040"
+      "biomaterialType": "entityDoc:biomaterialType"
     }
   ],
   "required": ["biomaterialType"],
@@ -126,6 +126,8 @@
               "object_id": "schema:identifier",
               "mapping_justification": "semapv:LexicalMatching",
               "match_string": "id",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
               "author_id": ["orcid:0000-0002-7747-6256"],
               "creator_id": ["orcid:0000-0002-7747-6256"],
               "reviewer_id": [""],
@@ -343,6 +345,10 @@
           }
         },
 
+        "gender": {
+          "$comment": "#! TBD"
+        },
+
         "dateOfBirth": {
           "type": "string",
           "title": "Date of birth",
@@ -519,7 +525,7 @@
 
         "ancestry": {
           "type": "array",
-          "title": "Exposures",
+          "title": "Ancestry",
           "description": "List of ancestry components that characterize the biomaterial.",
           "minItems": 1,
           "uniqueItems": true,
@@ -750,7 +756,7 @@
               "mapping_justification": "semapv:LexicalMatching",
               "object_match_field": "rdfs:label",
               "subject_match_field": "rdfs:label",
-              "match_string": "time at last encounter",
+              "match_string": "taxonomy",
               "author_id": ["orcid:0000-0002-7747-6256"],
               "creator_id": ["orcid:0000-0002-7747-6256"],
               "reviewer_id": [""],
@@ -818,7 +824,6 @@
               "mapping_justification": "semapv:ManualMappingCuration",
               "object_match_field": "rdfs:comment",
               "subject_match_field": "rdfs:comment",
-              "match_string": "time at last encounter",
               "author_id": ["orcid:0000-0002-7747-6256"],
               "creator_id": ["orcid:0000-0002-7747-6256"],
               "reviewer_id": [""],
@@ -859,6 +864,47 @@
           ],
           "$comment": "Beacon's definition includes more than just anatomical entities: includes BTO and OBI ontologies, for things like a specific tissue culture (e.g., HEK-293T). If deemed worth it, we may want to expand the 'allOf' here other ontology constraints."
         },
+
+        "collectionSite": {
+          "title": "Collection site",
+          "description": "Geographic location (facility, city, country or lat/long place) where the biomaterial was sampled. Use terms from GAZ, GeoNames or NCIT Geography whenever possible; free text only as last resort. Not to be confused with the 'samplingSource' (location on the source organism) nor the 'birthPlace' of a biomaterial of type 'organism'.",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:broadMatch",
+              "object_id": "https://schema.org/location",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-06-13"
+            }
+          ],
+          "anyOf": [
+            {
+              "type": "object",
+              "title": "Inherited ontologyTerm structure of term id and label",
+              "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+            },
+            {
+              "type": "string",
+              "minLength": 1
+            }
+          ],
+          "examples": [
+            {
+              "id": "GAZ:00003319",
+              "label": "Madrid Autonomous Community"
+            },
+            {
+              "id": "GAZ:00007277",
+              "label": "Hospital de la Santa Creu i Sant Pau"
+            }
+          ]
+        },
+
         "storageConditions": {
           "type": "array",
           "title": "Storage conditions",
@@ -917,6 +963,7 @@
             ]
           ]
         },
+
         "samplingAge": {
           "title": "Sampling age",
           "description": "Age of the biomaterial (e.g., an 'organism') from which this biomaterial (e.g., 'organismPart') derived at the time of the sampling.",
@@ -927,7 +974,6 @@
               "mapping_justification": "semapv:ManualMappingCuration",
               "object_match_field": "rdfs:comment",
               "subject_match_field": "rdfs:comment",
-              "match_string": "time at last encounter",
               "author_id": ["orcid:0000-0002-7747-6256"],
               "creator_id": ["orcid:0000-0002-7747-6256"],
               "reviewer_id": [""],
@@ -960,6 +1006,7 @@
             { "id": "NCIT:C49685", "label": "Adult 18-65 Years Old" }
           ]
         },
+
         "samplingDate": {
           "type": "string",
           "title": "Sampling date",
@@ -1005,6 +1052,8 @@
           ],
           "examples": ["2025-05-02"]
         },
+
+        "samplingProcedure": {"$comment": "#! Decide whether to add the procedure here as a readOnly, or stick with it being part of the 'process' that generated this biomaterial."},
         
         "sameAs": {
           "$ref": "./FEGA.common-definitions.json#/$defs/sameAs"
@@ -1024,30 +1073,28 @@
         }
       }      
     },
-
+    
     "organismChecklist": {
       "title": "Organism checklist",
       "description": "Checklist of required and allowed biomaterial properties for this type of biomaterial.",
       "allOf": [
         { "$ref": "#/$defs/commonBiomaterialDefs" },
-        { 
-          "properties": {
-            "biomaterialType": {
-              "properties": { "label": { "const": "organism" } }
-            }
-          }
-        },
-        { 
-          "title": "Required biomaterial properties for this type of biomaterial.",
-          "required": ["id", "label", "sex"] 
-        },
         {
-          "title": "Forbidden biomaterial properties for this type of biomaterial.",
-          "properties": {
-            "collectionSite": false,
-            "collectionDate": false,
-            "description": false,
-            "#! - Finish once Biomaterial is complete": "#!"
+          "if": {
+            "properties": {
+              "biomaterialType": {
+                "properties": {
+                  "label": { "const": "organism" }
+                }
+              }
+           }
+          },
+          "then": {
+            "$comment": "Biomaterial properties required or disallowed for this type of biomaterial.",
+            "required": ["id", "label", "sex"],
+            "not": { 
+              "required": [ "samplingSource", "storageConditions", "samplingAge", "samplingDate", "wasGeneratedBy" ]
+            }
           }
         }
       ]
@@ -1058,30 +1105,22 @@
       "description": "Checklist of required and allowed biomaterial properties for this type of biomaterial.",
       "allOf": [
         { "$ref": "#/$defs/commonBiomaterialDefs" },
-        { 
-          "properties": {
-            "biomaterialType": {
-              "properties": { "label": { "const": "organism part" } }
+        {
+          "if": {
+            "properties": {
+              "biomaterialType": {
+                "properties": {
+                  "label": { "const": "organism part" }
+                }
+              }
+           }
+          },
+          "then": {
+            "$comment": "Biomaterial properties required or disallowed for this type of biomaterial.",
+            "required": [ "id", "label" ],
+            "not": { 
+              "required": [ "sex", "dateOfBirth", "birthPlace", "ethnicity", "ancestry", "interventionsOrProcedures", "pedigrees", "timeAtLastEncounter", "vitalStatus" ]
             }
-          }
-        },
-        {
-          "title": "Required biomaterial properties for this type of biomaterial.",
-          "required": ["id", "label"]
-        },
-        {
-          "title": "Forbidden biomaterial properties for this type of biomaterial.",
-          "$comment": "Instead of 'forbidding' entities, we could choose to specifically 'allow' a set of properties. Would be relatively simple to refactor 'common' $defs, and then add specific properties to each checklist.",
-          "properties": {
-            "sex": false,
-            "dateOfBirth": false,
-            "birthPlace": false,
-            "ethnicity": false,
-            "ancestry": false,
-            "interventionsOrProcedures": false,
-            "pedigrees": false,
-            "timeAtLastEncounter": false,
-            "vitalStatus": false
           }
         }
       ]
