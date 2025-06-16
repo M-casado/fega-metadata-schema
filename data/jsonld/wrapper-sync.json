@@ -1,5 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/test-wrapper/schemas/FEGA.biomaterial.json/data/jsonld/wrapper-sync.json",
-  "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/test-wrapper/schemas/FEGA.biomaterial.json/data/jsonld/external-async.json"
+  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/test-wrapper/data/jsonld/wrapper-sync.json",
+  "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/test-wrapper/data/jsonld/external-async.json"
 }

@@ -2,8 +2,8 @@
   "data": { "start": 5, "end": 10 },
   "schema": {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/test-wrapper/schemas/FEGA.biomaterial.json/data/jsonld/root-sync.json",
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/test-wrapper/data/jsonld/root-sync.json",
     "type": "object",
-    "allOf": [ { "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/test-wrapper/schemas/FEGA.biomaterial.json/data/jsonld/wrapper-sync.json" } ]
+    "allOf": [ { "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/test-wrapper/data/jsonld/wrapper-sync.json" } ]
   }
 }
