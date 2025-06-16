@@ -554,7 +554,8 @@
                             "id": "EFO:0001660",
                             "label": "medial"
                         }
-                    ]
+                    ],
+                    "$comment": "#! Would this need to be an array to define better in 3D a disease? E.g., 'left' + 'caudal'"
                 },                
                 "diagnosisTime": {
                     "title": "Diagnosis time",
@@ -1015,8 +1016,8 @@
             ],
             "allOf": [
                 {
-                "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
-                "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/common/phenotypicFeature.json"
+                    "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+                    "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/common/phenotypicFeature.json"
                 }
             ]
         },
