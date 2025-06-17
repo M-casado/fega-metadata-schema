@@ -402,7 +402,7 @@
         "birthPlace": {
           "type": "object",
           "title": "Birth place",
-          "description": "Country of origin of the individual (birthplace or residence place regardless of ethnicity). Value from GAZ Geographic Location ontology (GAZ:00000448), e.g. GAZ:00002459 (United States of America).",
+          "description": "Country of origin of the individual (birthplace or residence place regardless of ethnicity). Recommended values are from NCIT Country (NCIT:C25464) or from GAZ Geographic Location ontology (GAZ:00000448), e.g. GAZ:00002459 (United States of America).",
           "meta:sssomMappings": [
             {
               "predicate_id": "skos:exactMatch",
@@ -452,27 +452,48 @@
           "properties": {        
             "id": {
               "title": "Ontology constraints for this specific term id",
-              "graphRestriction": {
-                "ontologies": ["obo:gaz"],
-                "classes": ["NCIT:C25464"],
-                "relations": ["rdfs:subClassOf"],
-                "includeSelf": false
-              }
+              "anyOf": [
+                {
+                  "graphRestriction": {
+                    "ontologies": ["obo:ncit"],
+                    "classes": ["NCIT:C25464"],
+                    "relations": ["rdfs:subClassOf"],
+                    "includeSelf": false
+                  }
+                },
+                {
+                  "graphRestriction": {
+                    "ontologies": ["obo:gaz"],
+                    "classes": ["GAZ:00000448"],
+                    "relations": ["rdfs:subClassOf"],
+                    "includeSelf": false
+                  }
+                }
+              ]           
             },
             "label": {
               "type": "string",
               "title": "Ontology constraints for this specific term label",
-              "allOf": [
+              "anyOf": [
                 {
                   "graphRestriction": {
-                    "ontologies": ["obo:gaz"],
+                    "ontologies": ["obo:ncit"],
                     "classes": ["NCIT:C25464"],
                     "relations": ["rdfs:subClassOf"],
                     "queryFields": [ "label" ],
                     "includeSelf": false
                   }
+                },
+                {
+                  "graphRestriction": {
+                    "ontologies": ["obo:gaz"],
+                    "classes": ["GAZ:00000448"],
+                    "relations": ["rdfs:subClassOf"],
+                    "queryFields": [ "label" ],
+                    "includeSelf": false
+                  }
                 }
-              ]          
+              ]
             }
           },
           "examples": [
@@ -489,7 +510,7 @@
 
         "ethnicity": {
           "title": "Ethnicity",
-          "description": "Population category of the organism. Defined in terms of cultural, religious, tribal or other social similarities, excluding geography-based descriptors (use 'birthPlace' to encode that information). It is recommended to use terms belonging to 'ethnicity category' ([HANCESTRO:0601](http://purl.obolibrary.org/obo/HANCESTRO_0601)).",
+          "description": "Population category of the organism. Defined in terms of cultural, religious, tribal or other social similarities, excluding geography-based descriptors (use 'birthPlace' to encode that information). Use terms belonging to 'ethnicity category' ([HANCESTRO:0601](http://purl.obolibrary.org/obo/HANCESTRO_0601)).",
           "meta:sssomMappings": [
             {
               "predicate_id": "skos:closeMatch",
@@ -524,6 +545,28 @@
               "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
             }
           ],
+          "properties": {        
+            "id": {
+              "title": "Ontology constraints for this specific term id",
+              "graphRestriction": {
+                "ontologies": ["obo:hancestro"],
+                "classes": ["HANCESTRO:0601"],
+                "relations": ["rdfs:subClassOf"],
+                "includeSelf": false
+              }      
+            },
+            "label": {
+              "type": "string",
+              "title": "Ontology constraints for this specific term label",
+              "graphRestriction": {
+                "ontologies": ["obo:hancestro"],
+                "classes": ["HANCESTRO:0601"],
+                "relations": ["rdfs:subClassOf"],
+                "queryFields": [ "label" ],
+                "includeSelf": false
+              }
+            }
+          },
           "examples": [
             {
               "id": "HANCESTRO:0316",
@@ -566,7 +609,7 @@
           "type": "array",
           "title": "Measurements",
           "description": "List of measurement(s) (and their associated metadata) that were performed on the biomaterial. These capture quantitative, ordinal (e.g., absent/present), or categorical measurements. It can be used to describe clinically relevant biomarkers (e.g., 'Human Papillomavirus-18 Positive' NCIT:C131711, or 'HER2/Neu Positive' NCIT:C68748)",
-          "$comment": "Similar to 'treatments' and ''collectionDetails', we should generalize the 'measurements' into a 'process'. To make it make sense inside a generic entity, we would simply need to constraint the, now defined, properties of a measurement, into a 'checklist' of process.",
+          "$comment": "Similar to 'treatments' and 'collectionDetails', we should generalize the 'measurements' into a 'process'. To make it make sense inside a generic entity, we would simply need to constraint the, now defined, properties of a measurement, into a 'checklist' of process.",
           "meta:sssomMappings": [
             {
               "predicate_id": "skos:narrowMatch",
@@ -595,15 +638,12 @@
           ],
           "minItems": 1,
           "uniqueItems": true,
-          "allOf": [
-            {
-              "title": "Compatibility with Beacon v2 JSON Schema",
-              "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
-              "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/individuals/defaultSchema.json#/properties/measures"
-            }
-          ]
+          "items": {
+            "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+            "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/common/measurement.json"
+          }
         },
-
+        
         "pedigrees": {
           "title": "Pedigree",
           "description": "This element is used to describe the family relationships of each organism with regards to their shared diseases.",
@@ -636,12 +676,12 @@
               "mapping_date": "2025-04-28"
             }
           ],
-          "allOf": [
-            {
-              "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
-              "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/individuals/defaultSchema.json#/properties/pedigrees"
-            }
-          ]
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+            "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/common/pedigree.json"
+          }
         },
 
         "phenotypicFeatures": {
@@ -699,12 +739,12 @@
               "comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object."
             }
           ],
-          "allOf": [
-            {
-              "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
-              "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/individuals/defaultSchema.json#/properties/treatments"
-            }
-          ]
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+            "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/common/treatment.json"
+          }
         },
 
         "timeAtLastEncounter": {
@@ -1084,7 +1124,7 @@
           "$comment": "#! All the collection details (date, sampling site, performers...) would go into the 'process' that is referenced here. In the FEGA model, the collection details are associated to a process, rather than to an atommical 'biomaterial' property. On the other hand, most downstream bioinformatic analysis may only take a look at 'sample' tables, and may not traverse the process path. Thus, later on it may be convenient to add read-only fields at the sample level (e.g., 'collectionDetails'), automatically propagated from the 'process' that generated them. This creates two sources of truth, for which we would need read-only to be enforced.",
           "$ref": "./FEGA.common-definitions.json#/$defs/wasGeneratedBy"
         }
-      }      
+      }
     },
     
     "organismChecklist": {

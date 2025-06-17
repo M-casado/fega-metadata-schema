@@ -3,20 +3,59 @@
       "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.biomaterial.json"
   },
   "data": {
-      "@context": {
-        "biologicalSex": "http://purl.obolibrary.org/obo/PATO_0000047",
-        "subjectId": "http://purl.org/fega/subjectID",
-        "isPartOf": "http://schema.org/isPartOf"
+      "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.biomaterial.json",
+      "@type": "biomaterial",
+      "biomaterialType": {
+        "id": "OBI:0100026",
+        "label": "organism"
       },
-      "@type": "https://fega.org/ontology/Individual",
-      "biomaterial_type": "individual",
-      "phenotypicSex": {
-          "termId": "PATO:0000383",
-          "termLabel": "female"
+      "id": "fega:EGAN00009999999",
+      "label": "SUBJECT-0001",
+      "description": "Synthetic example individual diagnosed with invasive ductal breast carcinoma.",
+      "sex": {
+        "phenotypicSex": {
+          "id": "PATO:0000383",
+          "label": "female"
+        }
       },
-      "subjectId": "http://purl.org/fega/ega:EGAI00000001",
-      "biomaterialName": "Donor 123",
-      "isPartOf": "http://purl.org/fega/ega:EGAC00000001"
+      "birthPlace": {
+        "id": "GAZ:00002459",
+        "label": "United States of America"
+      },
+      "dateOfBirth": "1970-01-01T00:00:00Z",
+      "ethnicity": {
+        "id": "HANCESTRO:0316",
+        "label": "Amish"
+      },
+      "diagnoses": [
+        {
+          "diagnosisType": "clinical",
+          "term": {
+            "id": "EFO:0000186",
+            "label": "invasive breast ductal carcinoma"
+          },
+          "diseaseStage": {
+            "id": "OGMS:0000106",
+            "label": "remission"
+          },
+          "laterality": {
+            "id": "EFO:0001658",
+            "label": "left"
+          },
+          "primarySite": {
+            "id": "UBERON:0035637",
+            "label": "inner quadrant of breast"
+          },
+          "diagnosisTime": { "iso8601duration": "P52Y" }
+        }
+      ],
+      "timeAtLastEncounter": { "iso8601duration": "P55Y" },
+      "taxonomy": {
+          "id": "NCBITaxon:9606",
+          "label": "Homo sapiens"
+      },
+      "vitalStatus": {
+        "status": "alive"
+      }
   }
 }
-  
