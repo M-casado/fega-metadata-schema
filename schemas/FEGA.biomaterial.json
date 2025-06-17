@@ -15,7 +15,7 @@
     }
   ],
   "required": ["biomaterialType"],
-  "anyOf": [
+  "allOf": [
     { "$ref": "#/$defs/organismChecklist" },
     { "$ref": "#/$defs/organismPartChecklist" }
   ],
@@ -1134,19 +1134,26 @@
         { "$ref": "#/$defs/commonBiomaterialDefs" },
         {
           "if": {
+            "required": ["biomaterialType"],
             "properties": {
               "biomaterialType": {
+                "required": ["label"],
                 "properties": {
                   "label": { "const": "organism" }
                 }
               }
-           }
+            }
           },
           "then": {
             "$comment": "Biomaterial properties required or disallowed for this type of biomaterial.",
+            "$comment": "The way we encode 'properties' as 'false', instead of using 'not' is for the validation error report to be more informative. With 'not', the validator can't inform the user which property is infringing the validation.",
             "required": ["id", "label", "sex"],
-            "not": { 
-              "required": [ "samplingSource", "storageConditions", "samplingAge", "samplingDate", "wasGeneratedBy" ]
+            "properties": {
+              "samplingSource": false,
+              "storageConditions": false,
+              "samplingAge": false,
+              "samplingDate": false,
+              "wasGeneratedBy": false
             }
           }
         }
@@ -1160,19 +1167,30 @@
         { "$ref": "#/$defs/commonBiomaterialDefs" },
         {
           "if": {
+            "required": [ "biomaterialType" ],
             "properties": {
               "biomaterialType": {
+                "required": [ "label" ],
                 "properties": {
                   "label": { "const": "organism part" }
                 }
               }
-           }
+            }
           },
           "then": {
             "$comment": "Biomaterial properties required or disallowed for this type of biomaterial.",
+            "$comment": "The way we encode 'properties' as 'false', instead of using 'not' is for the validation error report to be more informative. With 'not', the validator can't inform the user which property is infringing the validation.",
             "required": [ "id", "label" ],
-            "not": { 
-              "required": [ "sex", "dateOfBirth", "birthPlace", "ethnicity", "ancestry", "interventionsOrProcedures", "pedigrees", "timeAtLastEncounter", "vitalStatus" ]
+            "properties": {
+              "sex": false,
+              "dateOfBirth": false,
+              "birthPlace": false,
+              "ethnicity": false,
+              "ancestry": false,
+              "interventionsOrProcedures": false,
+              "pedigrees": false,
+              "timeAtLastEncounter": false,
+              "vitalStatus": false
             }
           }
         }
