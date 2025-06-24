@@ -1,0 +1,50 @@
+name: Change Request
+description: A form to request a change to the FEGA metadata schemas.
+title: "[CR]: "
+labels: ["change-request"]
+assignees:
+  - M-casado
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form serves as a template for **change requests** of the FEGA metadata schemas. It can be used to request, for example, a new field in the Biomaterial JSON Schema, or a change in the used ontologies. If you are familiar with the repository, feel free to contribute the change yourself after reading the contributing documentation.
+        Thank you for contributing to the metadata of the Federated European Genome-phenome Archive (FEGA)!
+  - type: input
+    id: cr-title
+    attributes:
+      label: Change Request Title
+      description: Please provide a summary or title for the change request. 
+      placeholder: e.g. Addition of EFO checks for validating phenotypicSex
+    validations:
+      required: true
+  - type: dropdown
+    id: metadata-object
+    attributes:
+      label: Metadata object(s)
+      description: What metadata object(s) does your change request correspond to? You can select multiple ones if applicable.
+      multiple: true
+      options:
+        - Process
+        - Protocol
+        - Biomaterial
+        - Data file
+        - DAC
+        - Policy
+        - Dataset
+        - Study
+        - Submission
+        - Cohort
+        - Project
+        - Collection
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: cr-details
+    attributes:
+      label: Change Request Details
+      description: Please explain in detail your change request. Be as detailed as possible, providing references to external resources where applicable.
+      placeholder: e.g. The Experimental Factor Ontology (EFO) has a proper distinction of terms that could be used for validating phenotypicSex within Biomaterial. This is because ...
+    validations:
+      required: true
