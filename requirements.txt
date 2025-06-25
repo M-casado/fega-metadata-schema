@@ -1,0 +1,2 @@
+# Runtime dependencies for scripts/py/validate_metadata.py
+requests>=2.31
