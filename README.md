@@ -26,7 +26,7 @@ The resources in this repository allow you to:
 
 ## Contributing
 
-We welcome [issues](https://github.com/EbiEga/ega-metadata-schema/issues/new/choose) and [pull requests](https://github.com/EbiEga/ega-metadata-schema/pulls). Please read [`CONTRIBUTING.md`](./CONTRIBUTING.md) to know more on how to provide your help to the project.
+We welcome [issues](https://github.com/EGA-archive/fega-metadata-schema/issues/new/choose) and [pull requests](https://github.com/EbiEga/ega-metadata-schema/pulls). Please read [`CONTRIBUTING.md`](./CONTRIBUTING.md) to know more on how to provide your help to the project.
 
 ## License
 
