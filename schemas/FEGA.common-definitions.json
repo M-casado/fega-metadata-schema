@@ -15,7 +15,7 @@
         "entities": "https://raw.githubusercontent.com/M-casado/fega-metadata-schemamain/schemas/",
         "cohort": "entities:FEGA.cohort.json",
         "study": "entities:FEGA.study.json",
-        "instance": "entities:FEGA.instance.json",
+        "process": "entities:FEGA.process.json",
         "protocol": "entities:FEGA.protocol.json",
         "biomaterial": "entities:FEGA.biomaterial.json",
         "datafile": "entities:FEGA.datafile.json",
