@@ -1,4 +1,8 @@
 # FEGA Metadata Schemas
+<img src="./docs/images/logos/FEGA-logo-generic.svg"
+     alt="Federated EGA logo"
+     width="300"
+     align="right" />
 
 Machine-readable definitions of the **Federated European Genome-phenome Archive (FEGA)** metadata model, together with examples, validation utilities, and documentation.
 
