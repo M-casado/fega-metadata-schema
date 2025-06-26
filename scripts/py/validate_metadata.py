@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""validate_metadata.py - FEGA CLI validator (ASCII-only).
+"""validate_metadata.py - FEGA CLI validator
 
 Validate one or many FEGA JSON metadata records against a running
-Biovalidator instance.
+Biovalidator instance and emit a machine-readable summary.
 """
 from __future__ import annotations
 
@@ -25,13 +25,8 @@ DEFAULT_VALIDATOR_URL = "http://localhost:3020/validate"
 ###############################################################################
 # Endpoint check
 ###############################################################################
-
 def assert_validator_reachable(url: str, timeout_seconds: int = 5) -> None:
-    """Raise SystemExit if the Biovalidator endpoint *url* is unreachable.
-
-    We issue a lightweight GET request; any connection error or timeout means
-    continuing would be pointless.
-    """
+    """Abort (exit-code 2) if *url* does not respond within *timeout_seconds*."""
     try:
         requests.get(url, timeout=timeout_seconds)
     except (ConnectionError, Timeout) as exc:
@@ -41,7 +36,6 @@ def assert_validator_reachable(url: str, timeout_seconds: int = 5) -> None:
 ###############################################################################
 # Discovery helpers
 ###############################################################################
-
 def collect_candidate_files(paths: Sequence[Path]) -> List[Path]:
     """Return every *.json file found in *paths* (files or directories)."""
     files: Set[Path] = set()
@@ -65,7 +59,7 @@ def filter_metadata_files(json_files: Sequence[Path]) -> List[Path]:
             if isinstance(obj, dict) and {"data", "schema"}.issubset(obj):
                 valid.append(fp)
             else:
-                logger.debug(f"Missing 'data'/'schema' - skipping '{fp}'")
+                logger.debug(f"Missing 'data'/'schema' – skipping '{fp}'")
         except json.JSONDecodeError as exc:
             logger.warning(f"Not valid JSON file ('{fp}'). Error: {exc}")
     return valid
@@ -73,7 +67,6 @@ def filter_metadata_files(json_files: Sequence[Path]) -> List[Path]:
 ###############################################################################
 # Biovalidator interaction
 ###############################################################################
-
 def post_to_validator(document: Dict[str, Any], url: str) -> Dict[str, Any]:
     """Send *document* to *url* and return the parsed JSON response."""
     headers = {"Content-Type": "application/json"}
@@ -81,28 +74,20 @@ def post_to_validator(document: Dict[str, Any], url: str) -> Dict[str, Any]:
     response.raise_for_status()
     return response.json()
 
-
-def response_has_errors(resp: Dict[str, Any]) -> bool:
-    """Return True if the validator response contains any errors."""
-    for key in ("errors", "validationMessages"):
-        if key in resp and isinstance(resp[key], list) and resp[key]:
-            return True
-    return False
-
 ###############################################################################
 # Core routine
 ###############################################################################
-
 def validate_paths(inputs: Sequence[Path], validator_url: str) -> Dict[str, Any]:
     """Validate metadata located at *inputs* and build a summary dictionary."""
-    # Abort early if endpoint is unreachable
     assert_validator_reachable(validator_url)
 
     all_json = collect_candidate_files(inputs)
     targets = filter_metadata_files(all_json)
 
     if not targets:
-        logger.error("No JSON metadata files with 'data' and 'schema' keys were found under the given inputs.")
+        logger.error(
+            "No JSON metadata files with 'data' and 'schema' keys were found under the given inputs."
+        )
         sys.exit(1)
 
     logger.info(
@@ -110,29 +95,37 @@ def validate_paths(inputs: Sequence[Path], validator_url: str) -> Dict[str, Any]
     )
 
     failed_files: List[str] = []
+    errors_of_failed_files: Dict[str, Any] = {}
 
     for fp in targets:
-        r_error = False
         logger.debug(f"Validating '{fp}'")
         with fp.open("r", encoding="utf-8") as handle:
             document = json.load(handle)
+
         try:
             resp = post_to_validator(document, validator_url)
+            request_error = False
         except (requests.RequestException, json.JSONDecodeError) as exc:
-            logger.error(f"Request failed for '{fp}': {exc}")
-            r_error = True
+            request_error = True
+            resp = str(exc)
 
-        if r_error:
+        if request_error:
             failed_files.append(str(fp))
-            logger.error(f"Validation FAILED with error at REQUEST for '{fp}'")
-        elif isinstance(resp, list) and len(resp) > 0:
+            errors_of_failed_files[str(fp)] = [resp]
+            logger.error(f"Validation FAILED (request error) for '{fp}'")
+
+        elif isinstance(resp, list) and resp:  # non-empty list --> errors
             failed_files.append(str(fp))
+            errors_of_failed_files[str(fp)] = resp
             logger.error(f"Validation FAILED for '{fp}'")
+
         elif isinstance(resp, list) and len(resp) == 0:
             logger.debug(f"Validation PASSED for '{fp}'")
+
         else:
             failed_files.append(str(fp))
-            logger.error(f"Unrecognised REQUEST RESPONSE for '{fp}'")
+            errors_of_failed_files[str(fp)] = ["Unrecognised validator response"]
+            logger.error(f"Validation FAILED (unknown response) for '{fp}'")
 
     summary = {
         "timestamp": _dt.datetime.now(tz=_dt.timezone.utc).isoformat(timespec="seconds"),
@@ -141,14 +134,14 @@ def validate_paths(inputs: Sequence[Path], validator_url: str) -> Dict[str, Any]
         "n_total_files": len(targets),
         "n_failed_files": len(failed_files),
         "failed_files": failed_files,
+        "errors_of_failed_files": errors_of_failed_files,
     }
 
     return summary
 
 ###############################################################################
-# CLI
+# CLI helpers
 ###############################################################################
-
 def make_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="validate_metadata",
@@ -200,7 +193,7 @@ def main(argv: Sequence[str] | None = None) -> None:
 
     summary = validate_paths(args.inputs, args.validator_url)
 
-    json.dump(summary, sys.stdout, indent=2, sort_keys=False)
+    json.dump(summary, sys.stdout, indent=2)
     sys.stdout.write("\n")
 
     sys.exit(0 if summary["n_failed_files"] == 0 else 1)
