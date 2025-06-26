@@ -89,7 +89,7 @@ jobs:
       - name: Wait for Biovalidator to be ready
         run: |
           for i in {1..12}; do
-            if curl --output /dev/null --silent --head --fail "http://localhost:3020"; then
+            if curl --output /dev/null --silent --head --fail "http://localhost:3020/validate"; then
               echo "Biovalidator is up"
               exit 0
             fi
