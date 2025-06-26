@@ -63,14 +63,6 @@ jobs:
           # If there is no cache for this key, we create it at the end of the run, even if there was an error mid-way
           save-always: true
 
-      - name: Cache npm
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: npm-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            npm-${{ runner.os }}-
-
       # --------------------------------------------------------------
       # Tooling: Node (Biovalidator) + Python
       # --------------------------------------------------------------
@@ -78,7 +70,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
 
       - name: Install Biovalidator (dev branch)
         run: |
