@@ -32,5 +32,9 @@ We welcome [issues](https://github.com/EGA-archive/fega-metadata-schema/issues/n
 
 This repository is licensed under the terms of the license found in [`LICENSE`](./LICENSE).
 
+### Third-party material
+
+File(s) in `schemas/json-ld.org/` incorporate work originally published by the World Wide Web Consortium (W3C) under the "W3C Software and Document Licence 2023". They remain available under that licence; see `schemas/json-ld.org/LICENSE` for details.
+
 ## Contact
 For general questions, or if you are unsure where to begin, follow the [_Need-help_](https://ega-archive.org/need-help/) form at our website.
