@@ -60,17 +60,7 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
-          # If there is no cache for this key, we create it at the end of the run, even if there was an error mid-way
-          save-always: true
-
-      - name: Cache npm
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: npm-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            npm-${{ runner.os }}-
-
+            
       # --------------------------------------------------------------
       # Tooling: Node (Biovalidator) + Python
       # --------------------------------------------------------------
@@ -78,7 +68,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
 
       - name: Install Biovalidator (dev branch)
         run: |
@@ -89,7 +78,7 @@ jobs:
 
       - name: Launch Biovalidator
         run: |
-          biovalidator \
+          node "$(npm root -g)/biovalidator/src/biovalidator.js" \
             --port 3020 \
             --ref "./schemas/**/*.json" \
             > biovalidator.log 2>&1 &
@@ -98,7 +87,7 @@ jobs:
       - name: Wait for Biovalidator to be ready
         run: |
           for i in {1..12}; do
-            if curl --output /dev/null --silent --head --fail "http://localhost:3020"; then
+            if curl --output /dev/null --silent --head --fail "http://localhost:3020/validate"; then
               echo "Biovalidator is up"
               exit 0
             fi
@@ -107,6 +96,16 @@ jobs:
           done
           echo "Biovalidator did not start in time" >&2
           exit 1
+
+      - name: Show Biovalidator log (on failure)
+        if: failure()
+        run: |
+          echo "=== biovalidator.log ==="
+          if [ -f biovalidator.log ]; then
+            cat biovalidator.log
+          else
+            echo "'biovalidator.log' not found"
+          fi
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -132,7 +131,12 @@ jobs:
 
       - name: Show summary in log
         if: always()
-        run: cat summary.json
+        run: |
+          if [ -f summary.json ]; then
+            cat summary.json
+          else
+            echo "'summary.json' not found"
+          fi
 
       # --------------------------------------------------------------
       # Artifacts & teardown
