@@ -1,0 +1,157 @@
+# ----------------------------------------------------------------------
+# Validate FEGA metadata
+#
+# Goal
+# ----
+# - Launch a local Biovalidator instance that uses **the current branch's**
+#   JSON Schemas (`./schemas/**/*.json`).
+# - Run the Python helper (scripts/py/validate_metadata.py) against every
+#   example under ./data to confirm the changes remain valid.
+#
+# What it catches
+# ---------------
+# 1. Schemas that no longer compile or reference each other correctly.
+# 2. Example JSON documents that would fail against changes in the schemas.
+#
+# Trigger
+# -------
+# - Any PR that touches JSON files, schemas, scripts/, or workflow files.
+# - Direct pushes to `main`
+#
+# Outcome
+# -------
+# - Fails the job (and therefore blocks the merge) if:
+#     – Biovalidator cannot start
+#     – The validator script reports at least one failed JSON
+# - Always uploads `summary.json` so we can inspect failures.
+# ----------------------------------------------------------------------
+name: |
+  [REQUIRED] Validate FEGA (meta)data (deploying local biovalidator)
+
+on:
+  pull_request:
+    paths:
+      - '**/*.json'
+      - 'schemas/**'
+      - 'scripts/**'
+      - '.github/workflows/**'
+  push:
+    branches: [ main ]
+
+jobs:
+  validate-json-docs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # --------------------------------------------------------------
+      # Environment: cache Python wheels & npm packages for speed
+      # --------------------------------------------------------------
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          # On subsequent runs, if the cache key matches (i.e., operating system and the hash of the requirements.txt file),
+          #   the dependencies are restored from the cache instead of being downloaded and installed again.
+          path: ~/.cache/pip
+          # combines the OS type and a hash of the requirements.txt file: the cache is specific to the dependencies listed
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+          # If there is no cache for this key, we create it at the end of the run, even if there was an error mid-way
+          save-always: true
+
+      - name: Cache npm
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: npm-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-${{ runner.os }}-
+
+      # --------------------------------------------------------------
+      # Tooling: Node (Biovalidator) + Python
+      # --------------------------------------------------------------
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install Biovalidator (dev branch)
+        run: |
+          # Pull the code directly from GitHub's dev branch
+          npm install -g "github:elixir-europe/biovalidator#dev"
+          # Consider auditing the issues if there are lots:
+          # npm audit fix
+
+      - name: Launch Biovalidator
+        run: |
+          biovalidator \
+            --port 3020 \
+            --ref "./schemas/**/*.json" \
+            > biovalidator.log 2>&1 &
+          echo $! > biovalidator.pid
+
+      - name: Wait for Biovalidator to be ready
+        run: |
+          for i in {1..12}; do
+            if curl --output /dev/null --silent --head --fail "http://localhost:3020"; then
+              echo "Biovalidator is up"
+              exit 0
+            fi
+            echo "Waiting ($i/12 time(s)) for Biovalidator server to start..."
+            sleep 5
+          done
+          echo "Biovalidator did not start in time" >&2
+          exit 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          # We'll use the latest version of python from major 3 release
+          python-version: '3.x'
+          cache: 'pip'
+
+      - name: Install Python requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # --------------------------------------------------------------
+      # Validation
+      # --------------------------------------------------------------
+      - name: Validate JSON examples
+        run: |
+          script_path="scripts/py/validate_metadata.py"
+          data_path="data"
+          url="http://localhost:3020/validate"
+          python $script_path $data_path --url $url > summary.json
+
+      - name: Show summary in log
+        if: always()
+        run: cat summary.json
+
+      # --------------------------------------------------------------
+      # Artifacts & teardown
+      # --------------------------------------------------------------
+      # We upload the artifact so we can download the validation summary
+      #   even after the logs disappear, and any other tool can access it
+      #   easily.
+      - name: Upload validation summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-summary
+          path: summary.json
+          if-no-files-found: warn
+
+      - name: Stop Biovalidator
+        if: always()
+        run: |
+          if [ -f biovalidator.pid ]; then
+            # If it was already killed, exit with true
+            kill "$(cat biovalidator.pid)" || true
+          fi
