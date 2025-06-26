@@ -1,1 +1,0 @@
-This directory contains work from https://github.com/MikeRalphson/schema-org-gen/tree/master. See licensing details at [LICENSE](./LICENSE).
