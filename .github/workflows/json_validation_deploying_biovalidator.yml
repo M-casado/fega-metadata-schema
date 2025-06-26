@@ -80,11 +80,13 @@ jobs:
 
       - name: Launch Biovalidator
         run: |
-          biovalidator \
+          node $(npm root -g)/@ebi-ait/biovalidator/src/biovalidator.js \
             --port 3020 \
             --ref "./schemas/**/*.json" \
             > biovalidator.log 2>&1 &
           echo $! > biovalidator.pid
+          #!
+          cat biovalidator.log
 
       - name: Wait for Biovalidator to be ready
         run: |
