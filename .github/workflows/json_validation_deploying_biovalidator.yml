@@ -80,13 +80,11 @@ jobs:
 
       - name: Launch Biovalidator
         run: |
-          node $(npm root -g)/@ebi-ait/biovalidator/src/biovalidator.js \
+          node "$(npm root -g)/biovalidator/src/biovalidator.js" \
             --port 3020 \
             --ref "./schemas/**/*.json" \
             > biovalidator.log 2>&1 &
           echo $! > biovalidator.pid
-          #!
-          cat biovalidator.log
 
       - name: Wait for Biovalidator to be ready
         run: |
@@ -100,6 +98,16 @@ jobs:
           done
           echo "Biovalidator did not start in time" >&2
           exit 1
+
+      - name: Show Biovalidator log (on failure)
+        if: failure()
+        run: |
+          echo "=== biovalidator.log ==="
+          if [ -f biovalidator.log ]; then
+            cat biovalidator.log
+          else
+            echo "biovalidator.log not found"
+          fi
 
       - name: Set up Python
         uses: actions/setup-python@v5
