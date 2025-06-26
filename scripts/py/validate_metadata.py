@@ -112,21 +112,27 @@ def validate_paths(inputs: Sequence[Path], validator_url: str) -> Dict[str, Any]
     failed_files: List[str] = []
 
     for fp in targets:
+        r_error = False
         logger.debug(f"Validating '{fp}'")
         with fp.open("r", encoding="utf-8") as handle:
             document = json.load(handle)
         try:
             resp = post_to_validator(document, validator_url)
-            failed = response_has_errors(resp)
         except (requests.RequestException, json.JSONDecodeError) as exc:
-            logger.error(f"ERROR: Request failed for '{fp}': {exc}")
-            failed = True
+            logger.error(f"Request failed for '{fp}': {exc}")
+            r_error = True
 
-        if failed:
+        if r_error:
+            failed_files.append(str(fp))
+            logger.error(f"Validation FAILED with error at REQUEST for '{fp}'")
+        elif isinstance(resp, list) and len(resp) > 0:
             failed_files.append(str(fp))
             logger.error(f"Validation FAILED for '{fp}'")
-        else:
+        elif isinstance(resp, list) and len(resp) == 0:
             logger.debug(f"Validation PASSED for '{fp}'")
+        else:
+            failed_files.append(str(fp))
+            logger.error(f"Unrecognised REQUEST RESPONSE for '{fp}'")
 
     summary = {
         "timestamp": _dt.datetime.now(tz=_dt.timezone.utc).isoformat(timespec="seconds"),
