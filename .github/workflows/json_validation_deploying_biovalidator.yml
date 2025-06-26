@@ -106,7 +106,7 @@ jobs:
           if [ -f biovalidator.log ]; then
             cat biovalidator.log
           else
-            echo "biovalidator.log not found"
+            echo "'biovalidator.log' not found"
           fi
 
       - name: Set up Python
@@ -133,7 +133,12 @@ jobs:
 
       - name: Show summary in log
         if: always()
-        run: cat summary.json
+        run: |
+          if [ -f summary.json ]; then
+            cat summary.json
+          else
+            echo "'summary.json' not found"
+          fi
 
       # --------------------------------------------------------------
       # Artifacts & teardown
