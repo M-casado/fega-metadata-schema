@@ -45,12 +45,12 @@
       "$ref": "./FEGA.common-definitions.json#/$defs/sameAs"
     },
 
-    "wasUsedBy": {
-      "$ref": "./FEGA.common-definitions.json#/$defs/wasUsedBy"
+    "hadMember": {
+      "$ref": "./FEGA.common-definitions.json#/$defs/hadMember"
     },
     
     "isPartOf": {
-      "$ref": "./FEGA.common-definitions.json#/$defs/wasUsedBy"
+      "$ref": "./FEGA.common-definitions.json#/$defs/isPartOf"
     }
-  }  
+  }
 }
