@@ -64,6 +64,14 @@
         "actedOnBehalfOf": {
             "@id": "prov:actedOnBehalfOf",
             "@container": "@set"
+        },
+        "isPartOf": {
+            "@id": "prov:isPartOf",
+            "@container": "@set"
+        },        
+        "hasPart": {
+            "@reverse": "isPartOf",
+            "@container": "@set"
         }
     },
     "$defs": {
@@ -1763,6 +1771,25 @@
                 }
             ]
         },
+        "hasPart": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "description": "Array of relationships pointing to related resources that are included either physically or logically in the subject resource.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dcterms:hasPart",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "hasPart",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-07-17"
+                }
+            ]
+        },
 
         "hasParent": {
             "$comment": "#! TBD: schema:parent, also reversible with the children"
@@ -1778,6 +1805,25 @@
         },
         "relatedTo": {
             "$comment": "#! TBD: schema:relatedTo"
+        },
+        "hadMember": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "description": "A collection is an entity that provides a structure to some constituents, which are themselves entities. These constituents are said to be member of the collections. For example, a 'cohort' 'hadMember' 'biomaterial'.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "prov:hadMember",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "hadMember",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-07-17"
+                }
+            ]
         }
     }
 }
