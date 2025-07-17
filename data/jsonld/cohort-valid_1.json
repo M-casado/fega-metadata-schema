@@ -69,6 +69,12 @@
         "id": "ega:EGAS00000000001",
         "@type": "study"
       }
+    ],
+    "hadMember": [
+      {
+        "id": "ega:EGAN00000000001",
+        "@type": "biomaterial"
+      }
     ]
   }
 }
