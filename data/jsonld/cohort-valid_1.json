@@ -48,7 +48,10 @@
             }
         ],
         "locations": [
-            "wrong"
+            {
+                "id": "GAZ:00004501",
+                "label": "Catalonia Autonomous Community"
+            }
         ]
     },
     "sameAs": [
