@@ -264,9 +264,10 @@
               "@type": {
                 "type": "string",
                 "minLength": 1,
-                "examples": [ "cohort", "biomaterial", "xsd:integer" ]
+                "examples": [ "cohort", "biomaterial", "process", "xsd:integer" ]
               }
             },
+            "$comment": "#! We may want to add a pattern check here, so that for example if 'biomaterial' is the '@type', the ID of the entity is 'EGAN...'. The issue for which I haven't added it yet is that FEGA identifiers are still being discussed and that it would be constraining external references to other archives (e.g., the activity that generated a file could be in a different archive, and not have an EGA stable ID).",
             "required": ["id"]
         },
 
