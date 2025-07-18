@@ -1590,6 +1590,18 @@
             "required": ["@type"]
         },
         
+        "relationshipItemRestrictionProcess": {
+            "type": "object",
+            "title": "Relationship item restriction: Process",
+            "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'process'.",
+            "properties": {
+              "@type": {
+                "enum": ["process"]
+              }
+            },
+            "required": ["@type"]
+        },
+        
         "sameAs": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",      
             "meta:sssomMappings": [

@@ -56,6 +56,12 @@
       },
       "vitalStatus": {
         "status": "alive"
-      }
+      },
+      "wasUsedBy": [
+        {
+          "id": "ega:EGAA00000000001",
+          "@type": "process"
+        }
+      ]
   }
 }

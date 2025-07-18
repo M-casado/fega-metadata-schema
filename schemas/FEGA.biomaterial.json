@@ -1109,20 +1109,52 @@
         "samplingProcedure": {"$comment": "#! Decide whether to add the procedure here as a readOnly, or stick with it being part of the 'process' that generated this biomaterial."},
         
         "sameAs": {
-          "$ref": "./FEGA.common-definitions.json#/$defs/sameAs"
+          "allOf": [
+            { "$ref": "./FEGA.common-definitions.json#/$defs/sameAs" },
+            {
+              "title": "Entity type restriction",
+              "items": {
+                "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionBiomaterial"
+              }
+            }
+          ]
         },
-
-        "wasUsedBy": {
-          "$ref": "./FEGA.common-definitions.json#/$defs/wasUsedBy"
-        },
-
+        
         "wasDerivedFrom": {
-          "$ref": "./FEGA.common-definitions.json#/$defs/wasDerivedFrom"
+          "allOf": [
+            { "$ref": "./FEGA.common-definitions.json#/$defs/wasDerivedFrom" },
+            {
+              "title": "Entity type restriction",
+              "items": {
+                "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionBiomaterial"
+              }
+            }
+          ],
+          "$comment": "#! All the collection details (date, sampling site, performers...) would go into the 'process' that is referenced here. In the FEGA model, the collection details are associated to a process, rather than to an atommical 'biomaterial' property. On the other hand, most downstream bioinformatic analysis may only take a look at 'sample' tables, and may not traverse the process path. Thus, later on it may be convenient to add read-only fields at the sample level (e.g., 'collectionDetails'), automatically propagated from the 'process' that generated them. This creates two sources of truth, for which we would need read-only to be enforced."
+        },
+        
+        "wasUsedBy": {
+          "allOf": [
+            { "$ref": "./FEGA.common-definitions.json#/$defs/wasUsedBy" },
+            {
+              "title": "Entity type restriction",
+              "items": {
+                "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionProcess"
+              }
+            }
+          ]
         },
 
         "wasGeneratedBy": {
-          "$comment": "#! All the collection details (date, sampling site, performers...) would go into the 'process' that is referenced here. In the FEGA model, the collection details are associated to a process, rather than to an atommical 'biomaterial' property. On the other hand, most downstream bioinformatic analysis may only take a look at 'sample' tables, and may not traverse the process path. Thus, later on it may be convenient to add read-only fields at the sample level (e.g., 'collectionDetails'), automatically propagated from the 'process' that generated them. This creates two sources of truth, for which we would need read-only to be enforced.",
-          "$ref": "./FEGA.common-definitions.json#/$defs/wasGeneratedBy"
+          "allOf": [
+            { "$ref": "./FEGA.common-definitions.json#/$defs/wasGeneratedBy" },
+            {
+              "title": "Entity type restriction",
+              "items": {
+                "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionProcess"
+              }
+            }
+          ]
         }
       }
     },
