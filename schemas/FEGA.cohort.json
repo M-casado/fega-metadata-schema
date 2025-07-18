@@ -46,11 +46,27 @@
     },
 
     "hadMember": {
-      "$ref": "./FEGA.common-definitions.json#/$defs/hadMember"
+      "allOf": [
+        {"$ref": "./FEGA.common-definitions.json#/$defs/hadMember"},
+        {
+          "title": "Entity type restriction",
+          "items": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionBiomaterial"
+          }
+        }
+      ]
     },
     
     "isPartOf": {
-      "$ref": "./FEGA.common-definitions.json#/$defs/isPartOf"
+      "allOf": [
+        { "$ref": "./FEGA.common-definitions.json#/$defs/isPartOf" },
+        {
+          "title": "Entity type restriction",
+          "items": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionStudy"
+          }
+        }
+      ]
     }
   }
 }

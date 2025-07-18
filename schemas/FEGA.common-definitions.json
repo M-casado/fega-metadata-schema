@@ -1565,6 +1565,30 @@
                 }
             }
         },
+
+        "relationshipItemRestrictionBiomaterial": {
+            "type": "object",
+            "title": "Relationship item restriction: Biomaterial",
+            "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'biomaterial'.",
+            "properties": {
+              "@type": {
+                "enum": ["biomaterial"]
+              }
+            },
+            "required": ["@type"]
+        },
+
+        "relationshipItemRestrictionStudy": {
+            "type": "object",
+            "title": "Relationship item restriction: Study",
+            "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'study'.",
+            "properties": {
+              "@type": {
+                "enum": ["study"]
+              }
+            },
+            "required": ["@type"]
+        },
         
         "sameAs": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",      
