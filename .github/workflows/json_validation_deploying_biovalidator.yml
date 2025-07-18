@@ -42,7 +42,7 @@ on:
     inputs:
       schemas_ref:
         description: |
-          Branch (e.g., ``dev``), tag (e.g., ``v1.3.11``) or commit (``5fad895``) to use as source (both JSON Schemas and JSON documents) for validation
+          Specify the branch (e.g., dev), tag (e.g., v1.3.11) or commit (e.g., 5fad895) to use as source (both JSON Schemas and JSON documents) for validation
         type: string
         required: true
         default: main
