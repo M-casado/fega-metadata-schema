@@ -38,14 +38,30 @@ on:
   push:
     branches: [ main ]
 
+  workflow_dispatch:
+    inputs:
+      schemas_ref:
+        description: |
+          Branch (e.g., ``dev``), tag (e.g., ``v1.3.11``) or commit (``5fad895``) to use as source (both JSON Schemas and JSON documents) for validation
+        type: string
+        required: true
+        default: main
+
 jobs:
   validate-json-docs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
     steps:
-      - name: Checkout repository
+      - name: "Checkout (trigger: PR / push)"
+        if: ${{ github.event_name != 'workflow_dispatch' }}
         uses: actions/checkout@v4
+
+      - name: "Checkout (trigger: manual run)"
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.schemas_ref }}   # The value given at the "Run workflow" form as a string
 
       # --------------------------------------------------------------
       # Environment: cache Python wheels & npm packages for speed
