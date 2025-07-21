@@ -16,6 +16,7 @@ from typing import Any, Dict, List, Sequence, Set
 
 import requests
 from requests.exceptions import ConnectionError, Timeout
+from fega_tools.io import collect_candidate_json
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
@@ -36,19 +37,6 @@ def assert_validator_reachable(url: str, timeout_seconds: int = 5) -> None:
 ###############################################################################
 # Discovery helpers
 ###############################################################################
-def collect_candidate_files(paths: Sequence[Path]) -> List[Path]:
-    """Return every *.json file found in *paths* (files or directories)."""
-    files: Set[Path] = set()
-    for path in paths:
-        if path.is_dir():
-            files.update(child.resolve() for child in path.rglob("*.json"))
-        elif path.is_file() and path.suffix.lower() == ".json":
-            files.add(path.resolve())
-        else:
-            logger.debug(f"Skipping non-JSON path: {path}")
-    return sorted(files)
-
-
 def filter_metadata_files(json_files: Sequence[Path]) -> List[Path]:
     """Keep only those JSON files that expose 'data' and 'schema' keys."""
     valid: List[Path] = []
@@ -81,7 +69,7 @@ def validate_paths(inputs: Sequence[Path], validator_url: str) -> Dict[str, Any]
     """Validate metadata located at *inputs* and build a summary dictionary."""
     assert_validator_reachable(validator_url)
 
-    all_json = collect_candidate_files(inputs)
+    all_json = collect_candidate_json(inputs)
     targets = filter_metadata_files(all_json)
 
     if not targets:
