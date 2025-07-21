@@ -24,15 +24,13 @@ Thank you for your interest in improving the FEGA metadata model!  We welcome pu
 
 1. **Fork** the repository (or create a feature branch if you have push rights).
 2. Create a **topic branch** off ``main`` or ``dev``, e.g. `feat/add-sample-tissue-enum`.
-3. Make your changes and verify locally that files within ``data`` validate against the local schemas:
+3. Make your changes and verify locally that files within ``data`` validate against the local schemas. The **easiest way to do this** is by manually triggering the ``json_validation_deploying_biovalidator.yml`` workflow at its [Actions](https://github.com/M-casado/fega-metadata-schema/actions/workflows/json_validation_deploying_biovalidator.yml) page. You can provide the branch (e.g., ``my-branch``), commit or tag in the form (see image below) and the workflow will do the rest for you (just check the outcome!). You can run actions on this workflow only as an active contributor, but you can replicate this by forking the repository and running the action in your own fork.
 
-   ```bash
-   #! TBD - Also will be done automatically through the PR workflows
-   ```
+![Example of manually triggering a workflow](./docs/images/workflow-manual-trigger.png)
 
 4. **Update metadata artefacts** if you changed schemas:
-
-   * Increment the `meta:version` field.
+   * Either manually trigger [``check-schema-diff.yml``](.github/workflows/check-schema-diff.yml) or run [``schema-diff.py``](scripts/py/schema-diff.py) directly. Both will give you an idea of what semantic versioning changes correspond to the schemas.
+   * Increment the `meta:version` field of each JSON Schema.
    
 5. **Add or update data / docs** so behaviour is demonstrably correct.
 6. **Amend `CHANGELOG.md`** under the *Unreleased* section.

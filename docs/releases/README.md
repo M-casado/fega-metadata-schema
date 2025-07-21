@@ -4,7 +4,8 @@ We therefore tag every published set of schemas, rewrite (where applicable) all 
 
 Most of these steps are automated by the following resources:
 - [``schema-diff.py``](../../scripts/py/schema-diff.py). Used to check SemVer differences between two sources (e.g., branch ``dev`` and ``main``).
-- [``check-schema-diff.yml``](../../.github/workflows/check-schema-diff.yml). In a PR, used to assert that a versioned branch (e.g., ``v2.0.1``) follows proper semantic versioning compared to the target branch; also can be used to easily check SemVer differences through ``schema-diff.py``.
+- [``check-schema-diff.yml``](../../.github/workflows/check-schema-diff.yml). In a PR, used to assert that a versioned branch (e.g., ``v2.0.1``) follows proper semantic versioning compared to the target branch; also can be triggered manually to quickly check SemVer differences through ``schema-diff.py``.
+- [``check-meta-enums.yml``](../../.github/workflows/check-schema-diff.yml). In a PR, used to assert that a all ``meta:enum`` fields of the JSON Schemas correspond to the true changes between the source and target branches.
 - [``modify-ids.py``](../../scripts/py/modify-ids.py). Enables an quick and easy modification of the static pointers in the JSON Schemas (`$id` / `$ref`).
 - [``update-release-manifest.py``](../../scripts/py/update-release-manifest.py). Automatically updates the [``release_manifest.json``](release_manifest.json) file.
 - [``create-release.yml``](../../.github/workflows/create-release.yml). If triggered, it automates the first steps of a release.
