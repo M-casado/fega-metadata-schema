@@ -40,7 +40,7 @@ def _build_colour_formatter() -> logging.Formatter:
 
     colour_map = {
         "DEBUG": Fore.CYAN,
-        "INFO": Fore.GRAY,
+        "INFO": Fore.GREEN,
         "WARNING": Fore.YELLOW,
         "ERROR": Fore.RED,
         "CRITICAL": Fore.MAGENTA,
