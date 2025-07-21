@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fega-tools"
+version = "0.0.1"
+description = "Internal helper library for FEGA metadata tooling"
+requires-python = ">=3.8"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.optional-dependencies]
+dev = ["colorama"]
+
+# To use it in each of our venvs, run:
+#   pip install -e .
+# Or, if you want the optional ones:
+#   pip install -e .[dev]
