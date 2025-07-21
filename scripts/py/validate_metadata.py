@@ -17,15 +17,15 @@ from typing import Any, Dict, List, Sequence, Set
 import requests
 from requests.exceptions import ConnectionError, Timeout
 from fega_tools.io import collect_candidate_json
+from fega_tools.logging_utils import configure_logging
 
-logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+logger = logging.getLogger(Path(__file__).stem)
 
 DEFAULT_VALIDATOR_URL = "http://localhost:3020/validate"
 
-###############################################################################
+# -------
 # Endpoint check
-###############################################################################
+# -------
 def assert_validator_reachable(url: str, timeout_seconds: int = 5) -> None:
     """Abort (exit-code 2) if *url* does not respond within *timeout_seconds*."""
     try:
@@ -34,9 +34,9 @@ def assert_validator_reachable(url: str, timeout_seconds: int = 5) -> None:
         logger.error(f"Cannot reach Biovalidator endpoint '{url}': {exc}")
         sys.exit(2)
 
-###############################################################################
+# -------
 # Discovery helpers
-###############################################################################
+# -------
 def filter_metadata_files(json_files: Sequence[Path]) -> List[Path]:
     """Keep only those JSON files that expose 'data' and 'schema' keys."""
     valid: List[Path] = []
@@ -52,9 +52,9 @@ def filter_metadata_files(json_files: Sequence[Path]) -> List[Path]:
             logger.warning(f"Not valid JSON file ('{fp}'). Error: {exc}")
     return valid
 
-###############################################################################
+# -------
 # Biovalidator interaction
-###############################################################################
+# -------
 def post_to_validator(document: Dict[str, Any], url: str) -> Dict[str, Any]:
     """Send *document* to *url* and return the parsed JSON response."""
     headers = {"Content-Type": "application/json"}
@@ -62,9 +62,9 @@ def post_to_validator(document: Dict[str, Any], url: str) -> Dict[str, Any]:
     response.raise_for_status()
     return response.json()
 
-###############################################################################
+# -------
 # Core routine
-###############################################################################
+# -------
 def validate_paths(inputs: Sequence[Path], validator_url: str) -> Dict[str, Any]:
     """Validate metadata located at *inputs* and build a summary dictionary."""
     assert_validator_reachable(validator_url)
@@ -127,9 +127,9 @@ def validate_paths(inputs: Sequence[Path], validator_url: str) -> Dict[str, Any]
 
     return summary
 
-###############################################################################
+# -------
 # CLI helpers
-###############################################################################
+# -------
 def make_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="validate_metadata",
@@ -155,7 +155,7 @@ def make_arg_parser() -> argparse.ArgumentParser:
         help=f"Biovalidator /validate endpoint (default: {DEFAULT_VALIDATOR_URL})",
     )
     parser.add_argument(
-        "--verbose",
+        "--verbosity",
         "-v",
         action="count",
         default=0,
@@ -164,20 +164,11 @@ def make_arg_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def configure_logging(verbosity: int) -> None:
-    if verbosity == 0:
-        logging.getLogger().setLevel(logging.INFO)
-    elif verbosity == 1:
-        logging.getLogger().setLevel(logging.DEBUG)
-    else:
-        logging.getLogger().setLevel(logging.NOTSET)
-
-
 def main(argv: Sequence[str] | None = None) -> None:
     parser = make_arg_parser()
     args = parser.parse_args(argv)
 
-    configure_logging(args.verbose)
+    configure_logging(args.verbosity)
 
     summary = validate_paths(args.inputs, args.validator_url)
 
