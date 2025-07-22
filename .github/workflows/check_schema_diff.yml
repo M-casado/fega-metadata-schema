@@ -32,6 +32,8 @@
 # -------
 # - Generates schema_diff.json with detailed comparison
 # - Always uploads comparison results as an artifact
+# - Workflow fails (exits with code 1) if major/breaking changes detected,
+#    requiring manual review and explicit acknowledgment
 # ----------------------------------------------------------------------
 name: |
   Compare Schema Changes (SemVer Check)
