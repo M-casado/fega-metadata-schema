@@ -18,6 +18,16 @@ import requests
 from requests.exceptions import ConnectionError, Timeout
 from fega_tools.io import collect_candidate_json
 from fega_tools.logging_utils import configure_logging
+try:
+    from fega_tools.io import collect_candidate_json
+    from fega_tools.logging_utils import configure_logging
+except ModuleNotFoundError as exc:
+    msg = (
+        "ERROR:  The helper package 'fega_tools' is not importable.\n"
+        "Make sure you have installed the repo in *editable* mode first. Run the following command from the repository root:\n"
+        "    pip install -e ."
+    )
+    raise ModuleNotFoundError(msg) from exc
 
 logger = logging.getLogger(Path(__file__).stem)
 
