@@ -23,9 +23,19 @@ import sys
 from pathlib import Path
 from typing import Dict, List, Sequence, Tuple
 
-from fega_tools.io import collect_candidate_json
-from fega_tools.json_pointer import patch_json_tree, _validate_replacements, _ALLOWED_SEGMENTS
-from fega_tools.logging_utils import configure_logging
+try:
+    from fega_tools.io import collect_candidate_json
+    from fega_tools.json_pointer import patch_json_tree, _validate_replacements, _ALLOWED_SEGMENTS
+    from fega_tools.logging_utils import configure_logging
+
+except ModuleNotFoundError as exc:
+    msg = (
+        "ERROR:  The helper package 'fega_tools' is not importable.\n"
+        "Make sure you have installed the repo in *editable* mode first. Run the following command from the repository root:\n"
+        "    pip install -e ."
+    )
+    raise ModuleNotFoundError(msg) from exc
+
 
 logger = logging.getLogger(Path(__file__).stem)
 
