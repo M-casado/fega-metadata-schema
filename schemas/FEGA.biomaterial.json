@@ -1159,39 +1159,6 @@
       }
     },
     
-    "organismChecklist": {
-      "title": "Organism checklist",
-      "description": "Checklist of required and allowed biomaterial properties for this type of biomaterial.",
-      "allOf": [
-        { "$ref": "#/$defs/commonBiomaterialDefs" },
-        {
-          "if": {
-            "required": ["biomaterialType"],
-            "properties": {
-              "biomaterialType": {
-                "required": ["label"],
-                "properties": {
-                  "label": { "const": "organism" }
-                }
-              }
-            }
-          },
-          "then": {
-            "$comment": "Biomaterial properties required or disallowed for this type of biomaterial.",
-            "$comment": "The way we encode 'properties' as 'false', instead of using 'not' is for the validation error report to be more informative. With 'not', the validator can't inform the user which property is infringing the validation.",
-            "required": ["id", "label", "sex"],
-            "properties": {
-              "samplingSource": false,
-              "storageConditions": false,
-              "samplingAge": false,
-              "samplingDate": false,
-              "wasGeneratedBy": false
-            }
-          }
-        }
-      ]
-    },
-
     "organismPartChecklist": {
       "title": "Organism Part checklist",
       "description": "Checklist of required and allowed biomaterial properties for this type of biomaterial.",

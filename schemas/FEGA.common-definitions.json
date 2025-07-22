@@ -246,7 +246,7 @@
         
         "relationshipItem": {
             "type": "object",
-            "title": "Relationship item",
+            "title": "Test",
             "description": "This entity is expected to be referenced where needed, as it contains the basic format of a relationship item. Each of the items is expected to be one of the ends of the possible relationships in a linked metadata entity.",
             "properties": {
               "id": {

@@ -25,6 +25,13 @@
       "inclusionCriteria": "beaconDoc:inclusionCriteria"
     }
   ],
+  "required": [
+    "description",
+    "sameAs",
+    "hadMember",
+    "isPartOf"
+  ],
+  "additionalProperties": false,
   "allOf": [
     {
       "title": "Base constraints for JSON-LD",
