@@ -71,6 +71,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="modify_ids",
         description="Rewrite owner/repo/branch segments of raw GitHub URIs in JSON files. Without -w/-o, prints the modified JSONs to stdout.",
+        epilog=(
+            "Examples:\n"
+            "  modify_ids schemas --branch dev v2.3.0 --in-place -v         # Swap 'dev' with 'v2.3.0' in-place\n"
+            "  modify_ids data --owner old-owner new-owner --repo old-repo new-repo --independent -o converted/ -vv\n"
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument(
         "inputs", type=Path, nargs="+", help="JSON file(s) or directory(ies) to rewrite",
