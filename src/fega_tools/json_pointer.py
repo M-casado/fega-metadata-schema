@@ -15,6 +15,7 @@ RAW_GITHUB_RE = re.compile(
     r"https://raw\.githubusercontent\.com/"
     r"(?P<owner>[^/]+)/"
     r"(?P<repo>[^/]+)/"
+    r"(?:refs/(?:heads|tags|remotes/[^/]+)/)?"   # optional, non-capturing
     r"(?P<branch>[^/]+)/"
 )
 
