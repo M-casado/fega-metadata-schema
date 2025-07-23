@@ -93,27 +93,40 @@ jobs:
       # --------------------------------------------------------------
       # Schema comparison
       # --------------------------------------------------------------
+      - name: Validate input references
+        run: |
+          if [ "${{ inputs.base_ref }}" = "${{ inputs.target_ref }}" ]; then
+            echo "::error::Base and target references cannot be the same! Got: ${{ inputs.base_ref }}"
+            exit 1
+          fi
+
       - name: Create temporary directories for schemas
         run: |
-          mkdir -p base_schemas target_schemas
+          base_dir="schemas_base-${{ github.run_id }}"
+          target_dir="schemas_target-${{ github.run_id }}"
+          mkdir -p "$base_dir" "$target_dir"
+          
+          # Export for subsequent steps
+          echo "BASE_DIR=$base_dir" >> $GITHUB_ENV
+          echo "TARGET_DIR=$target_dir" >> $GITHUB_ENV
 
       - name: Extract base schemas
         run: |
           git checkout ${{ inputs.base_ref }}
-          cp -r schemas/* base_schemas/
+          cp -r schemas/* ${{ env.BASE_DIR }}/
           git checkout -
 
       - name: Extract target schemas
         run: |
           git checkout ${{ inputs.target_ref }}
-          cp -r schemas/* target_schemas/
+          cp -r schemas/* ${{ env.TARGET_DIR }}/
           git checkout -
 
       - name: Compare schemas
         run: |
           python scripts/py/schema_diff.py \
-            base_schemas \
-            target_schemas \
+            "${{ env.BASE_DIR }}" \
+            "${{ env.TARGET_DIR }}" \
             --output schema_diff.json \
             -v
 
