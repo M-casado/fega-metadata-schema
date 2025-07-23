@@ -3,12 +3,12 @@ Each JSON Schema must be **resolvable at a stable URL** so external validators a
 We therefore tag every published set of schemas, rewrite (where applicable) all internal `$id` / `$ref` pointers to that immutable tag, and capture the versions in a machine-readable manifest.  
 
 Most of these steps are automated by the following resources:
-- [``schema-diff.py``](../../scripts/py/schema-diff.py). Used to check SemVer differences between two sources (e.g., branch ``dev`` and ``main``).
-- [``check-schema-diff.yml``](../../.github/workflows/check-schema-diff.yml). In a PR, used to assert that a versioned branch (e.g., ``v2.0.1``) follows proper semantic versioning compared to the target branch; also can be triggered manually to quickly check SemVer differences through ``schema-diff.py``.
-- [``check-meta-enums.yml``](../../.github/workflows/check-schema-diff.yml). In a PR, used to assert that a all ``meta:enum`` fields of the JSON Schemas correspond to the true changes between the source and target branches.
-- [``modify-ids.py``](../../scripts/py/modify-ids.py). Enables an quick and easy modification of the static pointers in the JSON Schemas (`$id` / `$ref`).
-- [``update-release-manifest.py``](../../scripts/py/update-release-manifest.py). Automatically updates the [``release_manifest.json``](release_manifest.json) file.
-- [``create-release.yml``](../../.github/workflows/create-release.yml). If triggered, it automates the first steps of a release.
+- [``schema_diff.py``](../../scripts/py/schema_diff.py). Used to check SemVer differences (e.g., ``major``) between two sources (e.g., branch ``dev`` and ``main``).
+- [``check_schema_diff.yml``](../../.github/workflows/check_schema_diff.yml). Can be triggered manually to quickly check SemVer differences through ``schema_diff.py``.
+- [``check_meta_enums.yml``](../../.github/workflows/check_meta_enums.yml). In a PR, used to assert that a all ``meta:enum`` fields of the JSON Schemas correspond to the true changes between the source and target branches.
+- [``modify-ids.py``](../../scripts/py/modify-ids.py). Enables an quick and easy modification of the static pointers in the JSON Schemas (`$id` / `$ref` / ``@context``).
+- [``update_release_manifest.py``](../../scripts/py/update_release_manifest.py). Automatically updates the [``release_manifest.json``](release_manifest.json) file.
+- [``create_release.yml``](../../.github/workflows/create_release.yml). If triggered, it automates the first steps of a release.
 
 ## Branching and tags
 
@@ -30,7 +30,7 @@ gitGraph
    branch v2.0.1 
    checkout v2.0.1
    commit id:"1st-pointer-rewrite" tag: "/v2.0.1/"
-   commit id:"update-release-manifest"
+   commit id:"update_release_manifest"
    
    branch release
    checkout release 
@@ -227,7 +227,7 @@ flowchart TD
   They allow clients to fetch a schema directly from the GitHub CDN without cloning the repo.
 
 * **"How is Semantic Versioning handled with JSON Schemas?"**  
-  Major, minor and patch changes are difficult to assess within a JSON Schemas project, given its flexibility and modularity. Overall, version changes in this project encompass uniquely changes within this project and not other related repositories. See more details on how semantic changes are checked through the [``schema-diff.py``](../../scripts/py/schema-diff.py) and its related workflow [``check-schema-diff.yml``](../../.github/workflows/check-schema-diff.yml).
+  Major, minor and patch changes are difficult to assess within a JSON Schemas project, given its flexibility and modularity. Overall, version changes in this project encompass uniquely changes within this project and not other related repositories. See more details on how semantic changes are checked through the [``schema_diff.py``](../../scripts/py/schema_diff.py) and its related workflow [``check_schema_diff.yml``](../../.github/workflows/check_schema_diff.yml).
 
 * **"Why check that remote validation works with the release tag _after_ updating ``main``?"**  
   The remote validation is asserted only when the release branch no longer exists, as it's taking the namespace of that URI's version (e.g., ``/v2.0.1/``). Only when it's merged with ``main`` and removed, the ``tag`` (from the release) is what actually is fetched through that URI.
