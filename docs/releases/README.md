@@ -12,12 +12,12 @@ Most of these steps are automated by the following resources:
 
 ## Branching and tags
 
-| Name | Purpose | `$id`/`$ref` segment |
-|------|---------|----------------------|
-| `main` branch | latest **stable** snapshot | `/main/` |
-| `dev`  branch | day-to-day work (unstable) | `/dev/` |
-| `vX.Y.Z` branch | frozen candidate | `/vX.Y.Z/` |
-| `vX.Y.Z` tag | final, immutable release | `/vX.Y.Z/` |
+| Name | Purpose | `$id`/`$ref` segment | Example |
+|------|---------|----------------------|---------|
+| `main` branch | latest **stable** snapshot | `/main/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.cohort.json |
+| `dev`  branch | day-to-day work (unstable) | `/dev/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/dev/schemas/FEGA.cohort.json |
+| `vX.Y.Z` branch | frozen candidate | `/vX.Y.Z/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/v1.0.0/schemas/FEGA.cohort.json |
+| `vX.Y.Z` tag | final, immutable release | `/vX.Y.Z/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/v1.0.0/schemas/FEGA.cohort.json |
 
 ````mermaid
 gitGraph
@@ -221,7 +221,7 @@ flowchart TD
 ## FAQs
 
 * **"Why the need to change 'pointers'?"**  
-  Absolute ``$id``s are used as URIs for the schemas. These URIs are specific to branches, tags and releases. Thus, they are to be changed when remote validation is to be asserted. See more at [branching and tags](#branching-and-tags).
+  Raw GitHub URLs are used as the URIs for schema ``$id``s. These URIs are specific to branches, tags and releases. Thus, they are to be changed when remote validation is to be asserted. See more at [branching and tags](#branching-and-tags).
 
 * **"Why absolute `$id` URLs with the tag?"**  
   They allow clients to fetch a schema directly from the GitHub CDN without cloning the repo.
