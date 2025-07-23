@@ -102,8 +102,8 @@ jobs:
 
       - name: Create temporary directories for schemas
         run: |
-          base_dir="schemas_base-${{ github.run_id }}"
-          target_dir="schemas_target-${{ github.run_id }}"
+          base_dir="schemas_base-${{ inputs.base_ref }}"
+          target_dir="schemas_target-${{ inputs.target_ref }}"
           mkdir -p "$base_dir" "$target_dir"
           
           # Export for subsequent steps
