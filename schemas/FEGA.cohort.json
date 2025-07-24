@@ -28,7 +28,8 @@
   "allOf": [
     {
       "title": "Base constraints for JSON-LD",
-      "$ref": "./json-ld.org/FEGA.jsonld-schema.json"
+      "$ref": "./json-ld.org/FEGA.jsonld-schema.json",
+      "description": "test minor semver"
     },
     {
       "title": "Compatibility with Beacon v2 JSON Schema",
