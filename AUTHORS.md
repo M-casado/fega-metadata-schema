@@ -2,7 +2,7 @@
 
 | Node (Institution) | Role in MWG | Name  | ORCID | E-mail |
 |------|------|-------------|-------|--------|
-| CEGA (EMBL-EBI) | MWG Co-chair | Marcos Casado Barbero | [0000-0002-1234-5678](https://orcid.org/0000-0002-7747-6256) | mcasado@ebi.ac.uk |
+| CEGA (EMBL-EBI) | MWG Co-chair | Marcos Casado Barbero | [0000-0002-1234-5678](https://orcid.org/0000-0002-7747-6256) | mcasado [at] ebi.ac.uk |
 | GHGA (EMBL) | MWG Co-chair | Anandhi lyappan |  | |
 | FEGA Portugal () | MWG Co-chair | Jorge Oliveira |  | |
 | CEGA (EMBL-EBI) | Member | Coline Thomas |  | |
@@ -16,9 +16,9 @@
 | FEGA Switzerland (SIB Swiss Institute of Bioinformatics) | Member | Owen Appleton |  | |
 | CEGA (CRG) | Member | Gemma Vicente |  | |
 | FEGA Poland (Biobank Lab, University of Lodz) | Member | Blazej Marciniak |  | |
-| FEGA Canada (Canada's Michael Smith Genome Sciences Centre) | Member | Eric Chuah | | echuah@bcgsc.ca |
-| FEGA Canada (Canada's Michael Smith Genome Sciences Centre) | Member | Young Cheng | | ycheng@bcgsc.ca |
-| FEGA Canada (Canada's Michael Smith Genome Sciences Centre) | Member | Grant McNair  | | gmcnair@bcgsc.ca |
+| FEGA Canada (Canada's Michael Smith Genome Sciences Centre) | Member | Eric Chuah | | echuah [at] bcgsc.ca |
+| FEGA Canada (Canada's Michael Smith Genome Sciences Centre) | Member | Young Cheng | | ycheng [at] bcgsc.ca |
+| FEGA Canada (Canada's Michael Smith Genome Sciences Centre) | Member | Grant McNair  | | gmcnair [at] bcgsc.ca |
 
 ## Repository contributors and authors
 
