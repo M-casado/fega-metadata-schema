@@ -14,7 +14,7 @@
 | CEGA (CRG) | Member | Akiris Moctezuma Cervantes |  | |
 | FEGA Switzerland () | Member | Robin Liechti |  | |
 | FEGA Switzerland (SIB Swiss Institute of Bioinformatics) | Member | Owen Appleton |  | |
-| CEGA (CRG) | Member | Gemma Vicente |  | |
+| CEGA (CRG) | Member | Gemma Vicente | [0009-0008-4457-2947](https://orcid.org/0009-0008-4457-2947)  | gemma.vicente [at] crg.eu |
 | FEGA Poland (Biobank Lab, University of Lodz) | Member | Blazej Marciniak |  | |
 | FEGA Canada (Canada's Michael Smith Genome Sciences Centre) | Member | Eric Chuah | | echuah [at] bcgsc.ca |
 | FEGA Canada (Canada's Michael Smith Genome Sciences Centre) | Member | Young Cheng | | ycheng [at] bcgsc.ca |
