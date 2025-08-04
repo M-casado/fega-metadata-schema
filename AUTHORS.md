@@ -8,7 +8,7 @@
 | CEGA (EMBL-EBI) | Member | Coline Thomas | [0000-0003-2253-1171](https://orcid.org/0000-0003-2253-1171) | cthomas [at] ebi.ac.uk |
 | CEGA (EMBL-EBI) | Member | Silvia Bahena | [0000-0002-2734-0449](https://orcid.org/0000-0002-2734-0449) | sbahena [at] ebi.ac.uk |
 | FEGA Sweden () | Member | Markus Englund |  | |
-| FEGA Norway (Centre for Bioinformatics, University of Oslo) | Member | Federico Bianchini |  | |
+| FEGA Norway (University of Oslo) | Member | Federico Bianchini | [0000-0002-9016-4820](https://orcid.org/0000-0002-9016-4820) | fredebi [at] uio.no |
 | FEGA Sweden () | Member | Wolmar Nyberg Åkerström |  | |
 | CEGA (CRG) | Member | Amy Curwin |  | |
 | CEGA (CRG) | Member | Akiris Moctezuma Cervantes |  | |
