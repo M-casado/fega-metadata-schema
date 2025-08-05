@@ -13,3 +13,6 @@ venv/
 # Ignore logs
 logs/
 *.log
+
+# Ignore VS Code settings
+.vscode/
