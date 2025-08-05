@@ -31,6 +31,7 @@
         "owl": "https://www.w3.org/2002/07/owl#",
         "skos": "https://www.w3.org/2009/08/skos-reference/skos.html#",
         "schema": "http://schema.org/",
+        "bioschemastypes": "https://discovery.biothings.io/view/bioschemastypes/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "beaconRepo": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/",
 
@@ -1708,6 +1709,26 @@
                     "reviewer_id": [""],
                     "confidence": 0.8,
                     "mapping_date": "2025-05-22"
+                }
+            ]
+        },
+
+        "isBasedOn": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "description": "Array of relationships referencing source entities (object) on which the root entity (subject) is based, or from which it is a modification or adaptation.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "schema:isBasedOn",
+                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "isBasedOn",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-08-05"
                 }
             ]
         },

@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.protocol.json",
+  "type": "object",
+  "title": "FEGA protocol metadata schema",
+  "meta:version": "0.0.0",
+  "$async": true,
+  "description": "A FEGA protocol.",
+  "@context": [
+    "./FEGA.common-definitions.json",
+    {
+      "entityDoc": "entities:FEGA.protocol.json#",
+      "properties": "@nest"
+    }
+  ],
+  "allOf": [
+    {
+      "title": "Base constraints for JSON-LD",
+      "$ref": "./json-ld.org/FEGA.jsonld-schema.json"
+    },
+    {
+      "title": "Compatibility with BioSchemas ComputationalWorkflow",
+      "if": {
+        "required": ["@type"],
+        "properties": {
+          "@type": {
+              "anyOf": [
+                { "const": "bioschemastypes:ComputationalWorkflow" },
+                { "type": "array",
+                  "contains": { "const": "bioschemastypes:ComputationalWorkflow" } }
+              ]
+            }
+        }
+      },
+      "then": {
+        "$ref": "./bioschemas/ComputationalWorkflow_v1.1-DRAFT.json"
+      }
+    },
+    {
+      "title": "Compatibility with BioSchemas LabProtocol",
+      "if": {
+        "required": ["@type"],
+        "properties": {
+          "@type": {
+            "anyOf": [
+              { "const": "bioschemastypes:LabProtocol" },
+              { "type": "array",
+                "contains": { "const": "bioschemastypes:LabProtocol" } }
+            ]
+          }
+        }
+      },
+      "then": {
+        "$comment": "Similar issue as with Beacon, the $ids are missing and thus I forked it and added the $id to the schema",
+        "$ref": "./bioschemas/LabProtocol_v0.8-DRAFT.json"
+      }
+    }
+  ],
+  "$defs": {
+    "typeEnum": {
+      "type": "string",
+      "anyOf": [
+        {
+          "enum": ["protocol", "bioschemastypes:ComputationalWorkflow"]
+        },
+        {
+          "enum": ["protocol", "bioschemastypes:LabProtocol"]
+        }
+      ]
+    }
+  },
+  "properties": {
+    "@type": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/typeEnum"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/typeEnum"
+          }
+        }
+      ]
+    },
+    
+    "sameAs": {
+      "$ref": "./FEGA.common-definitions.json#/$defs/sameAs"
+    },
+
+    "isBasedOn": {
+      "$ref": "./FEGA.common-definitions.json#/$defs/isBasedOn",
+      "$comment": "This is used when the protocol that it's referenced is not exactly the same: this protocol was a modification of the original one, or it was used as a base to create this protocol. E.g., changed parameters, or added new steps."
+    }
+  }
+}
