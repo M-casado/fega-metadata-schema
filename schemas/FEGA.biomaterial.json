@@ -28,6 +28,7 @@
         "biomaterialType": {
           "type": "object",
           "title": "Biomaterial type",
+          "$comment": "#! likely to be changed as a '@type' property in the future, similar to the array of @types in protocols, so that we can use the '@type' in the JSON-LD context, rather than hidden in a bespoke property",
           "meta:sssomMappings": [
             {
               "predicate_id": "skos:broadMatch",
