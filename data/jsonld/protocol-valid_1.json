@@ -1,0 +1,10 @@
+{
+  "schema": {
+      "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.protocol.json"
+  },
+  "data": {
+      "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.protocol.json",
+      "@type": ["protocol", "bioschemastypes:ComputationalWorkflow"],
+      "programmingLanguage": 1
+  }
+}
