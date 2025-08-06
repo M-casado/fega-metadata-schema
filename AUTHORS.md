@@ -4,7 +4,7 @@
 |------|------|-------------|-------|--------|
 | CEGA (EMBL-EBI) | MWG Co-chair | Marcos Casado Barbero | [0000-0002-1234-5678](https://orcid.org/0000-0002-7747-6256) | mcasado [at] ebi.ac.uk |
 | GHGA (EMBL) | MWG Co-chair | Anandhi lyappan |  | |
-| FEGA Portugal () | MWG Co-chair | Jorge Oliveira |  | |
+| FEGA Portugal (BioData.pt) | MWG Co-chair | Jorge Oliveira | [0000-0001-6425-2176](https://orcid.org/0000-0001-6425-2176) | jorge.oliveira [at] tecnico.ulisboa.pt |
 | CEGA (EMBL-EBI) | Member | Coline Thomas | [0000-0003-2253-1171](https://orcid.org/0000-0003-2253-1171) | cthomas [at] ebi.ac.uk |
 | CEGA (EMBL-EBI) | Member | Silvia Bahena | [0000-0002-2734-0449](https://orcid.org/0000-0002-2734-0449) | sbahena [at] ebi.ac.uk |
 | FEGA Sweden () | Member | Markus Englund |  | |
@@ -25,9 +25,9 @@
 
 | Name | GitHub tag | ORCID | Contribution to | First commit |
 |------|------------|-------|-----------------|--------------|
-| Marcos Casado Barbero | [M-casado](https://github.com/M-casado) | [0000-0002-1234-5678](https://orcid.org/0000-0002-7747-6256) | [schemas](./schemas/), [scripts](./scripts/), [frames](./frames/), [docs](./docs/), [data](./data/), [.github](.github/), [src](./src/), [Technical report](./docs/technical-report.md), root documentation | 2024-11-13 |
+| Marcos Casado Barbero | [M-casado](https://github.com/M-casado) | [0000-0002-1234-5678](https://orcid.org/0000-0002-7747-6256) | [schemas](./schemas/), [scripts](./scripts/), [frames](./frames/), [docs](./docs/), [data](./data/), [.github](.github/), [src](./src/), [Technical report](./docs/technical-report.md), root documentation | ``2024-11-13`` |
 | Anandhi Iyappan |  |  | [Technical report](./docs/technical-report.md) |  |
 | Silvia Bahena |  | [0000-0002-2734-0449](https://orcid.org/0000-0002-2734-0449) | [Technical report](./docs/technical-report.md) |  |
 | Amy Curwin |  |  | [Technical report](./docs/technical-report.md) |  |
 | Coline Thomas |  | [0000-0003-2253-1171](https://orcid.org/0000-0003-2253-1171) | [Technical report](./docs/technical-report.md) |  |
-| Jorge Oliveira |  |  | [Technical report](./docs/technical-report.md) |  |
+| Jorge Oliveira |  | [0000-0001-6425-2176](https://orcid.org/0000-0001-6425-2176) | [Technical report](./docs/technical-report.md) |  |
