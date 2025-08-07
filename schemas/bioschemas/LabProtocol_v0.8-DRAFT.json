@@ -2,6 +2,13 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/bioschemas/LabProtocol_v0.8-DRAFT.json",
     "type": "object",
+    "@context": [
+        "./FEGA.common-definitions.json",
+        {
+            "entityDoc": "entities:bioschemas/LabProtocol_v0.8-DRAFT.json#",
+            "properties": "@nest"
+        }
+    ],
     "properties": {
         "intendedUse": {
         "description": "Purpose and intended use stated to enable users to make a decision as to the suitability of this creative work (e.g., lab protocol, machine learning model, software) to their experimental problem or own use case.\n\nSee more information <a href='http://vocab.linkeddata.es/SMARTProtocols/myDocumentation_SPdoc_18Abril2017/index_SPdoc_V4.0.html#PurposeOfProtocol' target='_blank'>here</a>",
