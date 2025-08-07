@@ -5,6 +5,62 @@
   "data": {
       "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.protocol.json",
       "@type": ["protocol", "bioschemastypes:ComputationalWorkflow"],
-      "programmingLanguage": 1
+      "name": "RNA-Seq Data Analysis Pipeline",
+      "description": "Workflow for analysing RNA sequencing data, including quality control, alignment, and differential expression analysis",
+      "programmingLanguage": ["Python", "R", "nextflow"],
+      "version": "1.2.0",
+      "url": "https://github.com/myGithub/rna-seq-pipeline",
+      "license": "https://spdx.org/licenses/Apache-2.0",
+      "creator": [{
+          "name": "Jane Doe",
+          "url": "https://orcid.org/0000-0000-1234-5678",
+          "affiliation": {
+              "name": "European Bioinformatics Institute",
+              "url": "https://www.ebi.ac.uk"
+          }
+      }],
+      "dateCreated": "2025-01-15",
+      "sdPublisher": {
+          "name": "European Genome-phenome Archive",
+          "url": "https://ega-archive.org"
+      },
+      "applicationSubCategory": [{
+          "name": "RNA-Seq Analysis",
+          "url": "http://edamontology.org/topic_3170",
+          "identifier": "topic_3170"
+      }],
+      "input": [{
+          "name": "Raw FASTQ files",
+          "identifier": "input_001"
+      }, {
+          "name": "Sample metadata table",
+          "identifier": "input_002"
+      }],
+      "output": [{
+          "name": "Differential expression results",
+          "identifier": "output_001"
+      }, {
+          "name": "Quality control report",
+          "identifier": "output_002"
+      }],
+      "softwareRequirements": [
+          "FastQC v0.11.9",
+          "STAR v2.7.9a",
+          "DESeq2 v1.32.0"
+      ],
+      "runtimePlatform": [
+          "Linux x86_64",
+          "Docker"
+      ],
+      "citation": {
+          "name": "Doe et al. (2025) Example RNA-Seq Pipeline for reproducible analysis",
+          "identifier": "doi:10.1234/example.2025"
+      },
+      "isBasedOn": [
+        {
+          "id": "https://doi.org/10.1016/j.xpro.2023.102387",
+          "@type": "schema:Article"
+        }
+      ]
   }
 }
