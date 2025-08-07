@@ -1,0 +1,135 @@
+{
+  "schema": {
+      "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.protocol.json"
+  },
+  "data": {
+      "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.protocol.json",
+      "@type": ["protocol", "bioschemastypes:LabProtocol"],
+      "name": "Total RNA Isolation from Human Blood using TRIzol Reagent",
+      "description": "A detailed protocol for isolating total RNA from human blood samples using TRIzol reagent, including quality control steps and recommendations for optimal yield",
+      "version": "2.1.0",
+      "url": "https://protocols.io/view/total-rna-isolation-from-blood-trna2025",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": [{
+          "name": "Jane Doe",
+          "url": "https://orcid.org/0000-0002-5678-1234",
+          "affiliation": {
+              "name": "EMBL-EBI",
+              "url": "https://ror.org/02catss52"
+          }
+      }],
+      "dateCreated": "2025-03-15",
+      "sdPublisher": {
+          "name": "European Genome-phenome Archive",
+          "url": "https://ega-archive.org"
+      },
+      "intendedUse": "This protocol is designed for efficient isolation of high-quality total RNA from fresh or frozen human blood samples, suitable for downstream applications including RNA-Seq, RT-qPCR, and microarray analysis",
+      "ethicalLegalSocial": "Human blood samples must be collected following appropriate ethical guidelines and informed consent procedures. Biosafety Level 2 practices are required.",
+      "labEquipment": [
+          {
+              "name": "Microcentrifuge",
+              "url": "http://edamontology.org/topic_0209"
+          },
+          {
+              "name": "NanoDrop Spectrophotometer",
+              "url": "http://edamontology.org/topic_0209"
+          },
+          {
+              "name": "Vortex mixer",
+              "url": "http://edamontology.org/topic_0209"
+          }
+      ],
+      "reagent": [
+          {
+              "name": "TRIzol Reagent",
+              "identifier": "https://pubchem.ncbi.nlm.nih.gov/compound/75995"
+          },
+          {
+              "name": "Chloroform",
+              "identifier": "CHEBI:23343"
+          },
+          {
+              "name": "Isopropanol",
+              "identifier": "CHEBI:17824"
+          },
+          {
+              "name": "75% Ethanol",
+              "identifier": "CHEBI:16236"
+          }
+      ],
+      "bioSample": {
+          "name": "Human whole blood",
+          "identifier": "UBERON:0000178"
+      },
+      "protocolAdvantage": [
+          "High yield of total RNA (typical yield: 5-15 µg from 1 ml of human blood)",
+          "Effectively removes genomic DNA contamination",
+          "Preserves small RNA species including microRNAs"
+      ],
+      "protocolLimitation": [
+          "Not recommended for samples stored in heparin",
+          "Requires careful handling of toxic TRIzol reagent",
+          "Processing time sensitive - samples should not be stored in TRIzol for extended periods"
+      ],
+      "prepTime": {
+          "name": "PT30M"
+      },
+      "performTime": {
+          "name": "PT2H"
+      },
+      "totalTime": {
+          "name": "PT2H30M"
+      },
+      "step": [
+          {
+              "@type": "schema:HowToStep",
+              "name": "Sample Preparation",
+              "text": "1. Add 1 ml of TRIzol reagent to 100-200 µl of whole blood in a sterile 1.5 ml microcentrifuge tube.\n2. Vortex thoroughly for 30 seconds to ensure complete cell lysis.",
+              "performTime": "PT5M"
+          },
+          {
+              "@type": "schema:HowToStep",
+              "name": "Phase Separation",
+              "text": "1. Add 0.2 ml of chloroform per 1 ml of TRIzol.\n2. Shake tubes vigorously for 15 seconds.\n3. Incubate at room temperature for 3 minutes.\n4. Centrifuge at 12,000 × g for 15 minutes at 4°C.",
+              "performTime": "PT20M"
+          },
+          {
+              "@type": "schema:HowToStep",
+              "name": "RNA Precipitation",
+              "text": "1. Transfer the aqueous phase to a new tube.\n2. Add 0.5 ml of isopropanol.\n3. Incubate at room temperature for 10 minutes.\n4. Centrifuge at 12,000 × g for 10 minutes at 4°C.",
+              "performTime": "PT25M"
+          },
+          {
+              "@type": "schema:HowToStep",
+              "name": "RNA Wash",
+              "text": "1. Remove supernatant.\n2. Wash RNA pellet with 1 ml of 75% ethanol.\n3. Centrifuge at 7,500 × g for 5 minutes at 4°C.",
+              "performTime": "PT15M"
+          },
+          {
+              "@type": "schema:HowToStep",
+              "name": "RNA Resuspension and Quality Control",
+              "text": "1. Air-dry RNA pellet for 5-10 minutes.\n2. Resuspend in 50 µl RNase-free water.\n3. Measure concentration and quality using NanoDrop (A260/280 ratio should be >1.8).",
+              "performTime": "PT15M"
+          }
+      ],
+      "protocolOutcome": {
+          "name": "Expected Results",
+          "text": "Purified total RNA with A260/280 ratio >1.8 and concentration of 50-150 ng/µl. RNA integrity number (RIN) should be >7.0 for high-quality samples."
+      },
+      "citation": {
+          "name": "Johnson et al. (2025) Optimized RNA isolation from human blood samples for transcriptome analysis",
+          "identifier": "doi:10.1234/protocolsj.2025.001"
+      },
+      "keywords": [
+          "RNA isolation",
+          "blood sample processing",
+          "TRIzol method",
+          "molecular biology protocol",
+          "nucleic acid extraction"
+      ],
+      "isBasedOn": [{
+          "id": "https://doi.org/10.1016/j.xpro.2023.102387",
+          "@type": "schema:Article"
+      }]
+  }
+}
