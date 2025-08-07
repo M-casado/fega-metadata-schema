@@ -891,7 +891,7 @@
     },
     "hasPart": {
       "description": "Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).",
-      "oneOf": [
+      "anyOf": [
         {
           "@type": "CreativeWork",
           "type": "object",
@@ -928,13 +928,17 @@
             },
             "required": []
           }
+        },
+        {
+          "$ref": "../FEGA.common-definitions.json#/$defs/relationshipArray",
+          "$comment": "#! Added on top of the BioSchemas original schema to allow for more flexibility and compatibility with the FEGA relationship arrays"
         }
       ],
       "owl:cardinality": "many"
     },
     "isBasedOn": {
       "description": "A resource from which this work is derived or from which it is a modification or adaption.",
-      "oneOf": [
+      "anyOf": [
         {
           "@type": "Product",
           "type": "object",
@@ -972,6 +976,10 @@
         {
           "format": "uri",
           "type": "string"
+        },
+        {
+          "$ref": "../FEGA.common-definitions.json#/$defs/relationshipArray",
+          "$comment": "#! Added on top of the BioSchemas original schema to allow for more flexibility and compatibility with the FEGA relationship arrays"
         }
       ],
       "owl:cardinality": "one"
@@ -1844,7 +1852,7 @@
       "type": "string"
     },
     "sameAs": {
-      "oneOf": [
+      "anyOf": [
         {
           "type": "string",
           "format": "uri"
@@ -1855,6 +1863,10 @@
             "type": "string",
             "format": "uri"
           }
+        },
+        {
+          "$ref": "../FEGA.common-definitions.json#/$defs/relationshipArray",
+          "$comment": "#! Added on top of the BioSchemas original schema to allow for more flexibility and compatibility with the FEGA relationship arrays"
         }
       ],
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",

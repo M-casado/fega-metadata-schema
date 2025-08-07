@@ -481,6 +481,10 @@
             "type": "string",
             "format": "uri"
           }
+        },
+        {
+          "$ref": "../FEGA.common-definitions.json#/$defs/relationshipArray",
+          "$comment": "#! Added on top of the BioSchemas original schema to allow for more flexibility and compatibility with the FEGA relationship arrays"
         }
       ],
       "owl:cardinality": "many"
@@ -507,6 +511,10 @@
             "type": "string",
             "format": "uri"
           }
+        },
+        {
+          "$ref": "../FEGA.common-definitions.json#/$defs/relationshipArray",
+          "$comment": "#! Added on top of the BioSchemas original schema to allow for more flexibility and compatibility with the FEGA relationship arrays"
         }
       ],
       "owl:cardinality": "many"
@@ -587,7 +595,7 @@
     },
     "sameAs": {
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
-      "oneOf": [
+      "anyOf": [
         {
           "type": "string",
           "format": "uri"
@@ -598,6 +606,10 @@
             "type": "string",
             "format": "uri"
           }
+        },
+        {
+          "$ref": "../FEGA.common-definitions.json#/$defs/relationshipArray",
+          "$comment": "#! Added on top of the BioSchemas original schema to allow for more flexibility and compatibility with the FEGA relationship arrays"
         }
       ],
       "owl:cardinality": "many"
