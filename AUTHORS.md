@@ -19,6 +19,7 @@
 | FEGA Canada (Canada's Michael Smith Genome Sciences Centre) | Member | Eric Chuah | | echuah [at] bcgsc.ca |
 | FEGA Canada (Canada's Michael Smith Genome Sciences Centre) | Member | Young Cheng | | ycheng [at] bcgsc.ca |
 | FEGA Canada (Canada's Michael Smith Genome Sciences Centre) | Member | Grant McNair  | [0009-0006-1362-0681](https://orcid.org/0009-0006-1362-0681) | gmcnair [at] bcgsc.ca |
+| CEGA (EMBL-EBI) | Member | Gabriele Rinck | [0000-0001-6428-3431](https://orcid.org/0000-0001-6428-3431) | rinck [at] ebi.ac.uk |
 
 ## Repository contributors and authors
 
