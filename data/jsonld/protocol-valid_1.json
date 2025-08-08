@@ -31,17 +31,33 @@
       }],
       "input": [{
           "name": "Raw FASTQ files",
-          "identifier": "input_001"
+          "identifier": "input_001",
+          "fileFormat": {
+              "id": "EDAM:1930",
+              "label": "FASTQ"
+          }
       }, {
           "name": "Sample metadata table",
-          "identifier": "input_002"
+          "identifier": "input_002",
+          "fileFormat": {
+              "id": "EDAM:3751",
+              "label": "DSV"
+          }
       }],
       "output": [{
           "name": "Differential expression results",
-          "identifier": "output_001"
+          "identifier": "output_001",
+          "fileFormat": {
+              "id": "EDAM:3751",
+              "label": "DSV"
+          }
       }, {
           "name": "Quality control report",
-          "identifier": "output_002"
+          "identifier": "output_002",
+          "fileFormat": {
+            "id": "EDAM:2331",
+            "label": "HTML"
+         }
       }],
       "softwareRequirements": [
           "FastQC v0.11.9",
@@ -60,6 +76,17 @@
         {
           "id": "https://doi.org/10.1016/j.xpro.2023.102387",
           "@type": "schema:Article"
+        }
+      ],
+
+      "inputFormat": [
+        {
+            "id": "EDAM:1930",
+            "label": "FASTQ"
+        },
+        {
+            "id": "EDAM:1931",
+            "label": "BAM"
         }
       ]
   }

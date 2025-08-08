@@ -1569,7 +1569,7 @@
         },
 
         "fileFormat": {
-            "type": "string",
+            "type": "object",
             "title": "File format",
             "description": "Format of the file containing the data. A defined way or layout of representing and structuring data in a computer file, blob, string, message, or elsewhere.",
             "meta:sssomMappings": [
@@ -1584,6 +1584,18 @@
                     "reviewer_id": [""],
                     "confidence": 1.0,
                     "mapping_date": "2025-08-08"
+                },
+                {
+                    "predicate_id": "skos:broadMatch",
+                    "object_id": "schema:encodingFormat",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 0.5,
+                    "mapping_date": "2025-04-11"
                 }
             ]
             ,

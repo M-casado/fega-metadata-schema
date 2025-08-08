@@ -33,6 +33,7 @@
         }
       },
       "then": {
+        "$comment": "These BioSchemas files were fetched from BioSchemas API. See https://github.com/EGA-archive/fega-metadata-schema/issues/6 for more details.",
         "$ref": "./bioschemas/ComputationalWorkflow_v1.1-DRAFT.json"
       }
     },
@@ -51,13 +52,13 @@
         }
       },
       "then": {
-        "$comment": "Similar issue as with Beacon, the $ids are missing and thus I forked it and added the $id to the schema",
+        "$comment": "These BioSchemas files were fetched from BioSchemas API. See https://github.com/EGA-archive/fega-metadata-schema/issues/6 for more details.",
         "$ref": "./bioschemas/LabProtocol_v0.8-DRAFT.json"
       }
     }
   ],
   "$defs": {
-    "typeEnum": {
+    "protocolTypeEnum": {
       "type": "string",
       "anyOf": [
         {
@@ -67,18 +68,75 @@
           "enum": ["protocol", "bioschemastypes:LabProtocol"]
         }
       ]
+    },
+    "computingRequirements": {
+      "type": "object",
+      "properties": {
+        "memory": {
+          "type": "string",
+          "description": "Minimum memory (RAM) requirements (e.g., '8GB', '16GB')",
+          "meta:sssomMappings": [
+              {
+                  "predicate_id": "skos:exactMatch",
+                  "object_id": "schema:memoryRequirements",
+                  "mapping_justification": "semapv:ManualMappingCuration",
+                  "object_match_field": "rdfs:comment",
+                  "subject_match_field": "rdfs:comment",
+                  "author_id": ["orcid:0000-0002-7747-6256"],
+                  "creator_id": ["orcid:0000-0002-7747-6256"],
+                  "reviewer_id": [""],
+                  "confidence": 1.0,
+                  "mapping_date": "2025-08-08"
+              }
+          ],
+          "pattern": "^[0-9]+(GB|MB|TB)$",
+          "examples": ["4GB", "16GB", "128GB"]
+        },
+        "cpuCores": {
+          "type": "number",
+          "description": "Number of CPU cores needed to run the workflow",
+          "minimum": 1,
+          "examples": [2, 4, 8]
+        },
+        "gpuAcceleration": {
+          "type": "boolean",
+          "description": "Whether GPU acceleration is required",
+          "examples": [true, false]
+        },
+        "storage": {
+          "type": "string", 
+          "description": "Amount of disk space required (e.g., '100GB', '1TB')",
+          "meta:sssomMappings": [
+              {
+                  "predicate_id": "skos:exactMatch",
+                  "object_id": "schema:storageRequirements",
+                  "mapping_justification": "semapv:ManualMappingCuration",
+                  "object_match_field": "rdfs:comment",
+                  "subject_match_field": "rdfs:comment",
+                  "author_id": ["orcid:0000-0002-7747-6256"],
+                  "creator_id": ["orcid:0000-0002-7747-6256"],
+                  "reviewer_id": [""],
+                  "confidence": 1.0,
+                  "mapping_date": "2025-08-08"
+              }
+          ],
+          "pattern": "^[0-9]+(GB|MB|TB)$",
+          "examples": ["50GB", "500GB", "2TB"]
+        }
+      }
     }
   },
+
   "properties": {
     "@type": {
       "anyOf": [
         {
-          "$ref": "#/$defs/typeEnum"
+          "$ref": "#/$defs/protocolTypeEnum"
         },
         {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/typeEnum"
+            "$ref": "#/$defs/protocolTypeEnum"
           }
         }
       ]
@@ -90,7 +148,25 @@
 
     "isBasedOn": {
       "$ref": "./FEGA.common-definitions.json#/$defs/isBasedOn",
-      "$comment": "This is used when the protocol that it's referenced is not exactly the same: this protocol was a modification of the original one, or it was used as a base to create this protocol. E.g., changed parameters, or added new steps."
+      "$comment": "This is used when the protocol that it's referenced is not exactly the same: this protocol was a modification of the original one, or it was used as a base to create this protocol. E.g., changed parameters, or added new steps.",
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:narrowMatch",
+          "object_id": "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isnewversionof",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:comment",
+          "subject_match_field": "rdfs:comment",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1.0,
+          "mapping_date": "2025-08-08"
+        }
+      ]
+    },
+
+    "version": {
+      "$ref": "./bioschemas/ComputationalWorkflow_v1.1-DRAFT.json#/properties/version"
     }
   }
 }

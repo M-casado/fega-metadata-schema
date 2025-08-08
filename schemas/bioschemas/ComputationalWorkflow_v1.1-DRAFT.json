@@ -269,39 +269,13 @@
       "oneOf": [
         {
           "@type": "bioschemas:FormalParameter",
-          "type": "object",
-          "properties": {
-            "identifier": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "url": {
-              "format": "uri",
-              "type": "string"
-            }
-          },
-          "required": []
+          "$ref": "#/definitions/formalParameter"
         },
         {
           "type": "array",
           "items": {
             "@type": "bioschemas:FormalParameter",
-            "type": "object",
-            "properties": {
-              "identifier": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "url": {
-                "format": "uri",
-                "type": "string"
-              }
-            },
-            "required": []
+            "$ref": "#/definitions/formalParameter"
           }
         }
       ],
@@ -312,39 +286,13 @@
       "oneOf": [
         {
           "@type": "bioschemas:FormalParameter",
-          "type": "object",
-          "properties": {
-            "identifier": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "url": {
-              "format": "uri",
-              "type": "string"
-            }
-          },
-          "required": []
+          "$ref": "#/definitions/formalParameter"
         },
         {
           "type": "array",
           "items": {
             "@type": "bioschemas:FormalParameter",
-            "type": "object",
-            "properties": {
-              "identifier": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "url": {
-                "format": "uri",
-                "type": "string"
-              }
-            },
-            "required": []
+            "$ref": "#/definitions/formalParameter"
           }
         }
       ],
@@ -1928,9 +1876,12 @@
               "url": {
                   "type": "string",
                   "format": "uri"
+              },
+              "fileFormat": {
+                "$ref": "../FEGA.common-definitions.json#/$defs/fileFormat"
               }
           },
-          "required": []
+          "required": [ "name", "fileFormat" ]
       },
       "edamTopic": {
           "@type": "DefinedTerm",
