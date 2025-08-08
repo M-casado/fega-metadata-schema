@@ -1568,6 +1568,69 @@
             }
         },
 
+        "fileFormat": {
+            "type": "string",
+            "title": "File format",
+            "description": "Format of the file containing the data. A defined way or layout of representing and structuring data in a computer file, blob, string, message, or elsewhere.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "EDAM:1915",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-08-08"
+                }
+            ]
+            ,
+            "allOf": [
+                {
+                    "title": "Inherited ontologyTerm structure of term id and label",
+                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                }
+            ],
+            "properties": {
+                "id": {
+                    "title": "Ontology constraints for this specific id",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:edam"],
+                        "classes": ["EDAM:1915"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false
+                    },
+                    "examples": [ "EDAM:3749", "EDAM:1930", "EDAM:2572", "EDAM:3016", "EDAM:2072" ]
+                },
+                "label": {
+                    "title": "Ontology constraints for this specific label",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:edam"],
+                        "classes": ["EDAM:1915"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false,
+                        "queryFields": [ "label" ]
+                    },
+                    "examples": [ "JSON-LD", "FASTQ", "BAM", "VCF", "Hidden Markov model format" ]
+                }
+            },
+            "examples": [
+                {
+                    "id": "EDAM:1930",
+                    "label": "FASTQ"
+                },
+                {
+                    "id": "EDAM:2572",
+                    "label": "BAM"
+                },
+                {
+                    "id": "EDAM:2072"
+                }
+            ]
+        },
+
         "relationshipItemRestrictionBiomaterial": {
             "type": "object",
             "title": "Relationship item restriction: Biomaterial",
@@ -1829,6 +1892,7 @@
                 }
             ]
         },
+
         "hasPart": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
             "description": "Array of relationships pointing to related resources that are included either physically or logically in the subject resource.",
