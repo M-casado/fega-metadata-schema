@@ -62,10 +62,10 @@
       "type": "string",
       "anyOf": [
         {
-          "enum": ["protocol", "bioschemastypes:ComputationalWorkflow"]
+          "enum": ["protocol", "prov:Plan", "bioschemastypes:ComputationalWorkflow"]
         },
         {
-          "enum": ["protocol", "bioschemastypes:LabProtocol"]
+          "enum": ["protocol", "prov:Plan", "bioschemastypes:LabProtocol"]
         }
       ]
     },

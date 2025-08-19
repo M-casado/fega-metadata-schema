@@ -1597,8 +1597,7 @@
                     "confidence": 0.5,
                     "mapping_date": "2025-04-11"
                 }
-            ]
-            ,
+            ],
             "allOf": [
                 {
                     "title": "Inherited ontologyTerm structure of term id and label",
