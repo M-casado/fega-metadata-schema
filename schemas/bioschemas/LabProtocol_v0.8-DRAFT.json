@@ -2,6 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/bioschemas/LabProtocol_v0.8-DRAFT.json",
   "type": "object",
+  "$comment": "Source: https://github.com/BioSchemas/specifications/blob/master/LabProtocol/jsonld/LabProtocol_v0.8-DRAFT.json (accessed 2025-08). Licence: CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. Changes: aligned fields to FEGA conventions.",
   "@context": {
     "@vocab": "https://schema.org/"
   },

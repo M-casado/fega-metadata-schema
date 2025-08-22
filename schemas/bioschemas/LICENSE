@@ -1,0 +1,14 @@
+Files in this directory (``schemas/bioschemas/``) are adapted from BioSchemas definitions published via BioSchemas specification GitHub and the BioThings Data Discovery Engine. Except where otherwise noted on the source pages, the original content is licensed under the Creative Commons Attribution 4.0 International licence (CC BY 4.0). See https://creativecommons.org/licenses/by/4.0/.
+
+Attribution (TASL):
+- Title(s) and source URL(s):
+  - [``ComputationalWorkflow_v1.1-DRAFT.json``](./ComputationalWorkflow_v1.1-DRAFT.json) — https://discovery.biothings.io/api/schema/bioschemasdrafts:ComputationalWorkflow/validation. spec: https://bioschemas.org/profiles/ComputationalWorkflow/
+  - [``LabProtocol_v0.8-DRAFT.json``](./LabProtocol_v0.8-DRAFT.json) — https://github.com/BioSchemas/specifications/blob/master/LabProtocol/jsonld/LabProtocol_v0.8-DRAFT.json. Spec: https://bioschemas.org/profiles/LabProtocol/
+- Author/creator: Cano MA, Acosta N, Rodolpho ER, Tsueng G, Zhou X, Xin J, Hughes LD, Mullen JL, Su AI, Wu C.
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Accessed: 22 Aug 2025
+
+Changes by the FEGA metadata schema team (see [``AUTHORS.md``](../../AUTHORS.md)). Reuse does not imply endorsement by the original authors, BioSchemas, or BioThings.
+
+## Citations
+Cano MA, Acosta N, Rodolpho ER, Tsueng G, Zhou X, Xin J, Hughes LD, Mullen JL, Su AI, Wu C. Data Discovery Engine: a project for authoring, extending, and using metadata schemas to improve FAIRness of biomedical data. BMC Bioinformatics. 2023 Apr 20;24(1):159. doi:10.1186/s12859-023-05258-4.

@@ -2,6 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/bioschemas/ComputationalWorkflow_v1.1-DRAFT.json",
   "type": "object",
+  "$comment": "Source: https://discovery.biothings.io/api/schema/bioschemasdrafts:ComputationalWorkflow/validation (accessed 2025-08-22). Licence: CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. Changes: aligned fields to FEGA conventions.",
   "@context": {
     "@vocab": "https://schema.org/"
   },
