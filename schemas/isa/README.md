@@ -1,4 +1,4 @@
-This directory contains modified work from the ISA-API project: https://github.com/ISA-tools/isa-api. Files in this directory are licensed under CPAL-1.0. See [LICENSE](./LICENSE) for details.
+This directory contains modified work from the ISA-API project: https://github.com/ISA-tools/isa-api. In particular from the ``isatools/resources/schemas/isa_model_version_1_0_schemas/core`` directory. Files in this directory are licensed under CPAL-1.0. See [LICENSE](./LICENSE) for details.
 
 Attribution required by CPAL Exhibit B:
   - Attribution Copyright Notice: Copyright (c) 2015-Present ISA Team

@@ -1,10 +1,9 @@
 {
-    "id": "https://raw.githubusercontent.com/ISA-tools/isa-api/master/isatools/resources/schemas/isa_model_version_1_0_schemas/core/process_parameter_value_schema.json",
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/isa/process_parameter_value_schema.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title" : "ISA process parameter value schema",
-    "name" : "ISA Process Parameter Value schema",
     "description" : "JSON-schema representing an ISA model Parameter Value (associated with a Protocol REF) object",
-    "$comment": "#! Missing license remark about ISA",
+    "$comment": "This file includes or is derived from Original Code by the ISA Team under CPAL-1.0. Modifications by [AUTHORS.md](../../AUTHORS.md), 27-08-2025. See ./README.md for details.",
     "type" : "object",
     "required": ["@id", "@context", "@type", "category", "value"],
     "properties" : {
@@ -16,13 +15,13 @@
             },
         "value": {
             "anyOf" : [
-                { "$ref": "ontology_annotation_schema.json#"},
+                { "$ref": "../FEGA.common-definitions.json#/$defs/ontologyTerm"},
                 { "type": "string"},
                 { "type": "number"}
                 ]
         },
         "unit": {
-            "$ref": "ontology_annotation_schema.json#"
+            "$ref": "../FEGA.common-definitions.json#/$defs/ontologyTerm"
         },
         "comments" : {
             "type": "array",
@@ -30,6 +29,5 @@
                  "$ref": "comment_schema.json#"
             }
         }
-    },
-    "additionalProperties": false
+    }
 }

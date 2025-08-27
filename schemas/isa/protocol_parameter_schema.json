@@ -1,16 +1,16 @@
 {
-    "id": "https://raw.githubusercontent.com/ISA-tools/isa-api/master/isatools/resources/schemas/isa_model_version_1_0_schemas/core/protocol_parameter_schema.json",
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/isa/protocol_parameter_schema.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title" : "ISA Protocol Parameter schema",
-    "name" : "ISA Protocol Parameter schema",
     "description" : "JSON-schema representing an ISA model Protocol Parameter parameter object (i.e. category declared in the investigation file)",
     "type" : "object",
+    "$comment": "This file includes or is derived from Original Code by the ISA Team under CPAL-1.0. Modifications by [AUTHORS.md](../../AUTHORS.md), 27-08-2025. See ./README.md for details.",
     "properties" : {
         "@id": { "type": "string", "format": "uri-reference" },
         "@context": { "type": "string", "format": "uri-reference"},
         "@type" : { "type": "string", "enum": ["ProtocolParameter"] },
         "parameterName": {
-            "$ref": "ontology_annotation_schema.json#"
+            "$ref": "../FEGA.common-definitions.json#/$defs/ontologyTerm"
         },
         "comments" : {
             "type": "array",
@@ -18,6 +18,5 @@
                  "$ref": "comment_schema.json#"
             }
         }
-    },
-    "additionalProperties": false
+    }
 }
