@@ -5,6 +5,10 @@
     "description": "JSON-schema representing an ISA model Comment object",
     "type": "object",
     "$comment": "This file includes or is derived from Original Code by the ISA Team under CPAL-1.0. Modifications by [AUTHORS.md](../../AUTHORS.md), 27-08-2025. See ./README.md for details.",
+    "@context": [
+        "./FEGA.common-definitions.json"
+    ],
+    "required": ["name"],
     "properties": {
         "@id": { "type": "string", "format": "uri-reference" },
         "@context": { "type": "string", "format": "uri-reference"},
@@ -15,5 +19,14 @@
         "value": {
             "type": "string"
         }
-    }
+    },
+    "examples": [
+        {
+            "@id": "urn:uuid:7bf38b37-99a3-4e2c-a2cc-4b8f7b63c3e1",
+            "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/isa/comment_schema.json",
+            "@type": "Comment",
+            "name": "deviation",
+            "value": "Operator shortened incubation by 2 minutes due to observed over-digestion."
+        }
+    ]
 }

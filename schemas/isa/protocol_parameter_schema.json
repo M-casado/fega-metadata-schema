@@ -5,6 +5,10 @@
     "description" : "JSON-schema representing an ISA model Protocol Parameter parameter object (i.e. category declared in the investigation file)",
     "type" : "object",
     "$comment": "This file includes or is derived from Original Code by the ISA Team under CPAL-1.0. Modifications by [AUTHORS.md](../../AUTHORS.md), 27-08-2025. See ./README.md for details.",
+    "@context": [
+        "./FEGA.common-definitions.json"
+    ],
+    "required": ["parameterName"],
     "properties" : {
         "@id": { "type": "string", "format": "uri-reference" },
         "@context": { "type": "string", "format": "uri-reference"},
@@ -18,5 +22,16 @@
                  "$ref": "comment_schema.json#"
             }
         }
-    }
+    },
+    "examples": [
+        {
+            "@id": "urn:uuid:pp-incubation-temperature",
+            "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/isa/protocol_parameter_schema.json",
+            "@type": "ProtocolParameter",
+            "parameterName": {
+                    "id": "PATO:0000146",
+                    "label": "temperature"
+            }
+        }
+    ]
 }
