@@ -19,6 +19,10 @@
       "$ref": "./json-ld.org/FEGA.jsonld-schema.json"
     },
     {
+        "title": "Entity type restriction",
+        "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionProtocol"
+    },
+    {
       "title": "Compatibility with BioSchemas ComputationalWorkflow",
       "if": {
         "required": ["@type"],
@@ -126,7 +130,6 @@
       }
     }
   },
-
   "properties": {
     "@type": {
       "anyOf": [
@@ -141,6 +144,8 @@
         }
       ]
     },
+
+    "$comment": "#! Perhaps the addition of parameters (similar to 'parameters' array from process) would be good, to compare what parameters are expected based on the protocol and which ones are provided in the process per se.",
     
     "sameAs": {
       "$ref": "./FEGA.common-definitions.json#/$defs/sameAs"

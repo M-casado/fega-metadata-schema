@@ -17,7 +17,11 @@
   "required": ["biomaterialType"],
   "allOf": [
     { "$ref": "#/$defs/organismChecklist" },
-    { "$ref": "#/$defs/organismPartChecklist" }
+    { "$ref": "#/$defs/organismPartChecklist" },
+    {
+        "title": "Entity type restriction",
+        "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionBiomaterial"
+    }
   ],
   "$defs": {
     "commonBiomaterialDefs": {
@@ -124,34 +128,9 @@
         },
 
         "id": {
-          "type": "string",
-          "title": "Biomaterial Record ID",
-          "description": "Globally unique record-level identifier for the biomaterial. Must be a URI or CURIE (e.g., fega:EGAN000000001).",
-          "meta:sssomMappings": [
-            {
-              "predicate_id": "skos:exactMatch",
-              "object_id": "schema:identifier",
-              "mapping_justification": "semapv:LexicalMatching",
-              "match_string": "id",
-              "object_match_field": "rdfs:label",
-              "subject_match_field": "rdfs:label",
-              "author_id": ["orcid:0000-0002-7747-6256"],
-              "creator_id": ["orcid:0000-0002-7747-6256"],
-              "reviewer_id": [""],
-              "confidence": 1.0,
-              "mapping_date": "2025-04-15"
-            }
-          ],
-          "anyOf": [
-            {
-              "format": "uri"
-            },
-            {
-              "$ref": "./FEGA.common-definitions.json#/$defs/curieGeneralPattern"
-            }
-          ],
+          "$ref": "./FEGA.common-definitions.json#/$defs/id",
           "examples": ["fega:EGAN00001000620", "fega:EGAN00000000001", "https://ega-archive.org/biomaterials/EGAN00000000001"],
-          "$comment": "Depending on how we want to use this ID, we could: (1) transform it into an array of IDs, instead of using the 'sameAs' array; (2) add the 'readOnly': true, so that it's implied that we don't expect users to provide their IDs, although there may be occassions in which we want."
+          "$comment": "Depending on how we want to use this ID, we could: (1) transform it into an array of IDs, instead of using the 'sameAs' array; (2) add the 'readOnly': true, so that it's implied that we don't expect users to provide their IDs, although there may be occasions in which we want."
         },
 
         "label": {
@@ -446,57 +425,9 @@
           ],
           "allOf": [
             {
-              "title": "Inherited ontologyTerm structure of term id and label",
-              "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+              "$ref": "./FEGA.common-definitions.json#/$defs/location"
             }
           ],
-          "properties": {        
-            "id": {
-              "title": "Ontology constraints for this specific term id",
-              "anyOf": [
-                {
-                  "graphRestriction": {
-                    "ontologies": ["obo:ncit"],
-                    "classes": ["NCIT:C25464"],
-                    "relations": ["rdfs:subClassOf"],
-                    "includeSelf": false
-                  }
-                },
-                {
-                  "graphRestriction": {
-                    "ontologies": ["obo:gaz"],
-                    "classes": ["GAZ:00000448"],
-                    "relations": ["rdfs:subClassOf"],
-                    "includeSelf": false
-                  }
-                }
-              ]           
-            },
-            "label": {
-              "type": "string",
-              "title": "Ontology constraints for this specific term label",
-              "anyOf": [
-                {
-                  "graphRestriction": {
-                    "ontologies": ["obo:ncit"],
-                    "classes": ["NCIT:C25464"],
-                    "relations": ["rdfs:subClassOf"],
-                    "queryFields": [ "label" ],
-                    "includeSelf": false
-                  }
-                },
-                {
-                  "graphRestriction": {
-                    "ontologies": ["obo:gaz"],
-                    "classes": ["GAZ:00000448"],
-                    "relations": ["rdfs:subClassOf"],
-                    "queryFields": [ "label" ],
-                    "includeSelf": false
-                  }
-                }
-              ]
-            }
-          },
           "examples": [
             {
               "id": "GAZ:00002955",
@@ -699,7 +630,7 @@
         "diagnoses": {
           "type": "array",
           "title": "Diagnoses",
-          "description": "List of diagnoses (and their associated metadata) attributed to the Biomaterial. The scope of the diagnosis is set by the 'biomaterialType'. For example, if in an 'organism' type of Biomaterial, diagnoses are Clincial Diagnoses; if in a 'organism part', then they are Pathological Diagnoses.",
+          "description": "List of diagnoses (and their associated metadata) attributed to the Biomaterial. The scope of the diagnosis is set by the 'biomaterialType'. For example, if in an 'organism' type of Biomaterial, diagnoses are Clinical Diagnoses; if in a 'organism part', then they are Pathological Diagnoses.",
           "minItems": 1,
           "uniqueItems": true,
           "items": {
