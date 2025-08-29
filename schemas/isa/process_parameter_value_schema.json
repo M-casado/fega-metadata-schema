@@ -11,7 +11,10 @@
     "anyOf": [
         {
             "title": "Value and Unit dependency",
-            "if":   { "required": ["value"] },
+            "if":   { 
+                "required": ["value"],
+                "properties": { "value": { "type": "number" } }
+            },
             "then": { "required": ["unit"] }
         }
     ],
@@ -105,6 +108,18 @@
                     "value": "Incubator logged 36.9-37.1 C over 30 min."
                 }
             ]
+        },
+        {
+            "category": {
+                "parameterName": {
+                    "id": "EFO:0000635",
+                    "label": "organism part"
+                }
+            },
+            "value": {
+                "id": "UBERON:0003068",
+                "label": "axial mesoderm"
+            }
         }
     ]
 }
