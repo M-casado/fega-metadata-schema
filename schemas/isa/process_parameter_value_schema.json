@@ -28,9 +28,9 @@
             },
         "value": {
             "anyOf" : [
-                { "$ref": "../FEGA.common-definitions.json#/$defs/ontologyTerm"},
-                { "type": "string"},
-                { "type": "number"}
+                    { "$ref": "../FEGA.common-definitions.json#/$defs/ontologyTerm"},
+                    { "type": "string"},
+                    { "type": "number"}
                 ]
         },
         "unit": {
