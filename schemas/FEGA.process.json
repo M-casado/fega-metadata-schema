@@ -1,0 +1,338 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.process.json",
+    "type": "object",
+    "title": "FEGA process metadata schema",
+    "meta:version": "0.0.0",
+    "$async": true,
+    "description": "A FEGA process.",
+    "@context": [
+        "./FEGA.common-definitions.json",
+        {
+            "entityDoc": "entities:FEGA.process.json#",
+            "properties": "@nest"
+        }
+    ],
+    "meta:sssomMappings": [
+        {
+            "predicate_id": "skos:closeMatch",
+            "object_id": "prov:Activity",
+            "mapping_justification": "semapv:ManualMappingCuration",
+            "object_match_field": "rdfs:comment",
+            "subject_match_field": "rdfs:comment",
+            "author_id": ["orcid:0000-0002-7747-6256"],
+            "creator_id": ["orcid:0000-0002-7747-6256"],
+            "reviewer_id": [""],
+            "confidence": 1.0,
+            "mapping_date": "2025-08-29"
+        },
+        {
+            "predicate_id": "skos:narrowMatch",
+            "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/biosamples/defaultSchema.json#obtentionProcedure",
+            "mapping_justification": "semapv:ManualMappingCuration",
+            "object_match_field": "rdfs:comment",
+            "subject_match_field": "rdfs:comment",
+            "author_id": ["orcid:0000-0002-7747-6256"],
+            "creator_id": ["orcid:0000-0002-7747-6256"],
+            "reviewer_id": [""],
+            "confidence": 0.9,
+            "mapping_date": "2025-08-27",
+            "$comment": "A Beacon 'obtentionProcedure' can be represented through the generic FEGA process."
+        },
+        {
+            "predicate_id": "skos:narrowMatch",
+            "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/biosamples/defaultSchema.json#sampleProcessing",
+            "mapping_justification": "semapv:ManualMappingCuration",
+            "object_match_field": "rdfs:comment",
+            "subject_match_field": "rdfs:comment",
+            "author_id": ["orcid:0000-0002-7747-6256"],
+            "creator_id": ["orcid:0000-0002-7747-6256"],
+            "reviewer_id": [""],
+            "confidence": 0.9,
+            "mapping_date": "2025-08-27",
+            "$comment": "A Beacon 'sampleProcessing' can be represented through the generic FEGA process."
+        },
+        {
+            "predicate_id": "skos:narrowMatch",
+            "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/biosample.html#sample-processing",
+            "mapping_justification": "semapv:ManualMappingCuration",
+            "object_match_field": "rdfs:comment",
+            "subject_match_field": "rdfs:comment",
+            "author_id": ["orcid:0000-0002-7747-6256"],
+            "creator_id": ["orcid:0000-0002-7747-6256"],
+            "reviewer_id": [""],
+            "confidence": 0.7,
+            "mapping_date": "2025-08-27",
+            "$comment": "The sample processing in a Phenopacket is in part a process, but the Phenopacket's definition of it has no details the actual process, just the ontology of how the sample was processed. Sort of like the protocol collection in FEGA, combined with the process."
+        },
+        {
+            "predicate_id": "skos:narrowMatch",
+            "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/analyses/defaultSchema.json",
+            "mapping_justification": "semapv:ManualMappingCuration",
+            "object_match_field": "rdfs:comment",
+            "subject_match_field": "rdfs:comment",
+            "author_id": ["orcid:0000-0002-7747-6256"],
+            "creator_id": ["orcid:0000-0002-7747-6256"],
+            "reviewer_id": [""],
+            "confidence": 0.8,
+            "mapping_date": "2025-08-27",
+            "$comment": "A Beacon 'analysis' represented in FEGA is split both into a process and a protocol"
+        },
+        {
+            "predicate_id": "skos:narrowMatch",
+            "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/runs/defaultSchema.json",
+            "mapping_justification": "semapv:ManualMappingCuration",
+            "object_match_field": "rdfs:comment",
+            "subject_match_field": "rdfs:comment",
+            "author_id": ["orcid:0000-0002-7747-6256"],
+            "creator_id": ["orcid:0000-0002-7747-6256"],
+            "reviewer_id": [""],
+            "confidence": 0.8,
+            "mapping_date": "2025-08-27",
+            "$comment": "A Beacon 'run' represented in FEGA is split both into a process and a protocol"
+        }
+    ],
+    "allOf": [
+        {
+            "title": "Base constraints for JSON-LD",
+            "$ref": "./json-ld.org/FEGA.jsonld-schema.json"
+        },
+        {
+            "title": "Entity type restriction",
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionProcess"
+        },
+        {
+            "title": "wasAssociatedWith (agents) and qualifiedAssociation dependency",
+            "if": { "required": ["qualifiedAssociation"] },
+            "then": { "required": ["wasAssociatedWith"] }
+        },
+        {
+            "title": "qualifiedAssociation and wasAssociatedWith (agents) dependency",
+            "if": { "required": ["wasAssociatedWith"] },
+            "then": { "required": ["qualifiedAssociation"] }
+        }
+    ],
+    "anyOf": [
+        { "required": ["used"] },
+        { "required": ["generated"] },
+        { "required": ["wasInformedBy"] },
+        { "required": ["informs"] }
+    ],
+    "required": [ "title", "hadProtocolCollection" ],
+    "properties": {
+        "id": {
+          "$ref": "./FEGA.common-definitions.json#/$defs/id",
+          "examples": ["ega:EGAK00001000620"],
+          "$comment": "Example to be updated when FEGA identifiers (EGAK...) are finalized for new entities."
+        },
+        "@type": {
+            "anyOf": [
+                { "type": "string", "const": "process" },
+                {
+                    "type": "array",
+                    "contains": { "const": "process" },
+                    "minItems": 1,
+                    "uniqueItems": true
+                }
+            ]
+        },
+        "title": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/label"
+        },
+        "description": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/description"
+        },
+        "hadProtocolCollection": {
+            "type": "object",
+            "description": "Pointer to the protocol collection that contains the protocol(s) used in this process.",
+            "allOf": [
+                {
+                    "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItem"
+                }
+            ],
+            "properties": {
+                "@type": {
+                    "anyOf": [
+                        { "type": "string", "const": "prov:Collection" },
+                        {
+                            "type": "array",
+                            "contains": { "const": "prov:Collection" },
+                            "minItems": 1,
+                            "uniqueItems": true
+                        }
+                    ]
+                }
+            },
+            "examples": [
+                {
+                    "id": "ega:EGAW00000000001",
+                    "@type": [ "prov:Collection" ],
+                    "label": "DNA extraction and sequencing protocol collection"
+                }
+            ],
+            "$comment": "In the future we may want to also embed the protocolCollection whole schema here, as an 'anyOf', instead of just the pointer. But for now this seems sufficient and cleaner."
+        },
+        "qualifiedAssociation": {
+            "type": "array",
+            "description": "An array of qualified associations between this process and an agent (e.g., a person, organization, or software). This can include roles such as 'performer', 'modifier', etc. Note that we forbid the use of 'hadPlan' within this qualified association to avoid complicating protocol relationships. The main protocol collection should be expected at the top-level 'hadProtocolCollection' property. The main use for this qualifiedAssociation is to specify the agents (prov:agent), and their roles (prov:hadRole), that performed or modified the process.",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "allOf": [
+                    { "$ref": "./FEGA.common-definitions.json#/$defs/qualifiedAssociation" },
+                    {
+                        "$comment": "We forbid hadPlan being used here within qualifiedAssociation, as it could complicate the protocol relationships. The main protocol collection should be expected at the top-level 'hadProtocolCollection' property.",
+                        "properties": {
+                            "hadPlan": false
+                        }
+                    }
+                ]
+            },
+            "$comment": "Downstream validation shall check that the @ids of these agents correspond to the @ids of the agents in wasAssociatedWith."
+        },
+        "startedAtTime": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "prov:startedAtTime",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "startedAtTime",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-08-19"
+                },
+                {
+                    "predicate_id": "skos:broadMatch",
+                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/runs/defaultSchema.json#collectionDate",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 0.8,
+                    "mapping_date": "2025-08-27"
+                }
+            ],
+            "allOf": [ {"$ref": "./FEGA.common-definitions.json#/$defs/dateTime" }],
+            "$comment": "Time sanity cannot be checked (i.e., startedAtTime < endedAtTime) natively in JSON Schema. We would either need to use downstream validation (e.g., SHACL) or AJV custom keywords."
+        },
+        "endedAtTime": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "prov:endedAtTime",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "endedAtTime",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-08-19"
+                }                
+            ],
+            "allOf": [ {"$ref": "./FEGA.common-definitions.json#/$defs/dateTime" }],
+            "$comment": "Time sanity cannot be checked (i.e., startedAtTime < endedAtTime) natively in JSON Schema. We would either need to use downstream validation (e.g., SHACL) or AJV custom keywords."
+        },
+        "atLocation": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/location"
+        },
+        "used": {
+            "allOf": [
+                {
+                    "$ref": "./FEGA.common-definitions.json#/$defs/used"
+                },
+                {
+                    "title": "Entity type restriction",
+                    "items": {
+                        "anyOf": [
+                            { "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionBiomaterial" },
+                            { "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionDatafile" }
+                        ]
+                    }
+                }
+            ]
+        },
+        "generated": {
+            "allOf": [
+                {
+                    "$ref": "./FEGA.common-definitions.json#/$defs/generated"
+                },
+                {
+                    "title": "Entity type restriction",
+                    "items": {
+                        "anyOf": [
+                            { "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionBiomaterial" },
+                            { "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionDatafile" }
+                        ]
+                    }
+                }             
+            ]
+        },
+        "wasAssociatedWith": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/wasAssociatedWith",
+            "title": "Association to agents",
+            "description": "Array of relationships pointing to agents (object) associated with this process (subject). The association is to be interpreted broadly: the agent can be associated in multiple ways (e.g., modification, execution...) with the process. It is relevant to note that this array contains associations to agents, and not directly the details (e.g., each agents' role) of the association. Those details are expected to be found in the 'qualifiedAssociation' property. Therefore, for each 'agent' item in wasAssociatedWith, there should be a corresponding 'qualifiedAssociation' item with the same agent and the relevant details of the association.",
+            "$comment": "Downstream validation shall check that the @ids of these agents correspond to the @ids of the agents in qualifiedAssociation."
+        },
+        "wasInformedBy": {
+            "description": "Array of relationships pointing to processes (object) that informed this process (subject). This is used to track the flow of information between processes. It is the inverse of 'informs'.",
+            "allOf": [
+                {
+                    "$ref": "./FEGA.common-definitions.json#/$defs/wasInformedBy"
+                },
+                {
+                    "title": "Entity type restriction",
+                    "items": {
+                        "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionProcess"
+                    }
+                }
+            ]
+        },
+        "informs": {
+            "description": "Array of relationships pointing to processes (object) that were informed by this process (subject). This is the inverse of 'wasInformedBy' and can be used to track the flow of information between processes.",
+            "allOf": [
+                {
+                    "$ref": "./FEGA.common-definitions.json#/$defs/informs"
+                },
+                {
+                    "title": "Entity type restriction",
+                    "items": {
+                        "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionProcess"
+                    }
+                }               
+            ]
+        },
+        "parameters": {
+            "type": "array",
+            "title": "Process Parameters",
+            "description": "Parameters used in the process. These can include settings, configurations, or any other relevant details that define how the process was carried out.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "https://isa-specs.readthedocs.io/en/latest/isajson.html#process-parameter-value-schema-json",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "parameters",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-08-19"
+                }
+            ],
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "$ref": "./isa/process_parameter_value_schema.json"
+            }
+        }
+    }
+}

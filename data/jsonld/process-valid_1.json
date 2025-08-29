@@ -1,0 +1,119 @@
+{
+    "schema": {
+        "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.process.json"
+    },
+    "data": {
+        "id": "https://w3id.org/fega/process/PRJ1234-PT0001-collection-2025-08-01",
+        "@type": ["process", "prov:Activity" ],
+        "title": "Peripheral blood collection (venipuncture) — subject PT-0001",
+        "description": "Whole blood collected by venipuncture into a K2EDTA lavender-top tube from subject PT-0001 for downstream WGS. Subject fasted 8h prior to draw.",
+        "hadProtocolCollection": {
+            "id": "ega:EGAW00000000001",
+            "@type": ["prov:Collection"],
+            "label": "Clinical biospecimen collection protocols (venipuncture, EDTA)"
+        },
+        "startedAtTime": "2025-08-01T09:15:00Z",
+        "endedAtTime": "2025-08-01T09:20:00Z",
+        "atLocation": {
+            "id": "GAZ:00002637",
+            "label": "United Kingdom"
+        },
+        "wasAssociatedWith": [
+            {
+                "id": "urn:uuid:person-jane-doe",
+                "@type": [ "prov:Agent", "prov:Person" ],
+                "label": "Jane Doe"
+            },
+            {
+                "@type": [ "prov:Agent","prov:Organization" ],
+                "id": "https://ror.org/055vbxf86",
+                "label": "Addenbrooke's Hospital"
+            }
+        ],
+        "qualifiedAssociation": [
+            {
+                "agent": {
+                    "id": "urn:uuid:person-jane-doe",
+                    "@type": [ "prov:Agent", "prov:Person" ],
+                    "label": "Jane Doe"
+                },
+                "hadRole": [
+                    {
+                        "id": "https://credit.niso.org/contributor-roles/investigation/",
+                        "label": "Investigation"
+                    }
+                ]
+            },
+            {
+                "agent": {
+                    "@type": [ "prov:Agent", "prov:Organization" ],
+                    "id": "https://ror.org/055vbxf86",
+                    "label": "Addenbrooke's Hospital"
+                },
+                "hadRole": [
+                    {
+                        "id": "https://credit.niso.org/contributor-roles/resources/",
+                        "label": "Resources"
+                    }
+                ]
+            }
+        ],
+        "used": [
+            {
+                "id": "ega:EGAN00090000001",
+                "@type": [ "biomaterial", "prov:Person" ],
+                "label": "Participant PT-0001 (organism)"
+            }
+        ],
+        "generated": [
+            {
+                "id": "biosample:SAMEA12345678",
+                "@type": [ "biomaterial" ],
+                "label": "Whole blood (EDTA), PT-0001"
+            }
+        ],
+        "parameters": [
+            {
+                "category": {
+                    "@type": "ProtocolParameter",
+                    "parameterName": {
+                        "id": "UBERON:0001062",
+                        "label": "anatomical entity"
+                    }
+                },
+                "value": {
+                    "id": "UBERON:0001414",
+                    "label": "median basilic vein"
+                }
+            },
+            {
+                "category": {
+                    "@type": "ProtocolParameter",
+                    "parameterName": {
+                        "id": "OBI:0003653",
+                        "label": "fasting"
+                    }
+                },
+                "value": 8,
+                "unit": {
+                    "id": "UO:0000032",
+                    "label": "hour"
+                }
+            },
+            {
+                "category": {
+                    "@type": "ProtocolParameter",
+                    "parameterName": {
+                        "id": "SNOMED:241736004",
+                        "label": "Manual tourniquet application (procedure)"
+                    }
+                },
+                "value": 1,
+                "unit": {
+                    "id": "UO:0000031",
+                    "label": "minute"
+                }
+            }
+        ]
+    }
+}

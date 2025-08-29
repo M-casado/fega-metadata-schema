@@ -12,7 +12,7 @@
         "name": "schema:name",
         "description": "schema:description",
 
-        "entities": "https://raw.githubusercontent.com/M-casado/fega-metadata-schemamain/schemas/",
+        "entities": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/",
         "cohort": "entities:FEGA.cohort.json",
         "study": "entities:FEGA.study.json",
         "process": "entities:FEGA.process.json",
@@ -27,7 +27,6 @@
         "identifiers": "https://identifiers.org/",
         "ega": "identifiers:ega:",
         "prov": "https://www.w3.org/ns/prov#",
-        "prov-o": "https://www.w3.org/TR/prov-o/#",
         "owl": "https://www.w3.org/2002/07/owl#",
         "skos": "https://www.w3.org/2009/08/skos-reference/skos.html#",
         "schema": "http://schema.org/",
@@ -54,6 +53,10 @@
             "@id": "prov:wasGeneratedBy",
             "@container": "@set"
         },
+        "generated": {
+            "@id": "prov:generated",
+            "@container": "@set"
+        },
         "wasDerivedFrom": {
             "@id": "prov:wasDerivedFrom",
             "@container": "@set"
@@ -73,9 +76,103 @@
         "hasPart": {
             "@reverse": "isPartOf",
             "@container": "@set"
+        },
+        "wasInformedBy": {
+            "@id": "prov:wasInformedBy",
+            "@container": "@set"
+        },
+        "informs": {
+            "@reverse": "wasInformedBy",
+            "@container": "@set"
         }
     },
     "$defs": {
+        "id": {
+          "type": "string",
+          "title": "Biomaterial Record ID",
+          "description": "Any kind of globally unique identifier for any kind of Thing. Must be a URI or CURIE (e.g., 'fega:EGAN000000001', 'https://github.com/EGA-archive/fega-metadata-schema'...).",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "schema:identifier",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "match_string": "id",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2025-08-27"
+            }
+          ],
+          "anyOf": [
+            {
+              "format": "uri"
+            },
+            {
+              "$ref": "./FEGA.common-definitions.json#/$defs/curieGeneralPattern"
+            }
+          ],
+          "examples": ["fega:EGAN00001000620", "https://github.com/EGA-archive/fega-metadata-schema", "fega:EGAN00000000001", "https://ega-archive.org/biomaterials/EGAN00000000001", "https://ror.org/02catss52"]
+        },
+
+        "@type": {
+            "title": "Resource type",
+            "description": "The type of the resource. Used to state that a resource is an instance of a class. Can be a unique string or an array of strings if multiple types are applicable to the resource. For example, a person can be both a 'prov:Person' and a 'prov:Agent'. See https://www.w3.org/TR/json-ld/#specifying-the-type for more details.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "rdf:type",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "type",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-08-29",
+                    "$comment": "JSON-LD '@type' expands to RDF triples using predicate rdf:type."
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "match_string": "type",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 0.9,
+                    "mapping_date": "2025-08-29",
+                    "$comment": "From https://www.w3.org/TR/turtle/ 2.4: The token 'a' in the predicate position of a Turtle triple represents the IRI http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+                }
+            ],
+            "anyOf": [
+                {
+                    "type": "string",
+                    "minLength": 1
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "minItems": 1,
+                    "uniqueItems": true
+                }
+            ],
+            "examples": [
+                "cohort", "biomaterial", "process", "xsd:integer",
+                [ "biomaterial", "prov:Person" ],
+                [ "prov:Person", "prov:Agent" ],
+                [ "protocol", "prov:Plan", "bioschemastypes:ComputationalWorkflow" ]
+            ]
+        },
+
         "label": {
             "type": "string",
             "title": "Label",
@@ -84,7 +181,7 @@
                 {
                     "predicate_id": "skos:exactMatch",
                     "object_id": "skos:prefLabel",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "match_string": "label",
                     "author_id": ["orcid:0000-0002-7747-6256"],
                     "creator_id": ["orcid:0000-0002-7747-6256"],
@@ -131,7 +228,7 @@
                 {
                     "predicate_id": "skos:exactMatch",
                     "object_id": "schema:description",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "description",
@@ -166,7 +263,7 @@
         "curieGeneralPattern": {
             "type": "string",
             "title": "Compact URI (CURIE) pattern",
-            "description": "A [W3C Compact URI](https://www.w3.org/TR/curie/) formatted string. A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax. Even though we do not restrict prefixes, we recommend that the term used as ``prefix`` is uniformely resolved. In other words, it is better to use prefixes (e.g. 'ensembl') from identifiers.org.",
+            "description": "A [W3C Compact URI](https://www.w3.org/TR/curie/) formatted string. A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax. Even though we do not restrict prefixes, we recommend that the term used as ``prefix`` is uniformly resolved. In other words, it is better to use prefixes (e.g. 'ensembl') from identifiers.org.",
             "minLength": 1,
             "pattern": "^\\w[^:]*:.+$",
             "examples": ["ensembl:ENSG00000139618", "HGNC:11535", "data:1026", "EFO:0003815"]
@@ -249,6 +346,7 @@
             "type": "object",
             "title": "Relationship item",
             "description": "This entity is expected to be referenced where needed, as it contains the basic format of a relationship item. Each of the items is expected to be one of the ends of the possible relationships in a linked metadata entity.",
+            "required": ["id"],
             "properties": {
               "id": {
                 "type": "string",
@@ -262,14 +360,9 @@
                     }
                 ]
               },
-              "@type": {
-                "type": "string",
-                "minLength": 1,
-                "examples": [ "cohort", "biomaterial", "process", "xsd:integer" ]
-              }
+              "@type": { "$ref": "./FEGA.common-definitions.json#/$defs/@type" }
             },
-            "$comment": "#! We may want to add a pattern check here, so that for example if 'biomaterial' is the '@type', the ID of the entity is 'EGAN...'. The issue for which I haven't added it yet is that FEGA identifiers are still being discussed and that it would be constraining external references to other archives (e.g., the activity that generated a file could be in a different archive, and not have an EGA stable ID).",
-            "required": ["id"]
+            "$comment": "#! We may want to add a pattern check here, so that for example if 'biomaterial' is the '@type', the ID of the entity is 'EGAN...'. The issue for which I haven't added it yet is that FEGA identifiers are still being discussed and that it would be constraining external references to other archives (e.g., the activity that generated a file could be in a different archive, and not have an EGA stable ID)."
         },
 
         "relationshipArray": {
@@ -303,7 +396,7 @@
                 {
                     "predicate_id": "skos:exactMatch",
                     "object_id": "https://build.fhir.org/ig/HL7/UTG/CodeSystem-v3-NullFlavor.html",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "NullFlavor",
@@ -425,7 +518,7 @@
                         {
                             "predicate_id": "skos:exactMatch",
                             "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/disease.html#term",
-                            "mapping_justification": "semapv:LexicalMatching",
+                            "mapping_justification": "semapv:ManualMappingCuration",
                             "object_match_field": "rdfs:label",
                             "subject_match_field": "rdfs:label",
                             "match_string": "term",
@@ -490,7 +583,7 @@
                     {
                         "predicate_id": "skos:exactMatch",
                         "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/disease.html#excluded",
-                        "mapping_justification": "semapv:LexicalMatching",
+                        "mapping_justification": "semapv:ManualMappingCuration",
                         "object_match_field": "rdfs:label",
                         "subject_match_field": "rdfs:label",
                         "match_string": "term",
@@ -503,7 +596,7 @@
                     {
                         "predicate_id": "skos:broadMatch",
                         "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/biosample.html#material-sample",
-                        "mapping_justification": "semapv:LexicalMatching",
+                        "mapping_justification": "semapv:ManualMappingCuration",
                         "object_match_field": "rdfs:label",
                         "subject_match_field": "rdfs:label",
                         "match_string": "term",
@@ -667,7 +760,7 @@
                               {
                                 "predicate_id": "skos:exactMatch",
                                 "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/biosample.html#tumor-grade",
-                                "mapping_justification": "semapv:LexicalMatching",
+                                "mapping_justification": "semapv:ManualMappingCuration",
                                 "object_match_field": "rdfs:label",
                                 "subject_match_field": "rdfs:label",
                                 "match_string": "tumorGrade",
@@ -702,7 +795,7 @@
                               {
                                 "predicate_id": "skos:exactMatch",
                                 "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/biosample.html#tumor-progression",
-                                "mapping_justification": "semapv:LexicalMatching",
+                                "mapping_justification": "semapv:ManualMappingCuration",
                                 "object_match_field": "rdfs:label",
                                 "subject_match_field": "rdfs:label",
                                 "match_string": "tumorProgression",
@@ -982,12 +1075,12 @@
 
         "phenotypicFeature": {
             "title": "Phenotypic feature",
-            "description": "A phenotypic feature is an observable trait (e.g., Aortic root dilation — HP:0002616) that chracterizes a biomaterial. It is a direct observation: something seen, measured, or reported about a biomaterial. Unlike a 'disease', a phenotypic feature makes no claim about underlying cause; it simply records what is (or is not) present.",
+            "description": "A phenotypic feature is an observable trait (e.g., Aortic root dilation — HP:0002616) that characterizes a biomaterial. It is a direct observation: something seen, measured, or reported about a biomaterial. Unlike a 'disease', a phenotypic feature makes no claim about underlying cause; it simply records what is (or is not) present.",
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
                     "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/phenotype.html",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "PhenotypicFeature",
@@ -1000,7 +1093,7 @@
                 {
                     "predicate_id": "skos:exactMatch",
                     "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/common/phenotypicFeature.json",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "PhenotypicFeature",
@@ -1035,12 +1128,12 @@
         "vitalStatus": {
             "type": "object",
             "title": "Vital Status",
-            "description": "Represents whether the organism is living or dead (or unknown) at the timepoint when the metadata was collected and/or reported. In practice, this element is useful in cohort studies in which the association of some treatment or genetic variation is compared with mortality. For many other applications, it may not be necessary to use a vitalStatus element.",
+            "description": "Represents whether the organism is living or dead (or unknown) at the time point when the metadata was collected and/or reported. In practice, this element is useful in cohort studies in which the association of some treatment or genetic variation is compared with mortality. For many other applications, it may not be necessary to use a vitalStatus element.",
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
                     "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/vital-status.html#vitalstatus",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "vitalStatus",
@@ -1148,7 +1241,7 @@
                 {
                     "predicate_id": "skos:narrowMatch",
                     "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/exposure.html#exposure",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "exposure",
@@ -1161,7 +1254,7 @@
                 {
                     "predicate_id": "skos:closeMatch",
                     "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/common/exposure.json",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "exposure",
@@ -1186,7 +1279,7 @@
                     "$comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object."
                 }
             ],
-            "required": [ "type", "occurence" ],
+            "required": [ "type", "occurrence" ],
             "properties": {
                 "type": {
                     "title": "Type of exposure",
@@ -1257,8 +1350,8 @@
                         ]
                     ]
                 },
-                "occurence": {
-                    "title": "Occurence",
+                "occurrence": {
+                    "title": "occurrence",
                     "description": "When the exposure occurred. The timeElement offers flexibility (e.g., age of the organism, timestamp, period of time...).",
                     "allOf": [
                         {
@@ -1367,7 +1460,7 @@
                 {
                 "predicate_id": "skos:exactMatch",
                 "object_id": "HANCESTRO:0004",
-                "mapping_justification": "semapv:LexicalMatching",
+                "mapping_justification": "semapv:ManualMappingCuration",
                 "object_match_field": "rdfs:label",
                 "subject_match_field": "rdfs:label",
                 "match_string": "ancestry",
@@ -1454,7 +1547,7 @@
                 {
                     "predicate_id": "skos:exactMatch",
                     "object_id": "UBERON:0001062",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "anatomical entity",
@@ -1503,7 +1596,7 @@
                 {
                     "predicate_id": "skos:exactMatch",
                     "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/quantity.html#rstquantity",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "author_id": ["orcid:0000-0002-7747-6256"],
@@ -1642,13 +1735,307 @@
             ]
         },
 
+        "dateTime": {
+            "type": "string",
+            "title": "Date and time",
+            "description": "Date and time in ISO 8601 format.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "http://www.w3.org/2001/XMLSchema#dateTime",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "dateTime",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-08-19"
+                }
+            ],
+            "format": "date-time",
+            "examples": [
+                "2023-10-01T12:00:00Z",
+                "2024-01-15T08:30:00+01:00",
+                "2025-05-22T14:45:30-05:00"
+            ]
+        },
+
+        "qualifiedAssociation": {
+            "type": "object",
+            "title": "Qualified association",
+            "description": "Individual association between the root entity (subject) and another entity (object). An activity association is an assignment of responsibility to an agent for an activity, indicating that the agent had a role in the activity. It further allows for a plan to be specified, which is the plan intended by the agent to achieve some goals in the context of this activity.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "https://www.w3.org/TR/prov-o/#qualifiedAssociation",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "qualifiedAssociation",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-08-27"
+                }
+            ],
+            "required": ["agent"],
+            "properties": {
+                "@type": {
+                    "anyOf": [
+                        {
+                            "const": "prov:Association"
+                        },
+                        {
+                            "type": "array",
+                            "contains": {
+                                "const": "prov:Association"
+                            }
+                        }
+                    ]
+                },
+                "agent": {
+                    "$ref": "./FEGA.common-definitions.json#/$defs/agent"
+                },
+                "hadRole": {
+                    "$ref": "./FEGA.common-definitions.json#/$defs/hadRole"
+                },
+                "hadPlan": {
+                    "$ref": "./FEGA.common-definitions.json#/$defs/hadPlan"
+                }
+            }
+        },
+
+        "agent": {
+            "type": "object",
+            "title": "Agent",
+            "description": "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "prov:Agent",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "agent",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-08-27"
+                }
+            ],
+            "anyOf": [
+                {"required": [ "label" ]},
+                {"required": [ "id" ]}
+            ],
+            "properties": {
+                "@type": {
+                    "anyOf": [
+                        {
+                            "const": "prov:Agent"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [ "prov:Agent", "prov:Person", "prov:Organization", "prov:SoftwareAgent" ]
+                            },
+                            "minItems": 1,
+                            "uniqueItems": true,
+                            "contains": {
+                                "const": "prov:Agent"
+                            }
+                        }
+                    ]
+                },
+                "id": {
+                    "$ref": "./FEGA.common-definitions.json#/$defs/id"
+                },
+                "label": {
+                    "$ref": "./FEGA.common-definitions.json#/$defs/label"
+                },
+                "atLocation": {
+                    "title": "Location",
+                    "description": "Where the agent is located (e.g., research institution, country, etc.).",
+                    "$ref": "./FEGA.common-definitions.json#/$defs/location"
+                },
+                "sameAs": {
+                    "$ref": "./FEGA.common-definitions.json#/$defs/sameAs"
+                }
+            },
+            "examples": [
+                {
+                    "@type": ["prov:Agent", "prov:Person"],
+                    "id": "orcid:0000-0002-7747-6256",
+                    "label": "Marcos Casado"
+                },
+                {
+                    "@type": [ "prov:Agent", "prov:Organization" ],
+                    "id": "https://ror.org/02catss52",
+                    "label": "European Bioinformatics Institute (EMBL-EBI)",
+                    "atLocation": {
+                        "id": "GAZ:00004795",
+                        "label": "Cambridgeshire"
+                    },
+                    "sameAs": [
+                        {
+                            "id": "https://www.ebi.ac.uk/"
+                        }
+                    ]
+                }
+            ]
+        },
+
+        "hadRole": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "description": "Array of relationships pointing to roles (object) that were played by the agent (subject) in the context of a process (i.e., the prov:activity)."
+        },
+
+        "hadPlan": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "description": "Array of relationships pointing to plans (object) that were intended by the agent (subject) to achieve some goals in the context of a process (i.e., the prov:activity)."
+        },
+
+        "location": {
+            "type": "object",
+            "title": "Location",
+            "description": "A specific place (e.g., country) or position (e.g., a research institute). Not to be confused with 'anatomicalEntity' which refers to a location within a biological entity.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "schema:location",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 0.8,
+                    "mapping_date": "2025-05-22"
+                },
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "prov:atLocation",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "atLocation",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-08-19"
+                }
+            ],
+            "allOf": [
+                {
+                    "title": "Inherited ontologyTerm structure of term id and label",
+                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                }
+            ],
+            "properties": {
+                "id": {
+                    "title": "Ontology constraints for this specific term id",
+                    "anyOf": [
+                        {
+                            "graphRestriction": {
+                                "ontologies": [ "obo:ncit" ],
+                                "classes": [ "NCIT:C25464" ],
+                                "relations": [ "rdfs:subClassOf"],
+                                "includeSelf": false
+                            }
+                        },
+                        {
+                            "graphRestriction": {
+                                "ontologies": [ "obo:gaz" ],
+                                "classes": [ "GAZ:00000448" ],
+                                "relations": [ "rdfs:subClassOf"],
+                                "includeSelf": false
+                            }
+                        },
+                        {
+                            "graphRestriction": {
+                                "ontologies": [ "obo:ror" ],
+                                "classes": [ "ENVO:00000856" ],
+                                "relations": [ "rdfs:subClassOf"],
+                                "includeSelf": false
+                            }
+                        },
+                        {
+                            "graphRestriction": {
+                                "ontologies": [ "obo:ror" ],
+                                "classes": [ "OBI:0000245" ],
+                                "relations": [ "rdfs:subClassOf"],
+                                "includeSelf": false
+                            }
+                        }
+                    ]
+                },
+                "label": {
+                    "type": "string",
+                    "title": "Ontology constraints for this specific term label",
+                    "anyOf": [
+                        {
+                            "graphRestriction": {
+                                "ontologies": [ "obo:ncit" ],
+                                "classes": [ "NCIT:C25464" ],
+                                "relations": [ "rdfs:subClassOf" ],
+                                "queryFields": [ "label" ],
+                                "includeSelf": false
+                            }
+                        },
+                        {
+                            "graphRestriction": {
+                                "ontologies": [ "obo:gaz" ],
+                                "classes": [ "GAZ:00000448" ],
+                                "relations": [ "rdfs:subClassOf" ],
+                                "queryFields": [ "label" ],
+                                "includeSelf": false
+                            }
+                        },
+                        {
+                            "graphRestriction": {
+                                "ontologies": [ "obo:ror" ],
+                                "classes": [ "ENVO:00000856" ],
+                                "relations": [ "rdfs:subClassOf"],
+                                "queryFields": [ "label" ],
+                                "includeSelf": false
+                            }
+                        },
+                        {
+                            "graphRestriction": {
+                                "ontologies": [ "obo:ror" ],
+                                "classes": [ "OBI:0000245" ],
+                                "relations": [ "rdfs:subClassOf"],
+                                "queryFields": [ "label" ],
+                                "includeSelf": false
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+
         "relationshipItemRestrictionBiomaterial": {
             "type": "object",
             "title": "Relationship item restriction: Biomaterial",
             "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'biomaterial'.",
             "properties": {
               "@type": {
-                "enum": ["biomaterial"]
+                "anyOf": [
+                    {
+                        "const": "biomaterial"
+                    },
+                    {
+                        "type": "array",
+                        "contains": {
+                            "const": "biomaterial"
+                        }
+                    }
+                ]
               }
             },
             "required": ["@type"]
@@ -1659,9 +2046,19 @@
             "title": "Relationship item restriction: Study",
             "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'study'.",
             "properties": {
-              "@type": {
-                "enum": ["study"]
-              }
+                "@type": {
+                    "anyOf": [
+                        {
+                            "const": "study"
+                        },
+                        {
+                            "type": "array",
+                            "contains": {
+                                "const": "study"
+                            }
+                        }
+                    ]
+                }
             },
             "required": ["@type"]
         },
@@ -1671,9 +2068,85 @@
             "title": "Relationship item restriction: Process",
             "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'process'.",
             "properties": {
-              "@type": {
-                "enum": ["process"]
-              }
+                "@type": {
+                    "anyOf": [
+                        {
+                            "const": "process"
+                        },
+                        {
+                            "type": "array",
+                            "contains": {
+                                "const": "process"
+                            }
+                        }
+                    ]
+                }
+            },
+            "required": ["@type"]
+        },
+
+        "relationshipItemRestrictionProtocol": {
+            "type": "object",
+            "title": "Relationship item restriction: Protocol",
+            "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'protocol'.",
+            "properties": {
+                "@type": {
+                    "anyOf": [
+                        {
+                            "const": "protocol"
+                        },
+                        {
+                            "type": "array",
+                            "contains": {
+                                "const": "protocol"
+                            }
+                        }
+                    ]
+                }
+            },
+            "required": ["@type"]
+        },
+
+        "relationshipItemRestrictionCohort": {
+            "type": "object",
+            "title": "Relationship item restriction: Cohort",
+            "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'cohort'.",
+            "properties": {
+                "@type": {
+                    "anyOf": [
+                        {
+                            "const": "cohort"
+                        },
+                        {
+                            "type": "array",
+                            "contains": {
+                                "const": "cohort"
+                            }
+                        }
+                    ]
+                }
+            },
+            "required": ["@type"]
+        },
+
+        "relationshipItemRestrictionDatafile": {
+            "type": "object",
+            "title": "Relationship item restriction: Datafile",
+            "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'datafile'.",
+            "properties": {
+                "@type": {
+                    "anyOf": [
+                        {
+                            "const": "datafile"
+                        },
+                        {
+                            "type": "array",
+                            "contains": {
+                                "const": "datafile"
+                            }
+                        }
+                    ]
+                }
             },
             "required": ["@type"]
         },
@@ -1684,7 +2157,7 @@
                 {
                     "predicate_id": "skos:exactMatch",
                     "object_id": "schema:sameAs",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "sameAs",
@@ -1708,8 +2181,8 @@
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
-                    "object_id": "prov-o:used",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_id": "prov:used",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "used",
@@ -1729,8 +2202,8 @@
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
-                    "object_id": "prov-o:wasGeneratedBy",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_id": "prov:wasGeneratedBy",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "wasGeneratedBy",
@@ -1755,14 +2228,34 @@
             ]
         },
 
+        "generated": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "description": "Array of relationships referencing the entities (object) that were generated by the root entity (subject). This is the inverse of 'wasGeneratedBy'.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "prov:generated",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "generated",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-08-19"
+                }
+            ]
+        },
+
         "wasDerivedFrom": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
             "description": "Array of relationships referencing source entities (object) from which the root entity (subject) is transformed, updated or otherwise derived.",
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
-                    "object_id": "prov-o:wasDerivedFrom",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_id": "prov:wasDerivedFrom",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "wasDerivedFrom",
@@ -1794,7 +2287,7 @@
                 {
                     "predicate_id": "skos:exactMatch",
                     "object_id": "schema:isBasedOn",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "isBasedOn",
@@ -1813,8 +2306,8 @@
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
-                    "object_id": "prov-o:wasAttributedTo",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_id": "prov:wasAttributedTo",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "wasAttributedTo",
@@ -1845,8 +2338,8 @@
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
-                    "object_id": "prov-o:actedOnBehalfOf",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "object_id": "prov:actedOnBehalfOf",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "actedOnBehalfOf",
@@ -1878,7 +2371,7 @@
                 {
                     "predicate_id": "skos:exactMatch",
                     "object_id": "dcterms:isPartOf",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "isPartOf",
@@ -1891,7 +2384,7 @@
                 {
                     "predicate_id": "skos:exactMatch",
                     "object_id": "schema:isPartOf",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "isPartOf",
@@ -1911,7 +2404,7 @@
                 {
                     "predicate_id": "skos:exactMatch",
                     "object_id": "dcterms:hasPart",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "hasPart",
@@ -1946,7 +2439,7 @@
                 {
                     "predicate_id": "skos:exactMatch",
                     "object_id": "prov:hadMember",
-                    "mapping_justification": "semapv:LexicalMatching",
+                    "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
                     "match_string": "hadMember",
@@ -1957,6 +2450,69 @@
                     "mapping_date": "2025-07-17"
                 }
             ]
+        },
+
+        "wasAssociatedWith": {
+            "description": "Array of activity associations. An activity association is an assignment of responsibility to an agent for an activity, indicating that the agent had a role in the activity. It further allows for a plan to be specified, which is the plan intended by the agent to achieve some goals in the context of this activity.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "prov:wasAssociatedWith",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "hadMember",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-07-17"
+                }
+            ],
+            "allOf": [
+                {
+                    "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray"
+                },
+                {
+                    "items": {
+                        "$ref": "./FEGA.common-definitions.json#/$defs/agent"
+                    }
+                },
+                {
+                    "title": "Prohibition of hadRole as a property",
+                    "description": "Constraint to force hadRole within a qualifiedAssociation property, and not directly here.",
+                    "items": {
+                        "properties": {
+                            "hadRole": false
+                        }
+                    }
+                }
+            ]
+        },
+
+        "wasInformedBy": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "description": "Array of relationships pointing to processes (object) that informed the root process (subject). For example, a process 'activity2' was informed by another process 'activity1' if 'activity1' generated an entity (e.g., a data file) that was used in 'activity2'.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "prov:wasInformedBy",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "wasInformedBy",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2025-08-19"
+                }
+            ]
+        },
+
+        "informs": {
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "description": "Array of relationships pointing to processes (object) that were informed by the root process (subject). This is the inverse of 'wasInformedBy'."
         }
     }
 }
