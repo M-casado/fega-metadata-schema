@@ -8,7 +8,14 @@
     "@context": [
         "./FEGA.common-definitions.json"
     ],
-    "required": ["category", "value"],
+    "anyOf": [
+        {
+            "title": "Value and Unit dependency",
+            "if":   { "required": ["value"] },
+            "then": { "required": ["unit"] }
+        }
+    ],
+    "required": [ "category" ],
     "properties" : {
         "@id": { "type": "string", "format": "uri-reference" },
         "@context": { "type": "string", "format": "uri-reference"},
