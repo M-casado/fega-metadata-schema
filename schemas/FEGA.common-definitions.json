@@ -1941,6 +1941,16 @@
                     "title": "Ontology constraints for this specific term id",
                     "anyOf": [
                         {
+                            "$comment": "Geographic Locations",
+                            "graphRestriction": {
+                                "ontologies": [ "obo:ncit" ],
+                                "classes": [ "mesh:D005842" ],
+                                "relations": [ "rdfs:subClassOf"],
+                                "includeSelf": false
+                            }
+                        },
+                        {
+                            "$comment": "Country",
                             "graphRestriction": {
                                 "ontologies": [ "obo:ncit" ],
                                 "classes": [ "NCIT:C25464" ],
@@ -1957,6 +1967,7 @@
                             }
                         },
                         {
+                            "$comment": "city",
                             "graphRestriction": {
                                 "ontologies": [ "obo:ror" ],
                                 "classes": [ "ENVO:00000856" ],
@@ -1965,6 +1976,7 @@
                             }
                         },
                         {
+                            "$comment": "organization",
                             "graphRestriction": {
                                 "ontologies": [ "obo:ror" ],
                                 "classes": [ "OBI:0000245" ],
@@ -1979,6 +1991,17 @@
                     "title": "Ontology constraints for this specific term label",
                     "anyOf": [
                         {
+                            "$comment": "Geographic Locations",
+                            "graphRestriction": {
+                                "ontologies": [ "obo:ncit" ],
+                                "classes": [ "mesh:D005842" ],
+                                "relations": [ "rdfs:subClassOf"],
+                                "queryFields": [ "label" ],
+                                "includeSelf": false
+                            }
+                        },
+                        {
+                            "$comment": "Country",
                             "graphRestriction": {
                                 "ontologies": [ "obo:ncit" ],
                                 "classes": [ "NCIT:C25464" ],
@@ -1997,6 +2020,7 @@
                             }
                         },
                         {
+                            "$comment": "city",
                             "graphRestriction": {
                                 "ontologies": [ "obo:ror" ],
                                 "classes": [ "ENVO:00000856" ],
@@ -2006,6 +2030,7 @@
                             }
                         },
                         {
+                            "$comment": "organization",
                             "graphRestriction": {
                                 "ontologies": [ "obo:ror" ],
                                 "classes": [ "OBI:0000245" ],
