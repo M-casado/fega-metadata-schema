@@ -1,6 +1,6 @@
 ## Metadata Working Group (MWG) members (governance)
 
-| Node (Institution) | Role in MWG | Name  | ORCID | E-mail |
+| Node (Institution) | Role in MWG | Name  | ORCID | Contact details |
 |------|------|-------------|-------|--------|
 | CEGA ([European Bioinformatics Institute](https://ror.org/02catss52)) | MWG Co-chair | Marcos Casado Barbero | [0000-0002-1234-5678](https://orcid.org/0000-0002-7747-6256) | mcasado [at] ebi.ac.uk |
 | FEGA Portugal ([BioData.pt](https://ror.org/02q7abn51)) | MWG Co-chair | Jorge Oliveira | [0000-0001-6425-2176](https://orcid.org/0000-0001-6425-2176) | jorge.oliveira [at] tecnico.ulisboa.pt |
@@ -23,6 +23,7 @@
 | FEGA France ([University of Nantes](https://ror.org/03gnr7b55)) | Member | Alban Gaignard | [0000-0002-3597-8557](https://orcid.org/0000-0002-3597-8557) | alban.gaignard [at] univ-nantes.fr |
 | FEGA Greece ([Biomedical Sciences Research Center Alexander Fleming](https://ror.org/013x0ky90)) | Member | Alexandros Dimopoulos | [0000-0002-4602-2040](https://orcid.org/0000-0002-4602-2040) | dimopoulos [at] fleming.gr |
 | FEGA France ([French Institute of Health and Medical Research](https://ror.org/02vjkv261)) | Member | David Salgado | [0000-0002-5905-3591](https://orcid.org/0000-0002-5905-3591) | david.salgado [at] france-bioinformatique.fr |
+| FEGA Estonia ([University of Tartu](https://ror.org/03z77qz90)) | Member | Ulvi Talas | [0000-0003-0485-089X](https://orcid.org/0000-0003-0485-089X) | ulvi.talas [at] ut.ee |
 
 #### Former members
 | Node (Institution) | Role in MWG | Name  | ORCID | E-mail |
