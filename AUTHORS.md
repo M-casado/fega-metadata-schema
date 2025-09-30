@@ -16,7 +16,7 @@
 | CEGA ([Centre for Genomic Regulation](https://ror.org/03wyzt892)) | Member | Gemma Vicente | [0009-0008-4457-2947](https://orcid.org/0009-0008-4457-2947)  | gemma.vicente [at] crg.eu |
 | FEGA Poland ([University of Lodz](https://ror.org/05cq64r17)) | Member | Błażej Marciniak | [0000-0003-1571-1473](https://orcid.org/0000-0003-1571-1473) | blazej.marciniak [at] biol.uni.lodz.pl |
 | FEGA Canada ([Canada's Michael Smith Genome Sciences Centre](https://ror.org/0333j0897)) | Member | Eric Chuah | | echuah [at] bcgsc.ca |
-| FEGA Canada ([Canada's Michael Smith Genome Sciences Centre](https://ror.org/0333j0897)) | Member | Young Cheng | | ycheng [at] bcgsc.ca |
+| FEGA Canada ([Canada's Michael Smith Genome Sciences Centre](https://ror.org/0333j0897)) | Member | Young Cheng | [0000-0002-3484-4493](https://orcid.org/0000-0002-3484-4493) | ycheng [at] bcgsc.ca |
 | FEGA Canada ([Canada's Michael Smith Genome Sciences Centre](https://ror.org/0333j0897)) | Member | Grant McNair  | [0009-0006-1362-0681](https://orcid.org/0009-0006-1362-0681) | gmcnair [at] bcgsc.ca |
 | CEGA ([European Bioinformatics Institute](https://ror.org/02catss52)) | Member | Gabriele Rinck | [0000-0001-6428-3431](https://orcid.org/0000-0001-6428-3431) | rinck [at] ebi.ac.uk |
 | FEGA Portugal ([BioData.pt](https://ror.org/02q7abn51)) | Member | Miguel Cisneiros e Faria Lourenço | [0000-0002-6681-8564](https://orcid.org/0000-0002-6681-8564) | mcisneiros [at] @biodata.pt |
