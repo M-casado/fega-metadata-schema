@@ -24,6 +24,7 @@
 | FEGA Greece ([Biomedical Sciences Research Center Alexander Fleming](https://ror.org/013x0ky90)) | Member | Alexandros Dimopoulos | [0000-0002-4602-2040](https://orcid.org/0000-0002-4602-2040) | dimopoulos [at] fleming.gr |
 | FEGA France ([French Institute of Health and Medical Research](https://ror.org/02vjkv261)) | Member | David Salgado | [0000-0002-5905-3591](https://orcid.org/0000-0002-5905-3591) | david.salgado [at] france-bioinformatique.fr |
 | FEGA Estonia ([University of Tartu](https://ror.org/03z77qz90)) | Member | Ulvi Talas | [0000-0003-0485-089X](https://orcid.org/0000-0003-0485-089X) | ulvi.talas [at] ut.ee |
+| FEGA Spain (Spanish National Bioinformatics Institute) | Member | Laura Portell Silva | [0000-0003-0390-3208](https://orcid.org/0000-0003-0390-3208) | laura.portell [at] bsc.es |
 
 #### Former members
 | Node (Institution) | Role in MWG | Name  | ORCID | E-mail |
