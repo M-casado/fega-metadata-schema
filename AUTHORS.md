@@ -11,10 +11,9 @@
 | FEGA Sweden ([National Bioinformatics Infrastructure Sweden](https://ror.org/00enajs79), [SciLifeLab](https://ror.org/04ev03g22), [Uppsala University](https://ror.org/048a87296)) | Member | Wolmar Nyberg Åkerström | [0000-0002-3890-6620](https://orcid.org/0000-0002-3890-6620) | wolmar.n.akerstrom [at] uu.se |
 | CEGA ([Centre for Genomic Regulation](https://ror.org/03wyzt892)) | Member | Amy Curwin | [0000-0003-1086-2483](https://orcid.org/0000-0003-1086-2483) | amy.curwin [at] crg.eu |
 | CEGA ([Centre for Genomic Regulation](https://ror.org/03wyzt892)) | Member | Akiris Moctezuma Cervantes | [0009-0002-7343-1779](https://orcid.org/0009-0002-7343-1779) | akiris.moctezuma [at] crg.eu |
-| FEGA Switzerland ([University of Lausanne](https://ror.org/019whta54)) | Member | Robin Liechti | [0000-0001-8351-4776](https://orcid.org/0000-0001-8351-4776) | robin.liechti [at] sib.swiss |
+| FEGA Switzerland ([SIB Swiss Institute of Bioinformatics](https://ror.org/002n09z45)) | Member | Robin Liechti | [0000-0001-8351-4776](https://orcid.org/0000-0001-8351-4776) | robin.liechti [at] sib.swiss |
 | FEGA Switzerland ([SIB Swiss Institute of Bioinformatics](https://ror.org/002n09z45)) | Member | Owen Appleton | [0000-0002-2571-6860](https://orcid.org/0000-0002-2571-6860) | owen.appleton [at] sib.swiss |
 | CEGA ([Centre for Genomic Regulation](https://ror.org/03wyzt892)) | Member | Gemma Vicente | [0009-0008-4457-2947](https://orcid.org/0009-0008-4457-2947)  | gemma.vicente [at] crg.eu |
-| FEGA Poland ([University of Lodz](https://ror.org/05cq64r17)) | Member | Błażej Marciniak | [0000-0003-1571-1473](https://orcid.org/0000-0003-1571-1473) | blazej.marciniak [at] biol.uni.lodz.pl |
 | FEGA Canada ([Canada's Michael Smith Genome Sciences Centre](https://ror.org/0333j0897)) | Member | Eric Chuah | | echuah [at] bcgsc.ca |
 | FEGA Canada ([Canada's Michael Smith Genome Sciences Centre](https://ror.org/0333j0897)) | Member | Young Cheng | [0000-0002-3484-4493](https://orcid.org/0000-0002-3484-4493) | ycheng [at] bcgsc.ca |
 | FEGA Canada ([Canada's Michael Smith Genome Sciences Centre](https://ror.org/0333j0897)) | Member | Grant McNair  | [0009-0006-1362-0681](https://orcid.org/0009-0006-1362-0681) | gmcnair [at] bcgsc.ca |
@@ -24,12 +23,14 @@
 | FEGA Greece ([Biomedical Sciences Research Center Alexander Fleming](https://ror.org/013x0ky90)) | Member | Alexandros Dimopoulos | [0000-0002-4602-2040](https://orcid.org/0000-0002-4602-2040) | dimopoulos [at] fleming.gr |
 | FEGA France ([French Institute of Health and Medical Research](https://ror.org/02vjkv261)) | Member | David Salgado | [0000-0002-5905-3591](https://orcid.org/0000-0002-5905-3591) | david.salgado [at] france-bioinformatique.fr |
 | FEGA Estonia ([University of Tartu](https://ror.org/03z77qz90)) | Member | Ulvi Talas | [0000-0003-0485-089X](https://orcid.org/0000-0003-0485-089X) | ulvi.talas [at] ut.ee |
-| FEGA Spain (Spanish National Bioinformatics Institute) | Member | Laura Portell Silva | [0000-0003-0390-3208](https://orcid.org/0000-0003-0390-3208) | laura.portell [at] bsc.es |
+| FEGA Spain ([Barcelona Supercomputing Center](https://ror.org/05sd8tv96)) | Member | Laura Portell Silva | [0000-0003-0390-3208](https://orcid.org/0000-0003-0390-3208) | laura.portell [at] bsc.es |
+| FEGA Poland ([University of Lodz](https://ror.org/05cq64r17)) | Member | Maciej Bisaga | [0000-0002-7040-8322](https://orcid.org/0000-0002-7040-8322) | maciej.bisaga [at] biol.uni.lodz.pl |
 
 #### Former members
 | Node (Institution) | Role in MWG | Name  | ORCID | E-mail |
 |------|------|-------------|-------|--------|
 | FEGA Germany (GHGA) ([European Molecular Biology Laboratory](https://ror.org/03mstc592)) | MWG Co-chair | Anandhi lyappan | [0000-0002-5571-4962](https://orcid.org/0000-0002-5571-4962) | anandhi.iyappan [at] embl.de |
+| FEGA Poland ([University of Lodz](https://ror.org/05cq64r17)) | Member | Błażej Marciniak | [0000-0003-1571-1473](https://orcid.org/0000-0003-1571-1473) | blazej.marciniak [at] biol.uni.lodz.pl |
 
 ## Repository contributors and authors
 
