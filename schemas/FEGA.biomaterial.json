@@ -90,7 +90,7 @@
                 "$comment": "It would be best to have the 'direct' keyword back to Biovalidator, and add it here as 'direct': true. This makes the constraint more restrictive, allowing only IDs that are direct children of BFO:0000040, rather than allowing 'anything' below it. Either we add that, or eventually a 'enum' with the specific ontology IDs we want, which kind of defeats the purpose of having the ontology keyword.",
                 "includeSelf": false
               },
-              "examples": [ "OBI:0100026", "BTO:0002690" ]
+              "examples": [ "COB:0000022", "BTO:0002690" ]
             },
             "label": {
               "type": "string",
@@ -121,7 +121,7 @@
           },
           "examples": [
             {
-              "id": "OBI:0100026",
+              "id": "COB:0000022",
               "label": "organism"
             }
           ]
@@ -774,7 +774,7 @@
               "title": "Ontology constraints for this specific term id",
               "graphRestriction": {
                 "ontologies": ["obo:efo"],
-                "classes": ["OBI:0100026"],
+                "classes": ["COB:0000022"],
                 "relations": ["rdfs:subClassOf"],
                 "includeSelf": false
               },
@@ -785,7 +785,7 @@
               "title": "Ontology constraints for this specific term label",
               "graphRestriction": {
                 "ontologies": [ "obo:efo" ],
-                "classes": [ "OBI:0100026" ],
+                "classes": [ "COB:0000022" ],
                 "relations": ["rdfs:subClassOf"],
                 "queryFields": [ "label" ],
                 "includeSelf": false
