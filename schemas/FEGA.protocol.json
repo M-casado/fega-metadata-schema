@@ -5,7 +5,7 @@
   "title": "FEGA protocol metadata schema",
   "meta:version": "0.0.0",
   "$async": true,
-  "description": "A FEGA protocol.",
+  "description": "Detailed plan of instructions on how a procedure is done. For example, sample preparation, sequencing or feature extraction techniques",
   "@context": [
     "./FEGA.common-definitions.json",
     {

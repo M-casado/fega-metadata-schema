@@ -5,7 +5,7 @@
   "title": "FEGA Biomaterial metadata schema",
   "meta:version": "0.0.0",
   "$async": true,
-  "description": "A FEGA Biomaterial. Contains information about any biological material, from whole organisms to subcellular components and macromolecules",
+  "description": "Represents any biological material, from whole organisms (i.e. individuals/humans) to subcellular components and macromolecules (e.g., DNA samples).",
   "@context": [
     "./FEGA.common-definitions.json",
     {
