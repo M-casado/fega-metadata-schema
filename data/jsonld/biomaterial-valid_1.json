@@ -6,7 +6,7 @@
       "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.biomaterial.json",
       "@type": "biomaterial",
       "biomaterialType": {
-        "id": "OBI:0100026",
+        "id": "COB:0000022",
         "label": "organism"
       },
       "id": "fega:EGAN00009999999",
