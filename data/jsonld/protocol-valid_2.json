@@ -4,7 +4,7 @@
   },
   "data": {
       "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.protocol.json",
-      "@type": ["protocol", "bioschemastypes:LabProtocol"],
+      "@type": ["protocol", "prov:Plan", "bioschemastypes:LabProtocol"],
       "name": "Total RNA Isolation from Human Blood using TRIzol Reagent",
       "description": "A detailed protocol for isolating total RNA from human blood samples using TRIzol reagent, including quality control steps and recommendations for optimal yield",
       "version": "2.1.0",

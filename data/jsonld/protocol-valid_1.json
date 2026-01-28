@@ -4,7 +4,7 @@
   },
   "data": {
       "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.protocol.json",
-      "@type": ["protocol", "bioschemastypes:ComputationalWorkflow"],
+      "@type": ["protocol", "prov:Plan", "bioschemastypes:ComputationalWorkflow"],
       "name": "RNA-Seq Data Analysis Pipeline",
       "description": "Workflow for analysing RNA sequencing data, including quality control, alignment, and differential expression analysis",
       "programmingLanguage": ["Python", "R", "nextflow"],

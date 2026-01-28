@@ -25,7 +25,7 @@
                 "label": "Jane Doe"
             },
             {
-                "@type": [ "prov:Agent","prov:Organization" ],
+                "@type": [ "prov:Agent", "prov:Organization" ],
                 "id": "https://ror.org/055vbxf86",
                 "label": "Addenbrooke's Hospital"
             }
@@ -39,8 +39,8 @@
                 },
                 "hadRole": [
                     {
-                        "id": "https://credit.niso.org/contributor-roles/investigation/",
-                        "label": "Investigation"
+                        "id": "https://credit.niso.org/contributor-roles/supervision/",
+                        "label": "Supervision"
                     }
                 ]
             },
@@ -54,6 +54,13 @@
                     {
                         "id": "https://credit.niso.org/contributor-roles/resources/",
                         "label": "Resources"
+                    }
+                ],
+                "hadPlan": [
+                    {
+                        "id": "ega:EGAK00001000621",
+                        "@type": "protocol",
+                        "label": "Provision of patient samples"
                     }
                 ]
             }

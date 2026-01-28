@@ -13,16 +13,18 @@
         "description": "schema:description",
 
         "entities": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/",
-        "cohort": "entities:FEGA.cohort.json",
-        "study": "entities:FEGA.study.json",
-        "process": "entities:FEGA.process.json",
-        "protocol": "entities:FEGA.protocol.json",
+        "commonDefinitionsDoc": "entities:FEGA.common-definitions.json#",
         "biomaterial": "entities:FEGA.biomaterial.json",
+        "protocol": "entities:FEGA.protocol.json",
+        "process": "entities:FEGA.process.json",
         "datafile": "entities:FEGA.datafile.json",
         "dataset": "entities:FEGA.dataset.json",
         "policy": "entities:FEGA.policy.json",
         "DAC": "entities:FEGA.DAC.json",
-        "commonDefinitionsDoc": "entities:FEGA.common-definitions.json#",
+        "study": "entities:FEGA.study.json",
+        "cohort": "entities:FEGA.cohort.json",
+        "project": "entities:FEGA.project.json",
+        "protocolCollection": "entities:FEGA.protocolCollection.json",
 
         "identifiers": "https://identifiers.org/",
         "ega": "identifiers:ega:",
@@ -1941,6 +1943,9 @@
                     "title": "Ontology constraints for this specific term id",
                     "anyOf": [
                         {
+                            "$comment": "This placeholder comment validates ALL ids, negating the ontology constraint. We may want to remove it later if we decide to enforce ontology constraints. It was added to both (1) loosen the constraints until 'Biovalidator' keyword restrictions are upgraded (related to EEH-2817), and (2) keep the original restrictions documented for future reference."
+                        },
+                        {
                             "$comment": "Geographic Locations",
                             "graphRestriction": {
                                 "ontologies": [ "obo:ncit" ],
@@ -1991,6 +1996,8 @@
                     "title": "Ontology constraints for this specific term label",
                     "anyOf": [
                         {
+                            "$comment": "This placeholder comment validates ALL labels, negating the ontology constraint. We may want to remove it later if we decide to enforce ontology constraints. It was added to both (1) loosen the constraints until 'Biovalidator' keyword restrictions are upgraded (related to EEH-2817), and (2) keep the original restrictions documented for future reference."
+                        },{
                             "$comment": "Geographic Locations",
                             "graphRestriction": {
                                 "ontologies": [ "obo:ncit" ],
@@ -2049,19 +2056,21 @@
             "title": "Relationship item restriction: Biomaterial",
             "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'biomaterial'.",
             "properties": {
-              "@type": {
-                "anyOf": [
-                    {
-                        "const": "biomaterial"
-                    },
-                    {
-                        "type": "array",
-                        "contains": {
+                "@type": {
+                    "anyOf": [
+                        {
                             "const": "biomaterial"
+                        },
+                        {
+                            "type": "array",
+                            "contains": {
+                                "const": "biomaterial"
+                            },
+                            "minItems": 1,
+                            "uniqueItems": true
                         }
-                    }
-                ]
-              }
+                    ]
+                }
             },
             "required": ["@type"]
         },
@@ -2078,9 +2087,20 @@
                         },
                         {
                             "type": "array",
-                            "contains": {
-                                "const": "study"
-                            }
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "const": "study"
+                                    }
+                                },
+                                {
+                                    "contains": {
+                                        "const": "schema:ResearchProject"
+                                    }
+                                }
+                            ],
+                            "minItems": 2,
+                            "uniqueItems": true
                         }
                     ]
                 }
@@ -2100,9 +2120,20 @@
                         },
                         {
                             "type": "array",
-                            "contains": {
-                                "const": "process"
-                            }
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "const": "process"
+                                    }
+                                },
+                                {
+                                    "contains": {
+                                        "const": "prov:Activity"
+                                    }
+                                }
+                            ],
+                            "minItems": 2,
+                            "uniqueItems": true
                         }
                     ]
                 }
@@ -2122,9 +2153,58 @@
                         },
                         {
                             "type": "array",
-                            "contains": {
-                                "const": "protocol"
-                            }
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "const": "protocol"
+                                    }
+                                },
+                                {
+                                    "contains": {
+                                        "const": "prov:Plan"
+                                    }
+                                }
+                            ],
+                            "minItems": 2,
+                            "uniqueItems": true
+                        }
+                    ]
+                }
+            },
+            "required": ["@type"]
+        },
+
+        "relationshipItemRestrictionProtocolCollection": {
+            "type": "object",
+            "title": "Relationship item restriction: Protocol Collection",
+            "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'protocolCollection'.",
+            "properties": {
+                "@type": {
+                    "anyOf": [
+                        {
+                            "const": "protocolCollection"
+                        },
+                        {
+                            "type": "array",
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "const": "protocolCollection"
+                                    }
+                                },
+                                {
+                                    "contains": {
+                                        "const": "prov:Collection"
+                                    }
+                                },
+                                {
+                                    "contains": {
+                                        "const": "prov:Plan"
+                                    }
+                                }
+                            ],
+                            "minItems": 3,
+                            "uniqueItems": true
                         }
                     ]
                 }
@@ -2144,9 +2224,20 @@
                         },
                         {
                             "type": "array",
-                            "contains": {
-                                "const": "cohort"
-                            }
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "const": "cohort"
+                                    }
+                                },
+                                {
+                                    "contains": {
+                                        "const": "prov:Collection"
+                                    }
+                                }
+                            ],
+                            "minItems": 2,
+                            "uniqueItems": true
                         }
                     ]
                 }
@@ -2166,9 +2257,20 @@
                         },
                         {
                             "type": "array",
-                            "contains": {
-                                "const": "datafile"
-                            }
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "const": "datafile"
+                                    }
+                                },
+                                {
+                                    "contains": {
+                                        "const": "dcat:Distribution"
+                                    }
+                                }
+                            ],
+                            "minItems": 2,
+                            "uniqueItems": true
                         }
                     ]
                 }
@@ -2203,6 +2305,7 @@
 
         "used": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "description": "Relationship referencing other entities (object) that used the root entity (subject).",
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
@@ -2217,8 +2320,7 @@
                     "confidence": 1.0,
                     "mapping_date": "2025-04-11"
                 }
-            ],
-            "description": "Relationship referencing other entities (object) that used the root entity (subject)."
+            ]
         },
 
         "wasGeneratedBy": {
@@ -2516,7 +2618,6 @@
         },
 
         "wasInformedBy": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
             "description": "Array of relationships pointing to processes (object) that informed the root process (subject). For example, a process 'activity2' was informed by another process 'activity1' if 'activity1' generated an entity (e.g., a data file) that was used in 'activity2'.",
             "meta:sssomMappings": [
                 {
@@ -2532,12 +2633,29 @@
                     "confidence": 1.0,
                     "mapping_date": "2025-08-19"
                 }
+            ],
+            "allOf": [
+                { "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray" },
+                {
+                    "title": "Entity type restriction",
+                    "items": {
+                        "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionProcess"
+                    }
+                }
             ]
         },
 
         "informs": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
-            "description": "Array of relationships pointing to processes (object) that were informed by the root process (subject). This is the inverse of 'wasInformedBy'."
+            "description": "Array of relationships pointing to processes (object) that were informed by the root process (subject). This is the inverse of 'wasInformedBy'.",
+            "allOf": [
+                { "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray" },
+                {
+                    "title": "Entity type restriction",
+                    "items": {
+                        "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionProcess"
+                    }
+                }
+            ]
         }
     }
 }
