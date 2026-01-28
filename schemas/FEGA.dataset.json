@@ -1,0 +1,177 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.dataset.json",
+    "type": "object",
+    "title": "FEGA dataset metadata schema",
+    "meta:version": "0.0.0",
+    "$async": true,
+    "description": "Collection of Datafiles subject to a Policy for controlled-access distribution.",
+    "@context": [
+        "./FEGA.common-definitions.json",
+        {
+            "entityDoc": "entities:FEGA.dataset.json#",
+            "properties": "@nest"
+        }
+    ],
+    "meta:sssomMappings": [
+        {
+            "predicate_id": "skos:#!!!!!!!!!!!!!!!!!!!!",
+            "object_id": "dcat:Dataset",
+            "mapping_justification": "semapv:ManualMappingCuration",
+            "object_match_field": "rdfs:label",
+            "subject_match_field": "rdfs:label",
+            "author_id": ["orcid:0000-0002-7747-6256"],
+            "creator_id": ["orcid:0000-0002-7747-6256"],
+            "reviewer_id": [""],
+            "confidence": 1.0,
+            "mapping_date": "2026-01-28"
+        }
+    ],
+    "allOf": [
+        {
+            "title": "Base constraints for JSON-LD",
+            "$ref": "./json-ld.org/FEGA.jsonld-schema.json"
+        },
+        {
+            "title": "Entity type restriction",
+            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionDataset"
+        }
+    ],
+    "anyOf": [
+        { "required": [""] }
+    ],
+    "required": [ 
+        "accessRights",
+        "applicableLegislation",
+        "contactPoint",
+        "datasetDistribution",
+        "description",
+        "healthCategory",
+        "identifier",
+        "keyword",
+        "provenance",
+        "theme",
+        "title",
+        "type"
+     ],
+    "properties": {
+        "id": {
+            "allOf": [ { "$ref": "./FEGA.common-definitions.json#/$defs/id" } ],
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:identifier",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ],
+            "examples": ["ega:EGAD00000000001"]
+        },
+        "title": {
+            "allOf": [ { "$ref": "./FEGA.common-definitions.json#/$defs/label" } ],
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:title",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "description": {
+            "allOf": [ { "$ref": "./FEGA.common-definitions.json#/$defs/description" } ],
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:description",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "accessRights": {},
+        "alternative": {},
+        "analytics": {},
+        "applicableLegislation": {},
+        "codeValues": {},
+        "codingSystem": {},
+        "conformsTo": {},
+        "contactPoint": {},
+        "creator": {},
+        "datasetDistribution": {},
+        "documentation": {},
+        "frequency": {},
+        "geographicalCoverage": {},
+        "hasVersion": {},
+        "healthCategory": {},
+        "healthDataAccessBody": {
+            "$comment": "Mandatory in HealthDCAT-AP Release 5, but still not properly implemented throughout EU. Therefore, we keep it as optional for now.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "healthdcatap:healthDataAccessBody",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "HealthTheme": {},
+        "inSeries": {},
+        "isReferencedBy": {},
+        "keyword": {},
+        "landingPage": {},
+        "language": {},
+        "legalBasis": {},
+        "maximumTypicalAge": {},
+        "minimumTypicalAge": {},
+        "modificationDate": {},
+        "numberOfRecords": {},
+        "numberOfUniqueIndividuals": {},
+        "otherIdentifier": {},
+        "personalData": {},
+        "populationCoverage": {},
+        "provenance": {},
+        "publisher": {},
+        "purpose": {},
+        "qualifiedAttribution": {},
+        "qualifiedRelation": {},
+        "qualityAnnotation": {},
+        "relatedResource": {},
+        "releaseDate": {},
+        "retentionPeriod": {},
+        "sample": {},
+        "source": {},
+        "spatialResolution": {},
+        "temporalCoverage": {},
+        "temporalResolution": {},
+        "theme": {},
+        "type": {},
+        "version": {},
+        "versionNotes": {},
+        "wasGeneratedBy": {}
+    }
+}
