@@ -1,0 +1,452 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "DatasetSeries_Shape": {
+      "type": "object",
+      "title": "Dataset Series",
+      "required": [
+        "id",
+        "applicableLegislation"
+      ],
+      "properties": {
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "applicableLegislation": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "format": "iri-reference",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "CSVWTableShape": {
+      "type": "object",
+      "required": [
+        "id",
+        "column",
+        "title"
+      ],
+      "properties": {
+        "column": {
+          "minItems": 1,
+          "type": "array",
+          "items": {}
+        },
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "keyword": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "title": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "url": {
+          "format": "iri-reference",
+          "type": "string"
+        }
+      }
+    },
+    "Dataset_Shape": {
+      "type": "object",
+      "title": "Dataset",
+      "required": [
+        "id",
+        "contactPoint",
+        "distribution",
+        "keyword",
+        "theme",
+        "applicableLegislation",
+        "accessRights",
+        "identifier",
+        "provenance",
+        "type",
+        "hdab",
+        "healthCategory"
+      ],
+      "properties": {
+        "contactPoint": {
+          "minItems": 1,
+          "type": "array",
+          "items": {}
+        },
+        "minTypicalAge": {"type": "number"},
+        "distribution": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"$ref": "#/$defs/Distribution_Shape"}
+        },
+        "type": {
+          "minItems": 1,
+          "type": "array",
+          "items": {}
+        },
+        "analytics": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"$ref": "#/$defs/Distribution_Shape"}
+        },
+        "provenance": {
+          "minItems": 1,
+          "type": "array",
+          "items": {}
+        },
+        "numberOfRecords": {"type": "number"},
+        "theme": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "format": "iri-reference",
+            "type": "string"
+          }
+        },
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "hasPurpose": {
+          "minItems": 1,
+          "type": "array",
+          "items": {}
+        },
+        "keyword": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "retentionPeriod": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "identifier": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "custodian": {},
+        "hasPersonalData": {
+          "minItems": 1,
+          "type": "array",
+          "items": {}
+        },
+        "hasCodingSystem": {
+          "minItems": 1,
+          "type": "array",
+          "items": {}
+        },
+        "healthTheme": {
+          "minItems": 1,
+          "type": "array",
+          "items": {}
+        },
+        "alternative": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "hasCodeValues": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "sample": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"$ref": "#/$defs/Distribution_Shape"}
+        },
+        "hdab": {},
+        "populationCoverage": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "healthCategory": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "format": "iri-reference",
+            "type": "string"
+          }
+        },
+        "publisher": {},
+        "maxTypicalAge": {"type": "number"},
+        "accessRights": {
+          "const": "http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC",
+          "type": "string"
+        },
+        "hasLegalBasis": {
+          "minItems": 1,
+          "type": "array",
+          "items": {}
+        },
+        "applicableLegislation": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "format": "iri-reference",
+            "type": "string"
+          }
+        },
+        "hasQualityAnnotation": {
+          "minItems": 1,
+          "type": "array",
+          "items": {}
+        },
+        "numberOfUniqueIndividuals": {"type": "number"}
+      }
+    },
+    "ContactPoint_Shape": {
+      "description": "Contact Point constraints for hdab, custodian and publisher of Dataset, must have at least one of cv:email or cv:contactPage",
+      "type": "object",
+      "title": "Contact Point",
+      "required": ["id"],
+      "properties": {
+        "contactPage": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "format": "iri-reference",
+            "type": "string"
+          }
+        },
+        "specialOpeningHoursSpecification": {
+          "minItems": 1,
+          "type": "array",
+          "items": {}
+        },
+        "openingHours": {
+          "minItems": 1,
+          "type": "array",
+          "items": {}
+        },
+        "telephone": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "email": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "CSVWColumnShape": {
+      "type": "object",
+      "required": [
+        "id",
+        "datatype",
+        "name",
+        "titles",
+        "description"
+      ],
+      "properties": {
+        "propertyUrl": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "datatype": {"type": "string"},
+        "name": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "description": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "titles": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "Distribution_Shape": {
+      "type": "object",
+      "title": "Distribution",
+      "required": [
+        "id",
+        "applicableLegislation"
+      ],
+      "properties": {
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "applicableLegislation": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "format": "iri-reference",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "HealthAgent_Shape": {
+      "type": "object",
+      "title": "Health Agent",
+      "required": [
+        "id",
+        "contactPoint"
+      ],
+      "properties": {
+        "contactPoint": {},
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        }
+      }
+    },
+    "Catalog_Shape": {
+      "type": "object",
+      "title": "Catalog",
+      "required": [
+        "id",
+        "applicableLegislation"
+      ],
+      "properties": {
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "applicableLegislation": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "format": "iri-reference",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "@context": {"$comment": "The JSON-LD @context"},
+    "CSVWTableGroup_Shape": {
+      "type": "object",
+      "title": "Csvw Table Group",
+      "required": [
+        "id",
+        "table"
+      ],
+      "properties": {
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "table": {
+          "minItems": 1,
+          "type": "array",
+          "items": {}
+        }
+      }
+    },
+    "Kind_Shape": {
+      "description": "vcard Kind must have at least one of vcard:hasURL or vcard:hasEmail as an IRI",
+      "type": "object",
+      "title": "vcard Kind",
+      "required": ["id"],
+      "properties": {
+        "hasEmail": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "hasURL": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        }
+      }
+    },
+    "TemporalEntity_Shape": {
+      "description": "Temporal Entity constraints for opening hours",
+      "type": "object",
+      "title": "Temporal Entity",
+      "required": [
+        "id",
+        "description"
+      ],
+      "properties": {
+        "description": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "frequency": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "format": "iri-reference",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "HealthPublisherAgent_Shape": {
+      "type": "object",
+      "title": "Health Publisher Agent",
+      "required": [
+        "id",
+        "contactPoint"
+      ],
+      "properties": {
+        "contactPoint": {"description": "Each foaf:Agent must have exactly one cv:contactPoint."},
+        "description": {
+          "description": "Each dct:publisher must have at most one dct:description (Publisher Note) as a literal.",
+          "type": "string"
+        },
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        }
+      }
+    },
+    "container_language": {
+      "patternProperties": {"^[A-Za-z]{2,3}$": {
+        "$comment": "Overly simplified version of the regex. See https://github.com/w3c/wot-thing-description/blob/main/validation/td-json-schema-validation.json for a complete regex",
+        "type": "string"
+      }},
+      "additionalProperties": false,
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "@context",
+    "data"
+  ],
+  "properties": {
+    "data": {
+      "minItems": 1,
+      "type": "array",
+      "items": {"$ref": "#/$defs/Dataset_Shape"}
+    },
+    "@context": {"$ref": "#/$defs/@context"}
+  }
+}
