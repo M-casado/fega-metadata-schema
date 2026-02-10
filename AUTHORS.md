@@ -25,6 +25,8 @@
 | FEGA Estonia ([University of Tartu](https://ror.org/03z77qz90)) | Member | Ulvi Talas | [0000-0003-0485-089X](https://orcid.org/0000-0003-0485-089X) | ulvi.talas [at] ut.ee |
 | FEGA Spain ([Barcelona Supercomputing Center](https://ror.org/05sd8tv96)) | Member | Laura Portell Silva | [0000-0003-0390-3208](https://orcid.org/0000-0003-0390-3208) | laura.portell [at] bsc.es |
 | FEGA Poland ([University of Lodz](https://ror.org/05cq64r17)) | Member | Maciej Bisaga | [0000-0002-7040-8322](https://orcid.org/0000-0002-7040-8322) | maciej.bisaga [at] biol.uni.lodz.pl |
+| FEGA Germany (GHGA) ([German Center for Neurodegenerative Diseases](https://ror.org/043j0f473)) | Member | Karoline Mauer | [0000-0002-9454-7941](https://orcid.org/0000-0002-9454-7941) | karoline.mauer [at] dzne.de |
+
 
 #### Former members
 | Node (Institution) | Role in MWG | Name  | ORCID | E-mail |
