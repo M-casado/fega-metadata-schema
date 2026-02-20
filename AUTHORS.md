@@ -31,6 +31,8 @@
 #### Former members
 | Node (Institution) | Role in MWG | Name  | ORCID | E-mail |
 |------|------|-------------|-------|--------|
+| FEGA Portugal ([BioData.pt](https://ror.org/02q7abn51)) | Member | Sara Sant'Ana |  |  |
+| CEGA ([Centre for Genomic Regulation](https://ror.org/03wyzt892)) | Member | Marta Huertas | [0000-0003-2665-0899](https://orcid.org/0000-0003-2665-0899) |  |
 | FEGA Germany (GHGA) ([European Molecular Biology Laboratory](https://ror.org/03mstc592)) | MWG Co-chair | Anandhi lyappan | [0000-0002-5571-4962](https://orcid.org/0000-0002-5571-4962) | anandhi.iyappan [at] embl.de |
 | FEGA Poland ([University of Lodz](https://ror.org/05cq64r17)) | Member | Błażej Marciniak | [0000-0003-1571-1473](https://orcid.org/0000-0003-1571-1473) | blazej.marciniak [at] biol.uni.lodz.pl |
 
