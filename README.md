@@ -32,7 +32,7 @@ If you want to contribute in other ways to the group, please reach out to the le
 
 ## License
 
-This repository is licensed under the terms of the license found in [`LICENSE`](./LICENSE).
+Original work in this repository is licensed under the terms of the license found in [`LICENSE`](./LICENSE). Third-party materials are licensed as stated in their respective directories (see [Third-party material](#third-party-material))
 
 ### Third-party material
 
@@ -41,6 +41,8 @@ This repository is licensed under the terms of the license found in [`LICENSE`](
 - File(s) in [``schemas/isa/``](./schemas/isa/) contain modified work from the ISA-API project: https://github.com/ISA-tools/isa-api. These files are licensed under CPAL-1.0; see [``schemas/isa/LICENSE``](./schemas/isa/LICENSE) for details.
 
 - File(s) in [`./schemas/bioschemas/`](./schemas/bioschemas/) were adapted from BioSchemas definitions published via BioSchemas specification GitHub and the BioThings Data Discovery Engine. Except where otherwise noted on the source pages, the original content is licensed under the Creative Commons Attribution 4.0 International licence (CC BY 4.0); see [``./schemas/bioschemas/LICENSE``](./schemas/bioschemas/LICENSE) for details.
+
+- File(s) in [`./schemas/healthdcatap/`](./schemas/healthdcatap/) were adapted from HealthDCAT-AP definitions published via _healthdataeu.pages.code.europa.eu_. Except where otherwise noted on the source pages, the original content is licensed under the Creative Commons Attribution 4.0 International licence (CC BY 4.0); see [``./schemas/healthdcatap/LICENSE``](./schemas/healthdcatap/LICENSE) for details.
 
 ## Contact
 For general questions, or if you are unsure where to begin, follow the [_Need-help_](https://ega-archive.org/need-help/) form at our website.
