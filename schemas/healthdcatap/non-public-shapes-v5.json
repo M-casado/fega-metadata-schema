@@ -1,0 +1,524 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/healthdcatap/non-public-shapes.json",
+  "$async": true,
+  "type": "object",
+  "$defs": {
+    "DatasetSeries_Shape": {
+      "type": "object",
+      "title": "Dataset Series",
+      "required": [
+        "id",
+        "applicableLegislation"
+      ],
+      "properties": {
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "applicableLegislation": {"$ref": "#/$defs/dcatap:applicableLegislation"}
+      }
+    },
+    "CSVWTableShape": {
+      "type": "object",
+      "required": [
+        "id",
+        "column",
+        "title"
+      ],
+      "properties": {
+        "column": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"$ref": "#/$defs/CSVWColumnShape"},
+          "description": "Each csvw:Table must have at least one column (csvw:column) defined as a blank node or IRI."
+        },
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "keyword": {"$ref": "#/$defs/dcat:keyword"},
+        "title": {"$ref": "#/$defs/dct:title"},
+        "url": {"$ref": "#/$defs/csvw:url"}
+      }
+    },
+    "Dataset_Shape": {
+      "type": "object",
+      "title": "Dataset",
+      "required": [
+        "id",
+        "contactPoint",
+        "distribution",
+        "keyword",
+        "theme",
+        "applicableLegislation",
+        "accessRights",
+        "identifier",
+        "provenance",
+        "type",
+        "hdab",
+        "healthCategory"
+      ],
+      "properties": {
+        "contactPoint": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"$ref": "#/$defs/ContactPoint_Shape"},
+          "description": "Each dcat:Dataset must have at least one dcat:contactPoint."
+        },
+        "minTypicalAge": {"$ref": "#/$defs/healthdcatap:minTypicalAge"},
+        "distribution": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"$ref": "#/$defs/Distribution_Shape"},
+          "description": "Each dcat:Dataset must have at least one dcat:distribution."
+        },
+        "type": {"$ref": "#/$defs/dct:type"},
+        "analytics": { "$ref": "#/$defs/analytics" },
+        "provenance": {"$ref": "#/$defs/dct:provenance"},
+        "numberOfRecords": {"$ref": "#/$defs/healthdcatap:numberOfRecords"},
+        "theme": {"$ref": "#/$defs/dcat:theme"},
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "hasPurpose": {"$ref": "#/$defs/dpv:hasPurpose"},
+        "keyword": {"$ref": "#/$defs/dcat:keyword"},
+        "retentionPeriod": {
+          "maxItems": 1,
+          "type": "array",
+          "items": {"$ref": "#/$defs/PeriodOfTime_Shape"},
+          "description": "Each dcat:Dataset must have at most one healthdcatap:retentionPeriod as a dct:PeriodOfTime."
+        },
+        "identifier": {"$ref": "#/$defs/dct:identifier"},
+        "custodian": {
+          "maxItems": 1,
+          "type": "array",
+          "items": {"$ref": "#/$defs/HealthAgent_Shape"},
+          "description": "Each dcat:Dataset may have at most one geodcatap:custodian. geodcatap:custodian (Data holder) must conform to the :HealthAgent_Shape, which requires exactly one cv:contactPoint."
+        },
+        "hasPersonalData": {"$ref": "#/$defs/dpv:hasPersonalData"},
+        "hasCodingSystem": {"$ref": "#/$defs/healthdcatap:hasCodingSystem"},
+        "healthTheme": {"$ref": "#/$defs/healthdcatap:healthTheme"},
+        "alternative": {"$ref": "#/$defs/dct:alternative"},
+        "hasCodeValues": {"$ref": "#/$defs/healthdcatap:hasCodeValues"},
+        "sample": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"$ref": "#/$defs/Distribution_Shape"}
+        },
+        "hdab": {
+          "minItems": 1,
+          "maxItems": 1,
+          "type": "array",
+          "items": {"$ref": "#/$defs/HealthAgent_Shape"},
+          "description": "Each dcat:Dataset must have exactly one healthdcatap:hdab. healthdcatap:hdab must conform to the :HealthAgent_Shape, which requires exactly one cv:contactPoint."
+        },
+        "populationCoverage": {"$ref": "#/$defs/healthdcatap:populationCoverage"},
+        "healthCategory": {"$ref": "#/$defs/healthdcatap:healthCategory"},
+        "publisher": {
+          "maxItems": 1,
+          "type": "array",
+          "items": {"$ref": "#/$defs/HealthPublisherAgent_Shape"},
+          "description": "dct:publisher must conform to the :HealthPublisherAgent_Shape, which requires exactly one cv:contactPoint, at most one dct:description"
+        },
+        "maxTypicalAge": {"$ref": "#/$defs/healthdcatap:maxTypicalAge"},
+        "accessRights": {"$ref": "#/$defs/dct:accessRights"},
+        "hasLegalBasis": {"$ref": "#/$defs/dpv:hasLegalBasis"},
+        "applicableLegislation": {"$ref": "#/$defs/dcatap:applicableLegislation"},
+        "hasQualityAnnotation": {"$ref": "#/$defs/dqv:hasQualityAnnotation"},
+        "numberOfUniqueIndividuals": {"$ref": "#/$defs/healthdcatap:numberOfUniqueIndividuals"}
+      }
+    },
+    "analytics": {
+      "minItems": 1,
+      "type": "array",
+      "items": {"$ref": "#/$defs/Distribution_Shape"}
+    },
+    "ContactPoint_Shape": {
+      "description": "Contact Point constraints for hdab, custodian and publisher of Dataset, must have at least one of cv:email or cv:contactPage",
+      "type": "object",
+      "title": "Contact Point",
+      "required": ["id"],
+      "properties": {
+        "contactPage": {"$ref": "#/$defs/cv:contactPage"},
+        "specialOpeningHoursSpecification": {"$ref": "#/$defs/cv:specialOpeningHoursSpecification"},
+        "openingHours": {"$ref": "#/$defs/cv:openingHours"},
+        "telephone": {"$ref": "#/$defs/cv:telephone"},
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "email": {"$ref": "#/$defs/cv:email"}
+      }
+      ,
+      "anyOf": [
+        {"required": ["email"]},
+        {"required": ["contactPage"]}
+      ]
+      ,
+      "$comment": "Provide at least one of cv:email or cv:contactPage."
+    },
+    "CSVWColumnShape": {
+      "type": "object",
+      "required": [
+        "id",
+        "datatype",
+        "name",
+        "titles",
+        "description"
+      ],
+      "properties": {
+        "propertyUrl": {"$ref": "#/$defs/csvw:propertyUrl"},
+        "datatype": {"$ref": "#/$defs/csvw:datatype"},
+        "name": {"$ref": "#/$defs/csvw:name"},
+        "description": {"$ref": "#/$defs/dct:description"},
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "titles": {"$ref": "#/$defs/csvw:titles"}
+      }
+    },
+    "Distribution_Shape": {
+      "type": "object",
+      "title": "Distribution",
+      "required": [
+        "id",
+        "applicableLegislation"
+      ],
+      "properties": {
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "applicableLegislation": {"$ref": "#/$defs/dcatap:applicableLegislation"}
+      }
+    },
+    "HealthAgent_Shape": {
+      "type": "object",
+      "title": "Health Agent",
+      "required": [
+        "id",
+        "contactPoint"
+      ],
+      "properties": {
+        "contactPoint": {
+          "minItems": 1,
+          "maxItems": 1,
+          "type": "array",
+          "items": {"$ref": "#/$defs/ContactPoint_Shape"},
+          "description": "Each Health Agent must have exactly one cv:contactPoint."
+        },
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        }
+      }
+    },
+    "Catalog_Shape": {
+      "type": "object",
+      "title": "Catalog",
+      "required": [
+        "id",
+        "applicableLegislation"
+      ],
+      "properties": {
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "applicableLegislation": {"$ref": "#/$defs/dcatap:applicableLegislation"}
+      }
+    },
+    "CSVWTableGroup_Shape": {
+      "type": "object",
+      "title": "Csvw Table Group",
+      "required": [
+        "id",
+        "table"
+      ],
+      "properties": {
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "table": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"$ref": "#/$defs/CSVWTableShape"},
+          "description": "Each csvw:TableGroup must have at least one Table (csvw:table)."
+        }
+      }
+    },
+    "Kind_Shape": {
+      "description": "vcard Kind must have at least one of vcard:hasURL or vcard:hasEmail as an IRI",
+      "type": "object",
+      "title": "vcard Kind",
+      "required": ["id"],
+      "properties": {
+        "hasEmail": {
+          "maxItems": 1,
+          "type": "array",
+          "items": {"format": "iri-reference", "type": "string"}
+        },
+        "hasURL": {
+          "maxItems": 1,
+          "type": "array",
+          "items": {"format": "iri-reference", "type": "string"}
+        },
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        }
+      },
+      "anyOf": [
+        {"required": ["hasURL"]},
+        {"required": ["hasEmail"]}
+      ]
+    },
+    "TemporalEntity_Shape": {
+      "description": "Temporal Entity constraints for opening hours",
+      "type": "object",
+      "title": "Temporal Entity",
+      "required": [
+        "id",
+        "description"
+      ],
+      "properties": {
+        "description": {
+          "minItems": 1,
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Each time:TemporalEntity must have at least one dct:description as a literal."
+        },
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "frequency": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "format": "iri-reference",
+            "type": "string"
+          },
+          "description": "cv:frequency must be an IRI referencing a dct:Frequency from the EU frequency vocabulary."
+        }
+      }
+    },
+    "PeriodOfTime_Shape": {
+      "type": "object",
+      "title": "Period Of Time",
+      "required": ["id"],
+      "properties": {
+        "id": {"format": "iri-reference", "type": "string"}
+      }
+    },
+    "HealthPublisherAgent_Shape": {
+      "type": "object",
+      "title": "Health Publisher Agent",
+      "required": [
+        "id",
+        "contactPoint"
+      ],
+      "properties": {
+        "contactPoint": {
+          "minItems": 1,
+          "maxItems": 1,
+          "type": "array",
+          "items": {"$ref": "#/$defs/ContactPoint_Shape"},
+          "description": "Each foaf:Agent must have exactly one cv:contactPoint."
+        },
+        "description": {
+          "description": "Each dct:publisher must have at most one dct:description (Publisher Note) as a literal.",
+          "type": "string",
+          "maxItems": 1
+        },
+        "id": {
+          "format": "iri-reference",
+          "type": "string"
+        }
+      }
+    },
+    "$comment": "#! We should edit the definitions, moving them outside the healthdcatap folder, into the other dcat/dcatp when available. And change the $refs to point to those in their original definition files.",
+    "dct:accessRights": {
+      "const": "http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC",
+      "type": "string",
+      "description": "Each Dataset must have exactly one dct:accessRights, and its value must be http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC."
+    },
+    "dcatap:applicableLegislation": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "format": "iri-reference",
+        "type": "string"
+      },
+      "description": "Each dcat:Dataset must have at least one dcatap:applicableLegislation."
+    },
+    "dct:identifier": {
+      "minItems": 1,
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Each dcat:Dataset must have at least one dct:identifier."
+    },
+    "dcat:keyword": {
+      "minItems": 1,
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Each dcat:Dataset must have at least one dcat:keyword."
+    },
+    "dcat:theme": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "format": "iri-reference",
+        "type": "string"
+      },
+      "description": "Each dcat:Dataset must have at least one dcat:theme."
+    },
+    "dct:type": {
+      "minItems": 1,
+      "type": "array",
+      "description": "Each dcat:Dataset must have at least one dct:type."
+    },
+    "dct:provenance": {
+      "minItems": 1,
+      "type": "array",
+      "description": "Each dcat:Dataset must have at least one dct:provenance."
+    },
+    "dpv:hasPurpose": {
+      "minItems": 1,
+      "type": "array"
+    },
+    "dpv:hasPersonalData": {
+      "minItems": 1,
+      "type": "array"
+    },
+    "dpv:hasLegalBasis": {
+      "minItems": 1,
+      "type": "array"
+    },
+    "dqv:hasQualityAnnotation": {
+      "minItems": 1,
+      "type": "array"
+    },
+    "healthdcatap:hasCodeValues": {
+      "minItems": 1,
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "healthdcatap:hasCodingSystem": {
+      "minItems": 1,
+      "type": "array"
+    },
+    "healthdcatap:healthTheme": {
+      "minItems": 1,
+      "type": "array"
+    },
+    "healthdcatap:populationCoverage": {
+      "minItems": 1,
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "dct:alternative": {
+      "minItems": 1,
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "healthdcatap:healthCategory": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "format": "iri-reference",
+        "type": "string"
+      },
+      "description": "Each dcat:Dataset must have at least one healthdcatap:healthCategory."
+    },
+    "healthdcatap:minTypicalAge": {
+      "type": "number",
+      "description": "Each dcat:Dataset must have at most one healthdcatap:minTypicalAge as a xsd:nonNegativeInteger."
+    },
+    "healthdcatap:maxTypicalAge": {
+      "type": "number",
+      "description": "Each dcat:Dataset must have at most one healthdcatap:maxTypicalAge as a xsd:nonNegativeInteger."
+    },
+    "healthdcatap:numberOfRecords": {
+      "type": "number",
+      "description": "Each dcat:Dataset must have at most one healthdcatap:numberOfRecords as a xsd:nonNegativeInteger."
+    },
+    "healthdcatap:numberOfUniqueIndividuals": {
+      "type": "number",
+      "description": "Each dcat:Dataset must have at most one healthdcatap:numberOfUniqueIndividuals as a xsd:nonNegativeInteger."
+    },
+    "cv:email": {
+      "minItems": 1,
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "cv:email must be a literal value."
+    },
+    "cv:contactPage": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "format": "iri-reference",
+        "type": "string"
+      },
+      "description": "cv:contactPage must be an IRI."
+    },
+    "cv:telephone": {
+      "minItems": 1,
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "cv:telephone must be a literal value."
+    },
+    "cv:openingHours": {
+      "minItems": 1,
+      "type": "array",
+      "description": "cv:openingHours must be a time:TemporalEntity."
+    },
+    "cv:specialOpeningHoursSpecification": {
+      "minItems": 1,
+      "type": "array",
+      "description": "cv:specialOpeningHoursSpecification must be a time:TemporalEntity."
+    },
+    "dct:title": {
+      "minItems": 1,
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Each csvw:Table must have at least one title (dct:title) as a literal."
+    },
+    "csvw:url": {
+      "format": "iri-reference",
+      "type": "string",
+      "description": "Each csvw:Table must have at most one valid URL (csvw:url) as an IRI."
+    },
+    "csvw:name": {
+      "minItems": 1,
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Each csvw:Column must have at least one name (csvw:name) as a literal."
+    },
+    "dct:description": {
+      "minItems": 1,
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Each csvw:Column must have at least one description (dct:description) as a literal."
+    },
+    "csvw:titles": {
+      "minItems": 1,
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Each csvw:Column must have at least one title (csvw:titles) as a literal."
+    },
+    "csvw:datatype": {
+      "type": "string",
+      "description": "Each csvw:Column must have exactly one datatype (csvw:datatype) as a literal (e.g., 'string', 'integer'). See https://w3c.github.io/csvw/metadata/#datatypes"
+    },
+    "csvw:propertyUrl": {
+      "format": "iri-reference",
+      "type": "string",
+      "description": "Each csvw:Column may have at most one property URL (csvw:propertyUrl), which must be a valid IRI referencing a semantic property."
+    }
+  }
+}

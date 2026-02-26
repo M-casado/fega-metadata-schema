@@ -34,7 +34,9 @@
         "column": {
           "minItems": 1,
           "type": "array",
-          "items": {}
+          "items": {
+
+          }
         },
         "id": {
           "format": "iri-reference",
@@ -43,12 +45,16 @@
         "keyword": {
           "minItems": 1,
           "type": "array",
-          "items": {"type": "string"}
+          "items": {
+            "type": "string"
+          }
         },
         "title": {
           "minItems": 1,
           "type": "array",
-          "items": {"type": "string"}
+          "items": {
+            "type": "string"
+          }
         },
         "url": {
           "format": "iri-reference",
@@ -77,30 +83,44 @@
         "contactPoint": {
           "minItems": 1,
           "type": "array",
-          "items": {}
+          "items": {
+
+          }
         },
-        "minTypicalAge": {"type": "number"},
+        "minTypicalAge": {
+          "type": "number"
+        },
         "distribution": {
           "minItems": 1,
           "type": "array",
-          "items": {"$ref": "#/$defs/Distribution_Shape"}
+          "items": {
+            "$ref": "#/$defs/Distribution_Shape"
+          }
         },
         "type": {
           "minItems": 1,
           "type": "array",
-          "items": {}
+          "items": {
+
+          }
         },
         "analytics": {
           "minItems": 1,
           "type": "array",
-          "items": {"$ref": "#/$defs/Distribution_Shape"}
+          "items": {
+            "$ref": "#/$defs/Distribution_Shape"
+          }
         },
         "provenance": {
           "minItems": 1,
           "type": "array",
-          "items": {}
+          "items": {
+
+          }
         },
-        "numberOfRecords": {"type": "number"},
+        "numberOfRecords": {
+          "type": "number"
+        },
         "theme": {
           "minItems": 1,
           "type": "array",
@@ -116,58 +136,89 @@
         "hasPurpose": {
           "minItems": 1,
           "type": "array",
-          "items": {}
+          "items": {
+
+          }
         },
         "keyword": {
           "minItems": 1,
           "type": "array",
-          "items": {"type": "string"}
+          "items": {
+            "type": "string"
+          }
         },
         "retentionPeriod": {
-          "format": "iri-reference",
-          "type": "string"
+
         },
         "identifier": {
           "minItems": 1,
           "type": "array",
-          "items": {"type": "string"}
+          "items": {
+            "type": "string"
+          }
         },
-        "custodian": {},
+        "custodian": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/HealthAgent_Shape"
+          }
+        },
         "hasPersonalData": {
           "minItems": 1,
           "type": "array",
-          "items": {}
+          "items": {
+
+          }
         },
         "hasCodingSystem": {
           "minItems": 1,
           "type": "array",
-          "items": {}
+          "items": {
+
+          }
         },
         "healthTheme": {
           "minItems": 1,
           "type": "array",
-          "items": {}
+          "items": {
+
+          }
         },
         "alternative": {
           "minItems": 1,
           "type": "array",
-          "items": {"type": "string"}
+          "items": {
+            "type": "string"
+          }
         },
         "hasCodeValues": {
           "minItems": 1,
           "type": "array",
-          "items": {"type": "string"}
+          "items": {
+            "type": "string"
+          }
         },
         "sample": {
           "minItems": 1,
           "type": "array",
-          "items": {"$ref": "#/$defs/Distribution_Shape"}
+          "items": {
+            "$ref": "#/$defs/Distribution_Shape"
+          }
         },
-        "hdab": {},
+        "hdab": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/HealthAgent_Shape"
+          }
+        },
         "populationCoverage": {
           "minItems": 1,
           "type": "array",
-          "items": {"type": "string"}
+          "items": {
+            "type": "string"
+          }
         },
         "healthCategory": {
           "minItems": 1,
@@ -177,8 +228,12 @@
             "type": "string"
           }
         },
-        "publisher": {},
-        "maxTypicalAge": {"type": "number"},
+        "publisher": {
+
+        },
+        "maxTypicalAge": {
+          "type": "number"
+        },
         "accessRights": {
           "const": "http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC",
           "type": "string"
@@ -186,7 +241,9 @@
         "hasLegalBasis": {
           "minItems": 1,
           "type": "array",
-          "items": {}
+          "items": {
+
+          }
         },
         "applicableLegislation": {
           "minItems": 1,
@@ -199,16 +256,22 @@
         "hasQualityAnnotation": {
           "minItems": 1,
           "type": "array",
-          "items": {}
+          "items": {
+
+          }
         },
-        "numberOfUniqueIndividuals": {"type": "number"}
+        "numberOfUniqueIndividuals": {
+          "type": "number"
+        }
       }
     },
     "ContactPoint_Shape": {
       "description": "Contact Point constraints for hdab, custodian and publisher of Dataset, must have at least one of cv:email or cv:contactPage",
       "type": "object",
       "title": "Contact Point",
-      "required": ["id"],
+      "required": [
+        "id"
+      ],
       "properties": {
         "contactPage": {
           "minItems": 1,
@@ -221,17 +284,23 @@
         "specialOpeningHoursSpecification": {
           "minItems": 1,
           "type": "array",
-          "items": {}
+          "items": {
+
+          }
         },
         "openingHours": {
           "minItems": 1,
           "type": "array",
-          "items": {}
+          "items": {
+
+          }
         },
         "telephone": {
           "minItems": 1,
           "type": "array",
-          "items": {"type": "string"}
+          "items": {
+            "type": "string"
+          }
         },
         "id": {
           "format": "iri-reference",
@@ -240,7 +309,9 @@
         "email": {
           "minItems": 1,
           "type": "array",
-          "items": {"type": "string"}
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -258,16 +329,22 @@
           "format": "iri-reference",
           "type": "string"
         },
-        "datatype": {"type": "string"},
+        "datatype": {
+          "type": "string"
+        },
         "name": {
           "minItems": 1,
           "type": "array",
-          "items": {"type": "string"}
+          "items": {
+            "type": "string"
+          }
         },
         "description": {
           "minItems": 1,
           "type": "array",
-          "items": {"type": "string"}
+          "items": {
+            "type": "string"
+          }
         },
         "id": {
           "format": "iri-reference",
@@ -276,7 +353,9 @@
         "titles": {
           "minItems": 1,
           "type": "array",
-          "items": {"type": "string"}
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -310,7 +389,9 @@
         "contactPoint"
       ],
       "properties": {
-        "contactPoint": {},
+        "contactPoint": {
+
+        },
         "id": {
           "format": "iri-reference",
           "type": "string"
@@ -339,7 +420,9 @@
         }
       }
     },
-    "@context": {"$comment": "The JSON-LD @context"},
+    "@context": {
+      "$comment": "The JSON-LD @context"
+    },
     "CSVWTableGroup_Shape": {
       "type": "object",
       "title": "Csvw Table Group",
@@ -355,7 +438,9 @@
         "table": {
           "minItems": 1,
           "type": "array",
-          "items": {}
+          "items": {
+
+          }
         }
       }
     },
@@ -363,7 +448,9 @@
       "description": "vcard Kind must have at least one of vcard:hasURL or vcard:hasEmail as an IRI",
       "type": "object",
       "title": "vcard Kind",
-      "required": ["id"],
+      "required": [
+        "id"
+      ],
       "properties": {
         "hasEmail": {
           "format": "iri-reference",
@@ -391,7 +478,9 @@
         "description": {
           "minItems": 1,
           "type": "array",
-          "items": {"type": "string"}
+          "items": {
+            "type": "string"
+          }
         },
         "id": {
           "format": "iri-reference",
@@ -415,7 +504,9 @@
         "contactPoint"
       ],
       "properties": {
-        "contactPoint": {"description": "Each foaf:Agent must have exactly one cv:contactPoint."},
+        "contactPoint": {
+          "description": "Each foaf:Agent must have exactly one cv:contactPoint."
+        },
         "description": {
           "description": "Each dct:publisher must have at most one dct:description (Publisher Note) as a literal.",
           "type": "string"
@@ -427,10 +518,12 @@
       }
     },
     "container_language": {
-      "patternProperties": {"^[A-Za-z]{2,3}$": {
-        "$comment": "Overly simplified version of the regex. See https://github.com/w3c/wot-thing-description/blob/main/validation/td-json-schema-validation.json for a complete regex",
-        "type": "string"
-      }},
+      "patternProperties": {
+        "^[A-Za-z]{2,3}$": {
+          "$comment": "Overly simplified version of the regex. See https://github.com/w3c/wot-thing-description/blob/main/validation/td-json-schema-validation.json for a complete regex",
+          "type": "string"
+        }
+      },
       "additionalProperties": false,
       "type": "object"
     }
@@ -445,8 +538,12 @@
     "data": {
       "minItems": 1,
       "type": "array",
-      "items": {"$ref": "#/$defs/Dataset_Shape"}
+      "items": {
+        "$ref": "#/$defs/Dataset_Shape"
+      }
     },
-    "@context": {"$ref": "#/$defs/@context"}
+    "@context": {
+      "$ref": "#/$defs/@context"
+    }
   }
 }
