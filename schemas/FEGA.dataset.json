@@ -11,12 +11,35 @@
         {
             "entityDoc": "entities:FEGA.dataset.json#",
             "properties": "@nest"
+        },
+        {
+            "accessRights": {
+                "@id": "dct:accessRights",
+                "@type": "@id"
+            },
+            "dct:title": {
+                "@id": "dct:title",
+                "@type": "langString"
+            }
         }
     ],
     "meta:sssomMappings": [
         {
-            "predicate_id": "skos:#!!!!!!!!!!!!!!!!!!!!",
+            "predicate_id": "skos:broadMatch",
             "object_id": "dcat:Dataset",
+            "mapping_justification": "semapv:ManualMappingCuration",
+            "object_match_field": "rdfs:comment",
+            "subject_match_field": "rdfs:comment",
+            "author_id": ["orcid:0000-0002-7747-6256"],
+            "creator_id": ["orcid:0000-0002-7747-6256"],
+            "reviewer_id": [""],
+            "confidence": 0.8,
+            "mapping_date": "2026-01-28",
+            "$comment": "A FEGA dataset is a specific type of DCAT Dataset (HealthDCAT-AP non-public), focused on controlled-access biomedical data."
+        },
+        {
+            "predicate_id": "skos:narrowMatch",
+            "object_id": "egav1crg:DatasetRequest",
             "mapping_justification": "semapv:ManualMappingCuration",
             "object_match_field": "rdfs:label",
             "subject_match_field": "rdfs:label",
@@ -24,7 +47,7 @@
             "creator_id": ["orcid:0000-0002-7747-6256"],
             "reviewer_id": [""],
             "confidence": 1.0,
-            "mapping_date": "2026-01-28"
+            "mapping_date": "2026-02-03"
         }
     ],
     "allOf": [
@@ -37,17 +60,14 @@
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionDataset"
         }
     ],
-    "anyOf": [
-        { "required": [""] }
-    ],
-    "required": [ 
+    "required": [
         "accessRights",
         "applicableLegislation",
         "contactPoint",
-        "datasetDistribution",
+        "distribution",
         "description",
         "healthCategory",
-        "identifier",
+        "id",
         "keyword",
         "provenance",
         "theme",
@@ -69,10 +89,23 @@
                     "reviewer_id": [""],
                     "confidence": 1.0,
                     "mapping_date": "2026-01-28"
+                },
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/datasets/defaultSchema.json#id",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-29"
                 }
             ],
             "examples": ["ega:EGAD00000000001"]
         },
+
         "title": {
             "allOf": [ { "$ref": "./FEGA.common-definitions.json#/$defs/label" } ],
             "meta:sssomMappings": [
@@ -87,9 +120,34 @@
                     "reviewer_id": [""],
                     "confidence": 1.0,
                     "mapping_date": "2026-01-28"
+                },
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/datasets/defaultSchema.json#name",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-29"
+                },
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "egav1crg:DatasetRequest#title",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-30"
                 }
             ]
         },
+
         "description": {
             "allOf": [ { "$ref": "./FEGA.common-definitions.json#/$defs/description" } ],
             "meta:sssomMappings": [
@@ -104,30 +162,390 @@
                     "reviewer_id": [""],
                     "confidence": 1.0,
                     "mapping_date": "2026-01-28"
+                },
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/datasets/defaultSchema.json#description",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                },
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "egav1crg:DatasetRequest#description",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-30"
                 }
             ]
         },
-        "accessRights": {},
-        "alternative": {},
-        "analytics": {},
-        "applicableLegislation": {},
-        "codeValues": {},
-        "codingSystem": {},
-        "conformsTo": {},
-        "contactPoint": {},
-        "creator": {},
-        "datasetDistribution": {},
-        "documentation": {},
-        "frequency": {},
-        "geographicalCoverage": {},
-        "hasVersion": {},
-        "healthCategory": {},
-        "healthDataAccessBody": {
-            "$comment": "Mandatory in HealthDCAT-AP Release 5, but still not properly implemented throughout EU. Therefore, we keep it as optional for now.",
+
+        "accessRights": {
+            "title": "Access rights",
+            "description": "Information that indicates whether the Dataset is publicly accessible, has access restrictions or is not public. In the case of EGA datasets, all are 'NON_PUBLIC': the dataset is not publicly available and access is subject to restrictions.",
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
-                    "object_id": "healthdcatap:healthDataAccessBody",
+                    "object_id": "dct:accessRights",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ],
+            "allOf": [ { "$ref": "./healthdcatap/non-public-shapes-v6.json#/$defs/dct:accessRights" } ],
+            "examples": [ "http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC" ]
+        },
+        
+        "alternative": {
+            "title": "Alternative title",
+            "description": "Alternative title for the Dataset. This property can be repeated for parallel language versions of the alternative title.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:alternative",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ],
+            "allOf": [ { "$ref": "./healthdcatap/non-public-shapes-v6.json#/$defs/dct:alternative" } ]
+        },
+
+        "analytics": {
+            "title": "Analytics",
+            "description": "An analytics distribution of the dataset. Publishers are encouraged to provide URLs pointing to document repositories where users can access or request associated resources such as technical reports of the dataset, quality measurements, usability indicators, etc. This property is particularly relevant for datasets that are not publicly accessible, as it allows data providers to share valuable information about the dataset's characteristics and quality without exposing the data itself.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "healthdcatap:analytics",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ],
+            "allOf": [ { "$ref": "./healthdcatap/non-public-shapes-v6.json#/$defs/analytics" } ]
+        },
+
+        "applicableLegislation": {
+            "title": "Applicable legislation",
+            "description": "The legislation that mandates the creation or management of the Dataset. As multiple legislations may apply to the resource the maximum cardinality is not limited. ",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dcatap:applicableLegislation",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ],
+            "allOf": [ { "$ref": "./healthdcatap/non-public-shapes-v6.json#/$defs/dcatap:applicableLegislation" } ],
+            "examples": [
+                [
+                    "http://data.europa.eu/eli/reg/2025/327/oj",
+                    "http://data.europa.eu/eli/reg/2016/679/2016-05-04",
+                    "https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED"
+                ]
+            ]
+        },
+
+        "hasCodeValues": {
+            "title": "Code values",
+            "description": "A free-text description of any health classification, terminology, ontology, thesaurus, or coding system used in the dataset.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "healthdcatap:hasCodeValues",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ],
+            "allOf": [ { "$ref": "./healthdcatap/non-public-shapes-v6.json#/$defs/healthdcatap:hasCodeValues" } ],
+            "examples": [
+                [
+                    "U07.1 - COVID-19, virus identified (ICD-10 code)",
+                    "Y59.0 - Viral vaccines causing adverse effects in therapeutic use (ICD-10 code)"
+                ]
+            ]
+        },
+
+        "hasCodingSystem": {
+            "title": "Coding system",
+            "description": "Coding systems in use (e.g., ICD-10-CM, DGRs, SNOMED CT). This property allows you to specify the coding systems used within your dataset. For example, if a dataset uses ICD-10 for disease classification, this property allows data users to search for datasets with the same coding system. As a machine-actionable property, it also facilitates automated processes, making dataset discovery more efficient. Specify the standardised coding systems used in the dataset (e.g., ICD-10-CM, SNOMED CT, DRGs).",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "healthdcatap:hasCodingSystem",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ],
+            "allOf": [ { "$ref": "./healthdcatap/non-public-shapes-v6.json#/$defs/healthdcatap:hasCodingSystem" } ],
+            "examples": [
+                [
+                    "ICD-10-CM",
+                    "SNOMED CT",
+                    "DRGs"
+                ]
+            ]
+        },
+
+        "conformsTo": {
+            "type": "array",
+            "title": "Conforms to",
+            "description": "An established standard or specification to which the described resource conforms.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:conformsTo",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ],
+            "minItems": 1,
+            "uniqueItems": true
+        },
+
+        "contactPoint": {
+            "type": "array",
+            "title": "Contact point",
+            "description": "Contact information that can be used for sending comments about the Dataset. This property informs about a contact point (Individual, Organization, Location, Group) that can answer questions about the dataset.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dcat:contactPoint",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ],
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "$ref": "./healthdcatap/non-public-shapes-v6.json#/$defs/ContactPoint_Shape" }
+        },
+
+        "creator": {
+            "title": "Creator",
+            "description": "An entity responsible for creating the Dataset.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:creator",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ],
+            "allOf": [
+                { "$ref": "./FEGA.common-definitions.json#/$defs/agent" }
+            ],
+            "anyOf": [
+                { "$ref": "./healthdcatap/non-public-shapes-v6.json#/$defs/Agent_Shape" }
+            ]
+        },
+
+        "distribution": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dcat:distribution",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                },
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "schema:distribution",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-29"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "egav1crg:DatasetRequest#run_accession_ids",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 0.7,
+                    "mapping_date": "2026-01-30",
+                    "$comment": "EGA's runs contain datafiles. This method of dataset-file linkage is what is similar to the DCAT's distribution."
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "egav1crg:DatasetRequest#analysis_accession_ids",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 0.7,
+                    "mapping_date": "2026-01-30",
+                    "$comment": "EGA's analyses contain datafiles. This method of dataset-file linkage is what is similar to the DCAT's distribution."
+                }
+            ]
+        },
+        "documentation": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "foaf:page",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                },
+                {
+                    "predicate_id": "skos:broadMatch",
+                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/datasets/defaultSchema.json#externalUrl",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-29",
+                    "$comment": "A Beacon 'externalUrl' is broader than the specific FEGA/healthdcatap 'documentation'."
+                }
+            ]
+        },
+        "accrualPeriodicity": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:accrualPeriodicity",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                },
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "healthdcatap:frequency",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ],
+            "examples": [ "http://publications.europa.eu/resource/authority/frequency/WEEKLY" ]
+        },
+        "spatial": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:spatial",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                },
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "healthdcatap:geographicalCoverage",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-30"
+                }
+            ]
+        },
+        "hasVersion": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:hasVersion",
                     "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
@@ -139,39 +557,902 @@
                 }
             ]
         },
-        "HealthTheme": {},
-        "inSeries": {},
-        "isReferencedBy": {},
-        "keyword": {},
-        "landingPage": {},
-        "language": {},
-        "legalBasis": {},
-        "maximumTypicalAge": {},
-        "minimumTypicalAge": {},
-        "modificationDate": {},
-        "numberOfRecords": {},
-        "numberOfUniqueIndividuals": {},
-        "otherIdentifier": {},
-        "personalData": {},
-        "populationCoverage": {},
-        "provenance": {},
-        "publisher": {},
-        "purpose": {},
-        "qualifiedAttribution": {},
-        "qualifiedRelation": {},
-        "qualityAnnotation": {},
-        "relatedResource": {},
-        "releaseDate": {},
-        "retentionPeriod": {},
-        "sample": {},
-        "source": {},
-        "spatialResolution": {},
-        "temporalCoverage": {},
-        "temporalResolution": {},
-        "theme": {},
-        "type": {},
-        "version": {},
-        "versionNotes": {},
-        "wasGeneratedBy": {}
+        "healthCategory": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "healthdcatap:healthCategory",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "hdab": {
+            "title": "Health Data Access Body",
+            "$comment": "Mandatory in HealthDCAT-AP Release 5, but still not properly implemented throughout EU. Therefore, we keep it as optional for now.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "healthdcatap:hdab",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "HealthTheme": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "healthdcatap:healthTheme",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "inSeries": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dcat:inSeries",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "isReferencedBy": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:isReferencedBy",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "keyword": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dcat:keyword",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "landingPage": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dcat:landingPage",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                },
+                {
+                    "predicate_id": "skos:broadMatch",
+                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/datasets/defaultSchema.json#externalUrl",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-29",
+                    "$comment": "A Beacon 'externalUrl' is broader than the specific dcat:relatedResource."
+                }
+            ]
+        },
+        "language": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:language",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "hasLegalBasis": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dpv:hasLegalBasis",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "maxTypicalAge": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "healthdcatap:maxTypicalAge",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "minTypicalAge": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "healthdcatap:minTypicalAge",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "modificationDate": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:modified",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                },
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/datasets/defaultSchema.json#updateDateTime",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-29"
+                }
+            ]
+        },
+        "numberOfRecords": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "healthdcatap:numberOfRecords",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "numberOfUniqueIndividuals": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "healthdcatap:numberOfUniqueIndividuals",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "otherIdentifier": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "adms:identifier",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                },
+                {
+                    "predicate_id": "skos:narrowMatch",
+                    "object_id": "schema:issn",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 0.9,
+                    "mapping_date": "2026-01-29"
+                }
+            ]
+        },
+        "hasPersonalData": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dpv:hasPersonalData",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "populationCoverage": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "healthdcatap:populationCoverage",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "provenance": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:provenance",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "publisher": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:publisher",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "hasPurpose": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dpv:hasPurpose",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "qualifiedAttribution": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "prov:qualifiedAttribution",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "qualifiedRelation": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dcat:qualifiedRelation",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "hasQualityAnnotation": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dqv:hasQualityAnnotation",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "relation": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:relation",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                },
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "healthdcatap:relatedResource",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-29"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/datasets/defaultSchema.json#externalUrl",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-29",
+                    "$comment": "A Beacon 'externalUrl' can be represented through the generic FEGA/healthdcatap 'relatedResource'."
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "schema:citation",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-30"
+                }
+            ]
+        },
+        "releaseDate": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:issued",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "retentionPeriod": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "healthdcatap:retentionPeriod",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "sample": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "adms:sample",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "source": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:source",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "spatialResolutionInMeters": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dcat:spatialResolutionInMeters",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "temporal": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:temporal",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                },
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "healthdcatap:temporalCoverage",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "temporalResolution": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dcat:temporalResolution",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "theme": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dcat:theme",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "types": {
+            "type": "array",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:narrowMatch",
+                    "object_id": "dct:type",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                },
+                {
+                    "predicate_id": "skos:narrowMatch",
+                    "object_id": "egav1crg:DatasetRequest#dataset_types",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-30"
+                }
+            ],
+            "$comment": "#! mix of HealthDCAT-AP 'http://publications.europa.eu/resource/authority/dataset-type' enums and EGA's"
+        },
+        "version": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dcat:version",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                },
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/datasets/defaultSchema.json#version",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-29"
+                }
+            ]
+        },
+        "versionNotes": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "adms:versionNotes",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+        "wasGeneratedBy": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "prov:wasGeneratedBy",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ]
+        },
+
+        "creationDate": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/datasets/defaultSchema.json#createDateTime",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-29"
+                }
+            ]
+        },
+        "dataUseConditions": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/datasets/defaultSchema.json#dataUseConditions",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-29"
+                }
+            ]
+        },
+
+        "measurementMethod": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "schema:measurementMethod",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-29"
+                }
+            ]
+        },
+        "measurementTechnique": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "schema:measurementTechnique",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-29"
+                }
+            ]
+        },
+        "variableMeasured": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "schema:variableMeasured",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-29"
+                }
+            ],
+            "$comment": "#! This property tends to be more related to the Study than the dataset, at least in ISA and other standards."
+        },
+        
+        "status": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "adms:status",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-30"
+                }
+            ],
+            "enum": ["completed", "deprecated", "under development", "withdrawn"]
+        },
+        "previousVersion": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dcat:previousVersion",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-30"
+                },
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "pav:previousVersion",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "reviewer_id": ["orcid:0000-0002-7747-6256"]
+                }
+            ],
+            "description": "The previous version of a resource in a lineage."
+        },
+        "hasPart": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:hasPart",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-30"
+                }
+            ]
+        },
+        "license": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:license",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-30"
+                }
+            ],
+            "description": "A legal document under which the resource is made available, giving official permission to do something with the resource.",
+            "examples": [
+                "https://creativecommons.org/licenses/by/4.0/"
+            ]
+        },
+        "replaces": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:replaces",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-30"
+                }
+            ]
+        },
+        "hasPolicy": {
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "odrl:hasPolicy",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-30"
+                },
+                {
+                    "predicate_id": "skos:narrowMatch",
+                    "object_id": "egav1crg:DatasetRequest#policy_accession_id",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-30"
+                }
+            ],
+            "$comment": "#! We may want to add the mapping to the 'policy_accession_id' not in this upper hasPolicy, but in an inner 'id' of the policy object itself."
+        }
     }
 }
