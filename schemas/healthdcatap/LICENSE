@@ -1,17 +1,14 @@
-This directory (``schemas/healthdcatap/``) contains derivative work based on HealthDCAT-AP Release 6. These files are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0) as stated by the [HealthDCAT-AP Release 6 publication](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6/#speclicence).
+This directory (``schemas/healthdcatap/``) contains HealthDCAT-AP Release 6 artefacts that are copied directly from their upstream source. These files are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0) as stated by the [HealthDCAT-AP Release 6 publication](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6/#speclicence).
 
 Attribution of upstream work:
 - Title: HealthDCAT-AP Release 6
-- Source URLs:
-   - [``public-shapes.ttl``](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6/html/shacl/public-shapes.ttl)
-   - [``restricted-shapes.ttl``](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6/html/shacl/restricted-shapes.ttl)
-   - [``non-public-shapes.ttl``](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6/html/shacl/non-public-shapes.ttl)
-   - [``range.ttl``](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6/html/shacl/range.ttl)
-   - [``mdr-vocabularies.shape.ttl``](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6/html/shacl/mdr-vocabularies.shape.ttl)
-- Source: https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6/
-- Copyright: Copyright © 2025 European Union.
+- Source URL:
+   - ``release-6``:
+      - [``non-public-shapes.ttl``](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6/html/shacl/non-public-shapes.ttl)
+      - Source: https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6/
+      - Copyright: Copyright © 2025 European Union.
+      - Accessed: 26 February 2026
 - Licence statement in upstream: "All material in this repository is published under the license CC-BY 4.0, unless explicitly otherwise mentioned."
-- Accessed: 26 February 2026
 
 Licence for this directory:
 - Creative Commons Attribution 4.0 International (CC BY 4.0)
@@ -19,7 +16,7 @@ Licence for this directory:
 You may obtain a copy of the licence at https://creativecommons.org/licenses/by/4.0/
 
 Attribution and change notice:
-These files were converted from upstream SHACL/specification constraints into JSON Schema, and then curated for use in JSON validation (including adjustments required by JSON Schema semantics and validator behaviour). Changes are documented in version control.
+These files are copied directly from the upstream HealthDCAT-AP releases' as artefacts without modifications.
 
 Repository licence carve-out:
 Files in this directory are **NOT** licensed under the repository's [top-level licence](../../LICENSE). They remain under CC BY 4.0.
