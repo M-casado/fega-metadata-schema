@@ -5,7 +5,7 @@
     "title": "FEGA common metadata definitions",
     "meta:version": "0.0.0",
     "$async": true,
-    "description": "Metadata schema for common definitions",
+    "description": "Metadata schema for common definitions inherited by other FEGA metadata schemas.",
     "@context": {
         "id": "@id",
         "label": "rdfs:label",
@@ -32,12 +32,26 @@
         "owl": "https://www.w3.org/2002/07/owl#",
         "skos": "https://www.w3.org/2009/08/skos-reference/skos.html#",
         "schema": "http://schema.org/",
-        "bioschemastypes": "https://discovery.biothings.io/view/bioschemastypes/",
+        "bioschemastypes": "https://discovery.biothings.io/ns/bioschemas/bioschemas:",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "beaconRepo": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/",
+        "dct": "http://purl.org/dc/terms/",
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "dpv": "https://w3id.org/dpv#",
+        "adms": "http://www.w3.org/ns/adms#",
+        "odrl": "https://www.w3.org/TR/odrl-vocab/#",
+        "vcard": "http://www.w3.org/2006/vcard/ns#",
+        "cv": "http://data.europa.eu/m8g/",
+
+        "dcat": "http://www.w3.org/ns/dcat#",
+        "dcatap": "http://data.europa.eu/r5r/",
+        "healthdcatap": "https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6/#",
 
         "efo": "identifiers:efo:",
         "pato": "identifiers:PATO:",
+
+        "egav1crg": "https://submission.ega-archive.org/api/spec/#/schemas/",
+        "egav1ebi": "https://github.com/enasequence/webin-xml/master/src/main/resources/uk/ac/ebi/ena/sra/schema/",
 
         "sameAs": {
             "@id": "schema:sameAs",
@@ -91,8 +105,8 @@
     "$defs": {
         "id": {
           "type": "string",
-          "title": "Biomaterial Record ID",
-          "description": "Any kind of globally unique identifier for any kind of Thing. Must be a URI or CURIE (e.g., 'fega:EGAN000000001', 'https://github.com/EGA-archive/fega-metadata-schema'...).",
+          "title": "Identifier",
+          "description": "A globally unique identifier. Must be a URI (e.g., https://github.com/EGA-archive/fega-metadata-schema) or CURIE (e.g., 'fega:EGAN000000001').",
           "meta:sssomMappings": [
             {
               "predicate_id": "skos:exactMatch",
@@ -1843,7 +1857,7 @@
                             "type": "array",
                             "items": {
                                 "type": "string",
-                                "enum": [ "prov:Agent", "prov:Person", "prov:Organization", "prov:SoftwareAgent" ]
+                                "enum": [ "prov:Agent", "prov:Person", "prov:Organization", "prov:SoftwareAgent", "healthdcatap:hdab", "healthdcatap:custodian", "healthdcatap:HealthPublisherAgent" ]
                             },
                             "minItems": 1,
                             "uniqueItems": true,
@@ -1856,7 +1870,7 @@
                 "id": {
                     "$ref": "./FEGA.common-definitions.json#/$defs/id"
                 },
-                "label": {
+                "name": {
                     "$ref": "./FEGA.common-definitions.json#/$defs/label"
                 },
                 "atLocation": {
@@ -2049,6 +2063,212 @@
                     ]
                 }
             }
+        },
+
+        "dataUsePermission": {
+            "title": "Data Use Permission",
+            "description": "Indicates consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used.",
+            "meta:SSSOMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "DUO:0000001",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "data use permission",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-03-16"
+                }
+            ],
+            "allOf": [
+                {
+                    "title": "Inherited ontologyTerm structure of id and label",
+                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                }
+            ],
+            "properties": {
+                "id": {
+                    "title": "Ontology constraints for this specific id",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:duo"],
+                        "classes": ["DUO:0000001"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false
+                    },
+                    "examples": [ "DUO:0000042", "DUO:0000004", "DUO:0000007" ]
+                },
+                "label": {
+                    "title": "Ontology constraints for this specific label",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:duo"],
+                        "classes": ["DUO:0000001"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false,
+                        "queryFields": [ "label" ]
+                    },
+                    "examples": [ "general research use", "no restriction", "disease specific research" ]
+                }
+            }
+        },
+
+        "dataUseModifier": {
+            "title": "Data Use Modifier",
+            "meta:SSSOMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "DUO:0000017",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "data use modifier",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-03-16"
+                }
+            ],
+            "allOf": [
+                {
+                    "title": "Inherited ontologyTerm structure of id and label",
+                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                }
+            ],
+            "properties": {
+                "id": {
+                    "title": "Ontology constraints for this specific id",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:duo"],
+                        "classes": ["DUO:0000017"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false
+                    },
+                    "examples": [ "DUO:0000043", "DUO:0000046", "DUO:0000028" ]
+                },
+                "label": {
+                    "title": "Ontology constraints for this specific label",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:duo"],
+                        "classes": ["DUO:0000017"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false,
+                        "queryFields": [ "label" ]
+                    },
+                    "examples": [ "clinical care use", "non-commercial use only", "institution specific restriction" ]
+                }
+            }
+        },
+
+        "dataUseCondition": {
+            "title": "Data Use Condition",
+            "description": "Object denoting a single data use permission and the data use modifiers that apply to it.",
+            "type": "object",
+            "meta:SSSOMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/common/dataUseConditions.json#$defs/DUODataUse",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "data use condition",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-03-16"
+                }
+            ],
+            "allOf": [
+                { "$ref": "./FEGA.common-definitions.json#/$defs/dataUsePermission" }
+            ],
+            "required": [ "version" ],
+            "properties": {
+                "modifiers": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                        "$ref": "./FEGA.common-definitions.json#/$defs/dataUseModifier"
+                    }
+                },
+                "version": {
+                    "type": "string",
+                    "description": "Version of the data use condition."
+                }
+            },
+            "examples": [
+                {
+                    "id": "DUO:0000042",
+                    "label": "general research use",
+                    "modifiers": [
+                        {
+                            "id": "DUO:0000043",
+                            "label": "clinical care use"
+                        },
+                        {
+                            "id": "DUO:0000046",
+                            "label": "non-commercial use only"
+                        }
+                    ],
+                    "version": "1.0"
+                }
+            ]
+        },
+
+        "assayByInstrument": {
+            "title": "Assay by instrument",
+            "description": "",
+            "meta:SSSOMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "EFO:0002773",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "assay by instrument",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-03-16"
+                }
+            ],
+            "allOf": [
+                {
+                    "title": "Inherited ontologyTerm structure of id and label",
+                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                }
+            ],
+            "properties": {
+                "id": {
+                    "title": "Ontology constraints for this specific id",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:efo"],
+                        "classes": ["EFO:0002773"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false
+                    },
+                    "examples": [ "EFO:0030056", "EFO:0005396", "EFO:0008913" ]
+                },
+                "label": {
+                    "title": "Ontology constraints for this specific label",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:efo"],
+                        "classes": ["EFO:0002773"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false,
+                        "queryFields": [ "label" ]
+                    },
+                    "examples": [ "tandem mass spectrometry", "exome sequencing", "single-cell RNA sequencing"]
+                }
+            }
+        },
+
+        "parameter": {
+            "$comment": "For future definition and use within Protocols/processes/studies. To take inspiration from schema:PropertyValue and schema:StatisticalVariable"
         },
 
         "relationshipItemRestrictionBiomaterial": {
@@ -2266,6 +2486,39 @@
                                 {
                                     "contains": {
                                         "const": "dcat:Distribution"
+                                    }
+                                }
+                            ],
+                            "minItems": 2,
+                            "uniqueItems": true
+                        }
+                    ]
+                }
+            },
+            "required": ["@type"]
+        },
+
+        "relationshipItemRestrictionDataset": {
+            "type": "object",
+            "title": "Relationship item restriction: Dataset",
+            "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'dataset'.",
+            "properties": {
+                "@type": {
+                    "anyOf": [
+                        {
+                            "const": "dataset"
+                        },
+                        {
+                            "type": "array",
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "const": "dataset"
+                                    }
+                                },
+                                {
+                                    "contains": {
+                                        "const": "dcat:Dataset"
                                     }
                                 }
                             ],
@@ -2655,6 +2908,27 @@
                         "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionProcess"
                     }
                 }
+            ]
+        },
+
+        "isReferencedBy": {
+            "description": "Array of relationships pointing to resources (object) that reference the root entity (subject). For example, a dataset 'isReferencedBy' a scholarly publication, if the publication cites the dataset.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:isReferencedBy",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                }
+            ],
+            "allOf": [
+                { "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray" }
             ]
         }
     }
