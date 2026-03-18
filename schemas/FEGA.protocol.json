@@ -79,14 +79,7 @@
   "$defs": {
     "protocolTypeEnum": {
       "type": "string",
-      "anyOf": [
-        {
-          "enum": ["protocol", "prov:Plan", "bioschemastypes:ComputationalWorkflow"]
-        },
-        {
-          "enum": ["protocol", "prov:Plan", "bioschemastypes:LabProtocol"]
-        }
-      ]
+      "enum": ["protocol", "prov:Plan", "bioschemastypes:ComputationalWorkflow", "bioschemastypes:LabProtocol"]
     },
     "computingRequirements": {
       "type": "object",
