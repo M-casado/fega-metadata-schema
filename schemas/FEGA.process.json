@@ -5,7 +5,7 @@
     "title": "FEGA process metadata schema",
     "meta:version": "0.0.0",
     "$async": true,
-    "description": "A specific execution of a protocol or procedure, applied to specific inputs (biomaterial or datafile) and producing specific outputs (biomaterial or datafile)",
+    "description": "A specific execution of a protocol or procedure, applied to specific inputs (Biomaterial or Datafile) and producing specific outputs (Biomaterial or Datafile).",
     "@context": [
         "./FEGA.common-definitions.json",
         {
