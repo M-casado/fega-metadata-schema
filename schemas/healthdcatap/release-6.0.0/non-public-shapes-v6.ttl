@@ -28,8 +28,6 @@
 @prefix cv: <http://data.europa.eu/m8g/> .
 @prefix geodcatap: <http://data.europa.eu/930/> .
 
-
-
 <https://code.europa.eu/healthdataeu/healthdcat-ap/shapes.ttl>
     dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
     dct:conformsTo <https://www.w3.org/TR/shacl> ;
@@ -48,6 +46,9 @@
   owl:imports <https://semiceu.github.io/DCAT-AP/releases/3.0.0/html/shacl/shapes.ttl> ;  
   .
 
+<https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/healthdcat-ap/release-6/non-public-shapes-v6.ttl>
+  a owl:Ontology ;
+  owl:imports <../../dcat-ap/release-3.0.0/shapes.ttl> .
 
 :Kind_Shape
     a sh:NodeShape ;
