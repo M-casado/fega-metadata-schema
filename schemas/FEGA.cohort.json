@@ -5,7 +5,7 @@
   "title": "FEGA Cohort metadata schema",
   "meta:version": "0.0.0",
   "$async": true,
-  "description": "A group of biomaterials (e.g., individuals or samples) sharing specific characteristics, facilitating comparative studies and discovery.",
+  "description": "A group of Biomaterials (e.g., individuals, biopsies) sharing specific characteristics, facilitating comparative studies and discovery.",
   "$comment": "@Context for Beacon's entities is unfinished. Just a draft of the root properties for now. Ideally they'll have the context of their schemas embedded in them, so we can reference. Not quite there yet though.",
   "@context": [
     "./FEGA.common-definitions.json",
