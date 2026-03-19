@@ -16,3 +16,7 @@ logs/
 
 # Ignore VS Code settings
 .vscode/
+
+# Ignore temporary files
+*.tmp
+*.temp
