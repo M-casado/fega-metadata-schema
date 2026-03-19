@@ -1,9 +1,9 @@
 {
   "schema": {
-      "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.biomaterial.json"
+      "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/entities/biomaterial/schema.json"
   },
   "data": {
-      "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.biomaterial.json",
+      "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/entities/biomaterial/schema.json",
       "@type": "ega:biomaterial",
       "biomaterialType": {
         "id": "COB:0000022",

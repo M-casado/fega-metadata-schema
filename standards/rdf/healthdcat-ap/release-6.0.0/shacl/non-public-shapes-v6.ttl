@@ -46,7 +46,7 @@
   owl:imports <https://semiceu.github.io/DCAT-AP/releases/3.0.0/html/shacl/shapes.ttl> ;  
   .
 
-<https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/healthdcat-ap/release-6/non-public-shapes-v6.ttl>
+<https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/rdf/healthdcat-ap/release-6.0.0/shacl/non-public-shapes-v6.ttl>
   a owl:Ontology ;
   owl:imports <../../dcat-ap/release-3.0.0/shapes.ttl> .
 

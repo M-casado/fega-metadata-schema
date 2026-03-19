@@ -6,18 +6,18 @@ Most of these steps are automated by the following resources:
 - [``schema_diff.py``](../../scripts/py/schema_diff.py). Used to check SemVer differences (e.g., ``major``) between two sources (e.g., branch ``dev`` and ``main``).
 - [``check_schema_diff.yml``](../../.github/workflows/check_schema_diff.yml). Can be triggered manually to quickly check SemVer differences through ``schema_diff.py``.
 - [``check_meta_enums.yml``](../../.github/workflows/check_meta_enums.yml). In a PR, used to assert that a all ``meta:enum`` fields of the JSON Schemas correspond to the true changes between the source and target branches.
-- [``modify-ids.py``](../../scripts/py/modify-ids.py). Enables an quick and easy modification of the static pointers in the JSON Schemas (`$id` / `$ref` / ``@context``).
-- [``update_release_manifest.py``](../../scripts/py/update_release_manifest.py). Automatically updates the [``release_manifest.json``](release_manifest.json) file.
+- [``modify-ids.py``](../../scripts/py/modify_ids.py). Enables an quick and easy modification of the static pointers in the JSON Schemas (`$id` / `$ref` / ``@context``).
+- [``update_release_manifest.py``](../../scripts/py/update_release_manifest.py). Automatically updates the [``release_manifest.json``](../../build/release_manifest.json) file.
 - [``create_release.yml``](../../.github/workflows/create_release.yml). If triggered, it automates the first steps of a release.
 
 ## Branching and tags
 
 | Name | Purpose | `$id`/`$ref` segment | Example |
 |------|---------|----------------------|---------|
-| `main` branch | latest **stable** snapshot | `/main/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.cohort.json |
-| `dev`  branch | day-to-day work (unstable) | `/dev/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/dev/schemas/FEGA.cohort.json |
-| `vX.Y.Z` branch | frozen candidate | `/vX.Y.Z/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/v1.0.0/schemas/FEGA.cohort.json |
-| `vX.Y.Z` tag | final, immutable release | `/vX.Y.Z/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/v1.0.0/schemas/FEGA.cohort.json |
+| `main` branch | latest **stable** snapshot | `/main/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/entities/cohort/schema.json |
+| `dev`  branch | day-to-day work (unstable) | `/dev/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/dev/entities/cohort/schema.json |
+| `vX.Y.Z` branch | frozen candidate | `/vX.Y.Z/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/v1.0.0/entities/cohort/schema.json |
+| `vX.Y.Z` tag | final, immutable release | `/vX.Y.Z/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/v1.0.0/entities/cohort/schema.json |
 
 ````mermaid
 gitGraph
@@ -215,7 +215,7 @@ flowchart TD
 
 | File | Description |
 |------|-------------|
-| [`release_manifest.json`](release_manifest.json) | Lists `{file, meta.version}` for every schema in the tag, to easily visualize what changed in each release. Validated by [`release_manifest.schema.json`](../../schemas/release_manifest.schema.json). |
+| [`release_manifest.json`](../../build/release_manifest.json) | Lists `{file, meta.version}` for every schema in the tag, to easily visualize what changed in each release. Validated by [`release_manifest.schema.json`](../../schemas/release_manifest.schema.json). |
 | `fega-metadata-schema-X.Y.Z.zip` | Source code (whole repository as a snapshot), attached to the GitHub Release. |
 
 ## FAQs

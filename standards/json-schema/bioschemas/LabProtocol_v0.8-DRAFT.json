@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/bioschemas/LabProtocol_v0.8-DRAFT.json",
+  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/bioschemas/LabProtocol_v0.8-DRAFT.json",
   "type": "object",
   "$comment": "Source: https://github.com/BioSchemas/specifications/blob/master/LabProtocol/jsonld/LabProtocol_v0.8-DRAFT.json (accessed 2025-08). Licence: CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. Changes: aligned fields to FEGA conventions.",
   "@context": {
@@ -484,7 +484,7 @@
           }
         },
         {
-          "$ref": "../FEGA.common-definitions.json#/$defs/relationshipArray",
+          "$ref": "../../../entities/common/schema.json#/$defs/relationshipArray",
           "$comment": "#! Added on top of the BioSchemas original schema to allow for more flexibility and compatibility with the FEGA relationship arrays"
         }
       ],
@@ -514,7 +514,7 @@
           }
         },
         {
-          "$ref": "../FEGA.common-definitions.json#/$defs/relationshipArray",
+          "$ref": "../../../entities/common/schema.json#/$defs/relationshipArray",
           "$comment": "#! Added on top of the BioSchemas original schema to allow for more flexibility and compatibility with the FEGA relationship arrays"
         }
       ],
@@ -609,7 +609,7 @@
           }
         },
         {
-          "$ref": "../FEGA.common-definitions.json#/$defs/relationshipArray",
+          "$ref": "../../../entities/common/schema.json#/$defs/relationshipArray",
           "$comment": "#! Added on top of the BioSchemas original schema to allow for more flexibility and compatibility with the FEGA relationship arrays"
         }
       ],

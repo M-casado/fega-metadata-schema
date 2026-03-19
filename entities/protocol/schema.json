@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.protocol.json",
+  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/entities/protocol/schema.json",
   "type": "object",
   "title": "FEGA protocol metadata schema",
   "meta:version": "0.0.0",
   "$async": true,
   "description": "Detailed plan of instructions on how a procedure is done. For example, sample preparation, sequencing or feature extraction techniques.",
   "@context": [
-    "./FEGA.common-definitions.json",
+    "../common/schema.json",
     {
       "entityDoc": "entities:FEGA.protocol.json#",
       "properties": "@nest"
@@ -31,11 +31,11 @@
   "allOf": [
     {
       "title": "Base constraints for JSON-LD",
-      "$ref": "./json-ld.org/FEGA.jsonld-schema.json"
+      "$ref": "../../standards/json-schema/json-ld.org/FEGA.jsonld-schema.json"
     },
     {
         "title": "Entity type restriction",
-        "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionProtocol"
+        "$ref": "../common/schema.json#/$defs/relationshipItemRestrictionProtocol"
     },
     {
       "title": "Compatibility with BioSchemas ComputationalWorkflow",
@@ -53,7 +53,7 @@
       },
       "then": {
         "$comment": "These BioSchemas files were fetched from BioSchemas API. See https://github.com/EGA-archive/fega-metadata-schema/issues/6 for more details.",
-        "$ref": "./bioschemas/ComputationalWorkflow_v1.1-DRAFT.json"
+        "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/bioschemas/ComputationalWorkflow_v1.1-DRAFT.json"
       }
     },
     {
@@ -72,7 +72,7 @@
       },
       "then": {
         "$comment": "These BioSchemas files were fetched from BioSchemas API. See https://github.com/EGA-archive/fega-metadata-schema/issues/6 for more details.",
-        "$ref": "./bioschemas/LabProtocol_v0.8-DRAFT.json"
+        "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/bioschemas/LabProtocol_v0.8-DRAFT.json"
       }
     }
   ],
@@ -156,11 +156,11 @@
     "$comment": "#! Perhaps the addition of parameters (similar to 'parameters' array from process; or the 'variableMeasured' in Datasets/Studies) would be good, to compare what parameters are expected based on the protocol and which ones are provided in the process per se. To take inspiration from schema:StatisticalVariable and schema:PropertyValue.",
     
     "sameAs": {
-      "$ref": "./FEGA.common-definitions.json#/$defs/sameAs"
+      "$ref": "../common/schema.json#/$defs/sameAs"
     },
 
     "isBasedOn": {
-      "$ref": "./FEGA.common-definitions.json#/$defs/isBasedOn",
+      "$ref": "../common/schema.json#/$defs/isBasedOn",
       "$comment": "This is used when the protocol that it's referenced is not exactly the same: this protocol was a modification of the original one, or it was used as a base to create this protocol. E.g., changed parameters, or added new steps.",
       "meta:sssomMappings": [
         {
@@ -179,7 +179,7 @@
     },
 
     "version": {
-      "$ref": "./bioschemas/ComputationalWorkflow_v1.1-DRAFT.json#/properties/version"
+      "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/bioschemas/ComputationalWorkflow_v1.1-DRAFT.json#/properties/version"
     }
   }
 }

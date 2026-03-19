@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.biomaterial.json",
+  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/entities/biomaterial/schema.json",
   "type": "object",
   "title": "FEGA Biomaterial metadata schema",
   "meta:version": "0.0.0",
   "$async": true,
   "description": "Represents any biological material, from whole organisms (including humans) to subcellular components and macromolecules (e.g., DNA samples).",
   "@context": [
-    "./FEGA.common-definitions.json",
+    "../common/schema.json",
     {
       "entityDoc": "entities:FEGA.biomaterial.json#",
       "properties": "@nest",
@@ -16,11 +16,15 @@
   ],
   "required": ["biomaterialType"],
   "allOf": [
+    {
+      "title": "Base constraints for JSON-LD",
+      "$ref": "../../standards/json-schema/json-ld.org/FEGA.jsonld-schema.json"
+    },
     { "$ref": "#/$defs/organismChecklist" },
     { "$ref": "#/$defs/organismPartChecklist" },
     {
         "title": "Entity type restriction",
-        "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionBiomaterial"
+        "$ref": "../common/schema.json#/$defs/relationshipItemRestrictionBiomaterial"
     }
   ],
   "$defs": {
@@ -77,7 +81,7 @@
           "allOf": [
             {
               "title": "Inherited ontologyTerm structure of term id and label",
-              "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+              "$ref": "../common/schema.json#/$defs/ontologyTerm"
             }
           ],
           "properties": {
@@ -128,13 +132,13 @@
         },
 
         "id": {
-          "$ref": "./FEGA.common-definitions.json#/$defs/id",
+          "$ref": "../common/schema.json#/$defs/id",
           "examples": ["fega:EGAN00001000620", "fega:EGAN00000000001", "https://ega-archive.org/biomaterials/EGAN00000000001"],
           "$comment": "Depending on how we want to use this ID, we could: (1) transform it into an array of IDs, instead of using the 'sameAs' array; (2) add the 'readOnly': true, so that it's implied that we don't expect users to provide their IDs, although there may be occasions in which we want."
         },
 
         "label": {
-          "$ref": "./FEGA.common-definitions.json#/$defs/label",
+          "$ref": "../common/schema.json#/$defs/label",
           "meta:sssomMappings": [
             {
               "predicate_id": "skos:narrowMatch",
@@ -201,7 +205,7 @@
         },
 
         "description": {
-          "$ref": "./FEGA.common-definitions.json#/$defs/description"
+          "$ref": "../common/schema.json#/$defs/description"
         },
 
         "sex": {
@@ -271,7 +275,7 @@
               "allOf": [
                 {
                   "title": "Inherited ontologyTerm structure of term id and label",
-                  "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                  "$ref": "../common/schema.json#/$defs/ontologyTerm"
                 }
               ],
               "properties": {
@@ -302,7 +306,7 @@
                     },
                     {
                       "title": "Uncertainty terms definition",
-                      "$ref": "./FEGA.common-definitions.json#/$defs/HL7NullFlavor"
+                      "$ref": "../common/schema.json#/$defs/HL7NullFlavor"
                     },
                     {
                       "title": "Compatibility with Beacon v2 JSON Schema",
@@ -449,7 +453,7 @@
           ],
           "allOf": [
             {
-              "$ref": "./FEGA.common-definitions.json#/$defs/location"
+              "$ref": "../common/schema.json#/$defs/location"
             }
           ],
           "examples": [
@@ -498,7 +502,7 @@
           "allOf": [
             {
               "title": "Inherited ontologyTerm structure of term id and label",
-              "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+              "$ref": "../common/schema.json#/$defs/ontologyTerm"
             }
           ],
           "properties": {        
@@ -542,7 +546,7 @@
           "minItems": 1,
           "uniqueItems": true,
           "items": {
-              "$ref": "./FEGA.common-definitions.json#/$defs/ancestryComponent"
+              "$ref": "../common/schema.json#/$defs/ancestryComponent"
           }
         },
 
@@ -553,7 +557,7 @@
           "minItems": 1,
           "uniqueItems": true,
           "items": {
-              "$ref": "./FEGA.common-definitions.json#/$defs/exposure"
+              "$ref": "../common/schema.json#/$defs/exposure"
           }
         },
 
@@ -647,7 +651,7 @@
           "minItems": 1,
           "uniqueItems": true,
           "items": {
-              "$ref": "./FEGA.common-definitions.json#/$defs/phenotypicFeature"
+              "$ref": "../common/schema.json#/$defs/phenotypicFeature"
           }
         },
 
@@ -658,7 +662,7 @@
           "minItems": 1,
           "uniqueItems": true,
           "items": {
-              "$ref": "./FEGA.common-definitions.json#/$defs/diagnosis"
+              "$ref": "../common/schema.json#/$defs/diagnosis"
           }
         },
 
@@ -790,7 +794,7 @@
           "allOf": [
             {
               "title": "Inherited ontologyTerm structure of term id and label",
-              "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+              "$ref": "../common/schema.json#/$defs/ontologyTerm"
             }
           ],
           "properties": {
@@ -820,7 +824,7 @@
         },
 
         "vitalStatus": {
-          "$ref": "./FEGA.common-definitions.json#/$defs/vitalStatus"
+          "$ref": "../common/schema.json#/$defs/vitalStatus"
         },
 
         "samplingSource": {
@@ -868,7 +872,7 @@
           ],
           "allOf": [
               {
-                  "$ref": "./FEGA.common-definitions.json#/$defs/anatomicalEntity"
+                  "$ref": "../common/schema.json#/$defs/anatomicalEntity"
               }
           ],
           "$comment": "Beacon's definition includes more than just anatomical entities: includes BTO and OBI ontologies, for things like a specific tissue culture (e.g., HEK-293T). If deemed worth it, we may want to expand the 'allOf' here other ontology constraints."
@@ -895,7 +899,7 @@
             {
               "type": "object",
               "title": "Inherited ontologyTerm structure of term id and label",
-              "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+              "$ref": "../common/schema.json#/$defs/ontologyTerm"
             },
             {
               "type": "string",
@@ -960,7 +964,7 @@
           "uniqueItems": true,
           "items": {
               "title": "Inherited ontologyTerm structure of id and label",
-              "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+              "$ref": "../common/schema.json#/$defs/ontologyTerm"
           },
           "$comment": "Unsure if to constraint the terms and/or labels to a set of ontologies (e.g., SNOMED), or leave it open like now.",
           "examples": [
@@ -1066,11 +1070,11 @@
         
         "sameAs": {
           "allOf": [
-            { "$ref": "./FEGA.common-definitions.json#/$defs/sameAs" },
+            { "$ref": "../common/schema.json#/$defs/sameAs" },
             {
               "title": "Entity type restriction",
               "items": {
-                "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionBiomaterial"
+                "$ref": "../common/schema.json#/$defs/relationshipItemRestrictionBiomaterial"
               }
             }
           ]
@@ -1078,11 +1082,11 @@
         
         "wasDerivedFrom": {
           "allOf": [
-            { "$ref": "./FEGA.common-definitions.json#/$defs/wasDerivedFrom" },
+            { "$ref": "../common/schema.json#/$defs/wasDerivedFrom" },
             {
               "title": "Entity type restriction",
               "items": {
-                "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionBiomaterial"
+                "$ref": "../common/schema.json#/$defs/relationshipItemRestrictionBiomaterial"
               }
             }
           ],
@@ -1091,11 +1095,11 @@
         
         "wasUsedBy": {
           "allOf": [
-            { "$ref": "./FEGA.common-definitions.json#/$defs/wasUsedBy" },
+            { "$ref": "../common/schema.json#/$defs/wasUsedBy" },
             {
               "title": "Entity type restriction",
               "items": {
-                "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionProcess"
+                "$ref": "../common/schema.json#/$defs/relationshipItemRestrictionProcess"
               }
             }
           ]
@@ -1103,11 +1107,11 @@
 
         "wasGeneratedBy": {
           "allOf": [
-            { "$ref": "./FEGA.common-definitions.json#/$defs/wasGeneratedBy" },
+            { "$ref": "../common/schema.json#/$defs/wasGeneratedBy" },
             {
               "title": "Entity type restriction",
               "items": {
-                "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionProcess"
+                "$ref": "../common/schema.json#/$defs/relationshipItemRestrictionProcess"
               }
             }
           ]

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.cohort.json",
+  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/entities/cohort/schema.json",
   "type": "object",
   "title": "FEGA Cohort metadata schema",
   "meta:version": "0.0.0",
@@ -8,7 +8,7 @@
   "description": "A group of Biomaterials (e.g., individuals, biopsies) sharing specific characteristics, facilitating comparative studies and discovery.",
   "$comment": "@Context for Beacon's entities is unfinished. Just a draft of the root properties for now. Ideally they'll have the context of their schemas embedded in them, so we can reference. Not quite there yet though.",
   "@context": [
-    "./FEGA.common-definitions.json",
+    "../common/schema.json",
     {
       "entityDoc": "entities:FEGA.cohort.json#",
       "properties": "@nest",
@@ -28,11 +28,11 @@
   "allOf": [
     {
       "title": "Base constraints for JSON-LD",
-      "$ref": "./json-ld.org/FEGA.jsonld-schema.json"
+      "$ref": "../../standards/json-schema/json-ld.org/FEGA.jsonld-schema.json"
     },
     {
         "title": "Entity type restriction",
-        "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionCohort"
+        "$ref": "../common/schema.json#/$defs/relationshipItemRestrictionCohort"
     },
     {
       "title": "Compatibility with Beacon v2 JSON Schema",
@@ -46,20 +46,20 @@
     },
 
     "description": {
-      "$ref": "./FEGA.common-definitions.json#/$defs/description"
+      "$ref": "../common/schema.json#/$defs/description"
     },
     
     "sameAs": {
-      "$ref": "./FEGA.common-definitions.json#/$defs/sameAs"
+      "$ref": "../common/schema.json#/$defs/sameAs"
     },
 
     "hadMember": {
       "allOf": [
-        {"$ref": "./FEGA.common-definitions.json#/$defs/hadMember"},
+        {"$ref": "../common/schema.json#/$defs/hadMember"},
         {
           "title": "Entity type restriction",
           "items": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionBiomaterial"
+            "$ref": "../common/schema.json#/$defs/relationshipItemRestrictionBiomaterial"
           }
         }
       ]
@@ -67,11 +67,11 @@
     
     "isPartOf": {
       "allOf": [
-        { "$ref": "./FEGA.common-definitions.json#/$defs/isPartOf" },
+        { "$ref": "../common/schema.json#/$defs/isPartOf" },
         {
           "title": "Entity type restriction",
           "items": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionStudy"
+            "$ref": "../common/schema.json#/$defs/relationshipItemRestrictionStudy"
           }
         }
       ]

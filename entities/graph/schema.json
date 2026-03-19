@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.graph.json",
+  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/entities/graph/schema.json",
   "type": "object",
   "title": "FEGA Graph metadata schema",
   "meta:version": "0.0.0",

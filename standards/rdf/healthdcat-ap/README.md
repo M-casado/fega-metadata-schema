@@ -12,7 +12,7 @@ These JSON Schemas are intended to help validate JSON metadata that aims to be c
 
 ## Licence
 
-The contents of this directory (``schemas/healthdcatap/``) are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0) as stated by the [HealthDCAT-AP Release 6 publication](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6/#speclicence). See [``LICENSE``](./LICENSE) for further details.
+The contents of this directory (``standards/rdf/healthdcat-ap/``) are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0) as stated by the [HealthDCAT-AP Release 6 publication](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6/#speclicence). See [``LICENSE``](./LICENSE) for further details.
 
 ## No endorsement
 HealthDCAT-AP, the European Commission, and the European Union **do not** endorse this repository or these derived JSON Schemas.

@@ -20,7 +20,7 @@ RAW_GITHUB_RE = re.compile(
 )
 
 # Keys that are typically URIs inside our JSON Schemas / metadata instances.
-#   e.g., "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.biomaterial.json"
+#   e.g., "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/entities/biomaterial/schema.json"
 ID_KEYS = {"$id", "$ref", "@context"}
 
 _ALLOWED_SEGMENTS = {"owner", "repo", "branch"}

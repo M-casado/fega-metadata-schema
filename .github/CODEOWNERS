@@ -1,5 +1,6 @@
 # CODEOWNERS
 
-# Anything inside the top-level "schemas/" directory must be reviewed
+# Anything inside the "entities/" and "standards/" directories must be reviewed
 # (and preferably approved) by @m-casado
-/schemas/    @m-casado
+/entities/    @m-casado
+/standards/   @m-casado

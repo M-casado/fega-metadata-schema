@@ -7,10 +7,10 @@ updates of owner, repo and/or branch segments in one pass.
 Typical usage
 -------------
 # Swap inplace only the branch (require the owner+repo to stay the same)
-python scripts/py/modify_ids.py schemas --branch dev v2.3.0 --in-place -v
+python scripts/py/modify_ids.py entities --branch dev v2.3.0 --in-place -v
 
 # Change owner and repo in one go (independently; i.e., don't require both to match at once)
-python scripts/py/modify_ids.py data --owner old-owner new-owner --repo old-repo new-repo \
+python scripts/py/modify_ids.py entities --owner old-owner new-owner --repo old-repo new-repo \
                                     --independent -o converted/ -vv
 """
 from __future__ import annotations
@@ -73,8 +73,8 @@ def build_arg_parser() -> argparse.ArgumentParser:
         description="Rewrite owner/repo/branch segments of raw GitHub URIs in JSON files. Without -w/-o, prints the modified JSONs to stdout.",
         epilog=(
             "Examples:\n"
-            "  modify_ids schemas --branch dev v2.3.0 --in-place -v         # Swap 'dev' with 'v2.3.0' in-place\n"
-            "  modify_ids data --owner old-owner new-owner --repo old-repo new-repo --independent -o converted/ -vv\n"
+            "  modify_ids entities --branch dev v2.3.0 --in-place -v         # Swap 'dev' with 'v2.3.0' in-place\n"
+            "  modify_ids entities --owner old-owner new-owner --repo old-repo new-repo --independent -o converted/ -vv\n"
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )

@@ -1,6 +1,6 @@
 {
     "schema": {
-        "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.process.json"
+        "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/entities/process/schema.json"
     },
     "data": {
         "id": "https://w3id.org/fega/process/PRJ1234-PT0001-collection-2025-08-01",

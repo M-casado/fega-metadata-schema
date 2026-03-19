@@ -4,9 +4,9 @@
 # Goal
 # ----
 # - Launch a local Biovalidator instance that uses **the current branch's**
-#   JSON Schemas (`./schemas/**/*.json`).
+#   JSON Schemas (`./entities/**/schema.json`).
 # - Run the Python helper (scripts/py/validate_metadata.py) against every
-#   example under ./data to confirm the changes remain valid.
+#   example under ./entities to confirm the changes remain valid.
 #
 # What it catches
 # ---------------
@@ -32,7 +32,8 @@ on:
   pull_request:
     paths:
       - '**/*.json'
-      - 'schemas/**'
+      - 'entities/**'
+      - 'standards/**'
       - 'scripts/**'
       - '.github/workflows/**'
   push:
@@ -96,7 +97,8 @@ jobs:
         run: |
           node "$(npm root -g)/biovalidator/src/biovalidator.js" \
             --port 3020 \
-            --ref "./schemas/**/*.json" \
+            --ref "./entities/*/schema.json" \
+            --ref "./standards/json-schema/**/*.json" \
             > biovalidator.log 2>&1 &
           echo $! > biovalidator.pid
 
@@ -144,7 +146,7 @@ jobs:
       - name: Validate JSON examples
         run: |
           script_path="scripts/py/validate_metadata.py"
-          data_path="data"
+          data_path="entities"
           url="http://localhost:3020/validate"
           python $script_path $data_path --url $url > summary.json
 

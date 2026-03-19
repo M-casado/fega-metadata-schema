@@ -57,7 +57,7 @@ def filter_metadata_files(json_files: Sequence[Path]) -> List[Path]:
             if isinstance(obj, dict) and {"data", "schema"}.issubset(obj):
                 valid.append(fp)
             else:
-                logger.debug(f"Missing 'data'/'schema' – skipping '{fp}'")
+                logger.debug(f"Missing 'data'/'schema' - skipping '{fp}'")
         except json.JSONDecodeError as exc:
             logger.warning(f"Not valid JSON file ('{fp}'). Error: {exc}")
     return valid
@@ -146,8 +146,8 @@ def make_arg_parser() -> argparse.ArgumentParser:
         description="Validate FEGA JSON metadata using a Biovalidator endpoint.",
         epilog=(
             "Examples:\n"
-            "  validate_metadata data             # walk default data dir\n"
-            "  validate_metadata data/jsonld/cohort-valid_1.json -u http://localhost:3020/validate"
+            "  validate_metadata entities             # walk entities dir\n"
+            "  validate_metadata entities/cohort/examples/valid/cohort-valid_1.json -u http://localhost:3020/validate"
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
@@ -155,7 +155,7 @@ def make_arg_parser() -> argparse.ArgumentParser:
         "inputs",
         nargs="+",
         type=Path,
-        help="Files or directories to validate (at least one, e.g., 'data').",
+        help="Files or directories to validate (at least one, e.g., 'entities/cohort/examples/valid/cohort-valid_1.json').",
     )
     parser.add_argument(
         "--url",

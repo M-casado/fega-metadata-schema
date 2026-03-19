@@ -19,9 +19,9 @@ The resources in this repository allow you to:
 | **FEGA Metadata Technical report _(in preparation)_** | [`docs/technical-report.md`](./docs/technical-report.md) |
 | **Background on the FEGA project** | [About FEGA](https://ega-archive.org/about/projects-and-funders/federated-ega/) |
 | **FEGA onboarding guide** | [FEGA-Onboarding](https://ega-archive.github.io/FEGA-onboarding/) |
-| **Metadata schemas** | [`schemas/`](./schemas/) |
-| **Examples (test data)** | [`data/`](./data/) |
-| **JSON-LD frames** | [`frames/`](./frames/) |
+| **Metadata schemas** | [`entities/`](./entities/) |
+| **Examples (test data)** | [`entities/*/examples/`](./entities/) |
+| **JSON-LD frames** | [`entities/*/frame.jsonld`](./entities/) |
 | **Further documentation** | [`docs/`](./docs/) |
 
 ## Contributing
@@ -36,13 +36,13 @@ Original work in this repository is licensed under the terms of the license foun
 
 ### Third-party material
 
-- File(s) in [`schemas/json-ld.org/`](./schemas/json-ld.org/) incorporate work originally published by the World Wide Web Consortium (W3C) under the "W3C Software and Document Licence 2023". They remain available under that licence; see [`schemas/json-ld.org/LICENSE`](./schemas/json-ld.org/LICENSE) for details.
+- File(s) in [`standards/json-schema/json-ld.org/`](./standards/json-schema/json-ld.org/) incorporate work originally published by the World Wide Web Consortium (W3C) under the "W3C Software and Document Licence 2023". They remain available under that licence; see [`standards/json-schema/json-ld.org/LICENSE`](./standards/json-schema/json-ld.org/LICENSE) for details.
 
-- File(s) in [``schemas/isa/``](./schemas/isa/) contain modified work from the ISA-API project: https://github.com/ISA-tools/isa-api. These files are licensed under CPAL-1.0; see [``schemas/isa/LICENSE``](./schemas/isa/LICENSE) for details.
+- File(s) in [``standards/json-schema/isa/``](./standards/json-schema/isa/) contain modified work from the ISA-API project: https://github.com/ISA-tools/isa-api. These files are licensed under CPAL-1.0; see [``standards/json-schema/isa/LICENSE``](./standards/json-schema/isa/LICENSE) for details.
 
-- File(s) in [`./schemas/bioschemas/`](./schemas/bioschemas/) were adapted from BioSchemas definitions published via BioSchemas specification GitHub and the BioThings Data Discovery Engine. Except where otherwise noted on the source pages, the original content is licensed under the Creative Commons Attribution 4.0 International licence (CC BY 4.0); see [``./schemas/bioschemas/LICENSE``](./schemas/bioschemas/LICENSE) for details.
+- File(s) in [`./standards/json-schema/bioschemas/`](./standards/json-schema/bioschemas/) were adapted from BioSchemas definitions published via BioSchemas specification GitHub and the BioThings Data Discovery Engine. Except where otherwise noted on the source pages, the original content is licensed under the Creative Commons Attribution 4.0 International licence (CC BY 4.0); see [``./standards/json-schema/bioschemas/LICENSE``](./standards/json-schema/bioschemas/LICENSE) for details.
 
-- File(s) in [`./schemas/healthdcatap/`](./schemas/healthdcatap/) were adapted from HealthDCAT-AP definitions published via _healthdataeu.pages.code.europa.eu_. Except where otherwise noted on the source pages, the original content is licensed under the Creative Commons Attribution 4.0 International licence (CC BY 4.0); see [``./schemas/healthdcatap/LICENSE``](./schemas/healthdcatap/LICENSE) for details.
+- File(s) in [`./standards/rdf/healthdcat-ap/`](./standards/rdf/healthdcat-ap/) were adapted from HealthDCAT-AP definitions published via _healthdataeu.pages.code.europa.eu_. Except where otherwise noted on the source pages, the original content is licensed under the Creative Commons Attribution 4.0 International licence (CC BY 4.0); see [``./standards/rdf/healthdcat-ap/LICENSE``](./standards/rdf/healthdcat-ap/LICENSE) for details.
 
 ## Contact
 For general questions, or if you are unsure where to begin, follow the [_Need-help_](https://ega-archive.org/need-help/) form at our website.

@@ -1,13 +1,13 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.dataset.json",
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/entities/dataset/schema.json",
     "type": "object",
     "title": "FEGA dataset metadata schema",
     "meta:version": "0.0.0",
     "$async": true,
     "description": "A collection of Datafiles, published or curated by a single agent, and available for access or download in one or more representations. Datasets are subject to a particular policy for controlled-access, commonly making them the units of access distribution.",
     "@context": [
-        "./FEGA.common-definitions.json",
+        "../common/schema.json",
         {
             "entityDoc": "entities:FEGA.dataset.json#",
             "properties": "@nest"
@@ -133,11 +133,11 @@
     "allOf": [
         {
             "title": "Base constraints for JSON-LD",
-            "$ref": "./json-ld.org/FEGA.jsonld-schema.json"
+            "$ref": "../../standards/json-schema/json-ld.org/FEGA.jsonld-schema.json"
         },
         {
             "title": "Entity type restriction",
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionDataset"
+            "$ref": "../common/schema.json#/$defs/relationshipItemRestrictionDataset"
         }
     ],
     "required": [
@@ -152,7 +152,7 @@
     "properties": {
         "id": {
             "allOf": [ 
-                { "$ref": "./FEGA.common-definitions.json#/$defs/id" } 
+                { "$ref": "../common/schema.json#/$defs/id" } 
             ],
             "meta:sssomMappings": [
                 {
@@ -197,7 +197,7 @@
 
         "title": {
             "allOf": [ 
-                { "$ref": "./FEGA.common-definitions.json#/$defs/label" } 
+                { "$ref": "../common/schema.json#/$defs/label" } 
             ],
             "meta:sssomMappings": [
                 {
@@ -297,12 +297,12 @@
                 }
             ],
             "anyOf": [
-                { "$ref": "./FEGA.common-definitions.json#/$defs/label" } ,
+                { "$ref": "../common/schema.json#/$defs/label" } ,
                 {
                     "minItems": 1,
                     "uniqueItems": true,
                     "items": { 
-                        "$ref": "./FEGA.common-definitions.json#/$defs/label" 
+                        "$ref": "../common/schema.json#/$defs/label" 
                     }
                 }
             ],
@@ -317,7 +317,7 @@
 
         "description": {
             "allOf": [ 
-                { "$ref": "./FEGA.common-definitions.json#/$defs/description" } 
+                { "$ref": "../common/schema.json#/$defs/description" } 
             ],
             "meta:sssomMappings": [
                 {
@@ -474,7 +474,7 @@
         },
 
         "isReferencedBy": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/isReferencedBy"
+            "$ref": "../common/schema.json#/$defs/isReferencedBy"
         },
 
         "modificationDate": {
@@ -552,12 +552,12 @@
                 }
             ],
             "anyOf": [
-                { "$ref": "./FEGA.common-definitions.json#/$defs/id" },
+                { "$ref": "../common/schema.json#/$defs/id" },
                 {
                     "minItems": 1,
                     "uniqueItems": true,
                     "items": { 
-                        "$ref": "./FEGA.common-definitions.json#/$defs/id" 
+                        "$ref": "../common/schema.json#/$defs/id" 
                     }
                 }
             ],
@@ -673,12 +673,12 @@
                 }
             ],
             "anyOf": [
-                { "$ref": "./FEGA.common-definitions.json#/$defs/id" },
+                { "$ref": "../common/schema.json#/$defs/id" },
                 {
                     "minItems": 1,
                     "uniqueItems": true,
                     "items": { 
-                        "$ref": "./FEGA.common-definitions.json#/$defs/id" 
+                        "$ref": "../common/schema.json#/$defs/id" 
                     }
                 }
             ]
@@ -881,7 +881,7 @@
             "minItems": 1,
             "uniqueItems": true,
             "items": {
-                "$ref": "./FEGA.common-definitions.json#/$defs/dataUseCondition"
+                "$ref": "../common/schema.json#/$defs/dataUseCondition"
             }
         },
 
@@ -908,7 +908,7 @@
             "uniqueItems": true,
             "items": {
                 "anyOf": [
-                    { "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm" },
+                    { "$ref": "../common/schema.json#/$defs/ontologyTerm" },
                     {
                         "type": "string",
                         "format": "uri"
@@ -950,12 +950,12 @@
             "uniqueItems": true,
             "items": {
                 "anyOf": [
-                    { "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm" },
+                    { "$ref": "../common/schema.json#/$defs/ontologyTerm" },
                     {
                         "type": "string",
                         "format": "uri"
                     },
-                    { "$ref": "./isa/process_parameter_value_schema.json" }
+                    { "$ref": "../../standards/json-schema/isa/process_parameter_value_schema.json" }
                 ]
             },
             "$comment": "Similar to measurementTechnique, it's best to infer this information, as opposed to having it be a user-defined property. Furthermore, this property tends to be more related to the Study than the dataset, at least in ISA and other standards."
@@ -1102,7 +1102,7 @@
                 }
             ],
             "allOf": [
-                { "$ref": "./FEGA.common-definitions.json#/$defs/hasPart" },
+                { "$ref": "../common/schema.json#/$defs/hasPart" },
                 {
                     "contains": {
                         "required": ["@type"],
@@ -1184,7 +1184,7 @@
                 }
             ],
             "allOf": [
-                { "$ref": "./FEGA.common-definitions.json#/$defs/id" }
+                { "$ref": "../common/schema.json#/$defs/id" }
             ],
             "examples": ["ega:EGAP00001000001"]
         },
@@ -1193,11 +1193,11 @@
             "title": "Same as",
             "description": "Indicates a resource that is the same as this dataset.",
             "allOf": [
-                { "$ref": "./FEGA.common-definitions.json#/$defs/sameAs" },
+                { "$ref": "../common/schema.json#/$defs/sameAs" },
                 {
                     "items": {
                         "title": "Entity type restriction",
-                        "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionDataset"
+                        "$ref": "../common/schema.json#/$defs/relationshipItemRestrictionDataset"
                     }
                 }
             ]

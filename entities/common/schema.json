@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.common-definitions.json",
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/entities/common/schema.json",
     "type": "object",
     "title": "FEGA common metadata definitions",
     "meta:version": "0.0.0",
@@ -12,19 +12,19 @@
         "name": "schema:name",
         "description": "schema:description",
 
-        "entities": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/",
-        "commonDefinitionsDoc": "entities:FEGA.common-definitions.json#",
-        "biomaterial": "entities:FEGA.biomaterial.json",
-        "protocol": "entities:FEGA.protocol.json",
-        "process": "entities:FEGA.process.json",
-        "datafile": "entities:FEGA.datafile.json",
-        "dataset": "entities:FEGA.dataset.json",
-        "policy": "entities:FEGA.policy.json",
-        "DAC": "entities:FEGA.DAC.json",
-        "study": "entities:FEGA.study.json",
-        "cohort": "entities:FEGA.cohort.json",
-        "project": "entities:FEGA.project.json",
-        "protocolCollection": "entities:FEGA.protocolCollection.json",
+        "entities": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/entities/",
+        "commonDefinitionsDoc": "entities:common/schema.json#",
+        "biomaterial": "entities:biomaterial/schema.json",
+        "protocol": "entities:protocol/schema.json",
+        "process": "entities:process/schema.json",
+        "datafile": "entities:datafile/schema.json",
+        "dataset": "entities:dataset/schema.json",
+        "policy": "entities:policy/schema.json",
+        "DAC": "entities:DAC/schema.json",
+        "study": "entities:study/schema.json",
+        "cohort": "entities:cohort/schema.json",
+        "project": "entities:project/schema.json",
+        "protocolCollection": "entities:protocolCollection/schema.json",
 
         "identifiers": "https://identifiers.org/",
         "ega": "identifiers:ega:",
@@ -139,7 +139,7 @@
               "format": "uri"
             },
             {
-              "$ref": "./FEGA.common-definitions.json#/$defs/curieGeneralPattern"
+              "$ref": "../common/schema.json#/$defs/curieGeneralPattern"
             }
           ],
           "examples": ["fega:EGAN00001000620", "https://github.com/EGA-archive/fega-metadata-schema", "fega:EGAN00000000001", "https://ega-archive.org/biomaterials/EGAN00000000001", "https://ror.org/02catss52"]
@@ -311,7 +311,7 @@
                     "allOf": [
                         {
                             "title": "General CURIE pattern",
-                            "$ref": "./FEGA.common-definitions.json#/$defs/curieGeneralPattern"
+                            "$ref": "../common/schema.json#/$defs/curieGeneralPattern"
                         }
                     ],
                     "examples": [ "MONDO:0100096", "EFO:0003101", "EFO:0005518",  "EFO:0002944",  "EFO:0003813" ]
@@ -333,7 +333,7 @@
             "allOf": [
                 {
                     "title": "Inherited ontologyTerm structure of id and label",
-                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
                 }
             ],
             "properties": {
@@ -359,7 +359,7 @@
             "allOf": [
                 {
                     "title": "Inherited ontologyTerm structure of id and label",
-                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
                 }
             ],
             "properties": {
@@ -384,11 +384,11 @@
                         "format": "uri"
                     },
                     {
-                        "$ref": "./FEGA.common-definitions.json#/$defs/curieGeneralPattern"
+                        "$ref": "../common/schema.json#/$defs/curieGeneralPattern"
                     }
                 ]
               },
-              "@type": { "$ref": "./FEGA.common-definitions.json#/$defs/@type" }
+              "@type": { "$ref": "../common/schema.json#/$defs/@type" }
             },
             "$comment": "#! We may want to add a pattern check here, so that for example if 'biomaterial' is the '@type', the ID of the entity is 'EGAN...'. The issue for which I haven't added it yet is that FEGA identifiers are still being discussed and that it would be constraining external references to other archives (e.g., the activity that generated a file could be in a different archive, and not have an EGA stable ID)."
         },
@@ -399,7 +399,7 @@
             "minItems": 1,
             "uniqueItems": true,
             "items": {
-                "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItem"
+                "$ref": "../common/schema.json#/$defs/relationshipItem"
             },
             "examples": [
                 [
@@ -585,16 +585,16 @@
                     "allOf": [
                         {
                             "title": "Inherited ontologyTerm structure of term id and label",
-                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                            "$ref": "../common/schema.json#/$defs/ontologyTerm"
                         }
                     ],
                     "anyOf": [
-                        { "$ref": "./FEGA.common-definitions.json#/$defs/diseaseEfo" },
-                        { "$ref": "./FEGA.common-definitions.json#/$defs/diseaseOrdo" },
-                        { "$ref": "./FEGA.common-definitions.json#/$defs/diseaseMondo" },
-                        { "$ref": "./FEGA.common-definitions.json#/$defs/diseaseHp" },
-                        { "$ref": "./FEGA.common-definitions.json#/$defs/diseaseDoid" },
-                        { "$ref": "./FEGA.common-definitions.json#/$defs/diseaseSnomed" }
+                        { "$ref": "../common/schema.json#/$defs/diseaseEfo" },
+                        { "$ref": "../common/schema.json#/$defs/diseaseOrdo" },
+                        { "$ref": "../common/schema.json#/$defs/diseaseMondo" },
+                        { "$ref": "../common/schema.json#/$defs/diseaseHp" },
+                        { "$ref": "../common/schema.json#/$defs/diseaseDoid" },
+                        { "$ref": "../common/schema.json#/$defs/diseaseSnomed" }
                     ],
                     "examples": [
                         {
@@ -663,7 +663,7 @@
                     "description": "Primary (affected) anatomical site of the disease.",
                     "allOf": [
                         {
-                            "$ref": "./FEGA.common-definitions.json#/$defs/anatomicalEntity"
+                            "$ref": "../common/schema.json#/$defs/anatomicalEntity"
                         }
                     ]
                 },
@@ -673,7 +673,7 @@
                     "allOf": [
                         {
                             "title": "Inherited ontologyTerm structure of term id and label",
-                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                            "$ref": "../common/schema.json#/$defs/ontologyTerm"
                         }
                     ],
                     "examples": [
@@ -755,7 +755,7 @@
                             "uniqueItems": true,        
                             "items": {
                                 "title": "Inherited ontologyTerm structure of id and label",
-                                "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                                "$ref": "../common/schema.json#/$defs/ontologyTerm"
                             },
                             "examples": [
                                 [
@@ -802,7 +802,7 @@
                             "allOf": [
                                 {
                                     "title": "Inherited ontologyTerm structure of term id and label",
-                                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
                                 }
                             ],
                             "examples": [
@@ -837,7 +837,7 @@
                             "allOf": [
                                 {
                                     "title": "Inherited ontologyTerm structure of term id and label",
-                                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
                                 }
                             ],
                             "examples": [
@@ -873,7 +873,7 @@
                             "minItems": 1,
                             "uniqueItems": true,
                             "items": {
-                                "$ref": "./FEGA.common-definitions.json#/$defs/quantity"
+                                "$ref": "../common/schema.json#/$defs/quantity"
                             }
                         },
                         "stagingSystemVersion": {
@@ -913,7 +913,7 @@
             "allOf": [
                 {
                     "title": "Inherited ontologyTerm structure of term id and label",
-                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
                 }
             ],
             "properties": {
@@ -945,7 +945,7 @@
             "allOf": [
                 {
                     "title": "Inherited ontologyTerm structure of term id and label",
-                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
                 }
             ],
             "properties": {
@@ -977,7 +977,7 @@
             "allOf": [
                 {
                     "title": "Inherited ontologyTerm structure of term id and label",
-                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
                 }
             ],
             "properties": {
@@ -1009,7 +1009,7 @@
             "allOf": [
                 {
                     "title": "Inherited ontologyTerm structure of term id and label",
-                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
                 }
             ],
             "properties": {
@@ -1041,7 +1041,7 @@
             "allOf": [
                 {
                     "title": "Inherited ontologyTerm structure of term id and label",
-                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
                 }
             ],
             "properties": {
@@ -1073,7 +1073,7 @@
             "allOf": [
                 {
                     "title": "Inherited ontologyTerm structure of term id and label",
-                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
                 }
             ],
             "$comment": "#! SNOMED has been removed from OLS (see https://github.com/EBISPOT/ols4/issues/1207), so we shall remove this constraint for now (see the $ in $properties). If it was a mistake, we'll add it back; if it was removed conciously, we'll need to change this ontology constraint",
@@ -1204,7 +1204,7 @@
                         },
                         {
                             "title": "Uncertainty terms definition",
-                            "$ref": "./FEGA.common-definitions.json#/$defs/HL7NullFlavor"
+                            "$ref": "../common/schema.json#/$defs/HL7NullFlavor"
                         }
                     ],
                     "examples": [ "alive", "dead", "UNK" ]
@@ -1236,7 +1236,7 @@
                     "allOf": [
                         {
                             "title": "Inherited ontologyTerm structure of id and label",
-                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                            "$ref": "../common/schema.json#/$defs/ontologyTerm"
                         }
                     ],
                     "examples": [
@@ -1316,7 +1316,7 @@
                     "allOf": [
                         {
                             "title": "Inherited ontologyTerm structure of id and label",
-                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                            "$ref": "../common/schema.json#/$defs/ontologyTerm"
                         }
                     ],
                     "examples": [
@@ -1342,7 +1342,7 @@
                     "allOf": [
                         {
                             "title": "Inherited ontologyTerm structure of id and label",
-                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                            "$ref": "../common/schema.json#/$defs/ontologyTerm"
                         }
                     ],
                     "examples": [
@@ -1363,7 +1363,7 @@
                     "uniqueItems": true,        
                     "items": {
                         "title": "Inherited ontologyTerm structure of id and label",
-                        "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                        "$ref": "../common/schema.json#/$defs/ontologyTerm"
                     },
                     "$comment": "Again, I'm unsure if to constraint the terms and/or labels to a set of ontologies (e.g., ECTO), or leave it open like now.",
                     "examples": [
@@ -1405,7 +1405,7 @@
                     "uniqueItems": true,        
                     "items": {
                         "title": "Inherited ontologyTerm structure of id and label",
-                        "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                        "$ref": "../common/schema.json#/$defs/ontologyTerm"
                     },
                     "examples": [
                         [
@@ -1446,7 +1446,7 @@
                     "allOf": [
                         {
                             "title": "Inherited ontologyTerm structure of id and label",
-                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                            "$ref": "../common/schema.json#/$defs/ontologyTerm"
                         }
                     ]
                 },
@@ -1508,7 +1508,7 @@
                     "allOf": [
                         {
                             "title": "Inherited ontologyTerm structure of term id and label",
-                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                            "$ref": "../common/schema.json#/$defs/ontologyTerm"
                         }
                     ]
                 },
@@ -1518,7 +1518,7 @@
                     "allOf": [
                         {
                             "title": "Inherited ontologyTerm structure of term id and label",
-                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                            "$ref": "../common/schema.json#/$defs/ontologyTerm"
                         }
                     ],
                     "examples": [
@@ -1590,7 +1590,7 @@
             "allOf": [
                 {
                     "title": "Inherited ontologyTerm structure of term id and label",
-                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
                 }
             ],
             "properties": {
@@ -1647,7 +1647,7 @@
                     "description": "Unit of the measured quantity. Recommended terms are children of: 'unit' (UO:0000000) from the the [Units of measurement ontology (UO)](https://www.ebi.ac.uk/ols4/ontologies/uo); or 'Unit of Measure' (NCIT:C25709) from the NCIt.",
                     "allOf": [
                         {
-                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                            "$ref": "../common/schema.json#/$defs/ontologyTerm"
                         }
                     ],
                     "examples": [
@@ -1666,10 +1666,10 @@
                     "description": "Method of measurement of the quantity. Defined either as a qualified reference or an ontology term.",
                     "anyOf": [
                         {
-                            "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                            "$ref": "../common/schema.json#/$defs/ontologyTerm"
                         },
                         {
-                            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItem"
+                            "$ref": "../common/schema.json#/$defs/relationshipItem"
                         }
                     ],
                     "examples": [
@@ -1723,7 +1723,7 @@
             "allOf": [
                 {
                     "title": "Inherited ontologyTerm structure of term id and label",
-                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
                 }
             ],
             "properties": {
@@ -1826,13 +1826,13 @@
                     ]
                 },
                 "agent": {
-                    "$ref": "./FEGA.common-definitions.json#/$defs/agent"
+                    "$ref": "../common/schema.json#/$defs/agent"
                 },
                 "hadRole": {
-                    "$ref": "./FEGA.common-definitions.json#/$defs/hadRole"
+                    "$ref": "../common/schema.json#/$defs/hadRole"
                 },
                 "hadPlan": {
-                    "$ref": "./FEGA.common-definitions.json#/$defs/hadPlan"
+                    "$ref": "../common/schema.json#/$defs/hadPlan"
                 }
             }
         },
@@ -1881,18 +1881,18 @@
                     ]
                 },
                 "id": {
-                    "$ref": "./FEGA.common-definitions.json#/$defs/id"
+                    "$ref": "../common/schema.json#/$defs/id"
                 },
                 "name": {
-                    "$ref": "./FEGA.common-definitions.json#/$defs/label"
+                    "$ref": "../common/schema.json#/$defs/label"
                 },
                 "atLocation": {
                     "title": "Location",
                     "description": "Where the agent is located (e.g., research institution, country, etc.).",
-                    "$ref": "./FEGA.common-definitions.json#/$defs/location"
+                    "$ref": "../common/schema.json#/$defs/location"
                 },
                 "sameAs": {
-                    "$ref": "./FEGA.common-definitions.json#/$defs/sameAs"
+                    "$ref": "../common/schema.json#/$defs/sameAs"
                 }
             },
             "examples": [
@@ -1919,12 +1919,12 @@
         },
 
         "hadRole": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "$ref": "../common/schema.json#/$defs/relationshipArray",
             "description": "Array of relationships pointing to roles (object) that were played by the agent (subject) in the context of a process (i.e., the prov:activity)."
         },
 
         "hadPlan": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "$ref": "../common/schema.json#/$defs/relationshipArray",
             "description": "Array of relationships pointing to plans (object) that were intended by the agent (subject) to achieve some goals in the context of a process (i.e., the prov:activity)."
         },
 
@@ -1962,7 +1962,7 @@
             "allOf": [
                 {
                     "title": "Inherited ontologyTerm structure of term id and label",
-                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
                 }
             ],
             "properties": {
@@ -2099,7 +2099,7 @@
             "allOf": [
                 {
                     "title": "Inherited ontologyTerm structure of id and label",
-                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
                 }
             ],
             "properties": {
@@ -2147,7 +2147,7 @@
             "allOf": [
                 {
                     "title": "Inherited ontologyTerm structure of id and label",
-                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
                 }
             ],
             "properties": {
@@ -2195,7 +2195,7 @@
                 }
             ],
             "allOf": [
-                { "$ref": "./FEGA.common-definitions.json#/$defs/dataUsePermission" }
+                { "$ref": "../common/schema.json#/$defs/dataUsePermission" }
             ],
             "required": [ "version" ],
             "properties": {
@@ -2204,7 +2204,7 @@
                     "minItems": 1,
                     "uniqueItems": true,
                     "items": {
-                        "$ref": "./FEGA.common-definitions.json#/$defs/dataUseModifier"
+                        "$ref": "../common/schema.json#/$defs/dataUseModifier"
                     }
                 },
                 "version": {
@@ -2252,7 +2252,7 @@
             "allOf": [
                 {
                     "title": "Inherited ontologyTerm structure of id and label",
-                    "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm"
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
                 }
             ],
             "properties": {
@@ -2545,7 +2545,7 @@
         },
         
         "sameAs": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",      
+            "$ref": "../common/schema.json#/$defs/relationshipArray",      
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
@@ -2565,12 +2565,12 @@
         },
 
         "wasUsedBy": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",      
+            "$ref": "../common/schema.json#/$defs/relationshipArray",      
             "description": "Relationship referencing other entities (object) by which the the root entity (subject) was used."
         },
 
         "used": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "$ref": "../common/schema.json#/$defs/relationshipArray",
             "description": "Relationship referencing other entities (object) that used the root entity (subject).",
             "meta:sssomMappings": [
                 {
@@ -2590,7 +2590,7 @@
         },
 
         "wasGeneratedBy": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "$ref": "../common/schema.json#/$defs/relationshipArray",
             "description": "Array of relationships referencing the activity, workflow step or other entity (object) that generated (i.e. first brought into existence) the root entity (subject).",
             "meta:sssomMappings": [
                 {
@@ -2622,7 +2622,7 @@
         },
 
         "generated": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "$ref": "../common/schema.json#/$defs/relationshipArray",
             "description": "Array of relationships referencing the entities (object) that were generated by the root entity (subject). This is the inverse of 'wasGeneratedBy'.",
             "meta:sssomMappings": [
                 {
@@ -2642,7 +2642,7 @@
         },
 
         "wasDerivedFrom": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "$ref": "../common/schema.json#/$defs/relationshipArray",
             "description": "Array of relationships referencing source entities (object) from which the root entity (subject) is transformed, updated or otherwise derived.",
             "meta:sssomMappings": [
                 {
@@ -2674,7 +2674,7 @@
         },
 
         "isBasedOn": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "$ref": "../common/schema.json#/$defs/relationshipArray",
             "description": "Array of relationships referencing source entities (object) on which the root entity (subject) is based, or from which it is a modification or adaptation.",
             "meta:sssomMappings": [
                 {
@@ -2694,7 +2694,7 @@
         },
 
         "wasAttributedTo": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "$ref": "../common/schema.json#/$defs/relationshipArray",
             "description": "Array of relationships linking the object agent (person, organisation or software) that is responsible for or contributed to the existence, content or state of the root (subject) entity.",
             "meta:sssomMappings": [
                 {
@@ -2726,7 +2726,7 @@
         },
 
         "actedOnBehalfOf": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "$ref": "../common/schema.json#/$defs/relationshipArray",
             "description": "Array of relationships indicating delegation: the root agent (subject) carried out an activity on behalf of another agent (object).",
             "meta:sssomMappings": [
                 {
@@ -2758,7 +2758,7 @@
         },
 
         "isPartOf": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "$ref": "../common/schema.json#/$defs/relationshipArray",
             "description": "Array of relationships pointing to a broader resource (object) (study, dataset, publication, collection, project, etc.) of which the root entity (subject) forms a logical or physical part.",
             "meta:sssomMappings": [
                 {
@@ -2791,7 +2791,7 @@
         },
 
         "hasPart": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "$ref": "../common/schema.json#/$defs/relationshipArray",
             "description": "Array of relationships pointing to related resources that are included either physically or logically in the subject resource.",
             "meta:sssomMappings": [
                 {
@@ -2823,7 +2823,7 @@
             "$comment": "#! TBD: schema:spouse"
         },
         "hadMember": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
+            "$ref": "../common/schema.json#/$defs/relationshipArray",
             "description": "A collection is an entity that provides a structure to some constituents, which are themselves entities. These constituents are said to be member of the collections. For example, a 'cohort' 'hadMember' 'biomaterial'.",
             "meta:sssomMappings": [
                 {
@@ -2861,11 +2861,11 @@
             ],
             "allOf": [
                 {
-                    "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray"
+                    "$ref": "../common/schema.json#/$defs/relationshipArray"
                 },
                 {
                     "items": {
-                        "$ref": "./FEGA.common-definitions.json#/$defs/agent"
+                        "$ref": "../common/schema.json#/$defs/agent"
                     }
                 },
                 {
@@ -2898,11 +2898,11 @@
                 }
             ],
             "allOf": [
-                { "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray" },
+                { "$ref": "../common/schema.json#/$defs/relationshipArray" },
                 {
                     "title": "Entity type restriction",
                     "items": {
-                        "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionProcess"
+                        "$ref": "../common/schema.json#/$defs/relationshipItemRestrictionProcess"
                     }
                 }
             ]
@@ -2911,11 +2911,11 @@
         "informs": {
             "description": "Array of relationships pointing to processes (object) that were informed by the root process (subject). This is the inverse of 'wasInformedBy'.",
             "allOf": [
-                { "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray" },
+                { "$ref": "../common/schema.json#/$defs/relationshipArray" },
                 {
                     "title": "Entity type restriction",
                     "items": {
-                        "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionProcess"
+                        "$ref": "../common/schema.json#/$defs/relationshipItemRestrictionProcess"
                     }
                 }
             ]
@@ -2938,7 +2938,7 @@
                 }
             ],
             "allOf": [
-                { "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray" }
+                { "$ref": "../common/schema.json#/$defs/relationshipArray" }
             ]
         }
     }

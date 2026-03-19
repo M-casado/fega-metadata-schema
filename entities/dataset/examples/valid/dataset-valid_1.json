@@ -1,10 +1,10 @@
 {
   "schema": {
-    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.dataset.json"
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/entities/dataset/schema.json"
   },
   "data": {
     "@context": [
-        "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.dataset.json",
+        "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/entities/dataset/schema.json",
         {
           "identifiers": "https://identifiers.org/",
           "ega": "identifiers:ega:",
