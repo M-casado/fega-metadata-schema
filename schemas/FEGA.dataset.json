@@ -13,13 +13,81 @@
             "properties": "@nest"
         },
         {
-            "accessRights": {
-                "@id": "dct:accessRights",
-                "@type": "@id"
+            "id": {
+              "@id": "dct:identifier",
+              "@type": "string"
             },
-            "dct:title": {
+            "title": {
                 "@id": "dct:title",
                 "@type": "langString"
+            },
+            "alternativeTitle": {
+                "@id": "dct:alternative",
+                "@type": "langString"
+            },
+            "description": {
+                "@id": "dct:description",
+                "@type": "langString"
+            },
+            "documentation": {
+                "@id": "foaf:page",
+                "@type": "@id"
+            },
+            "landingPage": {
+                "@id": "dcat:landingPage",
+                "@type": "@id"
+            },
+            "isReferencedBy": {
+                "@id": "dct:isReferencedBy",
+                "@type": "@id"
+            },
+            "modificationDate": {
+                "@id": "dct:modified",
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+            },
+            "datasetType": {
+                "@id": "dct:type",
+                "@type": "@id"
+            },
+            "hasPolicy": {
+                "@id": "dct:hasPolicy",
+                "@type": "@id"
+            },
+            "releaseDate": {
+                "@id": "dct:issued",
+                "@type": "http://www.w3.org/2001/XMLSchema#date"
+            },
+            "otherIdentifiers": {
+                "@id": "adms:identifier",
+                "@type": "@id"
+            },
+            "populationCoverage": {
+                "@id": "healthdcatap:populationCoverage",
+                "@type": "langString"
+            },
+            "relatedResource": {
+                "@id": "dct:relation",
+                "@type": "@id"
+            },
+            "version": {
+                "@id": "dcat:version",
+                "@type": "string"
+            },
+            "status": {
+                "@id": "adms:status",
+                "@type": "string"
+            },
+
+            "dataUseConditions": {
+                "@id": "ega:dataUseConditions"
+            },
+            "measurementTechnique": {
+                "@id": "schema:measurementTechnique",
+                "@type": "@id"
+            },
+            "variableMeasured": {
+                "@id": "schema:variableMeasured",
+                "@type": "@id"
             }
         }
     ],
@@ -74,10 +142,11 @@
     ],
     "required": [
         "id",
+        "@type",
         "title",
         "description",
-        "type",
-        "distribution",
+        "datasetType",
+        "hasPart",
         "hasPolicy"
      ],
     "properties": {
@@ -197,7 +266,7 @@
             ]
         },
         
-        "alternative": {
+        "alternativeTitle": {
             "title": "Alternative titles",
             "description": "Alternative titles for the dataset, including abbreviations, acronyms, or other synonyms.",
             "type": ["string", "array"],
@@ -302,109 +371,6 @@
             ]
         },
         
-        "distribution": {
-            "title": "Distributions of the dataset",
-            "description": "Available resources containing data (i.e., distributions, datafiles) of the dataset",
-            "type": ["string", "array"],
-            "meta:sssomMappings": [
-                {
-                    "predicate_id": "skos:closeMatch",
-                    "object_id": "dcat:distribution",
-                    "mapping_justification": "semapv:ManualMappingCuration",
-                    "object_match_field": "rdfs:label",
-                    "subject_match_field": "rdfs:label",
-                    "author_id": ["orcid:0000-0002-7747-6256"],
-                    "creator_id": ["orcid:0000-0002-7747-6256"],
-                    "reviewer_id": [""],
-                    "confidence": 1.0,
-                    "mapping_date": "2026-01-28"
-                },
-                {
-                    "predicate_id": "skos:closeMatch",
-                    "object_id": "schema:distribution",
-                    "mapping_justification": "semapv:ManualMappingCuration",
-                    "object_match_field": "rdfs:label",
-                    "subject_match_field": "rdfs:label",
-                    "author_id": ["orcid:0000-0002-7747-6256"],
-                    "creator_id": ["orcid:0000-0002-7747-6256"],
-                    "reviewer_id": [""],
-                    "confidence": 1.0,
-                    "mapping_date": "2026-01-29"
-                },
-                {
-                    "predicate_id": "skos:broadMatch",
-                    "object_id": "egav1crg:DatasetRequest#run_accession_ids",
-                    "mapping_justification": "semapv:ManualMappingCuration",
-                    "object_match_field": "rdfs:comment",
-                    "subject_match_field": "rdfs:comment",
-                    "author_id": ["orcid:0000-0002-7747-6256"],
-                    "creator_id": ["orcid:0000-0002-7747-6256"],
-                    "reviewer_id": [""],
-                    "confidence": 0.7,
-                    "mapping_date": "2026-01-30",
-                    "$comment": "EGA's runs contain datafiles. This method of dataset-file linkage is what is similar to the DCAT's distribution."
-                },
-                {
-                    "predicate_id": "skos:broadMatch",
-                    "object_id": "egav1crg:DatasetRequest#analysis_accession_ids",
-                    "mapping_justification": "semapv:ManualMappingCuration",
-                    "object_match_field": "rdfs:comment",
-                    "subject_match_field": "rdfs:comment",
-                    "author_id": ["orcid:0000-0002-7747-6256"],
-                    "creator_id": ["orcid:0000-0002-7747-6256"],
-                    "reviewer_id": [""],
-                    "confidence": 0.7,
-                    "mapping_date": "2026-01-30",
-                    "$comment": "EGA's analyses contain datafiles. This method of dataset-file linkage is what is similar to the DCAT's distribution."
-                },
-                {
-                    "predicate_id": "skos:broadMatch",
-                    "object_id": "egav1ebi:EGA.dataset.xsd#DatasetType/RUN_REF",
-                    "mapping_justification": "semapv:ManualMappingCuration",
-                    "object_match_field": "rdfs:comment",
-                    "subject_match_field": "rdfs:comment",
-                    "author_id": ["orcid:0000-0002-7747-6256"],
-                    "creator_id": ["orcid:0000-0002-7747-6256"],
-                    "reviewer_id": [""],
-                    "confidence": 0.7,
-                    "mapping_date": "2026-03-12",
-                    "$comment": "EGA's analyses contain datafiles. This method of dataset-file linkage is what is similar to the DCAT's distribution."
-                },
-                {
-                    "predicate_id": "skos:broadMatch",
-                    "object_id": "egav1ebi:EGA.dataset.xsd#DatasetType/ANALYSIS_REF",
-                    "mapping_justification": "semapv:ManualMappingCuration",
-                    "object_match_field": "rdfs:comment",
-                    "subject_match_field": "rdfs:comment",
-                    "author_id": ["orcid:0000-0002-7747-6256"],
-                    "creator_id": ["orcid:0000-0002-7747-6256"],
-                    "reviewer_id": [""],
-                    "confidence": 0.7,
-                    "mapping_date": "2026-03-12",
-                    "$comment": "EGA's analyses contain datafiles. This method of dataset-file linkage is what is similar to the DCAT's distribution."
-                }
-            ],
-            "anyOf": [
-                { "$ref": "./FEGA.common-definitions.json#/$defs/id" } ,
-                {
-                    "minItems": 1,
-                    "uniqueItems": true,
-                    "items": { 
-                        "$ref": "./FEGA.common-definitions.json#/$defs/id" 
-                    }
-                }
-            ],
-            "examples": [
-                "ega:EGAF00000000001",
-                [
-                    "ega:EGAF00000000001",
-                    "ega:EGAF00000000002",
-                    "ega:EGAF00000000003"
-                ]
-            ],
-            "$comment": "#! We may want to limit the IDs to 'ega' only through regex (or an API call in the future with Biovalidator's custom keywords). As of now, submitters could point to external resources that are encompassed by the same dataset. This could not be intended, as it could increase the risk of re-identification, or mix controlled- and open-access files across archives. It could... also be a 'feature' instead of a 'bug' in terms of interoperability and linkage of resources."
-        },
-
         "documentation": {
             "title": "Documentation",
             "description": "Any resources that contain additional information about the dataset.",
@@ -594,6 +560,13 @@
                         "$ref": "./FEGA.common-definitions.json#/$defs/id" 
                     }
                 }
+            ],
+            "examples": [
+                "doi:10.5072/fega:dataset-12345",
+                [
+                    "doi:10.5072/fega:dataset-12345",
+                    "handle:20.500.12345/67890"
+                ]
             ]
         },
 
@@ -634,7 +607,7 @@
              
         "relatedResource": {
             "title": "Related resources",
-            "description": "This property allows you to indicate a general link between this dataset and another resource (e.g., another dataset, document, or service). Use it when there is a connection, but none of the more specific relation properties below apply. When the relationship is known and semantically clear , use one of the more specific properties (e.g., hasPart, landingPage) instead.",
+            "description": "This property allows you to indicate a general link between this dataset and another resource (e.g., another dataset, document, or service). Use it when there is a connection, but none of the more specific relation properties below apply. When the relationship is known and semantically clear, use one of the more specific properties (e.g., hasPart, landingPage) instead.",
             "type": ["string", "array"],
             "meta:sssomMappings": [
                 {
@@ -751,7 +724,7 @@
             ]
         },
         
-        "types": {
+        "datasetType": {
             "type": "array",
             "minItems": 1,
             "uniqueItems": true,
@@ -908,7 +881,7 @@
             "minItems": 1,
             "uniqueItems": true,
             "items": {
-                "$ref": "../FEGA.common-definitions.json#/$defs/dataUseCondition"
+                "$ref": "./FEGA.common-definitions.json#/$defs/dataUseCondition"
             }
         },
 
@@ -935,7 +908,7 @@
             "uniqueItems": true,
             "items": {
                 "anyOf": [
-                    { "$ref": "../FEGA.common-definitions.json#/$defs/ontologyTerm" },
+                    { "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm" },
                     {
                         "type": "string",
                         "format": "uri"
@@ -977,7 +950,7 @@
             "uniqueItems": true,
             "items": {
                 "anyOf": [
-                    { "$ref": "../FEGA.common-definitions.json#/$defs/ontologyTerm" },
+                    { "$ref": "./FEGA.common-definitions.json#/$defs/ontologyTerm" },
                     {
                         "type": "string",
                         "format": "uri"
@@ -1032,14 +1005,141 @@
                 },
                 {
                     "title": "EGA SP API dataset status CV list",
-                    "enum": [ "open", "waiting_approval", "closed", "waiting_deprecation_approval" ]
+                    "enum": [ "open", "waiting_approval", "waiting_deprecation_approval", "not released", "released", "deprecated" ],
+                    "meta:enum": {
+                        "open": "New dataset submission or existing dataset (EGA.0 or EGA.5) that has been modified.",
+                        "waiting_approval": "Dataset submission has been finalised and it is waiting to be accepted by HD for release.",
+                        "waiting_deprecation_approval": "Dataset is waiting for approval to be deprecated.",
+                        "not released": "Dataset submission is not yet released.",
+                        "released": "Dataset has been released.",
+                        "deprecated": "Dataset has been deprecated."
+                    },
+                    "$comment": "'closed' used to be a valid EGA SP status, but it's not in use anymore. EGA's 'not released' status is similar to 'WITHDRAWN' in DCAT (not released -> released -> not released); 'deprecated' is similar to 'DEPRECATED' in DCAT (not released -> released -> deprecated); 'COMPLETED' from DCAT is similar to EGA's 'released'."
                 }
             ],
             "$comment": "HealthDCAT-AP (v6) relies on status but on a distribution level, rather than dataset, but bear in mind EGA v2 datasets and distributions are sort of overlapping. Their CV list is at 'http://publications.europa.eu/resource/authority/distribution-status'."
         },
 
         "hasPart": {
-            "$ref": "./FEGA.common-definitions.json#/$defs/hasPart"
+            "title": "Has part",
+            "description": "Indicates a resource that is part of this dataset. Its main use is to reference the datafiles that are part of this dataset, but it can also be used to reference other types of resources when the more specific properties (e.g., 'documentation') do not apply.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:relatedMatch",
+                    "object_id": "dcat:distribution",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                },
+                {
+                    "predicate_id": "skos:relatedMatch",
+                    "object_id": "schema:distribution",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-29"
+                },
+                {
+                    "predicate_id": "skos:broadMatch",
+                    "object_id": "egav1crg:DatasetRequest#run_accession_ids",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-30",
+                    "$comment": "hasPart is broader than the EGA's Run/Analysis references, as it can contain not only datafiles but also other types of resources."
+                },
+                {
+                    "predicate_id": "skos:broadMatch",
+                    "object_id": "egav1crg:DatasetRequest#analysis_accession_ids",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-30",
+                    "$comment": "hasPart is broader than the EGA's Run/Analysis references, as it can contain not only datafiles but also other types of resources."
+                },
+                {
+                    "predicate_id": "skos:broadMatch",
+                    "object_id": "egav1ebi:EGA.dataset.xsd#DatasetType/RUN_REF",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-03-12",
+                    "$comment": "hasPart is broader than the EGA's Run/Analysis references, as it can contain not only datafiles but also other types of resources."
+                },
+                {
+                    "predicate_id": "skos:broadMatch",
+                    "object_id": "egav1ebi:EGA.dataset.xsd#DatasetType/ANALYSIS_REF",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-03-12",
+                    "$comment": "hasPart is broader than the EGA's Run/Analysis references, as it can contain not only datafiles but also other types of resources."
+                }
+            ],
+            "allOf": [
+                { "$ref": "./FEGA.common-definitions.json#/$defs/hasPart" },
+                {
+                    "contains": {
+                        "required": ["@type"],
+                        "properties": {
+                            "@type": {
+                                "anyOf": [
+                                    {
+                                        "const": "datafile"
+                                    },
+                                    {
+                                        "type": "array",
+                                        "contains": {
+                                            "const": "datafile"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ],
+            "examples": [
+                [
+                    {
+                        "@id": "ega:EGAF00001000001",
+                        "@type": "datafile"
+                    },
+                    {
+                        "@id": "ega:EGAF00001000002",
+                        "@type": ["datafile", "dcat:Distribution"]
+                    }
+                ],
+                {
+                    "@id": "ega:EGAF00001000003",
+                    "@type": "datafile"
+                }
+            ]
         },
         
         "hasPolicy": {
@@ -1087,6 +1187,26 @@
                 { "$ref": "./FEGA.common-definitions.json#/$defs/id" }
             ],
             "examples": ["ega:EGAP00001000001"]
+        },
+
+        "sameAs": {
+            "title": "Same as",
+            "description": "Indicates a resource that is the same as this dataset.",
+            "allOf": [
+                { "$ref": "./FEGA.common-definitions.json#/$defs/sameAs" },
+                {
+                    "items": {
+                        "title": "Entity type restriction",
+                        "$ref": "./FEGA.common-definitions.json#/$defs/relationshipItemRestrictionDataset"
+                    }
+                }
+            ]
+        }
+    },
+    "$defs": {
+        "datasetTypeEnum": {
+            "type": "string",
+            "enum": [ "ega:dataset", "dcat:Dataset" ]
         }
     }
 }

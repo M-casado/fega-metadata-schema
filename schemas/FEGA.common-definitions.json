@@ -2812,7 +2812,7 @@
 
         "hasParent": {
             "$comment": "#! TBD: schema:parent, also reversible with the children"
-        },        
+        },
         "hasChild": {
             "$comment": "#! TBD: schema:children"
         },
@@ -2821,9 +2821,6 @@
         },
         "hasSpouse": {
             "$comment": "#! TBD: schema:spouse"
-        },
-        "relatedTo": {
-            "$comment": "#! TBD: schema:relatedTo"
         },
         "hadMember": {
             "$ref": "./FEGA.common-definitions.json#/$defs/relationshipArray",
