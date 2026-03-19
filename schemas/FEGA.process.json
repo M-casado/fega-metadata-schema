@@ -125,6 +125,7 @@
           "examples": ["ega:EGAK00001000620"],
           "$comment": "Example to be updated when FEGA identifiers (EGAK...) are finalized for new entity types."
         },
+        "#!": {"$comment": "#! Need to add @type"},
         "title": {
             "$ref": "./FEGA.common-definitions.json#/$defs/label"
         },

@@ -171,7 +171,31 @@
               "reviewer_id": [""],
               "confidence": 1.0,
               "mapping_date": "2025-04-15"
-            }        
+            },
+            {
+                "predicate_id": "skos:exactMatch",
+                "object_id": "egav1crg:SampleRequest#subject_id",
+                "mapping_justification": "semapv:ManualMappingCuration",
+                "object_match_field": "rdfs:label",
+                "subject_match_field": "rdfs:label",
+                "author_id": ["orcid:0000-0002-7747-6256"],
+                "creator_id": ["orcid:0000-0002-7747-6256"],
+                "reviewer_id": [""],
+                "confidence": 1.0,
+                "mapping_date": "2026-01-30"
+            },
+            {
+                "predicate_id": "skos:closeMatch",
+                "object_id": "egav1ebi:SRA.sample.xsd#SAMPLE_ATTRIBUTES/TAG/subject_id",
+                "mapping_justification": "semapv:ManualMappingCuration",
+                "object_match_field": "rdfs:label",
+                "subject_match_field": "rdfs:label",
+                "author_id": ["orcid:0000-0002-7747-6256"],
+                "creator_id": ["orcid:0000-0002-7747-6256"],
+                "reviewer_id": [""],
+                "confidence": 1.0,
+                "mapping_date": "2026-03-12"
+            }
           ],
           "examples": ["subject-001", "SAMPLE1234", "ND-ABCD", "cancer-04-batch-6"]
         },

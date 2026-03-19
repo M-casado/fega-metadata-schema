@@ -4,7 +4,7 @@
     },
     "data": {
         "id": "https://w3id.org/fega/process/PRJ1234-PT0001-collection-2025-08-01",
-        "@type": ["process", "prov:Activity" ],
+        "@type": ["ega:process", "prov:Activity" ],
         "title": "Peripheral blood collection (venipuncture) — subject PT-0001",
         "description": "Whole blood collected by venipuncture into a K2EDTA lavender-top tube from subject PT-0001 for downstream WGS. Subject fasted 8h prior to draw.",
         "hadProtocolCollection": {
@@ -59,7 +59,7 @@
                 "hadPlan": [
                     {
                         "id": "ega:EGAK00001000621",
-                        "@type": "protocol",
+                        "@type": "ega:protocol",
                         "label": "Provision of patient samples"
                     }
                 ]
@@ -68,14 +68,14 @@
         "used": [
             {
                 "id": "ega:EGAN00090000001",
-                "@type": [ "biomaterial", "prov:Person" ],
+                "@type": [ "ega:biomaterial", "prov:Person" ],
                 "label": "Participant PT-0001 (organism)"
             }
         ],
         "generated": [
             {
                 "id": "biosample:SAMEA12345678",
-                "@type": [ "biomaterial" ],
+                "@type": [ "ega:biomaterial" ],
                 "label": "Whole blood (EDTA), PT-0001"
             }
         ],

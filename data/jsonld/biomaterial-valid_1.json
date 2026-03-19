@@ -4,7 +4,7 @@
   },
   "data": {
       "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.biomaterial.json",
-      "@type": "biomaterial",
+      "@type": "ega:biomaterial",
       "biomaterialType": {
         "id": "COB:0000022",
         "label": "organism"
@@ -60,7 +60,7 @@
       "wasUsedBy": [
         {
           "id": "ega:EGAA00000000001",
-          "@type": "process"
+          "@type": "ega:process"
         }
       ]
   }

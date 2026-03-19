@@ -41,6 +41,10 @@
     }
   ],
   "properties": {
+    "@type": {
+      "$comment": "#! Need to add @type"
+    },
+
     "description": {
       "$ref": "./FEGA.common-definitions.json#/$defs/description"
     },
