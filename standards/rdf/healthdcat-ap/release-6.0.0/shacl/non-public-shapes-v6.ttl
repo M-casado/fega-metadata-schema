@@ -48,7 +48,7 @@
 
 <https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/rdf/healthdcat-ap/release-6.0.0/shacl/non-public-shapes-v6.ttl>
   a owl:Ontology ;
-  owl:imports <../../dcat-ap/release-3.0.0/shapes.ttl> .
+  owl:imports <../../../dcatap/release-3.0.0/shapes.ttl> .
 
 :Kind_Shape
     a sh:NodeShape ;

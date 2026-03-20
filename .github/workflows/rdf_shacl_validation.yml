@@ -1,0 +1,168 @@
+# ----------------------------------------------------------------------
+# Validate FEGA metadata against RDF/SHACL shapes
+#
+# Goal
+# ----
+# - Validate all FEGA JSON-LD metadata records against SHACL shapes
+#   (HealthDCAT-AP) to ensure RDF-level compliance.
+# - Assert that valid examples pass validation.
+# - Assert that known-invalid examples fail validation.
+#
+# What it catches
+# ---------------
+# 1. SHACL shape constraint violations (e.g., missing required properties).
+# 2. RDF/SHACL incompatibilities in valid examples.
+# 3. Invalid examples that unexpectedly pass SHACL validation.
+#
+# Scope
+# -----
+# - For now, only validates `dataset` entity examples. We may extend it in the future to other DCAT entities such as distributions and catalogs, if added as entities in EGA.
+# - Invalid examples are expected to fail both JSON Schema and SHACL/RDF validation.
+#
+# Trigger
+# -------
+# - Any PR that touches JSON files, schemas, scripts/, or workflow files.
+# - Direct pushes to `main`
+#
+# Outcome
+# -------
+# - Fails the job (and therefore blocks the merge) if:
+#     – Valid examples do not pass SHACL validation.
+#     – Invalid examples do not fail SHACL validation.
+# - Always uploads validation summary for inspection.
+# ----------------------------------------------------------------------
+name: |
+  [REQUIRED] Validate FEGA (meta)data (SHACL/RDF shapes)
+
+on:
+  pull_request:
+    paths:
+      - '**/*.json'
+      - 'entities/**'
+      - 'standards/**'
+      - 'scripts/**'
+      - '.github/workflows/**'
+  push:
+    branches: [ main ]
+
+  workflow_dispatch:
+    inputs:
+      schemas_ref:
+        description: |
+          Specify the branch (e.g., dev), tag (e.g., v1.3.11) or commit (e.g., 5fad895) to use as source for validation
+        type: string
+        required: true
+        default: main
+
+jobs:
+  validate-rdf-shacl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: "Checkout (trigger: PR / push)"
+        if: ${{ github.event_name != 'workflow_dispatch' }}
+        uses: actions/checkout@v4
+
+      - name: "Checkout (trigger: manual run)"
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.schemas_ref }}
+
+      # Cache pip dependencies for speed
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      # Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          cache: 'pip'
+
+      - name: Install Python requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install repo in editable mode
+        run: pip install -e .
+
+      # Validate FEGA metadata against SHACL shapes
+      - name: Validate valid examples (should pass)
+        run: |
+          script_path="scripts/py/validate_rdf_shacl.py"
+          shapes_path="standards/rdf/healthdcat-ap/release-6.0.0/shacl/non-public-shapes-v6.ttl"
+          data_path="entities/dataset/examples/valid"
+          
+          python $script_path "$data_path" --shapes "$shapes_path" > shacl_valid.json
+          
+          # Check that all files passed
+          n_failed=$(jq '.n_failed_files' shacl_valid.json)
+          if [ "$n_failed" -ne 0 ]; then
+            echo "FAILED: Valid examples did not pass SHACL validation"
+            cat shacl_valid.json
+            exit 1
+          fi
+          echo "All valid examples passed SHACL validation"
+
+      - name: Validate invalid examples (should fail)
+        run: |
+          script_path="scripts/py/validate_rdf_shacl.py"
+          shapes_path="standards/rdf/healthdcat-ap/release-6.0.0/shacl/non-public-shapes-v6.ttl"
+          data_path="entities/dataset/examples/invalid"
+          
+          python $script_path "$data_path" --shapes "$shapes_path" > shacl_invalid.json || true
+          
+          # Check that invalid examples failed validation (as expected)
+          n_total=$(jq '.n_total_files' shacl_invalid.json)
+          n_failed=$(jq '.n_failed_files' shacl_invalid.json)
+          
+          if [ "$n_total" -eq 0 ]; then
+            echo "No invalid examples found to test"
+            exit 0
+          fi
+          
+          if [ "$n_failed" -ne "$n_total" ]; then
+            echo "FAILED: Not all invalid examples failed validation as expected"
+            echo "Expected all $n_total to fail, but only $n_failed failed"
+            cat shacl_invalid.json
+            exit 1
+          fi
+          echo "All invalid examples failed SHACL validation (as expected)"
+
+      # Show validation summaries
+      - name: Show validation summaries in log
+        if: always()
+        run: |
+          echo "=== Valid Examples Validation ==="
+          if [ -f shacl_valid.json ]; then
+            jq '.' shacl_valid.json
+          else
+            echo "'shacl_valid.json' not found"
+          fi
+          
+          echo ""
+          echo "=== Invalid Examples Validation ==="
+          if [ -f shacl_invalid.json ]; then
+            jq '.' shacl_invalid.json
+          else
+            echo "'shacl_invalid.json' not found"
+          fi
+
+      # Upload artifacts
+      - name: Upload validation summaries
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: shacl-validation-summaries
+          path: |
+            shacl_valid.json
+            shacl_invalid.json
+          if-no-files-found: warn
