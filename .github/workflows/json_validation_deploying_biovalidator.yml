@@ -5,13 +5,14 @@
 # ----
 # - Launch a local Biovalidator instance that uses **the current branch's**
 #   JSON Schemas (`./entities/**/schema.json`).
-# - Run the Python helper (scripts/py/validate_metadata.py) against every
-#   example under ./entities to confirm the changes remain valid.
+# - Validate valid examples to confirm they remain valid.
+# - Validate invalid examples to confirm they fail (as expected).
 #
 # What it catches
 # ---------------
 # 1. Schemas that no longer compile or reference each other correctly.
-# 2. Example JSON documents that would fail against changes in the schemas.
+# 2. Valid examples that would fail against changes in the schemas.
+# 3. Invalid examples that unexpectedly pass validation.
 #
 # Trigger
 # -------
@@ -22,8 +23,9 @@
 # -------
 # - Fails the job (and therefore blocks the merge) if:
 #     – Biovalidator cannot start
-#     – The validator script reports at least one failed JSON
-# - Always uploads `summary.json` so we can inspect failures.
+#     – Valid examples do not pass JSON Schema validation
+#     – Invalid examples do not fail JSON Schema validation
+# - Always uploads validation summaries for inspection.
 # ----------------------------------------------------------------------
 name: |
   [REQUIRED] Validate FEGA (meta)data (deploying local biovalidator)
@@ -143,20 +145,70 @@ jobs:
       # --------------------------------------------------------------
       # Validation
       # --------------------------------------------------------------
-      - name: Validate JSON examples
+      - name: Validate valid examples (should pass)
         run: |
           script_path="scripts/py/validate_metadata.py"
-          data_path="entities"
-          url="http://localhost:3020/validate"
-          python $script_path $data_path --url $url > summary.json
+          # Find and validate only valid examples
+          valid_dirs=$(find entities -path "*/examples/valid" -type d)
+          if [ -z "$valid_dirs" ]; then
+            echo "No valid examples found"
+            exit 0
+          fi
+          python $script_path $valid_dirs --url "http://localhost:3020/validate" > summary_valid.json
+          
+          # Check that all valid files passed
+          n_failed=$(jq '[.files[] | select(.conforms == false)] | length' summary_valid.json)
+          if [ "$n_failed" -ne 0 ]; then
+            echo "FAILED: Valid examples did not pass JSON Schema validation"
+            cat summary_valid.json
+            exit 1
+          fi
+          echo "All valid examples passed JSON Schema validation"
+
+      - name: Validate invalid examples (should fail)
+        run: |
+          script_path="scripts/py/validate_metadata.py"
+          # Find and validate only invalid examples
+          invalid_dirs=$(find entities -path "*/examples/invalid" -type d)
+          if [ -z "$invalid_dirs" ]; then
+            echo "No invalid examples found"
+            exit 0
+          fi
+          python $script_path $invalid_dirs --url "http://localhost:3020/validate" > summary_invalid.json || true
+          
+          # Check that all invalid examples failed (as expected)
+          n_total=$(jq '.files | length' summary_invalid.json)
+          n_failed=$(jq '[.files[] | select(.conforms == false)] | length' summary_invalid.json)
+          
+          if [ "$n_total" -eq 0 ]; then
+            echo "No invalid examples to test"
+            exit 0
+          fi
+          
+          if [ "$n_failed" -ne "$n_total" ]; then
+            echo "FAILED: Not all invalid examples failed validation as expected"
+            echo "Expected all $n_total to fail, but only $n_failed failed"
+            cat summary_invalid.json
+            exit 1
+          fi
+          echo "All invalid examples failed JSON Schema validation (as expected)"
 
       - name: Show summary in log
         if: always()
         run: |
-          if [ -f summary.json ]; then
-            cat summary.json
+          echo "=== Valid Examples ==="
+          if [ -f summary_valid.json ]; then
+            jq '.' summary_valid.json
           else
-            echo "'summary.json' not found"
+            echo "'summary_valid.json' not found"
+          fi
+          
+          echo ""
+          echo "=== Invalid Examples ==="
+          if [ -f summary_invalid.json ]; then
+            jq '.' summary_invalid.json
+          else
+            echo "'summary_invalid.json' not found"
           fi
 
       # --------------------------------------------------------------
@@ -169,8 +221,10 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: validation-summary
-          path: summary.json
+          name: json-validation-summary
+          path: |
+            summary_valid.json
+            summary_invalid.json
           if-no-files-found: warn
 
       - name: Stop Biovalidator
