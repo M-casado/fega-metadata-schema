@@ -157,7 +157,7 @@ jobs:
           python $script_path $valid_dirs --url "http://localhost:3020/validate" > summary_valid.json
           
           # Check that all valid files passed
-          n_failed=$(jq '[.files[] | select(.conforms == false)] | length' summary_valid.json)
+          n_failed=$(jq '.n_failed_files' summary_valid.json)
           if [ "$n_failed" -ne 0 ]; then
             echo "FAILED: Valid examples did not pass JSON Schema validation"
             cat summary_valid.json
@@ -176,9 +176,15 @@ jobs:
           fi
           python $script_path $invalid_dirs --url "http://localhost:3020/validate" > summary_invalid.json || true
           
+          # Check that summary was created
+          if [ ! -f summary_invalid.json ]; then
+            echo "No invalid examples to test"
+            exit 0
+          fi
+          
           # Check that all invalid examples failed (as expected)
-          n_total=$(jq '.files | length' summary_invalid.json)
-          n_failed=$(jq '[.files[] | select(.conforms == false)] | length' summary_invalid.json)
+          n_total=$(jq '.n_total_files' summary_invalid.json)
+          n_failed=$(jq '.n_failed_files' summary_invalid.json)
           
           if [ "$n_total" -eq 0 ]; then
             echo "No invalid examples to test"
