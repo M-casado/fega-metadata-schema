@@ -1,0 +1,201 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/entities/dataset/schema.json"
+  },
+  "data": {
+      "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/entities/dataset/schema.json",
+      "@type": [ "ega:dataset", "dcat:Dataset" ],
+      "id": "fega:EGAD00000000001",
+      "title": "FEGA test dataset for HealthDCAT-AP NON_PUBLIC validation",
+      "alternativeTitle": [
+        "Synthetic Genomic Cohort for Viral Response Analysis",
+        "SGCVRA"
+      ],
+      "description": "Synthetic metadata record for a non-public human genomics dataset discoverable through a Health Data Access Body.",
+      "documentation": [
+        "https://example.org/dataset/docs/EGAD00000000001",
+        "https://example.org/dataset/faq/EGAD00000000001"
+      ],
+      "landingPage": "https://example.org/dataset/EGAD00000000001",
+      "isReferencedBy": [
+        {"id": "https://doi.org/10.1234/fega.dataset.v1"},
+        {"id": "https://example.org/publications/fega-dataset-paper"}
+      ],
+      "modificationDate": "2026-03-10T15:30:00Z",
+      "datasetType": [
+        "whole genome sequencing",
+        "STATISTICAL"
+      ],
+      "hasPolicy": "ega:EGAP00001000001",
+      "releaseDate": "2026-04-01T00:00:00Z",
+      "otherIdentifier": [
+        "doi:10.1234/fega.egad00000000001",
+        "issn:1234-5678"
+      ],
+      "populationCoverage": "Adults 18-65 years, of European ancestry, hospitalized with acute viral respiratory infection in 2023-2025.",
+      "relatedResource": [
+        "https://example.org/studies/EGAS00001234567",
+        "https://example.org/projects/UVRA2025"
+      ],
+      "version": "v1.0.0",
+      "status": "COMPLETED",
+      "dataUseConditions": [
+        {
+          "id": "DUO:0000042",
+          "label": "general research use",
+          "modifiers": [
+              {
+                  "id": "DUO:0000043",
+                  "label": "clinical care use"
+              },
+              {
+                  "id": "DUO:0000046",
+                  "label": "non-commercial use only"
+              }
+          ],
+          "version": "1.0"
+        }
+      ],
+      "measurementTechnique": [
+        {
+          "id": "EFO:0004507",
+          "label": "whole genome sequencing"
+        }
+      ],
+      "variableMeasured": [
+        {
+          "id": "HP:0001871",
+          "label": "Body mass index"
+        }
+      ],
+      "hasPart": [
+        {
+            "id": "ega:EGAF00001000001",
+            "@type": "datafile"
+        },
+        {
+            "id": "ega:EGAF00001000002",
+            "@type": ["datafile"]
+        }
+      ],
+
+
+      "dcat:distribution": [
+        {
+          "@id": "https://ega-archive.org/datasets/EGAD00000000001/request",
+          "@type": "dcat:Distribution",
+          "dct:title": "Controlled access route for dataset EGAD00000000001",
+          "dct:description": "Access point for requesting access to this non-public dataset through the responsible access body.",
+          "dcat:accessURL": {
+            "@id": "https://ega.example.org/datasets/EGAD00000000001/access"
+          },
+          "dcatap:applicableLegislation": [
+            {
+              "@id": "http://data.europa.eu/eli/reg/2025/327/oj"
+            }
+          ]
+        }
+      ],    
+      "dct:accessRights": {
+        "@id": "http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC"
+      },
+      "dcatap:applicableLegislation": [
+        {
+          "@id": "http://data.europa.eu/eli/reg/2025/327/oj"
+        },
+        {
+          "@id": "http://data.europa.eu/eli/reg/2016/679/2016-05-04"
+        },
+        {
+          "@id": "https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED"
+        }
+      ],
+      "healthdcatap:hasCodeValues": [
+        {
+          "@value": "U07.1 - COVID-19, virus identified (ICD-10 code)"
+        },
+        {
+          "@value": "Y59.0 - Viral vaccines causing adverse effects in therapeutic use (ICD-10 code)"
+        }
+      ],
+      "hasCodingSystem": [
+        {
+          "@value": "ICD-10-CM"
+        },
+        {
+          "@value": "SNOMED CT"
+        },
+        {
+          "@value": "DRGs"
+        }
+      ],
+      "dcat:keyword": [
+        {
+          "@value": "genomics",
+          "@language": "en"
+        },
+        {
+          "@value": "controlled access",
+          "@language": "en"
+        }
+      ],
+      "dcat:theme": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/data-theme/HEAL",
+          "@type": "skos:Concept",
+          "skos:prefLabel": {
+            "@value": "health",
+            "@language": "en"
+          }
+        }
+      ],
+      "dct:provenance": [
+        {
+          "@type": "dct:ProvenanceStatement",
+          "rdfs:label": {
+            "@value": "Curated from controlled-access human genomics submissions managed within FEGA for secondary use discovery.",
+            "@language": "en"
+          }
+        }
+      ],
+      
+      "healthdcatap:healthCategory": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/health-category/EHR",
+          "@type": "skos:Concept",
+          "skos:prefLabel": {
+            "@value": "electronic health data from EHRs",
+            "@language": "en"
+          }
+        }
+      ],
+      "healthdcatap:hdab": {
+        "@id": "https://example.org/agents/hdab-uk-001",
+        "@type": "foaf:Organization",
+        "foaf:name": {
+          "@value": "Example UK Health Data Access Body",
+          "@language": "en"
+        },
+        "cv:contactPoint": {
+          "@id": "https://example.org/contact-points/data-controller-of-this-dataset"
+        }
+      },
+      "dcat:contactPoint": [
+        {
+          "@id": "https://example.org/contact-points/data-controller-of-this-dataset",
+          "@type": [
+            "vcard:Kind",
+            "cv:ContactPoint"
+          ],
+          "cv:hasEmail": "mailto:hdab@example.org",
+          "vcard:hasURL": {
+            "@id": "https://www.test-dataset-helpdesk.example.org"
+          },
+          "cv:contactPage": {
+            "@id": "https://example.org/contact/hdab-helpdesk",
+            "@type": "foaf:Document"
+          }
+        }
+      ]
+  }
+}
