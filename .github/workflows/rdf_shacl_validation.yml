@@ -62,17 +62,17 @@ jobs:
     steps:
       - name: "Checkout (trigger: PR / push)"
         if: ${{ github.event_name != 'workflow_dispatch' }}
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: "Checkout (trigger: manual run)"
         if: ${{ github.event_name == 'workflow_dispatch' }}
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ inputs.schemas_ref }}
 
       # Cache pip dependencies for speed
       - name: Cache pip
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
@@ -81,7 +81,7 @@ jobs:
 
       # Set up Python
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.x'
           cache: 'pip'
@@ -159,7 +159,7 @@ jobs:
       # Upload artifacts
       - name: Upload validation summaries
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: shacl-validation-summaries
           path: |

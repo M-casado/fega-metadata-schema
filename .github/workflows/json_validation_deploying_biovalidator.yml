@@ -58,11 +58,11 @@ jobs:
     steps:
       - name: "Checkout (trigger: PR / push)"
         if: ${{ github.event_name != 'workflow_dispatch' }}
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: "Checkout (trigger: manual run)"
         if: ${{ github.event_name == 'workflow_dispatch' }}
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ inputs.schemas_ref }}   # The value given at the "Run workflow" form as a string
 
@@ -70,7 +70,7 @@ jobs:
       # Environment: cache Python wheels & npm packages for speed
       # --------------------------------------------------------------
       - name: Cache pip
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           # On subsequent runs, if the cache key matches (i.e., operating system and the hash of the requirements.txt file),
           #   the dependencies are restored from the cache instead of being downloaded and installed again.
@@ -128,7 +128,7 @@ jobs:
           fi
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           # We'll use the latest version of python from major 3 release
           python-version: '3.x'
@@ -225,7 +225,7 @@ jobs:
       #   easily.
       - name: Upload validation summary
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: json-validation-summary
           path: |
