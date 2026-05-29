@@ -338,7 +338,7 @@ def make_arg_parser() -> argparse.ArgumentParser:
         epilog=(
             "Examples:\n"
             "  validate_rdf_shacl schemas/entities/dataset/examples --shapes standards/rdf/healthdcat-ap\n"
-            "  validate_rdf_shacl schemas/entities/dataset/examples/valid/dataset-valid_1.json --shapes standards/rdf/healthdcat-ap/release-6.0.0/shacl/non-public-shapes-v6.ttl"
+            "  validate_rdf_shacl schemas/entities/dataset/examples/valid/dataset-valid-detailed-non-public.json --shapes standards/rdf/healthdcat-ap/release-6.0.0/shacl/non-public-shapes-v6.ttl"
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )

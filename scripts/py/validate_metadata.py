@@ -146,7 +146,7 @@ def make_arg_parser() -> argparse.ArgumentParser:
         epilog=(
             "Examples:\n"
             "  validate_metadata schemas/entities             # walk entity schema dir\n"
-            "  validate_metadata schemas/entities/cohort/examples/valid/cohort-valid_1.json -u http://localhost:3020/validate"
+            "  validate_metadata schemas/entities/cohort/examples/valid/cohort-valid-detailed-study-defined.json -u http://localhost:3020/validate"
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
@@ -154,7 +154,7 @@ def make_arg_parser() -> argparse.ArgumentParser:
         "inputs",
         nargs="+",
         type=Path,
-        help="Files or directories to validate (at least one, e.g., 'schemas/entities/cohort/examples/valid/cohort-valid_1.json').",
+        help="Files or directories to validate (at least one, e.g., 'schemas/entities/cohort/examples/valid/cohort-valid-detailed-study-defined.json').",
     )
     parser.add_argument(
         "--url",

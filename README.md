@@ -50,7 +50,7 @@ node "$(npm root -g)/biovalidator/src/biovalidator.js" \
 
 #### Complete Schema and Example Suite
 
-Run **all** valid and invalid metadata JSON (e.g., [`cohort-valid_1.json`](./schemas/entities/cohort/examples/valid/cohort-valid_1.json)) examples under `schemas/entities`:
+Run **all** valid and invalid metadata JSON (e.g., [`cohort-valid-detailed-study-defined.json`](./schemas/entities/cohort/examples/valid/cohort-valid-detailed-study-defined.json)) examples under `schemas/entities`:
 
 ```bash
 python scripts/py/validate_examples.py --root schemas/entities

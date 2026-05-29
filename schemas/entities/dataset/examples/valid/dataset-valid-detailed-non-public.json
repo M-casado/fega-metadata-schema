@@ -6,7 +6,7 @@
       "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/dataset/schema.json",
       "@type": [ "ega:dataset", "dcat:Dataset" ],
       "id": "fega:EGAD00000000001",
-      "title": "FEGA test dataset for HealthDCAT-AP NON_PUBLIC validation",
+      "title": "Synthetic viral response genomics dataset",
       "alternativeTitle": [
         "Synthetic Genomic Cohort for Viral Response Analysis",
         "SGCVRA"

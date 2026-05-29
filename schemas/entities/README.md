@@ -35,7 +35,7 @@ Please note that until an official release (v2 of the model) is announced, **the
 
 If you wish to **use these schemas** for trial integration or testing, you can retrieve the ``.json`` files and load them into any JSON Schema–compliant validator. We recommend using the Biovalidator for validation, as our schemas take its custom keywords (e.g., ``graphRestriction``) into account for the validation logic (e.g., ``oneOf``, ``anyOf``, etc.).
 
- You can also experiment with the JSON-LD aspects by loading example instances (from the [``*/examples/``] directory at each entity directory, e.g., [``dataset-valid_1.json``](./dataset/examples/valid/dataset-valid_1.json)) into a [JSON-LD Playground](https://json-ld.org/playground/) or an RDF library – the provided contexts (``@context``) in the JSON Schemas should allow you to see the metadata as an RDF graph.
+ You can also experiment with the JSON-LD aspects by loading example instances (from the [``*/examples/``] directory at each entity directory, e.g., [``dataset-valid-detailed-non-public.json``](./dataset/examples/valid/dataset-valid-detailed-non-public.json)) into a [JSON-LD Playground](https://json-ld.org/playground/) or an RDF library – the provided contexts (``@context``) in the JSON Schemas should allow you to see the metadata as an RDF graph.
 
 To **contribute** to the repository please refer to the [contributing documentation](../../CONTRIBUTING.md). Schema development follows the guidance of the FEGA Metadata Working Group, but we greatly value external contributions and domain-specific insights.
 
