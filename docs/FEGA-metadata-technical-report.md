@@ -108,63 +108,63 @@
 
 List of figures
 
-[Figure 1\. Overview of the FEGA network and the workflow of data provenance and access requests.	16](#figure-1.-overview-of-the-fega-network-and-the-workflow-of-data-provenance-and-access-requests.)
+[Figure 1\. Overview of the FEGA network and the workflow of data provenance and access requests.	16](#figure-1-overview-of-the-fega-network-and-the-workflow-of-data-provenance-and-access-requests)
 
-[Figure 2\. Federated EGA network overview, highlighting the need to share metadata for data discovery and access.	17](#figure-2.-federated-ega-network-overview,-highlighting-the-need-to-share-metadata-for-data-discovery-and-access.)
+[Figure 2\. Federated EGA network overview, highlighting the need to share metadata for data discovery and access.	17](#figure-2-federated-ega-network-overview-highlighting-the-need-to-share-metadata-for-data-discovery-and-access)
 
-[Figure 3\. Overview of the timeline from the MWG.	27](#figure-3.-overview-of-the-timeline-from-the-mwg.)
+[Figure 3\. Overview of the timeline from the MWG.	27](#figure-3-overview-of-the-timeline-from-the-mwg)
 
-[Figure 4\. Flow diagram representing an oversimplification of the model entities and relationships of the EGA v2 metadata model.	32](#figure-4.-flow-diagram-representing-an-oversimplification-of-the-model-entities-and-relationships-of-the-ega-v2-metadata-model.)
+[Figure 4\. Flow diagram representing an oversimplification of the model entities and relationships of the EGA v2 metadata model.	32](#figure-4-flow-diagram-representing-an-oversimplification-of-the-model-entities-and-relationships-of-the-ega-v2-metadata-model)
 
-[Figure 5\. Flow diagram representing the entities and relationships of the EGA v2 metadata model.	34](#figure-5.-flow-diagram-representing-the-entities-and-relationships-of-the-ega-v2-metadata-model.)
+[Figure 5\. Flow diagram representing the entities and relationships of the EGA v2 metadata model.	34](#figure-5-flow-diagram-representing-the-entities-and-relationships-of-the-ega-v2-metadata-model)
 
-[Figure 6\. Visual representation of the different process trees based on the submission granularity.	36](#figure-6.-visual-representation-of-the-different-process-trees-based-on-the-submission-granularity.)
+[Figure 6\. Visual representation of the different process trees based on the submission granularity.	36](#figure-6-visual-representation-of-the-different-process-trees-based-on-the-submission-granularity)
 
-[Figure 7\. Classification of processes and comparison of EGA v1 experiments/analysis and EGA v2 processes.	37](#figure-7.-classification-of-processes-and-comparison-of-ega-v1-experiments/analysis-and-ega-v2-processes.)
+[Figure 7\. Classification of processes and comparison of EGA v1 experiments/analysis and EGA v2 processes.	37](#figure-7-classification-of-processes-and-comparison-of-ega-v1-experimentsanalysis-and-ega-v2-processes)
 
-[Figure 8\. Representation of the same sequencing and alignment processes in both the EGA v1 and v2 models.	40](#figure-8.-representation-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models.)
+[Figure 8\. Representation of the same sequencing and alignment processes in both the EGA v1 and v2 models.	40](#figure-8-representation-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models)
 
-[Figure 9\. Representation in detail (with real accessions) of the same sequencing and alignment processes in both the EGA v1 and v2 models.	41](#figure-9.-representation-in-detail-\(with-real-accessions\)-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models.)
+[Figure 9\. Representation in detail (with real accessions) of the same sequencing and alignment processes in both the EGA v1 and v2 models.	41](#figure-9-representation-in-detail-with-real-accessions-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models)
 
-[Figure 10\. Representation in detail (with real accessions) of the whole worked CEGA example modelled through EGA v1 model.	42](#figure-10.-representation-in-detail-\(with-real-accessions\)-of-the-whole-worked-cega-example-modelled-through-ega-v1-model.)
+[Figure 10\. Representation in detail (with real accessions) of the whole worked CEGA example modelled through EGA v1 model.	42](#figure-10-representation-in-detail-with-real-accessions-of-the-whole-worked-cega-example-modelled-through-ega-v1-model)
 
-[Figure 11\. Representation in detail (with real accessions) of the worked CEGA example, modelled through the EGA v2 model.	43](#figure-11.-representation-in-detail-\(with-real-accessions\)-of-the-worked-cega-example,-modelled-through-the-ega-v2-model.)
+[Figure 11\. Representation in detail (with real accessions) of the worked CEGA example, modelled through the EGA v2 model.	43](#figure-11-representation-in-detail-with-real-accessions-of-the-worked-cega-example-modelled-through-the-ega-v2-model)
 
-[Figure 12\. Representation (in EGA v2 model) of a simplified view for individual A, except for clinical information.	45](#figure-12.-representation-\(in-ega-v2-model\)-of-a-simplified-view-for-individual-a,-except-for-clinical-information.)
+[Figure 12\. Representation (in EGA v2 model) of a simplified view for individual A, except for clinical information.	45](#figure-12-representation-in-ega-v2-model-of-a-simplified-view-for-individual-a-except-for-clinical-information)
 
-[Figure 13\. Comparison of differences between examples for individual B and A in EGA v2 model.	47](#figure-13.-comparison-of-differences-between-examples-for-individual-b-and-a-in-ega-v2-model.)
+[Figure 13\. Comparison of differences between examples for individual B and A in EGA v2 model.	47](#figure-13-comparison-of-differences-between-examples-for-individual-b-and-a-in-ega-v2-model)
 
-[Figure 14\. Representation of clinical information for both individuals A and B in EGA v2 model.	48](#figure-14.-representation-of-clinical-information-for-both-individuals-a-and-b-in-ega-v2-model.)
+[Figure 14\. Representation of clinical information for both individuals A and B in EGA v2 model.	48](#figure-14-representation-of-clinical-information-for-both-individuals-a-and-b-in-ega-v2-model)
 
-[Figure 15\. Proteomics use case representation in EGA v2 model.	52](#figure-15.-proteomics-use-case-representation-in-ega-v2-model.)
+[Figure 15\. Proteomics use case representation in EGA v2 model.	52](#figure-15-proteomics-use-case-representation-in-ega-v2-model)
 
-[Figure 16\. Diagram of a stool-microbiome research data lifecycle into the EGA v2 Metadata Model. Datasets 1 & 2 may fit best in public archives (e.g., ENA), simplifying the example.	56](#figure-16.-diagram-of-a-stool-microbiome-research-data-lifecycle-into-the-ega-v2-metadata-model.-datasets-1-&-2-may-fit-best-in-public-archives-\(e.g.,-ena\),-simplifying-the-example.)
+[Figure 16\. Diagram of a stool-microbiome research data lifecycle into the EGA v2 Metadata Model. Datasets 1 & 2 may fit best in public archives (e.g., ENA), simplifying the example.	56](#figure-16-diagram-of-a-stool-microbiome-research-data-lifecycle-into-the-ega-v2-metadata-model-datasets-1--2-may-fit-best-in-public-archives-eg-ena-simplifying-the-example)
 
-[Figure 17\. Diagram depicting the expansion of a JSON document into JSON-LD with the addition of @context.	57](#figure-17.-diagram-depicting-the-expansion-of-a-json-document-into-json-ld-with-the-addition-of-@context.)
+[Figure 17\. Diagram depicting the expansion of a JSON document into JSON-LD with the addition of @context.	57](#figure-17-diagram-depicting-the-expansion-of-a-json-document-into-json-ld-with-the-addition-of-context)
 
-[Figure 18\. Representation of existing embedded contexts and how it improves the findability of EGA records on the web. (1) Record of a dataset in the EGA portal; (2) application/ld+json node embedded in the HTML of the record, containing context and metadata in JSON-LD format; (3) result of a query at Google Datasets, returning the EGA dataset thanks to its embedded context.	59](#figure-18.-representation-of-existing-embedded-contexts-and-how-it-improves-the-findability-of-ega-records-on-the-web.-\(1\)-record-of-a-dataset-in-the-ega-portal;-\(2\)-application/ld+json-node-embedded-in-the-html-of-the-record,-containing-context-and-metadata-in-json-ld-format;-\(3\)-result-of-a-query-at-google-datasets,-returning-the-ega-dataset-thanks-to-its-embedded-context.)
+[Figure 18\. Representation of existing embedded contexts and how it improves the findability of EGA records on the web. (1) Record of a dataset in the EGA portal; (2) application/ld+json node embedded in the HTML of the record, containing context and metadata in JSON-LD format; (3) result of a query at Google Datasets, returning the EGA dataset thanks to its embedded context.	59](#figure-18-representation-of-existing-embedded-contexts-and-how-it-improves-the-findability-of-ega-records-on-the-web-1-record-of-a-dataset-in-the-ega-portal-2-applicationldjson-node-embedded-in-the-html-of-the-record-containing-context-and-metadata-in-json-ld-format-3-result-of-a-query-at-google-datasets-returning-the-ega-dataset-thanks-to-its-embedded-context)
 
-[Figure 19\. Summary diagram representing the submission proposal with regards to open and controlled access metadata.	61](#figure-19.-summary-diagram-representing-the-submission-proposal-with-regards-to-open-and-controlled-access-metadata.)
+[Figure 19\. Summary diagram representing the submission proposal with regards to open and controlled access metadata.	61](#figure-19-summary-diagram-representing-the-submission-proposal-with-regards-to-open-and-controlled-access-metadata)
 
-[Figure 20\. Made-up example of the core EGA v2 model and a FEGA Norway extension evolving over time.	65](#figure-20.-made-up-example-of-the-core-ega-v2-model-and-a-fega-norway-extension-evolving-over-time.)
+[Figure 20\. Made-up example of the core EGA v2 model and a FEGA Norway extension evolving over time.	65](#figure-20-made-up-example-of-the-core-ega-v2-model-and-a-fega-norway-extension-evolving-over-time)
 
 List of Tables
 
-[Table 1\. User stories.	19](#table-1.-user-stories.)
+[Table 1\. User stories.	19](#table-1-user-stories)
 
-[Table 2\. Classification of processes based on input-output combinations.	36](#table-2.-classification-of-processes-based-on-input-output-combinations.)
+[Table 2\. Classification of processes based on input-output combinations.	36](#table-2-classification-of-processes-based-on-input-output-combinations)
 
-[Table 3\. Anticipated FAIR gains of the EGA v2 model over the EGA v1 model.	64](#table-3.-anticipated-fair-gains-of-the-ega-v2-model-over-the-ega-v1-model.)
+[Table 3\. Anticipated FAIR gains of the EGA v2 model over the EGA v1 model.	64](#table-3-anticipated-fair-gains-of-the-ega-v2-model-over-the-ega-v1-model)
 
-[Table 4\. EGA v1-v2 models mapping strategy overview.	67](#table-4.-ega-v1-v2-models-mapping-strategy-overview.)
+[Table 4\. EGA v1-v2 models mapping strategy overview.	67](#table-4-ega-v1-v2-models-mapping-strategy-overview)
 
-[Table 5\. FEGA governing groups over the EGA v2 model.	69](#table-5.-fega-governing-groups-over-the-ega-v2-model.)
+[Table 5\. FEGA governing groups over the EGA v2 model.	69](#table-5-fega-governing-groups-over-the-ega-v2-model)
 
-[Table 6\. Change release flow step-by-step.	70](#table-6.-change-release-flow-step-by-step.)
+[Table 6\. Change release flow step-by-step.	70](#table-6-change-release-flow-step-by-step)
 
-[Table 7\. Risks and mitigations overview.	73](#table-7.-risks-and-mitigations-overview.)
+[Table 7\. Risks and mitigations overview.	73](#table-7-risks-and-mitigations-overview)
 
-[Table 8\. Open questions of the Technical Report.	79](#table-8.-open-questions-of-the-technical-report.)
+[Table 8\. Open questions of the Technical Report.	79](#table-8-open-questions-of-the-technical-report)
 
 Table of contents and contributions
 
@@ -198,7 +198,7 @@ Table of contents and contributions
 | [Next steps](#next-steps) | [Marcos Casado Barbero](mailto:mcasado@ebi.ac.uk) | [Marcos Casado Barbero](mailto:mcasado@ebi.ac.uk) |
 | [Open questions](#open-questions) | [Marcos Casado Barbero](mailto:mcasado@ebi.ac.uk) | [Marcos Casado Barbero](mailto:mcasado@ebi.ac.uk) |
 
-# Glossary of Terms and Abbreviations {#glossary-of-terms-and-abbreviations}
+# Glossary of Terms and Abbreviations
 
 | Abbreviations | Description |
 | ----- | ----- |
@@ -286,7 +286,7 @@ Table of contents and contributions
 | Datafile	 | Digital file containing experimental data |
 | Dataset	 | Controlled-access bundle of related datafiles |
 | Dataset Series | Thematic collection of separate datasets |
-| EGA v1 Model | The current metadata model (as of January 2026\) that has been in production (i.e., in use) since the establishment of the EGA in 2008\. It is used until the EGA v2 model is in production by CEGA for submissions, and by FEGA nodes that use the Local EGA[^46]. |
+| EGA v1 Model | The current metadata model (as of January 2026) that has been in production (i.e., in use) since the establishment of the EGA in 2008\. It is used until the EGA v2 model is in production by CEGA for submissions, and by FEGA nodes that use the Local EGA[^46]. |
 | EGA v2 Model | The second major iteration of the EGA metadata model, proposed by the FEGA MWG in this document, and still to be implemented. |
 | Identifier	 | Stable reference string for an entity |
 | IRI | Like a URI but allows Unicode; can be losslessly converted to a URI by percent-encoding. Defined in RFC 3987[^47] |
@@ -306,7 +306,7 @@ Table of contents and contributions
 | URI | ASCII identifier string for a resource using the generic syntax. Defined in [RFC 3986](https://www.rfc-editor.org/rfc/rfc3986).  |
 | URL | A URI that provides a network location for retrieval (for example *https*). Defined in [RFC 1738](https://datatracker.ietf.org/doc/html/rfc1738). |
 
-1. # Executive summary {#executive-summary}
+1. # Executive summary
 
 The **Federated EGA** (FEGA) **Metadata Working Group** (MWG) has designed a new, **process-oriented metadata model** intended to replace the EGA v1 model[^48], used by Central EGA (CEGA) and FEGA nodes using Local EGA[^49]. It prepares the FEGA network for FAIR, linked-data interoperability across **human omics**. **The model is under active development, and this report**[^50] **accompanies that work in progress.** What exists today is an abstract specification and a first set of JSON Schema drafts[^51] with embedded JSON-LD contexts; detailed serialisations, production deployments and full validator roll-out are future milestones, not completed deliverables.
 
@@ -316,21 +316,21 @@ A **transparent GitHub repository[^53]** contains the schemas, documentation, ve
 
 ***Disclaimer(s)**: this document is a snapshot of the live documentation of the FEGA MWG as of February 2026\. New content and changes will be added to `docs/technical-report.md`*[^54]. Some materials referenced in this document are only accessible to members of their respective groups (ELIXIR, GDI and FEGA). To gain access to them, request membership through the official channels.
 
-2. # Introduction {#introduction}
+2. # Introduction
 
 In the era of rapidly expanding human genomics data in research and healthcare, efficient data reuse is gaining importance to maximise benefits for patients. The 1+Million Genomes (1+MG) Initiative[^55] was launched in 2018 to enable access to one million sequenced human genomes across Europe, and provided a cohesive vision to support diverse jurisdictional data sharing requirements. This has prompted the establishment of federated genomic data sharing networks in Europe, which catalysed the development of multiple projects, including the **Federated European Genome-phenome Archive** (FEGA)[^56],[^57].
 
-Since its launch in 2022, the FEGA Network (see [Figure 1](#figure-1.-overview-of-the-fega-network-and-the-workflow-of-data-provenance-and-access-requests.) and [Figure 2](#figure-2.-federated-ega-network-overview,-highlighting-the-need-to-share-metadata-for-data-discovery-and-access.)) has become fully operational, coordinated by CEGA, based in EMBL's European Bioinformatics Institute (EMBL-EBI) and the Centre for Genomic Regulation (CRG), and as of January 2026 it consists of **nine national nodes** (Finland, Germany, Norway, Spain, Sweden, Poland, Portugal, Canada, and most recently Switzerland)[^58], and has 53 datasets available[^59].
+Since its launch in 2022, the FEGA Network (see [Figure 1](#figure-1-overview-of-the-fega-network-and-the-workflow-of-data-provenance-and-access-requests) and [Figure 2](#figure-2-federated-ega-network-overview-highlighting-the-need-to-share-metadata-for-data-discovery-and-access)) has become fully operational, coordinated by CEGA, based in EMBL's European Bioinformatics Institute (EMBL-EBI) and the Centre for Genomic Regulation (CRG), and as of January 2026 it consists of **nine national nodes** (Finland, Germany, Norway, Spain, Sweden, Poland, Portugal, Canada, and most recently Switzerland)[^58], and has 53 datasets available[^59].
 
 The complexities, challenges, and achievements of FEGA, unravelling the dynamic interplay between regulatory frameworks, technical challenges, and the shared vision of advancing genomic research to improve global health have recently been described in the FEGA marker paper published in Nature Genetics[^60].
 
-##### ***Figure 1**. Overview of the FEGA network and the workflow of data provenance and access requests.* {#figure-1.-overview-of-the-fega-network-and-the-workflow-of-data-provenance-and-access-requests.}
+##### ***Figure 1**. Overview of the FEGA network and the workflow of data provenance and access requests.*
 
-![][image1]
+![Figure 1. Overview of the FEGA network and the workflow of data provenance and access requests.](images/FEGA_technical_report-figure_1-FEGA_introduction.svg)
 
-##### ***Figure 2\.** Federated EGA network overview, highlighting the need to share metadata for data discovery and access.* {#figure-2.-federated-ega-network-overview,-highlighting-the-need-to-share-metadata-for-data-discovery-and-access.}
+##### ***Figure 2\.** Federated EGA network overview, highlighting the need to share metadata for data discovery and access.*
 
-![][image2]
+![Figure 2. Federated EGA network overview, highlighting the need to share metadata for data discovery and access.](images/FEGA_technical_report-figure_2-FEGA_introduction.svg)
 
 In a rapidly evolving data-sharing landscape, FEGA collaborates with European and other international initiatives, like the 1+ Million Genomes (1+MG)[^61] or the European Genomic Data Infrastructure (GDI)[^62], to serve a variety of human genomic data-sharing use-cases with its operational network for transnational discovery of and access to human data. The FEGA architecture facilitates the core stages of the data management lifecycle, including data and metadata submission to CEGA or FEGA nodes, long-term and secure storage, **metadata publication for discovery**, data access request management, and controlled-access to data. These operations use encrypted data in secure environments, with user access managed through advanced authentication and authorisation systems. Interoperability is ensured by adhering to community standards, such as those developed by the Global Alliance for Genomics and Health (GA4GH)[^63]. FEGA nodes have the flexibility to implement or deploy components of their choice, provided they comply with these agreed-upon standards.
 
@@ -338,7 +338,7 @@ In the dynamic field of human genomics, creating **interoperable federated netwo
 
 This document showcases **FEGA's efforts on the topic of metadata standards** by focusing on a robust metadata framework to support its FAIR data-sharing goals. The current **CEGA metadata model[^64]**, hereinafter the EGA v1 model, has been instrumental in enabling the registration and management of sensitive genomic data. However, as the scope of research expands and new technologies emerge, this reveals the need for the metadata model to accommodate complex data relationships and scenarios. Below, we outline how the **FEGA Metadata Working Group** (MWG) is building a sustainable model to manage and link metadata effectively, ensuring scalability, interoperability, and alignment with the wider research community.
 
-3. # Scope {#scope}
+3. # Scope
 
 This document outlines the FEGA MWG's **proposed abstract metadata model for FEGA, and its approach to metadata validation and linked data**. The model is designed to support robust, FAIR-compliant metadata within FEGA. While the model primarily serves the FEGA network (e.g., node maintainers and data curators), it is also intended as a resource for the **broader research community**, showcasing the working group's approach to improving FEGA's current metadata infrastructure.
 
@@ -348,7 +348,7 @@ This document does **not** address details of how the new metadata model may int
 
 The focus remains on creating a **scalable, open-source metadata model that aligns with FEGA's FAIR goals and can be adapted** to evolving research data needs over time.
 
-4. # Metadata model naming conventions {#metadata-model-naming-conventions}
+4. # Metadata model naming conventions
 
 Before the FEGA MWG proposed the new EGA metadata model, **there was a single major version of the EGA model** from its start in 2008\. Given the fact that the core source for the new model is the previous one, and in the interest of clear and traceable provenance in technical documentation, the naming conventions follow semantic versioning 2.0.0[^65] and are as follows:
 
@@ -360,11 +360,11 @@ The FEGA MWG aims for the EGA v2 model to be the common language for submission 
 
 Find more details about the [*Model versioning*](#model-versioning) and [*Governance*](#governance) in their respective sections.
 
-5. # User stories {#user-stories}
+5. # User stories
 
-[Table 1](#table-1.-user-stories.) outlines **user stories**, drafted as hypotheses to validate, that capture the needs and expectations of various stakeholders interacting with the EGA v2 metadata model. Each row identifies a **role** (*as a …*), the specific **action** (*I want to …*) they aim to perform, and the desired **result** (*to …*) they seek to achieve. This structured format enables a clear understanding of how the model can address user needs, facilitate usability, and support interoperability across diverse contexts.
+[Table 1](#table-1-user-stories) outlines **user stories**, drafted as hypotheses to validate, that capture the needs and expectations of various stakeholders interacting with the EGA v2 metadata model. Each row identifies a **role** (*as a …*), the specific **action** (*I want to …*) they aim to perform, and the desired **result** (*to …*) they seek to achieve. This structured format enables a clear understanding of how the model can address user needs, facilitate usability, and support interoperability across diverse contexts.
 
-###### ***Table 1**. User stories.* {#table-1.-user-stories.}
+###### ***Table 1**. User stories.*
 
 | Role(*as a …*) | Action(*I want to …*) | Result(*to …*) |
 | ----- | ----- | ----- |
@@ -391,11 +391,11 @@ Find more details about the [*Model versioning*](#model-versioning) and [*Govern
 | Project coordinator | Demonstrate how metadata links across archives | Illustrate the benefits of interoperability, and motivate data silos to cooperate |
 | Researcher | Access datasets linked to related publications | Facilitate my research |
 
-6. # Methods {#methods}
+6. # Methods
 
 The methods described here outline the collaborative processes, tools, and strategies employed to achieve the objectives described above.
 
-1. ## Collaboration across FEGA nodes {#collaboration-across-fega-nodes}
+1. ## Collaboration across FEGA nodes
 
 Structured group meetings were held monthly (1-hour sessions) starting September 2023\. Communication channels included:
 
@@ -407,7 +407,7 @@ Structured group meetings were held monthly (1-hour sessions) starting September
 
 * **GitHub**: A repository (EGA-archive/fega-metadata-schema[^67]) to manage schemas and technical reports. Additionally, contributors use forks[^68] of the main repository to add changes.
 
-  2. ## Metadata modelling and validation {#metadata-modelling-and-validation}
+  2. ## Metadata modelling and validation
 
 The EGA v2 model development focuses on aligning with FAIR principles, reusing existing standards, and integrating linked data concepts.
 
@@ -447,7 +447,7 @@ Key aspects of the modelling process include:
 
 5. **Automation**. To aid with the continuous development of the EGA v2 model, scripts[^106],[^107] and workflows[^108] are set in place to automate recurrent tasks (e.g., validation, release preparation, document linting) through GitHub workflows.
 
-   3. ## Namespace strategy {#namespace-strategy}
+   3. ## Namespace strategy
 
 To maintain interoperability and establish a consistent identifier system, an **ega** entry[^109] was created at identifiers.org[^110], covering the resolution of EGA Stable IDs (e.g., EGAD00001008392[^111]). This way, Compact Uniform Resource Identifiers (CURIEs) like ega:EGAD00001008392 are uniquely resolved to the appropriate record through identifiers.org.
 
@@ -455,7 +455,7 @@ In the future, a **fega namespace** will be created to cover the heterogeneity o
 
 These namespaces align with FEGA's mission to support both internal metadata needs and broader interoperability.
 
-4. ## Metadata validation {#metadata-validation}
+4. ## Metadata validation
 
 Validation, in its simplest form, entails comparing some "content" against some "rules", producing an evaluation of whether the content conforms to the rules. In the EGA v2 metadata model, validation couples a **domain-specific ruleset** (maintained as JSON Schema files) **with the ELIXIR Biovalidator**, providing syntactic validation and selected semantic checks (e.g., ontology term validation).
 
@@ -473,11 +473,11 @@ Validating data through the EGA v2 model is plain and simple: it requires access
 
 The group has created onboarding materials on this matter, including a dedicated FEGA Metadata Technical Deep Dive[^119] and succinct posters[^120],[^121],[^122]. Furthermore, an example of the end-to-end validation workflow can be found in the automated json\_validation\_deploying\_biovalidator.yml[^123]. In fact, it can be manually triggered for maintainers who are not proficient at coding, easing the assertion of data validation even further.
 
-5. ## RDF and linked data {#rdf-and-linked-data}
+5. ## RDF and linked data
 
 In order to provide @context to the FEGA schemas and data to make them RDF-friendly, we extensively used the JSON-LD Playground[^124] and JSON-LD 1.1 documentation[^125].
 
-1. ### Framing {#framing}
+1. ### Framing
 
 When combining JSON Schemas and Linked data, we faced the issue of balancing between the **flexibility of JSON-LD and the stringency of JSON Schemas**. On one hand, RDF modelled metadata is extremely flexible in format (e.g., Turtle, JSON-LD) and structure (e.g., expanded, compacted, flattened). On the other hand, JSON Schema has strict requirements to maintain our standards during validation. These JSON Schemas expect metadata to be in a specific format and follow a specific structure.
 
@@ -485,13 +485,13 @@ Several solutions for this challenge were taken into consideration. For example,
 
 Lastly, the chosen path is to use **framing**[^126], which allows us to map a specific structure for all incoming and flattened JSON-LD files. Through framing, we are able to **change JSON-LD files to a format that the EGA v2 model JSON Schemas** were created to validate. The EGA v2 frames, still in development (see frames/[^127]), will define the structure FEGA expects for each of the main entities. When these frames are applied to a flattened JSON-LD document containing such entities, we can reformat them into a structured JSON-LD with that entity type as root, and thus make them suitable for validation through the EGA v2 model JSON Schemas. In summary, framing allows us to transform RDF-data into a format compatible with the EGA v2 model JSON Schemas.
 
-7. # EGA v2 metadata model {#ega-v2-metadata-model}
+7. # EGA v2 metadata model
 
 The EGA v2 model has two main components to highlight, both tightly intertwined: the **conceptual model** and the **technology stack**. The former consists of the way information is structured and linked (e.g., how a blood sample is represented), while the latter represents the chosen implementation approaches (e.g., how to assert submissions comply with the conceptual model). They are difficult to split apart, as both complement each other, and thus throughout this document we refer to both together as "EGA v2 model" or "EGA v2 metadata model".
 
-1. ## Group formation and work summary {#group-formation-and-work-summary}
+1. ## Group formation and work summary
 
-The FEGA MWG engaged CEGA and **multiple nodes**: Germany, Poland, Norway, Finland, Portugal, Sweden, Spain, Canada and, later, Switzerland. The group (i.e., we) worked collaboratively as per the timeline shown in [Figure 3](#figure-3.-overview-of-the-timeline-from-the-mwg.), and detailed below.
+The FEGA MWG engaged CEGA and **multiple nodes**: Germany, Poland, Norway, Finland, Portugal, Sweden, Spain, Canada and, later, Switzerland. The group (i.e., we) worked collaboratively as per the timeline shown in [Figure 3](#figure-3-overview-of-the-timeline-from-the-mwg), and detailed below.
 
 Initial efforts in October 2023 involved **presenting existing metadata models and requirements** from five nodes and GDI. In January 2024, a survey was circulated to explore the metadata landscape, receiving 10 responses from 8 countries, including CEGA, FEGA Germany, FEGA Poland, FEGA Norway, FEGA Finland, FEGA Portugal, FEGA Sweden and FEGA Spain.
 
@@ -499,11 +499,11 @@ After collecting the feedback from the survey, we worked through **rounds of dra
 
 In the second half of 2024, we continued with further rounds of external reviews and outreach, engaging diverse participants in workshops and presentations. Taken together, all the feedback helped shape the EGA v2 model. At the beginning of 2025, we started putting all our efforts into this **technical report and the fega-metadata-schema repository**[^128].
 
-##### ***Figure 3\.** Overview of the timeline from the MWG.* {#figure-3.-overview-of-the-timeline-from-the-mwg.}
+##### ***Figure 3\.** Overview of the timeline from the MWG.*
 
-![][image3]
+![Figure 3. Overview of the timeline from the MWG.](images/FEGA_technical_report-figure_3-MWG_timeline.svg)
 
-2. ## External involvement {#external-involvement}
+2. ## External involvement
 
 External collaboration included interactions with ELIXIR, GDI, GA4GH, Beacon, BioSchemas and other stakeholders:
 
@@ -535,7 +535,7 @@ To gather feedback and ensure broad adoption of the metadata model, the MWG enga
 
   * FEGA Technical Deep dive[^148] (March 2025).
 
-  * GA4GH Beacon for Metadata Discovery[^149] (March 2025\)
+  * GA4GH Beacon for Metadata Discovery[^149] (March 2025)
 
   * Predictor Effector Gene (PEG) working group[^150] (July 2025).
 
@@ -557,9 +557,9 @@ To gather feedback and ensure broad adoption of the metadata model, the MWG enga
 
 These activities (and subsequent word-of-mouth) encouraged researchers from a wider network (e.g., PEG, The International Genome Sample Resource[^159]) to connect with the FEGA MWG about metadata models.
 
-3. ## Model entities {#model-entities}
+3. ## Model entities
 
-During the development of the EGA v2 metadata model, we adopted a **process-centered approach** that emphasises procedural representations over traditional biological experiment or analysis perspectives. See examples of these differences in [Figure 8](#figure-8.-representation-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models.) and [Figure 9](#figure-9.-representation-in-detail-\(with-real-accessions\)-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models.). This shift allows for a more flexible and comprehensive framework, capable of representing a wide array of processes, not limited to canonical experimental designs. Our approach draws inspiration from models such as the Human Cell Atlas[^160],[^161] (HCA) and the SEEK workflow model[^162],[^163], which have successfully implemented similar methodologies.
+During the development of the EGA v2 metadata model, we adopted a **process-centered approach** that emphasises procedural representations over traditional biological experiment or analysis perspectives. See examples of these differences in [Figure 8](#figure-8-representation-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models) and [Figure 9](#figure-9-representation-in-detail-with-real-accessions-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models). This shift allows for a more flexible and comprehensive framework, capable of representing a wide array of processes, not limited to canonical experimental designs. Our approach draws inspiration from models such as the Human Cell Atlas[^160],[^161] (HCA) and the SEEK workflow model[^162],[^163], which have successfully implemented similar methodologies.
 
 The entities defined in the EGA v2 model are as follows. Each of them  listed here with its name (e.g., Biomaterial), the closest match to an ontology term (e.g., OBI:0100051 – not necessarily the only mapping, a replacement, or a 1-to-1 match), and its definition in the EGA v2 model.
 
@@ -591,15 +591,45 @@ The entities defined in the EGA v2 model are as follows. Each of them  listed he
 
 To see these entities in use, refer to the examples in the [*Use-cases*](#use-cases) section.
 
-4. ## Model cardinality {#model-cardinality}
+4. ## Model cardinality
 
-A simplified version of the EGA v2 model can be seen in a diagram in [Figure 4](#figure-4.-flow-diagram-representing-an-oversimplification-of-the-model-entities-and-relationships-of-the-ega-v2-metadata-model.). In it, we represent a quick, **five-block overview**: biomaterial, activities, datafiles, and the administrative and data management layers.
+A simplified version of the EGA v2 model can be seen in a diagram in [Figure 4](#figure-4-flow-diagram-representing-an-oversimplification-of-the-model-entities-and-relationships-of-the-ega-v2-metadata-model). In it, we represent a quick, **five-block overview**: biomaterial, activities, datafiles, and the administrative and data management layers.
 
-##### ***Figure 4\.** Flow diagram representing an oversimplification of the model entities and relationships of the EGA v2 metadata model.* {#figure-4.-flow-diagram-representing-an-oversimplification-of-the-model-entities-and-relationships-of-the-ega-v2-metadata-model.}
+##### ***Figure 4\.** Flow diagram representing an oversimplification of the model entities and relationships of the EGA v2 metadata model.*
 
-![][image4]
+```mermaid
+---
+config:
+  theme: neutral
+  look: neo
+  layout: dagre
+---
+flowchart TB
+    n28["<b>Biomaterial</b><p></p>"] <--> n27@{ label: "<b style=\"font-weight:\">Activities</b>" }
+    n27 <--> n29@{ label: "<b style=\"font-weight:\">Datafile</b>" }
+    n26(["<b>Administrative</b>"]) --> n28
+    n25["<b>Data<br>management</b>"] --> n29
+    n26 --> n27
 
-The summarised view of [Figure 4](#figure-4.-flow-diagram-representing-an-oversimplification-of-the-model-entities-and-relationships-of-the-ega-v2-metadata-model.) is expanded further in [Figure 5](#figure-5.-flow-diagram-representing-the-entities-and-relationships-of-the-ega-v2-metadata-model.), with mapped terms (e.g., dcat:Distribution) and semantically tagged relationships (e.g., prov:wasUsedBy). Domain namespaces in the diagram are:
+    n28@{ shape: dbl-circ}
+    n27@{ shape: rect}
+    n29@{ shape: doc}
+    n25@{ shape: diam}
+     n28:::biomaterial
+     n27:::process
+     n29:::datafile
+     n26:::Administrative
+     n25:::dataManagement
+    classDef biomaterial fill:#B3D9FF,stroke:#4C8BF5,stroke-width:1px
+    classDef datafile   fill:#D5E8D4,stroke:#6FB96C,stroke-width:1px
+    classDef process fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, stroke-dasharray: 0
+    classDef protocol fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, fill:#feeedf, background-color:#feeedf, stroke-dasharray: 2
+    classDef Collection fill:#ffb875, color:#000000, stroke-width:1px, stroke-dasharray: 0, stroke:#000000
+    classDef Administrative stroke:#000000, fill:#E1BEE7, color:#000000
+    classDef dataManagement fill:#FFD600, stroke:#000000, color:#000000
+```
+
+The summarised view of [Figure 4](#figure-4-flow-diagram-representing-an-oversimplification-of-the-model-entities-and-relationships-of-the-ega-v2-metadata-model) is expanded further in [Figure 5](#figure-5-flow-diagram-representing-the-entities-and-relationships-of-the-ega-v2-metadata-model), with mapped terms (e.g., dcat:Distribution) and semantically tagged relationships (e.g., prov:wasUsedBy). Domain namespaces in the diagram are:
 
 * **prov**: Provenance[^177].
 
@@ -613,27 +643,110 @@ The summarised view of [Figure 4](#figure-4.-flow-diagram-representing-an-oversi
 
 Cardinality constraints (e.g., "*how many datafiles can a process generate*") need to be further defined (ongoing discussions).
 
-Furthermore, note that cardinality between the model entities in [Figure 5](#figure-5.-flow-diagram-representing-the-entities-and-relationships-of-the-ega-v2-metadata-model.) is classified as:
+Furthermore, note that cardinality between the model entities in [Figure 5](#figure-5-flow-diagram-representing-the-entities-and-relationships-of-the-ega-v2-metadata-model) is classified as:
 
 * **Core**. Implies the default connections between entities envisioned by the model. In other words, the source of truth for how to link parts of the model.
 
 * **Implementation**. Corresponds to inferred relationships that may help with querying the model once it is in use. These are mere suggestions to facilitate the recovery of information through queries, based on common discoverability patterns (e.g., a user requesting to know which cohorts participated in a study), and should be based on, not replace, the core ones.
 
-##### ***Figure 5\.** Flow diagram representing the entities and relationships of the EGA v2 metadata model.* {#figure-5.-flow-diagram-representing-the-entities-and-relationships-of-the-ega-v2-metadata-model.}
+##### ***Figure 5\.** Flow diagram representing the entities and relationships of the EGA v2 metadata model.*
 
-![][image5]
+```mermaid
+---
+config:
+  theme: neutral
+  look: neo
+  layout: dagre
+  flowchart:
+    defaultRenderer: elk
+---
+flowchart TB
+ subgraph s1["Colour-coding"]
+        Administrative1(["Administrative"])
+        Biomaterial1["Biomaterial"]
+        Activities1["Activities"]
+        DataManagement["Data<br>Management"]
+  end
+ subgraph s2["Arrows-Cardinality"]
+        b["b"]
+        a["a"]
+        d["d"]
+        c["c"]
+  end
+ subgraph s3["Diagram-Legend"]
+        s1
+        s2
+  end
+    a -- Core --> b
+    c -. Implementation ..-> d
+    Project@{ label: "<b style=\"color:\">Project<br></b>(schema:Project)" } -- dcterms:hasPart --> Study(["<b>Study<br></b>(schema:ResearchProject)<b></b>"])
+    Project -. dcterms:hasPart ..-> Dataset["<b>dcat:Dataset<br></b>"]
+    Study -- dcterms:hasPart --> ProtocolCollection@{ label: "<b style=\"color:\">Protocol</b><br><b style=\"color:\">Collection</b><br>(prov:Collection)<br>(prov:Plan)" }
+    Study -. dcterms:hasPart ..-> Cohort(["<b>Cohort</b><br>(prov:Collection)"])
+    Cohort -- prov:hadMember --> Biomaterial["<b>Biomaterial</b><p></p>"]
+    ProtocolCollection -- prov:hadMember --> Protocol["<b>Protocol</b><br>(prov:Plan)"]
+    Biomaterial -- prov:wasUsedBy --> Process@{ label: "<b style=\"font-weight:\">Process</b><br>(prov:Activity)" }
+    Process -- prov:generated --> Datafile@{ label: "<b style=\"font-weight:\">Datafile</b><br>(dcat:Distribution)" } & Biomaterial
+    Datafile -- prov:wasUsedBy --> Process
+    Process -- prov:wasInformedBy --> Process
+    Process -- prov:hadPlan --> ProtocolCollection
+    Process -. prov:hadPlan ..-> Protocol
+    Dataset -- dcterms:accessRights --> Policy@{ label: "<span style=\"color:\"><b>Policy </b><br></span>(dcterms:RightsStatement)" }
+    Policy -- prov:wasAttributedTo --> DAC["<b>DAC</b><br>(prov:Agent)"]
+    Dataset -- dcat:distribution --> Datafile
+    Catalog["<b>dcat:Catalog<br></b>"] -- dcat:dataset --> Dataset
+    Catalog -- dcat:record --> CatalogRecord["<b>dcat:CatalogRecord</b>"]
+    CatalogRecord -- "<span style=color:>foaf:primaryTopic</span>" --> Dataset
+
+    Biomaterial1@{ shape: dbl-circ}
+    DataManagement@{ shape: diam}
+    Biomaterial@{ shape: dbl-circ}
+    Process@{ shape: rect}
+    Datafile@{ shape: doc}
+    ProtocolCollection@{ shape: rect}
+    Protocol@{ shape: rect}
+    Policy@{ shape: diam}
+    DAC@{ shape: diam}
+    Project@{ shape: stadium}
+    Dataset@{ shape: diam}
+    Catalog@{ shape: diam}
+    CatalogRecord@{ shape: diam}
+     Administrative1:::Administrative
+     Biomaterial1:::biomaterial
+     Activities1:::protocol
+     DataManagement:::dataManagement
+     Biomaterial:::biomaterial
+     Process:::protocol
+     Datafile:::datafile
+     ProtocolCollection:::protocol
+     ProtocolCollection:::protocol
+     Protocol:::protocol
+     Policy:::dataManagement
+     DAC:::dataManagement
+     Study:::Administrative
+     Cohort:::Administrative
+     Project:::Administrative
+     Dataset:::dataManagement
+     Catalog:::dataManagement
+     CatalogRecord:::dataManagement
+    classDef biomaterial fill:#B3D9FF,stroke:#4C8BF5,stroke-width:1px
+    classDef datafile   fill:#D5E8D4,stroke:#6FB96C,stroke-width:1px
+    classDef protocol fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, stroke-dasharray: 0
+    classDef Administrative stroke:#000000, fill:#E1BEE7, color:#000000
+    classDef dataManagement fill:#FFD600, stroke:#000000, color:#000000
+```
 
 1. ### Disambiguations
 
 Given the highly heterogeneous ways in which entities can be used by the researchers and submitters, their definitions are defined broadly. Nevertheless, to facilitate the submission and querying of metadata, in this section we further disambiguate the nuances between entities, narrowing their use.
 
-1. #### Processes and Protocols {#processes-and-protocols}
+1. #### Processes and Protocols
 
 A Process (prov:Activity) is linked to the applied collection of protocols (i.e., plans) using prov:hadPlan[^182]. In these protocols, agents (prov:Agent, e.g., a lab technician) adopted different roles in the context of the activity (e.g., DNA extraction) to transform an input (e.g., blood sample biomaterial) into an output (e.g., DNA sample biomaterial).
 
 Linking the individual protocols and the activities is the Protocol Collection: the "plan at this granularity", where submitters have freedom over how many protocols are applied in each process. Groupings by Protocol Collection highly resemble the legacy groupings of Experiment or Analysis in the EGA v1 model.
 
-This distinction supports different representations (see [Figure 6](#figure-6.-visual-representation-of-the-different-process-trees-based-on-the-submission-granularity.) and [Figure 13](#figure-13.-comparison-of-differences-between-examples-for-individual-b-and-a-in-ega-v2-model.)) of the plans based on the given detail:
+This distinction supports different representations (see [Figure 6](#figure-6-visual-representation-of-the-different-process-trees-based-on-the-submission-granularity) and [Figure 13](#figure-13-comparison-of-differences-between-examples-for-individual-b-and-a-in-ega-v2-model)) of the plans based on the given detail:
 
 * **Coarse submission** (few processes, multiple protocols per process). One process points (via prov:hadPlan) to one Protocol Collection (which is the composite plan). This collection lists the individual protocols as members of its grouping via prov:hadMember[^183].  
   This setting would correspond to the canonical EGA v1 Experiment definition, for example, where multiple protocols (e.g., sample preparation, DNA extraction, sequencing) were grouped under a single collection (i.e., the experiment).
@@ -641,17 +754,17 @@ This distinction supports different representations (see [Figure 6](#figure-6.-v
 * **Detailed submission** (multiple processes, one or multiple protocols per process). The overall workflow is split into numerous processes, having a granular step-by-step chain of input-process-output.  
   This approach would suit a detailed design, where data of each activity (e.g., execution date, performers) were known, and thus structured as individual nodes of a process tree.
 
-##### ***Figure 6\.** Visual representation of the different process trees based on the submission granularity.* {#figure-6.-visual-representation-of-the-different-process-trees-based-on-the-submission-granularity.}
+##### ***Figure 6\.** Visual representation of the different process trees based on the submission granularity.*
 
-![][image6]
+![Figure 6. Visual representation of the different process trees based on the submission granularity.](images/FEGA_technical_report-figure_6-process_trees.svg)
 
 Examples of these two can be found in the [*Microarray*](#microarray) use-case section.
 
 It is important to note that prov:hadMember expresses membership alone, not ordering. The main aim of the model is not to contain the full and detailed protocol information of each activity, but the information to enable discoverability of data. Therefore, protocol order was not deemed worth bringing into the mix. If this were to change, other models such as P-Plan[^184] could be considered.
 
-On a different note, **processes** can be classified in **four categories** (see [Table 2](#table-2.-classification-of-processes-based-on-input-output-combinations.), [Figure 7](#figure-7.-classification-of-processes-and-comparison-of-ega-v1-experiments/analysis-and-ega-v2-processes.)) depending on the input-output combinations. These categories are merely informative, and are foreseen to greatly help users discover relevant datasets in EGA.
+On a different note, **processes** can be classified in **four categories** (see [Table 2](#table-2-classification-of-processes-based-on-input-output-combinations), [Figure 7](#figure-7-classification-of-processes-and-comparison-of-ega-v1-experimentsanalysis-and-ega-v2-processes)) depending on the input-output combinations. These categories are merely informative, and are foreseen to greatly help users discover relevant datasets in EGA.
 
-###### ***Table 2**. Classification of processes based on input-output combinations.* {#table-2.-classification-of-processes-based-on-input-output-combinations.}
+###### ***Table 2**. Classification of processes based on input-output combinations.*
 
 |  |  | Output |  |
 | :---: | :---: | :---: | :---: |
@@ -659,13 +772,13 @@ On a different note, **processes** can be classified in **four categories** (see
 | **Input** | Biomaterial | Sample preparation | Assay |
 |  | Datafile | Synthetic biology | Analysis |
 
-It is important to understand the differences and similarities between EGA v1 and v2 with respect to processes. What in EGA v1 is represented by experiments and analyses, in EGA v2 is represented by sequential processes of different types. In [Figure 7](#figure-7.-classification-of-processes-and-comparison-of-ega-v1-experiments/analysis-and-ega-v2-processes.), these similarities are visualized by encompassing the processes of a mock example in what would be their corresponding representations in EGA v1 and v2 conceptual models. See further details at the [*CEGA use-case*](#worked-example) section.
+It is important to understand the differences and similarities between EGA v1 and v2 with respect to processes. What in EGA v1 is represented by experiments and analyses, in EGA v2 is represented by sequential processes of different types. In [Figure 7](#figure-7-classification-of-processes-and-comparison-of-ega-v1-experimentsanalysis-and-ega-v2-processes), these similarities are visualized by encompassing the processes of a mock example in what would be their corresponding representations in EGA v1 and v2 conceptual models. See further details at the [*CEGA use-case*](#worked-example) section.
 
-##### ***Figure 7\.** Classification of processes and comparison of EGA v1 experiments/analysis and EGA v2 processes.* {#figure-7.-classification-of-processes-and-comparison-of-ega-v1-experiments/analysis-and-ega-v2-processes.}
+##### ***Figure 7\.** Classification of processes and comparison of EGA v1 experiments/analysis and EGA v2 processes.*
 
-![][image7]
+![Figure 7. Classification of processes and comparison of EGA v1 experiments/analysis and EGA v2 processes.](images/FEGA_technical_report-figure_7-process_classification.svg)
 
-2. #### Datasets and Datafiles {#datasets-and-datafiles}
+2. #### Datasets and Datafiles
 
 In DCAT, datasets carry "dataset-level" descriptive metadata, while distributions carry "delivery/access" metadata (e.g., download URLs, media type, byte size). 
 
@@ -673,7 +786,7 @@ DCAT notes that distributions of one dataset "should broadly contain the same da
 
 In order to avoid highly nested datasets (i.e., each Datafile being a Dataset) and overly complicated Datafile metadata, EGA v2 adopts in this model the **practical convention** that: (1) a **Dataset** corresponds to the **collection of datafiles** under the same Policy; while (2) **Datafiles** are the **file-level distributions** that make up a Dataset.
 
-5. ## Use-cases {#use-cases}
+5. ## Use-cases
 
 In this section, we review **metadata modelling use-cases that the FEGA community may face** and show how each one maps to the proposed EGA v2 metadata model, side-by-side with the current EGA v1 model when relevant. The goal is to reassure the community that their data is represented seamlessly through, and thus encourage the adoption of, the EGA v2 model.
 
@@ -683,7 +796,7 @@ These sessions were held in the order shown below. The large Excalidraw[^185] di
 
 To date, the MWG has organised **four use-case sessions**: (1) CEGA; (2) Microarray; (3) Proteomics; and (4) Microbiome. Based on the discussion held during the ELIXIR Federated Human Data (FHD) Community Day[^186],[^187] 2025 in Lausanne, Switzerland, future use-case session candidates are: Cohorts/Biobanks, Imaging, Phenotypic/Clinical (e.g., longitudinal study), Single-cell Sequencing, and Exposome. We welcome any suggestions for other possible scenarios that should be tested with the model and are different to the existing ones.
 
-1. ### CEGA use-case {#cega-use-case}
+1. ### CEGA use-case
 
 Here we describe the session held by the MWG, use a submission example and summarise its outcomes, working out an updated representation of a CEGA submission (natively in EGA v1 model) using the EGA v2 model. For further details (slides, recording, diagrams, etc.), please refer to the session agenda**[^188]**.
 
@@ -699,19 +812,111 @@ In this use-case, we went through the most common CEGA submission type: **genomi
 
 * The **Protocol Collection** entity was added to the EGA v2 model.
 
-  2. #### Worked example {#worked-example}
+  2. #### Worked example
 
 Below, we model in detail the **synthetic dataset example** (EGAD00001008392). In doing so, we pinpoint the **similarities and overlapping semantic entities across models**, bridging both the EGA v1 and v2 metadata models.
 
 For the sake of simplicity, we do **not** cover all entities in this dataset, given how verbose the output diagram would be. Nevertheless, we go over types that are different across models, with sufficient coverage for this exercise. For further details about the dataset itself, please request access[^190] to the dataset, which is managed by CEGA. Alternatively, you can see a summary of the dataset in the slides[^191] of the session.
 
-To understand the transition from EGA v1 to EGA v2 models, we need to clarify one of the key differences: **modularity of processes**. As explained in the [*Model entities*](#model-entities) section, and depicted in [Figure 7](#figure-7.-classification-of-processes-and-comparison-of-ega-v1-experiments/analysis-and-ega-v2-processes.) and [Figure 8](#figure-8.-representation-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models.), when we have a sample in the EGA v1 model, it can be linked to datafiles either through EXPERIMENTs and RUNs, or through ANALYSES. Meanwhile, the EGA v2 model simply represents them as different types of **procedural steps**, each with its specific protocol collection and process.
+To understand the transition from EGA v1 to EGA v2 models, we need to clarify one of the key differences: **modularity of processes**. As explained in the [*Model entities*](#model-entities) section, and depicted in [Figure 7](#figure-7-classification-of-processes-and-comparison-of-ega-v1-experimentsanalysis-and-ega-v2-processes) and [Figure 8](#figure-8-representation-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models), when we have a sample in the EGA v1 model, it can be linked to datafiles either through EXPERIMENTs and RUNs, or through ANALYSES. Meanwhile, the EGA v2 model simply represents them as different types of **procedural steps**, each with its specific protocol collection and process.
 
-##### ***Figure 8\.** Representation of the same sequencing and alignment processes in both the EGA v1 and v2 models.* {#figure-8.-representation-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models.}
+##### ***Figure 8\.** Representation of the same sequencing and alignment processes in both the EGA v1 and v2 models.*
 
-![][image8]
+```mermaid
+---
+config:
+  theme: neutral
+  look: neo
+  layout: dagre
+---
+flowchart TB
+ subgraph PC1["<b>protocolCollection</b>"]
+        n5@{ label: "<span style=\"--tw-scale-x:\"><b>Protocol</b></span>" }
+  end
+ subgraph PC2["<b>protocolCollection</b>"]
+        n6@{ label: "<span style=\"--tw-scale-x:\"><b>Protocol</b></span>" }
+  end
+ subgraph subGraph1["<b>EGA v2 Model</b>"]
+    direction TB
+        BIOMATERIAL@{ label: "<span id=\"docs-internal-guid-84ef360c-7fff-ac07-a967-8e0e2d2cd0a6\"><p dir=\"ltr\" style=\"line-height:\"><b>Biomaterial</b></p></span>" }
+        PC1
+        SEQ_PROC["<b>Process</b>"]
+        RAW1@{ label: "<span id=\"docs-internal-guid-0b3e6dab-7fff-d37f-2424-d6e086a28925\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"--tw-scale-x:\"><b>Datafile</b></span></p></span>" }
+        RAW2@{ label: "<span id=\"docs-internal-guid-7c3da251-7fff-4b43-c949-00faa3d41998\"><p dir=\"ltr\" style=\"line-height:\"><b>Datafile</b></p></span>" }
+        PC2
+        ALIGN_PROC["<b>Process</b>"]
+        ALN1@{ label: "<span id=\"docs-internal-guid-2f637a91-7fff-13ce-bd05-29006547af08\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"--tw-scale-x:\"><b>Datafile</b></span></p></span>" }
+        ALN2@{ label: "<span id=\"docs-internal-guid-de137c36-7fff-d5b1-e230-7858938ba490\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"--tw-scale-x:\"><b>Datafile</b></span></p></span>" }
+  end
+ subgraph subGraph0["<b>EGA v1 Model</b>"]
+    direction TB
+        SAMPLE((("<b>Sample</b>")))
+        EXPERIMENT["<b>Experiment</b>"]
+        RUN@{ label: "<span id=\"docs-internal-guid-ea14d459-7fff-9dcb-740a-884694fbca24\"><span style=\"font-size:\"><b>Run</b></span></span>" }
+        ANALYSIS["<b>Analysis</b>"]
+        n1@{ label: "<span id=\"docs-internal-guid-0b3e6dab-7fff-d37f-2424-d6e086a28925\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"--tw-scale-x:\"><b>Datafile</b></span></p></span>" }
+        n2@{ label: "<span id=\"docs-internal-guid-0b3e6dab-7fff-d37f-2424-d6e086a28925\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"--tw-scale-x:\"><b>Datafile</b></span></p></span>" }
+        n3@{ label: "<span id=\"docs-internal-guid-2f637a91-7fff-13ce-bd05-29006547af08\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"--tw-scale-x:\"><b>Datafile</b></span></p></span>" }
+        n4@{ label: "<span id=\"docs-internal-guid-de137c36-7fff-d5b1-e230-7858938ba490\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"--tw-scale-x:\"><b>Datafile</b></span></p></span>" }
+  end
+    SAMPLE --> EXPERIMENT & ANALYSIS
+    EXPERIMENT --> RUN
+    RUN --> n1 & n2
+    BIOMATERIAL BIO_PROC1@==> SEQ_PROC
+    PC1 --> SEQ_PROC
+    SEQ_PROC L_SEQ_PROC_RAW1_0@==> RAW1 & RAW2
+    RAW1 L_RAW1_ALIGN_PROC_0@==> ALIGN_PROC
+    RAW2 L_RAW2_ALIGN_PROC_0@==> ALIGN_PROC
+    PC2 --> ALIGN_PROC
+    ALIGN_PROC PROC_ALN1@==> ALN1 & ALN2
+    ANALYSIS --> n3 & n4
+    EXPERIMENT@{ shape: rect}
+    RUN@{ shape: rect}
+    ANALYSIS@{ shape: rect}
+    n1@{ shape: doc}
+    n2@{ shape: doc}
+    n3@{ shape: doc}
+    n4@{ shape: doc}
+    n5@{ shape: rect}
+    n6@{ shape: rect}
+    BIOMATERIAL@{ shape: dbl-circ}
+    RAW1@{ shape: doc}
+    RAW2@{ shape: doc}
+    ALN1@{ shape: doc}
+    ALN2@{ shape: doc}
+     SAMPLE:::biomaterial
+     EXPERIMENT:::process
+     RUN:::process
+     ANALYSIS:::process
+     n1:::datafile
+     n2:::datafile
+     n3:::datafile
+     n4:::datafile
+     n5:::protocol
+     n6:::protocol
+     BIOMATERIAL:::biomaterial
+     SEQ_PROC:::process
+     RAW1:::datafile
+     RAW2:::datafile
+     ALIGN_PROC:::process
+     ALN1:::datafile
+     ALN2:::datafile
+    classDef biomaterial fill:#B3D9FF,stroke:#4C8BF5,stroke-width:1px
+    classDef datafile   fill:#D5E8D4,stroke:#6FB96C,stroke-width:1px
+    classDef process fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, stroke-dasharray: 0
+    classDef protocol fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, fill:#feeedf, background-color:#feeedf, stroke-dasharray: 2
+    style PC1 fill:#FFE0B2
+    style PC2 fill:#FFE0B2
+    BIO_PROC1@{ animation: slow } 
+    L_SEQ_PROC_RAW1_0@{ animation: slow } 
+    L_SEQ_PROC_RAW2_0@{ animation: slow } 
+    L_RAW1_ALIGN_PROC_0@{ animation: slow } 
+    L_RAW2_ALIGN_PROC_0@{ animation: slow } 
+    PROC_ALN1@{ animation: slow } 
+    L_ALIGN_PROC_ALN2_0@{ animation: slow }
+```
 
-Now let us replace the placeholder names (e.g., Datafile) with the **real identifiers and given names** from the example dataset, and explore the differences across models (see [Figure 9](#figure-9.-representation-in-detail-\(with-real-accessions\)-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models.)). In the synthetic dataset, sample EGAN00003364608 (named case2\_father), was used by a sequencing experiment (EGAX00002583878), associated with a run (EGAR00003021169) that contains two datafiles (two FASTQ files).
+Now let us replace the placeholder names (e.g., Datafile) with the **real identifiers and given names** from the example dataset, and explore the differences across models (see [Figure 9](#figure-9-representation-in-detail-with-real-accessions-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models)). In the synthetic dataset, sample EGAN00003364608 (named case2\_father), was used by a sequencing experiment (EGAX00002583878), associated with a run (EGAR00003021169) that contains two datafiles (two FASTQ files).
 
 This can be represented in a simple way through the EGA v2 model: a **biomaterial** (case2\_father) was used as **input in a process** that followed two protocols (library preparation and sequencing) and produced as **output** two **FASTQ files**.
 
@@ -719,23 +924,264 @@ If we go one step further, we start to see the **utility of the EGA v2 model and
 
 On the other hand, in the **EGA v2 model**, we **explicitly** indicate that the quality control and alignment process had these two FASTQ files as inputs, creating a **procedural sequence**: a material entity (the biomaterial sample) was sequenced, and its sequencing files were aligned to produce a BAM file.
 
-##### ***Figure 9\.** Representation in detail (with real accessions) of the same sequencing and alignment processes in both the EGA v1 and v2 models.* {#figure-9.-representation-in-detail-(with-real-accessions)-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models.}
+##### ***Figure 9\.** Representation in detail (with real accessions) of the same sequencing and alignment processes in both the EGA v1 and v2 models.*
 
-**![][image9]**
+```mermaid
+---
+config:
+  theme: neutral
+  look: neo
+  layout: dagre
+---
+flowchart LR
+ subgraph PC1["<b>protocolCollection</b>"]
+        SEQ_PROTOCOL["<b>Library preparation</b>"]
+        n5@{ label: "<span style=\"--tw-scale-x:\"><b>Sequencing protocol</b></span>" }
+  end
+ subgraph PC2["<b>protocolCollection</b>"]
+        ALIGN_PROTOCOL["<b>Quality control<br>protocol</b>"]
+        n6["<b>Alignment protocol</b>"]
+  end
+ subgraph subGraph1["<b>EGA v2 Model</b>"]
+    direction TB
+        BIOMATERIAL@{ label: "<span id=\"docs-internal-guid-84ef360c-7fff-ac07-a967-8e0e2d2cd0a6\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"font-size:\"><b>case2_father </b>(<i>EGAN00003364608</i>)</span></p></span>" }
+        PC1
+        SEQ_PROC["<b>Process</b>"]
+        RAW1@{ label: "<span id=\"docs-internal-guid-0b3e6dab-7fff-d37f-2424-d6e086a28925\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"font-size:\"><b>FASTQ</b></span><span style=\"font-size:\"><br></span><span style=\"font-size:\">…</span><span style=\"font-size:\"><i>case2_case2_father_Case2_F.R1.fastq.gz</i></span></p></span>" }
+        RAW2@{ label: "<span id=\"docs-internal-guid-7c3da251-7fff-4b43-c949-00faa3d41998\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"font-size:\"><b>FASTQ</b></span><span style=\"font-size:\"><br></span><i><span style=\"font-size:\">…</span><span style=\"font-size:\">case2_case2_father_Case2_F.R2.fastq.gz</span></i></p></span>" }
+        PC2
+        ALIGN_PROC["<b>Process</b>"]
+        ALN1@{ label: "<span id=\"docs-internal-guid-2f637a91-7fff-13ce-bd05-29006547af08\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"font-size:\"><b>BAM</b></span><span style=\"font-size:\"><br></span><i><span style=\"font-size:\">…</span><span style=\"font-size:\">case2_case2_father_Case2_F.bam</span></i></p></span>" }
+        ALN2@{ label: "<span id=\"docs-internal-guid-de137c36-7fff-d5b1-e230-7858938ba490\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"font-size:\"><b>BAI</b></span><span style=\"font-size:\"><br></span><i><span style=\"font-size:\">…</span><span style=\"font-size:\">case2_case2_father_Case2_F.bam.bai</span></i></p></span>" }
+  end
+   subgraph subGraph0["<b>EGA v1 Model</b>"]
+    direction TB
+        SAMPLE@{ label: "<span style=\"--tw-scale-x:\"><b>case2_father</b><br></span>(<i style=\"--tw-scale-x:\">EGAN00003364608</i>)" }
+        EXPERIMENT@{ label: "<b>Experiment </b><br>(<span style=\"background-color:\"><i>EGAX00002583878</i></span>)" }
+        RUN@{ label: "<span id=\"docs-internal-guid-ea14d459-7fff-9dcb-740a-884694fbca24\"><span style=\"font-size:\"><b>Run</b><br>(<i>EGAR00003021169</i>)</span></span>" }
+        ANALYSIS@{ label: "<b>Analysis<br></b>(<span style=\"background-color:\"><i>EGAZ00001743989</i>)</span>" }
+        n1@{ label: "<span id=\"docs-internal-guid-0b3e6dab-7fff-d37f-2424-d6e086a28925\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"font-size:\"><b>FASTQ</b></span><span style=\"font-size:\"><br></span><span style=\"font-size:\">…</span><span style=\"font-size:\"><i>case2_case2_father_Case2_F.R1.fastq.gz</i></span></p></span>" }
+        n2@{ label: "<span id=\"docs-internal-guid-0b3e6dab-7fff-d37f-2424-d6e086a28925\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"font-size:\"><b>FASTQ</b></span><span style=\"font-size:\"><br></span><span style=\"font-size:\">…</span><span style=\"font-size:\"><i>case2_case2_father_Case2_F.R2.fastq.gz</i></span></p></span>" }
+        n3@{ label: "<span id=\"docs-internal-guid-2f637a91-7fff-13ce-bd05-29006547af08\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"font-size:\"><b>BAM</b></span><span style=\"font-size:\"><br></span><i><span style=\"font-size:\">…</span><span style=\"font-size:\">case2_case2_father_Case2_F.bam</span></i></p></span>" }
+        n4@{ label: "<span id=\"docs-internal-guid-de137c36-7fff-d5b1-e230-7858938ba490\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"font-size:\"><b>BAI</b></span><span style=\"font-size:\"><br></span><i><span style=\"font-size:\">…</span><span style=\"font-size:\">case2_case2_father_Case2_F.bam.bai</span></i></p></span>" }
+  end
+    SAMPLE --> EXPERIMENT & ANALYSIS
+    EXPERIMENT --> RUN
+    RUN --> n1 & n2
+    BIOMATERIAL BIO_PROC1@==> SEQ_PROC
+    PC1 --> SEQ_PROC
+    SEQ_PROC L_SEQ_PROC_RAW1_0@==> RAW1 & RAW2
+    RAW1 L_RAW1_ALIGN_PROC_0@==> ALIGN_PROC
+    RAW2 L_RAW2_ALIGN_PROC_0@==> ALIGN_PROC
+    PC2 --> ALIGN_PROC
+    ALIGN_PROC PROC_ALN1@==> ALN1 & ALN2
+    ANALYSIS --> n3 & n4
+    SAMPLE@{ shape: doublecircle}
+    EXPERIMENT@{ shape: rect}
+    RUN@{ shape: rect}
+    ANALYSIS@{ shape: rect}
+    n1@{ shape: doc}
+    n2@{ shape: doc}
+    n3@{ shape: doc}
+    n4@{ shape: doc}
+    n5@{ shape: rect}
+    n6@{ shape: rect}
+    BIOMATERIAL@{ shape: dbl-circ}
+    RAW1@{ shape: doc}
+    RAW2@{ shape: doc}
+    ALN1@{ shape: doc}
+    ALN2@{ shape: doc}
+     SAMPLE:::biomaterial
+     EXPERIMENT:::process
+     RUN:::process
+     ANALYSIS:::process
+     n1:::datafile
+     n2:::datafile
+     n3:::datafile
+     n4:::datafile
+     SEQ_PROTOCOL:::protocol
+     n5:::protocol
+     ALIGN_PROTOCOL:::protocol
+     n6:::protocol
+     BIOMATERIAL:::biomaterial
+     SEQ_PROC:::process
+     RAW1:::datafile
+     RAW2:::datafile
+     ALIGN_PROC:::process
+     ALN1:::datafile
+     ALN2:::datafile
+    classDef biomaterial fill:#B3D9FF,stroke:#4C8BF5,stroke-width:1px
+    classDef datafile   fill:#D5E8D4,stroke:#6FB96C,stroke-width:1px
+    classDef process fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, stroke-dasharray: 0
+    classDef protocol fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, fill:#feeedf, background-color:#feeedf, stroke-dasharray: 2
+    style PC1 fill:#FFE0B2
+    style PC2 fill:#FFE0B2
+    BIO_PROC1@{ animation: slow } 
+    L_SEQ_PROC_RAW1_0@{ animation: slow } 
+    L_SEQ_PROC_RAW2_0@{ animation: slow } 
+    L_RAW1_ALIGN_PROC_0@{ animation: slow } 
+    L_RAW2_ALIGN_PROC_0@{ animation: slow } 
+    PROC_ALN1@{ animation: slow } 
+    L_ALIGN_PROC_ALN2_0@{ animation: slow }
+```
 
 Similarly, we could continue down this route where, in this same dataset, each sample has 24 VCF files derived from a variant calling process, using their respective BAM files as inputs. All these analyses sit as individual entities in the EGA v1 model, while they form a process tree in the future approach, enabling provenance tracking.
 
-Regarding **administrative** (Study) and **data management entities** (Dataset, Policy and DAC), the representation would be extremely similar across models (see [Figure 10](#figure-10.-representation-in-detail-\(with-real-accessions\)-of-the-whole-worked-cega-example-modelled-through-ega-v1-model.) and [Figure 11](#figure-11.-representation-in-detail-\(with-real-accessions\)-of-the-worked-cega-example,-modelled-through-the-ega-v2-model.)). The main differences are the cardinality between entities, rather than the entities themselves. For example, a dataset in the EGA v1 model is linked to analyses and runs, while in the EGA v2 model it is connected to datafiles.
+Regarding **administrative** (Study) and **data management entities** (Dataset, Policy and DAC), the representation would be extremely similar across models (see [Figure 10](#figure-10-representation-in-detail-with-real-accessions-of-the-whole-worked-cega-example-modelled-through-ega-v1-model) and [Figure 11](#figure-11-representation-in-detail-with-real-accessions-of-the-worked-cega-example-modelled-through-the-ega-v2-model)). The main differences are the cardinality between entities, rather than the entities themselves. For example, a dataset in the EGA v1 model is linked to analyses and runs, while in the EGA v2 model it is connected to datafiles.
 
-##### ***Figure 10\.** Representation in detail (with real accessions) of the whole worked CEGA example modelled through EGA v1 model.* {#figure-10.-representation-in-detail-(with-real-accessions)-of-the-whole-worked-cega-example-modelled-through-ega-v1-model.}
+##### ***Figure 10\.** Representation in detail (with real accessions) of the whole worked CEGA example modelled through EGA v1 model.*
 
-![][image10]
+```mermaid
+---
+config:
+  theme: neutral
+  look: neo
+  layout: dagre
+---
+flowchart LR
+ subgraph subGraph0["<b>EGA v1 Model</b>"]
+    direction TB
+        SAMPLE@{ label: "<span style=\"--tw-scale-x:\"><b>case2_father</b><br></span>(<i style=\"--tw-scale-x:\">EGAN00003364608</i>)" }
+        EXPERIMENT@{ label: "<b>Experiment </b><br>(<span style=\"background-color:\"><i>EGAX00002583878</i></span>)" }
+        RUN@{ label: "<span id=\"docs-internal-guid-ea14d459-7fff-9dcb-740a-884694fbca24\"><span style=\"font-size:\"><b>Run</b><br>(<i>EGAR00003021169</i>)</span></span>" }
+        ANALYSIS@{ label: "<b>Analysis<br></b>(<span style=\"background-color:\"><i>EGAZ00001743989</i>)</span>" }
+        n1@{ label: "<span id=\"docs-internal-guid-0b3e6dab-7fff-d37f-2424-d6e086a28925\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"font-size:\"><b>FASTQ</b></span><span style=\"font-size:\"><br></span><span style=\"font-size:\">…</span><span style=\"font-size:\"><i>case2_case2_father_Case2_F.R1.fastq.gz</i></span></p></span>" }
+        n2@{ label: "<span id=\"docs-internal-guid-0b3e6dab-7fff-d37f-2424-d6e086a28925\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"font-size:\"><b>FASTQ</b></span><span style=\"font-size:\"><br></span><span style=\"font-size:\">…</span><span style=\"font-size:\"><i>case2_case2_father_Case2_F.R2.fastq.gz</i></span></p></span>" }
+        n3@{ label: "<span id=\"docs-internal-guid-2f637a91-7fff-13ce-bd05-29006547af08\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"font-size:\"><b>BAM</b></span><span style=\"font-size:\"><br></span><i><span style=\"font-size:\">…</span><span style=\"font-size:\">case2_case2_father_Case2_F.bam</span></i></p></span>" }
+        n4@{ label: "<span id=\"docs-internal-guid-de137c36-7fff-d5b1-e230-7858938ba490\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"font-size:\"><b>BAI</b></span><span style=\"font-size:\"><br></span><i><span style=\"font-size:\">…</span><span style=\"font-size:\">case2_case2_father_Case2_F.bam.bai</span></i></p></span>" }
+        n7@{ label: "<b style=\"color:\">Dataset <br>(</b><i>EGAD00001008392</i>)" }
+        n8@{ label: "<b style=\"color:\">Policy<br>(</b><i>EGAP00001000056</i>)" }
+        n9@{ label: "<b style=\"color:\">DAC<br>(</b><i>EGAC00001000514</i>)" }
+        n13@{ label: "<b style=\"color:\">Study<br>(</b><i>EGAS00001000405</i>)" }
+  end
+    SAMPLE L_SAMPLE_EXPERIMENT_0@==> EXPERIMENT & ANALYSIS
+    EXPERIMENT L_EXPERIMENT_RUN_0@==> RUN
+    RUN L_RUN_n1_0@==> n1 & n2
+    RUN --> n7
+    ANALYSIS L_ANALYSIS_n3_0@==> n3 & n4
+    ANALYSIS --> n7
+    n7 --> n8
+    n8 --> n9
+    n13 --> ANALYSIS & EXPERIMENT
+    SAMPLE@{ shape: doublecircle}
+    EXPERIMENT@{ shape: rect}
+    RUN@{ shape: rect}
+    ANALYSIS@{ shape: rect}
+    n1@{ shape: doc}
+    n2@{ shape: doc}
+    n3@{ shape: doc}
+    n4@{ shape: doc}
+    n7@{ shape: diam}
+    n8@{ shape: diam}
+    n9@{ shape: diam}
+    n13@{ shape: stadium}
+     SAMPLE:::biomaterial
+     EXPERIMENT:::process
+     RUN:::process
+     ANALYSIS:::process
+     n1:::datafile
+     n2:::datafile
+     n3:::datafile
+     n4:::datafile
+     n7:::dataManagement
+     n8:::dataManagement
+     n9:::dataManagement
+     n13:::Administrative
+    classDef biomaterial fill:#B3D9FF,stroke:#4C8BF5,stroke-width:1px
+    classDef datafile   fill:#D5E8D4,stroke:#6FB96C,stroke-width:1px
+    classDef process fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, stroke-dasharray: 0
+    classDef protocol fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, fill:#feeedf, background-color:#feeedf, stroke-dasharray: 2
+    classDef dataManagement fill:#FFD600, stroke:#000000, color:#000000
+    classDef Administrative stroke:#000000, fill:#E1BEE7, color:#000000
+```
 
-##### ***Figure 11\.** Representation in detail (with real accessions) of the worked CEGA example, modelled through the EGA v2 model.* {#figure-11.-representation-in-detail-(with-real-accessions)-of-the-worked-cega-example,-modelled-through-the-ega-v2-model.}
+##### ***Figure 11\.** Representation in detail (with real accessions) of the worked CEGA example, modelled through the EGA v2 model.*
 
-![][image11]
+```mermaid
+---
+config:
+  theme: neutral
+  look: neo
+  layout: dagre
+---
+flowchart LR
+ subgraph PC1["<b>protocolCollection</b>"]
+        SEQ_PROTOCOL["<b>Library preparation</b>"]
+        n5@{ label: "<span style=\"--tw-scale-x:\"><b>Sequencing protocol</b></span>" }
+  end
+ subgraph PC2["<b>protocolCollection</b>"]
+        ALIGN_PROTOCOL["<b>Quality control<br>protocol</b>"]
+        n6["<b>Alignment protocol</b>"]
+  end
+ subgraph subGraph1["<b>EGA v2 Model</b>"]
+    direction TB
+        BIOMATERIAL@{ label: "<span id=\"docs-internal-guid-84ef360c-7fff-ac07-a967-8e0e2d2cd0a6\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"font-size:\"><b>case2_father </b>(<i>EGAN00003364608</i>)</span></p></span>" }
+        PC1
+        SEQ_PROC["<b>Process</b>"]
+        RAW1@{ label: "<span id=\"docs-internal-guid-0b3e6dab-7fff-d37f-2424-d6e086a28925\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"font-size:\"><b>FASTQ</b></span><span style=\"font-size:\"><br></span><span style=\"font-size:\">…</span><span style=\"font-size:\"><i>case2_case2_father_Case2_F.R1.fastq.gz</i></span></p></span>" }
+        RAW2@{ label: "<span id=\"docs-internal-guid-7c3da251-7fff-4b43-c949-00faa3d41998\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"font-size:\"><b>FASTQ</b></span><span style=\"font-size:\"><br></span><i><span style=\"font-size:\">…</span><span style=\"font-size:\">case2_case2_father_Case2_F.R2.fastq.gz</span></i></p></span>" }
+        PC2
+        ALIGN_PROC["<b>Process</b>"]
+        ALN1@{ label: "<span id=\"docs-internal-guid-2f637a91-7fff-13ce-bd05-29006547af08\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"font-size:\"><b>BAM</b></span><span style=\"font-size:\"><br></span><i><span style=\"font-size:\">…</span><span style=\"font-size:\">case2_case2_father_Case2_F.bam</span></i></p></span>" }
+        ALN2@{ label: "<span id=\"docs-internal-guid-de137c36-7fff-d5b1-e230-7858938ba490\"><p dir=\"ltr\" style=\"line-height:\"><span style=\"font-size:\"><b>BAI</b></span><span style=\"font-size:\"><br></span><i><span style=\"font-size:\">…</span><span style=\"font-size:\">case2_case2_father_Case2_F.bam.bai</span></i></p></span>" }
+        n10@{ label: "<b style=\"color:\">Dataset <br>(</b><i>EGAD00001008392</i>)" }
+        n11@{ label: "<b style=\"color:\">Policy<br>(</b><i>EGAP00001000056</i>)" }
+        n12@{ label: "<b style=\"color:\">DAC<br>(</b><i>EGAC00001000514</i>)" }
+        n14@{ label: "<b style=\"color:\">Study<br>(</b><i>EGAS00001000405</i>)" }
+  end
+    BIOMATERIAL BIO_PROC1@==> SEQ_PROC
+    PC1 --> SEQ_PROC
+    SEQ_PROC L_SEQ_PROC_RAW1_0@==> RAW1 & RAW2
+    RAW1 L_RAW1_ALIGN_PROC_0@==> ALIGN_PROC
+    RAW2 L_RAW2_ALIGN_PROC_0@==> ALIGN_PROC
+    PC2 --> ALIGN_PROC
+    ALIGN_PROC PROC_ALN1@==> ALN1 & ALN2
+    n10 --> n11
+    n11 --> n12
+    n14 --> PC2 & PC1
+    RAW2 --> n10
+    RAW1 --> n10
+    ALN1 --> n10
+    ALN2 --> n10
+    BIOMATERIAL@{ shape: dbl-circ}
+    RAW1@{ shape: doc}
+    RAW2@{ shape: doc}
+    ALN1@{ shape: doc}
+    ALN2@{ shape: doc}
+    n10@{ shape: diam}
+    n11@{ shape: diam}
+    n12@{ shape: diam}
+    n14@{ shape: stadium}
+    n5@{ shape: rect}
+    n6@{ shape: rect}
+    SEQ_PROC@{ shape: rect}
+    ALIGN_PROC@{ shape: rect}
+     BIOMATERIAL:::biomaterial
+     SEQ_PROC:::process
+     RAW1:::datafile
+     RAW2:::datafile
+     ALIGN_PROC:::process
+     ALN1:::datafile
+     ALN2:::datafile
+     n10:::dataManagement
+     n11:::dataManagement
+     n12:::dataManagement
+     n14:::Administrative
+     SEQ_PROTOCOL:::protocol
+     n5:::protocol
+     ALIGN_PROTOCOL:::protocol
+     n6:::protocol
+    classDef biomaterial fill:#B3D9FF,stroke:#4C8BF5,stroke-width:1px
+    classDef datafile   fill:#D5E8D4,stroke:#6FB96C,stroke-width:1px
+    classDef process fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, stroke-dasharray: 0
+    classDef protocol fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, fill:#feeedf, background-color:#feeedf, stroke-dasharray: 2
+    classDef dataManagement fill:#FFD600, stroke:#000000, color:#000000
+    classDef Administrative stroke:#000000, fill:#E1BEE7, color:#000000
+    style PC1 fill:#FFE0B2
+    style PC2 fill:#FFE0B2
+```
 
-2. ### Microarray {#microarray}
+2. ### Microarray
 
 During a dedicated "Microarray" session (see [Annex 2](#annexes)), the MWG went through a **simple two-colour experiment** in which two cancer patients (individual A and B) each provided a tumour and a matched normal tissue sample. RNA is isolated, reverse-transcribed, labelled with dyes and co-hybridised on the same microarray slide. TIFF images are generated by scanning the tissues, and downstream software generates intensity files (\*.idat) and an expression matrix. Phenotypic and disease metadata for each patient are captured using GA4GH Phenopackets. For further details (slides, recording, diagrams…), please refer to the session **agenda**[^192].
 
@@ -753,15 +1199,135 @@ As introduced above, this use-case revolved around **two fictitious individuals:
 
 During the session, we made use of these two individuals to **represent the possible differences in granularity** across submissions. In this example, submission for individual B had more intermediary steps (e.g., mRNA and cDNA biomaterials) than the one for individual A.
 
-The simplest scenario was represented through **individual A** (i.e., a biomaterial of type organism 'A'). In this case, following [Figure 12](#figure-12.-representation-\(in-ega-v2-model\)-of-a-simplified-view-for-individual-a,-except-for-clinical-information.), through sample preparation, two tissue samples were obtained: control and case (tumour). These samples were then processed following an encompassing protocol collection, which included steps from RNA isolation to scanning. The output of this process was a set of files, including raw intensity files.
+The simplest scenario was represented through **individual A** (i.e., a biomaterial of type organism 'A'). In this case, following [Figure 12](#figure-12-representation-in-ega-v2-model-of-a-simplified-view-for-individual-a-except-for-clinical-information), through sample preparation, two tissue samples were obtained: control and case (tumour). These samples were then processed following an encompassing protocol collection, which included steps from RNA isolation to scanning. The output of this process was a set of files, including raw intensity files.
 
 Finally, the intensity files, combined with other input files, were used following another analytical protocol collection and produced the differential expression matrices.
 
-##### ***Figure 12\.** Representation (in EGA v2 model) of a simplified view for individual A, except for clinical information.* {#figure-12.-representation-(in-ega-v2-model)-of-a-simplified-view-for-individual-a,-except-for-clinical-information.}
+##### ***Figure 12\.** Representation (in EGA v2 model) of a simplified view for individual A, except for clinical information.*
 
-![][image12]
+```mermaid
+---
+config:
+  theme: neutral
+  look: neo
+  layout: dagre
+  flowchart:
+    defaultRenderer: elk
+---
+flowchart TB
+ subgraph PC1["<b>protocolCollection</b>"]
+        SEQ_PROTOCOL["<b>Sample preparation</b>"]
+  end
+ subgraph PC2["<b>protocolCollection</b>"]
+    direction LR
+        ALIGN_PROTOCOL["<b>RNA Isolation</b>"]
+        n6["<b>Reverse transcription</b>"]
+        n17["<b>Labelling</b>"]
+        n18["<b>Hybridization</b>"]
+        n19["<b>Scanning</b>"]
+  end
+ subgraph s1["<b>protocolCollection</b>"]
+    direction LR
+        n30["<b>Feature extraction</b>"]
+        n31["<b>QC sample<br>filtering</b>"]
+        n24["<b>Background<br>correction</b>"]
+        n25["<b>Normalization</b>"]
+        n26["<b>Differential expression<br>workflow</b>"]
+  end
+    BIOMATERIAL["<b>Individual A</b>"] BIO_PROC1@==> SEQ_PROC["<b>Process</b>"]
+    PC1 --> SEQ_PROC
+    PC2 --> ALIGN_PROC["<b>Process</b>"]
+    ALIGN_PROC PROC_ALN1@==> ALN1["Tab-delimited <br>intensity file (e.g.,<i><b>*.idat</b></i>)"] & n20["Quality Control<br>report (<i><b>*.html / *.txt</b></i>)"]
+    ALIGN_PROC L_ALIGN_PROC_ALN2_0@--> ALN2@{ label: "Raw microarray<br>data (<i style=\"--tw-scale-x:\"><span style=\"--tw-scale-x:\"><b>*.tif</b></span></i>)" }
+    SEQ_PROC L_SEQ_PROC_n16_0@==> n16["<b>Tissue<br>(tumour)</b>"] & n15["<b>Tissue<br>(control)</b>"]
+    n14@{ label: "<b style=\"color:\">Study<br></b>" } --> PC2 & PC1 & s1
+    n15 L_n15_ALIGN_PROC_0@==> ALIGN_PROC
+    n16 L_n16_ALIGN_PROC_0@==> ALIGN_PROC
+    ALN1 L_ALN1_n21_0@==> n21["<b>Process</b>"]
+    s1 --> n21
+    n21 L_n21_n27_0@==> n27@{ label: "Differential expression<br>(<i style=\"--tw-scale-x:\"><span style=\"--tw-scale-x:\"><b>*.tsv</b></span></i>)" }
+    n28["Probe annotation<br>(<i><b>*.bgx</b></i>)"] L_n28_n21_0@==> n21
+    n29["Sample metadata <br>(design) (<i>targets.txt</i>)"] L_n29_n21_0@==> n21
+    n20 L_n20_n21_0@==> n21
+    n20 --> n10@{ label: "<b style=\"color:\">Dataset</b>" }
+    ALN2 --> n10
+    n29 --> n10
+    n28 --> n10
+    n27 --> n10
+    ALN1 --> n10
 
-The metadata of the submission for **individual B** is very similar to the one above (see [Figure 13](#figure-13.-comparison-of-differences-between-examples-for-individual-b-and-a-in-ega-v2-model.)). The only difference is that we are creating an intermediary entity, a biomaterial of type cDNA, in between the tissue biomaterial and the datafiles. This would be the case if the submitter had information specifically about that new intermediary biomaterial that could be informative (e.g., when it was obtained, where, under which conditions…). These two correspond to the coarse and detailed submission types introduced in the [*Processes and Protocols*](#processes-and-protocols) section.
+    n6@{ shape: rect}
+    n17@{ shape: rect}
+    n18@{ shape: rect}
+    n19@{ shape: rect}
+    n30@{ shape: rect}
+    n31@{ shape: rect}
+    n24@{ shape: rect}
+    n25@{ shape: rect}
+    n26@{ shape: rect}
+    BIOMATERIAL@{ shape: dbl-circ}
+    ALN1@{ shape: doc}
+    n20@{ shape: doc}
+    ALN2@{ shape: doc}
+    n10@{ shape: diam}
+    n16@{ shape: dbl-circ}
+    n15@{ shape: dbl-circ}
+    n14@{ shape: stadium}
+    n21@{ shape: rect}
+    n27@{ shape: doc}
+    n28@{ shape: doc}
+    n29@{ shape: doc}
+     SEQ_PROTOCOL:::protocol
+     ALIGN_PROTOCOL:::protocol
+     n6:::protocol
+     n17:::protocol
+     n18:::protocol
+     n19:::protocol
+     n30:::protocol
+     n31:::protocol
+     n24:::protocol
+     n25:::protocol
+     n26:::protocol
+     BIOMATERIAL:::biomaterial
+     SEQ_PROC:::process
+     ALIGN_PROC:::process
+     ALN1:::datafile
+     n20:::datafile
+     ALN2:::datafile
+     n10:::dataManagement
+     n16:::biomaterial
+     n15:::biomaterial
+     n14:::Administrative
+     n21:::process
+     n27:::datafile
+     n28:::datafile
+     n29:::datafile
+    classDef biomaterial fill:#B3D9FF,stroke:#4C8BF5,stroke-width:1px
+    classDef datafile   fill:#D5E8D4,stroke:#6FB96C,stroke-width:1px
+    classDef process fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, stroke-dasharray: 0
+    classDef protocol fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, fill:#feeedf, background-color:#feeedf, stroke-dasharray: 2
+    classDef dataManagement fill:#FFD600, stroke:#000000, color:#000000
+    classDef Administrative stroke:#000000, fill:#E1BEE7, color:#000000
+    style PC1 fill:#FFE0B2
+    style PC2 fill:#FFE0B2
+    style s1 fill:#FFE0B2
+
+    BIO_PROC1@{ animation: slow } 
+    PROC_ALN1@{ animation: slow } 
+    L_ALIGN_PROC_n20_0@{ animation: slow } 
+    L_ALIGN_PROC_ALN2_0@{ animation: none } 
+    L_SEQ_PROC_n16_0@{ animation: slow } 
+    L_SEQ_PROC_n15_0@{ animation: slow } 
+    L_n15_ALIGN_PROC_0@{ animation: slow } 
+    L_n16_ALIGN_PROC_0@{ animation: slow } 
+    L_ALN1_n21_0@{ animation: slow } 
+    L_n21_n27_0@{ animation: slow } 
+    L_n28_n21_0@{ animation: slow } 
+    L_n29_n21_0@{ animation: slow } 
+    L_n20_n21_0@{ animation: slow }
+```
+
+The metadata of the submission for **individual B** is very similar to the one above (see [Figure 13](#figure-13-comparison-of-differences-between-examples-for-individual-b-and-a-in-ega-v2-model)). The only difference is that we are creating an intermediary entity, a biomaterial of type cDNA, in between the tissue biomaterial and the datafiles. This would be the case if the submitter had information specifically about that new intermediary biomaterial that could be informative (e.g., when it was obtained, where, under which conditions…). These two correspond to the coarse and detailed submission types introduced in the [*Processes and Protocols*](#processes-and-protocols) section.
 
 To account for this new granularity, the model simply splits the protocol collection that was encompassing all these steps into two different protocol collections:
 
@@ -769,17 +1335,201 @@ To account for this new granularity, the model simply splits the protocol collec
 
 2. **Labelling, hybridisation and scanning**. The one that enables obtaining the datafiles from the cDNA biomaterial.
 
-##### ***Figure 13\.** Comparison of differences between examples for individual B and A in EGA v2 model.* {#figure-13.-comparison-of-differences-between-examples-for-individual-b-and-a-in-ega-v2-model.}
+##### ***Figure 13\.** Comparison of differences between examples for individual B and A in EGA v2 model.*
 
-![][image13]
+```mermaid
+---
+config:
+  theme: neutral
+  look: neo
+  layout: dagre
+---
+flowchart TB
+ subgraph s5["<b>protocolCollection</b>"]
+        n43["<b>Sample preparation</b>"]
+  end
+ subgraph s6["Individual B"]
+        n44["<b>Individual B</b>"]
+        n45["<b>Process</b>"]
+        n46["<b>Process</b>"]
+        n47["cDNA<br>(control)"]
+        n48["<b>Process</b>"]
+        n49["cDNA<br>(tumour)"]
+        n50["<b>Tissue<br>(tumour)</b>"]
+        n51["<b>Tissue<br>(control)</b>"]
+        n52["<b>Process</b>"]
+  end
+ subgraph s3["<b>protocolCollection</b>"]
+        n38["<b>RNA Isolation</b>"]
+        n39["<b>Reverse transcription</b>"]
+  end
+ subgraph s8["Individual A"]
+        n53["<b>Individual A</b>"]
+        n54["<b>Process</b>"]
+        n57["<b>Process</b>"]
+        n59["<b>Tissue<br>(tumour)</b>"]
+        n60["<b>Tissue<br>(control)</b>"]
+  end
+ subgraph s4["<b>protocolCollection</b>"]
+        n40["<b>Labelling</b>"]
+        n41["<b>Hybridization</b>"]
+        n42["<b>Scanning</b>"]
+  end
+ subgraph s9["<b>protocolCollection</b>"]
+        n61["<b>RNA Isolation</b>"]
+        n62["<b>Reverse transcription</b>"]
+        n63["<b>Labelling</b>"]
+        n64["<b>Hybridization</b>"]
+        n65["<b>Scanning</b>"]
+  end
+    n44 L_n44_n45_0@==> n45
+    n46 L_n46_n47_0@==> n47
+    n48 L_n48_n49_0@==> n49
+    n45 L_n45_n50_0@==> n50 & n51
+    n50 L_n50_n48_0@==> n48
+    n51 L_n51_n46_0@==> n46
+    s4 --> n52
+    s5 --> n45 & n54
+    s3 --> n46 & n48
+    n49 L_n49_n52_0@==> n52
+    n47 L_n47_n52_0@==> n52
+    n53 L_n53_n54_0@==> n54
+    n54 L_n54_n59_0@==> n59 & n60
+    n59 L_n59_n57_0@==> n57
+    n60 L_n60_n57_0@==> n57
+    s9 --> n57
+    n43@{ shape: rect}
+    n44@{ shape: dbl-circ}
+    n45@{ shape: rect}
+    n46@{ shape: rect}
+    n47@{ shape: dbl-circ}
+    n48@{ shape: rect}
+    n49@{ shape: dbl-circ}
+    n50@{ shape: dbl-circ}
+    n51@{ shape: dbl-circ}
+    n52@{ shape: rect}
+    n38@{ shape: rect}
+    n39@{ shape: rect}
+    n53@{ shape: dbl-circ}
+    n54@{ shape: rect}
+    n57@{ shape: rect}
+    n59@{ shape: dbl-circ}
+    n60@{ shape: dbl-circ}
+    n40@{ shape: rect}
+    n41@{ shape: rect}
+    n42@{ shape: rect}
+    n61@{ shape: rect}
+    n62@{ shape: rect}
+    n63@{ shape: rect}
+    n64@{ shape: rect}
+    n65@{ shape: rect}
+     n43:::protocol
+     n44:::biomaterial
+     n45:::process
+     n46:::process
+     n47:::biomaterial
+     n48:::process
+     n49:::biomaterial
+     n50:::biomaterial
+     n51:::biomaterial
+     n52:::process
+     n38:::protocol
+     n39:::protocol
+     n53:::biomaterial
+     n54:::process
+     n57:::process
+     n59:::biomaterial
+     n60:::biomaterial
+     n40:::protocol
+     n41:::protocol
+     n42:::protocol
+     n61:::protocol
+     n62:::protocol
+     n63:::protocol
+     n64:::protocol
+     n65:::protocol
+    classDef biomaterial fill:#B3D9FF,stroke:#4C8BF5,stroke-width:1px
+    classDef datafile   fill:#D5E8D4,stroke:#6FB96C,stroke-width:1px
+    classDef process fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, stroke-dasharray: 0
+    classDef protocol fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, fill:#feeedf, background-color:#feeedf, stroke-dasharray: 2
+    classDef dataManagement fill:#FFD600, stroke:#000000, color:#000000
+    classDef Administrative stroke:#000000, fill:#E1BEE7, color:#000000
+    style s4 fill:#FFE0B2
+    style s5 fill:#FFE0B2
+    style s3 fill:#FFE0B2
+    style s9 fill:#FFE0B2
+    L_n44_n45_0@{ animation: slow } 
+    L_n46_n47_0@{ animation: slow } 
+    L_n48_n49_0@{ animation: slow } 
+    L_n45_n50_0@{ animation: slow } 
+    L_n45_n51_0@{ animation: slow } 
+    L_n50_n48_0@{ animation: slow } 
+    L_n51_n46_0@{ animation: slow } 
+    L_n49_n52_0@{ animation: slow } 
+    L_n47_n52_0@{ animation: slow } 
+    L_n53_n54_0@{ animation: slow } 
+    L_n54_n59_0@{ animation: slow } 
+    L_n54_n60_0@{ animation: slow } 
+    L_n59_n57_0@{ animation: slow } 
+    L_n60_n57_0@{ animation: slow }
+```
 
-For the sake of simplicity in visualization, the **clinical information** was separated into a different diagram (see [Figure 14](#figure-14.-representation-of-clinical-information-for-both-individuals-a-and-b-in-ega-v2-model.)). As observed in the figure, the two individuals were the input of a clinical record extraction protocol, where the output is their combined phenoclinical information in the format of a phenopacket.
+For the sake of simplicity in visualization, the **clinical information** was separated into a different diagram (see [Figure 14](#figure-14-representation-of-clinical-information-for-both-individuals-a-and-b-in-ega-v2-model)). As observed in the figure, the two individuals were the input of a clinical record extraction protocol, where the output is their combined phenoclinical information in the format of a phenopacket.
 
-##### ***Figure 14\.** Representation of clinical information for both individuals A and B in EGA v2 model.* {#figure-14.-representation-of-clinical-information-for-both-individuals-a-and-b-in-ega-v2-model.}
+##### ***Figure 14\.** Representation of clinical information for both individuals A and B in EGA v2 model.*
 
-![][image14]
+```mermaid
+---
+config:
+  theme: neutral
+  look: neo
+  layout: dagre
+---
+flowchart TB
+ subgraph s3["<b>protocolCollection</b>"]
+        n39["<b>Clinical record<br>extraction</b>"]
+  end
+    n11@{ label: "<b style=\"color:\">Policy</b>" } --> n12@{ label: "<b style=\"color:\">DAC</b>" }
+    n10@{ label: "<b style=\"color:\">Dataset</b>" } --> n11
+    n40["<b>Individual B</b>"] L_n40_n41_0@==> n41["<b>Process</b>"]
+    s3 --> n41
+    n42@{ label: "<b style=\"color:\">Study<br></b>" } --> s3
+    n41 L_n41_n43_0@==> n43["Phenopacket"]
+    n44["<b>Individual A</b>"] L_n44_n41_0@==> n41
+    n43 --> n10
 
-3. ### Proteomics {#proteomics}
+    n39@{ shape: rect}
+    n11@{ shape: diam}
+    n12@{ shape: diam}
+    n10@{ shape: diam}
+    n40@{ shape: dbl-circ}
+    n41@{ shape: rect}
+    n42@{ shape: stadium}
+    n43@{ shape: doc}
+    n44@{ shape: dbl-circ}
+     n39:::protocol
+     n11:::dataManagement
+     n12:::dataManagement
+     n10:::dataManagement
+     n40:::biomaterial
+     n41:::process
+     n42:::Administrative
+     n43:::datafile
+     n44:::biomaterial
+    classDef biomaterial fill:#B3D9FF,stroke:#4C8BF5,stroke-width:1px
+    classDef datafile   fill:#D5E8D4,stroke:#6FB96C,stroke-width:1px
+    classDef process fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, stroke-dasharray: 0
+    classDef protocol fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, fill:#feeedf, background-color:#feeedf, stroke-dasharray: 2
+    classDef dataManagement fill:#FFD600, stroke:#000000, color:#000000
+    classDef Administrative stroke:#000000, fill:#E1BEE7, color:#000000
+    style s3 fill:#FFE0B2
+
+    L_n40_n41_0@{ animation: slow } 
+    L_n41_n43_0@{ animation: slow } 
+    L_n44_n41_0@{ animation: slow }
+```
+
+3. ### Proteomics
 
 The proteomics use case addresses important **metadata representation gaps** previously identified in the current EGA v1 model, which was primarily genomics-centric and lacked dedicated fields or concepts tailored for proteomics data submissions.
 
@@ -827,19 +1577,148 @@ The EGA v2 model was able to capture the detailed processes involved in capturin
 
   2. #### Worked example
 
-Below, we represent the **proteomics dataset PXD006482 using the EGA v2 model** (see [Figure 15](#figure-15.-proteomics-use-case-representation-in-ega-v2-model.)).
+Below, we represent the **proteomics dataset PXD006482 using the EGA v2 model** (see [Figure 15](#figure-15-proteomics-use-case-representation-in-ega-v2-model)).
 
 Given the inherent complexity and size (192 Samples) of this proteomics dataset, we have chosen to model only a subset of entities for this exercise, focusing primarily on those most relevant to illustrating the mapping process. As a result, not all entity types—particularly those related to administrative metadata (e.g., Studies)—are fully covered. 
 
 During the workshop, we also showcased how the EGA v2 metadata model can be used to represent **intermediate analytical processes** that are not currently supported by the EGA v1 model. Specifically, we defined a structured collection of protocols covering key experimental stages such as **protein quantification** and **differential expression analysis**. These protocol entities can be associated with multiple samples and are capable of producing distinct outputs depending on the inputs, thereby supporting a more granular and reusable representation of the experimental workflow.
 
-In [Figure 15](#figure-15.-proteomics-use-case-representation-in-ega-v2-model.), we demonstrate a submission of a proteomics dataset in the EGA v2 model. Note the explicit representation of proteomics submission types via different file categories (RAW, SEARCH, RESULT).
+In [Figure 15](#figure-15-proteomics-use-case-representation-in-ega-v2-model), we demonstrate a submission of a proteomics dataset in the EGA v2 model. Note the explicit representation of proteomics submission types via different file categories (RAW, SEARCH, RESULT).
 
-##### *Figure 15\. Proteomics use case representation in EGA v2 model.* {#figure-15.-proteomics-use-case-representation-in-ega-v2-model.}
+##### *Figure 15\. Proteomics use case representation in EGA v2 model.*
 
-![][image15]
+```mermaid
+---
+config:
+  theme: neutral
+  look: neo
+  layout: dagre
+  flowchart:
+    defaultRenderer: elk
+---
+flowchart TB
+ subgraph PC2["<b>Sample Preparation<br>Protocol Collection</b>"]
+        n6["<b>Biopsy</b>"]
+  end
+ subgraph s1["<b>Experimental<br>Protocol Collection</b>"]
+        n31@{ label: "<span style=\"--tw-scale-x:\"><b>Enzyme<br style=\"--tw-scale-x:\">Digestion</b></span>" }
+        n34["<b>Enrichment</b>"]
+        n32["<b>Tissue<br>Dissociation</b>"]
+        nx["<b>Mass Spectrometry<br>Measurement</b>"]
+        n49["<b>Fractionation</b>"]
+  end
+ subgraph s2["<b>Protein Quantification<br>Protocol Collection</b>"]
+        n37["<b>Protein<br>Quantification</b>"]
+  end
+ subgraph s3["<b>Differential Expression<br>Protocol Collection</b>"]
+        n42["<b>Differential<br>Expression</b>"]
+  end
+    PC2 --> ALIGN_PROC["<b>Process</b>"]
+    n28["<b>Adjacent_12-1.raw<br></b>(along 11 other<br>fractions in .raw)"] --> n10@{ label: "<b style=\"color:\">Dataset</b>" }
+    n28 L_n28_n41_0@==> n41["<b>Process</b>"]
+    n14(["<b>Kidney Tumour<br></b>(Cohort)"]) --> BIOMATERIAL["<b>Individual 1</b><br>"]
+    BIOMATERIAL L_BIOMATERIAL_ALIGN_PROC_0@==> ALIGN_PROC
+    ALIGN_PROC L_ALIGN_PROC_n29_0@==> n29["<b>Sample 1<br></b>(Kidney; Cancerous)<br>"] & n30["<b>Sample 6<br></b>(Adjacent tissues;<br>non-cancerous)"]
+    s1 --> n33["<b>Process</b>"] & n40["<b>Process</b>"]
+    n30 L_n30_n33_0@==> n33
+    s2 L_s2_n38_0@--> n38["<b>Process</b>"] & n41
+    n33 L_n33_n28_0@==> n28
+    n39@{ label: "<b>Kidney_12-1.raw</b><br>(along 11 other<br style=\"--tw-scale-x:\">fractions in .raw)" } ==> n38
+    n40 L_n40_n39_0@==> n39
+    n29 L_n29_n40_0@==> n40
+    s3 --> n43["<b>Process</b>"]
+    n38 L_n38_n44_0@==> n44@{ label: "<b>RESULT.kidney_12.dat-pride-<br style=\"--tw-scale-x:\"><span style=\"--tw-scale-x:\">filtered.pride.mztab.gz</span></b>" } & n47["<b>SEARCH.Mascot.dat</b>"]
+    n41 L_n41_n45_0@==> n45@{ label: "<b>RESULT.Adjacent_12.dat-<br>pride-<span style=\"padding-left:\">filtered.pride.mztab.gz</span></b>" } & n46["<b>SEARCH.Mascot.dat</b>"]
+    n46 L_n46_n43_0@==> n43
+    n47 L_n47_n43_0@==> n43
+    n39 --> n10
+    n43 L_n43_n48_0@==> n48["<b>diff.expression.csv</b>"]
+    n48 --> n10
+    n45 --> n10
+    n46 --> n10
+    n44 --> n10
+    n47 --> n10
 
-4. ### Microbiome {#microbiome}
+    n6@{ shape: rect}
+    n31@{ shape: rect}
+    n34@{ shape: rect}
+    n32@{ shape: rect}
+    n49@{ shape: rect}
+    n37@{ shape: rect}
+    n42@{ shape: rect}
+    n28@{ shape: doc}
+    n10@{ shape: diam}
+    n41@{ shape: rect}
+    BIOMATERIAL@{ shape: dbl-circ}
+    n29@{ shape: dbl-circ}
+    n30@{ shape: dbl-circ}
+    n33@{ shape: rect}
+    n40@{ shape: rect}
+    n38@{ shape: rect}
+    n39@{ shape: doc}
+    n43@{ shape: rect}
+    n44@{ shape: doc}
+    n47@{ shape: doc}
+    n45@{ shape: doc}
+    n46@{ shape: doc}
+    n48@{ shape: doc}
+     n6:::protocol
+     n31:::protocol
+     n34:::protocol
+     n32:::protocol
+     nx:::protocol
+     n49:::protocol
+     n37:::protocol
+     n42:::protocol
+     ALIGN_PROC:::process
+     n28:::datafile
+     n10:::dataManagement
+     n41:::process
+     n14:::Administrative
+     BIOMATERIAL:::biomaterial
+     n29:::biomaterial
+     n30:::biomaterial
+     n33:::process
+     n40:::process
+     n38:::process
+     n39:::datafile
+     n43:::process
+     n44:::datafile
+     n47:::datafile
+     n45:::datafile
+     n46:::datafile
+     n48:::datafile
+    classDef biomaterial fill:#B3D9FF,stroke:#4C8BF5,stroke-width:1px
+    classDef datafile   fill:#D5E8D4,stroke:#6FB96C,stroke-width:1px
+    classDef dataManagement fill:#FFD600, stroke:#000000, color:#000000
+    classDef Administrative stroke:#000000, fill:#E1BEE7, color:#000000
+    classDef process fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, stroke-dasharray:0
+    classDef protocol fill:#feeedf, stroke:#F5A45D, stroke-width:2px, background-color:#feeedf, stroke-dasharray:2
+    style PC2 fill:#FFE0B2
+    style s1 fill:#FFE0B2
+    style s2 fill:#FFE0B2
+    style s3 fill:#FFE0B2
+
+    L_n28_n41_0@{ animation: slow } 
+    L_BIOMATERIAL_ALIGN_PROC_0@{ animation: slow } 
+    L_ALIGN_PROC_n29_0@{ animation: slow } 
+    L_ALIGN_PROC_n30_0@{ animation: slow } 
+    L_n30_n33_0@{ animation: slow } 
+    L_s2_n38_0@{ animation: none } 
+    L_n33_n28_0@{ animation: slow } 
+    L_n40_n39_0@{ animation: slow } 
+    L_n29_n40_0@{ animation: slow } 
+    L_n38_n44_0@{ animation: slow } 
+    L_n38_n47_0@{ animation: slow } 
+    L_n41_n45_0@{ animation: slow } 
+    L_n41_n46_0@{ animation: slow } 
+    L_n46_n43_0@{ animation: slow } 
+    L_n47_n43_0@{ animation: slow }
+    L_n39_n38_0@{ animation: slow }
+    L_n43_n48_0@{ animation: slow }
+```
+
+4. ### Microbiome
 
 For the microbiome use case ([Annex 4](#annexes)), we piloted FEGA pre-deposition and deposition workflows for microbiome studies (shotgun metagenomics, metatranscriptomics, metabolomics), discussed how **microbiome sample and study metadata** map into the EGA v2 metadata model, and refined it based on the FEGA Microbiome use-case session[^211] (2025-07-01), including decisions about public archive deposition, decontamination, and metadata mapping.
 
@@ -861,9 +1740,9 @@ Conclusion and recommendations:
 
   2. #### Worked example
 
-Below is a short, focused representation of the **stool-microbiome pipeline** as shown in the diagram ([Figure 16](#figure-16.-diagram-of-a-stool-microbiome-research-data-lifecycle-into-the-ega-v2-metadata-model.-datasets-1-&-2-may-fit-best-in-public-archives-\(e.g.,-ena\),-simplifying-the-example.)), following the EGA v2 model. Because the diagram contains many elements, we model only the entities required to show the main provenance chain: how samples and protocols produce files and how those files assemble into three governed datasets. This multiple dataset governance, all under the same DAC, represents the scenario where a submission would not be distributed as a single unit, but follow different policies depending on the content of the linked data files. 
+Below is a short, focused representation of the **stool-microbiome pipeline** as shown in the diagram ([Figure 16](#figure-16-diagram-of-a-stool-microbiome-research-data-lifecycle-into-the-ega-v2-metadata-model-datasets-1--2-may-fit-best-in-public-archives-eg-ena-simplifying-the-example)), following the EGA v2 model. Because the diagram contains many elements, we model only the entities required to show the main provenance chain: how samples and protocols produce files and how those files assemble into three governed datasets. This multiple dataset governance, all under the same DAC, represents the scenario where a submission would not be distributed as a single unit, but follow different policies depending on the content of the linked data files. 
 
-It is important to note that, in the **absence of the sensitivity review**, multiple entities modelled in [Figure 16](#figure-16.-diagram-of-a-stool-microbiome-research-data-lifecycle-into-the-ega-v2-metadata-model.-datasets-1-&-2-may-fit-best-in-public-archives-\(e.g.,-ena\),-simplifying-the-example.) could be removed from the FEGA submission. In other words, Datasets 1 and 2 of the figure may not contain sensitive data and, therefore, be suited for public archives such as the ENA. If that were the case, the FEGA submission would only encompass entities related to Dataset 3, which would certainly contain sensitive data. We included all datasets in the figure to satisfy the goal of this session: to assess whether the microbiome submission could be structured following the EGA v2 model. With this, we know that the most complex scenario (i.e., all datasets containing sensitive data) is covered and thus properly represented.
+It is important to note that, in the **absence of the sensitivity review**, multiple entities modelled in [Figure 16](#figure-16-diagram-of-a-stool-microbiome-research-data-lifecycle-into-the-ega-v2-metadata-model-datasets-1--2-may-fit-best-in-public-archives-eg-ena-simplifying-the-example) could be removed from the FEGA submission. In other words, Datasets 1 and 2 of the figure may not contain sensitive data and, therefore, be suited for public archives such as the ENA. If that were the case, the FEGA submission would only encompass entities related to Dataset 3, which would certainly contain sensitive data. We included all datasets in the figure to satisfy the goal of this session: to assess whether the microbiome submission could be structured following the EGA v2 model. With this, we know that the most complex scenario (i.e., all datasets containing sensitive data) is covered and thus properly represented.
 
 **Data Description**
 
@@ -905,23 +1784,272 @@ It is important to note that, in the **absence of the sensitivity review**, mult
 
 7. **Deposition and linking**: deposit non-sensitive sequence files to ENA (or equivalent public archive) and include those accessions in FEGA submission metadata; deposit processed tables and reproducible workflows into FEGA as appropriate.
 
-##### ***Figure 16\.** Diagram of a stool-microbiome research data lifecycle into the EGA v2 Metadata Model. Datasets 1 & 2 may fit best in public archives (e.g., ENA), simplifying the example.* {#figure-16.-diagram-of-a-stool-microbiome-research-data-lifecycle-into-the-ega-v2-metadata-model.-datasets-1-&-2-may-fit-best-in-public-archives-(e.g.,-ena),-simplifying-the-example.}
+##### ***Figure 16\.** Diagram of a stool-microbiome research data lifecycle into the EGA v2 Metadata Model. Datasets 1 & 2 may fit best in public archives (e.g., ENA), simplifying the example.*
 
-##### **![][image16]**
+```mermaid
+---
+config:
+  theme: neutral
+  look: neo
+  layout: dagre
+  flowchart:
+    defaultRenderer: elk
+---
+flowchart TB
+ subgraph PC2["<b>Analytical<br>Protocol Collection</b>"]
+        n6["Clinical Assessment<br>(Individual level)"]
+  end
+ subgraph s1["<b>Experimental<br>Protocol Collection</b>"]
+    direction LR
+        n31["Library Preparation"]
+        n34["Sequencing"]
+        n32["DNA Extraction"]
+  end
+ subgraph s2["<b>Analytical<br>Protocol Collection</b>"]
+    direction LR
+        n37["Trimming <br>(Fastp)"]
+        n337["Contamination<br>Removal"]
+  end
+ subgraph s3["<b>Sampling<br>Protocol Collection</b>"]
+        n42["Sample Collection"]
+        xxx["Sample Preparation"]
+  end
+ subgraph s4["<b>Analytical<br>Protocol Collection</b>"]
+        n4115["Taxonomic Profiling"]
+  end
+    s3 --> ALIGN_PROC["<b>Process</b>"]
+    PC2 --> n43["Process"]
+    BIOMATERIAL["<b>Individual</b><br>"] L_BIOMATERIAL_ALIGN_PROC_0@==> ALIGN_PROC & n43
+    ALIGN_PROC L_ALIGN_PROC_n29_0@==> n29["<b>Stool <br>Sample_3</b>"] & n30["<b>Stool<br>Sample_2</b>"] & n50["<b>Stool<br>Sample_1</b>"]
+    s1 --> n33["<b>Process</b>"] & n40["<b>Process</b>"] & n404["<b>Process</b>"]
+    s4 --> nx33["<b>Process</b>"] & nx40["<b>Process</b>"] & nx404["<b>Process</b>"]
+    n30 L_n30_n33_0@==> n33
+    s2 --> n38["<b>Process</b>"] & n41["<b>Process</b>"] & n4111["<b>Process</b>"]
+    n39["<b>FASTQ_1</b><br>..."] L_n39_n38_0@==> n38
+    n14(["<b>Study</b>"]) --> s3 & PC2 & s1 & s2 & s4
+    n43 L_n43_n46_0@==> n46["Individual Clinical Metadata<br>(phenopacket, csv, txt...)"]
+    n29 L_n29_n40_0@==> n40
+    n50 L_n50_n404_0@==> n404
+    n40 L_n40_n406_0@==> n406["<b>FASTQ_3</b><br>..."]
+    n404 L_n404_n39_0@==> n39
+    n33 L_n33_n405_0@==> n405["<b>FASTQ_2</b><br>..."]
+    n405 L_n405_n4111_0@==> n4111
+    n406 L_n406_n41_0@==> n41
+    n38 --> n4112["<b>FASTQ cleaned_1</b><br>..."]
+    n41 --> n4114["<b>FASTQ cleaned_3</b><br>..."]
+    n4111 --> n4113["<b>FASTQ cleaned_2</b><br>..."]
+    n4112 L_n4112_nx33_0@==> nx33
+    n4114 L_n4114_nx404_0@==> nx404
+    n4113 L_n4113_nx40_0@==> nx40
+    nx404 L_nx404_n4119_0@==> n4119["<b>krona.html</b>"] & n4121["<b>Blastoutput.txt</b>"]
+    nx40 L_nx40_n4118_0@==> n4118["<b>Blastoutput.txt</b>"] & n4117["<b>krona.html</b>"]
+    nx33 L_nx33_n4116_0@==> n4116["<b>Blastoutput.txt</b>"] & n4120["<b>krona.html</b>"]
+    n46 --> n10@{ label: "<b style=\"color:\">Dataset 3</b>" }
+    n39 --> n4122@{ label: "<b style=\"color:\">Dataset 2</b>" }
+    n405 --> n4122
+    n406 --> n4122
+    n4113 --> n4122
+    n4112 --> n4122
+    n4114 --> n4122
+    n4117 --> n4123@{ label: "<b style=\"color:\">Dataset 1</b>" }
+    n4118 --> n4123
+    n4120 --> n4123
+    n4116 --> n4123
+    n4119 --> n4123
+    n4121 --> n4123
+    n10 --> n4124@{ label: "<b style=\"color:\">Policy 3</b>" }
+    n4122 --> n4125@{ label: "<b style=\"color:\">Policy 2</b>" }
+    n4123 --> n4126@{ label: "<b style=\"color:\">Policy 1</b>" }
+    n4124 --> n4127@{ label: "<b style=\"color:\">DAC</b>" }
+    n4125 --> n4127
+    n4126 --> n4127
 
-6. ## Linked data {#linked-data}
+    n6@{ shape: rect}
+    n31@{ shape: rect}
+    n34@{ shape: rect}
+    n32@{ shape: rect}
+    n37@{ shape: rect}
+    n42@{ shape: rect}
+    n4115@{ shape: rect}
+    n43@{ shape: rect}
+    BIOMATERIAL@{ shape: dbl-circ}
+    n29@{ shape: dbl-circ}
+    n30@{ shape: dbl-circ}
+    n50@{ shape: dbl-circ}
+    n33@{ shape: rect}
+    n40@{ shape: rect}
+    n38@{ shape: rect}
+    n41@{ shape: rect}
+    n39@{ shape: doc}
+    n46@{ shape: doc}
+    n406@{ shape: doc}
+    n405@{ shape: doc}
+    n4112@{ shape: doc}
+    n4114@{ shape: doc}
+    n4113@{ shape: doc}
+    n4119@{ shape: doc}
+    n4121@{ shape: doc}
+    n4118@{ shape: doc}
+    n4117@{ shape: doc}
+    n4116@{ shape: doc}
+    n4120@{ shape: doc}
+    n10@{ shape: diam}
+    n4122@{ shape: diam}
+    n4123@{ shape: diam}
+    n4124@{ shape: diam}
+    n4125@{ shape: diam}
+    n4126@{ shape: diam}
+    n4127@{ shape: diam}
+     n6:::protocol
+     n31:::protocol
+     n34:::protocol
+     n32:::protocol
+     n37:::protocol
+     n337:::protocol
+     n42:::protocol
+     xxx:::protocol
+     n4115:::protocol
+     ALIGN_PROC:::process
+     n43:::process
+     BIOMATERIAL:::biomaterial
+     n29:::biomaterial
+     n30:::biomaterial
+     n50:::biomaterial
+     n33:::process
+     n40:::process
+     n404:::process
+     nx33:::process
+     nx40:::process
+     nx404:::process
+     n38:::process
+     n41:::process
+     n4111:::process
+     n39:::datafile
+     n14:::Administrative
+     n46:::datafile
+     n406:::datafile
+     n405:::datafile
+     n4112:::datafile
+     n4114:::datafile
+     n4113:::datafile
+     n4119:::datafile
+     n4121:::datafile
+     n4118:::datafile
+     n4117:::datafile
+     n4116:::datafile
+     n4120:::datafile
+     n10:::dataManagement
+     n4122:::dataManagement
+     n4123:::dataManagement
+     n4124:::dataManagement
+     n4125:::dataManagement
+     n4126:::dataManagement
+     n4127:::dataManagement
+    classDef biomaterial fill:#B3D9FF,stroke:#4C8BF5,stroke-width:1px
+    classDef datafile   fill:#D5E8D4,stroke:#6FB96C,stroke-width:1px
+    classDef dataManagement fill:#FFD600, stroke:#000000, color:#000000
+    classDef Administrative stroke:#000000, fill:#E1BEE7, color:#000000
+    classDef protocol fill:#feeedf, stroke:#F5A45D, stroke-width:2px, background-color:#feeedf, stroke-dasharray:2
+    classDef process fill:#FFE5CC, stroke:#F5A45D, stroke-width:2px, stroke-dasharray:0
+    style s3 fill:#FFE0B2
+    style PC2 fill:#FFE0B2
+    style s1 fill:#FFE0B2
+    style s4 fill:#FFE0B2
+    style s2 fill:#FFE0B2
+    style n4122 fill:#FFF9C4
+    style n4123 fill:#FFF9C4
+    style n4125 fill:#FFF9C4
+    style n4126 fill:#FFF9C4
+
+    L_BIOMATERIAL_ALIGN_PROC_0@{ animation: slow } 
+    L_BIOMATERIAL_n43_0@{ animation: slow } 
+    L_ALIGN_PROC_n29_0@{ animation: slow } 
+    L_ALIGN_PROC_n30_0@{ animation: slow } 
+    L_ALIGN_PROC_n50_0@{ animation: slow } 
+    L_n30_n33_0@{ animation: slow } 
+    L_n39_n38_0@{ animation: slow } 
+    L_n43_n46_0@{ animation: slow } 
+    L_n29_n40_0@{ animation: slow } 
+    L_n50_n404_0@{ animation: slow } 
+    L_n40_n406_0@{ animation: slow } 
+    L_n404_n39_0@{ animation: slow } 
+    L_n33_n405_0@{ animation: slow } 
+    L_n405_n4111_0@{ animation: slow } 
+    L_n406_n41_0@{ animation: slow } 
+    L_n4112_nx33_0@{ animation: slow } 
+    L_n4114_nx404_0@{ animation: slow } 
+    L_n4113_nx40_0@{ animation: slow } 
+    L_nx404_n4119_0@{ animation: slow } 
+    L_nx404_n4121_0@{ animation: slow } 
+    L_nx40_n4118_0@{ animation: slow } 
+    L_nx40_n4117_0@{ animation: slow } 
+    L_nx33_n4116_0@{ animation: slow } 
+    L_nx33_n4120_0@{ animation: slow }
+```
+
+6. ## Linked data
 
 The introduction of **linked data principles** represents a significant step forward in the EGA v2 metadata model. It will be a valuable concept to accommodate, among others, multi-omics datasets. By **embedding contexts** (@context) in JSON Schemas, we ensure:
 
 * Properties in schemas are resolvable to meaningful identifiers (e.g., https://schema.org/name for name).
 
-* JSON documents referencing (in their @context) these schema files can be automatically expanded into RDF-compliant JSON-LD (see [Figure 17](#figure-17.-diagram-depicting-the-expansion-of-a-json-document-into-json-ld-with-the-addition-of-@context.)) by inheriting the schemas' @context.
+* JSON documents referencing (in their @context) these schema files can be automatically expanded into RDF-compliant JSON-LD (see [Figure 17](#figure-17-diagram-depicting-the-expansion-of-a-json-document-into-json-ld-with-the-addition-of-context)) by inheriting the schemas' @context.
 
-For instance, a cohort.json referencing FEGA.cohort.json through its URI[^225] will inherit the schema's context when expanded by a JSON-LD processor (see [Figure 17](#figure-17.-diagram-depicting-the-expansion-of-a-json-document-into-json-ld-with-the-addition-of-@context.)). This enables terms used as keys (e.g., 'label') and CURIE values (e.g., 'ega:EGAD00000000001'), to be expanded, pointing to resolvable URIs (e.g., https://www.w3.org/2000/01/rdf-schema\#label and https://identifiers.org/ega:EGAD00000000001, respectively).
+For instance, a cohort.json referencing FEGA.cohort.json through its URI[^225] will inherit the schema's context when expanded by a JSON-LD processor (see [Figure 17](#figure-17-diagram-depicting-the-expansion-of-a-json-document-into-json-ld-with-the-addition-of-context)). This enables terms used as keys (e.g., 'label') and CURIE values (e.g., 'ega:EGAD00000000001'), to be expanded, pointing to resolvable URIs (e.g., https://www.w3.org/2000/01/rdf-schema\#label and https://identifiers.org/ega:EGAD00000000001, respectively).
 
-##### ***Figure 17\.** Diagram depicting the expansion of a JSON document into JSON-LD with the addition of @context.* {#figure-17.-diagram-depicting-the-expansion-of-a-json-document-into-json-ld-with-the-addition-of-@context.}
+##### ***Figure 17\.** Diagram depicting the expansion of a JSON document into JSON-LD with the addition of @context.*
 
-![][image17]
+```mermaid
+---
+config:
+  theme: neutral
+  look: neo
+  layout: dagre
+---
+flowchart TB
+ subgraph s1["JSON-LD Expansion"]
+    direction TB
+        n1["<b>JSON </b>Document"]
+        n4@{ label: "Addition of <br><code>'@context'</code>reference" }
+        n5["<b>JSON-LD</b> Document"]
+        n3["FEGA JSON Schemas"]
+        n6["JSON-LD<br>Processor"]
+        n7["<b>Expanded<br>JSON-LD</b> Document"]
+  end
+ subgraph s2["Examples"]
+        n8@{ label: "<code>'label': 'ega:EGAD00000000001'</code>" }
+        n10@{ label: "<code>'http\\://w3.org/2000/01/rdf-schema#label': 'https\\://identifiers.org/ega:EGAD00000000001'</code>" }
+  end
+    n1 L_n1_n4_0@== Is modified by ==> n4
+    n4 L_n4_n5_0@== Transforms <br>document into ==> n5
+    n4 -. References <code>@context</code><br>in the Schemas through URIs .-> n3
+    n5 L_n5_n6_0@== Is fed to a ==> n6
+    n6 -. Which looks for the<br>referenced <code>@context</code> in .-> n3
+    n6 L_n6_n7_0@== "With the schemas @context,<br>it expands the JSON-LD" ==> n7
+    n1 -.-> n8
+    n4 -.-> n9["<code>@context: https\://raw.githubusercontent.com/ega-archive/fega-metadata-schema/main/schemas/FEGA.cohort.json</code>"]
+    n7 -.-> n10
+    n1@{ shape: doc}
+    n4@{ shape: proc}
+    n5@{ shape: doc}
+    n6@{ shape: proc}
+    n7@{ shape: doc}
+    n8@{ shape: text}
+    n10@{ shape: text}
+    n9@{ shape: text}
+     n1:::datafile
+     n5:::datafile
+     n3:::datafile
+     n7:::datafile
+    classDef biomaterial fill:#B3D9FF,stroke:#4C8BF5,stroke-width:1px
+    classDef process    fill:#FFE5CC,stroke:#F5A45D,stroke-width:1px
+    classDef protocol fill:#FFE5CC, stroke:#F5A45D, stroke-width:1px, fill:#feeedf, background-color:#feeedf, stroke-dasharray: 1
+    classDef datafile fill:#D5E8D4, stroke:#6FB96C, stroke-width:1px
+    L_n1_n4_0@{ animation: slow } 
+    L_n4_n5_0@{ animation: slow } 
+    L_n5_n6_0@{ animation: slow } 
+    L_n6_n7_0@{ animation: slow }
+```
 
 1. ### Benefits of Linked data
 
@@ -933,7 +2061,7 @@ With the expansion of plain strings into fully resolvable URIs:
 
 * **Persistent identifiers** are one of the **keys to the FAIR principles**. This expansion boosts Findability and Interoperability scores for every record.
 
-* Search engines prioritise JSON-LD for structured data. This translates into an **improved indexing and surfacing of FEGA content in domain-specific portals** (e.g., Google Dataset Search[^226]) by embedding the expanded JSON-LD in each record. EGA already implements this context in a limited fashion for datasets alone (see [Figure 18](#figure-18.-representation-of-existing-embedded-contexts-and-how-it-improves-the-findability-of-ega-records-on-the-web.-\(1\)-record-of-a-dataset-in-the-ega-portal;-\(2\)-application/ld+json-node-embedded-in-the-html-of-the-record,-containing-context-and-metadata-in-json-ld-format;-\(3\)-result-of-a-query-at-google-datasets,-returning-the-ega-dataset-thanks-to-its-embedded-context.)).
+* Search engines prioritise JSON-LD for structured data. This translates into an **improved indexing and surfacing of FEGA content in domain-specific portals** (e.g., Google Dataset Search[^226]) by embedding the expanded JSON-LD in each record. EGA already implements this context in a limited fashion for datasets alone (see [Figure 18](#figure-18-representation-of-existing-embedded-contexts-and-how-it-improves-the-findability-of-ega-records-on-the-web-1-record-of-a-dataset-in-the-ega-portal-2-applicationldjson-node-embedded-in-the-html-of-the-record-containing-context-and-metadata-in-json-ld-format-3-result-of-a-query-at-google-datasets-returning-the-ega-dataset-thanks-to-its-embedded-context)).
 
 * Remote-context reuse means submitters need to **write less boilerplate to achieve a better semantic level** (i.e., lower verbosity with better semantic precision). This reduces maintenance overhead while following current best-practice guidance from W3C[^227]. 
 
@@ -945,9 +2073,9 @@ Formatting FEGA metadata in compliance with linked data also enables, with small
 
 These linked data capabilities have been tested for internal use-cases but are yet to be integrated with external archives (i.e., cross-archive semantic querying). This external capability may not be in scope for the EGA v2 model until the foundations are set.
 
-##### ***Figure 18\.** Representation of existing embedded contexts and how it improves the findability of EGA records on the web. (1) Record of a dataset in the EGA portal; (2) application/ld+json node embedded in the HTML of the record, containing context and metadata in JSON-LD format; (3) result of a query at Google Datasets[^228], returning the EGA dataset thanks to its embedded context.* {#figure-18.-representation-of-existing-embedded-contexts-and-how-it-improves-the-findability-of-ega-records-on-the-web.-(1)-record-of-a-dataset-in-the-ega-portal;-(2)-application/ld+json-node-embedded-in-the-html-of-the-record,-containing-context-and-metadata-in-json-ld-format;-(3)-result-of-a-query-at-google-datasets,-returning-the-ega-dataset-thanks-to-its-embedded-context.}
+##### ***Figure 18\.** Representation of existing embedded contexts and how it improves the findability of EGA records on the web. (1) Record of a dataset in the EGA portal; (2) application/ld+json node embedded in the HTML of the record, containing context and metadata in JSON-LD format; (3) result of a query at Google Datasets[^228], returning the EGA dataset thanks to its embedded context.*
 
-![][image18]
+![Figure 18. Representation of existing embedded contexts and how it improves the findability of EGA records on the web.](images/FEGA_technical_report-figure_18-embedded_contexts.svg)
 
 2. ### Drawbacks of Linked data
 
@@ -975,7 +2103,7 @@ It is worth noting that the use of linked data was designed to mainly add functi
 
 * **Strategic lock-in**: once downstream consumers rely on FEGA contexts, CURIE patterns, and dereferenceable identifiers, reverting to a "no-linked-data" posture becomes disruptive. In essence, offering new features to take them back later on may undermine reputation and trust in EGA.
 
-  7. ## Sensitive metadata {#sensitive-metadata}
+  7. ## Sensitive metadata
 
 The EGA presents unique challenges as it is specifically tailored for human-derived data. Human omics data demands **meticulous handling to ensure compliance with national and international regulations**, **safeguarding data protection and privacy**. The following classification can be defined for this purpose:
 
@@ -995,11 +2123,11 @@ In essence, the access method proposal is to:
 
   * Any **other data** that the submitter wants to make accessible only through controlled authorisation. For example, non-identifiable personal data (e.g., subject's age) that could be aggregated with other publicly available datasets (e.g., lab results available at other archives) and become identifiable.
 
-This submission routing (see [Figure 19](#figure-19.-summary-diagram-representing-the-submission-proposal-with-regards-to-open-and-controlled-access-metadata.)) **enables submitters** to propose[^229] **what metadata can be disclosed** (provided as open-access metadata) beyond the minimum EGA requirements **and what needs to be behind controlled-access** (provided as encrypted datafiles).
+This submission routing (see [Figure 19](#figure-19-summary-diagram-representing-the-submission-proposal-with-regards-to-open-and-controlled-access-metadata)) **enables submitters** to propose[^229] **what metadata can be disclosed** (provided as open-access metadata) beyond the minimum EGA requirements **and what needs to be behind controlled-access** (provided as encrypted datafiles).
 
-##### ***Figure 19\.** Summary diagram representing the submission proposal with regards to open and controlled access metadata.* {#figure-19.-summary-diagram-representing-the-submission-proposal-with-regards-to-open-and-controlled-access-metadata.}
+##### ***Figure 19\.** Summary diagram representing the submission proposal with regards to open and controlled access metadata.*
 
-![][image19]
+![Figure 19. Summary diagram representing the submission proposal with regards to open and controlled access metadata.](images/FEGA_technical_report-figure_19-open_controlled_access.svg)
 
 An important distinction is that **controlled-access/open-access metadata do not always overlap with sensitive/non-sensitive**. The definition of special category (i.e., sensitive) personal data as per the General Data Protection Regulation[^230] (GDPR) does not impose *open-access* (i.e., publicly displayed) or *controlled-access* constraints. Instead, it simply requires a special level of protection for this type of personal data. Depending on the idiosyncrasies of each submission (e.g., other linked submissions, public records, journal articles), the **threshold for what level of exposure of open-access metadata may lead to re-identification of subjects varies**. With this approach, we give submitters the freedom to set this boundary themselves, to enable FAIR, yet privacy-preserving, submissions to FEGA.
 
@@ -1015,7 +2143,7 @@ Nevertheless, this approach comes with its challenges and future refinements, su
 
 * Introducing methods as opt-in options to enable **discoverability through controlled-access** data. For example, querying genomic variants through Beacon-v2, or displaying privacy-preserving ranges (e.g., age groups).
 
-  8. ## Improvements {#improvements}
+  8. ## Improvements
 
 As introduced in the [*EGA v2 metadata model*](#ega-v2-metadata-model), the EGA v2 entails both conceptual and technology stack changes. In this section, we briefly go through the main improvements of both. The EGA v2 model shifts from a flat, submission-centric XML mindset to a graph-ready, JSON-LD framework that is resolvable on the Web, easily validated through open-source tools and flexible enough to represent future complex submissions.
 
@@ -1057,9 +2185,9 @@ Biovalidator has been tested locally[^235] and through a public API endpoint[^23
 
 6. ### Anticipated FAIR gains with the EGA v2 model
 
-Adopting the FEGA JSON-LD-enabled schema is expected to measurably raise FAIR scores across all four principle groups (see [Table 3](#table-3.-anticipated-fair-gains-of-the-ega-v2-model-over-the-ega-v1-model.)).
+Adopting the FEGA JSON-LD-enabled schema is expected to measurably raise FAIR scores across all four principle groups (see [Table 3](#table-3-anticipated-fair-gains-of-the-ega-v2-model-over-the-ega-v1-model)).
 
-###### ***Table 3**. Anticipated FAIR gains of the EGA v2 model over the EGA v1 model.* {#table-3.-anticipated-fair-gains-of-the-ega-v2-model-over-the-ega-v1-model.}
+###### ***Table 3**. Anticipated FAIR gains of the EGA v2 model over the EGA v1 model.*
 
 | FAIR aspect | Where we improve | Expected impact |
 | :---- | :---- | :---- |
@@ -1074,17 +2202,36 @@ Procedural steps commonly require **datafiles as inputs**. For example, the Arra
 
 As of now, this dependency in the EGA v1 model cannot be represented, since EGA has uniquely stored the result files of an experiment or analysis. This leads to data requestors not being able to fully scrutinize and reproduce some of these processes.
 
-In contrast, the **EGA v2 model enables representing these dependencies between processes and their inputs** beyond a biomaterial level, adequately representing datafile dependencies for each process (see examples in [Figure 12](#figure-12.-representation-\(in-ega-v2-model\)-of-a-simplified-view-for-individual-a,-except-for-clinical-information.)).
+In contrast, the **EGA v2 model enables representing these dependencies between processes and their inputs** beyond a biomaterial level, adequately representing datafile dependencies for each process (see examples in [Figure 12](#figure-12-representation-in-ega-v2-model-of-a-simplified-view-for-individual-a-except-for-clinical-information)).
 
-9. ## Model versioning {#model-versioning}
+9. ## Model versioning
 
 As introduced in the [*Metadata model naming conventions*](#metadata-model-naming-conventions) section, there are two elements that need to be clearly understood: the core model and its extensions. These are versioned separately, maintaining, nonetheless, a hierarchy of the former over the latter.
 
-For example, in [Figure 20](#figure-20.-made-up-example-of-the-core-ega-v2-model-and-a-fega-norway-extension-evolving-over-time.) we see a made-up scenario, where FEGA Norway started their model extension (e.g., forking the fega-metadata-schema repository) using EGA v2.1.0. This extension had some changes added, to cater for the node's needs (e.g., new property for a model entity), creating their extension v1.0.0. The core EGA model evolved independently at fega-metadata-schema, reaching a new version 2.1.1. At one point, FEGA Norway decided their extension (v1.0.0) could be merged with the source one, creating EGA v2.2.0. This is, nonetheless, a frictionless and oversimplified example. In reality, this process may take long periods of time, and efforts in resolving conflicts between the two parallel versions, depending on the diligence of their maintainers.
+For example, in [Figure 20](#figure-20-made-up-example-of-the-core-ega-v2-model-and-a-fega-norway-extension-evolving-over-time) we see a made-up scenario, where FEGA Norway started their model extension (e.g., forking the fega-metadata-schema repository) using EGA v2.1.0. This extension had some changes added, to cater for the node's needs (e.g., new property for a model entity), creating their extension v1.0.0. The core EGA model evolved independently at fega-metadata-schema, reaching a new version 2.1.1. At one point, FEGA Norway decided their extension (v1.0.0) could be merged with the source one, creating EGA v2.2.0. This is, nonetheless, a frictionless and oversimplified example. In reality, this process may take long periods of time, and efforts in resolving conflicts between the two parallel versions, depending on the diligence of their maintainers.
 
-##### ***Figure 20\.** Made-up example of the core EGA v2 model and a FEGA Norway extension evolving over time.* {#figure-20.-made-up-example-of-the-core-ega-v2-model-and-a-fega-norway-extension-evolving-over-time.}
+##### ***Figure 20\.** Made-up example of the core EGA v2 model and a FEGA Norway extension evolving over time.*
 
-![][image20]
+```mermaid
+---
+config:
+  gitGraph:
+    mainBranchName: 'fega-metadata-schema'
+---
+
+gitGraph
+    commit id: "EGA v2.0.0"
+    commit id: "EGA v2.1.0"
+    branch "FEGA Norway Extension"
+    checkout "FEGA Norway Extension"
+    commit id: "Extension v0.0.0"
+    commit id: "Extension v1.0.0"
+    checkout "fega-metadata-schema"
+    commit id: "EGA v2.1.1"
+    checkout fega-metadata-schema
+    merge "FEGA Norway Extension" id: "Merge extension"
+    commit id: "EGA v2.2.0"
+```
 
 1. ### EGA v2 model schemas
 
@@ -1102,11 +2249,11 @@ The release\_manifest.json[^241] is a machine-readable summary of the schema ver
 
 2. ### Model extensions
 
-Extensions are copies of the main EGA v2 model schemas that are versioned independently yet maintain a hierarchical dependency with the original model. For example, in [Figure 20](#figure-20.-made-up-example-of-the-core-ega-v2-model-and-a-fega-norway-extension-evolving-over-time.), FEGA Norway extension v1.0.0 is expected to be compatible with EGA v2.1.0.
+Extensions are copies of the main EGA v2 model schemas that are versioned independently yet maintain a hierarchical dependency with the original model. For example, in [Figure 20](#figure-20-made-up-example-of-the-core-ega-v2-model-and-a-fega-norway-extension-evolving-over-time), FEGA Norway extension v1.0.0 is expected to be compatible with EGA v2.1.0.
 
 These extensions have a different governance model (i.e., different ownership), and can be created by any institution or individual, as the project is open-source. They can also be merged with the core model at fega-metadata-schema following the contributing documentation[^242].
 
-10. ## Mapping archived data to the proposed model {#mapping-archived-data-to-the-proposed-model}
+10. ## Mapping archived data to the proposed model
 
     1. ### Starting point
 
@@ -1116,7 +2263,7 @@ On top of these submissions following the EGA v1 model, another \~**1,700 Array-
 
 2. ### Mapping strategy
 
-In order to **bridge the gap** between models and to aid with the implementation of the EGA v2 model, we propose the creation of a **mapper library** (see [Table 4](#table-4.-ega-v1-v2-models-mapping-strategy-overview.)). It is important to note that:
+In order to **bridge the gap** between models and to aid with the implementation of the EGA v2 model, we propose the creation of a **mapper library** (see [Table 4](#table-4-ega-v1-v2-models-mapping-strategy-overview)). It is important to note that:
 
 * Although **full automation** is the ultimate goal, the process may require human intervention to fully map some datasets. A classical example of this would be the Array Format (AF) metadata, which is processed in a different way to the rest of EGA-archived metadata.
 
@@ -1131,7 +2278,7 @@ For further details about the comparison between these two models, refer to the 
 
 Clues for the semantic equivalence (e.g., a sample in EGA v1 model is equivalent to a biomaterial in the v2 one) can be found within the EGA v2 model JSON Schemas following the Simple Standard for Sharing Ontological Mappings[^244] (SSSOM) specification. This would be of great help to the automatic conversion across models, by semantically bridging entities on both ends of the transformation.
 
-###### ***Table 4**. EGA v1-v2 models mapping strategy overview.* {#table-4.-ega-v1-v2-models-mapping-strategy-overview.}
+###### ***Table 4**. EGA v1-v2 models mapping strategy overview.*
 
 | Task | Mechanism | Notes |
 | ----- | ----- | ----- |
@@ -1139,7 +2286,7 @@ Clues for the semantic equivalence (e.g., a sample in EGA v1 model is equivalent
 | Entity transformation | An "EGA v1-v2" mapper library would aid with the automatic conversion between EGA v1 and v2 models. | Handles 1-to-many splits (e.g., EGA v1 Experiment becomes protocolCollection \+ Process). |
 | Semantic enrichment | When the source (following the EGA v1 model) contains fields with known identifiers as free-text, the mapper library would expand them as CURIEs; ontological gaps are flagged for manual review. | Ensures every core node has a dereferenceable id. |
 
-11. ## Implementation plan {#implementation-plan}
+11. ## Implementation plan
 
 The **implementation** of the EGA v2 model involves a key step in archiving by CEGA and any FEGA node: **validation against the EGA v2 model JSON Schemas**. Regardless of the method of submission (e.g., GUI, APIs) and storage (e.g., Postgres, MongoDB), as long as the metadata submitted are validated against the EGA v2 model and communicated across nodes in a compatible format, implementation is considered to be achieved.
 
@@ -1170,15 +2317,15 @@ The **implementation** of the EGA v2 model involves a key step in archiving by C
 5. **Phase 4**. Consolidation.  
    1. EGA v1 model is **frozen**, while the mapper is retained as a long-term support utility. All new submissions to FEGA are validated against the EGA v2 model.
 
-8. # Governance {#governance}
+8. # Governance
 
 All schemas, examples and tests live in the **public fega-metadata-schema repository** under the MIT licence[^245], and every pull request triggers the same validation matrix the archive runs in production.
 
 Releases will be **documented** in GitHub and Zenodo, enabling history tracking of the model evolution at any time. 
 
-The FEGA network will manage the EGA v2 metadata model through a three-tier structure that mirrors the wider FEGA organisational layout[^246] (see [Table 5](#table-5.-fega-governing-groups-over-the-ega-v2-model.)).
+The FEGA network will manage the EGA v2 metadata model through a three-tier structure that mirrors the wider FEGA organisational layout[^246] (see [Table 5](#table-5-fega-governing-groups-over-the-ega-v2-model)).
 
-###### ***Table 5**. FEGA governing groups over the EGA v2 model.* {#table-5.-fega-governing-groups-over-the-ega-v2-model.}
+###### ***Table 5**. FEGA governing groups over the EGA v2 model.*
 
 | Name | Role for the model | Composition |
 | ----- | ----- | ----- |
@@ -1188,11 +2335,11 @@ The FEGA network will manage the EGA v2 metadata model through a three-tier stru
 
 1. ### Change release flow
 
-**Continuous development** is the norm for the FEGA metadata schemas: routine improvements move through the repository like any other open-source project. When an urgent fix or a formally versioned release is required, the steps in [Table 6](#table-6.-change-release-flow-step-by-step.), and the minimum notice they impose, ensure every node can react in time and the governance bodies can intervene if necessary. 
+**Continuous development** is the norm for the FEGA metadata schemas: routine improvements move through the repository like any other open-source project. When an urgent fix or a formally versioned release is required, the steps in [Table 6](#table-6-change-release-flow-step-by-step), and the minimum notice they impose, ensure every node can react in time and the governance bodies can intervene if necessary. 
 
 This change release flow, like most of the work in this report, is but a **proposal**, still to be validated by all participating drivers (FEGA nodes, CEGA, and respective committees). Once the EGA v2 model is released and this approach is tested, it will be updated accordingly.
 
-###### ***Table 6**. Change release flow step-by-step.* {#table-6.-change-release-flow-step-by-step.}
+###### ***Table 6**. Change release flow step-by-step.*
 
 | Phase | Drivers | Minimum notice / deadline\* |
 | ----- | ----- | ----- |
@@ -1227,13 +2374,13 @@ The plan's **Emergency / Major / Minor / Patch** categories map directly onto th
 
 Further operational details (diagrams, CI scripts, release checklists…) live in the releases/README.md of the schema repository and are kept up to date by the MWG team.
 
-9. # Dependencies {#dependencies}
+9. # Dependencies
 
 Here we list **external dependencies** of the EGA v2 model, which both enhance and constrain the technical approach. They let us reuse community infrastructure for identifiers, ontologies, and standards, while keeping the FEGA schemas lightweight and interoperable.
 
 For what mitigation measures are in place for each dependency, refer to the [*Risks and mitigation*](#risks-and-mitigation) section.
 
-1. ## Validation services {#validation-services}
+1. ## Validation services
 
 * **ELIXIR Biovalidator**[^250]. Core JSON Schema validator with ontology and taxonomy checks; runs as CLI or server. Our schemas and CI depend on it.
 
@@ -1243,7 +2390,7 @@ For what mitigation measures are in place for each dependency, refer to the [*Ri
 
 * **ENA Taxonomy services**[^253]. Potential use for isValidTaxonomy checks supported by Biovalidator.
 
-  2. ## Upstream schemas and profiles {#upstream-schemas-and-profiles}
+  2. ## Upstream schemas and profiles
 
 * **GA4GH Beacon v2**[^254]. Selected JSON Schemas (e.g., Cohort's defaultSchema.json[^255]) are reused to stay aligned with Beacon models and formats.
 
@@ -1261,17 +2408,17 @@ For what mitigation measures are in place for each dependency, refer to the [*Ri
 
 Some of these are added to the FEGA repository as static files, while others are forked and referenced. See [*Risks and Mitigation*](#risks-and-mitigation) for further details.
 
-3. ## Hosting and resolution {#hosting-and-resolution}
+3. ## Hosting and resolution
 
 * **GitHub**[^265]. Schemas are distributed via repository URLs and fetched in validation through raw.githubusercontent.com; outages or rate limits can affect remote resolution.
 
-  4. ## Linked data processing {#linked-data-processing}
+  4. ## Linked data processing
 
 * **JSON-LD processors**. When remote contexts are used, processors retrieve them per the JSON-LD 1.1 API, so availability of those context URLs matters.
 
-10. # Risks and mitigation {#risks-and-mitigation}
+10. # Risks and mitigation
 
-###### ***Table 7**. Risks and mitigations overview.* {#table-7.-risks-and-mitigations-overview.}
+###### ***Table 7**. Risks and mitigations overview.*
 
 | Dependency | Service | Risk | Mitigation |
 | ----- | ----- | ----- | ----- |
@@ -1296,7 +2443,7 @@ Some of these are added to the FEGA repository as static files, while others are
 | [Hosting and resolution](#hosting-and-resolution) | **GitHub** | GitHub outage or raw resolution rate limits block $id/$ref fetches. | Use cached schemas in existing Biovalidator instances; deploy validator instances with *local* schemas instead of letting it fetch them when referenced. |
 |  | **FEGA nodes** | FEGA nodes have specific needs for validation. | FEGA nodes can deploy multiple local instances of the validator; and can fork the FEGA schema repo and alter it as needed. Responsibility for compliance would lie with the node maintainer. |
 
-11. # Results {#results}
+11. # Results
 
 The FEGA MWG has successfully developed an **abstract metadata model for the FEGA** network, along with its **proposed technical stack**, that significantly advances FAIR principles and enables linked data interoperability. The following summarises key advancements and collaborative outcomes:
 
@@ -1312,27 +2459,27 @@ The FEGA MWG has successfully developed an **abstract metadata model for the FEG
 
 * **Community engagement**: a diverse group of stakeholders was consulted and involved in the design, development and testing of each component, from the abstract model to the JSON Schemas.
 
-12. # Discussion {#discussion}
+12. # Discussion
 
-    1. ## FEGA operational structure {#fega-operational-structure}
+    1. ## FEGA operational structure
 
 FEGA faces a complex data landscape with different regulatory, technical, and scientific requirements. This report documents monthly cross-node meetings and international workshops that focused on identifying the pain points with the EGA v1 model. Mainly, the (i) inability to model non-genomics data, (ii) limited ability to represent common procedural steps and (iii) reliance on controlled vocabularies and free-text fields.
 
 The FEGA MWG responded by shifting the core modelling focus from the prevailing experiment/analysis paradigm to a **process-oriented**, **modular framework**. This decision—rooted in the lessons of the Human Cell Atlas and SEEK models—was not driven by abstraction, but by the practical need to represent workflows from genomics and beyond, such as imaging, microarray, microbiome, and proteomics.
 
-2. ## Community-rooted model design and use-case validation {#community-rooted-model-design-and-use-case-validation}
+2. ## Community-rooted model design and use-case validation
 
 A defining characteristic of the process was deliberate, open engagement with FEGA nodes and external partners from the very beginning (see [*Group Formation*](#group-formation-and-work-summary) section).
 
 Furthermore, the FEGA use-case sessions were not isolated workshops, but recurring, hands-on collaborations. Each session dissected real or synthetic datasets, actively shaping the entity structure and model granularity. The flexibility with which the model accommodated diverse use-cases—illustrated with side-by-side diagrams and worked mappings—proved instrumental in building confidence and fostering consensus, especially for data types (e.g., proteomics) that were not previously well-supported. 
 
-3. ## Ontology integration and linked-data adoption {#ontology-integration-and-linked-data-adoption}
+3. ## Ontology integration and linked-data adoption
 
 Instead of relying on static, locally maintained controlled vocabularies, the model uses standardized ontologies through CURIEs and URIs, ensuring (1) alignment with field standards, and (2) syntactic validation plus selected semantic checks (e.g., ontology term validation). Linked data principles are embedded by default, making the EGA v2 metadata model suitable for federated search and semantic querying in the future. 
 
 Nevertheless, the use of external ontologies comes with its own challenges, such as dependency on ontology updates, and the risk of "ontology drift". The MWG will address these challenges through automated tooling and continuous monitoring. This makes the model not only machine-readable and interoperable, but also prepared for future expansion within biomedical data ecosystems.
 
-4. ## Evaluation and impact {#evaluation-and-impact}
+4. ## Evaluation and impact
 
 As of now, national FEGA nodes struggle to balance between remaining consistent with the EGA v1 model and creating their own metadata models or bespoke solutions that cater to their needs. This commonly results in duplicated effort or loss of metadata fidelity across nodes.
 
@@ -1340,7 +2487,7 @@ The EGA v2 model aims to overcome that challenge by becoming the common FEGA sta
 
 Trust from the scientific community is backed by transparency in governance (e.g., clear release/versioning pathways, public logs) and direct representation of participant feedback in schema evolution.
 
-5. ## Challenges {#challenges}
+5. ## Challenges
 
 * **Ontology change management:** dependency on external vocabularies mandates further automation and community alerting as terms evolve.
 
@@ -1350,7 +2497,7 @@ Trust from the scientific community is backed by transparency in governance (e.g
 
 See specific challenges in the [*Open questions*](#open-questions) section.
 
-13. # Next steps {#next-steps}
+13. # Next steps
 
 * Finalising JSON Schemas, including **ontology mappings** and **validation constraints**.
 
@@ -1380,9 +2527,9 @@ See specific challenges in the [*Open questions*](#open-questions) section.
 
 * Define a **FEGA-wide default policy for open- vs controlled-access metadata** exposure (minimum public metadata, review responsibilities, and enforcement).
 
-14. # Open questions {#open-questions}
+14. # Open questions
 
-###### ***Table 8**. Open questions of the Technical Report.* {#table-8.-open-questions-of-the-technical-report.}
+###### ***Table 8**. Open questions of the Technical Report.*
 
 | Question | Comment |
 | ----- | ----- |
@@ -1398,14 +2545,18 @@ See specific challenges in the [*Open questions*](#open-questions) section.
 | *Is protocol ordering relevant for FEGA submissions?* | The relationship prov:hadMember expresses membership alone, not ordering. Since the main aim of the model is not to contain the full and detailed protocol information of each activity, but the information to enable discoverability of data, protocol order was not deemed worth bringing into the mix. If a more detailed view of the protocols used for each activity is needed, other models such as P-Plan could be considered. |
 | *Should the linkage between Protocol and Process be exclusively through a Protocol Collection?* | If we are strict with the representation aspect, having both Process–ProtocolCollection and Process–Protocol make sense. Nevertheless, we need a balance between (1) being semantically sound, (2) having extra steps in between (i.e., the Protocol Collection) that would hinder queries to retrieve data, and (3) the complexity for submitters/users to understand that a Process may be linked to a Protocol in two different ways. For that reason, we assume the default linkage would be through Protocol Collections, but a direct, inferred, relationship between Process and Protocol could be made at the implementation level (see [Figure 5](https://docs.google.com/document/d/1EsKKScuQ3K6fYW1TNemGflH401qyYOIwrkhSF0E4K2Q/edit?userstoinvite=ychenggsc@gmail.com&sharingaction=manageaccess&role=writer&tab=t.0#heading=h.n2cu17fj2ql4)). |
 
-15. # Annexes {#annexes}
+15. # Annexes
 
 | Number | Name |
 | :---- | :---- |
-| 1 | "CEGA Use-case \- post-session modelling results.svg"[^279] |
-| 2 | "Microarray Use-case \- post-session modelling results.svg"[^280] |
-| 3 | "Proteomics Use-case \- post-session modelling results.svg"[^281] |
-| 4 | "Microbiome Use-case \- post-session modelling results.svg"[^282] |
+| 1 | [CEGA Use-case - post-session modelling results](images/FEGA_technical_report-annex_1-CEGA_use_case.svg)[^279] |
+| 2 | [Microarray Use-case - post-session modelling results](images/FEGA_technical_report-annex_2-microarray_use_case.svg)[^280] |
+| 3 | [Proteomics Use-case - post-session modelling results](images/FEGA_technical_report-annex_3-proteomics_use_case.svg)[^281] |
+| 4 | [Microbiome Use-case - post-session modelling results](images/FEGA_technical_report-annex_4-microbiome_use_case.svg)[^282] |
+
+
+
+
 
 [^1]:  [https://orcid.org/0000-0002-7747-6256](https://orcid.org/0000-0002-7747-6256) 
 
