@@ -1,23 +1,31 @@
 {
-  "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/refs/heads/main/entities/cohort/schema.json",
-  "@type": "cohort",
+  "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/entities/cohort/schema.json",
+  "@type": "ega:cohort",
   "@embed": "@always",
   "@explicit": false,
 
-  "cohortId": {},
-  "studyId": {},
+  "id": {},
+  "name": {},
+  "description": {},
+  "cohortDataTypes": {},
+  "cohortDesign": {},
+  "cohortSize": {},
+  "cohortType": {},
+  "inclusionCriteria": {},
+  "exclusionCriteria": {},
+  "collectionEvents": {},
 
   "sameAs": [
     {
       "@embed": "@never"
     }
   ],
-  "wasUsedBy": [
+  "isPartOf": [
     {
       "@embed": "@never"
     }
   ],
-  "used": [
+  "hadMember": [
     {
       "@embed": "@never"
     }

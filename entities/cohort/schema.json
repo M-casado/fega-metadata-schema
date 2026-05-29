@@ -7,24 +7,8 @@
   "$async": true,
   "description": "A group of Biomaterials (e.g., individuals, biopsies) sharing specific characteristics, facilitating comparative studies and discovery.",
   "$comment": "@Context for Beacon's entities is unfinished. Just a draft of the root properties for now. Ideally they'll have the context of their schemas embedded in them, so we can reference. Not quite there yet though.",
-  "@context": [
-    "../common/schema.json",
-    {
-      "entityDoc": "entities:FEGA.cohort.json#",
-      "properties": "@nest",
-      "beaconDoc": "beaconRepo:cohorts/defaultSchema.json#",
-      "cohortDataTypes": {
-        "@id": "beaconDoc:cohortDataTypes",
-        "@container": "@set"
-      },
-      "cohortDesign": "beaconDoc:cohortDesign",
-      "cohortSize": "beaconDoc:cohortSize",
-      "cohortType": "schema:category",
-      "collectionEvents": "schema:Collection",
-      "exclusionCriteria": "beaconDoc:exclusionCriteria",
-      "inclusionCriteria": "beaconDoc:inclusionCriteria"
-    }
-  ],
+  "@context": "context.jsonld",
+  "unevaluatedProperties": false,
   "allOf": [
     {
       "title": "Base constraints for JSON-LD",
@@ -42,7 +26,34 @@
   ],
   "properties": {
     "@type": {
-      "$comment": "#! Need to add @type"
+      "title": "Cohort resource type",
+      "description": "The JSON-LD type for a FEGA cohort.",
+      "anyOf": [
+        {
+          "const": "ega:cohort"
+        },
+        {
+          "type": "array",
+          "allOf": [
+            {
+              "contains": {
+                "const": "ega:cohort"
+              }
+            },
+            {
+              "contains": {
+                "const": "prov:Collection"
+              }
+            }
+          ],
+          "minItems": 2,
+          "uniqueItems": true
+        }
+      ],
+      "examples": [
+        "ega:cohort",
+        ["ega:cohort", "prov:Collection"]
+      ]
     },
 
     "description": {
@@ -50,7 +61,15 @@
     },
     
     "sameAs": {
-      "$ref": "../common/schema.json#/$defs/sameAs"
+      "allOf": [
+        {"$ref": "../common/schema.json#/$defs/sameAs"},
+        {
+          "title": "Entity type restriction",
+          "items": {
+            "$ref": "../common/schema.json#/$defs/relationshipItemRestrictionCohort"
+          }
+        }
+      ]
     },
 
     "hadMember": {
