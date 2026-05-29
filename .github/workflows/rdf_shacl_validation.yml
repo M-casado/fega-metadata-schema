@@ -38,7 +38,7 @@ on:
   pull_request:
     paths:
       - '**/*.json'
-      - 'entities/**'
+      - 'schemas/**'
       - 'standards/**'
       - 'scripts/**'
       - '.github/workflows/**'
@@ -99,7 +99,7 @@ jobs:
         run: |
           script_path="scripts/py/validate_rdf_shacl.py"
           shapes_path="standards/rdf/healthdcat-ap/release-6.0.0/shacl/non-public-shapes-v6.ttl"
-          data_path="entities/dataset/examples/valid"
+          data_path="schemas/entities/dataset/examples/valid"
           
           python $script_path "$data_path" --shapes "$shapes_path" > shacl_valid.json
           
@@ -116,7 +116,7 @@ jobs:
         run: |
           script_path="scripts/py/validate_rdf_shacl.py"
           shapes_path="standards/rdf/healthdcat-ap/release-6.0.0/shacl/non-public-shapes-v6.ttl"
-          data_path="entities/dataset/examples/invalid"
+          data_path="schemas/entities/dataset/examples/invalid"
           
           python $script_path "$data_path" --shapes "$shapes_path" > shacl_invalid.json || true
           

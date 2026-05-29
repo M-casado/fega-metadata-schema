@@ -1,0 +1,18 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/cohort/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/cohort/schema.json",
+    "@type": "ega:cohort",
+    "id": "ega:cohort-invalid-sameas-type",
+    "name": "Invalid cohort with non-cohort sameAs target",
+    "cohortType": "study-defined",
+    "sameAs": [
+      {
+        "id": "ega:EGAP00000000001",
+        "@type": "ega:process"
+      }
+    ]
+  }
+}

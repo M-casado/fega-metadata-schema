@@ -1,6 +1,6 @@
 # CODEOWNERS
 
-# Anything inside the "entities/" and "standards/" directories must be reviewed
+# Anything inside the "schemas/" and "standards/" directories must be reviewed
 # (and preferably approved) by @m-casado
-/entities/    @m-casado
+/schemas/     @m-casado
 /standards/   @m-casado

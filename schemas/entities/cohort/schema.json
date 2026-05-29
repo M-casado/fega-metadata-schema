@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/cohort/schema.json",
+  "type": "object",
+  "title": "FEGA Cohort metadata schema",
+  "meta:version": "0.0.0",
+  "$async": true,
+  "description": "A group of Biomaterials (e.g., individuals, biopsies) sharing specific characteristics, facilitating comparative studies and discovery.",
+  "$comment": "@Context for Beacon's entities is unfinished. Just a draft of the root properties for now. Ideally they'll have the context of their schemas embedded in them, so we can reference. Not quite there yet though.",
+  "@context": "context.jsonld",
+  "unevaluatedProperties": false,
+  "allOf": [
+    {
+      "title": "Base constraints for JSON-LD",
+      "$ref": "../../../standards/json-schema/json-ld.org/FEGA.jsonld-schema.json"
+    },
+    {
+        "title": "Entity type restriction",
+        "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionCohort"
+    },
+    {
+      "title": "Compatibility with Beacon v2 JSON Schema",
+      "$comment": "Reference to be modified (#!) when Beacon v2 gets '$id's for their JSON Schemas (see details at https://github.com/ga4gh-beacon/beacon-v2/issues/206). Until then, a temporary fork (M-casado/beacon-v2/biovalidator-test) would work as a placeholder.",
+      "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/biovalidator-test/models/json/beacon-v2-default-model/cohorts/defaultSchema.json"
+    }
+  ],
+  "properties": {
+    "@type": {
+      "title": "Cohort resource type",
+      "description": "The JSON-LD type for a FEGA cohort.",
+      "anyOf": [
+        {
+          "const": "ega:cohort"
+        },
+        {
+          "type": "array",
+          "allOf": [
+            {
+              "contains": {
+                "const": "ega:cohort"
+              }
+            },
+            {
+              "contains": {
+                "const": "prov:Collection"
+              }
+            }
+          ],
+          "minItems": 2,
+          "uniqueItems": true
+        }
+      ],
+      "examples": [
+        "ega:cohort",
+        ["ega:cohort", "prov:Collection"]
+      ]
+    },
+
+    "description": {
+      "$ref": "../../common/schema.json#/$defs/description"
+    },
+    
+    "sameAs": {
+      "allOf": [
+        {"$ref": "../../common/schema.json#/$defs/sameAs"},
+        {
+          "title": "Entity type restriction",
+          "items": {
+            "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionCohort"
+          }
+        }
+      ]
+    },
+
+    "hadMember": {
+      "allOf": [
+        {"$ref": "../../common/schema.json#/$defs/hadMember"},
+        {
+          "title": "Entity type restriction",
+          "items": {
+            "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionBiomaterial"
+          }
+        }
+      ]
+    },
+    
+    "isPartOf": {
+      "allOf": [
+        { "$ref": "../../common/schema.json#/$defs/isPartOf" },
+        {
+          "title": "Entity type restriction",
+          "items": {
+            "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionStudy"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -24,7 +24,7 @@ Thank you for your interest in improving the FEGA metadata model!  We welcome pu
 
 1. **Fork** the repository (or create a feature branch if you have push rights).
 2. Create a **topic branch** off ``main`` or ``dev``, e.g. `feat/add-sample-tissue-enum`.
-3. Make your changes and verify locally that files within ``entities/*/examples`` validate against the local schemas. The **easiest way to do this** is by manually triggering the ``json_validation_deploying_biovalidator.yml`` workflow at its [Actions](https://github.com/M-casado/fega-metadata-schema/actions/workflows/json_validation_deploying_biovalidator.yml) page. You can provide the branch (e.g., ``my-branch``), commit or tag in the form (see image below) and the workflow will do the rest for you (just check the outcome!). You can run actions on this workflow only as an active contributor, but you can replicate this by forking the repository and running the action in your own fork.
+3. Make your changes and verify locally that files within ``schemas/entities/*/examples`` validate against the local schemas. The **easiest way to do this** is by manually triggering the ``json_validation_deploying_biovalidator.yml`` workflow at its [Actions](https://github.com/M-casado/fega-metadata-schema/actions/workflows/json_validation_deploying_biovalidator.yml) page. You can provide the branch (e.g., ``my-branch``), commit or tag in the form (see image below) and the workflow will do the rest for you (just check the outcome!). You can run actions on this workflow only as an active contributor, but you can replicate this by forking the repository and running the action in your own fork.
 
 ![Example of manually triggering a workflow](./docs/images/workflow-manual-trigger.png)
 
@@ -48,7 +48,7 @@ Thank you for your interest in improving the FEGA metadata model!  We welcome pu
 | Area                | Tool / Convention   |
 | ------------------- | ------------------- |
 | **Python**          | Type hints encouraged; keep reusable logic in `src/fega_tools/`.          |
-| **JSON Schemas**    | `$id`, `title`, `description` and `meta:version` are mandatory; use `$ref` over copy-paste. More details at [``entities``](./entities/README.md). |
+| **JSON Schemas**    | `$id`, `title`, `description` and `meta:version` are mandatory; use `$ref` over copy-paste. More details at [``schemas/entities``](./schemas/entities/README.md). |
 | **Commit messages** | Conventional Commits style (`fix:`, `feat:`, `docs:` …).                                       |
 | **Docs**            | Markdown (`.md`), diagrams as SVG/PNG in `docs/images/`.                                      |
 

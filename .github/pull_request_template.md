@@ -7,7 +7,7 @@
 ## Contributor checklist
 I confirm I read the contributing documentation and the following is checked:
 * [ ] **Schema versions updated** – every **modified** JSON Schema has its `meta:version` incremented.
-* [ ] **Schemas validate examples** – all schemas in [``entities/*/schema.json``](../entities/) and [``standards/json-schema/**/*.json``](../standards/json-schema/) are properly compiled by Biovalidator locally, and JSON examples in [``entities/*/examples/``](../entities/) are valid against them.
+* [ ] **Schemas validate examples** – all schemas in [``schemas/entities/*/schema.json``](../schemas/entities/) and [``standards/json-schema/**/*.json``](../standards/json-schema/) are properly compiled by Biovalidator locally, and JSON examples in [``schemas/entities/*/examples/``](../schemas/entities/) are valid against them.
 <!-- The previous will also be checked by the GH workflows. -->
 * [ ] **Documentation updated** – relevant pages under ``docs/`` (and any diagrams / examples) reflect my changes.
 * [ ] **CHANGELOG touched** – my changes are reflected in the the [``CHANGELOG.md``](../CHANGELOG.md).

@@ -879,7 +879,7 @@
           }
         },
         {
-          "$ref": "../../../entities/common/schema.json#/$defs/relationshipArray",
+          "$ref": "../../../schemas/common/schema.json#/$defs/relationshipArray",
           "$comment": "#! Added on top of the BioSchemas original schema to allow for more flexibility and compatibility with the FEGA relationship arrays"
         }
       ],
@@ -927,7 +927,7 @@
           "type": "string"
         },
         {
-          "$ref": "../../../entities/common/schema.json#/$defs/relationshipArray",
+          "$ref": "../../../schemas/common/schema.json#/$defs/relationshipArray",
           "$comment": "#! Added on top of the BioSchemas original schema to allow for more flexibility and compatibility with the FEGA relationship arrays"
         }
       ],
@@ -1814,7 +1814,7 @@
           }
         },
         {
-          "$ref": "../../../entities/common/schema.json#/$defs/relationshipArray",
+          "$ref": "../../../schemas/common/schema.json#/$defs/relationshipArray",
           "$comment": "#! Added on top of the BioSchemas original schema to allow for more flexibility and compatibility with the FEGA relationship arrays"
         }
       ],
@@ -1879,7 +1879,7 @@
                   "format": "uri"
               },
               "fileFormat": {
-                "$ref": "../../../entities/common/schema.json#/$defs/fileFormat"
+                "$ref": "../../../schemas/common/schema.json#/$defs/fileFormat"
               }
           },
           "required": [ "name", "fileFormat" ]

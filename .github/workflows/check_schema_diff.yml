@@ -113,13 +113,13 @@ jobs:
       - name: Extract base schemas
         run: |
           git checkout ${{ inputs.base_ref }}
-          find entities -maxdepth 2 -name "schema.json" -type f -exec cp {} ${{ env.BASE_DIR }}/ \; 2>/dev/null || true
+          find schemas -maxdepth 3 -name "schema.json" -type f -exec cp {} ${{ env.BASE_DIR }}/ \; 2>/dev/null || true
           git checkout -
 
       - name: Extract target schemas
         run: |
           git checkout ${{ inputs.target_ref }}
-          find entities -maxdepth 2 -name "schema.json" -type f -exec cp {} ${{ env.TARGET_DIR }}/ \; 2>/dev/null || true
+          find schemas -maxdepth 3 -name "schema.json" -type f -exec cp {} ${{ env.TARGET_DIR }}/ \; 2>/dev/null || true
           git checkout -
 
       - name: Compare schemas

@@ -19,9 +19,9 @@ The resources in this repository allow you to:
 | **FEGA Metadata Technical report _(in preparation)_** | [`docs/technical-report.md`](./docs/technical-report.md) |
 | **Background on the FEGA project** | [About FEGA](https://ega-archive.org/about/projects-and-funders/federated-ega/) |
 | **FEGA onboarding guide** | [FEGA-Onboarding](https://ega-archive.github.io/FEGA-onboarding/) |
-| **Metadata schemas** | [`entities/`](./entities/) |
-| **Examples (test data)** | [`entities/*/examples/`](./entities/) |
-| **JSON-LD frames** | [`entities/*/frame.jsonld`](./entities/) |
+| **Metadata schemas** | [`schemas/`](./schemas/) |
+| **Examples (test data)** | [`schemas/entities/*/examples/`](./schemas/entities/) |
+| **JSON-LD frames** | [`schemas/entities/*/frame.jsonld`](./schemas/entities/) |
 | **Further documentation** | [`docs/`](./docs/) |
 
 ## Contributing

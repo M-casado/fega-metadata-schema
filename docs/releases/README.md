@@ -14,10 +14,10 @@ Most of these steps are automated by the following resources:
 
 | Name | Purpose | `$id`/`$ref` segment | Example |
 |------|---------|----------------------|---------|
-| `main` branch | latest **stable** snapshot | `/main/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/entities/cohort/schema.json |
-| `dev`  branch | day-to-day work (unstable) | `/dev/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/dev/entities/cohort/schema.json |
-| `vX.Y.Z` branch | frozen candidate | `/vX.Y.Z/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/v1.0.0/entities/cohort/schema.json |
-| `vX.Y.Z` tag | final, immutable release | `/vX.Y.Z/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/v1.0.0/entities/cohort/schema.json |
+| `main` branch | latest **stable** snapshot | `/main/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/cohort/schema.json |
+| `dev`  branch | day-to-day work (unstable) | `/dev/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/dev/schemas/entities/cohort/schema.json |
+| `vX.Y.Z` branch | frozen candidate | `/vX.Y.Z/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/v1.0.0/schemas/entities/cohort/schema.json |
+| `vX.Y.Z` tag | final, immutable release | `/vX.Y.Z/` | https://raw.githubusercontent.com/M-casado/fega-metadata-schema/v1.0.0/schemas/entities/cohort/schema.json |
 
 ````mermaid
 gitGraph

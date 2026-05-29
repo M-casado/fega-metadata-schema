@@ -41,7 +41,7 @@
 
 | Name | GitHub tag | ORCID | Contribution to | First commit |
 |------|------------|-------|-----------------|--------------|
-| Marcos Casado Barbero | [M-casado](https://github.com/M-casado) | [0000-0002-1234-5678](https://orcid.org/0000-0002-7747-6256) | [entities](./entities/), [standards](./standards/), [scripts](./scripts/), [docs](./docs/), [build](./build/), [.github](.github/), [src](./src/), [Technical report](./docs/technical-report.md), root documentation | ``2024-11-13`` |
+| Marcos Casado Barbero | [M-casado](https://github.com/M-casado) | [0000-0002-1234-5678](https://orcid.org/0000-0002-7747-6256) | [schemas](./schemas/), [standards](./standards/), [scripts](./scripts/), [docs](./docs/), [build](./build/), [.github](.github/), [src](./src/), [Technical report](./docs/technical-report.md), root documentation | ``2024-11-13`` |
 | Anandhi Iyappan |  | [0000-0002-5571-4962](https://orcid.org/0000-0002-5571-4962) | [Technical report](./docs/technical-report.md) |  |
 | Silvia Bahena |  | [0000-0002-2734-0449](https://orcid.org/0000-0002-2734-0449) | [Technical report](./docs/technical-report.md) |  |
 | Amy Curwin |  | [0000-0003-1086-2483](https://orcid.org/0000-0003-1086-2483) | [Technical report](./docs/technical-report.md) |  |

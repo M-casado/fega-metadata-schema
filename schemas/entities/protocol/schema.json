@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/protocol/schema.json",
+  "type": "object",
+  "title": "FEGA protocol metadata schema",
+  "meta:version": "0.0.0",
+  "$async": true,
+  "description": "Detailed plan of instructions on how a procedure is done. For example, sample preparation, sequencing or feature extraction techniques.",
+  "@context": [
+    "../../common/schema.json",
+    {
+      "entityDoc": "entities:protocol/schema.json#",
+      "properties": "@nest"
+    }
+  ],
+  "meta:sssomMappings": [
+    {
+      "predicate_id": "skos:broadMatch",
+      "object_id": "dct:provenance",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "object_match_field": "rdfs:comment",
+      "subject_match_field": "rdfs:comment",
+      "author_id": ["orcid:0000-0002-7747-6256"],
+      "creator_id": ["orcid:0000-0002-7747-6256"],
+      "reviewer_id": [""],
+      "confidence": 1.0,
+      "mapping_date": "2026-03-12",
+      "$comment": "A HealthDCAT-AP (release 6) 'dct:provenance' property of a Dataset captures in an rather vague way the information that FEGA.protocol.json is intended to contain. Thus, the former can be produced by aggregating the protocols used to obtain datafiles included in a dataset."
+    }
+  ],
+  "allOf": [
+    {
+      "title": "Base constraints for JSON-LD",
+      "$ref": "../../../standards/json-schema/json-ld.org/FEGA.jsonld-schema.json"
+    },
+    {
+        "title": "Entity type restriction",
+        "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionProtocol"
+    },
+    {
+      "title": "Compatibility with BioSchemas ComputationalWorkflow",
+      "if": {
+        "required": ["@type"],
+        "properties": {
+          "@type": {
+              "anyOf": [
+                { "const": "bioschemastypes:ComputationalWorkflow" },
+                { "type": "array",
+                  "contains": { "const": "bioschemastypes:ComputationalWorkflow" } }
+              ]
+            }
+        }
+      },
+      "then": {
+        "$comment": "These BioSchemas files were fetched from BioSchemas API. See https://github.com/EGA-archive/fega-metadata-schema/issues/6 for more details.",
+        "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/bioschemas/ComputationalWorkflow_v1.1-DRAFT.json"
+      }
+    },
+    {
+      "title": "Compatibility with BioSchemas LabProtocol",
+      "if": {
+        "required": ["@type"],
+        "properties": {
+          "@type": {
+            "anyOf": [
+              { "const": "bioschemastypes:LabProtocol" },
+              { "type": "array",
+                "contains": { "const": "bioschemastypes:LabProtocol" } }
+            ]
+          }
+        }
+      },
+      "then": {
+        "$comment": "These BioSchemas files were fetched from BioSchemas API. See https://github.com/EGA-archive/fega-metadata-schema/issues/6 for more details.",
+        "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/bioschemas/LabProtocol_v0.8-DRAFT.json"
+      }
+    }
+  ],
+  "$defs": {
+    "protocolTypeEnum": {
+      "type": "string",
+      "enum": ["ega:protocol", "prov:Plan", "bioschemastypes:ComputationalWorkflow", "bioschemastypes:LabProtocol"]
+    },
+    "computingRequirements": {
+      "type": "object",
+      "properties": {
+        "memory": {
+          "type": "string",
+          "description": "Minimum memory (RAM) requirements (e.g., '8GB', '16GB')",
+          "meta:sssomMappings": [
+              {
+                  "predicate_id": "skos:exactMatch",
+                  "object_id": "schema:memoryRequirements",
+                  "mapping_justification": "semapv:ManualMappingCuration",
+                  "object_match_field": "rdfs:comment",
+                  "subject_match_field": "rdfs:comment",
+                  "author_id": ["orcid:0000-0002-7747-6256"],
+                  "creator_id": ["orcid:0000-0002-7747-6256"],
+                  "reviewer_id": [""],
+                  "confidence": 1.0,
+                  "mapping_date": "2025-08-08"
+              }
+          ],
+          "pattern": "^[0-9]+(GB|MB|TB)$",
+          "examples": ["4GB", "16GB", "128GB"]
+        },
+        "cpuCores": {
+          "type": "number",
+          "description": "Number of CPU cores needed to run the workflow",
+          "minimum": 1,
+          "examples": [2, 4, 8]
+        },
+        "gpuAcceleration": {
+          "type": "boolean",
+          "description": "Whether GPU acceleration is required",
+          "examples": [true, false]
+        },
+        "storage": {
+          "type": "string", 
+          "description": "Amount of disk space required (e.g., '100GB', '1TB')",
+          "meta:sssomMappings": [
+              {
+                  "predicate_id": "skos:exactMatch",
+                  "object_id": "schema:storageRequirements",
+                  "mapping_justification": "semapv:ManualMappingCuration",
+                  "object_match_field": "rdfs:comment",
+                  "subject_match_field": "rdfs:comment",
+                  "author_id": ["orcid:0000-0002-7747-6256"],
+                  "creator_id": ["orcid:0000-0002-7747-6256"],
+                  "reviewer_id": [""],
+                  "confidence": 1.0,
+                  "mapping_date": "2025-08-08"
+              }
+          ],
+          "pattern": "^[0-9]+(GB|MB|TB)$",
+          "examples": ["50GB", "500GB", "2TB"]
+        }
+      }
+    }
+  },
+  "properties": {
+    "@type": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/protocolTypeEnum"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/protocolTypeEnum"
+          }
+        }
+      ]
+    },
+
+    "$comment": "#! Perhaps the addition of parameters (similar to 'parameters' array from process; or the 'variableMeasured' in Datasets/Studies) would be good, to compare what parameters are expected based on the protocol and which ones are provided in the process per se. To take inspiration from schema:StatisticalVariable and schema:PropertyValue.",
+    
+    "sameAs": {
+      "$ref": "../../common/schema.json#/$defs/sameAs"
+    },
+
+    "isBasedOn": {
+      "$ref": "../../common/schema.json#/$defs/isBasedOn",
+      "$comment": "This is used when the protocol that it's referenced is not exactly the same: this protocol was a modification of the original one, or it was used as a base to create this protocol. E.g., changed parameters, or added new steps.",
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:narrowMatch",
+          "object_id": "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isnewversionof",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:comment",
+          "subject_match_field": "rdfs:comment",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1.0,
+          "mapping_date": "2025-08-08"
+        }
+      ]
+    },
+
+    "version": {
+      "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/bioschemas/ComputationalWorkflow_v1.1-DRAFT.json#/properties/version"
+    }
+  }
+}
