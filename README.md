@@ -8,9 +8,13 @@ Machine-readable definitions of the **Federated European Genome-phenome Archive 
 
 The resources in this repository allow you to:
 
-* **Validate** metadata against the FEGA Metadata model locally.
-* **Integrate** FEGA-compatible metadata into your own pipelines.
-* **Explore** the structure and semantics of the FEGA data model.
+* **Validate** metadata against the EGA Metadata model locally.
+* **Integrate** EGA-compatible metadata into your own pipelines.
+* **Explore** the structure and semantics of the EGA metadata model.
+
+> **Work is in progress**
+
+> **Transparency disclaimer**: AI tools were used to assist in the writing and review of this repository. Ultimately, everything was reviewed by the (human) maintainer(s). Yes, everyone uses them. Yes, we do too. But at least we say so.
 
 ## Quick links
 
@@ -23,6 +27,68 @@ The resources in this repository allow you to:
 | **Examples (test data)** | [`schemas/entities/*/examples/`](./schemas/entities/) |
 | **JSON-LD frames** | [`schemas/entities/*/frame.jsonld`](./schemas/entities/) |
 | **Further documentation** | [`docs/`](./docs/) |
+
+## Code
+
+### Validation
+
+The Python validation scripts expect the repository helper package to be importable:
+
+```bash
+pip install -e .[dev]
+```
+
+They also expect an already-running [Biovalidator fork](https://github.com/M-casado/biovalidator/tree/dev) endpoint. From the repository root, start Biovalidator with the local schemas loaded:
+
+```bash
+npm install -g "github:M-casado/biovalidator#dev"
+node "$(npm root -g)/biovalidator/src/biovalidator.js" \
+  --port 3020 \
+  --ref "./schemas/**/schema.json" \
+  --ref "./standards/json-schema/**/*.json"
+```
+
+#### Complete Schema and Example Suite
+
+Run **all** valid and invalid metadata JSON (e.g., [`cohort-valid_1.json`](./schemas/entities/cohort/examples/valid/cohort-valid_1.json)) examples under `schemas/entities`:
+
+```bash
+python scripts/py/validate_examples.py --root schemas/entities
+```
+
+Validate a single entity (e.g., all ``cohort`` examples):
+```bash
+python scripts/py/validate_examples.py --root schemas/entities --entity cohort
+```
+
+See more options:
+```bash
+python scripts/py/validate_examples.py --help
+```
+
+#### Validate One JSON Document
+
+For one-off validation, wrap the JSON data and target schema in a document with top-level `data` and `schema` keys. For example, to validate a `cohort` (i.e., the data representing an EGA Cohort entity) against the `cohort` schema:
+
+```json
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/cohort/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/cohort/schema.json",
+    "@type": "ega:cohort",
+    "id": "ega:EGAC00001000001",
+    "name": "Example rare disease cohort"
+  }
+}
+```
+
+Then validate that wrapper document (assuming you have a Biovalidator instance running):
+
+```bash
+python scripts/py/validate_metadata.py <path/to/document.json>
+```
 
 ## Contributing
 
