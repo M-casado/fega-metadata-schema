@@ -5,17 +5,17 @@
 | Group name | Federated European Genome-phenome Archive (FEGA) |
 | ----: | :---- |
 | **Subgroup name** | FEGA Metadata Working Group (MWG) |
-| **Authors**of the report | Marcos Casado Barbero[^1] (EMBL-EBI[^2])Anandhi Iyappan[^3] (EMBL[^4]) Silvia Bahena[^5] (EMBL-EBI) Amy J. Curwin[^6] (CRG[^7]) Jorge Oliveira[^8] (BioData.pt[^9]) Miguel Cisneiros[^10] (BioData.pt) Coline Thomas[^11] (EMBL-EBI) |
-| **Contributors**to the group | Federico Bianchini[^12] (UiO[^13])Wolmar Nyberg Åkerström[^14] (UU[^15]) Markus Englund[^16] (UU) Akiris Moctezuma Cervantes[^17] (CRG) Gabriele Rinck[^18] (EMBL-EBI)Yasset Perez-Riverol[^19] (EMBL-EBI) Deepti Jaiswal Kundu[^20] (EMBL-EBI) Grant McNair[^21] (CGA[^22]) Robin Liechti[^23] (SIB[^24]) Owen Appleton[^25] (SIB[^26]) Gemma Vicente[^27] (CRG) Błażej Marciniak[^28] (UL[^29]) Alban Gaignard[^30] (NU[^31]) Young Cheng[^32] (CGA) Alexandros Dimopoulos[^33] (BSRC Alexander Fleming[^34]) David Salgado[^35] (INSERM[^36]) Ulvi Talas[^37] (UT[^38]) Maciej Bisaga[^39] (UL) |
-| **Acknowledgements** | Ana T. Alonso[^40] (CRG) – Figures 1 and 2 |
-| **Reviewers** | Federico Bianchini (UiO) Sabela de la Torre[^41] (CRG) Jordi Rambla De Argila[^42] (CRG) Gabriele Rinck (EMBL-EBI) Mireia Marín Ginestar (CRG) Grant McNair (CGA) Robin Liechti (SIB) Akiris Moctezuma Cervantes (CRG) |
+| **Authors**of the report | [Marcos Casado Barbero](https://orcid.org/0000-0002-7747-6256) ([EMBL-EBI](https://ror.org/02catss52))[Anandhi Iyappan](https://orcid.org/0000-0002-5571-4962) ([EMBL](https://ror.org/01zjc6908)) [Silvia Bahena](https://orcid.org/0000-0002-2734-0449) (EMBL-EBI) [Amy J. Curwin](https://orcid.org/0000-0003-1086-2483) ([CRG](https://ror.org/03wyzt892)) [Jorge Oliveira](https://orcid.org/0000-0001-6425-2176) ([BioData.pt](https://ror.org/02q7abn51)) [Miguel Cisneiros](https://orcid.org/0000-0002-6681-8564) (BioData.pt) [Coline Thomas](https://orcid.org/0000-0003-2253-1171) (EMBL-EBI) |
+| **Contributors**to the group | [Federico Bianchini](https://orcid.org/0000-0002-9016-4820) ([UiO](https://ror.org/01xtthb56))[Wolmar Nyberg Åkerström](https://orcid.org/0000-0002-3890-6620) ([UU](https://ror.org/048a87296)) [Markus Englund](https://orcid.org/0000-0003-1688-7112) (UU) [Akiris Moctezuma Cervantes](https://orcid.org/0009-0002-7343-1779) (CRG) [Gabriele Rinck](https://orcid.org/0000-0001-6428-3431) (EMBL-EBI)[Yasset Perez-Riverol](https://orcid.org/0000-0001-6579-6941) (EMBL-EBI) [Deepti Jaiswal Kundu](https://orcid.org/0000-0003-2989-5971) (EMBL-EBI) [Grant McNair](https://orcid.org/0009-0006-1362-0681) ([CGA](https://ror.org/0333j0897)) [Robin Liechti](https://orcid.org/0000-0001-8351-4776) ([SIB](https://ror.org/019whta54)) [Owen Appleton](https://orcid.org/0000-0002-2571-6860) ([SIB](https://ror.org/002n09z45)) [Gemma Vicente](https://orcid.org/0009-0008-4457-2947) (CRG) [Błażej Marciniak](https://orcid.org/0000-0003-1571-1473) ([UL](https://ror.org/05cq64r17)) [Alban Gaignard](https://orcid.org/0000-0002-3597-8557) ([NU](https://ror.org/03gnr7b55)) [Young Cheng](https://orcid.org/0000-0002-3484-4493) (CGA) [Alexandros Dimopoulos](https://orcid.org/0000-0002-4602-2040) ([BSRC Alexander Fleming](https://ror.org/013x0ky90)) [David Salgado](https://orcid.org/0000-0002-5905-3591) ([INSERM](https://ror.org/02vjkv261)) [Ulvi Talas](https://orcid.org/0000-0003-0485-089X) ([UT](https://ror.org/03z77qz90)) [Maciej Bisaga](https://orcid.org/0000-0002-7040-8322) (UL) |
+| **Acknowledgements** | [Ana T. Alonso](https://orcid.org/0009-0004-3243-0045) (CRG) – Figures 1 and 2 |
+| **Reviewers** | Federico Bianchini (UiO) [Sabela de la Torre](https://orcid.org/0000-0002-5129-2248) (CRG) [Jordi Rambla De Argila](https://orcid.org/0000-0001-9091-257X) (CRG) Gabriele Rinck (EMBL-EBI) Mireia Marín Ginestar (CRG) Grant McNair (CGA) Robin Liechti (SIB) Akiris Moctezuma Cervantes (CRG) |
 
 ### Log of changes
 
 | Date | version | Who | Description |
 | ----: | ----- | :---- | :---- |
-| **02/04/2026** | v1.0.1[^43] | Marcos Casado Barbero | Addition of PRIDE contributors |
-| **27/02/2026** | v1.0.0[^44] | Marcos Casado Barbero | Address review comments from Jordi Rambla De Argila; add new figures and tables |
+| **02/04/2026** | [v1.0.1](https://doi.org/10.5281/zenodo.19388370) | Marcos Casado Barbero | Addition of PRIDE contributors |
+| **27/02/2026** | [v1.0.0](https://doi.org/10.5281/zenodo.18802072) | Marcos Casado Barbero | Address review comments from Jordi Rambla De Argila; add new figures and tables |
 | **20/01/2026** | v0.0.4 | Marcos Casado Barbero | Add "Metadata model naming conventions" section and update model naming across document; general text review. |
 | **07/01/2026** | v0.0.3 | Marcos Casado Barbero | Address ongoing feedback and update content |
 | **31/08/2025** | v0.0.2 | Amy Curwin, Gabriele Rinck, Sabela de la Torre, Federico Bianchini, Anandhi Iyappan, Grant McNair, Robin Liechti, Marcos Casado Barbero, Akiris Moctezuma, Jorge Oliveira, Miguel Cisneiros | First internal group review |
@@ -281,15 +281,15 @@ Table of contents and contributions
 | CEGA | Central EGA, jointly managed by the EMBL-EBI and CRG |
 | Cohort	 | Group of individuals or samples sharing traits |
 | Continuous Integration | Practice where developers frequently merge changes into a shared repo and each change triggers automated builds and tests to catch issues early |
-| CURIE | Compact URI form prefix:reference that expands via a prefix map to a full IRI. Specified by W3C CURIE Syntax 1\.0[^45] |
+| CURIE | Compact URI form prefix:reference that expands via a prefix map to a full IRI. Specified by W3C [CURIE Syntax 1\.0](https://www.w3.org/TR/2010/NOTE-curie-20101216/) |
 | Data Service	 | Endpoint that serves one or more datasets |
 | Datafile	 | Digital file containing experimental data |
 | Dataset	 | Controlled-access bundle of related datafiles |
 | Dataset Series | Thematic collection of separate datasets |
-| EGA v1 Model | The current metadata model (as of January 2026) that has been in production (i.e., in use) since the establishment of the EGA in 2008\. It is used until the EGA v2 model is in production by CEGA for submissions, and by FEGA nodes that use the Local EGA[^46]. |
+| EGA v1 Model | The current metadata model (as of January 2026) that has been in production (i.e., in use) since the establishment of the EGA in 2008\. It is used until the EGA v2 model is in production by CEGA for submissions, and by FEGA nodes that use the [Local EGA](https://github.com/EGA-archive/LocalEGA). |
 | EGA v2 Model | The second major iteration of the EGA metadata model, proposed by the FEGA MWG in this document, and still to be implemented. |
 | Identifier	 | Stable reference string for an entity |
-| IRI | Like a URI but allows Unicode; can be losslessly converted to a URI by percent-encoding. Defined in RFC 3987[^47] |
+| IRI | Like a URI but allows Unicode; can be losslessly converted to a URI by percent-encoding. Defined in [RFC 3987](https://www.rfc-editor.org/rfc/rfc3987) |
 | JSON Schema | JSON format for validation rules |
 | JSON-LD context | Mapping that converts JSON keys to IRIs |
 | Linked Data	 | Web of data connected by resolvable IRIs |
@@ -308,21 +308,21 @@ Table of contents and contributions
 
 1. # Executive summary
 
-The **Federated EGA** (FEGA) **Metadata Working Group** (MWG) has designed a new, **process-oriented metadata model** intended to replace the EGA v1 model[^48], used by Central EGA (CEGA) and FEGA nodes using Local EGA[^49]. It prepares the FEGA network for FAIR, linked-data interoperability across **human omics**. **The model is under active development, and this report**[^50] **accompanies that work in progress.** What exists today is an abstract specification and a first set of JSON Schema drafts[^51] with embedded JSON-LD contexts; detailed serialisations, production deployments and full validator roll-out are future milestones, not completed deliverables.
+The **Federated EGA** (FEGA) **Metadata Working Group** (MWG) has designed a new, **process-oriented metadata model** intended to replace the [EGA v1 model](https://ega-archive.org/submission/metadata/ega-schema), used by Central EGA (CEGA) and FEGA nodes using [Local EGA](https://github.com/EGA-archive/LocalEGA). It prepares the FEGA network for FAIR, linked-data interoperability across **human omics**. **The model is under active development, and [this report](https://doi.org/10.5281/zenodo.18802072)** **accompanies that work in progress.** What exists today is an abstract specification and a first set of [JSON Schema drafts](https://github.com/M-casado/fega-metadata-schema/tree/main/schemas) with embedded JSON-LD contexts; detailed serialisations, production deployments and full validator roll-out are future milestones, not completed deliverables.
 
-Core **entities** include Biomaterial, Protocol, Process, Datafile, Dataset, Policy, Data Access Committee (DAC), Study, Cohort, Project, Protocol Collection and DCAT-style Catalog objects. **Validation** through the open-source **ELIXIR Biovalidator[^52]** ensures both syntactic and selected semantic checks (e.g., ontology term validation). **Use-case workshops** in genomics, microarrays, proteomics, and microbiomes confirmed the model's flexibility without needing schema rewrites.
+Core **entities** include Biomaterial, Protocol, Process, Datafile, Dataset, Policy, Data Access Committee (DAC), Study, Cohort, Project, Protocol Collection and DCAT-style Catalog objects. **Validation** through the open-source **[ELIXIR Biovalidator](https://github.com/elixir-europe/biovalidator)** ensures both syntactic and selected semantic checks (e.g., ontology term validation). **Use-case workshops** in genomics, microarrays, proteomics, and microbiomes confirmed the model's flexibility without needing schema rewrites.
 
-A **transparent GitHub repository[^53]** contains the schemas, documentation, versioning, automated workflows, and a change process aligned to FEGA's network governance. As the first stepping stones for **future migration** of the current EGA v1 model to the EGA v2 model, we propose completing the set of model schemas, an initial v1-to-v2 model mapper, and a test implementation at CEGA. Finally, we present a phased adoption by FEGA nodes and other stakeholders. This approach would culminate when the maturity and efficacy of the model have been proved end-to-end and the model shift can happen in the production environments.
+A **[transparent GitHub repository](https://github.com/EGA-archive/fega-metadata-schema)** contains the schemas, documentation, versioning, automated workflows, and a change process aligned to FEGA's network governance. As the first stepping stones for **future migration** of the current EGA v1 model to the EGA v2 model, we propose completing the set of model schemas, an initial v1-to-v2 model mapper, and a test implementation at CEGA. Finally, we present a phased adoption by FEGA nodes and other stakeholders. This approach would culminate when the maturity and efficacy of the model have been proved end-to-end and the model shift can happen in the production environments.
 
-***Disclaimer(s)**: this document is a snapshot of the live documentation of the FEGA MWG as of February 2026\. New content and changes will be added to `docs/technical-report.md`*[^54]. Some materials referenced in this document are only accessible to members of their respective groups (ELIXIR, GDI and FEGA). To gain access to them, request membership through the official channels.
+***Disclaimer(s)**: this document is a snapshot of the live documentation of the FEGA MWG as of February 2026\. New content and changes will be added to [`docs/technical-report.md`](https://github.com/EGA-archive/fega-metadata-schema/blob/main/docs/technical-report.md). Some materials referenced in this document are only accessible to members of their respective groups (ELIXIR, GDI and FEGA). To gain access to them, request membership through the official channels.
 
 2. # Introduction
 
-In the era of rapidly expanding human genomics data in research and healthcare, efficient data reuse is gaining importance to maximise benefits for patients. The 1+Million Genomes (1+MG) Initiative[^55] was launched in 2018 to enable access to one million sequenced human genomes across Europe, and provided a cohesive vision to support diverse jurisdictional data sharing requirements. This has prompted the establishment of federated genomic data sharing networks in Europe, which catalysed the development of multiple projects, including the **Federated European Genome-phenome Archive** (FEGA)[^56],[^57].
+In the era of rapidly expanding human genomics data in research and healthcare, efficient data reuse is gaining importance to maximise benefits for patients. The [1+Million Genomes (1+MG) Initiative](https://digital-strategy.ec.europa.eu/en/policies/1-million-genomes) was launched in 2018 to enable access to one million sequenced human genomes across Europe, and provided a cohesive vision to support diverse jurisdictional data sharing requirements. This has prompted the establishment of federated genomic data sharing networks in Europe, which catalysed the development of multiple projects, including the **[Federated European Genome-phenome Archive](https://ega-archive.org/about/projects-and-funders/federated-ega)** (FEGA)[^1].
 
-Since its launch in 2022, the FEGA Network (see [Figure 1](#figure-1-overview-of-the-fega-network-and-the-workflow-of-data-provenance-and-access-requests) and [Figure 2](#figure-2-federated-ega-network-overview-highlighting-the-need-to-share-metadata-for-data-discovery-and-access)) has become fully operational, coordinated by CEGA, based in EMBL's European Bioinformatics Institute (EMBL-EBI) and the Centre for Genomic Regulation (CRG), and as of January 2026 it consists of **nine national nodes** (Finland, Germany, Norway, Spain, Sweden, Poland, Portugal, Canada, and most recently Switzerland)[^58], and has 53 datasets available[^59].
+Since its launch in 2022, the FEGA Network (see [Figure 1](#figure-1-overview-of-the-fega-network-and-the-workflow-of-data-provenance-and-access-requests) and [Figure 2](#figure-2-federated-ega-network-overview-highlighting-the-need-to-share-metadata-for-data-discovery-and-access)) has become fully operational, coordinated by CEGA, based in EMBL's European Bioinformatics Institute (EMBL-EBI) and the Centre for Genomic Regulation (CRG), and as of January 2026 it consists of **[nine national nodes](https://ega-archive.org/about/projects-and-funders/federated-ega)** (Finland, Germany, Norway, Spain, Sweden, Poland, Portugal, Canada, and most recently Switzerland), and has [53 datasets available](https://ega-archive.org/search/federated_ega:*?type=dataset).
 
-The complexities, challenges, and achievements of FEGA, unravelling the dynamic interplay between regulatory frameworks, technical challenges, and the shared vision of advancing genomic research to improve global health have recently been described in the FEGA marker paper published in Nature Genetics[^60].
+The complexities, challenges, and achievements of FEGA, unravelling the dynamic interplay between regulatory frameworks, technical challenges, and the shared vision of advancing genomic research to improve global health have recently been described in the FEGA [marker paper published in Nature Genetics](https://doi.org/10.1038/s41588-025-02101-9).
 
 ##### ***Figure 1**. Overview of the FEGA network and the workflow of data provenance and access requests.*
 
@@ -332,11 +332,11 @@ The complexities, challenges, and achievements of FEGA, unravelling the dynamic 
 
 ![Figure 2. Federated EGA network overview, highlighting the need to share metadata for data discovery and access.](images/FEGA_technical_report-figure_2-FEGA_introduction.svg)
 
-In a rapidly evolving data-sharing landscape, FEGA collaborates with European and other international initiatives, like the 1+ Million Genomes (1+MG)[^61] or the European Genomic Data Infrastructure (GDI)[^62], to serve a variety of human genomic data-sharing use-cases with its operational network for transnational discovery of and access to human data. The FEGA architecture facilitates the core stages of the data management lifecycle, including data and metadata submission to CEGA or FEGA nodes, long-term and secure storage, **metadata publication for discovery**, data access request management, and controlled-access to data. These operations use encrypted data in secure environments, with user access managed through advanced authentication and authorisation systems. Interoperability is ensured by adhering to community standards, such as those developed by the Global Alliance for Genomics and Health (GA4GH)[^63]. FEGA nodes have the flexibility to implement or deploy components of their choice, provided they comply with these agreed-upon standards.
+In a rapidly evolving data-sharing landscape, FEGA collaborates with European and other international initiatives, like the [1+ Million Genomes (1+MG)](https://digital-strategy.ec.europa.eu/en/policies/1-million-genomes) or the [European Genomic Data Infrastructure (GDI)](https://gdi.onemilliongenomes.eu/about/), to serve a variety of human genomic data-sharing use-cases with its operational network for transnational discovery of and access to human data. The FEGA architecture facilitates the core stages of the data management lifecycle, including data and metadata submission to CEGA or FEGA nodes, long-term and secure storage, **metadata publication for discovery**, data access request management, and controlled-access to data. These operations use encrypted data in secure environments, with user access managed through advanced authentication and authorisation systems. Interoperability is ensured by adhering to community standards, such as those developed by the [Global Alliance for Genomics and Health (GA4GH)](https://www.ga4gh.org/about-us/). FEGA nodes have the flexibility to implement or deploy components of their choice, provided they comply with these agreed-upon standards.
 
 In the dynamic field of human genomics, creating **interoperable federated networks for discovery and access** is essential for maximizing data reuse. Building on updated resources and the expertise of the initial FEGA nodes, more countries are establishing new nodes to enhance data sharing and collaboration. As the volume and diversity of data continue to grow, the supporting infrastructure must adapt to address these evolving challenges.
 
-This document showcases **FEGA's efforts on the topic of metadata standards** by focusing on a robust metadata framework to support its FAIR data-sharing goals. The current **CEGA metadata model[^64]**, hereinafter the EGA v1 model, has been instrumental in enabling the registration and management of sensitive genomic data. However, as the scope of research expands and new technologies emerge, this reveals the need for the metadata model to accommodate complex data relationships and scenarios. Below, we outline how the **FEGA Metadata Working Group** (MWG) is building a sustainable model to manage and link metadata effectively, ensuring scalability, interoperability, and alignment with the wider research community.
+This document showcases **FEGA's efforts on the topic of metadata standards** by focusing on a robust metadata framework to support its FAIR data-sharing goals. The current **[CEGA metadata model](https://ega-archive.org/submission/metadata/ega-schema)**, hereinafter the EGA v1 model, has been instrumental in enabling the registration and management of sensitive genomic data. However, as the scope of research expands and new technologies emerge, this reveals the need for the metadata model to accommodate complex data relationships and scenarios. Below, we outline how the **FEGA Metadata Working Group** (MWG) is building a sustainable model to manage and link metadata effectively, ensuring scalability, interoperability, and alignment with the wider research community.
 
 3. # Scope
 
@@ -350,7 +350,7 @@ The focus remains on creating a **scalable, open-source metadata model that alig
 
 4. # Metadata model naming conventions
 
-Before the FEGA MWG proposed the new EGA metadata model, **there was a single major version of the EGA model** from its start in 2008\. Given the fact that the core source for the new model is the previous one, and in the interest of clear and traceable provenance in technical documentation, the naming conventions follow semantic versioning 2.0.0[^65] and are as follows:
+Before the FEGA MWG proposed the new EGA metadata model, **there was a single major version of the EGA model** from its start in 2008\. Given the fact that the core source for the new model is the previous one, and in the interest of clear and traceable provenance in technical documentation, the naming conventions follow [semantic versioning 2.0.0](https://semver.org/#semantic-versioning-200) and are as follows:
 
 * **EGA v1 model**: the first major version of the EGA metadata model. It is, as of January 2026, the current metadata model, and has been in production (i.e., in use) since the establishment of the EGA in 2008\. It is used, until the EGA v2 model is in production, by CEGA for submissions, and by FEGA nodes when sharing metadata with CEGA.
 
@@ -399,13 +399,13 @@ The methods described here outline the collaborative processes, tools, and strat
 
 Structured group meetings were held monthly (1-hour sessions) starting September 2023\. Communication channels included:
 
-* **Slack**: A dedicated channel (*fega\_metadata\_working\_group*[^66]) in the ELIXIR workspace for day-to-day discussions.
+* **Slack**: A dedicated channel ([*fega\_metadata\_working\_group*](https://elixir-europe.slack.com/archives/C05UHABF0CT)) in the ELIXIR workspace for day-to-day discussions.
 
 * **Google Drive**: A Google Drive directory for collaborative documentation, questionnaires and storage of meeting notes.
 
 * **Email**: Used for coordination and progress reports.
 
-* **GitHub**: A repository (EGA-archive/fega-metadata-schema[^67]) to manage schemas and technical reports. Additionally, contributors use forks[^68] of the main repository to add changes.
+* **GitHub**: A repository ([EGA-archive/fega-metadata-schema](https://github.com/EGA-archive/fega-metadata-schema)) to manage schemas and technical reports. Additionally, contributors use [forks](https://github.com/EGA-archive/fega-metadata-schema/forks) of the main repository to add changes.
 
   2. ## Metadata modelling and validation
 
@@ -415,41 +415,41 @@ Key aspects of the modelling process include:
 
 1. **Ontology Integration.** The MWG identified mappings to several widely adopted ontologies:
 
-   1. **Basic descriptions of the model.** Including standards and vocabularies like: **schema.org**[^69],[^70] (e.g., schema:description[^71]), Simple Knowledge Organization System[^72],[^73] (**SKOS,** e.g., skos:exactMatch[^74]), Semantic Mapping Vocabulary[^75] (**SEMAPV**, e.g., semapv:LexicalMatching[^76]) and Resource Description Framework Schema[^77],[^78] (**RDFS**, e.g., rdfs:label[^79]).
+   1. **Basic descriptions of the model.** Including standards and vocabularies like: [**schema.org**](http://schema.org)[^2] (e.g., [schema:description](https://schema.org/description)), [Simple Knowledge Organization System](https://www.w3.org/TR/skos-reference)[^3] (**SKOS,** e.g., [skos:exactMatch](https://www.w3.org/TR/skos-reference/#exactMatch)), [Semantic Mapping Vocabulary](http://w3id.org/semapv/vocab/semapv.owl) (**SEMAPV**, e.g., [semapv:LexicalMatching](https://w3id.org/semapv/vocab/LexicalMatching)) and [Resource Description Framework Schema](https://www.w3.org/TR/rdf-schema)[^4] (**RDFS**, e.g., [rdfs:label](https://www.w3.org/TR/rdf-schema/#ch_label)).
 
-   2. **Provenance description.** For example, the Provenance Ontology[^80],[^81] (**PROV-O**, e.g., prov:used[^82]) or Open Researcher and Contributor ID Schema[^83] (**ORCID iD Identifier Schema**, e.g., 0000-0002-7747-6256[^84]).
+   2. **Provenance description.** For example, the [Provenance Ontology](https://www.w3.org/TR/prov-o/)[^5] (**PROV-O**, e.g., [prov:used](https://www.w3.org/TR/prov-o/#used)) or [Open Researcher and Contributor ID Schema](https://doi.org/10.25504/FAIRsharing.OrNi1L) (**ORCID iD Identifier Schema**, e.g., [0000-0002-7747-6256](https://orcid.org/0000-0002-7747-6256)).
 
-   3. **Field validation.** Enabling the model to include semantic validation based on ontologies like the Experimental Factor Ontology[^85],[^86] (**EFO**, e.g., EFO:0002699[^87]) or UBER anatomy ONtology (UBERON, e.g., UBERON:0000992[^88]).
+   3. **Field validation.** Enabling the model to include semantic validation based on ontologies like the [Experimental Factor Ontology](https://www.ebi.ac.uk/efo/)[^6] (**EFO**, e.g., [EFO:0002699](http://www.ebi.ac.uk/efo/EFO_0002699)) or UBER anatomy ONtology (UBERON, e.g., [UBERON:0000992](http://purl.obolibrary.org/obo/UBERON_0000992)).
 
    Ontologies were selected based on their relevance to FEGA use-cases and their adoption in widely used community standards and ecosystems. Additional ontologies will be incorporated as the model evolves.
 
 2. **Field standards.** In line with the FEGA MWG's goal of creating a sustainable model, multiple existing standards are rendered into the EGA v2 model:
 
-   1. **Phenopackets**[^89]. Standardised, machine-readable schema for exchanging case-level phenotypic and disease information (e.g., disease[^90]), supporting consistent representation of individuals and biosamples across clinical and research settings.
+   1. [**Phenopackets**](https://doi.org/10.25504/FAIRsharing.8f3fdc). Standardised, machine-readable schema for exchanging case-level phenotypic and disease information (e.g., [disease](https://phenopacket-schema.readthedocs.io/en/latest/disease.html#disease)), supporting consistent representation of individuals and biosamples across clinical and research settings.
 
-   2. **Beacon-v2**[^91]. GA4GH API specification enabling federated discovery of genomic and associated phenotypic datasets across distributed nodes using a common query/response framework
+   2. [**Beacon-v2**](https://doi.org/10.25504/FAIRsharing.6fba91). GA4GH API specification enabling federated discovery of genomic and associated phenotypic datasets across distributed nodes using a common query/response framework
 
-   3. **BioSchemas**[^92]. Community profiles built on schema.org to mark up life-science resources (e.g., computational workflow[^93]) for improved web discoverability and interoperability across registries and catalogues.
+   3. [**BioSchemas**](https://doi.org/10.25504/FAIRsharing.c3eae6). Community profiles built on schema.org to mark up life-science resources (e.g., [computational workflow](https://discovery.biothings.io/api/schema/bioschemasdrafts:ComputationalWorkflow/validation)) for improved web discoverability and interoperability across registries and catalogues.
 
-   4. **Investigation Study Assay** (ISA). ISA-JSON[^94] metadata framework (e.g., process parameters[^95]) to structure experimental metadata across multi-omics workflows.
+   4. **Investigation Study Assay** (ISA). [ISA-JSON](https://doi.org/10.25504/FAIRsharing.yhLgTV) metadata framework (e.g., [process parameters](https://isa-specs.readthedocs.io/en/latest/isajson.html#process-parameter-value-schema-json)) to structure experimental metadata across multi-omics workflows.
 
-   5. **Data Cataloguing.** Alignment with RDF-native catalogue standards: Data Catalog Vocabulary[^96] (DCAT, e.g., dcat:Catalog[^97]) for catalogue interoperability, plus European application profiles (DCAT-AP[^98] and HealthDCAT-AP[^99]) to represent dataset-level metadata consistently for cross-portal discovery (including European Health Data Space (EHDS)-oriented extensions).
+   5. **Data Cataloguing.** Alignment with RDF-native catalogue standards: [Data Catalog Vocabulary](https://doi.org/10.25504/FAIRsharing.h4j3qm) (DCAT, e.g., [dcat:Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog)) for catalogue interoperability, plus European application profiles ([DCAT-AP](https://doi.org/10.25504/FAIRsharing.07f04a) and [HealthDCAT-AP](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-5/)) to represent dataset-level metadata consistently for cross-portal discovery (including European Health Data Space (EHDS)-oriented extensions).
 
 3. **Validation Tools.**
 
-   1. **ELIXIR Biovalidator**[^100]. The primary tool for validating JSON documents against schemas, supporting API-based constraints, like ontology term checks through the Ontology Lookup Service[^101] (OLS).
+   1. [**ELIXIR Biovalidator**](https://github.com/elixir-europe/biovalidator). The primary tool for validating JSON documents against schemas, supporting API-based constraints, like ontology term checks through the [Ontology Lookup Service](https://doi.org/10.25504/FAIRsharing.Mkl9RR) (OLS).
 
-   2. **JSON-LD Playground**[^102]. Used for testing JSON-LD expansions and linked data principles.
+   2. [**JSON-LD Playground**](https://json-ld.org/playground/). Used for testing JSON-LD expansions and linked data principles.
 
-   3. **JSON Schema Validator**[^103]. For general schema validation during schema development.
+   3. [**JSON Schema Validator**](https://www.jsonschemavalidator.net/). For general schema validation during schema development.
 
-4. **JSON Schemas.** Albeit in progress, the EGA v2 model represents each entity (e.g., biomaterial) as a JSON file (e.g., FEGA.biomaterial.json[^104]) following the JSON Schema Specification[^105] plus additional custom keywords defined by Biovalidator. These schemas include mappings, detailed property definitions, types, and constraints, ensuring robust validation and extensibility. JSON-LD Contexts (@context) are embedded directly within schemas to enable seamless JSON-to-JSON-LD transformations.
+4. **JSON Schemas.** Albeit in progress, the EGA v2 model represents each entity (e.g., biomaterial) as a JSON file (e.g., [biomaterial/schema.json](https://github.com/M-casado/fega-metadata-schema/blob/main/schemas/entities/biomaterial/schema.json)) following the [JSON Schema Specification](https://json-schema.org/specification) plus additional custom keywords defined by Biovalidator. These schemas include mappings, detailed property definitions, types, and constraints, ensuring robust validation and extensibility. JSON-LD Contexts (@context) are embedded directly within schemas to enable seamless JSON-to-JSON-LD transformations.
 
-5. **Automation**. To aid with the continuous development of the EGA v2 model, scripts[^106],[^107] and workflows[^108] are set in place to automate recurrent tasks (e.g., validation, release preparation, document linting) through GitHub workflows.
+5. **Automation**. To aid with the continuous development of the EGA v2 model, [scripts](https://github.com/M-casado/fega-metadata-schema/tree/main/scripts/py) and [utilities](https://github.com/M-casado/fega-metadata-schema/tree/main/src/fega_tools) and [workflows](https://github.com/M-casado/fega-metadata-schema/tree/main/.github/workflows) are set in place to automate recurrent tasks (e.g., validation, release preparation, document linting) through GitHub workflows.
 
    3. ## Namespace strategy
 
-To maintain interoperability and establish a consistent identifier system, an **ega** entry[^109] was created at identifiers.org[^110], covering the resolution of EGA Stable IDs (e.g., EGAD00001008392[^111]). This way, Compact Uniform Resource Identifiers (CURIEs) like ega:EGAD00001008392 are uniquely resolved to the appropriate record through identifiers.org.
+To maintain interoperability and establish a consistent identifier system, an [**ega** entry](https://registry.identifiers.org/registry/ega) was created at [identifiers.org](https://doi.org/10.25504/FAIRsharing.n14rc8), covering the resolution of EGA Stable IDs (e.g., [EGAD00001008392](https://identifiers.org/ega:EGAD00001008392)). This way, Compact Uniform Resource Identifiers (CURIEs) like ega:EGAD00001008392 are uniquely resolved to the appropriate record through identifiers.org.
 
 In the future, a **fega namespace** will be created to cover the heterogeneity of Persistent IDs (PIDs) within FEGA. This namespace would enable extensions via JSON-LD contexts at the federated level, supporting the creation of linked data graphs.
 
@@ -461,21 +461,21 @@ Validation, in its simplest form, entails comparing some "content" against some 
 
 Our whole stack is **open-source, portable** and **scalable** (i.e., as many servers, wherever needed), making sure that the same validation outcome is reached regardless of the deployer (e.g., FEGA node, submitter).
 
-The set of JSON Schemas contains the "**rules**" and can be referenced within a metadata JSON document via its schema attribute. The "**content**" (i.e., metadata) is formatted as JSON as well and is contained within the data attribute of a JSON document. A JSON instance is declared *valid* when every assertion in the corresponding JSON Schema succeeds. For example, the data[^112] in biomaterial-valid\_1.json is valid when it passes all constraints specified in the same document's schema[^113].
+The set of JSON Schemas contains the "**rules**" and can be referenced within a metadata JSON document via its schema attribute. The "**content**" (i.e., metadata) is formatted as JSON as well and is contained within the data attribute of a JSON document. A JSON instance is declared *valid* when every assertion in the corresponding JSON Schema succeeds. For example, [the data](https://github.com/M-casado/fega-metadata-schema/blob/774392bbb4ad446f7d39226a6ce17111ac258557/data/jsonld/biomaterial-valid_1.json#L5-L66) in biomaterial-valid\_1.json is valid when it passes all constraints specified in [the same document's schema](https://github.com/M-casado/fega-metadata-schema/blob/774392bbb4ad446f7d39226a6ce17111ac258557/data/jsonld/biomaterial-valid_1.json#L2-L4).
 
-**JSON Schema specification** (draft 2020-12[^114]) and custom keywords from ELIXIR Biovalidator[^115] provide the groundwork for the FEGA Schemas to encode domain-specific constraints (e.g., required fields, ontology checks). For further details, refer to the schemas' documentation[^116] in the GitHub repository.
+**JSON Schema specification** ([draft 2020-12](https://json-schema.org/draft/2020-12/schema)) and custom keywords from [ELIXIR Biovalidator](https://github.com/elixir-europe/biovalidator?tab=readme-ov-file#extended-keywords-for-ontology-and-taxonomy-validation) provide the groundwork for the FEGA Schemas to encode domain-specific constraints (e.g., required fields, ontology checks). For further details, refer to the [schemas' documentation](https://github.com/M-casado/fega-metadata-schema/tree/main/schemas#overview) in the GitHub repository.
 
 The FEGA metadata schemas are built for **continuous development**. See more details at the [*Model versioning*](#model-versioning) section.
 
 1. ### Running validation
 
-Validating data through the EGA v2 model is plain and simple: it requires access to a **Biovalidator endpoint and feeding it a JSON document**. To interact with the validator, Biovalidator can be deployed locally or you can use a provided API (e.g., biovalidator.ega.ebi.ac.uk/validate[^117]). When Biovalidator is deployed locally or elsewhere, a /validate endpoint is exposed and accepts JSON documents containing both the schema and data, or references to them. This same endpoint outputs the result of the validation when used. Further details about deploying Biovalidator can be found at its GitHub repository[^118].
+Validating data through the EGA v2 model is plain and simple: it requires access to a **Biovalidator endpoint and feeding it a JSON document**. To interact with the validator, Biovalidator can be deployed locally or you can use a provided API (e.g., [biovalidator.ega.ebi.ac.uk/validate](http://biovalidator.ega.ebi.ac.uk/validate)[^7]). When Biovalidator is deployed locally or elsewhere, a /validate endpoint is exposed and accepts JSON documents containing both the schema and data, or references to them. This same endpoint outputs the result of the validation when used. Further details about deploying Biovalidator can be found at its [GitHub repository](https://github.com/elixir-europe/biovalidator).
 
-The group has created onboarding materials on this matter, including a dedicated FEGA Metadata Technical Deep Dive[^119] and succinct posters[^120],[^121],[^122]. Furthermore, an example of the end-to-end validation workflow can be found in the automated json\_validation\_deploying\_biovalidator.yml[^123]. In fact, it can be manually triggered for maintainers who are not proficient at coding, easing the assertion of data validation even further.
+The group has created onboarding materials on this matter, including a dedicated [FEGA Metadata Technical Deep Dive](https://doi.org/10.5281/zenodo.14968151) and succinct posters ([1](https://doi.org/10.7490/f1000research.1120212.1), [2](https://doi.org/10.7490/f1000research.1119732.1), [3](https://doi.org/10.7490/f1000research.1119417.1)). Furthermore, an example of the end-to-end validation workflow can be found in the automated [json\_validation\_deploying\_biovalidator.yml](https://github.com/M-casado/fega-metadata-schema/blob/main/.github/workflows/json_validation_deploying_biovalidator.yml). In fact, it can be manually triggered for maintainers who are not proficient at coding, easing the assertion of data validation even further.
 
 5. ## RDF and linked data
 
-In order to provide @context to the FEGA schemas and data to make them RDF-friendly, we extensively used the JSON-LD Playground[^124] and JSON-LD 1.1 documentation[^125].
+In order to provide @context to the FEGA schemas and data to make them RDF-friendly, we extensively used the [JSON-LD Playground](https://json-ld.org/playground/) and JSON-LD 1.1 documentation[^8].
 
 1. ### Framing
 
@@ -483,7 +483,7 @@ When combining JSON Schemas and Linked data, we faced the issue of balancing bet
 
 Several solutions for this challenge were taken into consideration. For example, flattening and compacting all JSON-LDs before validation, or being stringent with the expected format of JSON-LD documents we validated.
 
-Lastly, the chosen path is to use **framing**[^126], which allows us to map a specific structure for all incoming and flattened JSON-LD files. Through framing, we are able to **change JSON-LD files to a format that the EGA v2 model JSON Schemas** were created to validate. The EGA v2 frames, still in development (see frames/[^127]), will define the structure FEGA expects for each of the main entities. When these frames are applied to a flattened JSON-LD document containing such entities, we can reformat them into a structured JSON-LD with that entity type as root, and thus make them suitable for validation through the EGA v2 model JSON Schemas. In summary, framing allows us to transform RDF-data into a format compatible with the EGA v2 model JSON Schemas.
+Lastly, the chosen path is to use [**framing**](https://w3c.github.io/json-ld-syntax/#framed-document-form), which allows us to map a specific structure for all incoming and flattened JSON-LD files. Through framing, we are able to **change JSON-LD files to a format that the EGA v2 model JSON Schemas** were created to validate. The EGA v2 frames, still in development (see [frames/](https://github.com/M-casado/fega-metadata-schema/tree/main/frames)), will define the structure FEGA expects for each of the main entities. When these frames are applied to a flattened JSON-LD document containing such entities, we can reformat them into a structured JSON-LD with that entity type as root, and thus make them suitable for validation through the EGA v2 model JSON Schemas. In summary, framing allows us to transform RDF-data into a format compatible with the EGA v2 model JSON Schemas.
 
 7. # EGA v2 metadata model
 
@@ -497,7 +497,7 @@ Initial efforts in October 2023 involved **presenting existing metadata models a
 
 After collecting the feedback from the survey, we worked through **rounds of drafting** followed by feedback, culminating in a **first draft of the abstract model by July 2024**, presented to external stakeholders. See [*External Involvement*](#external-involvement) for further details.
 
-In the second half of 2024, we continued with further rounds of external reviews and outreach, engaging diverse participants in workshops and presentations. Taken together, all the feedback helped shape the EGA v2 model. At the beginning of 2025, we started putting all our efforts into this **technical report and the fega-metadata-schema repository**[^128].
+In the second half of 2024, we continued with further rounds of external reviews and outreach, engaging diverse participants in workshops and presentations. Taken together, all the feedback helped shape the EGA v2 model. At the beginning of 2025, we started putting all our efforts into this **technical report and the [fega-metadata-schema repository](https://github.com/M-casado/fega-metadata-schema)**.
 
 ##### ***Figure 3\.** Overview of the timeline from the MWG.*
 
@@ -507,87 +507,87 @@ In the second half of 2024, we continued with further rounds of external reviews
 
 External collaboration included interactions with ELIXIR, GDI, GA4GH, Beacon, BioSchemas and other stakeholders:
 
-1. **GDI** requirements were presented in early MWG meetings, aiming for eventual alignment or convergence of metadata models. Furthermore, participants of the FEGA MWG are also involved in GDI's metadata squad[^129] and the GDI-Beacon metadata workshops[^130].
+1. **GDI** requirements were presented in early MWG meetings, aiming for eventual alignment or convergence of metadata models. Furthermore, participants of the FEGA MWG are also involved in GDI's [metadata squad](https://gdi-elixir.slack.com/archives/C07D6GFJ3LH) and the [GDI-Beacon metadata workshops](https://docs.google.com/document/d/18ZPfdwucj8eaiUDbnyS5F9DaUzR1BGvhTf42H_maZKw).
 
-2. Outreach through **conferences, workshops, and external stakeholder meetings** ensured feedback from diverse stakeholders, including the European Nucleotide Archive[^131],[^132] (ENA), National Bioinformatics Infrastructure Sweden[^133] (NBIS), and the Japanese Genotype-phenotype Archive[^134],[^135] (JGA), among many others.
+2. Outreach through **conferences, workshops, and external stakeholder meetings** ensured feedback from diverse stakeholders, including the [European Nucleotide Archive](http://www.ebi.ac.uk/ena)[^9] (ENA), [National Bioinformatics Infrastructure Sweden](https://nbis.se/) (NBIS), and the [Japanese Genotype-phenotype Archive](https://www.ddbj.nig.ac.jp/jga)[^10] (JGA), among many others.
 
 To gather feedback and ensure broad adoption of the metadata model, the MWG engaged in several outreach activities:
 
 * Distributing multiple **forms** across national and international consortia:
 
-  * "Presentations" form[^136] to organise the kick-off of the group.
+  * ["Presentations" form](https://forms.gle/bDacFij9Mz7xWUhA9) to organise the kick-off of the group.
 
-  * "Model mapping" form[^137] to collect inputs for the initial design of the EGA v2 metadata model.
+  * ["Model mapping" form](https://forms.gle/Sw1k7SRiEG8YUpoL7) to collect inputs for the initial design of the EGA v2 metadata model.
 
-  * "Federated EGA metadata model poster feedback" form[^138] to gather feedback from participants of the 2024 ELIXIR All Hands meeting[^139] in Uppsala, Sweden.
+  * ["Federated EGA metadata model poster feedback" form](https://forms.gle/h5ZWsvL73djqaduw6) to gather feedback from participants of the [2024 ELIXIR All Hands meeting](https://elixir-events.eventscase.com/EN/ahm2024) in Uppsala, Sweden.
 
-  * "Metadata feedback" form[^140] during the 2024 ELIXIR Federated Human Data[^141] (FHD) Community Day[^142] in Lisbon, Portugal.
+  * ["Metadata feedback" form](https://forms.gle/8JN4bGJrY5EfmY15A) during the 2024 [ELIXIR Federated Human Data](https://elixir-europe.org/communities/human-data) (FHD) [Community Day](https://elixir-europe.org/events/elixir-federated-human-data-community-day-0) in Lisbon, Portugal.
 
-  * "Accessibility of FEGA metadata" form[^143] to gather insight on the exposure of metadata through FEGA. The results were presented[^144] to the FEGA group and discussed, prompting the organisation of a Metadata Accessibility Workshop in 2026\.
+  * ["Accessibility of FEGA metadata" form](https://forms.gle/iT1revnW5foeDREy8) to gather insight on the exposure of metadata through FEGA. The results were [presented](https://docs.google.com/presentation/d/1Vue9BFoURdBg8ZWta20r4kx17YunAH4ny8j7gGWOoNw) to the FEGA group and discussed, prompting the organisation of a Metadata Accessibility Workshop in 2026\.
 
 * **Presentations at major workshops**:
 
-  * GDI Pillar II Metadata Workshop[^145] (March 2024).
+  * [GDI Pillar II Metadata Workshop](https://docs.google.com/presentation/d/16M7c1-p1NxjraQQWNa_Tgg4ya-g4qNOkUu3sMsJmeuA) (March 2024).
 
-  * ELIXIR Federated Human Data Community Day[^146] (Nov 2024).
+  * [ELIXIR Federated Human Data Community Day](https://docs.google.com/presentation/d/1IwPS2OBcoJJuaPnz0OlC7JoT4sMcOyXS/edit#slide=id.g310a143e130_0_22) (Nov 2024).
 
-  * BioSchemas Community Day[^147] (Jan 2025).
+  * [BioSchemas Community Day](https://doi.org/10.5281/zenodo.14726856) (Jan 2025).
 
-  * FEGA Technical Deep dive[^148] (March 2025).
+  * [FEGA Technical Deep dive](https://doi.org/10.5281/zenodo.14968151) (March 2025).
 
-  * GA4GH Beacon for Metadata Discovery[^149] (March 2025)
+  * [GA4GH Beacon for Metadata Discovery](https://docs.google.com/document/d/1LHvH2nMs0MMjEYdlEtzCAUB442D_83SZ) (March 2025)
 
-  * Predictor Effector Gene (PEG) working group[^150] (July 2025).
+  * [Predictor Effector Gene (PEG) working group](https://doi.org/10.5281/zenodo.16087281) (July 2025).
 
-  * ELIXIR Federated Human Data Community Day[^151] (Nov 2025).
+  * [ELIXIR Federated Human Data Community Day](https://docs.google.com/presentation/d/1piiixarPwVnYqGes-RZbL9xocwb1_g8pggdrzoP3-3E/edit?usp=sharing) (Nov 2025).
 
-* A dedicated **external stakeholders meeting** in July 2024, presenting the "Pruned FEGA Abstract Metadata Model"[^152], and gathering feedback from 25 participants covering diverse projects and teams, such as German National Cohort[^153] (NAKO), GA4GH, ENA, NBIS, Beacon, GDI and JGA.
+* A dedicated **external stakeholders meeting** in July 2024, presenting the ["Pruned FEGA Abstract Metadata Model"](https://docs.google.com/presentation/d/1EtoLU_08XaH8NOTm9_lTTZkwfMwPhPQXjk1jGxEiivA/edit#slide=id.g2eb20668969_0_0), and gathering feedback from 25 participants covering diverse projects and teams, such as [German National Cohort](https://nako.de/en/study) (NAKO), GA4GH, ENA, NBIS, Beacon, GDI and JGA.
 
 * Creation of the following **posters**:
 
-  * "Improving metadata compliance and interoperability at EGA with Biovalidator"[^154], presented at the ELIXIR All Hands Meeting in June 2023[^155], in Dublin, Ireland.
+  * ["Improving metadata compliance and interoperability at EGA with Biovalidator"](https://doi.org/10.7490/f1000research.1119417.1), presented at the [ELIXIR All Hands Meeting in June 2023](https://elixir-europe.org/events/elixir-all-hands-2023), in Dublin, Ireland.
 
-  * "Advancing Genomic Data Interoperability: The FEGA Metadata Model"[^156], presented at the ELIXIR All Hands Meeting in June 2024, in Uppsala, Sweden.
+  * ["Advancing Genomic Data Interoperability: The FEGA Metadata Model"](https://doi.org/10.7490/f1000research.1119732.1), presented at the ELIXIR All Hands Meeting in June 2024, in Uppsala, Sweden.
 
-  * "Unifying FEGA metadata: A standardized model for multimodal data"[^157], presented at the ELIXIR All Hands Meeting in June 2025[^158], in Thessaloniki, Greece.
+  * ["Unifying FEGA metadata: A standardized model for multimodal data"](https://doi.org/10.7490/f1000research.1120212.1), presented at the [ELIXIR All Hands Meeting in June 2025](https://elixir-events.eventscase.com/EN/ahm2025), in Thessaloniki, Greece.
 
 * Collaboration from **experts in omics** fields through the use-case sessions (see [***Use-cases***](#use-cases)).
 
 * Creation of this **technical report** to disseminate progress and outcomes.
 
-These activities (and subsequent word-of-mouth) encouraged researchers from a wider network (e.g., PEG, The International Genome Sample Resource[^159]) to connect with the FEGA MWG about metadata models.
+These activities (and subsequent word-of-mouth) encouraged researchers from a wider network (e.g., PEG, The [International Genome Sample Resource](https://doi.org/10.25504/FAIRsharing.4Vs9VM)) to connect with the FEGA MWG about metadata models.
 
 3. ## Model entities
 
-During the development of the EGA v2 metadata model, we adopted a **process-centered approach** that emphasises procedural representations over traditional biological experiment or analysis perspectives. See examples of these differences in [Figure 8](#figure-8-representation-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models) and [Figure 9](#figure-9-representation-in-detail-with-real-accessions-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models). This shift allows for a more flexible and comprehensive framework, capable of representing a wide array of processes, not limited to canonical experimental designs. Our approach draws inspiration from models such as the Human Cell Atlas[^160],[^161] (HCA) and the SEEK workflow model[^162],[^163], which have successfully implemented similar methodologies.
+During the development of the EGA v2 metadata model, we adopted a **process-centered approach** that emphasises procedural representations over traditional biological experiment or analysis perspectives. See examples of these differences in [Figure 8](#figure-8-representation-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models) and [Figure 9](#figure-9-representation-in-detail-with-real-accessions-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models). This shift allows for a more flexible and comprehensive framework, capable of representing a wide array of processes, not limited to canonical experimental designs. Our approach draws inspiration from models such as the [Human Cell Atlas](https://data.humancellatlas.org/metadata)[^11] (HCA) and the [SEEK workflow model](https://doi.org/10.1016/B978-0-12-385118-5.00029-3)[^12], which have successfully implemented similar methodologies.
 
 The entities defined in the EGA v2 model are as follows. Each of them  listed here with its name (e.g., Biomaterial), the closest match to an ontology term (e.g., OBI:0100051 – not necessarily the only mapping, a replacement, or a 1-to-1 match), and its definition in the EGA v2 model.
 
-* **Biomaterial** (OBI:0100051[^164]): Represents any biological material, from whole organisms (including humans) to subcellular components and macromolecules (e.g., DNA samples).
+* **Biomaterial** ([OBI:0100051](http://purl.obolibrary.org/obo/OBI_0100051)): Represents any biological material, from whole organisms (including humans) to subcellular components and macromolecules (e.g., DNA samples).
 
-* **Protocol** (prov:Plan[^165]): Detailed plan of instructions on how a procedure is done. For example, sample preparation, sequencing or feature extraction techniques. See [*Disambiguation*](#processes-and-protocols).
+* **Protocol** ([prov:Plan](https://www.w3.org/TR/prov-o/#Plan)): Detailed plan of instructions on how a procedure is done. For example, sample preparation, sequencing or feature extraction techniques. See [*Disambiguation*](#processes-and-protocols).
 
-* **Process** (prov:Activity[^166]): A specific execution of a protocol or procedure, applied to specific inputs (Biomaterial or Datafile) and producing specific outputs (Biomaterial or Datafile). See [*Disambiguation*](#processes-and-protocols).
+* **Process** ([prov:Activity](https://www.w3.org/TR/prov-o/#Activity)): A specific execution of a protocol or procedure, applied to specific inputs (Biomaterial or Datafile) and producing specific outputs (Biomaterial or Datafile). See [*Disambiguation*](#processes-and-protocols).
 
-* **Datafile** (dcat:Distribution[^167]): A resource containing data. Includes a diverse range of formats (e.g., BAM, VCF, mzML) from multiple life science domains (e.g., genomics, imaging, phenoclinical, proteomics). See [*Disambiguation*](#datasets-and-datafiles).
+* **Datafile** ([dcat:Distribution](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution)): A resource containing data. Includes a diverse range of formats (e.g., BAM, VCF, mzML) from multiple life science domains (e.g., genomics, imaging, phenoclinical, proteomics). See [*Disambiguation*](#datasets-and-datafiles).
 
-* **Dataset** (dcat:Dataset[^168]): A collection of Datafiles[^169], published or curated by a single agent, and available for access or download in one or more representations. Datasets are subject to a particular policy for controlled-access, commonly making them the units of access distribution. See [*Disambiguation*](#datasets-and-datafiles).
+* **Dataset** ([dcat:Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset)): A collection of Datafiles[^13], published or curated by a single agent, and available for access or download in one or more representations. Datasets are subject to a particular policy for controlled-access, commonly making them the units of access distribution. See [*Disambiguation*](#datasets-and-datafiles).
 
-* **Policy** (dcterms:RightsStatement[^170]): Data access policy, governing how data is processed, protected, and shared. It can include, for example, data use conditions and references to the dataset's Data Access Agreement (DAA).
+* **Policy** ([dcterms:RightsStatement](http://purl.org/dc/terms/RightsStatement)): Data access policy, governing how data is processed, protected, and shared. It can include, for example, data use conditions and references to the dataset's Data Access Agreement (DAA).
 
-* **Data Access Committee (DAC)** (prov:Agent[^171]): Body managing data access requests, overseeing the approval process for data usage in accordance with its defined Policy.
+* **Data Access Committee (DAC)** ([prov:Agent](https://www.w3.org/TR/prov-o/#Agent)): Body managing data access requests, overseeing the approval process for data usage in accordance with its defined Policy.
 
-* **Study** (schema:ResearchProject[^172]): Compilation of Protocol Collections (e.g., examinations, analyses or critical inspections) applied to investigate a particular topic within the context of a given Project.
+* **Study** ([schema:ResearchProject](https://schema.org/ResearchProject)): Compilation of Protocol Collections (e.g., examinations, analyses or critical inspections) applied to investigate a particular topic within the context of a given Project.
 
-* **Cohort** (prov:Collection[^173]): A group of Biomaterials (e.g., individuals, biopsies) sharing specific characteristics, facilitating comparative studies and discovery.
+* **Cohort** ([prov:Collection](https://www.w3.org/TR/prov-o/#Collection)): A group of Biomaterials (e.g., individuals, biopsies) sharing specific characteristics, facilitating comparative studies and discovery.
 
-* **Project** (schema:Project[^174]): Umbrella record that groups related Studies and Datasets under a single scientific or funding scope.
+* **Project** ([schema:Project](https://schema.org/Project)): Umbrella record that groups related Studies and Datasets under a single scientific or funding scope.
 
 * **Protocol collection** (prov:Collection, prov:Plan): A versioned set of Protocol records that together define a complete workflow. May include a single or multiple protocols, depending on the desired granularity by the submitter. See [*Disambiguation*](#processes-and-protocols).
 
-* **Catalog** (dcat:Catalog[^175]): Curated collection of metadata about all Datasets exposed by CEGA or a FEGA node.
+* **Catalog** ([dcat:Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog)): Curated collection of metadata about all Datasets exposed by CEGA or a FEGA node.
 
-* **Catalog Record** (dcat:CatalogRecord[^176]): Administrative entity that logs the registration details (e.g., date, agent, status) for a single Dataset (its primary topic) within CEGA's/FEGA nodes' catalogs.
+* **Catalog Record** ([dcat:CatalogRecord](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog_Record)): Administrative entity that logs the registration details (e.g., date, agent, status) for a single Dataset (its primary topic) within CEGA's/FEGA nodes' catalogs.
 
 To see these entities in use, refer to the examples in the [*Use-cases*](#use-cases) section.
 
@@ -631,15 +631,15 @@ flowchart TB
 
 The summarised view of [Figure 4](#figure-4-flow-diagram-representing-an-oversimplification-of-the-model-entities-and-relationships-of-the-ega-v2-metadata-model) is expanded further in [Figure 5](#figure-5-flow-diagram-representing-the-entities-and-relationships-of-the-ega-v2-metadata-model), with mapped terms (e.g., dcat:Distribution) and semantically tagged relationships (e.g., prov:wasUsedBy). Domain namespaces in the diagram are:
 
-* **prov**: Provenance[^177].
+* **prov**: [Provenance](https://www.w3.org/ns/prov#).
 
-* **dcat**: Data Catalog Vocabulary[^178].
+* **dcat**: [Data Catalog Vocabulary](http://www.w3.org/ns/dcat#).
 
-* **dcterms**: Dublin Core Metadata Initiative Terms[^179].
+* **dcterms**: [Dublin Core Metadata Initiative Terms](http://purl.org/dc/terms).
 
-* **schema**: Schema.org[^180].
+* **schema**: [Schema.org](http://schema.org).
 
-* **foaf**: Friend of a Friend[^181].
+* **foaf**: [Friend of a Friend](http://xmlns.com/foaf/0.1).
 
 Cardinality constraints (e.g., "*how many datafiles can a process generate*") need to be further defined (ongoing discussions).
 
@@ -742,13 +742,13 @@ Given the highly heterogeneous ways in which entities can be used by the researc
 
 1. #### Processes and Protocols
 
-A Process (prov:Activity) is linked to the applied collection of protocols (i.e., plans) using prov:hadPlan[^182]. In these protocols, agents (prov:Agent, e.g., a lab technician) adopted different roles in the context of the activity (e.g., DNA extraction) to transform an input (e.g., blood sample biomaterial) into an output (e.g., DNA sample biomaterial).
+A Process (prov:Activity) is linked to the applied collection of protocols (i.e., plans) using [prov:hadPlan](https://www.w3.org/TR/prov-o/#hadPlan). In these protocols, agents (prov:Agent, e.g., a lab technician) adopted different roles in the context of the activity (e.g., DNA extraction) to transform an input (e.g., blood sample biomaterial) into an output (e.g., DNA sample biomaterial).
 
 Linking the individual protocols and the activities is the Protocol Collection: the "plan at this granularity", where submitters have freedom over how many protocols are applied in each process. Groupings by Protocol Collection highly resemble the legacy groupings of Experiment or Analysis in the EGA v1 model.
 
 This distinction supports different representations (see [Figure 6](#figure-6-visual-representation-of-the-different-process-trees-based-on-the-submission-granularity) and [Figure 13](#figure-13-comparison-of-differences-between-examples-for-individual-b-and-a-in-ega-v2-model)) of the plans based on the given detail:
 
-* **Coarse submission** (few processes, multiple protocols per process). One process points (via prov:hadPlan) to one Protocol Collection (which is the composite plan). This collection lists the individual protocols as members of its grouping via prov:hadMember[^183].  
+* **Coarse submission** (few processes, multiple protocols per process). One process points (via prov:hadPlan) to one Protocol Collection (which is the composite plan). This collection lists the individual protocols as members of its grouping via [prov:hadMember](https://www.w3.org/TR/prov-o/#hadMember).  
   This setting would correspond to the canonical EGA v1 Experiment definition, for example, where multiple protocols (e.g., sample preparation, DNA extraction, sequencing) were grouped under a single collection (i.e., the experiment).
 
 * **Detailed submission** (multiple processes, one or multiple protocols per process). The overall workflow is split into numerous processes, having a granular step-by-step chain of input-process-output.  
@@ -760,7 +760,7 @@ This distinction supports different representations (see [Figure 6](#figure-6-vi
 
 Examples of these two can be found in the [*Microarray*](#microarray) use-case section.
 
-It is important to note that prov:hadMember expresses membership alone, not ordering. The main aim of the model is not to contain the full and detailed protocol information of each activity, but the information to enable discoverability of data. Therefore, protocol order was not deemed worth bringing into the mix. If this were to change, other models such as P-Plan[^184] could be considered.
+It is important to note that prov:hadMember expresses membership alone, not ordering. The main aim of the model is not to contain the full and detailed protocol information of each activity, but the information to enable discoverability of data. Therefore, protocol order was not deemed worth bringing into the mix. If this were to change, other models such as [P-Plan](https://www.opmw.org/model/p-plan/#figure_mapping_example) could be considered.
 
 On a different note, **processes** can be classified in **four categories** (see [Table 2](#table-2-classification-of-processes-based-on-input-output-combinations), [Figure 7](#figure-7-classification-of-processes-and-comparison-of-ega-v1-experimentsanalysis-and-ega-v2-processes)) depending on the input-output combinations. These categories are merely informative, and are foreseen to greatly help users discover relevant datasets in EGA.
 
@@ -792,17 +792,17 @@ In this section, we review **metadata modelling use-cases that the FEGA communit
 
 Each of these use-cases has been worked through as a **community effort**, by setting up "*FEGA Use-case sessions*", open to everyone, where a volunteer presented an example dataset and the attendees, including experts in the field, modelled it in detail using the EGA v2 model entities.
 
-These sessions were held in the order shown below. The large Excalidraw[^185] diagrams ([Annexes 1 to 4](#annexes)) are snapshots from those sessions: they capture the hands-on work and discussions, but may not reflect the final model in every detail. Treat them as historical evidence of the process, not as authoritative diagrams. The mermaid diagrams and written explanations in each use-case are up to date, and note any model changes that occurred after each session.
+These sessions were held in the order shown below. The large [Excalidraw](https://plus.excalidraw.com/) diagrams ([Annexes 1 to 4](#annexes)) are snapshots from those sessions: they capture the hands-on work and discussions, but may not reflect the final model in every detail. Treat them as historical evidence of the process, not as authoritative diagrams. The mermaid diagrams and written explanations in each use-case are up to date, and note any model changes that occurred after each session.
 
-To date, the MWG has organised **four use-case sessions**: (1) CEGA; (2) Microarray; (3) Proteomics; and (4) Microbiome. Based on the discussion held during the ELIXIR Federated Human Data (FHD) Community Day[^186],[^187] 2025 in Lausanne, Switzerland, future use-case session candidates are: Cohorts/Biobanks, Imaging, Phenotypic/Clinical (e.g., longitudinal study), Single-cell Sequencing, and Exposome. We welcome any suggestions for other possible scenarios that should be tested with the model and are different to the existing ones.
+To date, the MWG has organised **four use-case sessions**: (1) CEGA; (2) Microarray; (3) Proteomics; and (4) Microbiome. Based on the discussion held during the [ELIXIR Federated Human Data (FHD) Community Day](https://elixir-europe.org/events/fhd-hdtr-day) ([notes](https://docs.google.com/document/d/1TSROVqmBXC1ZOzpy_3Zqpu60GHuFrDObyCap83YjtW4)) 2025 in Lausanne, Switzerland, future use-case session candidates are: Cohorts/Biobanks, Imaging, Phenotypic/Clinical (e.g., longitudinal study), Single-cell Sequencing, and Exposome. We welcome any suggestions for other possible scenarios that should be tested with the model and are different to the existing ones.
 
 1. ### CEGA use-case
 
-Here we describe the session held by the MWG, use a submission example and summarise its outcomes, working out an updated representation of a CEGA submission (natively in EGA v1 model) using the EGA v2 model. For further details (slides, recording, diagrams, etc.), please refer to the session agenda**[^188]**.
+Here we describe the session held by the MWG, use a submission example and summarise its outcomes, working out an updated representation of a CEGA submission (natively in EGA v1 model) using the EGA v2 model. For further details (slides, recording, diagrams, etc.), please refer to the session [agenda](https://docs.google.com/document/d/178nspgIt_N4F52lVZpaNCnbXDSjnCFiGMpsSMO7ricc).
 
 In this use-case, we went through the most common CEGA submission type: **genomics**. Given that attendees brought their own datasets to model, the group split into:
 
-* An **example synthetic dataset** (EGAD00001008392[^189]) submitted to CEGA. This was the example that attendees of groups A and B (see [Annex 1](#annexes)) took during the hands-on session.
+* An **example synthetic dataset** ([EGAD00001008392](https://ega-archive.org/datasets/EGAD00001008392)) submitted to CEGA. This was the example that attendees of groups A and B (see [Annex 1](#annexes)) took during the hands-on session.
 
 * A **real-world submission in progress**, brought by Robin Liechti. This was the example that group C (see [Annex 1](#annexes)) took during the hands-on session.
 
@@ -816,7 +816,7 @@ In this use-case, we went through the most common CEGA submission type: **genomi
 
 Below, we model in detail the **synthetic dataset example** (EGAD00001008392). In doing so, we pinpoint the **similarities and overlapping semantic entities across models**, bridging both the EGA v1 and v2 metadata models.
 
-For the sake of simplicity, we do **not** cover all entities in this dataset, given how verbose the output diagram would be. Nevertheless, we go over types that are different across models, with sufficient coverage for this exercise. For further details about the dataset itself, please request access[^190] to the dataset, which is managed by CEGA. Alternatively, you can see a summary of the dataset in the slides[^191] of the session.
+For the sake of simplicity, we do **not** cover all entities in this dataset, given how verbose the output diagram would be. Nevertheless, we go over types that are different across models, with sufficient coverage for this exercise. For further details about the dataset itself, please [request access](https://ega-archive.org/datasets/EGAD00001008392/request) to the dataset, which is managed by CEGA. Alternatively, you can see a summary of the dataset in the [slides](https://docs.google.com/presentation/d/1maxcv1IupnJtkMbw2l7h82CJQOFfqk_Lx-HkvF1fadQ) of the session.
 
 To understand the transition from EGA v1 to EGA v2 models, we need to clarify one of the key differences: **modularity of processes**. As explained in the [*Model entities*](#model-entities) section, and depicted in [Figure 7](#figure-7-classification-of-processes-and-comparison-of-ega-v1-experimentsanalysis-and-ega-v2-processes) and [Figure 8](#figure-8-representation-of-the-same-sequencing-and-alignment-processes-in-both-the-ega-v1-and-v2-models), when we have a sample in the EGA v1 model, it can be linked to datafiles either through EXPERIMENTs and RUNs, or through ANALYSES. Meanwhile, the EGA v2 model simply represents them as different types of **procedural steps**, each with its specific protocol collection and process.
 
@@ -1183,7 +1183,7 @@ flowchart LR
 
 2. ### Microarray
 
-During a dedicated "Microarray" session (see [Annex 2](#annexes)), the MWG went through a **simple two-colour experiment** in which two cancer patients (individual A and B) each provided a tumour and a matched normal tissue sample. RNA is isolated, reverse-transcribed, labelled with dyes and co-hybridised on the same microarray slide. TIFF images are generated by scanning the tissues, and downstream software generates intensity files (\*.idat) and an expression matrix. Phenotypic and disease metadata for each patient are captured using GA4GH Phenopackets. For further details (slides, recording, diagrams…), please refer to the session **agenda**[^192].
+During a dedicated "Microarray" session (see [Annex 2](#annexes)), the MWG went through a **simple two-colour experiment** in which two cancer patients (individual A and B) each provided a tumour and a matched normal tissue sample. RNA is isolated, reverse-transcribed, labelled with dyes and co-hybridised on the same microarray slide. TIFF images are generated by scanning the tissues, and downstream software generates intensity files (\*.idat) and an expression matrix. Phenotypic and disease metadata for each patient are captured using GA4GH Phenopackets. For further details (slides, recording, diagrams…), please refer to the session [**agenda**](https://docs.google.com/document/d/1VCJ3qF4ShggiNrnLxtLFIH_h8J5-J2aeiUKt37aUMd8).
 
 1. #### Key session outcomes
 
@@ -1533,15 +1533,15 @@ flowchart TB
 
 The proteomics use case addresses important **metadata representation gaps** previously identified in the current EGA v1 model, which was primarily genomics-centric and lacked dedicated fields or concepts tailored for proteomics data submissions.
 
-Proteomics datasets, often deposited in repositories such as the PRoteomics IDEntifications Database[^193],[^194] (PRIDE) under the ProteomeXchange consortium[^195],[^196], require capturing nuanced submission information, including experiment types and the specific file formats generated by mass spectrometry workflows. The FEGA MWG, through a thorough pre-workshop analysis and hands-on workshop session, has refined the metadata model to accommodate those needs effectively. The details can be found in the use-case agenda[^197].
+Proteomics datasets, often deposited in repositories such as the [PRoteomics IDEntifications Database](https://www.ebi.ac.uk/pride/markdownpage/citationpage)[^14] (PRIDE) under the [ProteomeXchange consortium](https://www.proteomexchange.org/)[^15], require capturing nuanced submission information, including experiment types and the specific file formats generated by mass spectrometry workflows. The FEGA MWG, through a thorough pre-workshop analysis and hands-on workshop session, has refined the metadata model to accommodate those needs effectively. The details can be found in the use-case [agenda](https://docs.google.com/document/d/1i7AUR2qL5PrgbSy0yndClSbYJT-XyfWi-XJmQJ0AEik).
 
 #### Use-case workshop
 
 In this section, we describe the Proteomics session ([Annex 3](#annexes)) held by the FEGA MWG and summarise its outcomes—specifically, how a **proteomics dataset containing human mass spectrometry data can be represented by the EGA v2 metadata model**. Mapping such a submission involves aligning core information (e.g., sample details, data acquisition methods) and file formats with FEGA requirements. 
 
-PXD006482[^198] is the **original dataset submitted to the PRIDE** database. This dataset ("*Identification of Missing Proteins in the Phosphoproteome of Kidney Cancer*") is a phosphoproteomics study comparing kidney cancer tissue and adjacent healthy tissue, identifying 8,962 proteins (6,415 phosphoproteins) and 44,728 phosphosites (10,266 previously unreported), and verifying some "missing proteins" under the Chromosome-Centric Human Proteome Project[^199].
+[PXD006482](https://www.ebi.ac.uk/pride/archive/projects/PXD006482) is the **original dataset submitted to the PRIDE** database. This dataset ("*Identification of Missing Proteins in the Phosphoproteome of Kidney Cancer*") is a phosphoproteomics study comparing kidney cancer tissue and adjacent healthy tissue, identifying 8,962 proteins (6,415 phosphoproteins) and 44,728 phosphosites (10,266 previously unreported), and verifying some "missing proteins" under the [Chromosome-Centric Human Proteome Project](https://hupo.org/c-hpp).
 
-For the use-case session, we made use of the **dataset specification table**[^200]. This consists of the **sample metadata** submitted to the PRIDE database according to the Sample and Data Relationship Format for Proteomics[^201] (SDRF). **SDRF is part of the metadata standards** adopted by PRIDE / ProteomeXchange / Proteomics Standards Initiative[^202] (PSI), used to encode sample-level metadata (e.g. biological sample type, condition, replicate, tissue, disease), and to link each sample to its corresponding datafile(s).
+For the use-case session, we made use of the [**dataset specification table**](https://github.com/bigbio/proteomics-sample-metadata/blob/master/sdrf-specification-examples/PXD006482/PXD006482.sdrf.tsv#L13). This consists of the **sample metadata** submitted to the PRIDE database according to the [Sample and Data Relationship Format for Proteomics](https://doi.org/10.25504/FAIRsharing.4a8cd2) (SDRF). **SDRF is part of the metadata standards** adopted by PRIDE / ProteomeXchange / [Proteomics Standards Initiative](https://doi.org/10.25504/FAIRsharing.9f60e7) (PSI), used to encode sample-level metadata (e.g. biological sample type, condition, replicate, tissue, disease), and to link each sample to its corresponding datafile(s).
 
 In PRIDE's record for a given dataset (such as PXD006482), there is a metadata table titled "Experimental Design (Samples)"; what the user submits via SDRF becomes or fills this table in the PRIDE web interface. That is, this table in GitHub is what was submitted (or what could be submitted) to supply PRIDE with structured information for that Experimental Design table.
 
@@ -1549,9 +1549,9 @@ Using the example, the working group engaged in a discussion on how to model the
 
 * **RAW files**. Instrument-generated proprietary format files (e.g., Thermo RAW files).
 
-* **SEARCH files**. Results from peptide identification software (e.g., Mascot[^203],[^204] .dat[^205]).
+* **SEARCH files**. Results from peptide identification software (e.g., [Mascot](https://www.matrixscience.com)[^16] [.dat](https://pnnl-comp-mass-spec.github.io/Uniprot-DAT-File-Parser/)).
 
-* **RESULT files**. Standard identification/quantification output in formats like mzIdentML[^206],[^207] and mzTab[^208],[^209] (required for complete submissions).
+* **RESULT files**. Standard identification/quantification output in formats like [mzIdentML](https://www.psidev.info/mzidentml)[^17] and [mzTab](https://hupo-psi.github.io/mzTab/)[^18] (required for complete submissions).
 
 * **PEAK files**. Peak lists (e.g., Mascot .mgf).
 
@@ -1569,7 +1569,7 @@ The EGA v2 model was able to capture the detailed processes involved in capturin
 
 * **Sample metadata as a requirement.** Strong recommendation that SDRF files (sample metadata spreadsheets) be made mandatory in FEGA submissions. This ensures clinical and experimental context (e.g., sample sex, condition) is always captured — a gap in many PRIDE submissions.
 
-* **Affinity proteomics (Olink[^210]) emerges as a priority.** New technology (antibody-based, Next Generation Sequencing (NGS)-driven, high-throughput, cheap, plasma-based, clinically relevant). Olink data are usually released without raw NGS data (to avoid IP risks), only processed protein quantification \+ Quality Control (QC) metadata are released. Since FEGA deals with clinical/sensitive data, preparing for Olink submissions (including potential controlled-access) is essential.
+* **Affinity proteomics ([Olink](https://olink.com/)) emerges as a priority.** New technology (antibody-based, Next Generation Sequencing (NGS)-driven, high-throughput, cheap, plasma-based, clinically relevant). Olink data are usually released without raw NGS data (to avoid IP risks), only processed protein quantification \+ Quality Control (QC) metadata are released. Since FEGA deals with clinical/sensitive data, preparing for Olink submissions (including potential controlled-access) is essential.
 
 * **Metadata modelling and provenance.** Importance of capturing clear relationships between samples, protocols, files, and outputs (including replicates, fractions, and processing steps). Flexibility is needed: not all users will provide detailed process chains, but the model should allow representation of complex workflows.
 
@@ -1720,15 +1720,15 @@ flowchart TB
 
 4. ### Microbiome
 
-For the microbiome use case ([Annex 4](#annexes)), we piloted FEGA pre-deposition and deposition workflows for microbiome studies (shotgun metagenomics, metatranscriptomics, metabolomics), discussed how **microbiome sample and study metadata** map into the EGA v2 metadata model, and refined it based on the FEGA Microbiome use-case session[^211] (2025-07-01), including decisions about public archive deposition, decontamination, and metadata mapping.
+For the microbiome use case ([Annex 4](#annexes)), we piloted FEGA pre-deposition and deposition workflows for microbiome studies (shotgun metagenomics, metatranscriptomics, metabolomics), discussed how **microbiome sample and study metadata** map into the EGA v2 metadata model, and refined it based on the FEGA Microbiome [use-case session](https://docs.google.com/document/u/0/d/1uJdtTvDo3j8IuaMKSdqX1GY7hhrj21J-4h2Qy6U9g1w) (2025-07-01), including decisions about public archive deposition, decontamination, and metadata mapping.
 
 1. #### Key session outcomes
 
 Challenges and considerations:
 
-* **Privacy/sensitivity**: although most microbiome chunks are non-identifiable after decontamination, procedures developed for European contexts/conditions on microbiome sensitivity should be surveyed and followed[^212].
+* **Privacy/sensitivity**: although most microbiome chunks are non-identifiable after decontamination, procedures developed for European contexts/conditions on microbiome sensitivity should be surveyed and followed[^19].
 
-* **Standardisation**: ensure other metadata standards and the EGA v2 model fields overlap cleanly; session feedback and the worked example informed improvements to EGA v2 model compatibility. Examples of these standards are the Environment Ontology[^213],[^214] (ENVO), NCBI Taxonomy[^215], Minimum Information about any (x) Sequence[^216],[^217] (MIxS), Ontology for Biomedical Investigations[^218],[^219] (OBI).
+* **Standardisation**: ensure other metadata standards and the EGA v2 model fields overlap cleanly; session feedback and the worked example informed improvements to EGA v2 model compatibility. Examples of these standards are the [Environment Ontology](https://jbiomedsem.biomedcentral.com/articles/10.1186/2041-1480-4-43)[^20] (ENVO), [NCBI Taxonomy](https://www.ncbi.nlm.nih.gov/taxonomy), [Minimum Information about any (x) Sequence](https://w3id.org/mixs)[^21] (MIxS), [Ontology for Biomedical Investigations](https://github.com/obi-ontology/obi)[^22] (OBI).
 
 * **Interoperability**: linkage patterns between public archives (e.g., ENA) and FEGA records must be explicit and machine-readable.
 
@@ -1748,7 +1748,7 @@ It is important to note that, in the **absence of the sensitivity review**, mult
 
 * **Raw sequencing reads**: shotgun metagenomics FASTQ (after host-depletion where applicable).
 
-* **Processed outputs**: CSV or TSV formats, taxonomic assignments, functional profiles, HMP Unified Metabolic Analysis Network[^220] (HUMAnN) outputs, pathway abundances.
+* **Processed outputs**: CSV or TSV formats, taxonomic assignments, functional profiles, [HMP Unified Metabolic Analysis Network](https://doi.org/10.7554/eLife.65088) (HUMAnN) outputs, pathway abundances.
 
 * **Metadata**: Full MIxS-compatible sample metadata (sample type e.g., stool/biopsy, collection protocol, host phenotype, environmental parameters), plus study-level metadata per the EGA v2 model.
 
@@ -1776,9 +1776,9 @@ It is important to note that, in the **absence of the sensitivity review**, mult
 
 3. **Preprocessing & QC**: adapter trimming, quality filtering.
 
-4. **Host decontamination**: strict removal of human reads using well-documented pipelines[^221],[^222]. Participants in the use-case session mentioned decontamination as standard practice; human-derived reads typically are removed before public deposition.
+4. **Host decontamination**: strict removal of human reads using well-documented [pipelines](https://pmc.ncbi.nlm.nih.gov/articles/PMC12018304/#TB1)[^23]. Participants in the use-case session mentioned decontamination as standard practice; human-derived reads typically are removed before public deposition.
 
-5. **Taxonomic and functional profiling**: bioBakery3[^223] tools such as MetaPhlAn[^224], HUMAnN for shotgun metagenomics.
+5. **Taxonomic and functional profiling**: bioBakery3[^24] tools such as [MetaPhlAn](https://huttenhower.sph.harvard.edu/metaphlan/), HUMAnN for shotgun metagenomics.
 
 6. **Metadata mapping**: map sample and study metadata into the EGA v2 model (use other metadata/ontologies to complement the model).
 
@@ -1995,7 +1995,7 @@ The introduction of **linked data principles** represents a significant step for
 
 * JSON documents referencing (in their @context) these schema files can be automatically expanded into RDF-compliant JSON-LD (see [Figure 17](#figure-17-diagram-depicting-the-expansion-of-a-json-document-into-json-ld-with-the-addition-of-context)) by inheriting the schemas' @context.
 
-For instance, a cohort.json referencing FEGA.cohort.json through its URI[^225] will inherit the schema's context when expanded by a JSON-LD processor (see [Figure 17](#figure-17-diagram-depicting-the-expansion-of-a-json-document-into-json-ld-with-the-addition-of-context)). This enables terms used as keys (e.g., 'label') and CURIE values (e.g., 'ega:EGAD00000000001'), to be expanded, pointing to resolvable URIs (e.g., https://www.w3.org/2000/01/rdf-schema\#label and https://identifiers.org/ega:EGAD00000000001, respectively).
+For instance, a cohort JSON document referencing cohort/schema.json through its [URI](https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/cohort/schema.json) will inherit the schema's context when expanded by a JSON-LD processor (see [Figure 17](#figure-17-diagram-depicting-the-expansion-of-a-json-document-into-json-ld-with-the-addition-of-context)). This enables terms used as keys (e.g., 'label') and CURIE values (e.g., 'ega:EGAD00000000001'), to be expanded, pointing to resolvable URIs (e.g., https://www.w3.org/2000/01/rdf-schema\#label and https://identifiers.org/ega:EGAD00000000001, respectively).
 
 ##### ***Figure 17\.** Diagram depicting the expansion of a JSON document into JSON-LD with the addition of @context.*
 
@@ -2027,7 +2027,7 @@ flowchart TB
     n6 -. Which looks for the<br>referenced <code>@context</code> in .-> n3
     n6 L_n6_n7_0@== "With the schemas @context,<br>it expands the JSON-LD" ==> n7
     n1 -.-> n8
-    n4 -.-> n9["<code>@context: https\://raw.githubusercontent.com/ega-archive/fega-metadata-schema/main/schemas/FEGA.cohort.json</code>"]
+    n4 -.-> n9["<code>@context: https\://raw.githubusercontent.com/ega-archive/fega-metadata-schema/main/schemas/entities/cohort/schema.json</code>"]
     n7 -.-> n10
     n1@{ shape: doc}
     n4@{ shape: proc}
@@ -2061,9 +2061,9 @@ With the expansion of plain strings into fully resolvable URIs:
 
 * **Persistent identifiers** are one of the **keys to the FAIR principles**. This expansion boosts Findability and Interoperability scores for every record.
 
-* Search engines prioritise JSON-LD for structured data. This translates into an **improved indexing and surfacing of FEGA content in domain-specific portals** (e.g., Google Dataset Search[^226]) by embedding the expanded JSON-LD in each record. EGA already implements this context in a limited fashion for datasets alone (see [Figure 18](#figure-18-representation-of-existing-embedded-contexts-and-how-it-improves-the-findability-of-ega-records-on-the-web-1-record-of-a-dataset-in-the-ega-portal-2-applicationldjson-node-embedded-in-the-html-of-the-record-containing-context-and-metadata-in-json-ld-format-3-result-of-a-query-at-google-datasets-returning-the-ega-dataset-thanks-to-its-embedded-context)).
+* Search engines prioritise JSON-LD for structured data. This translates into an **improved indexing and surfacing of FEGA content in domain-specific portals** (e.g., [Google Dataset Search](https://datasetsearch.research.google.com/)) by embedding the expanded JSON-LD in each record. EGA already implements this context in a limited fashion for datasets alone (see [Figure 18](#figure-18-representation-of-existing-embedded-contexts-and-how-it-improves-the-findability-of-ega-records-on-the-web-1-record-of-a-dataset-in-the-ega-portal-2-applicationldjson-node-embedded-in-the-html-of-the-record-containing-context-and-metadata-in-json-ld-format-3-result-of-a-query-at-google-datasets-returning-the-ega-dataset-thanks-to-its-embedded-context)).
 
-* Remote-context reuse means submitters need to **write less boilerplate to achieve a better semantic level** (i.e., lower verbosity with better semantic precision). This reduces maintenance overhead while following current best-practice guidance from W3C[^227]. 
+* Remote-context reuse means submitters need to **write less boilerplate to achieve a better semantic level** (i.e., lower verbosity with better semantic precision). This reduces maintenance overhead while following current best-practice guidance from [W3C](https://w3c.github.io/json-ld-bp/). 
 
 * Resolvable URIs **let validation tools check not only syntax but also term existence** (e.g., "*does EGAD00000000001 exist or is it just a string?*") and **vocabulary consistency.**
 
@@ -2073,7 +2073,7 @@ Formatting FEGA metadata in compliance with linked data also enables, with small
 
 These linked data capabilities have been tested for internal use-cases but are yet to be integrated with external archives (i.e., cross-archive semantic querying). This external capability may not be in scope for the EGA v2 model until the foundations are set.
 
-##### ***Figure 18\.** Representation of existing embedded contexts and how it improves the findability of EGA records on the web. (1) Record of a dataset in the EGA portal; (2) application/ld+json node embedded in the HTML of the record, containing context and metadata in JSON-LD format; (3) result of a query at Google Datasets[^228], returning the EGA dataset thanks to its embedded context.*
+##### ***Figure 18\.** Representation of existing embedded contexts and how it improves the findability of EGA records on the web. (1) Record of a dataset in the EGA portal; (2) application/ld+json node embedded in the HTML of the record, containing context and metadata in JSON-LD format; (3) result of a query at [Google Datasets](https://datasetsearch.research.google.com/search?src=0&query=sequencing%20cancer%20human&docid=L2cvMTFqY2p2X3Mzdw%3D%3D), returning the EGA dataset thanks to its embedded context.*
 
 ![Figure 18. Representation of existing embedded contexts and how it improves the findability of EGA records on the web.](images/FEGA_technical_report-figure_18-embedded_contexts.svg)
 
@@ -2123,13 +2123,13 @@ In essence, the access method proposal is to:
 
   * Any **other data** that the submitter wants to make accessible only through controlled authorisation. For example, non-identifiable personal data (e.g., subject's age) that could be aggregated with other publicly available datasets (e.g., lab results available at other archives) and become identifiable.
 
-This submission routing (see [Figure 19](#figure-19-summary-diagram-representing-the-submission-proposal-with-regards-to-open-and-controlled-access-metadata)) **enables submitters** to propose[^229] **what metadata can be disclosed** (provided as open-access metadata) beyond the minimum EGA requirements **and what needs to be behind controlled-access** (provided as encrypted datafiles).
+This submission routing (see [Figure 19](#figure-19-summary-diagram-representing-the-submission-proposal-with-regards-to-open-and-controlled-access-metadata)) **enables submitters** to propose[^25] **what metadata can be disclosed** (provided as open-access metadata) beyond the minimum EGA requirements **and what needs to be behind controlled-access** (provided as encrypted datafiles).
 
 ##### ***Figure 19\.** Summary diagram representing the submission proposal with regards to open and controlled access metadata.*
 
 ![Figure 19. Summary diagram representing the submission proposal with regards to open and controlled access metadata.](images/FEGA_technical_report-figure_19-open_controlled_access.svg)
 
-An important distinction is that **controlled-access/open-access metadata do not always overlap with sensitive/non-sensitive**. The definition of special category (i.e., sensitive) personal data as per the General Data Protection Regulation[^230] (GDPR) does not impose *open-access* (i.e., publicly displayed) or *controlled-access* constraints. Instead, it simply requires a special level of protection for this type of personal data. Depending on the idiosyncrasies of each submission (e.g., other linked submissions, public records, journal articles), the **threshold for what level of exposure of open-access metadata may lead to re-identification of subjects varies**. With this approach, we give submitters the freedom to set this boundary themselves, to enable FAIR, yet privacy-preserving, submissions to FEGA.
+An important distinction is that **controlled-access/open-access metadata do not always overlap with sensitive/non-sensitive**. The definition of special category (i.e., sensitive) personal data as per the [General Data Protection Regulation](https://gdpr-info.eu/issues/personal-data/) (GDPR) does not impose *open-access* (i.e., publicly displayed) or *controlled-access* constraints. Instead, it simply requires a special level of protection for this type of personal data. Depending on the idiosyncrasies of each submission (e.g., other linked submissions, public records, journal articles), the **threshold for what level of exposure of open-access metadata may lead to re-identification of subjects varies**. With this approach, we give submitters the freedom to set this boundary themselves, to enable FAIR, yet privacy-preserving, submissions to FEGA.
 
 Here, we propose a FEGA-wide policy on how to handle open- and controlled-access submission metadata, promoting the responsible use of human-derived data by providing a **clear separation** between controlled-access and open-access submission metadata. 
 
@@ -2159,9 +2159,9 @@ See further details in the [*Linked Data*](#linked-data) section.
 
 The schema requires CURIEs or HTTP URIs that resolve through identifiers.org or equivalent services, turning previously free-text fields into links that machines can dereference. For example, "biosample:SAMEA2397676" is resolved to "[https://www.ebi.ac.uk/biosamples/samples/SAMEA2397676](https://www.ebi.ac.uk/biosamples/samples/SAMEA2397676)" in an automatic way.
 
-Furthermore, we make use of **Biovalidator's custom keywords** that enable the JSON schema to connect to third party services (e.g., OLS, ENA, identifiers.org) during validation. For example, isValidIdentifier[^231] checks links across resources, catching typos before ingestion. Following the same example as above, if a user provided an ID "biosample:SA**R**EA2397676" (notice the typo, *R* instead of *M*), this error would be picked at validation and corrected by the submitter.
+Furthermore, we make use of **Biovalidator's custom keywords** that enable the JSON schema to connect to third party services (e.g., OLS, ENA, identifiers.org) during validation. For example, [isValidIdentifier](https://github.com/elixir-europe/biovalidator?tab=readme-ov-file#isvalididentifier) checks links across resources, catching typos before ingestion. Following the same example as above, if a user provided an ID "biosample:SA**R**EA2397676" (notice the typo, *R* instead of *M*), this error would be picked at validation and corrected by the submitter.
 
-Likewise, ontology terms are validated with the OLS through Biovalidator's custom keyword graphRestriction[^232], ensuring semantic consistency. For example, we can automatically check if "operon identification design" (EFO:0001785[^233]) is a valid "study design" (EFO:0001426[^234]) by relying on the JSON Schemas and Biovalidator to make the term comparison (i.e. *'is EFO:0001785 a child term of EFO:0001426?'*) through the OLS API.
+Likewise, ontology terms are validated with the OLS through Biovalidator's custom keyword [graphRestriction](https://github.com/elixir-europe/biovalidator?tab=readme-ov-file#graphrestriction), ensuring semantic consistency. For example, we can automatically check if "operon identification design" ([EFO:0001785](http://www.ebi.ac.uk/efo/EFO_0001785)) is a valid "study design" ([EFO:0001426](http://www.ebi.ac.uk/efo/EFO_0001426)) by relying on the JSON Schemas and Biovalidator to make the term comparison (i.e. *'is EFO:0001785 a child term of EFO:0001426?'*) through the OLS API.
 
 In the current EGA v1 model, these constraints are non-existent, or depend on extensive Controlled Vocabularies (CV) that have to be individually maintained by the EGA. In contrast, relying on external resources simplifies the work of maintainers and keeps incoming submissions aligned with the latest field standards.
 
@@ -2181,7 +2181,7 @@ Each edge records its **direction**, mirroring graph-database conventions and av
 
 A single CLI or REST call to Biovalidator **validates structure and semantics** (e.g., ontology terms) against the **same versioned JSON Schemas** wherever it runs, giving **reproducible results** in CI and production.
 
-Biovalidator has been tested locally[^235] and through a public API endpoint[^236], obtaining stable results in terms of scalability and validation times. Furthermore, parallelization of validation requests can easily be configured by deploying multiple servers of Biovalidator.
+Biovalidator has been tested [locally](https://github.com/EbiEga/ega-metadata-schema/tree/main/docs/biovalidator_benchmarks/2023.01.26_benchmarks/local_endpoint) and through a [public API endpoint](https://github.com/EbiEga/ega-metadata-schema/tree/main/docs/biovalidator_benchmarks/2023.01.26_benchmarks/EGAs_endpoint), obtaining stable results in terms of scalability and validation times. Furthermore, parallelization of validation requests can easily be configured by deploying multiple servers of Biovalidator.
 
 6. ### Anticipated FAIR gains with the EGA v2 model
 
@@ -2191,8 +2191,8 @@ Adopting the FEGA JSON-LD-enabled schema is expected to measurably raise FAIR sc
 
 | FAIR aspect | Where we improve | Expected impact |
 | :---- | :---- | :---- |
-| **Findable** | Global, version-stable **$id IRIs** and **context-rich JSON-LD** embedded in landing pages. | Search engines and tools such as FAIR-Checker[^237] can resolve and index records automatically. |
-| **Accessible** | HTTPS-resolvable **identifiers** and **content-negotiation**[^238] for JSON-LD/RDF, not just for datasets. | Machines retrieve the same metadata humans see, improving automation. |
+| **Findable** | Global, version-stable **$id IRIs** and **context-rich JSON-LD** embedded in landing pages. | Search engines and tools such as FAIR-Checker[^26] can resolve and index records automatically. |
+| **Accessible** | HTTPS-resolvable **identifiers** and **content-negotiation**[^27] for JSON-LD/RDF, not just for datasets. | Machines retrieve the same metadata humans see, improving automation. |
 | **Interoperable** | Ontology-backed **value sets** and **cross-entity links** expressed as IRIs. | Schemas expand cleanly to RDF, enabling semantic queries (e.g., SPARQL) and automated cross-repository alignments |
 | **Reusable** | Rich **provenance** (PROV-O), explicit **licences** and versioned **release** manifest. | Easier interpretation of the provenance of model entities and, therefore, of (meta)data. |
 
@@ -2241,23 +2241,23 @@ The EGA v2 model schemas follow a **branch → release-branch → tag** workflow
 
 * The latest stable snapshot is main.
 
-* Each published version first gets a branch following semantic version[^239] (vX.Y.Z), and later an immutable tag with the same name (vX.Y.Z). Validators and applications can fetch these static releases from GitHub through their version names.
+* Each published version first gets a branch following [semantic version](https://semver.org) (vX.Y.Z), and later an immutable tag with the same name (vX.Y.Z). Validators and applications can fetch these static releases from GitHub through their version names.
 
-Full details of the release process can be found at the releases/README.md[^240]. The workflow includes **manual and automated steps**, where artifacts (e.g., release\_manifest.json) are created, and semantic versions are checked, as well as the URIs used to identify each schema and its versions.
+Full details of the release process can be found at the [releases/README.md](https://github.com/M-casado/fega-metadata-schema/blob/main/docs/releases/README.md). The workflow includes **manual and automated steps**, where artifacts (e.g., release\_manifest.json) are created, and semantic versions are checked, as well as the URIs used to identify each schema and its versions.
 
-The release\_manifest.json[^241] is a machine-readable summary of the schema version in each release. This document gets automatically generated prior to each release.
+The [release\_manifest.json](https://github.com/M-casado/fega-metadata-schema/blob/main/docs/releases/release_manifest.json) is a machine-readable summary of the schema version in each release. This document gets automatically generated prior to each release.
 
 2. ### Model extensions
 
 Extensions are copies of the main EGA v2 model schemas that are versioned independently yet maintain a hierarchical dependency with the original model. For example, in [Figure 20](#figure-20-made-up-example-of-the-core-ega-v2-model-and-a-fega-norway-extension-evolving-over-time), FEGA Norway extension v1.0.0 is expected to be compatible with EGA v2.1.0.
 
-These extensions have a different governance model (i.e., different ownership), and can be created by any institution or individual, as the project is open-source. They can also be merged with the core model at fega-metadata-schema following the contributing documentation[^242].
+These extensions have a different governance model (i.e., different ownership), and can be created by any institution or individual, as the project is open-source. They can also be merged with the core model at fega-metadata-schema following the [contributing documentation](https://github.com/M-casado/fega-metadata-schema/blob/main/CONTRIBUTING.md).
 
 10. ## Mapping archived data to the proposed model
 
     1. ### Starting point
 
-The **EGA has been live for more than 17 years**. We have archived more than **12,000 datasets**, and **millions of entities like Samples and Runs**[^243]. These were submitted following the EGA v1 model, which was based on ENA's object types and identifiers.
+The **EGA has been live for more than 17 years**. We have archived more than **12,000 datasets**, and [**millions of entities like Samples and Runs**](https://ega-archive.org/about/statistics/growth/). These were submitted following the EGA v1 model, which was based on ENA's object types and identifiers.
 
 On top of these submissions following the EGA v1 model, another \~**1,700 Array-based format (AF) datasets** have been archived. AF datasets use a bespoke method of submission as of now, in the absence of the EGA v2 metadata model.
 
@@ -2276,7 +2276,7 @@ In order to **bridge the gap** between models and to aid with the implementation
 
 For further details about the comparison between these two models, refer to the [*CEGA use-case*](#worked-example) section.
 
-Clues for the semantic equivalence (e.g., a sample in EGA v1 model is equivalent to a biomaterial in the v2 one) can be found within the EGA v2 model JSON Schemas following the Simple Standard for Sharing Ontological Mappings[^244] (SSSOM) specification. This would be of great help to the automatic conversion across models, by semantically bridging entities on both ends of the transformation.
+Clues for the semantic equivalence (e.g., a sample in EGA v1 model is equivalent to a biomaterial in the v2 one) can be found within the EGA v2 model JSON Schemas following the [Simple Standard for Sharing Ontological Mappings](https://mapping-commons.github.io/sssom) (SSSOM) specification. This would be of great help to the automatic conversion across models, by semantically bridging entities on both ends of the transformation.
 
 ###### ***Table 4**. EGA v1-v2 models mapping strategy overview.*
 
@@ -2319,11 +2319,11 @@ The **implementation** of the EGA v2 model involves a key step in archiving by C
 
 8. # Governance
 
-All schemas, examples and tests live in the **public fega-metadata-schema repository** under the MIT licence[^245], and every pull request triggers the same validation matrix the archive runs in production.
+All schemas, examples and tests live in the **public fega-metadata-schema repository** under the [MIT licence](https://github.com/EGA-archive/fega-metadata-schema/blob/main/LICENSE), and every pull request triggers the same validation matrix the archive runs in production.
 
 Releases will be **documented** in GitHub and Zenodo, enabling history tracking of the model evolution at any time. 
 
-The FEGA network will manage the EGA v2 metadata model through a three-tier structure that mirrors the wider FEGA organisational layout[^246] (see [Table 5](#table-5-fega-governing-groups-over-the-ega-v2-model)).
+The FEGA network will manage the EGA v2 metadata model through a three-tier structure that mirrors the wider [FEGA organisational layout](https://docs.google.com/document/d/1jHyj85iOr7gl75VmHX3DjVl4E-USWSD8d9HG1Z-f4SM) (see [Table 5](#table-5-fega-governing-groups-over-the-ega-v2-model)).
 
 ###### ***Table 5**. FEGA governing groups over the EGA v2 model.*
 
@@ -2356,7 +2356,7 @@ This change release flow, like most of the work in this report, is but a **propo
 
 2. ### Accountability and transparency
 
-* **Authorship**: A markdown file AUTHORS.md[^247] at the root of fega-metadata-schema lists, for each contributor, their basic details and contributions. Furthermore, a CODEOWNERS[^248] file helps trace relevant people whose reviews gatekeep specific changes to the repository.
+* **Authorship**: A markdown file [AUTHORS.md](https://github.com/M-casado/fega-metadata-schema/blob/main/AUTHORS.md) at the root of fega-metadata-schema lists, for each contributor, their basic details and contributions. Furthermore, a [CODEOWNERS](https://github.com/M-casado/fega-metadata-schema/blob/main/.github/CODEOWNERS) file helps trace relevant people whose reviews gatekeep specific changes to the repository.
 
 * **Contacts**: each operational node designates at least one MWG contact. MWG members are listed along with their roles and contact details in the AUTHORS.md file.
 
@@ -2370,7 +2370,7 @@ The plan's **Emergency / Major / Minor / Patch** categories map directly onto th
 
 * Major changes invoke the committee veto cycle.
 
-* Emergency patches (e.g. security, legal compliance) bypass the timer but must be back-ported to main and dev within 48 hours, with a retrospective review by the Strategic and Operations committees, as per the FEGA change-management policy (v1.0, 03-10-2024)[^249].
+* Emergency patches (e.g. security, legal compliance) bypass the timer but must be back-ported to main and dev within 48 hours, with a retrospective review by the Strategic and Operations committees, as per the FEGA [change-management policy (v1.0, 03-10-2024)](https://docs.google.com/document/d/1xSzh38zMxINBIN9aHQ6_Z5sacE1clmRBtkbSi5x_qZ4/edit?tab=t.0#heading=h.bly7duplfw9t).
 
 Further operational details (diagrams, CI scripts, release checklists…) live in the releases/README.md of the schema repository and are kept up to date by the MWG team.
 
@@ -2382,35 +2382,35 @@ For what mitigation measures are in place for each dependency, refer to the [*Ri
 
 1. ## Validation services
 
-* **ELIXIR Biovalidator**[^250]. Core JSON Schema validator with ontology and taxonomy checks; runs as CLI or server. Our schemas and CI depend on it.
+* [**ELIXIR Biovalidator**](https://github.com/elixir-europe/biovalidator). Core JSON Schema validator with ontology and taxonomy checks; runs as CLI or server. Our schemas and CI depend on it.
 
-* **Ontology Lookup Service (OLS4) API**[^251]. Used by Biovalidator's custom keywords such as graphRestriction, isValidTerm, and isChildTermOf. If unavailable, semantic checks in validation cannot run.
+* [**Ontology Lookup Service (OLS4) API**](https://www.ebi.ac.uk/ols4/help). Used by Biovalidator's custom keywords such as graphRestriction, isValidTerm, and isChildTermOf. If unavailable, semantic checks in validation cannot run.
 
-* **Identifiers.org**[^252] **registry and resolver**. Backing isValidIdentifier and CURIE/IRI resolution.
+* [**Identifiers.org**](http://Identifiers.org) **registry and resolver**. Backing isValidIdentifier and CURIE/IRI resolution.
 
-* **ENA Taxonomy services**[^253]. Potential use for isValidTaxonomy checks supported by Biovalidator.
+* [**ENA Taxonomy services**](https://ena-docs.readthedocs.io/en/latest/retrieval/programmatic-access/taxon-api.html). Potential use for isValidTaxonomy checks supported by Biovalidator.
 
   2. ## Upstream schemas and profiles
 
-* **GA4GH Beacon v2**[^254]. Selected JSON Schemas (e.g., Cohort's defaultSchema.json[^255]) are reused to stay aligned with Beacon models and formats.
+* [**GA4GH Beacon v2**](https://github.com/ga4gh-beacon/beacon-v2). Selected JSON Schemas (e.g., Cohort's [defaultSchema.json](https://github.com/ga4gh-beacon/beacon-v2/blob/main/models/json/beacon-v2-default-model/cohorts/defaultSchema.json)) are reused to stay aligned with Beacon models and formats.
 
-* **BioSchemas**[^256]. Profiles and generated JSON Schema/JSON-LD assets inform parts of our model (e.g., ComputationalWorkflow profile[^257]).
+* [**BioSchemas**](https://bioschemas.org/). Profiles and generated JSON Schema/JSON-LD assets inform parts of our model (e.g., [ComputationalWorkflow profile](https://bioschemas.org/profiles/ComputationalWorkflow/1.0-RELEASE)).
 
-* **ISA-JSON**[^258]. ISA model schemas and specs (e.g., process\_parameter\_value\_schema.json[^259]) are a reference for possible reuse of concepts and fields.
+* [**ISA-JSON**](https://isa-specs.readthedocs.io/en/latest/isajson.html). ISA model schemas and specs (e.g., [process\_parameter\_value\_schema.json](https://isa-specs.readthedocs.io/en/latest/isajson.html#process-parameter-value-schema-json)) are a reference for possible reuse of concepts and fields.
 
-* **DCAT**[^260]. Schemas and specs are a reference for possible reuse of concepts and fields.
+* [**DCAT**](https://www.w3.org/TR/vocab-dcat/). Schemas and specs are a reference for possible reuse of concepts and fields.
 
-* **DCAT-AP**[^261]. DCAT application profile for data portals in Europe, describing catalogues, datasets and data services.
+* [**DCAT-AP**](https://semiceu.github.io/DCAT-AP/releases/3.0.1/). DCAT application profile for data portals in Europe, describing catalogues, datasets and data services.
 
-* **HealthDCAT-AP**[^262]. HealthDCAT Application Profile is a domain-specific (health data) metadata model designed to support the implementation of the secondary use framework under the European Health Data Space (EHDS).
+* [**HealthDCAT-AP**](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6). HealthDCAT Application Profile is a domain-specific (health data) metadata model designed to support the implementation of the secondary use framework under the European Health Data Space (EHDS).
 
-* **JSON-LD**[^263]. Base JSON-LD structure schema (jsonld-schema.json[^264]) taken and referenced in the FEGA schemas.
+* [**JSON-LD**](https://github.com/json-ld/json-ld.org). Base JSON-LD structure schema ([jsonld-schema.json](https://github.com/json-ld/json-ld.org/blob/main/schemas/jsonld-schema.json)) taken and referenced in the FEGA schemas.
 
 Some of these are added to the FEGA repository as static files, while others are forked and referenced. See [*Risks and Mitigation*](#risks-and-mitigation) for further details.
 
 3. ## Hosting and resolution
 
-* **GitHub**[^265]. Schemas are distributed via repository URLs and fetched in validation through raw.githubusercontent.com; outages or rate limits can affect remote resolution.
+* [**GitHub**](https://github.com/). Schemas are distributed via repository URLs and fetched in validation through raw.githubusercontent.com; outages or rate limits can affect remote resolution.
 
   4. ## Linked data processing
 
@@ -2424,15 +2424,15 @@ Some of these are added to the FEGA repository as static files, while others are
 | ----- | ----- | ----- | ----- |
 | [Validation services](#validation-services) | **ELIXIR Biovalidator** | Bug or breaking change blocks validation pipeline. | Pin versions in CI, keep a vetted fork, add regression tests, and contribute fixes upstream. |
 |  |  | Upstream custom keywords change behaviour (e.g., graphRestriction). |  |
-|  |  | Speed of validation becoming a bottleneck. | Base speed tested in validation benchmarks[^266] (2023); run yearly benchmarks to assess performance with more intensive tests. |
+|  |  | Speed of validation becoming a bottleneck. | Base speed tested in validation [benchmarks](https://github.com/EbiEga/ega-metadata-schema/tree/main/docs/biovalidator_benchmarks/2023.01.26_benchmarks/local_endpoint#json-validation-summary) (2023); run yearly benchmarks to assess performance with more intensive tests. |
 |  |  | Reliance on internet connection for integrated API checks (e.g., OLS, identifiers.org). | For ontology checks (e.g., graphRestriction), use local static OWL files representing ontologies, which can then be connected to Biovalidator (as a local OLS API) with a slight technical overhead. |
 |  | **OLS4 API** | API outage or latency prevents ontology checks. | Stop validation service to prevent misvalidated submissions; if OLS4 is slow to come back online, consider a local OLS deployment backed by OWL files. |
 |  |  | Backwards-incompatible API: impossibility of validating terms in older ontology versions. For example, if a term X was valid for ontology Y v1, but changed in v2, OLS4 API will not enable us to check years later if X was valid with Y v1. | Always validate against the latest version of ontologies. When metadata are validated and ingested by a FEGA node, it's assumed they were valid against the latest version at the time.For backwards-compatible validation (i.e., older versions), we may: Validate against local OWL API with versions. Release ontology-free schemas for older versions, enabling validation of syntax but not semantics. |
 |  | **Identifiers.org** | Registry updates change prefix targets (e.g., biosample:... → biosample**s**:...). | Identifiers.org handles *deactivated* entries, and redirects properly to the new active ones. |
 |  |  | Resolver downtime breaks CURIE/IRI validation and redirects. | Stop validation service to prevent misvalidated submissions.Alternatively, remove isValidIdentifier and isValidTaxonomy from the schemas. |
 |  | **ENA Taxonomy** | API unavailable hampers isValidTaxonomy checks. |  |
-| [Upstream schemas and profiles](#upstream-schemas-and-profiles) | **GA4GH Beacon v2** | Upstream schema changes or repo restructure break our references. | Beacon v2 references are not directly to the root Beacon v2 repository, but to a fork of it instead (for now at M-casado[^267]). Therefore, control over new changes is in FEGA's hands. |
-|  |  |  | If references are swapped to the root beacon v2 repo, and this risk triggers, fallback is to have references to versioned Beacon v2 releases (e.g., v2.2.0[^268]). |
+| [Upstream schemas and profiles](#upstream-schemas-and-profiles) | **GA4GH Beacon v2** | Upstream schema changes or repo restructure break our references. | Beacon v2 references are not directly to the root Beacon v2 repository, but to a fork of it instead (for now at [M-casado](https://github.com/M-casado/beacon-v2)). Therefore, control over new changes is in FEGA's hands. |
+|  |  |  | If references are swapped to the root beacon v2 repo, and this risk triggers, fallback is to have references to versioned Beacon v2 releases (e.g., [v2.2.0](https://github.com/ga4gh-beacon/beacon-v2/tree/v2.2.0)). |
 |  | **BioSchemas** | Spec evolution diverges from our reuse. | Adapt FEGA repo's local copy of spec (i.e., schemas) to new standards, and only release new changes when stable for FEGA. |
 |  | **DCAT** |  |  |
 |  | **DCAT-AP** |  |  |
@@ -2449,7 +2449,7 @@ The FEGA MWG has successfully developed an **abstract metadata model for the FEG
 
 * **First abstract metadata model version drafted:** a process-oriented and ontology-aligned metadata model was drafted, shifting from traditional biology-centric schemata to a flexible, procedural framework suitable for diverse life science domains.
 
-* **Ongoing model coverage:** the model consists of entities and their attributes. These are being standardised using JSON Schemas with JSON-LD contexts in the group's GitHub repository[^269].
+* **Ongoing model coverage:** the model consists of entities and their attributes. These are being standardised using JSON Schemas with JSON-LD contexts in the group's GitHub [repository](https://github.com/M-casado/fega-metadata-schema/tree/main/schemas).
 
 * **Ontology and linked data integration:** the model incorporates widely adopted ontologies and vocabularies (e.g., EFO, DCAT), ensuring interoperability through linked data standards.
 
@@ -2517,13 +2517,13 @@ See specific challenges in the [*Open questions*](#open-questions) section.
 
   * Validation through SHACL shapes for DCAT-overlapping entities (e.g., Dataset). 
 
-  * Support for CEGA/FEGA metadata to be harvested by portals like data.europa.eu[^270].
+  * Support for CEGA/FEGA metadata to be harvested by portals like [data.europa.eu](https://data.europa.eu).
 
-* Testing and adopting a **Metadata Quality** **Assessment (MQA)** system for submissions, similar to: (1) data.europa.eu's MQA[^271], or (2) Quantum[^272] (HealthData@EU data quality label project).
+* Testing and adopting a **Metadata Quality** **Assessment (MQA)** system for submissions, similar to: (1) data.europa.eu's [MQA](https://data.europa.eu/mqa/methodology), or (2) [Quantum](https://www.healthinformationportal.eu/services/data-quality) (HealthData@EU data quality label project).
 
-* Collaborate with the **ELIXIR FHDPortal**[^273] on how to reconcile the portal's drafted JSON Schemas[^274] and the future EGA v2 model JSON Schemas.
+* Collaborate with the [**ELIXIR FHDPortal**](https://elixir-europe.org/how-we-work/scientific-programme/commissioned-services/science/hdtr/fhd) on how to reconcile the portal's drafted [JSON Schemas](https://github.com/sib-swiss/fhdportal-cli/tree/main/config/schemas) and the future EGA v2 model JSON Schemas.
 
-* Collaborate with the **German Human Genome-Phenome Archive**[^275] (GHGA), Germany's FEGA node, to reconcile its JSON Schemas[^276] with the future EGA v2 model JSON Schemas.
+* Collaborate with the [**German Human Genome-Phenome Archive**](https://www.ghga.de/) (GHGA), Germany's FEGA node, to reconcile its [JSON Schemas](https://github.com/ghga-de/ghga-metadata-schema) with the future EGA v2 model JSON Schemas.
 
 * Define a **FEGA-wide default policy for open- vs controlled-access metadata** exposure (minimum public metadata, review responsibilities, and enforcement).
 
@@ -2533,10 +2533,10 @@ See specific challenges in the [*Open questions*](#open-questions) section.
 
 | Question | Comment |
 | ----- | ----- |
-| *Should we use SHACL shapes instead of JSON Schemas for semantic validation, like other profiles (e.g., DCAT-US 3\.0[^277])?* | Given that (1) Biovalidator accepts JSON Schema as input and (2) JSON-LD is an RDF-friendly format for semantic data, we advocate for keeping JSON Schema as the current validation constraint language. In the long-term, FEGA may release additional SHACL shapes for graph-level validation, or shift to SHACL validation altogether. Thanks to JSON-LD being an RDF format with @context, the transition, if it were to occur, to SHACL would be relatively straightforward. |
+| *Should we use SHACL shapes instead of JSON Schemas for semantic validation, like other profiles (e.g., [DCAT-US 3\.0](https://doi-do.github.io/dcat-us/#profile-validation))?* | Given that (1) Biovalidator accepts JSON Schema as input and (2) JSON-LD is an RDF-friendly format for semantic data, we advocate for keeping JSON Schema as the current validation constraint language. In the long-term, FEGA may release additional SHACL shapes for graph-level validation, or shift to SHACL validation altogether. Thanks to JSON-LD being an RDF format with @context, the transition, if it were to occur, to SHACL would be relatively straightforward. |
 | *Should we promote Beacon-v2 to create its own @context?* | As of now, their JSON Schemas lack @context, and instead we are the ones adding it in our entities that use Beacon-v2 schemas. |
 | *Should we add more entities (e.g., Genomic Variations) from other standards and models? Are they needed by FEGA?* | There is a sweet spot between trying to model *everything* in life, and modelling not enough. The usefulness towards the goals of the model (findability, analysis, reproducibility…) would be considered. |
-| *How should we handle dependencies on other standards?* | As of now, we are directly referencing, for example, Beacon-v2 JSON Schemas in their repositories (M-casado's fork[^278] for compatibility). This opens the possibility of changes done in other repositories affecting integrity within the FEGA schemas. An alternative is to store these references as static files within the repo prior to each release. |
+| *How should we handle dependencies on other standards?* | As of now, we are directly referencing, for example, Beacon-v2 JSON Schemas in their repositories (M-casado's [fork](https://github.com/M-casado/beacon-v2/tree/biovalidator-test) for compatibility). This opens the possibility of changes done in other repositories affecting integrity within the FEGA schemas. An alternative is to store these references as static files within the repo prior to each release. |
 | *How should we handle dependencies on ontologies?* | Controlled vocabulary terms within ontologies, like EFO, HPO or Mondo, are embedded in the JSON Schemas. This facilitates validation, but obfuscates traceability of validation when ontologies evolve over time. This could be alleviated, a priori, by freezing external resources and releasing them along the JSON Schemas. |
 | *What other standards should we reuse directly?* | This involves standards that are not simply taken for inspiration (e.g., DCAT-AP), but instead are directly embedded in the EGA v2 model (e.g., Beacon-v2). Possibilities include Beacon-v2, JSON-LD, BioSchemas, ISA-JSON, DCAT, and GDI HDM. |
 | *How to reconcile a FEGA node's relational storage database with a graph-based procedural model?* | Although the EGA v2 model is not tied to the possible implementations of it by the nodes, it would be naive to disjoin both. Thus, some trade-offs are already agreed within the model to limit the number of combinations and possible complexity of process trees that could be represented by it. For example, by using the *Protocol Collection* entity, or by creating additional "checklists" (e.g., 'if your protocol is X, I'm expecting Y and Z as an input') to impose limitations for submitters. |
@@ -2549,575 +2549,120 @@ See specific challenges in the [*Open questions*](#open-questions) section.
 
 | Number | Name |
 | :---- | :---- |
-| 1 | [CEGA Use-case - post-session modelling results](images/FEGA_technical_report-annex_1-CEGA_use_case.svg)[^279] |
-| 2 | [Microarray Use-case - post-session modelling results](images/FEGA_technical_report-annex_2-microarray_use_case.svg)[^280] |
-| 3 | [Proteomics Use-case - post-session modelling results](images/FEGA_technical_report-annex_3-proteomics_use_case.svg)[^281] |
-| 4 | [Microbiome Use-case - post-session modelling results](images/FEGA_technical_report-annex_4-microbiome_use_case.svg)[^282] |
+| 1 | [CEGA Use-case - post-session modelling results](images/FEGA_technical_report-annex_1-CEGA_use_case.svg) |
+| 2 | [Microarray Use-case - post-session modelling results](images/FEGA_technical_report-annex_2-microarray_use_case.svg) |
+| 3 | [Proteomics Use-case - post-session modelling results](images/FEGA_technical_report-annex_3-proteomics_use_case.svg) |
+| 4 | [Microbiome Use-case - post-session modelling results](images/FEGA_technical_report-annex_4-microbiome_use_case.svg) |
 
 
 
 
 
-[^1]:  [https://orcid.org/0000-0002-7747-6256](https://orcid.org/0000-0002-7747-6256) 
 
-[^2]:  [https://ror.org/02catss52](https://ror.org/02catss52) 
 
-[^3]:  [https://orcid.org/0000-0002-5571-4962](https://orcid.org/0000-0002-5571-4962) 
 
-[^4]:  [https://ror.org/01zjc6908](https://ror.org/01zjc6908) 
 
-[^5]:  [https://orcid.org/0000-0002-2734-0449](https://orcid.org/0000-0002-2734-0449) 
 
-[^6]:  [https://orcid.org/0000-0003-1086-2483](https://orcid.org/0000-0003-1086-2483) 
 
-[^7]:  [https://ror.org/03wyzt892](https://ror.org/03wyzt892) 
 
-[^8]:  [https://orcid.org/0000-0001-6425-2176](https://orcid.org/0000-0001-6425-2176) 
 
-[^9]:  [https://ror.org/02q7abn51](https://ror.org/02q7abn51) 
 
-[^10]:  [https://orcid.org/0000-0002-6681-8564](https://orcid.org/0000-0002-6681-8564) 
 
-[^11]:  [https://orcid.org/0000-0003-2253-1171](https://orcid.org/0000-0003-2253-1171) 
 
-[^12]:  [https://orcid.org/0000-0002-9016-4820](https://orcid.org/0000-0002-9016-4820) 
 
-[^13]:  [https://ror.org/01xtthb56](https://ror.org/01xtthb56) 
 
-[^14]:  [https://orcid.org/0000-0002-3890-6620](https://orcid.org/0000-0002-3890-6620) 
 
-[^15]:  [https://ror.org/048a87296](https://ror.org/048a87296) 
 
-[^16]:  [https://orcid.org/0000-0003-1688-7112](https://orcid.org/0000-0003-1688-7112) 
 
-[^17]:  [https://orcid.org/0009-0002-7343-1779](https://orcid.org/0009-0002-7343-1779) 
 
-[^18]:  [https://orcid.org/0000-0001-6428-3431](https://orcid.org/0000-0001-6428-3431) 
 
-[^19]:  [https://orcid.org/0000-0001-6579-6941](https://orcid.org/0000-0001-6579-6941) 
 
-[^20]:  [https://orcid.org/0000-0003-2989-5971](https://orcid.org/0000-0003-2989-5971) 
 
-[^21]:  [https://orcid.org/0009-0006-1362-0681](https://orcid.org/0009-0006-1362-0681) 
 
-[^22]:  [https://ror.org/0333j0897](https://ror.org/0333j0897) 
 
-[^23]:  [https://orcid.org/0000-0001-8351-4776](https://orcid.org/0000-0001-8351-4776) 
 
-[^24]:  [https://ror.org/019whta54](https://ror.org/019whta54) 
 
-[^25]:  [https://orcid.org/0000-0002-2571-6860](https://orcid.org/0000-0002-2571-6860) 
 
-[^26]:  [https://ror.org/002n09z45](https://ror.org/002n09z45) 
 
-[^27]:  [https://orcid.org/0009-0008-4457-2947](https://orcid.org/0009-0008-4457-2947) 
 
-[^28]:  [https://orcid.org/0000-0003-1571-1473](https://orcid.org/0000-0003-1571-1473) 
 
-[^29]:  [https://ror.org/05cq64r17](https://ror.org/05cq64r17) 
 
-[^30]:  [https://orcid.org/0000-0002-3597-8557](https://orcid.org/0000-0002-3597-8557) 
 
-[^31]:  [https://ror.org/03gnr7b55](https://ror.org/03gnr7b55) 
 
-[^32]:  [https://orcid.org/0000-0002-3484-4493](https://orcid.org/0000-0002-3484-4493) 
 
-[^33]:  [https://orcid.org/0000-0002-4602-2040](https://orcid.org/0000-0002-4602-2040) 
 
-[^34]:  [https://ror.org/013x0ky90](https://ror.org/013x0ky90) 
 
-[^35]:  [https://orcid.org/0000-0002-5905-3591](https://orcid.org/0000-0002-5905-3591) 
 
-[^36]:  [https://ror.org/02vjkv261](https://ror.org/02vjkv261) 
 
-[^37]:  [https://orcid.org/0000-0003-0485-089X](https://orcid.org/0000-0003-0485-089X) 
 
-[^38]:  [https://ror.org/03z77qz90](https://ror.org/03z77qz90) 
 
-[^39]:  [https://orcid.org/0000-0002-7040-8322](https://orcid.org/0000-0002-7040-8322) 
 
-[^40]:  [https://orcid.org/0009-0004-3243-0045](https://orcid.org/0009-0004-3243-0045) 
 
-[^41]:  [https://orcid.org/0000-0002-5129-2248](https://orcid.org/0000-0002-5129-2248) 
 
-[^42]:  [https://orcid.org/0000-0001-9091-257X](https://orcid.org/0000-0001-9091-257X) 
 
-[^43]:  [https://doi.org/10.5281/zenodo.19388370](https://doi.org/10.5281/zenodo.19388370) 
 
-[^44]:  [https://doi.org/10.5281/zenodo.18802072](https://doi.org/10.5281/zenodo.18802072)
 
-[^45]:  [https://www.w3.org/TR/2010/NOTE-curie-20101216/](https://www.w3.org/TR/2010/NOTE-curie-20101216/) 
 
-[^46]:  [https://github.com/EGA-archive/LocalEGA](https://github.com/EGA-archive/LocalEGA) 
 
-[^47]:  [https://www.rfc-editor.org/rfc/rfc3987](https://www.rfc-editor.org/rfc/rfc3987) 
 
-[^48]:  [https://ega-archive.org/submission/metadata/ega-schema](https://ega-archive.org/submission/metadata/ega-schema) 
 
-[^49]:  [https://github.com/EGA-archive/LocalEGA](https://github.com/EGA-archive/LocalEGA) 
 
-[^50]:  [https://doi.org/10.5281/zenodo.18802072](https://doi.org/10.5281/zenodo.18802072) 
 
-[^51]:  [https://github.com/M-casado/fega-metadata-schema/tree/main/schemas](https://github.com/M-casado/fega-metadata-schema/tree/main/schemas) 
 
-[^52]:  [https://github.com/elixir-europe/biovalidator](https://github.com/elixir-europe/biovalidator) 
 
-[^53]:  [https://github.com/EGA-archive/fega-metadata-schema](https://github.com/EGA-archive/fega-metadata-schema) 
 
-[^54]:  [https://github.com/EGA-archive/fega-metadata-schema/blob/main/docs/technical-report.md](https://github.com/EGA-archive/fega-metadata-schema/blob/main/docs/technical-report.md) 
 
-[^55]:  [https://digital-strategy.ec.europa.eu/en/policies/1-million-genomes](https://digital-strategy.ec.europa.eu/en/policies/1-million-genomes) 
 
-[^56]:  D’Altri, T., Freeberg, M. A., Curwin, A. J., Alonso, A., Freitas, A. T., Capella-Gutierrez, S., ... & Keane, T. M. (2025). The Federated European Genome–Phenome Archive as a global network for sharing human genomics data. *Nature Genetics*, 1-5.
+[^1]:  D’Altri, T., Freeberg, M. A., Curwin, A. J., Alonso, A., Freitas, A. T., Capella-Gutierrez, S., ... & Keane, T. M. (2025). The Federated European Genome–Phenome Archive as a global network for sharing human genomics data. *Nature Genetics*, 1-5.
 
-[^57]:  [https://ega-archive.org/about/projects-and-funders/federated-ega](https://ega-archive.org/about/projects-and-funders/federated-ega) 
+[^2]:  [https://doi.org/10.25504/FAIRsharing.hzdzq8](https://doi.org/10.25504/FAIRsharing.hzdzq8)
 
-[^58]:  [https://ega-archive.org/about/projects-and-funders/federated-ega](https://ega-archive.org/about/projects-and-funders/federated-ega) 
+[^3]:  [https://doi.org/10.25504/FAIRsharing.48e326](https://doi.org/10.25504/FAIRsharing.48e326)
 
-[^59]:  [https://ega-archive.org/search/federated\_ega:\*?type=dataset](https://ega-archive.org/search/federated_ega:*?type=dataset) 
+[^4]:  [https://doi.org/10.25504/FAIRsharing.v9n3gk](https://doi.org/10.25504/FAIRsharing.v9n3gk)
 
-[^60]:  [https://doi.org/10.1038/s41588-025-02101-9](https://doi.org/10.1038/s41588-025-02101-9) 
+[^5]:  [https://doi.org/10.25504/FAIRsharing.2rm2b3](https://doi.org/10.25504/FAIRsharing.2rm2b3)
 
-[^61]:  [https://digital-strategy.ec.europa.eu/en/policies/1-million-genomes](https://digital-strategy.ec.europa.eu/en/policies/1-million-genomes) 
+[^6]:  [https://doi.org/10.25504/FAIRsharing.1gr4tz](https://doi.org/10.25504/FAIRsharing.1gr4tz)
 
-[^62]:  [https://gdi.onemilliongenomes.eu/about/](https://gdi.onemilliongenomes.eu/about/) 
+[^7]: Note: this endpoint is not actively maintained.
 
-[^63]:  [https://www.ga4gh.org/about-us/](https://www.ga4gh.org/about-us/) 
+[^8]:  Sporny, M., Kellogg, G., Lanthaler, M., & Lindström, N. (2020, July 16). *JSON-LD 1.1: A JSON-based Serialization for Linked Data*. W3C Recommendation. Retrieved from [https://www.w3.org/TR/json-ld11/](https://www.w3.org/TR/json-ld11/)
 
-[^64]:  [https://ega-archive.org/submission/metadata/ega-schema](https://ega-archive.org/submission/metadata/ega-schema) 
+[^9]:  [https://doi.org/10.25504/FAIRsharing.dj8nt8](https://doi.org/10.25504/FAIRsharing.dj8nt8)
 
-[^65]:  [https://semver.org/\#semantic-versioning-200](https://semver.org/#semantic-versioning-200) 
+[^10]:  [https://doi.org/10.25504/FAIRsharing.pwgf4p](https://doi.org/10.25504/FAIRsharing.pwgf4p)
 
-[^66]:  [https://elixir-europe.slack.com/archives/C05UHABF0CT](https://elixir-europe.slack.com/archives/C05UHABF0CT) 
+[^11]:  Regev, A., Teichmann, S. A., Lander, E. S., Amit, I., Benoist, C., Birney, E., ... & Human Cell Atlas Meeting Participants. (2017). The human cell atlas. elife, 6, e27041.
 
-[^67]:  [https://github.com/EGA-archive/fega-metadata-schema](https://github.com/EGA-archive/fega-metadata-schema) 
+[^12]:  Wolstencroft, K., Owen, S., Du Preez, F., Krebs, O., Mueller, W., Goble, C., & Snoep, J. L. (2011). The SEEK: a platform for sharing data and models in systems biology. In Methods in enzymology (Vol. 500, pp. 629-655). Academic Press.
 
-[^68]:  [https://github.com/EGA-archive/fega-metadata-schema/forks](https://github.com/EGA-archive/fega-metadata-schema/forks) 
+[^13]:  At first, the group defined the Dataset as a compilation of processes, instead of Datafiles. Therefore, there may be discrepancies notable in the graphs created during the initial use-case sessions.
 
-[^69]:  [schema.org](http://schema.org) 
+[^14]:  [https://doi.org/10.25504/FAIRsharing.e1byny](https://doi.org/10.25504/FAIRsharing.e1byny)
 
-[^70]:  [https://doi.org/10.25504/FAIRsharing.hzdzq8](https://doi.org/10.25504/FAIRsharing.hzdzq8) 
+[^15]:  [https://doi.org/10.25504/FAIRsharing.92dt9d](https://doi.org/10.25504/FAIRsharing.92dt9d)
 
-[^71]:  [https://schema.org/description](https://schema.org/description) 
+[^16]:  [https://doi.org/10.25504/FAIRsharing.8e1ce0](https://doi.org/10.25504/FAIRsharing.8e1ce0)
 
-[^72]:  [https://www.w3.org/TR/skos-reference](https://www.w3.org/TR/skos-reference) 
+[^17]:  [https://doi.org/10.25504/FAIRsharing.11889](https://doi.org/10.25504/FAIRsharing.11889)
 
-[^73]:  [https://doi.org/10.25504/FAIRsharing.48e326](https://doi.org/10.25504/FAIRsharing.48e326) 
+[^18]:  [https://doi.org/10.25504/FAIRsharing.c12tyk](https://doi.org/10.25504/FAIRsharing.c12tyk)
 
-[^74]:  [https://www.w3.org/TR/skos-reference/\#exactMatch](https://www.w3.org/TR/skos-reference/#exactMatch) 
+[^19]:  Rodriguez, J., Cordaillat-Simmons, M., Badalato, N., Berger, B., Breton, H., de Lahondès, R., ... & Druart, C. (2024). Microbiome testing in Europe: navigating analytical, ethical and regulatory challenges. Microbiome, 12(1), 258\.
 
-[^75]:  [http://w3id.org/semapv/vocab/semapv.owl](http://w3id.org/semapv/vocab/semapv.owl) 
+[^20]:  [https://doi.org/10.25504/FAIRsharing.azqskx](https://doi.org/10.25504/FAIRsharing.azqskx)
 
-[^76]:  [https://w3id.org/semapv/vocab/LexicalMatching](https://w3id.org/semapv/vocab/LexicalMatching) 
+[^21]:  [https://doi.org/10.25504/FAIRsharing.9aa0zp](https://doi.org/10.25504/FAIRsharing.9aa0zp)
 
-[^77]:  [https://www.w3.org/TR/rdf-schema](https://www.w3.org/TR/rdf-schema) 
+[^22]:  [https://doi.org/10.25504/FAIRsharing.284e1z](https://doi.org/10.25504/FAIRsharing.284e1z)
 
-[^78]:  [https://doi.org/10.25504/FAIRsharing.v9n3gk](https://doi.org/10.25504/FAIRsharing.v9n3gk) 
+[^23]:  Sirasani, J. P., Gardner, C., Jung, G., Lee, H., & Ahn, T. H. (2025). Bioinformatic approaches to blood and tissue microbiome analyses: challenges and perspectives. Briefings in Bioinformatics, 26(2), bbaf176.
 
-[^79]:  [https://www.w3.org/TR/rdf-schema/\#ch\_label](https://www.w3.org/TR/rdf-schema/#ch_label) 
+[^24]:  Beghini, F., McIver, L. J., Blanco-Míguez, A., Dubois, L., Asnicar, F., Maharjan, S., ... & Segata, N. (2021). Integrating taxonomic, functional, and strain-level profiling of diverse microbial communities with bioBakery 3\. elife, 10, e65088.
 
-[^80]:  [https://www.w3.org/TR/prov-o/](https://www.w3.org/TR/prov-o/) 
+[^25]:  In case that the data controller and submitter roles are not taken by the same legal entity: under GDPR the data controller remains responsible and makes the ultimate decision.
 
-[^81]:  [https://doi.org/10.25504/FAIRsharing.2rm2b3](https://doi.org/10.25504/FAIRsharing.2rm2b3) 
+[^26]:  Gaignard, A., Rosnet, T., De Lamotte, F., Lefort, V., & Devignes, M. D. (2023). FAIR-Checker: supporting digital resource findability and reuse with Knowledge Graphs and Semantic Web standards. *Journal of Biomedical Semantics*, *14*(1), 7\.
 
-[^82]:  [https://www.w3.org/TR/prov-o/\#used](https://www.w3.org/TR/prov-o/#used) 
-
-[^83]:  [https://doi.org/10.25504/FAIRsharing.OrNi1L](https://doi.org/10.25504/FAIRsharing.OrNi1L) 
-
-[^84]:  [https://orcid.org/0000-0002-7747-6256](https://orcid.org/0000-0002-7747-6256) 
-
-[^85]:  [https://www.ebi.ac.uk/efo/](https://www.ebi.ac.uk/efo/) 
-
-[^86]:  [https://doi.org/10.25504/FAIRsharing.1gr4tz](https://doi.org/10.25504/FAIRsharing.1gr4tz) 
-
-[^87]:  [http://www.ebi.ac.uk/efo/EFO\_0002699](http://www.ebi.ac.uk/efo/EFO_0002699) 
-
-[^88]:  [http://purl.obolibrary.org/obo/UBERON\_0000992](http://purl.obolibrary.org/obo/UBERON_0000992) 
-
-[^89]:  [https://doi.org/10.25504/FAIRsharing.8f3fdc](https://doi.org/10.25504/FAIRsharing.8f3fdc) 
-
-[^90]:  [https://phenopacket-schema.readthedocs.io/en/latest/disease.html\#disease](https://phenopacket-schema.readthedocs.io/en/latest/disease.html#disease) 
-
-[^91]:  [https://doi.org/10.25504/FAIRsharing.6fba91](https://doi.org/10.25504/FAIRsharing.6fba91) 
-
-[^92]:  [https://doi.org/10.25504/FAIRsharing.c3eae6](https://doi.org/10.25504/FAIRsharing.c3eae6) 
-
-[^93]:  [https://discovery.biothings.io/api/schema/bioschemasdrafts:ComputationalWorkflow/validation](https://discovery.biothings.io/api/schema/bioschemasdrafts:ComputationalWorkflow/validation) 
-
-[^94]:  [https://doi.org/10.25504/FAIRsharing.yhLgTV](https://doi.org/10.25504/FAIRsharing.yhLgTV) 
-
-[^95]:  [https://isa-specs.readthedocs.io/en/latest/isajson.html\#process-parameter-value-schema-json](https://isa-specs.readthedocs.io/en/latest/isajson.html#process-parameter-value-schema-json) 
-
-[^96]:  [https://doi.org/10.25504/FAIRsharing.h4j3qm](https://doi.org/10.25504/FAIRsharing.h4j3qm) 
-
-[^97]:  [https://www.w3.org/TR/vocab-dcat-3/\#Class:Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) 
-
-[^98]:  [https://doi.org/10.25504/FAIRsharing.07f04a](https://doi.org/10.25504/FAIRsharing.07f04a) 
-
-[^99]:  [https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-5/](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-5/) 
-
-[^100]:  [https://github.com/elixir-europe/biovalidator](https://github.com/elixir-europe/biovalidator) 
-
-[^101]:  [https://doi.org/10.25504/FAIRsharing.Mkl9RR](https://doi.org/10.25504/FAIRsharing.Mkl9RR) 
-
-[^102]:  [https://json-ld.org/playground/](https://json-ld.org/playground/) 
-
-[^103]:  [https://www.jsonschemavalidator.net/](https://www.jsonschemavalidator.net/) 
-
-[^104]:  [https://github.com/M-casado/fega-metadata-schema/blob/main/schemas/FEGA.biomaterial.json](https://github.com/M-casado/fega-metadata-schema/blob/main/schemas/FEGA.biomaterial.json) 
-
-[^105]:  [https://json-schema.org/specification](https://json-schema.org/specification) 
-
-[^106]:  [https://github.com/M-casado/fega-metadata-schema/tree/main/scripts/py](https://github.com/M-casado/fega-metadata-schema/tree/main/scripts/py) 
-
-[^107]:  [https://github.com/M-casado/fega-metadata-schema/tree/main/src/fega\_tools](https://github.com/M-casado/fega-metadata-schema/tree/main/src/fega_tools) 
-
-[^108]:  [https://github.com/M-casado/fega-metadata-schema/tree/main/.github/workflows](https://github.com/M-casado/fega-metadata-schema/tree/main/.github/workflows) 
-
-[^109]:  [https://registry.identifiers.org/registry/ega](https://registry.identifiers.org/registry/ega) 
-
-[^110]:  [https://doi.org/10.25504/FAIRsharing.n14rc8](https://doi.org/10.25504/FAIRsharing.n14rc8) 
-
-[^111]:  [https://identifiers.org/ega:EGAD00001008392](https://identifiers.org/ega:EGAD00001008392) 
-
-[^112]:  [https://github.com/M-casado/fega-metadata-schema/blob/774392bbb4ad446f7d39226a6ce17111ac258557/data/jsonld/biomaterial-valid\_1.json\#L5-L66](https://github.com/M-casado/fega-metadata-schema/blob/774392bbb4ad446f7d39226a6ce17111ac258557/data/jsonld/biomaterial-valid_1.json#L5-L66) 
-
-[^113]:  [https://github.com/M-casado/fega-metadata-schema/blob/774392bbb4ad446f7d39226a6ce17111ac258557/data/jsonld/biomaterial-valid\_1.json\#L2-L4](https://github.com/M-casado/fega-metadata-schema/blob/774392bbb4ad446f7d39226a6ce17111ac258557/data/jsonld/biomaterial-valid_1.json#L2-L4) 
-
-[^114]:  [https://json-schema.org/draft/2020-12/schema](https://json-schema.org/draft/2020-12/schema) 
-
-[^115]:  [https://github.com/elixir-europe/biovalidator?tab=readme-ov-file\#extended-keywords-for-ontology-and-taxonomy-validation](https://github.com/elixir-europe/biovalidator?tab=readme-ov-file#extended-keywords-for-ontology-and-taxonomy-validation) 
-
-[^116]:  [https://github.com/M-casado/fega-metadata-schema/tree/main/schemas\#overview](https://github.com/M-casado/fega-metadata-schema/tree/main/schemas#overview) 
-
-[^117]:  [http://biovalidator.ega.ebi.ac.uk/validate](http://biovalidator.ega.ebi.ac.uk/validate) \- Note that this endpoint is not actively maintained.
-
-[^118]:  [https://github.com/elixir-europe/biovalidator](https://github.com/elixir-europe/biovalidator) 
-
-[^119]:  [https://doi.org/10.5281/zenodo.14968151](https://doi.org/10.5281/zenodo.14968151) 
-
-[^120]:  [https://doi.org/10.7490/f1000research.1120212.1](https://doi.org/10.7490/f1000research.1120212.1) 
-
-[^121]:  [https://doi.org/10.7490/f1000research.1119732.1](https://doi.org/10.7490/f1000research.1119732.1) 
-
-[^122]:  [https://doi.org/10.7490/f1000research.1119417.1](https://doi.org/10.7490/f1000research.1119417.1) 
-
-[^123]:  [https://github.com/M-casado/fega-metadata-schema/blob/main/.github/workflows/json\_validation\_deploying\_biovalidator.yml](https://github.com/M-casado/fega-metadata-schema/blob/main/.github/workflows/json_validation_deploying_biovalidator.yml) 
-
-[^124]:  [https://json-ld.org/playground/](https://json-ld.org/playground/) 
-
-[^125]:  Sporny, M., Kellogg, G., Lanthaler, M., & Lindström, N. (2020, July 16). *JSON-LD 1.1: A JSON-based Serialization for Linked Data*. W3C Recommendation. Retrieved from [https://www.w3.org/TR/json-ld11/](https://www.w3.org/TR/json-ld11/)
-
-[^126]:  [https://w3c.github.io/json-ld-syntax/\#framed-document-form](https://w3c.github.io/json-ld-syntax/#framed-document-form) 
-
-[^127]:  [https://github.com/M-casado/fega-metadata-schema/tree/main/frames](https://github.com/M-casado/fega-metadata-schema/tree/main/frames) 
-
-[^128]:  [https://github.com/M-casado/fega-metadata-schema](https://github.com/M-casado/fega-metadata-schema) 
-
-[^129]:  [https://gdi-elixir.slack.com/archives/C07D6GFJ3LH](https://gdi-elixir.slack.com/archives/C07D6GFJ3LH) 
-
-[^130]:  [https://docs.google.com/document/d/18ZPfdwucj8eaiUDbnyS5F9DaUzR1BGvhTf42H\_maZKw](https://docs.google.com/document/d/18ZPfdwucj8eaiUDbnyS5F9DaUzR1BGvhTf42H_maZKw) 
-
-[^131]:  [http://www.ebi.ac.uk/ena](http://www.ebi.ac.uk/ena) 
-
-[^132]:  [https://doi.org/10.25504/FAIRsharing.dj8nt8](https://doi.org/10.25504/FAIRsharing.dj8nt8) 
-
-[^133]:  [https://nbis.se/](https://nbis.se/) 
-
-[^134]:  [https://www.ddbj.nig.ac.jp/jga](https://www.ddbj.nig.ac.jp/jga) 
-
-[^135]:  [https://doi.org/10.25504/FAIRsharing.pwgf4p](https://doi.org/10.25504/FAIRsharing.pwgf4p) 
-
-[^136]:  [https://forms.gle/bDacFij9Mz7xWUhA9](https://forms.gle/bDacFij9Mz7xWUhA9) 
-
-[^137]:  [https://forms.gle/Sw1k7SRiEG8YUpoL7](https://forms.gle/Sw1k7SRiEG8YUpoL7) 
-
-[^138]:  [https://forms.gle/h5ZWsvL73djqaduw6](https://forms.gle/h5ZWsvL73djqaduw6) 
-
-[^139]:  [https://elixir-events.eventscase.com/EN/ahm2024](https://elixir-events.eventscase.com/EN/ahm2024) 
-
-[^140]:  [https://forms.gle/8JN4bGJrY5EfmY15A](https://forms.gle/8JN4bGJrY5EfmY15A) 
-
-[^141]:  [https://elixir-europe.org/communities/human-data](https://elixir-europe.org/communities/human-data) 
-
-[^142]:  [https://elixir-europe.org/events/elixir-federated-human-data-community-day-0](https://elixir-europe.org/events/elixir-federated-human-data-community-day-0) 
-
-[^143]:  [https://forms.gle/iT1revnW5foeDREy8](https://forms.gle/iT1revnW5foeDREy8) 
-
-[^144]:  [https://docs.google.com/presentation/d/1Vue9BFoURdBg8ZWta20r4kx17YunAH4ny8j7gGWOoNw](https://docs.google.com/presentation/d/1Vue9BFoURdBg8ZWta20r4kx17YunAH4ny8j7gGWOoNw) 
-
-[^145]:  [https://docs.google.com/presentation/d/16M7c1-p1NxjraQQWNa\_Tgg4ya-g4qNOkUu3sMsJmeuA](https://docs.google.com/presentation/d/16M7c1-p1NxjraQQWNa_Tgg4ya-g4qNOkUu3sMsJmeuA) 
-
-[^146]:  [https://docs.google.com/presentation/d/1IwPS2OBcoJJuaPnz0OlC7JoT4sMcOyXS](https://docs.google.com/presentation/d/1IwPS2OBcoJJuaPnz0OlC7JoT4sMcOyXS/edit#slide=id.g310a143e130_0_22)
-
-[^147]:  [https://doi.org/10.5281/zenodo.14726856](https://doi.org/10.5281/zenodo.14726856) 
-
-[^148]:  [https://doi.org/10.5281/zenodo.14968151](https://doi.org/10.5281/zenodo.14968151) 
-
-[^149]:  [https://docs.google.com/document/d/1LHvH2nMs0MMjEYdlEtzCAUB442D\_83SZ](https://docs.google.com/document/d/1LHvH2nMs0MMjEYdlEtzCAUB442D_83SZ) 
-
-[^150]:  [https://doi.org/10.5281/zenodo.16087281](https://doi.org/10.5281/zenodo.16087281) 
-
-[^151]:  [https://docs.google.com/presentation/d/1piiixarPwVnYqGes-RZbL9xocwb1\_g8pggdrzoP3-3E](https://docs.google.com/presentation/d/1piiixarPwVnYqGes-RZbL9xocwb1_g8pggdrzoP3-3E/edit?usp=sharing)
-
-[^152]:  [https://docs.google.com/presentation/d/1EtoLU\_08XaH8NOTm9\_lTTZkwfMwPhPQXjk1jGxEiivA](https://docs.google.com/presentation/d/1EtoLU_08XaH8NOTm9_lTTZkwfMwPhPQXjk1jGxEiivA/edit#slide=id.g2eb20668969_0_0)
-
-[^153]:  [https://nako.de/en/study](https://nako.de/en/study) 
-
-[^154]:  [https://doi.org/10.7490/f1000research.1119417.1](https://doi.org/10.7490/f1000research.1119417.1) 
-
-[^155]:  [https://elixir-europe.org/events/elixir-all-hands-2023](https://elixir-europe.org/events/elixir-all-hands-2023) 
-
-[^156]:  [https://doi.org/10.7490/f1000research.1119732.1](https://doi.org/10.7490/f1000research.1119732.1) 
-
-[^157]:  [https://doi.org/10.7490/f1000research.1120212.1](https://doi.org/10.7490/f1000research.1120212.1) 
-
-[^158]:  [https://elixir-events.eventscase.com/EN/ahm2025](https://elixir-events.eventscase.com/EN/ahm2025) 
-
-[^159]:  [https://doi.org/10.25504/FAIRsharing.4Vs9VM](https://doi.org/10.25504/FAIRsharing.4Vs9VM) 
-
-[^160]:  [https://data.humancellatlas.org/metadata](https://data.humancellatlas.org/metadata) 
-
-[^161]:  Regev, A., Teichmann, S. A., Lander, E. S., Amit, I., Benoist, C., Birney, E., ... & Human Cell Atlas Meeting Participants. (2017). The human cell atlas. elife, 6, e27041.
-
-[^162]:  [https://doi.org/10.1016/B978-0-12-385118-5.00029-3](https://doi.org/10.1016/B978-0-12-385118-5.00029-3) 
-
-[^163]:  Wolstencroft, K., Owen, S., Du Preez, F., Krebs, O., Mueller, W., Goble, C., & Snoep, J. L. (2011). The SEEK: a platform for sharing data and models in systems biology. In Methods in enzymology (Vol. 500, pp. 629-655). Academic Press.
-
-[^164]:  [http://purl.obolibrary.org/obo/OBI\_0100051](http://purl.obolibrary.org/obo/OBI_0100051) 
-
-[^165]:  [https://www.w3.org/TR/prov-o/\#Plan](https://www.w3.org/TR/prov-o/#Plan) 
-
-[^166]:  [https://www.w3.org/TR/prov-o/\#Activity](https://www.w3.org/TR/prov-o/#Activity) 
-
-[^167]:  [https://www.w3.org/TR/vocab-dcat-3/\#Class:Distribution](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution) 
-
-[^168]:  [https://www.w3.org/TR/vocab-dcat-3/\#Class:Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset) 
-
-[^169]:  At first, the group defined the Dataset as a compilation of processes, instead of Datafiles. Therefore, there may be discrepancies notable in the graphs created during the initial use-case sessions.
-
-[^170]:  [http://purl.org/dc/terms/RightsStatement](http://purl.org/dc/terms/RightsStatement) 
-
-[^171]:  [https://www.w3.org/TR/prov-o/\#Agent](https://www.w3.org/TR/prov-o/#Agent) 
-
-[^172]:  [https://schema.org/ResearchProject](https://schema.org/ResearchProject) 
-
-[^173]:  [https://www.w3.org/TR/prov-o/\#Collection](https://www.w3.org/TR/prov-o/#Collection) 
-
-[^174]:  [https://schema.org/Project](https://schema.org/Project) 
-
-[^175]:  [https://www.w3.org/TR/vocab-dcat-3/\#Class:Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) 
-
-[^176]:  [https://www.w3.org/TR/vocab-dcat-3/\#Class:Catalog\_Record](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog_Record) 
-
-[^177]:  [https://www.w3.org/ns/prov](https://www.w3.org/ns/prov#) 
-
-[^178]:  [http://www.w3.org/ns/dcat](http://www.w3.org/ns/dcat#)
-
-[^179]:  [http://purl.org/dc/terms](http://purl.org/dc/terms) 
-
-[^180]:  [http://schema.org](http://schema.org) 
-
-[^181]:  [http://xmlns.com/foaf/0.1](http://xmlns.com/foaf/0.1) 
-
-[^182]:  [https://www.w3.org/TR/prov-o/\#hadPlan](https://www.w3.org/TR/prov-o/#hadPlan) 
-
-[^183]:  [https://www.w3.org/TR/prov-o/\#hadMember](https://www.w3.org/TR/prov-o/#hadMember) 
-
-[^184]:  [https://www.opmw.org/model/p-plan/\#figure\_mapping\_example](https://www.opmw.org/model/p-plan/#figure_mapping_example) 
-
-[^185]:  [https://plus.excalidraw.com/](https://plus.excalidraw.com/) 
-
-[^186]:  [https://elixir-europe.org/events/fhd-hdtr-day](https://elixir-europe.org/events/fhd-hdtr-day) 
-
-[^187]:  [https://docs.google.com/document/d/1TSROVqmBXC1ZOzpy\_3Zqpu60GHuFrDObyCap83YjtW4](https://docs.google.com/document/d/1TSROVqmBXC1ZOzpy_3Zqpu60GHuFrDObyCap83YjtW4) 
-
-[^188]:  [https://docs.google.com/document/d/178nspgIt\_N4F52lVZpaNCnbXDSjnCFiGMpsSMO7ricc](https://docs.google.com/document/d/178nspgIt_N4F52lVZpaNCnbXDSjnCFiGMpsSMO7ricc) 
-
-[^189]:  [https://ega-archive.org/datasets/EGAD00001008392](https://ega-archive.org/datasets/EGAD00001008392) 
-
-[^190]:  [https://ega-archive.org/datasets/EGAD00001008392/request](https://ega-archive.org/datasets/EGAD00001008392/request) 
-
-[^191]:  [https://docs.google.com/presentation/d/1maxcv1IupnJtkMbw2l7h82CJQOFfqk\_Lx-HkvF1fadQ](https://docs.google.com/presentation/d/1maxcv1IupnJtkMbw2l7h82CJQOFfqk_Lx-HkvF1fadQ) 
-
-[^192]:  [https://docs.google.com/document/d/1VCJ3qF4ShggiNrnLxtLFIH\_h8J5-J2aeiUKt37aUMd8](https://docs.google.com/document/d/1VCJ3qF4ShggiNrnLxtLFIH_h8J5-J2aeiUKt37aUMd8) 
-
-[^193]:  [https://doi.org/10.25504/FAIRsharing.e1byny](https://doi.org/10.25504/FAIRsharing.e1byny) 
-
-[^194]:  [https://www.ebi.ac.uk/pride/markdownpage/citationpage](https://www.ebi.ac.uk/pride/markdownpage/citationpage) 
-
-[^195]:  [https://doi.org/10.25504/FAIRsharing.92dt9d](https://doi.org/10.25504/FAIRsharing.92dt9d) 
-
-[^196]:  [https://www.proteomexchange.org/](https://www.proteomexchange.org/) 
-
-[^197]:  [https://docs.google.com/document/d/1i7AUR2qL5PrgbSy0yndClSbYJT-XyfWi-XJmQJ0AEik](https://docs.google.com/document/d/1i7AUR2qL5PrgbSy0yndClSbYJT-XyfWi-XJmQJ0AEik) 
-
-[^198]:  [https://www.ebi.ac.uk/pride/archive/projects/PXD006482](https://www.ebi.ac.uk/pride/archive/projects/PXD006482) 
-
-[^199]:  [https://hupo.org/c-hpp](https://hupo.org/c-hpp) 
-
-[^200]:  [https://github.com/bigbio/proteomics-sample-metadata/blob/master/sdrf-specification-examples/PXD006482/PXD006482.sdrf.tsv\#L13](https://github.com/bigbio/proteomics-sample-metadata/blob/master/sdrf-specification-examples/PXD006482/PXD006482.sdrf.tsv#L13) 
-
-[^201]:  [https://doi.org/10.25504/FAIRsharing.4a8cd2](https://doi.org/10.25504/FAIRsharing.4a8cd2) 
-
-[^202]:  [https://doi.org/10.25504/FAIRsharing.9f60e7](https://doi.org/10.25504/FAIRsharing.9f60e7) 
-
-[^203]:  [https://doi.org/10.25504/FAIRsharing.8e1ce0](https://doi.org/10.25504/FAIRsharing.8e1ce0) 
-
-[^204]:  [https://www.matrixscience.com](https://www.matrixscience.com) 
-
-[^205]:  [https://pnnl-comp-mass-spec.github.io/Uniprot-DAT-File-Parser/](https://pnnl-comp-mass-spec.github.io/Uniprot-DAT-File-Parser/) 
-
-[^206]:  [https://www.psidev.info/mzidentml](https://www.psidev.info/mzidentml) 
-
-[^207]:  [https://doi.org/10.25504/FAIRsharing.11889](https://doi.org/10.25504/FAIRsharing.11889) 
-
-[^208]:  [https://doi.org/10.25504/FAIRsharing.c12tyk](https://doi.org/10.25504/FAIRsharing.c12tyk) 
-
-[^209]:  [https://hupo-psi.github.io/mzTab/](https://hupo-psi.github.io/mzTab/) 
-
-[^210]:  [https://olink.com/](https://olink.com/) 
-
-[^211]:  [https://docs.google.com/document/u/0/d/1uJdtTvDo3j8IuaMKSdqX1GY7hhrj21J-4h2Qy6U9g1w](https://docs.google.com/document/u/0/d/1uJdtTvDo3j8IuaMKSdqX1GY7hhrj21J-4h2Qy6U9g1w) 
-
-[^212]:  Rodriguez, J., Cordaillat-Simmons, M., Badalato, N., Berger, B., Breton, H., de Lahondès, R., ... & Druart, C. (2024). Microbiome testing in Europe: navigating analytical, ethical and regulatory challenges. Microbiome, 12(1), 258\.
-
-[^213]:  [https://doi.org/10.25504/FAIRsharing.azqskx](https://doi.org/10.25504/FAIRsharing.azqskx) 
-
-[^214]:  [https://jbiomedsem.biomedcentral.com/articles/10.1186/2041-1480-4-43](https://jbiomedsem.biomedcentral.com/articles/10.1186/2041-1480-4-43) 
-
-[^215]:  [https://www.ncbi.nlm.nih.gov/taxonomy](https://www.ncbi.nlm.nih.gov/taxonomy) 
-
-[^216]:  [https://doi.org/10.25504/FAIRsharing.9aa0zp](https://doi.org/10.25504/FAIRsharing.9aa0zp) 
-
-[^217]:  [https://w3id.org/mixs](https://w3id.org/mixs) 
-
-[^218]:  [https://doi.org/10.25504/FAIRsharing.284e1z](https://doi.org/10.25504/FAIRsharing.284e1z) 
-
-[^219]:  [https://github.com/obi-ontology/obi](https://github.com/obi-ontology/obi) 
-
-[^220]:  [https://doi.org/10.7554/eLife.65088](https://doi.org/10.7554/eLife.65088) 
-
-[^221]:  [https://pmc.ncbi.nlm.nih.gov/articles/PMC12018304/\#TB1](https://pmc.ncbi.nlm.nih.gov/articles/PMC12018304/#TB1) 
-
-[^222]:  Sirasani, J. P., Gardner, C., Jung, G., Lee, H., & Ahn, T. H. (2025). Bioinformatic approaches to blood and tissue microbiome analyses: challenges and perspectives. Briefings in Bioinformatics, 26(2), bbaf176.
-
-[^223]:  Beghini, F., McIver, L. J., Blanco-Míguez, A., Dubois, L., Asnicar, F., Maharjan, S., ... & Segata, N. (2021). Integrating taxonomic, functional, and strain-level profiling of diverse microbial communities with bioBakery 3\. elife, 10, e65088.
-
-[^224]:  [https://huttenhower.sph.harvard.edu/metaphlan/](https://huttenhower.sph.harvard.edu/metaphlan/) 
-
-[^225]:  [https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.cohort.json](https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/FEGA.cohort.json)
-
-[^226]:  [https://datasetsearch.research.google.com/](https://datasetsearch.research.google.com/) 
-
-[^227]:  [https://w3c.github.io/json-ld-bp/](https://w3c.github.io/json-ld-bp/) 
-
-[^228]:  [https://datasetsearch.research.google.com/search?src=0\&query=sequencing%20cancer%20human\&docid=L2cvMTFqY2p2X3Mzdw%3D%3D](https://datasetsearch.research.google.com/search?src=0&query=sequencing%20cancer%20human&docid=L2cvMTFqY2p2X3Mzdw%3D%3D) 
-
-[^229]:  In case that the data controller and submitter roles are not taken by the same legal entity: under GDPR the data controller remains responsible and makes the ultimate decision.
-
-[^230]:  [https://gdpr-info.eu/issues/personal-data/](https://gdpr-info.eu/issues/personal-data/) 
-
-[^231]:  [https://github.com/elixir-europe/biovalidator?tab=readme-ov-file\#isvalididentifier](https://github.com/elixir-europe/biovalidator?tab=readme-ov-file#isvalididentifier) 
-
-[^232]:  [https://github.com/elixir-europe/biovalidator?tab=readme-ov-file\#graphrestriction](https://github.com/elixir-europe/biovalidator?tab=readme-ov-file#graphrestriction) 
-
-[^233]:  [http://www.ebi.ac.uk/efo/EFO\_0001785](http://www.ebi.ac.uk/efo/EFO_0001785) 
-
-[^234]:  [http://www.ebi.ac.uk/efo/EFO\_0001426](http://www.ebi.ac.uk/efo/EFO_0001426) 
-
-[^235]:  [https://github.com/EbiEga/ega-metadata-schema/tree/main/docs/biovalidator\_benchmarks/2023.01.26\_benchmarks/local\_endpoint](https://github.com/EbiEga/ega-metadata-schema/tree/main/docs/biovalidator_benchmarks/2023.01.26_benchmarks/local_endpoint)
-
-[^236]:  [https://github.com/EbiEga/ega-metadata-schema/tree/main/docs/biovalidator\_benchmarks/2023.01.26\_benchmarks/EGAs\_endpoint](https://github.com/EbiEga/ega-metadata-schema/tree/main/docs/biovalidator_benchmarks/2023.01.26_benchmarks/EGAs_endpoint) 
-
-[^237]:  Gaignard, A., Rosnet, T., De Lamotte, F., Lefort, V., & Devignes, M. D. (2023). FAIR-Checker: supporting digital resource findability and reuse with Knowledge Graphs and Semantic Web standards. *Journal of Biomedical Semantics*, *14*(1), 7\.
-
-[^238]:  Content-negotiation in RDF is an HTTP mechanism that serves different serialized formats (e.g., Turtle, JSON-LD, RDF/XML) of the same semantic resource from a single URL.
-
-[^239]:  [https://semver.org](https://semver.org) 
-
-[^240]:  [https://github.com/M-casado/fega-metadata-schema/blob/main/docs/releases/README.md](https://github.com/M-casado/fega-metadata-schema/blob/main/docs/releases/README.md) 
-
-[^241]:  [https://github.com/M-casado/fega-metadata-schema/blob/main/docs/releases/release\_manifest.json](https://github.com/M-casado/fega-metadata-schema/blob/main/docs/releases/release_manifest.json) 
-
-[^242]:  [https://github.com/M-casado/fega-metadata-schema/blob/main/CONTRIBUTING.md](https://github.com/M-casado/fega-metadata-schema/blob/main/CONTRIBUTING.md) 
-
-[^243]:  [https://ega-archive.org/about/statistics/growth/](https://ega-archive.org/about/statistics/growth/) 
-
-[^244]:  [https://mapping-commons.github.io/sssom](https://mapping-commons.github.io/sssom) 
-
-[^245]:  [https://github.com/EGA-archive/fega-metadata-schema/blob/main/LICENSE](https://github.com/EGA-archive/fega-metadata-schema/blob/main/LICENSE) 
-
-[^246]:  [https://docs.google.com/document/d/1jHyj85iOr7gl75VmHX3DjVl4E-USWSD8d9HG1Z-f4SM](https://docs.google.com/document/d/1jHyj85iOr7gl75VmHX3DjVl4E-USWSD8d9HG1Z-f4SM) 
-
-[^247]:  [https://github.com/M-casado/fega-metadata-schema/blob/main/AUTHORS.md](https://github.com/M-casado/fega-metadata-schema/blob/main/AUTHORS.md) 
-
-[^248]:  [https://github.com/M-casado/fega-metadata-schema/blob/main/.github/CODEOWNERS](https://github.com/M-casado/fega-metadata-schema/blob/main/.github/CODEOWNERS) 
-
-[^249]:  [https://docs.google.com/document/d/1xSzh38zMxINBIN9aHQ6\_Z5sacE1clmRBtkbSi5x\_qZ4/edit?tab=t.0\#heading=h.bly7duplfw9t](https://docs.google.com/document/d/1xSzh38zMxINBIN9aHQ6_Z5sacE1clmRBtkbSi5x_qZ4/edit?tab=t.0#heading=h.bly7duplfw9t) 
-
-[^250]:  [https://github.com/elixir-europe/biovalidator](https://github.com/elixir-europe/biovalidator) 
-
-[^251]:  [https://www.ebi.ac.uk/ols4/help](https://www.ebi.ac.uk/ols4/help) 
-
-[^252]:  [identifiers.org](http://Identifiers.org)  
-
-[^253]:  [https://ena-docs.readthedocs.io/en/latest/retrieval/programmatic-access/taxon-api.html](https://ena-docs.readthedocs.io/en/latest/retrieval/programmatic-access/taxon-api.html)? 
-
-[^254]:  [https://github.com/ga4gh-beacon/beacon-v2](https://github.com/ga4gh-beacon/beacon-v2) 
-
-[^255]:  [https://github.com/ga4gh-beacon/beacon-v2/blob/main/models/json/beacon-v2-default-model/cohorts/defaultSchema.json](https://github.com/ga4gh-beacon/beacon-v2/blob/main/models/json/beacon-v2-default-model/cohorts/defaultSchema.json) 
-
-[^256]:  [https://bioschemas.org/](https://bioschemas.org/) 
-
-[^257]:  [https://bioschemas.org/profiles/ComputationalWorkflow/1.0-RELEASE](https://bioschemas.org/profiles/ComputationalWorkflow/1.0-RELEASE) 
-
-[^258]:  [https://isa-specs.readthedocs.io/en/latest/isajson.html](https://isa-specs.readthedocs.io/en/latest/isajson.html)? 
-
-[^259]:  [https://isa-specs.readthedocs.io/en/latest/isajson.html\#process-parameter-value-schema-json](https://isa-specs.readthedocs.io/en/latest/isajson.html#process-parameter-value-schema-json) 
-
-[^260]:  [https://www.w3.org/TR/vocab-dcat/](https://www.w3.org/TR/vocab-dcat/) 
-
-[^261]:  [https://semiceu.github.io/DCAT-AP/releases/3.0.1/](https://semiceu.github.io/DCAT-AP/releases/3.0.1/) 
-
-[^262]:  [https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6) 
-
-[^263]:  [https://github.com/json-ld/json-ld.org](https://github.com/json-ld/json-ld.org) 
-
-[^264]:  [https://github.com/json-ld/json-ld.org/blob/main/schemas/jsonld-schema.json](https://github.com/json-ld/json-ld.org/blob/main/schemas/jsonld-schema.json) 
-
-[^265]:  [https://github.com/](https://github.com/) 
-
-[^266]:  [https://github.com/EbiEga/ega-metadata-schema/tree/main/docs/biovalidator\_benchmarks/2023.01.26\_benchmarks/local\_endpoint\#json-validation-summary](https://github.com/EbiEga/ega-metadata-schema/tree/main/docs/biovalidator_benchmarks/2023.01.26_benchmarks/local_endpoint#json-validation-summary) 
-
-[^267]:  [https://github.com/M-casado/beacon-v2](https://github.com/M-casado/beacon-v2) 
-
-[^268]:  [https://github.com/ga4gh-beacon/beacon-v2/tree/v2.2.0](https://github.com/ga4gh-beacon/beacon-v2/tree/v2.2.0) 
-
-[^269]:  [https://github.com/M-casado/fega-metadata-schema/tree/main/schemas](https://github.com/M-casado/fega-metadata-schema/tree/main/schemas) 
-
-[^270]:  [https://data.europa.eu](https://data.europa.eu) 
-
-[^271]:  [https://data.europa.eu/mqa/methodology](https://data.europa.eu/mqa/methodology) 
-
-[^272]:  [https://www.healthinformationportal.eu/services/data-quality](https://www.healthinformationportal.eu/services/data-quality) 
-
-[^273]:  [https://elixir-europe.org/how-we-work/scientific-programme/commissioned-services/science/hdtr/fhd](https://elixir-europe.org/how-we-work/scientific-programme/commissioned-services/science/hdtr/fhd) 
-
-[^274]:  [https://github.com/sib-swiss/fhdportal-cli/tree/main/config/schemas](https://github.com/sib-swiss/fhdportal-cli/tree/main/config/schemas) 
-
-[^275]:  [https://www.ghga.de/](https://www.ghga.de/) 
-
-[^276]:  [https://github.com/ghga-de/ghga-metadata-schema](https://github.com/ghga-de/ghga-metadata-schema) 
-
-[^277]:  [https://doi-do.github.io/dcat-us/\#profile-validation](https://doi-do.github.io/dcat-us/#profile-validation) 
-
-[^278]:  [https://github.com/M-casado/beacon-v2/tree/biovalidator-test](https://github.com/M-casado/beacon-v2/tree/biovalidator-test) 
-
-[^279]:  [https://drive.google.com/file/d/1vR7dJGQuyaV1rf1XbSfdyRRKJbQCYzJy](https://drive.google.com/file/d/1vR7dJGQuyaV1rf1XbSfdyRRKJbQCYzJy/view?usp=drive_link)
-
-[^280]:  [https://drive.google.com/file/d/1RnMw7R4eDRuo4mXnoFShCcIf\_WIJ0m81](https://drive.google.com/file/d/1RnMw7R4eDRuo4mXnoFShCcIf_WIJ0m81/view?usp=drive_link)
-
-[^281]:  [https://drive.google.com/file/d/1gUrfKkzegLciolPSHuYyAarrWqpNs3QV](https://drive.google.com/file/d/1gUrfKkzegLciolPSHuYyAarrWqpNs3QV/view?usp=drive_link)
-
-[^282]:  [https://drive.google.com/file/d/1oNkau8mvMILOf0Kus4pNt1AnsvlEbHue](https://drive.google.com/file/d/1oNkau8mvMILOf0Kus4pNt1AnsvlEbHue/view?usp=drive_link)
+[^27]:  Content-negotiation in RDF is an HTTP mechanism that serves different serialized formats (e.g., Turtle, JSON-LD, RDF/XML) of the same semantic resource from a single URL.
