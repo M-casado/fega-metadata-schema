@@ -5,10 +5,10 @@
 | Group name | Federated European Genome-phenome Archive (FEGA) |
 | ----: | :---- |
 | **Subgroup name** | FEGA Metadata Working Group (MWG) |
-| **Authors**of the report | [Marcos Casado Barbero](https://orcid.org/0000-0002-7747-6256) ([EMBL-EBI](https://ror.org/02catss52))[Anandhi Iyappan](https://orcid.org/0000-0002-5571-4962) ([EMBL](https://ror.org/01zjc6908)) [Silvia Bahena](https://orcid.org/0000-0002-2734-0449) (EMBL-EBI) [Amy J. Curwin](https://orcid.org/0000-0003-1086-2483) ([CRG](https://ror.org/03wyzt892)) [Jorge Oliveira](https://orcid.org/0000-0001-6425-2176) ([BioData.pt](https://ror.org/02q7abn51)) [Miguel Cisneiros](https://orcid.org/0000-0002-6681-8564) (BioData.pt) [Coline Thomas](https://orcid.org/0000-0003-2253-1171) (EMBL-EBI) |
-| **Contributors**to the group | [Federico Bianchini](https://orcid.org/0000-0002-9016-4820) ([UiO](https://ror.org/01xtthb56))[Wolmar Nyberg Åkerström](https://orcid.org/0000-0002-3890-6620) ([UU](https://ror.org/048a87296)) [Markus Englund](https://orcid.org/0000-0003-1688-7112) (UU) [Akiris Moctezuma Cervantes](https://orcid.org/0009-0002-7343-1779) (CRG) [Gabriele Rinck](https://orcid.org/0000-0001-6428-3431) (EMBL-EBI)[Yasset Perez-Riverol](https://orcid.org/0000-0001-6579-6941) (EMBL-EBI) [Deepti Jaiswal Kundu](https://orcid.org/0000-0003-2989-5971) (EMBL-EBI) [Grant McNair](https://orcid.org/0009-0006-1362-0681) ([CGA](https://ror.org/0333j0897)) [Robin Liechti](https://orcid.org/0000-0001-8351-4776) ([SIB](https://ror.org/019whta54)) [Owen Appleton](https://orcid.org/0000-0002-2571-6860) ([SIB](https://ror.org/002n09z45)) [Gemma Vicente](https://orcid.org/0009-0008-4457-2947) (CRG) [Błażej Marciniak](https://orcid.org/0000-0003-1571-1473) ([UL](https://ror.org/05cq64r17)) [Alban Gaignard](https://orcid.org/0000-0002-3597-8557) ([NU](https://ror.org/03gnr7b55)) [Young Cheng](https://orcid.org/0000-0002-3484-4493) (CGA) [Alexandros Dimopoulos](https://orcid.org/0000-0002-4602-2040) ([BSRC Alexander Fleming](https://ror.org/013x0ky90)) [David Salgado](https://orcid.org/0000-0002-5905-3591) ([INSERM](https://ror.org/02vjkv261)) [Ulvi Talas](https://orcid.org/0000-0003-0485-089X) ([UT](https://ror.org/03z77qz90)) [Maciej Bisaga](https://orcid.org/0000-0002-7040-8322) (UL) |
+| **Authors** of the report | [Marcos Casado Barbero](https://orcid.org/0000-0002-7747-6256) ([EMBL-EBI](https://ror.org/02catss52))<br>[Anandhi Iyappan](https://orcid.org/0000-0002-5571-4962) ([EMBL](https://ror.org/01zjc6908))<br>[Silvia Bahena](https://orcid.org/0000-0002-2734-0449) (EMBL-EBI)<br>[Amy J. Curwin](https://orcid.org/0000-0003-1086-2483) ([CRG](https://ror.org/03wyzt892))<br>[Jorge Oliveira](https://orcid.org/0000-0001-6425-2176) ([BioData.pt](https://ror.org/02q7abn51))<br>[Miguel Cisneiros](https://orcid.org/0000-0002-6681-8564) (BioData.pt)<br>[Coline Thomas](https://orcid.org/0000-0003-2253-1171) (EMBL-EBI) |
+| **Contributors** to the group | [Federico Bianchini](https://orcid.org/0000-0002-9016-4820) ([UiO](https://ror.org/01xtthb56))<br>[Wolmar Nyberg Åkerström](https://orcid.org/0000-0002-3890-6620) ([UU](https://ror.org/048a87296))<br>[Markus Englund](https://orcid.org/0000-0003-1688-7112) (UU)<br>[Akiris Moctezuma Cervantes](https://orcid.org/0009-0002-7343-1779) (CRG)<br>[Gabriele Rinck](https://orcid.org/0000-0001-6428-3431) (EMBL-EBI)<br>[Yasset Perez-Riverol](https://orcid.org/0000-0001-6579-6941) (EMBL-EBI)<br>[Deepti Jaiswal Kundu](https://orcid.org/0000-0003-2989-5971) (EMBL-EBI)<br>[Grant McNair](https://orcid.org/0009-0006-1362-0681) ([CGA](https://ror.org/0333j0897))<br>[Robin Liechti](https://orcid.org/0000-0001-8351-4776) ([SIB](https://ror.org/019whta54))<br>[Owen Appleton](https://orcid.org/0000-0002-2571-6860) ([SIB](https://ror.org/002n09z45))<br>[Gemma Vicente](https://orcid.org/0009-0008-4457-2947) (CRG)<br>[Błażej Marciniak](https://orcid.org/0000-0003-1571-1473) ([UL](https://ror.org/05cq64r17))<br>[Alban Gaignard](https://orcid.org/0000-0002-3597-8557) ([NU](https://ror.org/03gnr7b55))<br>[Young Cheng](https://orcid.org/0000-0002-3484-4493) (CGA)<br>[Alexandros Dimopoulos](https://orcid.org/0000-0002-4602-2040) ([BSRC Alexander Fleming](https://ror.org/013x0ky90))<br>[David Salgado](https://orcid.org/0000-0002-5905-3591) ([INSERM](https://ror.org/02vjkv261))<br>[Ulvi Talas](https://orcid.org/0000-0003-0485-089X) ([UT](https://ror.org/03z77qz90))<br>[Maciej Bisaga](https://orcid.org/0000-0002-7040-8322) (UL) |
 | **Acknowledgements** | [Ana T. Alonso](https://orcid.org/0009-0004-3243-0045) (CRG) – Figures 1 and 2 |
-| **Reviewers** | Federico Bianchini (UiO) [Sabela de la Torre](https://orcid.org/0000-0002-5129-2248) (CRG) [Jordi Rambla De Argila](https://orcid.org/0000-0001-9091-257X) (CRG) Gabriele Rinck (EMBL-EBI) Mireia Marín Ginestar (CRG) Grant McNair (CGA) Robin Liechti (SIB) Akiris Moctezuma Cervantes (CRG) |
+| **Reviewers** | Federico Bianchini (UiO)<br>[Sabela de la Torre](https://orcid.org/0000-0002-5129-2248) (CRG)<br>[Jordi Rambla De Argila](https://orcid.org/0000-0001-9091-257X) (CRG)<br>Gabriele Rinck (EMBL-EBI)<br>Mireia Marín Ginestar (CRG)<br>Grant McNair (CGA)<br>Robin Liechti (SIB)<br>Akiris Moctezuma Cervantes (CRG) |
 
 ### Log of changes
 
@@ -366,7 +366,7 @@ Find more details about the [*Model versioning*](#model-versioning) and [*Govern
 
 ###### ***Table 1**. User stories.*
 
-| Role(*as a …*) | Action(*I want to …*) | Result(*to …*) |
+| Role (*as a …*) | Action (*I want to …*) | Result (*to …*) |
 | ----- | ----- | ----- |
 | Bioinformatician | Perform complex cross-FEGA archive queries | Support cross-archive dataset comparative analysis |
 | Data consumer | Easily find data use policies of FEGA records | Make informed decisions about data use |
@@ -2331,7 +2331,7 @@ The FEGA network will manage the EGA v2 metadata model through a three-tier stru
 | ----- | ----- | ----- |
 | **Strategic Committee** | **Endorses** every ***major*** model release (v2.0.0, v3.0.0, etc.) or can exercise a 30-day veto if concerns arise | Senior FEGA representatives from all operational nodes |
 | **Operations Committee** | **Reviews** implementation impact, schedules deployment windows, and triggers the veto timer once a release candidate is tabled | Technical leads and product owners from operational nodes |
-| **Metadata Working Group (MWG)** | **Drafts** changes, triages change requests, resolves issues, and reviews pull requests | Volunteer modellers from the majority of FEGA nodes (both onboarding and operational). Potentially invited experts. |
+| **Metadata Working Group (MWG)** | **Drafts** changes, triages change requests, resolves issues, and reviews pull requests | Volunteer modellers from the majority of FEGA nodes (both onboarding and operational).  Potentially invited experts. |
 
 1. ### Change release flow
 
@@ -2427,9 +2427,9 @@ Some of these are added to the FEGA repository as static files, while others are
 |  |  | Speed of validation becoming a bottleneck. | Base speed tested in validation [benchmarks](https://github.com/EbiEga/ega-metadata-schema/tree/main/docs/biovalidator_benchmarks/2023.01.26_benchmarks/local_endpoint#json-validation-summary) (2023); run yearly benchmarks to assess performance with more intensive tests. |
 |  |  | Reliance on internet connection for integrated API checks (e.g., OLS, identifiers.org). | For ontology checks (e.g., graphRestriction), use local static OWL files representing ontologies, which can then be connected to Biovalidator (as a local OLS API) with a slight technical overhead. |
 |  | **OLS4 API** | API outage or latency prevents ontology checks. | Stop validation service to prevent misvalidated submissions; if OLS4 is slow to come back online, consider a local OLS deployment backed by OWL files. |
-|  |  | Backwards-incompatible API: impossibility of validating terms in older ontology versions. For example, if a term X was valid for ontology Y v1, but changed in v2, OLS4 API will not enable us to check years later if X was valid with Y v1. | Always validate against the latest version of ontologies. When metadata are validated and ingested by a FEGA node, it's assumed they were valid against the latest version at the time.For backwards-compatible validation (i.e., older versions), we may: Validate against local OWL API with versions. Release ontology-free schemas for older versions, enabling validation of syntax but not semantics. |
+|  |  | Backwards-incompatible API: impossibility of validating terms in older ontology versions.  For example, if a term X was valid for ontology Y v1, but changed in v2, OLS4 API will not enable us to check years later if X was valid with Y v1. | Always validate against the latest version of ontologies. When metadata are validated and ingested by a FEGA node, it's assumed they were valid against the latest version at the time. For backwards-compatible validation (i.e., older versions), we may: Validate against local OWL API with versions. Release ontology-free schemas for older versions, enabling validation of syntax but not semantics. |
 |  | **Identifiers.org** | Registry updates change prefix targets (e.g., biosample:... → biosample**s**:...). | Identifiers.org handles *deactivated* entries, and redirects properly to the new active ones. |
-|  |  | Resolver downtime breaks CURIE/IRI validation and redirects. | Stop validation service to prevent misvalidated submissions.Alternatively, remove isValidIdentifier and isValidTaxonomy from the schemas. |
+|  |  | Resolver downtime breaks CURIE/IRI validation and redirects. | Stop validation service to prevent misvalidated submissions. Alternatively, remove isValidIdentifier and isValidTaxonomy from the schemas. |
 |  | **ENA Taxonomy** | API unavailable hampers isValidTaxonomy checks. |  |
 | [Upstream schemas and profiles](#upstream-schemas-and-profiles) | **GA4GH Beacon v2** | Upstream schema changes or repo restructure break our references. | Beacon v2 references are not directly to the root Beacon v2 repository, but to a fork of it instead (for now at [M-casado](https://github.com/M-casado/beacon-v2)). Therefore, control over new changes is in FEGA's hands. |
 |  |  |  | If references are swapped to the root beacon v2 repo, and this risk triggers, fallback is to have references to versioned Beacon v2 releases (e.g., [v2.2.0](https://github.com/ga4gh-beacon/beacon-v2/tree/v2.2.0)). |
@@ -2535,7 +2535,7 @@ See specific challenges in the [*Open questions*](#open-questions) section.
 | ----- | ----- |
 | *Should we use SHACL shapes instead of JSON Schemas for semantic validation, like other profiles (e.g., [DCAT-US 3\.0](https://doi-do.github.io/dcat-us/#profile-validation))?* | Given that (1) Biovalidator accepts JSON Schema as input and (2) JSON-LD is an RDF-friendly format for semantic data, we advocate for keeping JSON Schema as the current validation constraint language. In the long-term, FEGA may release additional SHACL shapes for graph-level validation, or shift to SHACL validation altogether. Thanks to JSON-LD being an RDF format with @context, the transition, if it were to occur, to SHACL would be relatively straightforward. |
 | *Should we promote Beacon-v2 to create its own @context?* | As of now, their JSON Schemas lack @context, and instead we are the ones adding it in our entities that use Beacon-v2 schemas. |
-| *Should we add more entities (e.g., Genomic Variations) from other standards and models? Are they needed by FEGA?* | There is a sweet spot between trying to model *everything* in life, and modelling not enough. The usefulness towards the goals of the model (findability, analysis, reproducibility…) would be considered. |
+| *Should we add more entities (e.g., Genomic Variations) from other standards and models? Are they needed by FEGA?* | There is a sweet spot between trying to model *everything* in life, and modelling not enough. The usefulness towards the goals of the model (findability, analysis, reproducibility…) would be considered. |
 | *How should we handle dependencies on other standards?* | As of now, we are directly referencing, for example, Beacon-v2 JSON Schemas in their repositories (M-casado's [fork](https://github.com/M-casado/beacon-v2/tree/biovalidator-test) for compatibility). This opens the possibility of changes done in other repositories affecting integrity within the FEGA schemas. An alternative is to store these references as static files within the repo prior to each release. |
 | *How should we handle dependencies on ontologies?* | Controlled vocabulary terms within ontologies, like EFO, HPO or Mondo, are embedded in the JSON Schemas. This facilitates validation, but obfuscates traceability of validation when ontologies evolve over time. This could be alleviated, a priori, by freezing external resources and releasing them along the JSON Schemas. |
 | *What other standards should we reuse directly?* | This involves standards that are not simply taken for inspiration (e.g., DCAT-AP), but instead are directly embedded in the EGA v2 model (e.g., Beacon-v2). Possibilities include Beacon-v2, JSON-LD, BioSchemas, ISA-JSON, DCAT, and GDI HDM. |
@@ -2553,64 +2553,6 @@ See specific challenges in the [*Open questions*](#open-questions) section.
 | 2 | [Microarray Use-case - post-session modelling results](images/FEGA_technical_report-annex_2-microarray_use_case.svg) |
 | 3 | [Proteomics Use-case - post-session modelling results](images/FEGA_technical_report-annex_3-proteomics_use_case.svg) |
 | 4 | [Microbiome Use-case - post-session modelling results](images/FEGA_technical_report-annex_4-microbiome_use_case.svg) |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 [^1]:  D’Altri, T., Freeberg, M. A., Curwin, A. J., Alonso, A., Freitas, A. T., Capella-Gutierrez, S., ... & Keane, T. M. (2025). The Federated European Genome–Phenome Archive as a global network for sharing human genomics data. *Nature Genetics*, 1-5.
