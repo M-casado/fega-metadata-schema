@@ -14,6 +14,7 @@
 
 | Date | version | Who | Description |
 | ----: | ----- | :---- | :---- |
+| **29/05/2026** | v1.1.0 | Marcos Casado Barbero | Datafiles are no longer mapped to dcat:Distribution; they are parts (dcterms:hasPart) of Datasets, with skos:closeMatch dcat:Dataset. A new Distribution entity (dcat:Distribution) is added for access-level metadata. Updates to entity definitions, Figure 5, disambiguation section, open questions, and JSON Schemas. |
 | **02/04/2026** | [v1.0.1](https://doi.org/10.5281/zenodo.19388370) | Marcos Casado Barbero | Addition of PRIDE contributors |
 | **27/02/2026** | [v1.0.0](https://doi.org/10.5281/zenodo.18802072) | Marcos Casado Barbero | Address review comments from Jordi Rambla De Argila; add new figures and tables |
 | **20/01/2026** | v0.0.4 | Marcos Casado Barbero | Add "Metadata model naming conventions" section and update model naming across document; general text review. |
@@ -310,7 +311,7 @@ Table of contents and contributions
 
 The **Federated EGA** (FEGA) **Metadata Working Group** (MWG) has designed a new, **process-oriented metadata model** intended to replace the [EGA v1 model](https://ega-archive.org/submission/metadata/ega-schema), used by Central EGA (CEGA) and FEGA nodes using [Local EGA](https://github.com/EGA-archive/LocalEGA). It prepares the FEGA network for FAIR, linked-data interoperability across **human omics**. **The model is under active development, and [this report](https://doi.org/10.5281/zenodo.18802072)** **accompanies that work in progress.** What exists today is an abstract specification and a first set of [JSON Schema drafts](https://github.com/M-casado/fega-metadata-schema/tree/main/schemas) with embedded JSON-LD contexts; detailed serialisations, production deployments and full validator roll-out are future milestones, not completed deliverables.
 
-Core **entities** include Biomaterial, Protocol, Process, Datafile, Dataset, Policy, Data Access Committee (DAC), Study, Cohort, Project, Protocol Collection and DCAT-style Catalog objects. **Validation** through the open-source **[ELIXIR Biovalidator](https://github.com/elixir-europe/biovalidator)** ensures both syntactic and selected semantic checks (e.g., ontology term validation). **Use-case workshops** in genomics, microarrays, proteomics, and microbiomes confirmed the model's flexibility without needing schema rewrites.
+Core **entities** include Biomaterial, Protocol, Process, Datafile, Dataset, Distribution, Policy, Data Access Committee (DAC), Study, Cohort, Project, Protocol Collection and DCAT-style Catalog objects. **Validation** through the open-source **[ELIXIR Biovalidator](https://github.com/elixir-europe/biovalidator)** ensures both syntactic and selected semantic checks (e.g., ontology term validation). **Use-case workshops** in genomics, microarrays, proteomics, and microbiomes confirmed the model's flexibility without needing schema rewrites.
 
 A **[transparent GitHub repository](https://github.com/EGA-archive/fega-metadata-schema)** contains the schemas, documentation, versioning, automated workflows, and a change process aligned to FEGA's network governance. As the first stepping stones for **future migration** of the current EGA v1 model to the EGA v2 model, we propose completing the set of model schemas, an initial v1-to-v2 model mapper, and a test implementation at CEGA. Finally, we present a phased adoption by FEGA nodes and other stakeholders. This approach would culminate when the maturity and efficacy of the model have been proved end-to-end and the model shift can happen in the production environments.
 
@@ -569,9 +570,11 @@ The entities defined in the EGA v2 model are as follows. Each of them  listed he
 
 * **Process** ([prov:Activity](https://www.w3.org/TR/prov-o/#Activity)): A specific execution of a protocol or procedure, applied to specific inputs (Biomaterial or Datafile) and producing specific outputs (Biomaterial or Datafile). See [*Disambiguation*](#processes-and-protocols).
 
-* **Datafile** ([dcat:Distribution](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution)): A resource containing data. Includes a diverse range of formats (e.g., BAM, VCF, mzML) from multiple life science domains (e.g., genomics, imaging, phenoclinical, proteomics). See [*Disambiguation*](#datasets-and-datafiles).
+* **Datafile** (skos:closeMatch [dcat:Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset)): A resource containing data. Includes a diverse range of formats (e.g., BAM, VCF, mzML) from multiple life science domains (e.g., genomics, imaging, phenoclinical, proteomics). Each Datafile is a part of a Dataset, linked via `dcterms:hasPart`. See [*Disambiguation*](#datasets-and-datafiles).
 
-* **Dataset** ([dcat:Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset)): A collection of Datafiles[^13], published or curated by a single agent, and available for access or download in one or more representations. Datasets are subject to a particular policy for controlled-access, commonly making them the units of access distribution. See [*Disambiguation*](#datasets-and-datafiles).
+* **Dataset** ([dcat:Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset)): A collection of Datafiles[^13], published or curated by a single agent, and subject to a particular policy for controlled-access, commonly making them the units of access control. See [*Disambiguation*](#datasets-and-datafiles).
+
+* **Distribution** ([dcat:Distribution](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution)): Delivery/access-specific representation of a Dataset, capturing access-level metadata such as access URLs, media type, byte size, and applicable legislation. Linked to its Dataset via `dcat:distribution`. See [*Disambiguation*](#datasets-and-datafiles).
 
 * **Policy** ([dcterms:RightsStatement](http://purl.org/dc/terms/RightsStatement)): Data access policy, governing how data is processed, protected, and shared. It can include, for example, data use conditions and references to the dataset's Data Access Agreement (DAA).
 
@@ -629,7 +632,7 @@ flowchart TB
     classDef dataManagement fill:#FFD600, stroke:#000000, color:#000000
 ```
 
-The summarised view of [Figure 4](#figure-4-flow-diagram-representing-an-oversimplification-of-the-model-entities-and-relationships-of-the-ega-v2-metadata-model) is expanded further in [Figure 5](#figure-5-flow-diagram-representing-the-entities-and-relationships-of-the-ega-v2-metadata-model), with mapped terms (e.g., dcat:Distribution) and semantically tagged relationships (e.g., prov:wasUsedBy). Domain namespaces in the diagram are:
+The summarised view of [Figure 4](#figure-4-flow-diagram-representing-an-oversimplification-of-the-model-entities-and-relationships-of-the-ega-v2-metadata-model) is expanded further in [Figure 5](#figure-5-flow-diagram-representing-the-entities-and-relationships-of-the-ega-v2-metadata-model), with mapped terms (e.g., dcat:Dataset) and semantically tagged relationships (e.g., prov:wasUsedBy). Domain namespaces in the diagram are:
 
 * **prov**: [Provenance](https://www.w3.org/ns/prov#).
 
@@ -686,14 +689,15 @@ flowchart TB
     Cohort -- prov:hadMember --> Biomaterial["<b>Biomaterial</b><p></p>"]
     ProtocolCollection -- prov:hadMember --> Protocol["<b>Protocol</b><br>(prov:Plan)"]
     Biomaterial -- prov:wasUsedBy --> Process@{ label: "<b style=\"font-weight:\">Process</b><br>(prov:Activity)" }
-    Process -- prov:generated --> Datafile@{ label: "<b style=\"font-weight:\">Datafile</b><br>(dcat:Distribution)" } & Biomaterial
+    Process -- prov:generated --> Datafile@{ label: "<b style=\"font-weight:\">Datafile</b><br>(skos:closeMatch dcat:Dataset)" } & Biomaterial
     Datafile -- prov:wasUsedBy --> Process
     Process -- prov:wasInformedBy --> Process
     Process -- prov:hadPlan --> ProtocolCollection
     Process -. prov:hadPlan ..-> Protocol
     Dataset -- dcterms:accessRights --> Policy@{ label: "<span style=\"color:\"><b>Policy </b><br></span>(dcterms:RightsStatement)" }
     Policy -- prov:wasAttributedTo --> DAC["<b>DAC</b><br>(prov:Agent)"]
-    Dataset -- dcat:distribution --> Datafile
+    Dataset -- dcterms:hasPart --> Datafile
+    Dataset -- dcat:distribution --> Distribution["<b>Distribution</b><br>(dcat:Distribution)"]
     Catalog["<b>dcat:Catalog<br></b>"] -- dcat:dataset --> Dataset
     Catalog -- dcat:record --> CatalogRecord["<b>dcat:CatalogRecord</b>"]
     CatalogRecord -- "<span style=color:>foaf:primaryTopic</span>" --> Dataset
@@ -709,6 +713,7 @@ flowchart TB
     DAC@{ shape: diam}
     Project@{ shape: stadium}
     Dataset@{ shape: diam}
+    Distribution@{ shape: diam}
     Catalog@{ shape: diam}
     CatalogRecord@{ shape: diam}
      Administrative1:::Administrative
@@ -727,6 +732,7 @@ flowchart TB
      Cohort:::Administrative
      Project:::Administrative
      Dataset:::dataManagement
+     Distribution:::dataManagement
      Catalog:::dataManagement
      CatalogRecord:::dataManagement
     classDef biomaterial fill:#B3D9FF,stroke:#4C8BF5,stroke-width:1px
@@ -780,11 +786,9 @@ It is important to understand the differences and similarities between EGA v1 an
 
 2. #### Datasets and Datafiles
 
-In DCAT, datasets carry "dataset-level" descriptive metadata, while distributions carry "delivery/access" metadata (e.g., download URLs, media type, byte size). 
+In DCAT, datasets carry "dataset-level" descriptive metadata, while distributions carry "delivery/access" metadata (e.g., download URLs, media type, byte size). DCAT distributions of the same dataset are intended to represent **alternative access routes to the same data** (e.g., a CSV and a JSON serialisation of the same table). EGA Datafiles, by contrast, are **distinct data files** that jointly make up a Dataset — they are not alternative representations of the same information.
 
-DCAT notes that distributions of one dataset "should broadly contain the same data". This view of datasets and distributions in DCAT **partly conflicts** with the canonical EGA v1 model definition, where datafiles are parts of a dataset, and not alternative ways to access the same data. Nevertheless, DCAT also states that the boundary between "same dataset, multiple distributions" versus "different datasets" is application-specific and up to community practice. There is no expectation that different downloadable distributions must contain exactly equivalent information. For example, different distributions **might include or exclude different subsets** of the entire dataset.
-
-In order to avoid highly nested datasets (i.e., each Datafile being a Dataset) and overly complicated Datafile metadata, EGA v2 adopts in this model the **practical convention** that: (1) a **Dataset** corresponds to the **collection of datafiles** under the same Policy; while (2) **Datafiles** are the **file-level distributions** that make up a Dataset.
+For this reason, in the EGA v2 model: (1) a **Dataset** (`dcat:Dataset`) is the **collection of Datafiles** under a common Policy, linked via `dcterms:hasPart`; (2) **Datafiles** are the individual file-level resources that compose a Dataset, with each Datafile being a close match to a single-file `dcat:Dataset` (`FEGA:Datafile skos:closeMatch dcat:Dataset`); and (3) **Distributions** (`dcat:Distribution`) are separate entities attached to a Dataset via `dcat:distribution`, capturing access-level metadata such as access URLs, media type, byte size, and applicable legislation.
 
 5. ## Use-cases
 
@@ -2540,7 +2544,6 @@ See specific challenges in the [*Open questions*](#open-questions) section.
 | *How should we handle dependencies on ontologies?* | Controlled vocabulary terms within ontologies, like EFO, HPO or Mondo, are embedded in the JSON Schemas. This facilitates validation, but obfuscates traceability of validation when ontologies evolve over time. This could be alleviated, a priori, by freezing external resources and releasing them along the JSON Schemas. |
 | *What other standards should we reuse directly?* | This involves standards that are not simply taken for inspiration (e.g., DCAT-AP), but instead are directly embedded in the EGA v2 model (e.g., Beacon-v2). Possibilities include Beacon-v2, JSON-LD, BioSchemas, ISA-JSON, DCAT, and GDI HDM. |
 | *How to reconcile a FEGA node's relational storage database with a graph-based procedural model?* | Although the EGA v2 model is not tied to the possible implementations of it by the nodes, it would be naive to disjoin both. Thus, some trade-offs are already agreed within the model to limit the number of combinations and possible complexity of process trees that could be represented by it. For example, by using the *Protocol Collection* entity, or by creating additional "checklists" (e.g., 'if your protocol is X, I'm expecting Y and Z as an input') to impose limitations for submitters. |
-| *Should Datafiles be a dcat:Dataset instead of a dcat:Distribution?* | Following a strict DCAT definition, multiple dcat:Distribution of a dataset are intended to be used as different methods to access the same information. Albeit explained in the [*Dataset and Datafiles*](#datasets-and-datafiles) section, our definition of Datafiles would fall better under a dcat:Dataset of one single file, which would be a "part" of a bigger dcat:Dataset that corresponds to the common (F)EGA Dataset. The former, with one single file, would then have multiple possible dcat:Distribution(s) itself. These additional steps may overcomplicate the model, though, but would be more conformant with the DCAT specification. |
 | *Should we add prov:Association linking the prov:Activity and the prov:Plan?* | In the PROV-O specification, a prov:hadPlan is not intended to be used directly on a prov:Activity. Instead, its domain is prov:Association. In the EGA v2 model, we are skipping this middle step, linking prov:Activity and prov:Plan directly through a prov:hadPlan, when the most strict linkage would be: prov:Activity –prov:qualifiedAssociation→ prov:Association –prov:hadPlan→ prov:Plan. Similar to other open questions, we consider these trade-offs of the models in order to simplify the model and reduce the query joins and steps to retrieve metadata. |
 | *Is protocol ordering relevant for FEGA submissions?* | The relationship prov:hadMember expresses membership alone, not ordering. Since the main aim of the model is not to contain the full and detailed protocol information of each activity, but the information to enable discoverability of data, protocol order was not deemed worth bringing into the mix. If a more detailed view of the protocols used for each activity is needed, other models such as P-Plan could be considered. |
 | *Should the linkage between Protocol and Process be exclusively through a Protocol Collection?* | If we are strict with the representation aspect, having both Process–ProtocolCollection and Process–Protocol make sense. Nevertheless, we need a balance between (1) being semantically sound, (2) having extra steps in between (i.e., the Protocol Collection) that would hinder queries to retrieve data, and (3) the complexity for submitters/users to understand that a Process may be linked to a Protocol in two different ways. For that reason, we assume the default linkage would be through Protocol Collections, but a direct, inferred, relationship between Process and Protocol could be made at the implementation level (see [Figure 5](https://docs.google.com/document/d/1EsKKScuQ3K6fYW1TNemGflH401qyYOIwrkhSF0E4K2Q/edit?userstoinvite=ychenggsc@gmail.com&sharingaction=manageaccess&role=writer&tab=t.0#heading=h.n2cu17fj2ql4)). |
