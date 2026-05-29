@@ -16,8 +16,7 @@ from typing import Any, Dict, List, Sequence, Set
 
 import requests
 from requests.exceptions import ConnectionError, Timeout
-from fega_tools.io import collect_candidate_json
-from fega_tools.logging_utils import configure_logging
+
 try:
     from fega_tools.io import collect_candidate_json
     from fega_tools.logging_utils import configure_logging
@@ -146,8 +145,8 @@ def make_arg_parser() -> argparse.ArgumentParser:
         description="Validate FEGA JSON metadata using a Biovalidator endpoint.",
         epilog=(
             "Examples:\n"
-            "  validate_metadata entities             # walk entities dir\n"
-            "  validate_metadata entities/cohort/examples/valid/cohort-valid_1.json -u http://localhost:3020/validate"
+            "  validate_metadata schemas/entities             # walk entity schema dir\n"
+            "  validate_metadata schemas/entities/cohort/examples/valid/cohort-valid_1.json -u http://localhost:3020/validate"
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
@@ -155,7 +154,7 @@ def make_arg_parser() -> argparse.ArgumentParser:
         "inputs",
         nargs="+",
         type=Path,
-        help="Files or directories to validate (at least one, e.g., 'entities/cohort/examples/valid/cohort-valid_1.json').",
+        help="Files or directories to validate (at least one, e.g., 'schemas/entities/cohort/examples/valid/cohort-valid_1.json').",
     )
     parser.add_argument(
         "--url",

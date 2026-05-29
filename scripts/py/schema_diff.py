@@ -7,13 +7,13 @@ whether changes require major, minor, or patch version bumps according to semver
 Typical usage
 ------------
 # Compare two schema files
-python scripts/py/schema_diff.py v1/entities/cohort/schema.json v2/entities/cohort/schema.json -v
+python scripts/py/schema_diff.py v1/schemas/entities/cohort/schema.json v2/schemas/entities/cohort/schema.json -v
 
 # Compare all schemas in two directories
-python scripts/py/schema_diff.py v1/entities v2/entities --output report.json -v
+python scripts/py/schema_diff.py v1/schemas/entities v2/schemas/entities --output report.json -v
 
 # Quick check between branches (from repo root)
-python scripts/py/schema_diff.py entities dev/entities -v
+python scripts/py/schema_diff.py schemas/entities dev/schemas/entities -v
 """
 from __future__ import annotations
 
@@ -262,9 +262,9 @@ def build_arg_parser() -> argparse.ArgumentParser:
         description="Compare two sets of JSON Schemas and report semantic versioning changes.",
         epilog=(
             "Examples:\n"
-            "  schema_diff entities/v1 entities/v2         # compare directories\n"
+            "  schema_diff schemas/entities/v1 schemas/entities/v2         # compare directories\n"
             "  schema_diff old.json new.json -v         # compare files with details\n"
-            "  schema_diff dev/entities main/entities -o report.json  # save report"
+            "  schema_diff dev/schemas/entities main/schemas/entities -o report.json  # save report"
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
