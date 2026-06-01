@@ -1,0 +1,8 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/biomaterial/schema.json"
+  },
+  "data": {
+    "@type": "ega:biomaterial"
+  }
+}
