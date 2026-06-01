@@ -1,0 +1,15 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/process/schema.json"
+  },
+  "data": {
+    "@type": [
+      "ega:process",
+      "prov:Activity"
+    ],
+    "title": "DNA extraction run",
+    "hadProtocolCollection": {
+      "id": "ega:EGAW00000000001"
+    }
+  }
+}

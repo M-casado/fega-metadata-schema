@@ -1,0 +1,36 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/process/schema.json"
+  },
+  "data": {
+    "@type": [
+      "ega:process",
+      "prov:Activity"
+    ],
+    "title": "DNA extraction run",
+    "hadProtocolCollection": {
+      "id": "ega:EGAW00000000001"
+    },
+    "used": [
+      {
+        "id": "ega:EGAN00000000001",
+        "@type": "ega:biomaterial"
+      }
+    ],
+    "generated": [
+      {
+        "id": "ega:EGAN00000000002",
+        "@type": "ega:biomaterial"
+      }
+    ],
+    "wasAssociatedWith": [
+      {
+        "id": "https://ror.org/02catss52",
+        "@type": [
+          "prov:Agent",
+          "prov:Organization"
+        ]
+      }
+    ]
+  }
+}
