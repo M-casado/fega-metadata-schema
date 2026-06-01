@@ -113,10 +113,9 @@
         }
     ],
     "anyOf": [
-        { "required": ["used"] },
-        { "required": ["generated"] },
-        { "required": ["wasInformedBy"] },
-        { "required": ["informs"] }
+        { "required": ["used", "generated"] },
+        { "required": ["used", "informs"] },
+        { "required": ["wasInformedBy", "generated"] }
     ],
     "required": [ "title", "hadProtocolCollection" ],
     "properties": {
@@ -125,7 +124,6 @@
           "examples": ["ega:EGAK00001000620"],
           "$comment": "Example to be updated when FEGA identifiers (EGAK...) are finalized for new entity types."
         },
-        "#!": {"$comment": "#! Need to add @type"},
         "title": {
             "$ref": "../../common/schema.json#/$defs/label"
         },
@@ -149,7 +147,7 @@
             "examples": [
                 {
                     "id": "ega:EGAW00000000001",
-                    "@type": "protocolCollection",
+                    "@type": "ega:protocolCollection",
                     "label": "DNA extraction protocol collection"
                 }
             ],
@@ -194,7 +192,7 @@
                     "hadPlan": [
                         {
                             "id": "ega:EGAK00001000621",
-                            "@type": "protocol",
+                            "@type": "ega:protocol",
                             "label": "Provision of patient samples"
                         }
                     ]
@@ -273,7 +271,7 @@
             "examples": [
                 {
                     "id": "ega:EGAN00090000001",
-                    "@type": [ "biomaterial", "prov:Person" ],
+                    "@type": [ "ega:biomaterial", "prov:Person" ],
                     "label": "Participant PT-0001 (organism)"
                 }
             ]
@@ -296,7 +294,7 @@
             "examples": [
                 {
                     "id": "biosample:SAMEA12345678",
-                    "@type": [ "biomaterial" ],
+                    "@type": [ "ega:biomaterial" ],
                     "label": "Whole blood (EDTA), PT-0001"
                 }
             ]
