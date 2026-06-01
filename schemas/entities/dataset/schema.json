@@ -1017,37 +1017,13 @@
                     "$comment": "'closed' used to be a valid EGA SP status, but it's not in use anymore. EGA's 'not released' status is similar to 'WITHDRAWN' in DCAT (not released -> released -> not released); 'deprecated' is similar to 'DEPRECATED' in DCAT (not released -> released -> deprecated); 'COMPLETED' from DCAT is similar to EGA's 'released'."
                 }
             ],
-            "$comment": "HealthDCAT-AP (v6) relies on status but on a distribution level, rather than dataset, but bear in mind EGA v2 datasets and distributions are sort of overlapping. Their CV list is at 'http://publications.europa.eu/resource/authority/distribution-status'."
+            "$comment": "HealthDCAT-AP (v6) defines this property at the distribution level. In EGA v2 the Distribution entity (dcat:Distribution) is separate from the Dataset; Distribution carries access-level metadata. Their CV list is at 'http://publications.europa.eu/resource/authority/distribution-status'."
         },
 
         "hasPart": {
             "title": "Has part",
             "description": "Indicates a resource that is part of this dataset. Its main use is to reference the datafiles that are part of this dataset, but it can also be used to reference other types of resources when the more specific properties (e.g., 'documentation') do not apply.",
             "meta:sssomMappings": [
-                {
-                    "predicate_id": "skos:relatedMatch",
-                    "object_id": "dcat:distribution",
-                    "mapping_justification": "semapv:ManualMappingCuration",
-                    "object_match_field": "rdfs:comment",
-                    "subject_match_field": "rdfs:comment",
-                    "author_id": ["orcid:0000-0002-7747-6256"],
-                    "creator_id": ["orcid:0000-0002-7747-6256"],
-                    "reviewer_id": [""],
-                    "confidence": 1.0,
-                    "mapping_date": "2026-01-28"
-                },
-                {
-                    "predicate_id": "skos:relatedMatch",
-                    "object_id": "schema:distribution",
-                    "mapping_justification": "semapv:ManualMappingCuration",
-                    "object_match_field": "rdfs:comment",
-                    "subject_match_field": "rdfs:comment",
-                    "author_id": ["orcid:0000-0002-7747-6256"],
-                    "creator_id": ["orcid:0000-0002-7747-6256"],
-                    "reviewer_id": [""],
-                    "confidence": 1.0,
-                    "mapping_date": "2026-01-29"
-                },
                 {
                     "predicate_id": "skos:broadMatch",
                     "object_id": "egav1crg:DatasetRequest#run_accession_ids",
@@ -1132,7 +1108,7 @@
                     },
                     {
                         "@id": "ega:EGAF00001000002",
-                        "@type": ["datafile", "dcat:Distribution"]
+                        "@type": "datafile"
                     }
                 ],
                 {

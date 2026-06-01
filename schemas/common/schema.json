@@ -2383,19 +2383,10 @@
                         },
                         {
                             "type": "array",
-                            "allOf": [
-                                {
-                                    "contains": {
-                                        "const": "ega:datafile"
-                                    }
-                                },
-                                {
-                                    "contains": {
-                                        "const": "dcat:Distribution"
-                                    }
-                                }
-                            ],
-                            "minItems": 2,
+                            "contains": {
+                                "const": "ega:datafile"
+                            },
+                            "minItems": 1,
                             "uniqueItems": true
                         }
                     ]
