@@ -23,3 +23,6 @@ logs/
 
 # Summary artifact files from validation tests
 summary*.json
+
+# Ignore server PID files from biovalidator
+server.pid
