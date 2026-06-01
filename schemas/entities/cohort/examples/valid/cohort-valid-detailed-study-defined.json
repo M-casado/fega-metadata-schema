@@ -5,6 +5,7 @@
   "data": {
     "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/cohort/schema.json",
     "name": "GCAT Genomes for Life",
+    "id": "ega:EGAH00000000001",
     "@type": "ega:cohort",
     "description": "Longitudinal population cohort integrating clinical history, genotyping, and survey data for adult participants in Catalonia.",
     "cohortDataTypes": [
@@ -27,7 +28,6 @@
     },
     "cohortSize": 20000,
     "cohortType": "study-defined",
-    "id": "ega:cohort0001",
     "inclusionCriteria": {
         "ageRange": {
             "end": {
@@ -54,6 +54,44 @@
             }
         ]
     },
+    "exclusionCriteria": {
+        "ageRange": {
+            "end": {
+                "iso8601duration": "P120Y"
+            },
+            "start": {
+                "iso8601duration": "P80Y"
+            }
+        },
+        "diseaseConditions": [
+            {
+                "diseaseCode": {
+                    "id": "MONDO:0004992",
+                    "label": "cancer"
+                }
+            }
+        ]
+    },
+    "collectionEvents": [
+      {
+        "eventNum": 1,
+        "eventDate": "2024-01-15T09:00:00Z",
+        "eventSize": 20000,
+        "eventDataTypes": {
+          "availability": true,
+          "availabilityCount": 18450
+        },
+        "eventGenders": {
+          "availability": true,
+          "distribution": {
+            "genders": {
+              "female": 10420,
+              "male": 9580
+            }
+          }
+        }
+      }
+    ],
     "sameAs": [
       {
         "id": "ega:EGAC00000000002",

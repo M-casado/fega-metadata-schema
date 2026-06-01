@@ -4,9 +4,8 @@
   },
   "data": {
     "@type": "ega:cohort",
-    "id": "ega:cohort-invalid-unknown-property",
-    "name": "Catalonia adult genomics cohort",
-    "cohortType": "study-defined",
-    "cohortTypo": "study-defined"
+    "id": "ega:EGAH00000000001",
+    "name": "Barcelona adult genomics cohort",
+    "cohortType": "study-defined"
   }
 }
