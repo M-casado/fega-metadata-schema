@@ -78,6 +78,23 @@ See more options:
 python scripts/py/validate_examples.py --help
 ```
 
+#### JSON-LD Context Smoke Tests
+
+Check that every valid example can be parsed into RDF (with `rdflib`) and that required JSON-LD fields (`data.@context`, `data.@type`, `schema.$ref`) are present. This step resolves all context references from local files (i.e., we are not fetching from the remote, which is what normal RDF parsing would do) and does **not** require Biovalidator.
+
+```bash
+python scripts/py/validate_jsonld_contexts.py --root schemas/entities
+```
+
+See more options:
+```bash
+python scripts/py/validate_jsonld_contexts.py --help
+```
+
+A passing test confirms that (1) the **local context chain** (i.e., a JSON doc referencing the JSON Schema, which references the JSON-LD context) is self-consistent, that (2) at least **one type statement** (e.g., ``"@type": "ega:cohort"``) **expands** to an RDF triple (e.g., ``ega:EGAH00000000001 --> rdf:type --> ega:cohort``), and that (3) the document can be parsed into a **non-empty RDF graph**, entirely from local files. 
+
+It does **not** verify that every term in the document is defined in the context (undefined terms are silently ignored by JSON-LD), nor that the expanded URIs are dereferenceable or semantically correct.
+
 #### Validate One JSON Document
 
 For one-off validation, wrap the JSON data and target schema in a document with top-level `data` and `schema` keys. For example, to validate a `cohort` (i.e., the data representing an EGA Cohort entity) against the `cohort` schema:

@@ -1,0 +1,105 @@
+# ----------------------------------------------------------------------
+# JSON-LD Context Smoke Tests
+#
+# Goal
+# ----
+# - Verify that every valid example can be parsed into RDF using
+#   rdflib, resolving all context references locally (no network calls).
+# - Confirm each example includes the required JSON-LD fields:
+#     schema.$ref, data.@context, data.@type.
+# - Confirm at least one RDF triple and one rdf:type triple are produced.
+#
+# What it catches
+# ---------------
+# 1. Valid examples that are missing entirely, or missing its required JSON-LD fields.
+# 2. Broken local context references (mismatched @context vs schema.$ref).
+# 3. Context files or schema files that produce an un-parseable RDF graph.
+#
+# Scope
+# -----
+# - Only validates examples/valid/ directories.
+# - Does NOT require or contact Biovalidator.
+# - Invalid examples remain out of scope for this check.
+#
+# Trigger
+# -------
+# - Any PR that touches schemas, examples, standards, scripts,
+#   requirements, or this workflow file.
+# - Direct pushes to `main`.
+# - Manual workflow_dispatch.
+#
+# Outcome
+# -------
+# - Exits 0 if every valid example passes all JSON-LD checks.
+# - Exits 1 otherwise, blocking the merge.
+# - Always uploads jsonld_summary.json as a workflow artifact.
+# ----------------------------------------------------------------------
+name: JSON-LD Context Smoke Tests
+
+on:
+  pull_request:
+    paths:
+      - 'schemas/**'
+      - 'standards/**'
+      - 'scripts/**'
+      - 'requirements.txt'
+      - '.github/workflows/jsonld_context_check.yml'
+  push:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  jsonld-context-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      # Cache pip dependencies for speed
+      - name: Cache pip
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+          cache: 'pip'
+
+      - name: Install Python requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install repo in editable mode (with dev extras)
+        run: pip install -e .[dev]
+
+      - name: Run JSON-LD context smoke tests
+        run: |
+          python scripts/py/validate_jsonld_contexts.py \
+            --root schemas/entities \
+            --summary-dir . \
+            --verbosity
+
+      - name: Print summary (jq)
+        if: always()
+        run: |
+          if command -v jq &>/dev/null; then
+            jq . jsonld_summary.json
+          else
+            cat jsonld_summary.json
+          fi
+
+      - name: Upload summary artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jsonld-context-summary
+          path: jsonld_summary.json
