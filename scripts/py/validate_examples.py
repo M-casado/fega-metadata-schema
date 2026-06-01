@@ -26,6 +26,15 @@ except ModuleNotFoundError as exc:
 
 
 LOGGER = logging.getLogger(Path(__file__).stem)
+
+try:
+    from colorama import Fore as _Fore, Style as _Style
+    _BOLD_GREEN = _Style.BRIGHT + _Fore.GREEN
+    _BOLD_RED = _Style.BRIGHT + _Fore.RED
+    _ANSI_RESET = _Style.RESET_ALL
+except ModuleNotFoundError:
+    _BOLD_GREEN = _BOLD_RED = _ANSI_RESET = ""
+
 DEFAULT_ROOT = Path("schemas/entities")
 DEFAULT_VALIDATOR_URL = "http://localhost:3020/validate"
 SUMMARY_FILENAME = "summary.json"
@@ -226,7 +235,13 @@ def summarize_category(
     """Validate one entity's examples for a category and summarize the result."""
     category_dir = entity_dir / "examples" / category
     files = collect_candidate_json([category_dir]) if category_dir.is_dir() else []
-    results = [validate_file(path, validator_url) for path in files]
+    expected_status = expected_status_for(category)
+    results = []
+    for path in files:
+        result = validate_file(path, validator_url)
+        results.append(result)
+        outcome = "passed" if result["status"] == expected_status else "failed"
+        LOGGER.debug("Validated '%s' [expected: %s] -> %s", path.name, category, outcome)
     status_counts = {
         VALID_STATUS: 0,
         INVALID_STATUS: 0,
@@ -238,7 +253,6 @@ def summarize_category(
     for result in results:
         status_counts[result["status"]] += 1
 
-    expected_status = expected_status_for(category)
     expectation_failed_files = [
         result["file"] for result in results if result["status"] != expected_status
     ]
@@ -365,6 +379,23 @@ def validate_examples(
     }
 
 
+def _log_results(summary: Dict[str, Any]) -> None:
+    """Emit INFO-level result lines for the validation run."""
+    cat = summary["category_totals"]
+    valid_passed = cat["valid"]["validation_passed"]
+    valid_total = cat["valid"]["total_files"]
+    invalid_passed = cat["invalid"]["validation_failed"]
+    invalid_total = cat["invalid"]["total_files"]
+
+    LOGGER.info("%d / %d valid files passed validation", valid_passed, valid_total)
+    LOGGER.info("%d / %d invalid files passed validation", invalid_passed, invalid_total)
+
+    if summary["passed"]:
+        LOGGER.info("Tests %spassed%s", _BOLD_GREEN, _ANSI_RESET)
+    else:
+        LOGGER.info("Tests %sfailed%s", _BOLD_RED, _ANSI_RESET)
+
+
 def write_summary(summary: Dict[str, Any], summary_dir: Path) -> None:
     """Write the combined validation summary to the artifact directory."""
     summary_dir.mkdir(parents=True, exist_ok=True)
@@ -434,6 +465,8 @@ def main(argv: Sequence[str] | None = None) -> None:
     except (FileNotFoundError, RuntimeError) as exc:
         LOGGER.error(str(exc))
         sys.exit(2)
+
+    _log_results(summary)
 
     if args.summary_dir:
         write_summary(summary, args.summary_dir)
