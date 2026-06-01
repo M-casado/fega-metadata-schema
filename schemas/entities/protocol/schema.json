@@ -6,13 +6,7 @@
   "meta:version": "0.0.0",
   "$async": true,
   "description": "Detailed plan of instructions on how a procedure is done. For example, sample preparation, sequencing or feature extraction techniques.",
-  "@context": [
-    "../../common/schema.json",
-    {
-      "entityDoc": "entities:protocol/schema.json#",
-      "properties": "@nest"
-    }
-  ],
+  "@context": "./context.jsonld",
   "meta:sssomMappings": [
     {
       "predicate_id": "skos:broadMatch",

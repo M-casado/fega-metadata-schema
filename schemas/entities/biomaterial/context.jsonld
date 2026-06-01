@@ -1,3 +1,10 @@
 {
-  "@context": {}
+  "@context": [
+    "../../common/context.jsonld",
+    {
+      "entityDoc": "entities:biomaterial/schema.json#",
+      "properties": "@nest",
+      "biomaterialType": "entityDoc:biomaterialType"
+    }
+  ]
 }

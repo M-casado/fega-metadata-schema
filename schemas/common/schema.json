@@ -6,7 +6,7 @@
     "meta:version": "0.0.0",
     "$async": true,
     "description": "Metadata schema for common definitions inherited by other FEGA metadata schemas.",
-    "@context": "context.jsonld",
+    "@context": "./context.jsonld",
     "$defs": {
         "id": {
           "type": "string",

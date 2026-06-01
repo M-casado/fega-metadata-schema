@@ -1,3 +1,9 @@
 {
-  "@context": {}
+  "@context": [
+    "../../common/context.jsonld",
+    {
+      "entityDoc": "entities:process/schema.json#",
+      "properties": "@nest"
+    }
+  ]
 }

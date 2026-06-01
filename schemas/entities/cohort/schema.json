@@ -7,7 +7,7 @@
   "$async": true,
   "description": "A group of Biomaterials (e.g., individuals, biopsies) sharing specific characteristics, facilitating comparative studies and discovery.",
   "$comment": "@Context for Beacon's entities is unfinished. Just a draft of the root properties for now. Ideally they'll have the context of their schemas embedded in them, so we can reference. Not quite there yet though.",
-  "@context": "context.jsonld",
+  "@context": "./context.jsonld",
   "unevaluatedProperties": false,
   "allOf": [
     {

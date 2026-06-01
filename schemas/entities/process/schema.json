@@ -6,13 +6,7 @@
     "meta:version": "0.0.0",
     "$async": true,
     "description": "A specific execution of a protocol or procedure, applied to specific inputs (Biomaterial or Datafile) and producing specific outputs (Biomaterial or Datafile).",
-    "@context": [
-        "../../common/schema.json",
-        {
-            "entityDoc": "entities:process/schema.json#",
-            "properties": "@nest"
-        }
-    ],
+    "@context": "./context.jsonld",
     "meta:sssomMappings": [
         {
             "predicate_id": "skos:closeMatch",

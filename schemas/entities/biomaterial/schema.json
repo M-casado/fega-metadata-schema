@@ -6,14 +6,7 @@
   "meta:version": "0.0.0",
   "$async": true,
   "description": "Represents any biological material, from whole organisms (including humans) to subcellular components and macromolecules (e.g., DNA samples).",
-  "@context": [
-    "../../common/schema.json",
-    {
-      "entityDoc": "entities:biomaterial/schema.json#",
-      "properties": "@nest",
-      "biomaterialType": "entityDoc:biomaterialType"
-    }
-  ],
+  "@context": "./context.jsonld",
   "required": ["biomaterialType"],
   "allOf": [
     {
