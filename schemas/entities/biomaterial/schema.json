@@ -1137,8 +1137,7 @@
             }
           },
           "then": {
-            "$comment": "Biomaterial properties required or disallowed for this type of biomaterial.",
-            "$comment": "The way we encode 'properties' as 'false', instead of using 'not' is for the validation error report to be more informative. With 'not', the validator can't inform the user which property is infringing the validation.",
+            "$comment": "Biomaterial properties required or disallowed for this type of biomaterial. The way we encode 'properties' as 'false', instead of using 'not' is for the validation error report to be more informative. With 'not', the validator can't inform the user which property is infringing the validation.",
             "required": ["id", "label", "sex"],
             "properties": {
               "samplingSource": false,
@@ -1170,8 +1169,7 @@
             }
           },
           "then": {
-            "$comment": "Biomaterial properties required or disallowed for this type of biomaterial.",
-            "$comment": "The way we encode 'properties' as 'false', instead of using 'not' is for the validation error report to be more informative. With 'not', the validator can't inform the user which property is infringing the validation.",
+            "$comment": "Biomaterial properties required or disallowed for this type of biomaterial. The way we encode 'properties' as 'false', instead of using 'not' is for the validation error report to be more informative. With 'not', the validator can't inform the user which property is infringing the validation.",
             "required": [ "id", "label" ],
             "properties": {
               "sex": false,
