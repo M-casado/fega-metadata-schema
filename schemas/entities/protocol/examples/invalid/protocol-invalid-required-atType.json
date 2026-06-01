@@ -1,0 +1,6 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/protocol/schema.json"
+  },
+  "data": {}
+}
