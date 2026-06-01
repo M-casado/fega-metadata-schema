@@ -38,6 +38,20 @@
         "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionProtocol"
     },
     {
+      "title": "BioSchemas type requirement",
+      "description": "A protocol must be typed as either a ComputationalWorkflow or a LabProtocol via BioSchemas, which also triggers compatibility validation against the respective BioSchemas profile.",
+      "required": ["@type"],
+      "properties": {
+        "@type": {
+          "type": "array",
+          "anyOf": [
+            { "contains": { "const": "bioschemastypes:ComputationalWorkflow" } },
+            { "contains": { "const": "bioschemastypes:LabProtocol" } }
+          ]
+        }
+      }
+    },
+    {
       "title": "Compatibility with BioSchemas ComputationalWorkflow",
       "if": {
         "required": ["@type"],
