@@ -1086,12 +1086,12 @@
                             "@type": {
                                 "anyOf": [
                                     {
-                                        "const": "datafile"
+                                        "const": "ega:datafile"
                                     },
                                     {
                                         "type": "array",
                                         "contains": {
-                                            "const": "datafile"
+                                            "const": "ega:datafile"
                                         }
                                     }
                                 ]
@@ -1104,16 +1104,16 @@
                 [
                     {
                         "@id": "ega:EGAF00001000001",
-                        "@type": "datafile"
+                        "@type": "ega:datafile"
                     },
                     {
                         "@id": "ega:EGAF00001000002",
-                        "@type": "datafile"
+                        "@type": "ega:datafile"
                     }
                 ],
                 {
                     "@id": "ega:EGAF00001000003",
-                    "@type": "datafile"
+                    "@type": "ega:datafile"
                 }
             ]
         },

@@ -16,7 +16,7 @@
     "hasPart": [
       {
         "id": "ega:EGAF00000000007",
-        "@type": "datafile"
+        "@type": "ega:datafile"
       }
     ],
     "hasPolicy": "ega:EGAP00000000007"

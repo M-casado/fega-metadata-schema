@@ -298,7 +298,7 @@
                 [
                     {
                         "id": "ega:EGAC00000000002",
-                        "@type": "cohort"
+                        "@type": "ega:cohort"
                     },
                     {
                         "id": "ega:EGAC00000000003"
