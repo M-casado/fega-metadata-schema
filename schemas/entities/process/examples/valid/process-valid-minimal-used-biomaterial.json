@@ -3,6 +3,7 @@
     "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/process/schema.json"
   },
   "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/process/schema.json",
     "@type": [
       "ega:process",
       "prov:Activity"

@@ -3,6 +3,7 @@
     "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/biomaterial/schema.json"
   },
   "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/biomaterial/schema.json",
     "@type": "ega:biomaterial",
     "biomaterialType": {
       "id": "COB:0000022",
