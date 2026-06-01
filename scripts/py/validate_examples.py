@@ -408,6 +408,12 @@ def make_arg_parser() -> argparse.ArgumentParser:
         help=f"Optional directory where {SUMMARY_FILENAME} is written.",
     )
     parser.add_argument(
+        "--print-summary",
+        action="store_true",
+        default=False,
+        help="Print the full JSON summary to stdout (default: off).",
+    )
+    parser.add_argument(
         "--verbosity",
         "-v",
         action="count",
@@ -432,8 +438,9 @@ def main(argv: Sequence[str] | None = None) -> None:
     if args.summary_dir:
         write_summary(summary, args.summary_dir)
 
-    json.dump(summary, sys.stdout, indent=2)
-    sys.stdout.write("\n")
+    if args.print_summary:
+        json.dump(summary, sys.stdout, indent=2)
+        sys.stdout.write("\n")
 
     sys.exit(0 if summary["passed"] else 1)
 

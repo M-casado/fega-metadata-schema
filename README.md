@@ -56,6 +56,18 @@ Run **all** valid and invalid metadata JSON (e.g., [`cohort-valid-detailed-study
 python scripts/py/validate_examples.py --root schemas/entities
 ```
 
+The script exits with code `0` if all suites pass and `1` otherwise. No output is printed to stdout by default; add `--print-summary` to get the full JSON report:
+
+```bash
+python scripts/py/validate_examples.py --root schemas/entities --print-summary
+```
+
+To save the report to a file instead of (or in addition to) printing it, use `--summary-dir`:
+
+```bash
+python scripts/py/validate_examples.py --root schemas/entities --summary-dir .
+```
+
 Validate a single entity (e.g., all ``cohort`` examples):
 ```bash
 python scripts/py/validate_examples.py --root schemas/entities --entity cohort
