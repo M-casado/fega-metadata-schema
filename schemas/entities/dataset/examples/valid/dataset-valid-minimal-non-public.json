@@ -7,17 +7,18 @@
       "ega:dataset",
       "dcat:Dataset"
     ],
-    "id": "fega:EGAD00000000003",
-    "description": "Controlled-access genome dataset from a cardiometabolic sequencing study.",
+    "id": "fega:EGAD00000000002",
+    "title": "Minimal controlled-access genome dataset",
+    "description": "Small controlled-access dataset containing one aligned genome data file.",
     "datasetType": [
       "whole genome sequencing"
     ],
     "hasPart": [
       {
-        "id": "ega:EGAF00000000003",
+        "id": "ega:EGAF00000000001",
         "@type": "datafile"
       }
     ],
-    "hasPolicy": "ega:EGAP00000000003"
+    "hasPolicy": "ega:EGAP00000000001"
   }
 }

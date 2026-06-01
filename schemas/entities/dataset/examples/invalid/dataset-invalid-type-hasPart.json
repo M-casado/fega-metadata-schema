@@ -7,17 +7,18 @@
       "ega:dataset",
       "dcat:Dataset"
     ],
-    "id": "fega:EGAD00000000003",
+    "id": "fega:EGAD00000000006",
+    "title": "Cardiometabolic genome sequencing dataset",
     "description": "Controlled-access genome dataset from a cardiometabolic sequencing study.",
     "datasetType": [
       "whole genome sequencing"
     ],
     "hasPart": [
       {
-        "id": "ega:EGAF00000000003",
-        "@type": "datafile"
+        "id": "ega:EGAN00000000006",
+        "@type": "ega:biomaterial"
       }
     ],
-    "hasPolicy": "ega:EGAP00000000003"
+    "hasPolicy": "ega:EGAP00000000006"
   }
 }

@@ -27,6 +27,12 @@
         "STATISTICAL"
       ],
       "hasPolicy": "ega:EGAP00001000001",
+      "sameAs": [
+        {
+          "id": "https://example.org/catalogue/datasets/EGAD00000000001",
+          "@type": "ega:dataset"
+        }
+      ],
       "releaseDate": "2026-04-01T00:00:00Z",
       "otherIdentifier": [
         "doi:10.1234/fega.egad00000000001",
