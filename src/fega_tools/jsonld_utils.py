@@ -4,9 +4,39 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Any, Dict, FrozenSet, List
+from typing import Any, Dict, FrozenSet, List, Set, Tuple
 
 GITHUB_RAW_PREFIX = "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/"
+
+JSONLD_KEYWORDS = {
+    "@base",
+    "@container",
+    "@context",
+    "@direction",
+    "@embed",
+    "@explicit",
+    "@graph",
+    "@id",
+    "@import",
+    "@included",
+    "@index",
+    "@json",
+    "@language",
+    "@list",
+    "@nest",
+    "@none",
+    "@omitDefault",
+    "@prefix",
+    "@propagate",
+    "@protected",
+    "@reverse",
+    "@requireAll",
+    "@set",
+    "@type",
+    "@value",
+    "@version",
+    "@vocab",
+}
 
 
 # ---------------------------------------------------------------------------
@@ -131,6 +161,102 @@ def materialize_context(
 
     # dict or scalar – return as-is
     return ctx_value
+
+
+# ---------------------------------------------------------------------------
+# Context inspection
+# ---------------------------------------------------------------------------
+
+def context_terms_and_prefixes(context: Any) -> Tuple[Set[str], Set[str]]:
+    """Return term and prefix names defined by a materialized context."""
+    terms: Set[str] = set()
+    prefixes: Set[str] = set()
+
+    def visit(value: Any) -> None:
+        if isinstance(value, list):
+            for item in value:
+                visit(item)
+            return
+        if not isinstance(value, dict):
+            return
+
+        for key, definition in value.items():
+            if key.startswith("@"):
+                continue
+            terms.add(key)
+            iri = None
+            if isinstance(definition, str):
+                iri = definition
+            elif isinstance(definition, dict) and isinstance(definition.get("@id"), str):
+                iri = definition["@id"]
+            if iri and (iri.endswith("/") or iri.endswith("#") or iri.endswith(":")):
+                prefixes.add(key)
+
+    visit(context)
+    return terms, prefixes
+
+
+def walk_object_keys(value: Any, path: str = "") -> List[Tuple[str, str]]:
+    """Return all object key paths from a JSON value."""
+    keys: List[Tuple[str, str]] = []
+    if isinstance(value, dict):
+        for key, child in value.items():
+            child_path = f"{path}/{key}" if path else key
+            keys.append((child_path, key))
+            keys.extend(walk_object_keys(child, child_path))
+    elif isinstance(value, list):
+        for index, child in enumerate(value):
+            keys.extend(walk_object_keys(child, f"{path}[{index}]"))
+    return keys
+
+
+def is_known_jsonld_key(key: str, terms: Set[str], prefixes: Set[str]) -> bool:
+    """Return whether a JSON key is defined by JSON-LD terms or prefixes."""
+    if key in JSONLD_KEYWORDS or key in terms:
+        return True
+    if key.startswith(("http://", "https://")):
+        return True
+    if ":" in key:
+        return key.split(":", 1)[0] in prefixes
+    return False
+
+
+def find_undefined_terms(data: Dict[str, Any], context: Any) -> List[str]:
+    """Return JSON key paths that JSON-LD would ignore as undefined terms."""
+    terms, prefixes = context_terms_and_prefixes(context)
+    return [
+        path
+        for path, key in walk_object_keys(data)
+        if not is_known_jsonld_key(key, terms, prefixes)
+    ]
+
+
+def find_invalid_context_type_mappings(context: Any) -> List[str]:
+    """Return context paths with invalid JSON-LD @type mappings."""
+    invalid: List[str] = []
+
+    def visit(value: Any, path: str = "") -> None:
+        if isinstance(value, list):
+            for index, item in enumerate(value):
+                visit(item, f"{path}[{index}]")
+            return
+        if not isinstance(value, dict):
+            return
+
+        type_value = value.get("@type")
+        if isinstance(type_value, str) and not (
+            type_value.startswith("@")
+            or ":" in type_value
+            or type_value.startswith(("http://", "https://"))
+        ):
+            invalid.append(f"{path or '<context>'}/@type={type_value!r}")
+
+        for key, child in value.items():
+            child_path = f"{path}/{key}" if path else key
+            visit(child, child_path)
+
+    visit(context)
+    return invalid
 
 
 # ---------------------------------------------------------------------------

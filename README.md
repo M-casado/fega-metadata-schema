@@ -95,6 +95,19 @@ A passing test confirms that (1) the **local context chain** (i.e., a JSON doc r
 
 It does **not** verify that every term in the document is defined in the context (undefined terms are silently ignored by JSON-LD), nor that the expanded URIs are dereferenceable or semantically correct.
 
+#### JSON-LD Context and Frame Coverage
+
+Check that every direct property declared in each entity's `schema.json` is covered its materialized JSON-LD context (`context.jsonld`) and its frame (`frame.jsonld`). The goal is to catch terms that we added to the schemas but forgot to add to the contexts and frames, which would cause them to be ignored during JSON-LD parsing and framing, respectively.
+
+```bash
+python scripts/py/validate_jsonld_coverage.py --root schemas/entities
+```
+
+See more options:
+```bash
+python scripts/py/validate_jsonld_coverage.py --help
+```
+
 #### JSON-LD Frame Validation
 
 Confirm that every valid example can be reconstructed from both flattened JSON-LD and a generated RDF graph into schema-shaped JSON-LD, without semantic RDF loss, and then pass Biovalidator.

@@ -1,0 +1,85 @@
+# ----------------------------------------------------------------------
+# JSON-LD Context and Frame Coverage
+#
+# Goal
+# ----
+# - Verify that every direct property in each entity schema is covered by
+#   the entity's materialized JSON-LD context.
+# - Verify that every direct property in each entity schema is represented
+#   in the entity's JSON-LD frame.
+# - Verify that extra frame keys are known JSON-LD terms.
+#
+# Scope
+# -----
+# - Uses only each entity schema's top-level `properties`.
+# - Does not expand external schemas or AJV-style effective schemas.
+# - Does not require or contact Biovalidator.
+# ----------------------------------------------------------------------
+name: JSON-LD Context and Frame Coverage
+
+on:
+  pull_request:
+    paths:
+      - 'schemas/**'
+      - 'scripts/**'
+      - 'src/**'
+      - 'requirements.txt'
+      - '.github/workflows/jsonld_coverage_check.yml'
+  push:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  jsonld-coverage-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Cache pip
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+          cache: 'pip'
+
+      - name: Install Python requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install repo in editable mode (with dev extras)
+        run: pip install -e .[dev]
+
+      - name: Run JSON-LD coverage checks
+        run: |
+          python scripts/py/validate_jsonld_coverage.py \
+            --root schemas/entities \
+            --summary-dir . \
+            --verbosity
+
+      - name: Print summary (jq)
+        if: always()
+        run: |
+          if command -v jq &>/dev/null; then
+            jq . jsonld_coverage_summary.json
+          else
+            cat jsonld_coverage_summary.json
+          fi
+
+      - name: Upload summary artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jsonld-coverage-summary
+          path: jsonld_coverage_summary.json
