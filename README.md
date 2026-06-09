@@ -95,6 +95,33 @@ A passing test confirms that (1) the **local context chain** (i.e., a JSON doc r
 
 It does **not** verify that every term in the document is defined in the context (undefined terms are silently ignored by JSON-LD), nor that the expanded URIs are dereferenceable or semantically correct.
 
+#### JSON-LD Frame Validation
+
+Confirm that every valid example can be reconstructed from both flattened JSON-LD and a generated RDF graph into schema-shaped JSON-LD, without semantic RDF loss, and then pass Biovalidator.
+
+**Requires**: a running Biovalidator instance and a `frame.jsonld` file inside each entity directory (missing frames fail the suite).
+
+```bash
+python scripts/py/validate_jsonld_frames.py \
+  --root schemas/entities \
+  --url http://localhost:3020/validate \
+  -v
+```
+
+Use single-file debug mode to print complete snapshots after each transformation stage to stdout. This helps figuring out how the transformations work during the tests. Normal log records remain on stderr:
+
+```bash
+python scripts/py/validate_jsonld_frames.py \
+  --file schemas/entities/cohort/examples/valid/cohort-valid-minimal-study-defined.json \
+  --url http://localhost:3020/validate \
+  -vv
+```
+
+See more options:
+```bash
+python scripts/py/validate_jsonld_frames.py --help
+```
+
 #### Validate One JSON Document
 
 For one-off validation, wrap the JSON data and target schema in a document with top-level `data` and `schema` keys. For example, to validate a `cohort` (i.e., the data representing an EGA Cohort entity) against the `cohort` schema:
