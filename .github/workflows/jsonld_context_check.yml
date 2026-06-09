@@ -86,7 +86,7 @@ jobs:
           python scripts/py/validate_jsonld_contexts.py \
             --root schemas/entities \
             --summary-dir . \
-            --verbosity
+            -v
 
       - name: Print summary (jq)
         if: always()

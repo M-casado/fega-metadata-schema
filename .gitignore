@@ -26,3 +26,6 @@ logs/
 
 # Ignore server PID files from biovalidator
 server.pid
+
+# No pytests used for now, so we can ignore these tmp dirs
+tests/

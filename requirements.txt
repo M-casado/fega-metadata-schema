@@ -4,6 +4,7 @@ jsonschema>=4.17.3
 colorama>=0.4.6  # Optional: for coloured console output
 pyshacl==0.31.0  # SHACL validation (latest stable as of 2026-03-20)
 rdflib>=7.0.0  # RDF library (includes JSON-LD support natively)
+pyld>=2.0.0    # JSON-LD 1.1 expand/flatten/frame/normalize (frame round-trip validation)
 
 # Development dependencies
 pytest>=7.0.0
