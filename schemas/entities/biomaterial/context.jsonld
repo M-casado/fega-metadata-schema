@@ -4,7 +4,70 @@
     {
       "entityDoc": "entities:biomaterial/schema.json#",
       "properties": "@nest",
-      "biomaterialType": "entityDoc:biomaterialType"
+      "biomaterialType": "entityDoc:biomaterialType",
+      "sex": "entityDoc:sex",
+      "gender": "entityDoc:gender",
+      "phenotypicSex": "entityDoc:phenotypicSex",
+      "karyotypicSex": "entityDoc:karyotypicSex",
+      "birthPlace": "entityDoc:birthPlace",
+      "dateOfBirth": {
+        "@id": "entityDoc:dateOfBirth",
+        "@type": "xsd:dateTime"
+      },
+      "ethnicity": "entityDoc:ethnicity",
+      "ancestry": {
+        "@id": "entityDoc:ancestry",
+        "@container": "@set"
+      },
+      "diagnoses": {
+        "@id": "entityDoc:diagnoses",
+        "@container": "@set"
+      },
+      "timeAtLastEncounter": "entityDoc:timeAtLastEncounter",
+      "taxonomy": "entityDoc:taxonomy",
+      "vitalStatus": "entityDoc:vitalStatus",
+      "status": "entityDoc:status",
+      "samplingSource": "entityDoc:samplingSource",
+      "collectionSite": "entityDoc:collectionSite",
+      "storageConditions": "entityDoc:storageConditions",
+      "samplingAge": "entityDoc:samplingAge",
+      "samplingDate": {
+        "@id": "entityDoc:samplingDate",
+        "@type": "xsd:dateTime"
+      },
+      "samplingProcedure": "entityDoc:samplingProcedure",
+      "term": "entityDoc:term",
+      "method": "entityDoc:method",
+      "diagnosisType": "entityDoc:diagnosisType",
+      "diseaseStage": "entityDoc:diseaseStage",
+      "laterality": "entityDoc:laterality",
+      "primarySite": "entityDoc:primarySite",
+      "diagnosisTime": "entityDoc:diagnosisTime",
+      "iso8601duration": "entityDoc:iso8601duration",
+      "phenotypicFeatures": {
+        "@id": "entityDoc:phenotypicFeatures",
+        "@container": "@set"
+      },
+      "measurements": {
+        "@id": "entityDoc:measurements",
+        "@container": "@set"
+      },
+      "treatments": {
+        "@id": "entityDoc:treatments",
+        "@container": "@set"
+      },
+      "interventionsOrProcedures": {
+        "@id": "entityDoc:interventionsOrProcedures",
+        "@container": "@set"
+      },
+      "exposures": {
+        "@id": "entityDoc:exposures",
+        "@container": "@set"
+      },
+      "pedigrees": {
+        "@id": "entityDoc:pedigrees",
+        "@container": "@set"
+      }
     }
   ]
 }

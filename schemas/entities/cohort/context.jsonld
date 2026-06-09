@@ -12,9 +12,40 @@
       "cohortDesign": "beaconDoc:cohortDesign",
       "cohortSize": "beaconDoc:cohortSize",
       "cohortType": "schema:category",
-      "collectionEvents": "schema:Collection",
+      "collectionEvents": {
+        "@id": "beaconDoc:collectionEvents",
+        "@container": "@set"
+      },
       "exclusionCriteria": "beaconDoc:exclusionCriteria",
-      "inclusionCriteria": "beaconDoc:inclusionCriteria"
+      "inclusionCriteria": "beaconDoc:inclusionCriteria",
+      "hadMember": {
+        "@id": "prov:hadMember",
+        "@container": "@set"
+      },
+      "ageRange": "beaconDoc:ageRange",
+      "start": "beaconDoc:start",
+      "end": "beaconDoc:end",
+      "iso8601duration": "beaconDoc:iso8601duration",
+      "genders": "beaconDoc:genders",
+      "locations": {
+        "@id": "beaconDoc:locations",
+        "@container": "@set"
+      },
+      "diseaseConditions": {
+        "@id": "beaconDoc:diseaseConditions",
+        "@container": "@set"
+      },
+      "diseaseCode": "beaconDoc:diseaseCode",
+      "eventNum": "beaconDoc:eventNum",
+      "eventDate": "beaconDoc:eventDate",
+      "eventSize": "beaconDoc:eventSize",
+      "eventDataTypes": "beaconDoc:eventDataTypes",
+      "availability": "beaconDoc:availability",
+      "availabilityCount": "beaconDoc:availabilityCount",
+      "eventGenders": "beaconDoc:eventGenders",
+      "distribution": "beaconDoc:distribution",
+      "female": "beaconDoc:female",
+      "male": "beaconDoc:male"
     }
   ]
 }

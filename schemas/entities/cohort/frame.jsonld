@@ -4,7 +4,6 @@
   "@embed": "@always",
   "@explicit": false,
 
-  "id": {},
   "name": {},
   "description": {},
   "cohortDataTypes": {},
@@ -17,17 +16,17 @@
 
   "sameAs": [
     {
-      "@embed": "@never"
+      "@embed": "@always"
     }
   ],
   "isPartOf": [
     {
-      "@embed": "@never"
+      "@embed": "@always"
     }
   ],
   "hadMember": [
     {
-      "@embed": "@never"
+      "@embed": "@always"
     }
   ]
 }

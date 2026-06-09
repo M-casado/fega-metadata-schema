@@ -1,0 +1,41 @@
+{
+  "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/process/schema.json",
+  "@type": "ega:process",
+  "@embed": "@always",
+  "@explicit": false,
+
+  "title": {},
+  "description": {},
+  "hadProtocolCollection": {},
+  "startedAtTime": {},
+  "endedAtTime": {},
+  "atLocation": {},
+  "qualifiedAssociation": {},
+  "parameters": {},
+  "wasInformedBy": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "informs": [
+    {
+      "@embed": "@always"
+    }
+  ],
+
+  "used": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "generated": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "wasAssociatedWith": [
+    {
+      "@embed": "@always"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/biomaterial/schema.json",
+  "@type": "ega:biomaterial",
+  "@embed": "@always",
+  "@explicit": false,
+
+  "label": {},
+  "biomaterialType": {},
+  "description": {},
+  "sex": {},
+  "birthPlace": {},
+  "dateOfBirth": {},
+  "ethnicity": {},
+  "ancestry": {},
+  "diagnoses": {},
+  "timeAtLastEncounter": {},
+  "taxonomy": {},
+  "vitalStatus": {},  
+  "samplingSource": {},
+  "collectionSite": {},
+  "storageConditions": {},
+  "samplingAge": {},
+  "samplingDate": {},
+
+  "sameAs": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "wasUsedBy": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "wasGeneratedBy": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "wasDerivedFrom": [
+    {
+      "@embed": "@always"
+    }
+  ]
+}

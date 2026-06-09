@@ -7,24 +7,22 @@
         },
         {
             "id": {
-              "@id": "dct:identifier",
-              "@type": "string"
+              "@id": "dct:identifier"
             },
             "title": {
-                "@id": "dct:title",
-                "@type": "langString"
+                "@id": "dct:title"
             },
             "alternativeTitle": {
                 "@id": "dct:alternative",
-                "@type": "langString"
+                "@container": "@set"
             },
             "description": {
-                "@id": "dct:description",
-                "@type": "langString"
+                "@id": "dct:description"
             },
             "documentation": {
                 "@id": "foaf:page",
-                "@type": "@id"
+                "@type": "@id",
+                "@container": "@set"
             },
             "landingPage": {
                 "@id": "dcat:landingPage",
@@ -32,7 +30,7 @@
             },
             "isReferencedBy": {
                 "@id": "dct:isReferencedBy",
-                "@type": "@id"
+                "@container": "@set"
             },
             "modificationDate": {
                 "@id": "dct:modified",
@@ -40,7 +38,7 @@
             },
             "datasetType": {
                 "@id": "dct:type",
-                "@type": "@id"
+                "@container": "@set"
             },
             "hasPolicy": {
                 "@id": "dct:hasPolicy",
@@ -50,36 +48,39 @@
                 "@id": "dct:issued",
                 "@type": "http://www.w3.org/2001/XMLSchema#date"
             },
-            "otherIdentifiers": {
+            "otherIdentifier": {
                 "@id": "adms:identifier",
-                "@type": "@id"
+                "@container": "@set"
             },
             "populationCoverage": {
-                "@id": "healthdcatap:populationCoverage",
-                "@type": "langString"
+                "@id": "healthdcatap:populationCoverage"
             },
             "relatedResource": {
                 "@id": "dct:relation",
-                "@type": "@id"
+                "@type": "@id",
+                "@container": "@set"
             },
             "version": {
-                "@id": "dcat:version",
-                "@type": "string"
+                "@id": "dcat:version"
             },
             "status": {
-                "@id": "adms:status",
-                "@type": "string"
+                "@id": "adms:status"
             },
             "dataUseConditions": {
-                "@id": "ega:dataUseConditions"
+                "@id": "ega:dataUseConditions",
+                "@container": "@set"
             },
             "measurementTechnique": {
                 "@id": "schema:measurementTechnique",
-                "@type": "@id"
+                "@container": "@set"
             },
             "variableMeasured": {
                 "@id": "schema:variableMeasured",
-                "@type": "@id"
+                "@container": "@set"
+            },
+            "hasCodingSystem": {
+                "@id": "entityDoc:hasCodingSystem",
+                "@container": "@set"
             }
         }
     ]

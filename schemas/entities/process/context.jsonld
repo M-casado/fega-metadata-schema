@@ -3,7 +3,44 @@
     "../../common/context.jsonld",
     {
       "entityDoc": "entities:process/schema.json#",
-      "properties": "@nest"
+      "properties": "@nest",
+      "title": "dct:title",
+      "hadProtocolCollection": "entityDoc:hadProtocolCollection",
+      "startedAtTime": {
+        "@id": "prov:startedAtTime",
+        "@type": "xsd:dateTime"
+      },
+      "endedAtTime": {
+        "@id": "prov:endedAtTime",
+        "@type": "xsd:dateTime"
+      },
+      "atLocation": "prov:atLocation",
+      "wasAssociatedWith": {
+        "@id": "prov:wasAssociatedWith",
+        "@container": "@set"
+      },
+      "qualifiedAssociation": {
+        "@id": "prov:qualifiedAssociation",
+        "@container": "@set"
+      },
+      "parameters": {
+        "@id": "entityDoc:parameters",
+        "@container": "@set"
+      },
+      "agent": "prov:agent",
+      "hadRole": {
+        "@id": "prov:hadRole",
+        "@container": "@set"
+      },
+      "hadPlan": {
+        "@id": "prov:hadPlan",
+        "@container": "@set"
+      },
+      "category": "entityDoc:category",
+      "ProtocolParameter": "http://example.org/base/ProtocolParameter",
+      "parameterName": "entityDoc:parameterName",
+      "value": "entityDoc:value",
+      "unit": "entityDoc:unit"
     }
   ]
 }

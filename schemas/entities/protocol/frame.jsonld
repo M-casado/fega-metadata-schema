@@ -1,0 +1,42 @@
+{
+  "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/protocol/schema.json",
+  "@type": "ega:protocol",
+  "@embed": "@always",
+  "@explicit": false,
+
+  "name": {},
+  "description": {},
+  "version": {},
+  "url": {},
+  "programmingLanguage": {},
+  "creator": {},
+  "dateCreated": {},
+  "license": {},
+  "sdPublisher": {},
+  "applicationSubCategory": {},
+  "input": {},
+  "output": {},
+  "softwareRequirements": {},
+  "runtimePlatform": {},
+  "citation": {},
+  "sameAs": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "isBasedOn": {},
+  "inputFormat": {},
+  "intendedUse": {},
+  "ethicalLegalSocial": {},
+  "labEquipment": {},
+  "reagent": {},
+  "bioSample": {},
+  "protocolAdvantage": {},
+  "protocolLimitation": {},
+  "prepTime": {},
+  "performTime": {},
+  "totalTime": {},
+  "step": {},
+  "protocolOutcome": {},
+  "keywords": {}
+}

@@ -1,0 +1,47 @@
+{
+  "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/dataset/schema.json",
+  "@type": ["ega:dataset", "dcat:Dataset"],
+  "@embed": "@always",
+  "@explicit": false,
+
+  "id": {},
+  "title": {},
+  "description": {},
+  "alternativeTitle": {},
+  "documentation": {},
+  "landingPage": {},
+  "modificationDate": {},
+  "datasetType": {},
+  "hasPolicy": {},
+  "releaseDate": {},
+  "otherIdentifier": {},
+  "populationCoverage": {},
+  "relatedResource": {},
+  "version": {},
+  "status": {},
+  "dataUseConditions": {},
+  "measurementTechnique": {},
+  "variableMeasured": {},
+  "hasCodingSystem": {},
+
+  "sameAs": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "hasPart": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "isReferencedBy": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "wasDerivedFrom": [
+    {
+      "@embed": "@always"
+    }
+  ]
+}

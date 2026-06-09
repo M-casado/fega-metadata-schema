@@ -3,7 +3,97 @@
     "../../common/context.jsonld",
     {
       "entityDoc": "entities:protocol/schema.json#",
-      "properties": "@nest"
+      "properties": "@nest",
+      "version": {
+        "@id": "entityDoc:version"
+      },
+      "url": {
+        "@id": "schema:url",
+        "@type": "@id"
+      },
+      "programmingLanguage": {
+        "@id": "schema:programmingLanguage",
+        "@container": "@set"
+      },
+      "creator": {
+        "@id": "schema:creator",
+        "@container": "@set"
+      },
+      "dateCreated": {
+        "@id": "schema:dateCreated",
+        "@type": "xsd:date"
+      },
+      "license": {
+        "@id": "schema:license",
+        "@type": "@id"
+      },
+      "sdPublisher": "schema:sdPublisher",
+      "applicationSubCategory": {
+        "@id": "schema:applicationSubCategory",
+        "@container": "@set"
+      },
+      "input": {
+        "@id": "entityDoc:input",
+        "@container": "@set"
+      },
+      "output": {
+        "@id": "entityDoc:output",
+        "@container": "@set"
+      },
+      "softwareRequirements": {
+        "@id": "schema:softwareRequirements",
+        "@container": "@set"
+      },
+      "runtimePlatform": {
+        "@id": "schema:runtimePlatform",
+        "@container": "@set"
+      },
+      "citation": "schema:citation",
+      "isBasedOn": {
+        "@id": "schema:isBasedOn",
+        "@container": "@set"
+      },
+      "inputFormat": {
+        "@id": "entityDoc:inputFormat",
+        "@container": "@set"
+      },
+      "intendedUse": "entityDoc:intendedUse",
+      "ethicalLegalSocial": "entityDoc:ethicalLegalSocial",
+      "labEquipment": {
+        "@id": "entityDoc:labEquipment",
+        "@container": "@set"
+      },
+      "reagent": {
+        "@id": "entityDoc:reagent",
+        "@container": "@set"
+      },
+      "bioSample": "entityDoc:bioSample",
+      "protocolAdvantage": {
+        "@id": "entityDoc:protocolAdvantage",
+        "@container": "@set"
+      },
+      "protocolLimitation": {
+        "@id": "entityDoc:protocolLimitation",
+        "@container": "@set"
+      },
+      "prepTime": "entityDoc:prepTime",
+      "performTime": "entityDoc:performTime",
+      "totalTime": "entityDoc:totalTime",
+      "step": {
+        "@id": "schema:step",
+        "@container": "@set",
+        "@context": {
+          "performTime": {
+            "@id": "entityDoc:performTime",
+            "@type": "xsd:duration"
+          }
+        }
+      },
+      "protocolOutcome": "entityDoc:protocolOutcome",
+      "keywords": {
+        "@id": "schema:keywords",
+        "@container": "@set"
+      }
     }
   ]
 }
