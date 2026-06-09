@@ -150,7 +150,16 @@ jobs:
           python scripts/py/validate_examples.py \
             --root schemas/entities \
             --url "http://localhost:3020/validate" \
-            --summary-dir .
+            --summary-dir . \
+            -v
+
+      - name: Validate JSON-LD frame round-trips
+        run: |
+          python scripts/py/validate_jsonld_frames.py \
+            --root schemas/entities \
+            --url "http://localhost:3020/validate" \
+            --summary-dir . \
+            -v
 
       - name: Show summary in log
         if: always()
@@ -160,6 +169,13 @@ jobs:
             jq '.' summary.json
           else
             echo "'summary.json' not found"
+          fi
+          echo ""
+          echo "=== JSON-LD Frame Round-Trip Validation ==="
+          if [ -f frame_summary.json ]; then
+            jq '.' frame_summary.json
+          else
+            echo "'frame_summary.json' not found"
           fi
 
       # --------------------------------------------------------------
@@ -174,6 +190,14 @@ jobs:
         with:
           name: json-validation-summary
           path: summary.json
+          if-no-files-found: warn
+
+      - name: Upload frame validation summary
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: frame-validation-summary
+          path: frame_summary.json
           if-no-files-found: warn
 
       - name: Stop Biovalidator
