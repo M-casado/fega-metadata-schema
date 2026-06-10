@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/bioschemas/ComputationalWorkflow_v1.1-DRAFT.json",
   "type": "object",
-  "$comment": "Source: https://discovery.biothings.io/api/schema/bioschemasdrafts:ComputationalWorkflow/validation (accessed 2025-08-22). Licence: CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. Changes: aligned fields to FEGA conventions.",
+  "$comment": "Source: https://discovery.biothings.io/api/schema/bioschemasdrafts:ComputationalWorkflow/validation (accessed 2025-08-22). Licence: CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. Changes: aligned fields to FEGA conventions; converted draft-07-style single-schema array items to draft 2020-12-compatible homogeneous items.",
   "@context": {
     "@vocab": "https://schema.org/"
   },
@@ -1552,28 +1552,26 @@
                 },
                 {
                   "type": "array",
-                  "items": [
-                    {
-                      "@type": "CategoryCode",
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string"
-                        },
-                        "url": {
-                          "type": "string"
-                        },
-                        "codeValue": {
-                          "type": "string"
-                        }
+                  "items": {
+                    "@type": "CategoryCode",
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
                       },
-                      "required": [
-                        "name",
-                        "codeValue",
-                        "url"
-                      ]
-                    }
-                  ]
+                      "url": {
+                        "type": "string"
+                      },
+                      "codeValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "codeValue",
+                      "url"
+                    ]
+                  }
                 }
               ]
             },
@@ -1653,28 +1651,26 @@
                   },
                   {
                     "type": "array",
-                    "items": [
-                      {
-                        "@type": "CategoryCode",
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": "string"
-                          },
-                          "url": {
-                            "type": "string"
-                          },
-                          "codeValue": {
-                            "type": "string"
-                          }
+                    "items": {
+                      "@type": "CategoryCode",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
                         },
-                        "required": [
-                          "name",
-                          "codeValue",
-                          "url"
-                        ]
-                      }
-                    ]
+                        "url": {
+                          "type": "string"
+                        },
+                        "codeValue": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "codeValue",
+                        "url"
+                      ]
+                    }
                   }
                 ]
               },
@@ -2045,11 +2041,9 @@
                       },
                       {
                           "type": "array",
-                          "items": [
-                              {
-                                  "$ref": "#/definitions/categoryCode"
-                              }
-                          ]
+                          "items": {
+                              "$ref": "#/definitions/categoryCode"
+                          }
                       }
                   ]
               },
