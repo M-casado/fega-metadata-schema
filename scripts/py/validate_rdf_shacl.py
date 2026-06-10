@@ -24,6 +24,11 @@ try:
         extract_types_from_graph,
         collect_candidate_rdf,
     )
+    from fega_tools.jsonld_utils import (
+        build_id_to_path_map,
+        find_repo_root,
+        materialize_context,
+    )
 except ModuleNotFoundError as exc:
     msg = (
         "ERROR:  The helper package 'fega_tools' is not importable.\n"
@@ -68,6 +73,20 @@ def extract_data_section(metadata_doc: Dict[str, Any]) -> Dict[str, Any]:
     if "data" not in metadata_doc:
         raise ValueError("Metadata document is missing 'data' section")
     return metadata_doc["data"]
+
+def materialize_data_context(
+    jsonld_data: Dict[str, Any],
+    input_path: Path,
+    id_to_path_map: Dict[str, Path],
+) -> Dict[str, Any]:
+    """Return JSON-LD data with any repository context URL resolved locally."""
+    context = jsonld_data.get("@context")
+    if context is None:
+        return jsonld_data
+
+    data_copy = json.loads(json.dumps(jsonld_data))
+    data_copy["@context"] = materialize_context(context, input_path, id_to_path_map)
+    return data_copy
 
 def _build_violation_summary(violations: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """Build a concise, deduplicated violation summary.
@@ -199,6 +218,8 @@ def validate_documents(
     logger.info(
         f"Discovered {len(all_json)} JSON file(s); {len(metadata_files)} qualify for validation"
     )
+    repo_root = find_repo_root(metadata_files[0].resolve())
+    id_to_path_map = build_id_to_path_map(repo_root)
 
     # Discover and load shape files
     all_shapes = collect_candidate_rdf(shapes_paths)
@@ -245,7 +266,11 @@ def validate_documents(
                 metadata_doc = json.load(handle)
 
             # Extract the data section
-            jsonld_data = extract_data_section(metadata_doc)
+            jsonld_data = materialize_data_context(
+                extract_data_section(metadata_doc),
+                input_path,
+                id_to_path_map,
+            )
 
             # Convert JSON-LD to RDF
             data_graph = jsonld_to_rdf_graph(jsonld_data)
