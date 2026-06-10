@@ -711,16 +711,6 @@ def _frame_route(
         framed,
         route=route,
     )
-    if _walk_contains_id(framed, route_state["noise_id"]):
-        _set_route_failure(
-            state,
-            route,
-            INVALID_STATUS,
-            "noise_exclusion",
-            [f"Noise entity '{route_state['noise_id']}' appeared in framed output"],
-        )
-        return
-
     primary, selection_error = _select_primary_entity(
         framed,
         state["original_id"],
@@ -737,6 +727,16 @@ def _frame_route(
         return
 
     route_state["primary"] = primary
+    if _walk_contains_id(primary, route_state["noise_id"]):
+        _set_route_failure(
+            state,
+            route,
+            INVALID_STATUS,
+            "noise_exclusion",
+            [f"Noise entity '{route_state['noise_id']}' appeared in selected primary entity"],
+        )
+        return
+
     _debug_snapshot(
         debug_snapshots,
         state["path"],
