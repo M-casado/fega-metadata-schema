@@ -276,7 +276,7 @@ def _noise_entity(noise_id: str) -> Dict[str, Any]:
 def _walk_contains_id(value: Any, target_id: str) -> bool:
     """Return whether an id appears anywhere in a nested JSON value."""
     if isinstance(value, dict):
-        if value.get("@id") == target_id or value.get("id") == target_id:
+        if value.get("@id") == target_id:
             return True
         return any(_walk_contains_id(child, target_id) for child in value.values())
     if isinstance(value, list):
@@ -308,7 +308,7 @@ def _select_primary_entity(
     original_id: Optional[str],
     original_types: Sequence[str],
 ) -> Tuple[Optional[Dict[str, Any]], Optional[str]]:
-    """Pick the one framed entity that matches the original id or type."""
+    """Pick the one framed entity that matches the original @id or type."""
     candidates = _extract_candidates(framed)
     if not candidates:
         return None, "Framed output did not contain any candidate entities"
@@ -317,14 +317,13 @@ def _select_primary_entity(
         matches = [
             item
             for item in candidates
-            if original_id in _value_as_strings(item.get("id"))
-            or original_id in _value_as_strings(item.get("@id"))
+            if original_id in _value_as_strings(item.get("@id"))
         ]
         if len(matches) == 1:
             return matches[0], None
         if not matches:
-            return None, f"No framed entity matched original id '{original_id}'"
-        return None, f"Multiple framed entities matched original id '{original_id}'"
+            return None, f"No framed entity matched original @id '{original_id}'"
+        return None, f"Multiple framed entities matched original @id '{original_id}'"
 
     expected_types = set(original_types)
     matches = [
@@ -433,12 +432,6 @@ def _prepare_schema_payload(primary: Dict[str, Any], schema_ref: str) -> Dict[st
     cleaned = _strip_internal_blank_ids(primary)
     if cleaned is _DROP or not isinstance(cleaned, dict):
         cleaned = {}
-
-    root_id = cleaned.get("@id")
-    if isinstance(root_id, str):
-        if "id" not in cleaned:
-            cleaned["id"] = root_id
-        cleaned.pop("@id", None)
 
     cleaned["@context"] = schema_ref
     return cleaned
@@ -597,6 +590,8 @@ def _prepare_input(
     context = data.get("@context")
     if context is None:
         errors.append("Missing data.@context")
+    if not isinstance(data.get("@id"), str):
+        errors.append("Missing data.@id")
     if "@type" not in data:
         errors.append("Missing data.@type")
     if errors:
@@ -663,11 +658,7 @@ def _prepare_input(
             "inline_context": inline_context,
             "frame_inline": frame_inline,
             "data_with_context": _data_with_context(data, inline_context),
-            "original_id": (
-                data.get("id")
-                if isinstance(data.get("id"), str)
-                else data.get("@id")
-            ),
+            "original_id": data.get("@id") if isinstance(data.get("@id"), str) else None,
             "original_types": _value_as_strings(data.get("@type")),
         }
     )
