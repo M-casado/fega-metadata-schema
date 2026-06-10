@@ -39,8 +39,17 @@
         },
 
         "@id": {
-          "description": "The JSON-LD node identifier used as RDF subject identity and for relationship links. Must be a URI or a CURIE that can be expanded through the active JSON-LD context.",
-          "$ref": "../common/schema.json#$defs/@id"
+            "type": "string",
+            "description": "The JSON-LD node identifier used as RDF subject identity and for relationship links. Must be a URI or a CURIE that can be expanded through the active JSON-LD context.",
+            "examples": [ "ega:EGAC00000000001", "biosample:SAMEA112654070", "https://www.ebi.ac.uk/biosamples/samples/SAMEA112654070" ],
+            "anyOf": [
+                {
+                    "format": "uri"                    
+                },
+                {
+                    "$ref": "../common/schema.json#/$defs/curieGeneralPattern"
+                }
+            ]
         },
 
         "@type": {
@@ -275,16 +284,7 @@
             "required": ["@id"],
             "properties": {
               "@id": {
-                "type": "string",
-                "examples": [ "ega:EGAC00000000001", "biosample:SAMEA112654070", "https://www.ebi.ac.uk/biosamples/samples/SAMEA112654070" ],
-                "anyOf": [
-                    {
-                        "format": "uri"
-                    },
-                    {
-                        "$ref": "../common/schema.json#/$defs/curieGeneralPattern"
-                    }
-                ]
+                "$ref": "../common/schema.json#/$defs/@id"
               },
               "@type": { "$ref": "../common/schema.json#/$defs/@type" }
             },
