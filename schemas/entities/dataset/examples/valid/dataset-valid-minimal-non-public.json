@@ -14,12 +14,83 @@
     "datasetType": [
       "whole genome sequencing"
     ],
+    "dct:type": [
+      {
+        "@id": "http://publications.europa.eu/resource/authority/dataset-type/SYNTHETIC_DATA"
+      }
+    ],
     "hasPart": [
       {
         "id": "ega:EGAF00000000001",
         "@type": "ega:datafile"
       }
     ],
-    "hasPolicy": "ega:EGAP00000000001"
+    "hasPolicy": "ega:EGAP00000000001",
+    "dct:accessRights": {
+      "@id": "http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC"
+    },
+    "dcatap:applicableLegislation": [
+      {
+        "@id": "http://data.europa.eu/eli/reg/2016/679/2016-05-04"
+      }
+    ],
+    "dcat:distribution": [
+      {
+        "@id": "https://ega-archive.org/datasets/EGAD00000000002/request",
+        "@type": "dcat:Distribution",
+        "dcatap:applicableLegislation": [
+          {
+            "@id": "http://data.europa.eu/eli/reg/2016/679/2016-05-04"
+          }
+        ]
+      }
+    ],
+    "dcat:theme": [
+      {
+        "@id": "http://publications.europa.eu/resource/authority/data-theme/HEAL"
+      }
+    ],
+    "healthdcatap:healthCategory": [
+      {
+        "@id": "http://publications.europa.eu/resource/authority/health-category/GEN"
+      }
+    ],
+    "healthdcatap:hdab": {
+      "@id": "https://example.org/agents/hdab-minimal-001",
+      "@type": "foaf:Organization",
+      "cv:contactPoint": {
+        "@id": "https://example.org/contact-points/hdab-minimal-001"
+      }
+    },
+    "dcat:contactPoint": [
+      {
+        "@id": "https://example.org/contact-points/hdab-minimal-001",
+        "@type": [
+          "vcard:Kind",
+          "cv:ContactPoint"
+        ],
+        "vcard:hasURL": {
+          "@id": "https://www.test-dataset-helpdesk.example.org"
+        },
+        "cv:contactPage": {
+          "@id": "https://example.org/contact/hdab-helpdesk"
+        }
+      }
+    ],
+    "dcat:keyword": [
+      {
+        "@value": "genomics",
+        "@language": "en"
+      }
+    ],
+    "dct:provenance": [
+      {
+        "@type": "dct:ProvenanceStatement",
+        "rdfs:label": {
+          "@value": "Minimal controlled-access genome dataset example for FEGA validation.",
+          "@language": "en"
+        }
+      }
+    ]
   }
 }

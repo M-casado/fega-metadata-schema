@@ -646,18 +646,6 @@
             "uniqueItems": true,
             "meta:sssomMappings": [
                 {
-                    "predicate_id": "skos:narrowMatch",
-                    "object_id": "dct:type",
-                    "mapping_justification": "semapv:ManualMappingCuration",
-                    "object_match_field": "rdfs:label",
-                    "subject_match_field": "rdfs:label",
-                    "author_id": ["orcid:0000-0002-7747-6256"],
-                    "creator_id": ["orcid:0000-0002-7747-6256"],
-                    "reviewer_id": [""],
-                    "confidence": 1.0,
-                    "mapping_date": "2026-01-28"
-                },
-                {
                     "predicate_id": "skos:closeMatch",
                     "object_id": "egav1crg:DatasetRequest#dataset_types",
                     "mapping_justification": "semapv:ManualMappingCuration",
@@ -682,62 +670,28 @@
                     "mapping_date": "2026-01-30"
                 }
             ],
-            "items": { 
+            "items": {
                 "type": "string",
-                "anyOf": [
-                    {
-                        "$comment": "Controlled Vocabulary list for dataset types from EGA v1 model.",
-                        "enum": [ "whole genome sequencing", "exome sequencing", "genotyping by array", "transcriptome profiling by high-throughput sequencing", "transcriptome profiling by array", "amplicon sequencing", "methylation binding domain sequencing", "methylation profiling by high-throughput sequencing", "phenotype information", "genomic variant calling", "chromatin accessibility profiling by high-throughput sequencing", "histone modification profiling by high-throughput sequencing", "chip-Seq", "study summary information" ],
-                        "meta:enum": { 
-                            "whole genome sequencing": "[topic:3673]: laboratory technique to sequence the complete DNA sequence of an organism's genome at a single time",
-                            "exome sequencing": "[EFO:0005396]: exome sequencing, also known as whole exome sequencing (WES), is a genomic technique for sequencing all of he protein-coding regions of genes in a genome (known as the exome). Exons (the subset of DNA that encodes proteins) are selected, and the exonic DNA is then sequenced using any high-throughput DNA sequencing technology",
-                            "genotyping by array": "[EFO:0002767]: An assay in which an array is used detect polymorphisms in DNA samples",
-                            "transcriptome profiling by high-throughput sequencing": "[EFO:0002770]: A method used to assess the transcriptome of a biological sample using a high-throughput sequencing platform",
-                            "transcriptome profiling by array": "[EFO:0002768]: An assay in which the transcriptome of a biological sample is analysed using array technology",
-                            "amplicon sequencing": "[EFO:0003747]: An assay in which a DNA or RNA input molecule amplified by PCR is sequenced",
-                            "methylation binding domain sequencing": "[EFO:0003750]: An assay in which DNA is the input molecule derived from a selection process using methyl binding domain protein to enrich for methylated fractions of DNA, then sequenced using high throughput sequencing",
-                            "methylation profiling by high-throughput sequencing": "[EFO:0002761]: An assay in which the methylation state of DNA is determined and is compared between samples using sequencing based technology",
-                            "phenotype information": "[EFO:0000651]: The observable form taken by some character (or group of characters) in an individual or an organism, excluding pathology and disease. The detectable outward manifestations of a specific genotype",
-                            "genomic variant calling": "[operation:3227]: Detect, identify and map mutations, such as single nucleotide polymorphisms, short indels and structural variants, in multiple DNA sequences. Typically the alignment and comparison of the fluorescent traces produced by DNA sequencing hardware, to study genomic alterations",
-                            "chromatin accessibility profiling by high-throughput sequencing": "[EFO:0007045]: Assay for transposase-accessible chromatin using sequencing (ATAC-seq), is a method based on direct in vitro transposition of sequencing adaptors into native chromatin, and is a rapid and sensitive method for integrative epigenomic analysis. ATAC-seq captures open chromatin sites using a simple two-step protocol",
-                            "histone modification profiling by high-throughput sequencing": "Sequencing assay revolving around post-translational processing of amino acids within histone proteins",
-                            "chip-Seq": "[EFO:0002692]: ChIP-seq is an assay in which chromatin immunoprecipitation with high throughput sequencing is used to identify the cistrome of DNA-associated proteins",
-                            "study summary information": "Object containing complementary summaries of other objects"
-                        }
-                    },
-                    {
-                        "enum": [ "APROF", "ATTO_LEX", "ATTO_PUB", "CODE_LIST", "CORE_COMP", "DIRECTORY", "DOMAIN_MODEL", "DSCRP_SERV", "GEOSPATIAL", "GLOSSARY", "HVD", "IEPD", "MAPPING", "NAL", "ONTOLOGY", "OP_DATPRO", "RELEASE", "SCHEMA", "STATISTICAL", "STYLES", "SYNTHETIC_DATA", "SYNTAX_ECD_SCHEME", "TAXONOMY", "TEST_DATA", "THESAURUS" ],
-                        "meta:enum": {
-                            "APROF": "http://publications.europa.eu/resource/authority/dataset-type/APROF",
-                            "ATTO_LEX": "http://publications.europa.eu/resource/authority/dataset-type/ATTO_LEX",
-                            "ATTO_PUB": "http://publications.europa.eu/resource/authority/dataset-type/ATTO_PUB",
-                            "CODE_LIST": "http://publications.europa.eu/resource/authority/dataset-type/CODE_LIST",
-                            "CORE_COMP": "http://publications.europa.eu/resource/authority/dataset-type/CORE_COMP",
-                            "DIRECTORY": "http://publications.europa.eu/resource/authority/dataset-type/DIRECTORY",
-                            "DOMAIN_MODEL": "http://publications.europa.eu/resource/authority/dataset-type/DOMAIN_MODEL",
-                            "DSCRP_SERV": "http://publications.europa.eu/resource/authority/dataset-type/DSCRP_SERV",
-                            "GEOSPATIAL": "http://publications.europa.eu/resource/authority/dataset-type/GEOSPATIAL",
-                            "GLOSSARY": "http://publications.europa.eu/resource/authority/dataset-type/GLOSSARY",
-                            "HVD": "http://publications.europa.eu/resource/authority/dataset-type/HVD",
-                            "IEPD": "http://publications.europa.eu/resource/authority/dataset-type/IEPD",
-                            "MAPPING": "http://publications.europa.eu/resource/authority/dataset-type/MAPPING",
-                            "NAL": "http://publications.europa.eu/resource/authority/dataset-type/NAL",
-                            "ONTOLOGY": "http://publications.europa.eu/resource/authority/dataset-type/ONTOLOGY",
-                            "OP_DATPRO": "http://publications.europa.eu/resource/authority/dataset-type/OP_DATPRO",
-                            "RELEASE": "http://publications.europa.eu/resource/authority/dataset-type/RELEASE",
-                            "SCHEMA": "http://publications.europa.eu/resource/authority/dataset-type/SCHEMA",
-                            "STATISTICAL": "http://publications.europa.eu/resource/authority/dataset-type/STATISTICAL",
-                            "STYLES": "http://publications.europa.eu/resource/authority/dataset-type/STYLES",
-                            "SYNTHETIC_DATA": "http://publications.europa.eu/resource/authority/dataset-type/SYNTHETIC_DATA",
-                            "SYNTAX_ECD_SCHEME": "http://publications.europa.eu/resource/authority/dataset-type/SYNTAX_ECD_SCHEME",
-                            "TAXONOMY": "http://publications.europa.eu/resource/authority/dataset-type/TAXONOMY",
-                            "TEST_DATA": "http://publications.europa.eu/resource/authority/dataset-type/TEST_DATA",
-                            "THESAURUS": "http://publications.europa.eu/resource/authority/dataset-type/THESAURUS"
-                        }
-                    }
-                ]
+                "$comment": "Controlled Vocabulary list for dataset types from EGA v1 model.",
+                "enum": [ "whole genome sequencing", "exome sequencing", "genotyping by array", "transcriptome profiling by high-throughput sequencing", "transcriptome profiling by array", "amplicon sequencing", "methylation binding domain sequencing", "methylation profiling by high-throughput sequencing", "phenotype information", "genomic variant calling", "chromatin accessibility profiling by high-throughput sequencing", "histone modification profiling by high-throughput sequencing", "chip-Seq", "study summary information" ],
+                "meta:enum": {
+                    "whole genome sequencing": "[topic:3673]: laboratory technique to sequence the complete DNA sequence of an organism's genome at a single time",
+                    "exome sequencing": "[EFO:0005396]: exome sequencing, also known as whole exome sequencing (WES), is a genomic technique for sequencing all of he protein-coding regions of genes in a genome (known as the exome). Exons (the subset of DNA that encodes proteins) are selected, and the exonic DNA is then sequenced using any high-throughput DNA sequencing technology",
+                    "genotyping by array": "[EFO:0002767]: An assay in which an array is used detect polymorphisms in DNA samples",
+                    "transcriptome profiling by high-throughput sequencing": "[EFO:0002770]: A method used to assess the transcriptome of a biological sample using a high-throughput sequencing platform",
+                    "transcriptome profiling by array": "[EFO:0002768]: An assay in which the transcriptome of a biological sample is analysed using array technology",
+                    "amplicon sequencing": "[EFO:0003747]: An assay in which a DNA or RNA input molecule amplified by PCR is sequenced",
+                    "methylation binding domain sequencing": "[EFO:0003750]: An assay in which DNA is the input molecule derived from a selection process using methyl binding domain protein to enrich for methylated fractions of DNA, then sequenced using high throughput sequencing",
+                    "methylation profiling by high-throughput sequencing": "[EFO:0002761]: An assay in which the methylation state of DNA is determined and is compared between samples using sequencing based technology",
+                    "phenotype information": "[EFO:0000651]: The observable form taken by some character (or group of characters) in an individual or an organism, excluding pathology and disease. The detectable outward manifestations of a specific genotype",
+                    "genomic variant calling": "[operation:3227]: Detect, identify and map mutations, such as single nucleotide polymorphisms, short indels and structural variants, in multiple DNA sequences. Typically the alignment and comparison of the fluorescent traces produced by DNA sequencing hardware, to study genomic alterations",
+                    "chromatin accessibility profiling by high-throughput sequencing": "[EFO:0007045]: Assay for transposase-accessible chromatin using sequencing (ATAC-seq), is a method based on direct in vitro transposition of sequencing adaptors into native chromatin, and is a rapid and sensitive method for integrative epigenomic analysis. ATAC-seq captures open chromatin sites using a simple two-step protocol",
+                    "histone modification profiling by high-throughput sequencing": "Sequencing assay revolving around post-translational processing of amino acids within histone proteins",
+                    "chip-Seq": "[EFO:0002692]: ChIP-seq is an assay in which chromatin immunoprecipitation with high throughput sequencing is used to identify the cistrome of DNA-associated proteins",
+                    "study summary information": "Object containing complementary summaries of other objects"
+                }
             },
-            "$comment": "It may be better to infer the type of assay through the protocols/process connected to the datasets, rather than having it defined by the user. Furthermore, the 'overarching type' of DCAT may be better suited for this attribute."
+            "$comment": "It may be better to infer the type of assay through the protocols/process connected to the datasets, rather than having it defined by the user. DCAT dataset genre/category is represented separately with dct:type and validated by the DCAT/HealthDCAT SHACL profile."
         },
 
         "version": {

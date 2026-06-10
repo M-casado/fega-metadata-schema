@@ -3,7 +3,11 @@
     "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/dataset/schema.json"
   },
   "data": {
-    "@type": "ega:cohort",
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/dataset/schema.json",
+    "@type": [
+      "ega:cohort",
+      "dcat:Dataset"
+    ],
     "id": "fega:EGAD00000000005",
     "title": "Cardiometabolic genome sequencing dataset",
     "description": "Controlled-access genome dataset from a cardiometabolic sequencing study.",

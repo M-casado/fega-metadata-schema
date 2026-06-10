@@ -23,8 +23,12 @@
       ],
       "modificationDate": "2026-03-10T15:30:00Z",
       "datasetType": [
-        "whole genome sequencing",
-        "STATISTICAL"
+        "whole genome sequencing"
+      ],
+      "dct:type": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/dataset-type/STATISTICAL"
+        }
       ],
       "hasPolicy": "ega:EGAP00001000001",
       "sameAs": [
