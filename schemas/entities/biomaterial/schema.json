@@ -124,9 +124,9 @@
           ]
         },
 
-        "id": {
-          "$ref": "../../common/schema.json#/$defs/id",
-          "examples": ["fega:EGAN00001000620", "fega:EGAN00000000001", "https://ega-archive.org/biomaterials/EGAN00000000001"],
+        "@id": {
+          "$ref": "../../common/schema.json#/$defs/@id",
+          "examples": ["ega:EGAN00001000620", "ega:EGAN00000000001", "https://ega-archive.org/biomaterials/EGAN00000000001"],
           "$comment": "Depending on how we want to use this ID, we could: (1) transform it into an array of IDs, instead of using the 'sameAs' array; (2) add the 'readOnly': true, so that it's implied that we don't expect users to provide their IDs, although there may be occasions in which we want."
         },
 
@@ -1131,7 +1131,7 @@
           },
           "then": {
             "$comment": "Biomaterial properties required or disallowed for this type of biomaterial. The way we encode 'properties' as 'false', instead of using 'not' is for the validation error report to be more informative. With 'not', the validator can't inform the user which property is infringing the validation.",
-            "required": ["id", "label", "sex"],
+            "required": ["label", "sex"],
             "properties": {
               "samplingSource": false,
               "storageConditions": false,
@@ -1163,7 +1163,7 @@
           },
           "then": {
             "$comment": "Biomaterial properties required or disallowed for this type of biomaterial. The way we encode 'properties' as 'false', instead of using 'not' is for the validation error report to be more informative. With 'not', the validator can't inform the user which property is infringing the validation.",
-            "required": [ "id", "label" ],
+            "required": [ "label" ],
             "properties": {
               "sex": false,
               "dateOfBirth": false,

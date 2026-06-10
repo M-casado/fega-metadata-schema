@@ -4,11 +4,12 @@
   },
   "data": {
     "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/dataset/schema.json",
+    "@id": "ega:EGAD00000000006",
     "@type": [
       "ega:dataset",
       "dcat:Dataset"
     ],
-    "id": "fega:EGAD00000000006",
+    "id": "ega:EGAD00000000006",
     "title": "Cardiometabolic genome sequencing dataset",
     "description": "Controlled-access genome dataset from a cardiometabolic sequencing study.",
     "datasetType": [
@@ -16,7 +17,7 @@
     ],
     "hasPart": [
       {
-        "id": "ega:EGAN00000000006",
+        "@id": "ega:EGAN00000000006",
         "@type": "ega:biomaterial"
       }
     ],

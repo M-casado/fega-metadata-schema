@@ -11,11 +11,19 @@
     "name": "Minimal Computational Workflow",
     "url": "https://example.org/workflows/minimal",
     "version": "1.0.0",
-    "programmingLanguage": ["Python"],
-    "creator": [{ "name": "Jane Doe" }],
+    "programmingLanguage": [
+      "Python"
+    ],
+    "creator": [
+      {
+        "name": "Jane Doe"
+      }
+    ],
     "dateCreated": "2026-01-01",
     "license": "https://spdx.org/licenses/Apache-2.0",
-    "sdPublisher": { "name": "European Genome-phenome Archive" },
+    "sdPublisher": {
+      "name": "European Genome-phenome Archive"
+    },
     "sameAs": []
   }
 }

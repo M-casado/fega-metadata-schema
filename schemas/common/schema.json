@@ -8,10 +8,10 @@
     "description": "Metadata schema for common definitions inherited by other FEGA metadata schemas.",
     "@context": "./context.jsonld",
     "$defs": {
-        "id": {
+        "externalIdentifier": {
           "type": "string",
-          "title": "Identifier",
-          "description": "A globally unique identifier. Must be a URI (e.g., https://github.com/EGA-archive/fega-metadata-schema) or CURIE (e.g., 'fega:EGAN000000001').",
+          "title": "External identifier",
+          "description": "An external or domain identifier literal. It is not JSON-LD node identity, use '@id' as the authoritative identity of a metadata record. Value of 'externalIdentifier' and '@id' may be the same in cases where the external identifier is used as the primary key (e.g., Beacon-v2). Must be a URI (e.g., https://github.com/EGA-archive/fega-metadata-schema) or CURIE (e.g., 'ega:EGAN000000001').",
           "meta:sssomMappings": [
             {
               "predicate_id": "skos:exactMatch",
@@ -35,7 +35,12 @@
               "$ref": "../common/schema.json#/$defs/curieGeneralPattern"
             }
           ],
-          "examples": ["fega:EGAN00001000620", "https://github.com/EGA-archive/fega-metadata-schema", "fega:EGAN00000000001", "https://ega-archive.org/biomaterials/EGAN00000000001", "https://ror.org/02catss52"]
+          "examples": ["ega:EGAN00001000620", "https://github.com/EGA-archive/fega-metadata-schema", "ega:EGAN00000000001", "https://ega-archive.org/biomaterials/EGAN00000000001", "https://ror.org/02catss52"]
+        },
+
+        "@id": {
+          "description": "The JSON-LD node identifier used as RDF subject identity and for relationship links. Must be a URI or a CURIE that can be expanded through the active JSON-LD context.",
+          "$ref": "../common/schema.json#$defs/@id"
         },
 
         "@type": {
@@ -266,10 +271,10 @@
         "relationshipItem": {
             "type": "object",
             "title": "Relationship item",
-            "description": "This entity is expected to be referenced where needed, as it contains the basic format of a relationship item. Each of the items is expected to be one of the ends of the possible relationships in a linked metadata entity.",
-            "required": ["id"],
+            "description": "This entity is expected to be referenced where needed, as it contains the basic format of a relationship item. Each item uses '@id' to define the JSON-LD/RDF identity of the related node (i.e., the object of the relationship).",
+            "required": ["@id"],
             "properties": {
-              "id": {
+              "@id": {
                 "type": "string",
                 "examples": [ "ega:EGAC00000000001", "biosample:SAMEA112654070", "https://www.ebi.ac.uk/biosamples/samples/SAMEA112654070" ],
                 "anyOf": [
@@ -297,14 +302,14 @@
             "examples": [
                 [
                     {
-                        "id": "ega:EGAC00000000002",
+                        "@id": "ega:EGAC00000000002",
                         "@type": "ega:cohort"
                     },
                     {
-                        "id": "ega:EGAC00000000003"
+                        "@id": "ega:EGAC00000000003"
                     },
                     {
-                        "id": "https://github.com/EGA-archive/fega-metadata-schema"
+                        "@id": "https://github.com/EGA-archive/fega-metadata-schema"
                     }
                 ]
             ]
@@ -1567,7 +1572,7 @@
                     ],
                     "examples": [
                         {
-                            "id": "https://www.protocols.io/view/fluorescence-measurement-j8nlkeek5l5r/v1"
+                            "@id": "https://www.protocols.io/view/fluorescence-measurement-j8nlkeek5l5r/v1"
                         },
                         {
                             "id": "OBI:0002730",
@@ -1751,7 +1756,7 @@
             ],
             "anyOf": [
                 {"required": [ "label" ]},
-                {"required": [ "id" ]}
+                {"required": [ "@id" ]}
             ],
             "properties": {
                 "@type": {
@@ -1773,8 +1778,8 @@
                         }
                     ]
                 },
-                "id": {
-                    "$ref": "../common/schema.json#/$defs/id"
+                "@id": {
+                    "$ref": "../common/schema.json#/$defs/@id"
                 },
                 "name": {
                     "$ref": "../common/schema.json#/$defs/label"
@@ -1791,12 +1796,12 @@
             "examples": [
                 {
                     "@type": ["prov:Agent", "prov:Person"],
-                    "id": "orcid:0000-0002-7747-6256",
+                    "@id": "orcid:0000-0002-7747-6256",
                     "label": "Marcos Casado"
                 },
                 {
                     "@type": [ "prov:Agent", "prov:Organization" ],
-                    "id": "https://ror.org/02catss52",
+                    "@id": "https://ror.org/02catss52",
                     "label": "European Bioinformatics Institute (EMBL-EBI)",
                     "atLocation": {
                         "id": "GAZ:00004795",
@@ -1804,7 +1809,7 @@
                     },
                     "sameAs": [
                         {
-                            "id": "https://www.ebi.ac.uk/"
+                            "@id": "https://www.ebi.ac.uk/"
                         }
                     ]
                 }
@@ -2647,7 +2652,7 @@
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
-                    "object_id": "dcterms:isPartOf",
+                    "object_id": "dct:isPartOf",
                     "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
@@ -2680,7 +2685,7 @@
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
-                    "object_id": "dcterms:hasPart",
+                    "object_id": "dct:hasPart",
                     "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",

@@ -4,12 +4,12 @@
   },
   "data": {
     "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/biomaterial/schema.json",
+    "@id": "ega:EGAN00000000001",
     "@type": "ega:biomaterial",
     "biomaterialType": {
       "id": "COB:0000022",
       "label": "organism"
     },
-    "id": "fega:EGAN00000000001",
     "label": "SUBJECT-0001",
     "sex": {
       "phenotypicSex": {

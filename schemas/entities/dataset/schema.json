@@ -57,7 +57,6 @@
         }
     ],
     "required": [
-        "id",
         "@type",
         "title",
         "description",
@@ -66,9 +65,13 @@
         "hasPolicy"
      ],
     "properties": {
+        "@id": {
+            "$ref": "../../common/schema.json#/$defs/@id"
+        },
+
         "id": {
-            "allOf": [ 
-                { "$ref": "../../common/schema.json#/$defs/id" } 
+            "allOf": [
+                { "$ref": "../../common/schema.json#/$defs/externalIdentifier" }
             ],
             "meta:sssomMappings": [
                 {
@@ -468,12 +471,12 @@
                 }
             ],
             "anyOf": [
-                { "$ref": "../../common/schema.json#/$defs/id" },
+                { "$ref": "../../common/schema.json#/$defs/externalIdentifier" },
                 {
                     "minItems": 1,
                     "uniqueItems": true,
                     "items": { 
-                        "$ref": "../../common/schema.json#/$defs/id" 
+                        "$ref": "../../common/schema.json#/$defs/externalIdentifier"
                     }
                 }
             ],
@@ -589,12 +592,12 @@
                 }
             ],
             "anyOf": [
-                { "$ref": "../../common/schema.json#/$defs/id" },
+                { "$ref": "../../common/schema.json#/$defs/externalIdentifier" },
                 {
                     "minItems": 1,
                     "uniqueItems": true,
                     "items": { 
-                        "$ref": "../../common/schema.json#/$defs/id" 
+                        "$ref": "../../common/schema.json#/$defs/externalIdentifier"
                     }
                 }
             ]
@@ -1030,7 +1033,7 @@
                 }
             ],
             "allOf": [
-                { "$ref": "../../common/schema.json#/$defs/id" }
+                { "$ref": "../../common/schema.json#/$defs/externalIdentifier" }
             ],
             "examples": ["ega:EGAP00001000001"]
         },

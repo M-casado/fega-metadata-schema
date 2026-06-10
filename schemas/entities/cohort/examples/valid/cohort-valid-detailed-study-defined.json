@@ -4,73 +4,74 @@
   },
   "data": {
     "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/cohort/schema.json",
+    "@id": "ega:EGAH00000000001",
+    "@type": "ega:cohort",
     "name": "GCAT Genomes for Life",
     "id": "ega:EGAH00000000001",
-    "@type": "ega:cohort",
     "description": "Longitudinal population cohort integrating clinical history, genotyping, and survey data for adult participants in Catalonia.",
     "cohortDataTypes": [
-        {
-            "id": "OGMS:0000015",
-            "label": "clinical history"
-        },
-        {
-          "id": "OBI:0000070",
-          "label": "genotyping assay"
-        },
-        {
-          "id": "OMIABIS:0000060",
-          "label": "survey data"
-        }
+      {
+        "id": "OGMS:0000015",
+        "label": "clinical history"
+      },
+      {
+        "id": "OBI:0000070",
+        "label": "genotyping assay"
+      },
+      {
+        "id": "OMIABIS:0000060",
+        "label": "survey data"
+      }
     ],
     "cohortDesign": {
-        "id": "OMIABIS:0001019",
-        "label": "longitudinal study design"
+      "id": "OMIABIS:0001019",
+      "label": "longitudinal study design"
     },
     "cohortSize": 20000,
     "cohortType": "study-defined",
     "inclusionCriteria": {
-        "ageRange": {
-            "end": {
-                "iso8601duration": "P40Y"
-            },
-            "start": {
-                "iso8601duration": "P18Y"
-            }
+      "ageRange": {
+        "end": {
+          "iso8601duration": "P40Y"
         },
-        "genders": [
-            {
-                "id": "NCIT:C16576",
-                "label": "female"
-            },
-            {
-                "id": "NCIT:C20197",
-                "label": "male"
-            }
-        ],
-        "locations": [
-            {
-                "id": "GAZ:00004501",
-                "label": "Catalonia Autonomous Community"
-            }
-        ]
+        "start": {
+          "iso8601duration": "P18Y"
+        }
+      },
+      "genders": [
+        {
+          "id": "NCIT:C16576",
+          "label": "female"
+        },
+        {
+          "id": "NCIT:C20197",
+          "label": "male"
+        }
+      ],
+      "locations": [
+        {
+          "id": "GAZ:00004501",
+          "label": "Catalonia Autonomous Community"
+        }
+      ]
     },
     "exclusionCriteria": {
-        "ageRange": {
-            "end": {
-                "iso8601duration": "P120Y"
-            },
-            "start": {
-                "iso8601duration": "P80Y"
-            }
+      "ageRange": {
+        "end": {
+          "iso8601duration": "P120Y"
         },
-        "diseaseConditions": [
-            {
-                "diseaseCode": {
-                    "id": "MONDO:0004992",
-                    "label": "cancer"
-                }
-            }
-        ]
+        "start": {
+          "iso8601duration": "P80Y"
+        }
+      },
+      "diseaseConditions": [
+        {
+          "diseaseCode": {
+            "id": "MONDO:0004992",
+            "label": "cancer"
+          }
+        }
+      ]
     },
     "collectionEvents": [
       {
@@ -94,23 +95,23 @@
     ],
     "sameAs": [
       {
-        "id": "ega:EGAC00000000002",
+        "@id": "ega:EGAC00000000002",
         "@type": "ega:cohort"
       },
       {
-        "id": "ega:EGAC00000000003",
+        "@id": "ega:EGAC00000000003",
         "@type": "ega:cohort"
       }
     ],
     "isPartOf": [
       {
-        "id": "ega:EGAS00000000001",
+        "@id": "ega:EGAS00000000001",
         "@type": "ega:study"
       }
     ],
     "hadMember": [
       {
-        "id": "ega:EGAN00000000001",
+        "@id": "ega:EGAN00000000001",
         "@type": "ega:biomaterial"
       }
     ]

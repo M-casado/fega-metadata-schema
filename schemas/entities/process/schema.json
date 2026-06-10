@@ -113,8 +113,8 @@
     ],
     "required": [ "title", "hadProtocolCollection" ],
     "properties": {
-        "id": {
-          "$ref": "../../common/schema.json#/$defs/id",
+        "@id": {
+          "$ref": "../../common/schema.json#/$defs/@id",
           "examples": ["ega:EGAK00001000620"],
           "$comment": "Example to be updated when FEGA identifiers (EGAK...) are finalized for new entity types."
         },
@@ -140,7 +140,7 @@
             ],
             "examples": [
                 {
-                    "id": "ega:EGAW00000000001",
+                    "@id": "ega:EGAW00000000001",
                     "@type": "ega:protocolCollection",
                     "label": "DNA extraction protocol collection"
                 }
@@ -160,13 +160,13 @@
             "examples": [
                 {
                     "agent": {
-                        "id": "urn:uuid:person-jane-doe",
+                        "@id": "urn:uuid:person-jane-doe",
                         "@type": [ "prov:Agent", "prov:Person" ],
                         "label": "Jane Doe"
                     },
                     "hadRole": [
                         {
-                            "id": "https://credit.niso.org/contributor-roles/supervision/",
+                            "@id": "https://credit.niso.org/contributor-roles/supervision/",
                             "label": "Supervision"
                         }
                     ]
@@ -174,18 +174,18 @@
                 {
                     "agent": {
                         "@type": [ "prov:Agent", "prov:Organization" ],
-                        "id": "https://ror.org/055vbxf86",
+                        "@id": "https://ror.org/055vbxf86",
                         "label": "Addenbrooke's Hospital"
                     },
                     "hadRole": [
                         {
-                            "id": "https://credit.niso.org/contributor-roles/resources/",
+                            "@id": "https://credit.niso.org/contributor-roles/resources/",
                             "label": "Resources"
                         }
                     ],
                     "hadPlan": [
                         {
-                            "id": "ega:EGAK00001000621",
+                            "@id": "ega:EGAK00001000621",
                             "@type": "ega:protocol",
                             "label": "Provision of patient samples"
                         }
@@ -264,7 +264,7 @@
             ],
             "examples": [
                 {
-                    "id": "ega:EGAN00090000001",
+                    "@id": "ega:EGAN00090000001",
                     "@type": [ "ega:biomaterial", "prov:Person" ],
                     "label": "Participant PT-0001 (organism)"
                 }
@@ -287,7 +287,7 @@
             ],
             "examples": [
                 {
-                    "id": "biosample:SAMEA12345678",
+                    "@id": "biosample:SAMEA12345678",
                     "@type": [ "ega:biomaterial" ],
                     "label": "Whole blood (EDTA), PT-0001"
                 }

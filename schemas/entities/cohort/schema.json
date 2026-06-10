@@ -25,6 +25,10 @@
     }
   ],
   "properties": {
+    "@id": {
+      "$ref": "../../common/schema.json#/$defs/@id"
+    },
+
     "@type": {
       "title": "Cohort resource type",
       "description": "The JSON-LD type for a FEGA cohort.",

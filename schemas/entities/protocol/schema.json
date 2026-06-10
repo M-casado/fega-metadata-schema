@@ -7,6 +7,7 @@
   "$async": true,
   "description": "Detailed plan of instructions on how a procedure is done. For example, sample preparation, sequencing or feature extraction techniques.",
   "@context": "./context.jsonld",
+  "$comment": "Protocol parameters may be added in the future to compare expected parameters from the protocol with values provided by an executed process. Candidate models include the process parameters array, schema:StatisticalVariable, and schema:PropertyValue.",
   "meta:sssomMappings": [
     {
       "predicate_id": "skos:broadMatch",
@@ -147,6 +148,10 @@
     }
   },
   "properties": {
+    "@id": {
+      "$ref": "../../common/schema.json#/$defs/@id"
+    },
+
     "@type": {
       "anyOf": [
         {
@@ -161,8 +166,6 @@
       ]
     },
 
-    "$comment": "#! Perhaps the addition of parameters (similar to 'parameters' array from process; or the 'variableMeasured' in Datasets/Studies) would be good, to compare what parameters are expected based on the protocol and which ones are provided in the process per se. To take inspiration from schema:StatisticalVariable and schema:PropertyValue.",
-    
     "sameAs": {
       "$ref": "../../common/schema.json#/$defs/sameAs"
     },

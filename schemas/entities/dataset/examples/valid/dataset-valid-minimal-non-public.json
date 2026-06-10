@@ -4,11 +4,12 @@
   },
   "data": {
     "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/dataset/schema.json",
+    "@id": "ega:EGAD00000000002",
     "@type": [
       "ega:dataset",
       "dcat:Dataset"
     ],
-    "id": "fega:EGAD00000000002",
+    "id": "ega:EGAD00000000002",
     "title": "Minimal controlled-access genome dataset",
     "description": "Small controlled-access dataset containing one aligned genome data file.",
     "datasetType": [
@@ -21,7 +22,7 @@
     ],
     "hasPart": [
       {
-        "id": "ega:EGAF00000000001",
+        "@id": "ega:EGAF00000000001",
         "@type": "ega:datafile"
       }
     ],

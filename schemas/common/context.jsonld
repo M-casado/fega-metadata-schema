@@ -1,6 +1,6 @@
 {
     "@context": {
-        "id": "@id",
+        "id": "schema:identifier",
         "label": "rdfs:label",
         "name": "schema:name",
         "description": "schema:description",
@@ -36,7 +36,7 @@
         "ega": "identifiers:ega:",
         "prov": "https://www.w3.org/ns/prov#",
         "owl": "https://www.w3.org/2002/07/owl#",
-        "skos": "https://www.w3.org/2009/08/skos-reference/skos.html#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
         "schema": "http://schema.org/",
         "bioschemastypes": "https://discovery.biothings.io/ns/bioschemas/bioschemas:",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
@@ -46,7 +46,7 @@
         "foaf": "http://xmlns.com/foaf/0.1/",
         "dpv": "https://w3id.org/dpv#",
         "adms": "http://www.w3.org/ns/adms#",
-        "odrl": "https://www.w3.org/TR/odrl-vocab/#",
+        "odrl": "http://www.w3.org/ns/odrl/2/",
         "vcard": "http://www.w3.org/2006/vcard/ns#",
         "cv": "http://data.europa.eu/m8g/",
 
@@ -93,11 +93,11 @@
             "@container": "@set"
         },
         "isPartOf": {
-            "@id": "prov:isPartOf",
+            "@id": "dct:isPartOf",
             "@container": "@set"
         },
         "hasPart": {
-            "@reverse": "isPartOf",
+            "@id": "dct:hasPart",
             "@container": "@set"
         },
         "wasInformedBy": {

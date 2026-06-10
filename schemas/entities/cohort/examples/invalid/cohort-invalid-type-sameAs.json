@@ -9,7 +9,7 @@
     "cohortType": "study-defined",
     "sameAs": [
       {
-        "id": "ega:EGAP00000000001",
+        "@id": "ega:EGAP00000000001",
         "@type": "ega:process"
       }
     ]

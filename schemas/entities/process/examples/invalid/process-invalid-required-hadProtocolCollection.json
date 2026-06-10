@@ -10,13 +10,13 @@
     "title": "DNA extraction run",
     "used": [
       {
-        "id": "ega:EGAN00000000001",
+        "@id": "ega:EGAN00000000001",
         "@type": "ega:biomaterial"
       }
     ],
     "generated": [
       {
-        "id": "ega:EGAN00000000002",
+        "@id": "ega:EGAN00000000002",
         "@type": "ega:biomaterial"
       }
     ]

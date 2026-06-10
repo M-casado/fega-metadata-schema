@@ -9,7 +9,7 @@
     "cohortType": "study-defined",
     "hadMember": [
       {
-        "id": "ega:EGAD00000000001",
+        "@id": "ega:EGAD00000000001",
         "@type": "ega:dataset"
       }
     ]
