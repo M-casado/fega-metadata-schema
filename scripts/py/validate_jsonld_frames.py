@@ -326,6 +326,9 @@ def _select_primary_entity(
         return None, f"Multiple framed entities matched original @id '{original_id}'"
 
     expected_types = set(original_types)
+    if not expected_types:
+        return None, "Rootless input did not provide any @type values for primary selection"
+
     matches = [
         item
         for item in candidates
@@ -590,8 +593,6 @@ def _prepare_input(
     context = data.get("@context")
     if context is None:
         errors.append("Missing data.@context")
-    if not isinstance(data.get("@id"), str):
-        errors.append("Missing data.@id")
     if "@type" not in data:
         errors.append("Missing data.@type")
     if errors:
