@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-"""Validate FEGA JSON-LD metadata against SHACL shapes (e.g., HealthDCAT-AP).
-
-Converts JSON-LD documents to RDF and validates them against SHACL constraints,
-reporting violations and type coverage metrics in JSON format.
-"""
+"""Validate FEGA example suites against RDF/SHACL shapes."""
 from __future__ import annotations
 
 import argparse
@@ -12,67 +8,63 @@ import json
 import logging
 import sys
 from pathlib import Path
-from typing import Any, Dict, List, Sequence, Set
+from typing import Any, Dict, List, Sequence, Set, Tuple
 
 try:
     from fega_tools.io import collect_candidate_json
-    from fega_tools.logging_utils import configure_logging
-    from fega_tools.rdf_utils import (
-        jsonld_to_rdf_graph,
-        load_rdf_from_file,
-        validate_against_shacl,
-        extract_types_from_graph,
-        collect_candidate_rdf,
-    )
     from fega_tools.jsonld_utils import (
         build_id_to_path_map,
         find_repo_root,
         materialize_context,
     )
+    from fega_tools.logging_utils import configure_logging
+    from fega_tools.rdf_utils import (
+        collect_candidate_rdf,
+        extract_types_from_graph,
+        jsonld_to_rdf_graph,
+        load_rdf_from_file,
+        validate_against_shacl,
+    )
+    from fega_tools.validation_common import (
+        BASIC_COUNT_KEYS as COUNT_KEYS,
+        CATEGORIES,
+        DEFAULT_ROOT,
+        INVALID_STATUS,
+        SCRIPT_ERROR_STATUS,
+        VALID_STATUS,
+        add_counts as add_validation_counts,
+        coverage_gaps_for_entity_category,
+        empty_counts as make_empty_counts,
+        find_entity_dirs,
+        find_example_coverage_gaps,
+        load_wrapped_example,
+        write_json_summary,
+    )
 except ModuleNotFoundError as exc:
     msg = (
-        "ERROR:  The helper package 'fega_tools' is not importable.\n"
-        "Make sure you have installed the repo in *editable* mode first. Run the following command from the repository root:\n"
+        "ERROR: The helper package 'fega_tools' is not importable.\n"
+        "Make sure you have installed the repo in editable mode first. Run this from the repository root:\n"
         "    pip install -e .\n"
         "Also ensure dependencies are installed:\n"
         "    pip install -r requirements.txt"
     )
     raise ModuleNotFoundError(msg) from exc
 
-logger = logging.getLogger(Path(__file__).stem)
 
-# -------
-# Discovery helpers
-# -------
+LOGGER = logging.getLogger(Path(__file__).stem)
 
-def filter_metadata_files(json_files: Sequence[Path]) -> List[Path]:
-    """Keep only those JSON files that expose 'data' and 'schema' keys.
+try:
+    from colorama import Fore as _Fore, Style as _Style
 
-    This filters for FEGA metadata documents that contain both schema
-    and data sections, which is the format expected by this validator.
-    """
-    valid: List[Path] = []
-    for fp in json_files:
-        try:
-            with fp.open("r", encoding="utf-8") as handle:
-                obj = json.load(handle)
-            if isinstance(obj, dict) and {"data", "schema"}.issubset(obj):
-                valid.append(fp)
-            else:
-                logger.debug(f"Missing 'data'/'schema' - skipping '{fp}'")
-        except (json.JSONDecodeError, IOError) as exc:
-            logger.warning(f"Cannot read file '{fp}': {exc}")
-    return valid
+    _BOLD_GREEN = _Style.BRIGHT + _Fore.GREEN
+    _BOLD_RED = _Style.BRIGHT + _Fore.RED
+    _ANSI_RESET = _Style.RESET_ALL
+except ModuleNotFoundError:
+    _BOLD_GREEN = _BOLD_RED = _ANSI_RESET = ""
 
-def extract_data_section(metadata_doc: Dict[str, Any]) -> Dict[str, Any]:
-    """Extract the 'data' section from a FEGA metadata document.
 
-    The 'data' section contains the actual JSON-LD document to validate,
-    while 'schema' contains the schema reference.
-    """
-    if "data" not in metadata_doc:
-        raise ValueError("Metadata document is missing 'data' section")
-    return metadata_doc["data"]
+SUMMARY_FILENAME = "shacl_summary.json"
+
 
 def materialize_data_context(
     jsonld_data: Dict[str, Any],
@@ -88,98 +80,82 @@ def materialize_data_context(
     data_copy["@context"] = materialize_context(context, input_path, id_to_path_map)
     return data_copy
 
-def _build_violation_summary(violations: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    """Build a concise, deduplicated violation summary.
 
-    Groups violations by message and shows unique constraint violations
-    without verbose repetition.
-
-    Args:
-        violations: List of violation dictionaries from SHACL validation.
-
-    Returns:
-        A concise list of unique violation types with their counts.
-    """
+def _build_violation_summary(violations: Sequence[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Build a concise, deduplicated violation summary."""
     if not violations:
         return []
-    
-    # Group violations by message
+
     message_counts: Dict[str, int] = {}
     unique_violations: List[Dict[str, Any]] = []
-    
-    for viol in violations:
-        msg = viol.get("message", "unknown")
-        
-        # Skip pure "unknown" violations without meaningful info
-        if msg == "unknown" and "constraint_type" not in viol:
+
+    for violation in violations:
+        message = violation.get("message", "unknown")
+        if message == "unknown" and "constraint_type" not in violation:
             continue
-            
-        # Use constraint type or message as the summary key
-        key = msg if msg != "unknown" else viol.get("constraint_type", "unknown")
-        
-        if key not in message_counts:
-            message_counts[key] = 0
-            unique_violations.append({
-                "message": msg,
-                "constraint_type": viol.get("constraint_type", ""),
-                "count": 1
-            })
-        else:
-            message_counts[key] += 1
-    
-    # Update counts in the list
-    result = []
-    for viol in unique_violations:
-        key = viol["message"] if viol["message"] != "unknown" else viol["constraint_type"]
-        viol["count"] = message_counts[key] + 1
-        result.append(viol)
-    
-    # Return first 10 unique violations
-    return result[:10]
 
-# -------
-# Type metrics
-# -------
+        key = message if message != "unknown" else violation.get("constraint_type", "unknown")
+        message_counts[key] = message_counts.get(key, 0) + 1
+        if message_counts[key] == 1:
+            unique_violations.append(
+                {
+                    "message": message,
+                    "constraint_type": violation.get("constraint_type", ""),
+                    "count": 1,
+                }
+            )
 
-def extract_expected_types_from_shapes(shape_graphs: List[Any]) -> Set[str]:
-    """Extract expected @types from SHACL shape graphs.
+    for violation in unique_violations:
+        key = violation["message"] if violation["message"] != "unknown" else violation["constraint_type"]
+        violation["count"] = message_counts[key]
 
-    Analyses the shapes to determine what target classes (types) they validate.
-    """
+    return unique_violations[:10]
+
+
+def build_error_messages(violations: Sequence[Dict[str, Any]]) -> List[str]:
+    """Return concise human-readable error messages for a SHACL failure."""
+    unique_messages: Dict[str, int] = {}
+    for violation in violations:
+        message = violation.get("message", "")
+        if message and message != "unknown":
+            unique_messages[message] = unique_messages.get(message, 0) + 1
+
+    error_messages = []
+    for message, count in sorted(unique_messages.items(), key=lambda item: item[1], reverse=True):
+        error_messages.append(f"{message} ({count})" if count > 1 else message)
+
+    return error_messages if error_messages else ["Validation failed"]
+
+
+def extract_expected_types_from_shapes(shape_graphs: Sequence[Any]) -> Set[str]:
+    """Extract expected RDF types from SHACL shape target classes."""
     from rdflib import Namespace
-    
-    SH = Namespace("http://www.w3.org/ns/shacl#")
+
+    sh = Namespace("http://www.w3.org/ns/shacl#")
     expected_types: Set[str] = set()
-    
+
     for graph in shape_graphs:
-        for target_class in graph.objects(predicate=SH.targetClass):
+        for target_class in graph.objects(predicate=sh.targetClass):
             expected_types.add(str(target_class))
-    
+
     return expected_types
 
-def build_type_metrics(
-    documents: Dict[str, Dict[str, Any]],
-    expected_types: Set[str]
-) -> Dict[str, Any]:
-    """Build metrics about @types found in documents vs expected by shapes.
 
-    Returns a dictionary with:
-        - types_found: set of types discovered in documents
-        - types_expected: set of types required by shapes
-        - types_missing: expected but not found
-        - types_unexpected: found but not expected
-        - type_coverage: fraction of expected types found
-    """
+def build_type_metrics(
+    documents: Sequence[Dict[str, Any]],
+    expected_types: Set[str],
+) -> Dict[str, Any]:
+    """Build metrics about RDF types found in documents vs expected by shapes."""
     types_found: Set[str] = set()
-    
-    for doc_types in documents.values():
-        for typ in doc_types.get("types", set()):
+
+    for document in documents:
+        for typ in document.get("types", []):
             types_found.add(typ)
-    
+
     types_missing = expected_types - types_found
     types_unexpected = types_found - expected_types
     coverage = len(types_found & expected_types) / len(expected_types) if expected_types else 1.0
-    
+
     return {
         "types_found": sorted(types_found),
         "types_expected": sorted(expected_types),
@@ -188,190 +164,335 @@ def build_type_metrics(
         "type_coverage": f"{coverage * 100:.1f}%",
     }
 
-# -------
-# Core validation routine
-# -------
 
-def validate_documents(
-    input_paths: Sequence[Path],
-    shapes_paths: Sequence[Path],
-) -> Dict[str, Any]:
-    """Validate metadata documents against SHACL shapes.
-
-    Args:
-        input_paths: Paths to JSON metadata files/directories.
-        shapes_paths: Paths to RDF shape files/directories.
-
-    Returns:
-        A summary dictionary with validation results and metrics.
-    """
-    # Discover metadata files
-    all_json = collect_candidate_json(input_paths)
-    metadata_files = filter_metadata_files(all_json)
-
-    if not metadata_files:
-        logger.error(
-            "No JSON metadata files with 'data' and 'schema' keys were found under the given inputs."
-        )
-        sys.exit(1)
-
-    logger.info(
-        f"Discovered {len(all_json)} JSON file(s); {len(metadata_files)} qualify for validation"
-    )
-    repo_root = find_repo_root(metadata_files[0].resolve())
-    id_to_path_map = build_id_to_path_map(repo_root)
-
-    # Discover and load shape files
-    all_shapes = collect_candidate_rdf(shapes_paths)
-    
-    if not all_shapes:
-        logger.error(
-            "No RDF shape files were found under the given inputs."
-        )
-        sys.exit(1)
-
-    logger.info(f"Discovered {len(all_shapes)} RDF shape file(s)")
-
-    # Load all shape graphs
-    shape_graphs = []
-    for shape_path in all_shapes:
-        try:
-            logger.debug(f"Loading shapes from '{shape_path}'")
-            graph = load_rdf_from_file(shape_path)
-            shape_graphs.append(graph)
-        except ValueError as exc:
-            logger.error(f"Failed to load shape file '{shape_path}': {exc}")
-            sys.exit(1)
-
-    # Merge all shape graphs into one
+def load_shapes(shapes_paths: Sequence[Path]) -> Tuple[List[Path], List[Any], Any, Set[str]]:
+    """Discover, parse, and merge SHACL shape files."""
     from rdflib import Graph
+
+    shape_files = collect_candidate_rdf(list(shapes_paths))
+    if not shape_files:
+        raise FileNotFoundError("No RDF shape files were found under the given inputs")
+
+    shape_graphs = []
+    for shape_path in shape_files:
+        try:
+            LOGGER.debug("Loading shapes from '%s'", shape_path)
+            shape_graphs.append(load_rdf_from_file(shape_path))
+        except ValueError as exc:
+            raise RuntimeError(f"Failed to load shape file '{shape_path}': {exc}") from exc
+
     merged_shapes = Graph()
     for graph in shape_graphs:
         merged_shapes += graph
 
     expected_types = extract_expected_types_from_shapes(shape_graphs)
-    logger.debug(f"Expected types from shapes: {expected_types}")
+    LOGGER.info("Discovered %d RDF shape file(s)", len(shape_files))
+    LOGGER.debug("Expected types from shapes: %s", expected_types)
 
-    # Validate each metadata file
-    failed_files: List[str] = []
-    errors_of_failed_files: Dict[str, List[str]] = {}
-    documents_info: Dict[str, Dict[str, Any]] = {}
-    shacl_reports: Dict[str, str] = {}  # Store raw SHACL reports
+    return shape_files, shape_graphs, merged_shapes, expected_types
 
-    for input_path in metadata_files:
-        logger.debug(f"Validating '{input_path}'")
-        
-        try:
-            with input_path.open("r", encoding="utf-8") as handle:
-                metadata_doc = json.load(handle)
 
-            # Extract the data section
-            jsonld_data = materialize_data_context(
-                extract_data_section(metadata_doc),
-                input_path,
-                id_to_path_map,
-            )
+def validate_file_shacl(
+    path: Path,
+    shapes_graph: Any,
+    id_to_path_map: Dict[str, Path],
+) -> Dict[str, Any]:
+    """Validate one wrapped FEGA metadata file against merged SHACL shapes."""
+    result: Dict[str, Any] = {"file": str(path)}
 
-            # Convert JSON-LD to RDF
-            data_graph = jsonld_to_rdf_graph(jsonld_data)
-            
-            # Extract types from the data graph for metrics
-            found_types = extract_types_from_graph(data_graph)
-            documents_info[str(input_path)] = {
-                "types": found_types,
+    try:
+        document = load_wrapped_example(path)
+        jsonld_data = materialize_data_context(document["data"], path, id_to_path_map)
+        data_graph = jsonld_to_rdf_graph(jsonld_data)
+        found_types = sorted(extract_types_from_graph(data_graph))
+        conforms, report_text, report_dict = validate_against_shacl(
+            data_graph=data_graph,
+            shapes_graph=shapes_graph,
+        )
+    except (OSError, json.JSONDecodeError, ValueError, KeyError) as exc:
+        result.update(
+            {
+                "status": SCRIPT_ERROR_STATUS,
+                "errors": [str(exc)],
                 "conforms": False,
-                "violations": []
+                "types": [],
+                "n_violations": 0,
+                "violation_summary": [],
             }
+        )
+        return result
 
-            logger.debug(f"Found types in document: {found_types}")
+    violations = report_dict.get("violations", [])
+    status = VALID_STATUS if conforms else INVALID_STATUS
+    result.update(
+        {
+            "status": status,
+            "conforms": conforms,
+            "types": found_types,
+            "n_violations": len(violations),
+            "violation_summary": _build_violation_summary(violations),
+            "shacl_report": report_text,
+        }
+    )
 
-            # Validate against shapes
-            conforms, report_text, report_dict = validate_against_shacl(
-                data_graph=data_graph,
-                shapes_graph=merged_shapes
-            )
+    if not conforms:
+        result["errors"] = build_error_messages(violations)
 
-            documents_info[str(input_path)]["conforms"] = conforms
-            documents_info[str(input_path)]["violations"] = report_dict.get("violations", [])
-            
-            # Store raw SHACL report for optional output
-            shacl_reports[str(input_path)] = report_text
+    return result
 
-            if conforms:
-                logger.info(f"Validation PASSED for '{input_path}'")
-            else:
-                failed_files.append(str(input_path))
-                # Extract unique error messages
-                violations = report_dict.get("violations", [])
-                unique_messages: Dict[str, int] = {}
-                for v in violations:
-                    msg = v.get("message", "")
-                    if msg and msg != "unknown":
-                        unique_messages[msg] = unique_messages.get(msg, 0) + 1
-                
-                # Create concise error list: show unique messages with counts if needed
-                error_messages = []
-                for msg, count in sorted(unique_messages.items(), key=lambda x: x[1], reverse=True):
-                    if count > 1:
-                        error_messages.append(f"{msg} ({count})")
-                    else:
-                        error_messages.append(msg)
-                
-                errors_of_failed_files[str(input_path)] = error_messages if error_messages else ["Validation failed"]
-                logger.error(f"Validation FAILED for '{input_path}' with {len(violations)} violation(s)")
 
-        except (json.JSONDecodeError, ValueError, KeyError) as exc:
-            failed_files.append(str(input_path))
-            error_msg = str(exc)
-            errors_of_failed_files[str(input_path)] = [error_msg]
-            logger.error(f"Validation FAILED (processing error) for '{input_path}': {error_msg}")
+def expected_status_for(expectation: str) -> str:
+    """Return the file status that satisfies one suite category."""
+    return VALID_STATUS if expectation == "valid" else INVALID_STATUS
 
-    # Build summary
-    type_metrics = build_type_metrics(documents_info, expected_types)
 
-    summary = {
-        "timestamp": _dt.datetime.now(tz=_dt.timezone.utc).isoformat(timespec="seconds"),
-        "shapes_paths": [str(p) for p in shapes_paths],
-        "input_paths": [str(p) for p in input_paths],
-        "n_total_files": len(metadata_files),
-        "n_failed_files": len(failed_files),
-        "failed_files": failed_files,
-        "errors_of_failed_files": errors_of_failed_files,
-        "type_metrics": type_metrics,
-        "documents_info": {
-            k: {
-                "types": sorted(list(v["types"])),
-                "conforms": v["conforms"],
-                "n_violations": len(v["violations"]),
-                "violation_summary": _build_violation_summary(v.get("violations", [])),
-            }
-            for k, v in documents_info.items()
-        },
-        "shacl_reports": shacl_reports,
+def category_passed(summary: Dict[str, Any], expectation: str) -> bool:
+    """Apply strict pass/fail rules for valid and invalid SHACL examples."""
+    total_files = summary["total_files"]
+    common_ok = (
+        summary["completed_runs"] == total_files
+        and summary["script_errors"] == 0
+    )
+
+    if expectation == "valid":
+        return (
+            common_ok
+            and summary["validation_passed"] == total_files
+            and summary["validation_failed"] == 0
+        )
+
+    return (
+        common_ok
+        and summary["validation_failed"] == total_files
+        and summary["validation_passed"] == 0
+    )
+
+
+def summarize_category(
+    entity_dir: Path,
+    category: str,
+    shapes_graph: Any,
+    id_to_path_map: Dict[str, Path],
+    expected_types: Set[str],
+    coverage_gaps: Sequence[Dict[str, Any]],
+) -> Dict[str, Any]:
+    """Validate one entity's examples for one category and summarize results."""
+    category_dir = entity_dir / "examples" / category
+    files = collect_candidate_json([category_dir]) if category_dir.is_dir() else []
+    expected_status = expected_status_for(category)
+    results = []
+
+    for path in files:
+        result = validate_file_shacl(path, shapes_graph, id_to_path_map)
+        results.append(result)
+        outcome = "passed" if result["status"] == expected_status else "failed"
+        LOGGER.debug("Validated '%s' [expected: %s] -> %s", path.name, category, outcome)
+
+    status_counts = {
+        VALID_STATUS: 0,
+        INVALID_STATUS: 0,
+        SCRIPT_ERROR_STATUS: 0,
     }
+    for result in results:
+        status_counts[result["status"]] += 1
+
+    expectation_failed_files = [
+        result["file"] for result in results if result["status"] != expected_status
+    ]
+
+    summary: Dict[str, Any] = {
+        "expectation": category,
+        "input_path": str(category_dir),
+        "coverage_gaps": coverage_gaps_for_entity_category(
+            coverage_gaps, entity_dir.name, category
+        ),
+        "total_files": len(files),
+        "completed_runs": status_counts[VALID_STATUS] + status_counts[INVALID_STATUS],
+        "validation_passed": status_counts[VALID_STATUS],
+        "validation_failed": status_counts[INVALID_STATUS],
+        "script_errors": status_counts[SCRIPT_ERROR_STATUS],
+        "files": results,
+        "expectation_failed_files": expectation_failed_files,
+        "n_total_files": len(files),
+        "n_failed_files": status_counts[INVALID_STATUS],
+        "type_metrics": build_type_metrics(results, expected_types),
+    }
+    summary["passed"] = category_passed(summary, category)
+    return summary
+
+
+def summarize_entity(
+    entity_dir: Path,
+    shapes_graph: Any,
+    id_to_path_map: Dict[str, Path],
+    expected_types: Set[str],
+    coverage_gaps: Sequence[Dict[str, Any]],
+) -> Dict[str, Any]:
+    """Validate and summarize all SHACL example categories for one entity."""
+    return {
+        "entity": entity_dir.name,
+        "categories": {
+            category: summarize_category(
+                entity_dir,
+                category,
+                shapes_graph,
+                id_to_path_map,
+                expected_types,
+                coverage_gaps,
+            )
+            for category in CATEGORIES
+        },
+    }
+
+
+def summarize_totals(entity_summaries: Sequence[Dict[str, Any]]) -> Dict[str, Any]:
+    """Aggregate validation counters across all entities and categories."""
+    category_totals: Dict[str, Dict[str, Any]] = {
+        category: {"expectation": category, **make_empty_counts(COUNT_KEYS)}
+        for category in CATEGORIES
+    }
+    totals = make_empty_counts(COUNT_KEYS)
+
+    for entity_summary in entity_summaries:
+        for category in CATEGORIES:
+            category_summary = entity_summary["categories"][category]
+            add_validation_counts(category_totals[category], category_summary, COUNT_KEYS)
+            add_validation_counts(totals, category_summary, COUNT_KEYS)
+
+    for category in CATEGORIES:
+        category_totals[category]["passed"] = category_passed(
+            category_totals[category], category
+        )
+
+    totals["category_totals"] = category_totals
+    return totals
+
+
+def validate_rdf_shacl(
+    root: Path,
+    entity: str | None,
+    shapes_paths: Sequence[Path],
+    *,
+    all_entities: bool = False,
+    include_shacl_reports: bool = False,
+) -> Dict[str, Any]:
+    """Validate valid and invalid FEGA examples against RDF/SHACL shapes."""
+    entity_dirs = find_entity_dirs(
+        root,
+        entity,
+        all_entities=all_entities,
+        require_explicit=True,
+    )
+    if not entity_dirs:
+        raise FileNotFoundError(f"No entity schema directories found under {root}")
+
+    repo_root = find_repo_root(entity_dirs[0].resolve())
+    id_to_path_map = build_id_to_path_map(repo_root)
+    shape_files, _shape_graphs, merged_shapes, expected_types = load_shapes(shapes_paths)
+
+    coverage_gaps = find_example_coverage_gaps(entity_dirs, CATEGORIES)
+    for gap in coverage_gaps:
+        details = []
+        if gap.get("missing"):
+            details.append(f"missing {', '.join(gap['missing'])} examples")
+        if gap.get("empty"):
+            details.append(f"empty {', '.join(gap['empty'])} examples")
+        LOGGER.warning("Coverage gap for %s: %s", gap["entity"], "; ".join(details))
+
+    file_summaries = [
+        summarize_entity(
+            entity_dir,
+            merged_shapes,
+            id_to_path_map,
+            expected_types,
+            coverage_gaps,
+        )
+        for entity_dir in entity_dirs
+    ]
+    totals = summarize_totals(file_summaries)
+    category_totals = totals.pop("category_totals")
+    valid_examples_passed = category_totals["valid"]["passed"]
+    invalid_examples_passed = category_totals["invalid"]["passed"]
+    input_paths = [
+        entity_summary["categories"][category]["input_path"]
+        for entity_summary in file_summaries
+        for category in CATEGORIES
+    ]
+
+    summary: Dict[str, Any] = {
+        "timestamp": _dt.datetime.now(tz=_dt.timezone.utc).isoformat(timespec="seconds"),
+        "root": str(root),
+        "entity": entity,
+        "entity_names": [path.name for path in entity_dirs],
+        "shapes_paths": [str(path) for path in shapes_paths],
+        "shape_files": [str(path) for path in shape_files],
+        "passed": valid_examples_passed and invalid_examples_passed,
+        "total_valid_files": category_totals["valid"]["total_files"],
+        "total_invalid_files": category_totals["invalid"]["total_files"],
+        **totals,
+        "valid_examples_passed": valid_examples_passed,
+        "invalid_examples_passed": invalid_examples_passed,
+        "input_paths": input_paths,
+        "category_totals": category_totals,
+        "coverage_gaps": coverage_gaps,
+        "files": file_summaries,
+    }
+
+    if not include_shacl_reports:
+        for entity_summary in summary["files"]:
+            for category in CATEGORIES:
+                for result in entity_summary["categories"][category]["files"]:
+                    result.pop("shacl_report", None)
 
     return summary
 
-# -------
-# CLI helpers
-# -------
+
+def _log_results(summary: Dict[str, Any]) -> None:
+    """Emit INFO-level result lines for the validation run."""
+    category_totals = summary["category_totals"]
+    valid_passed = category_totals["valid"]["validation_passed"]
+    valid_total = category_totals["valid"]["total_files"]
+    invalid_passed = category_totals["invalid"]["validation_failed"]
+    invalid_total = category_totals["invalid"]["total_files"]
+
+    LOGGER.info("%d / %d valid files passed SHACL validation", valid_passed, valid_total)
+    LOGGER.info("%d / %d invalid files failed SHACL validation", invalid_passed, invalid_total)
+
+    if summary["passed"]:
+        LOGGER.info("Tests %spassed%s", _BOLD_GREEN, _ANSI_RESET)
+    else:
+        LOGGER.info("Tests %sfailed%s", _BOLD_RED, _ANSI_RESET)
+
 
 def make_arg_parser() -> argparse.ArgumentParser:
+    """Build the command-line parser for RDF/SHACL suite validation."""
     parser = argparse.ArgumentParser(
         prog="validate_rdf_shacl",
-        description="Validate FEGA JSON-LD metadata using SHACL shapes.",
+        description="Validate FEGA valid/invalid example suites against RDF/SHACL shapes.",
         epilog=(
             "Examples:\n"
-            "  validate_rdf_shacl schemas/entities/dataset/examples --shapes standards/rdf/healthdcat-ap\n"
-            "  validate_rdf_shacl schemas/entities/dataset/examples/valid/dataset-valid-detailed-non-public.json --shapes standards/rdf/healthdcat-ap/release-6.0.0/shacl/non-public-shapes-v6.ttl"
+            "  validate_rdf_shacl --root schemas/entities --entity dataset "
+            "--shapes standards/rdf/healthdcat-ap/release-6.0.0/shacl/non-public-shapes-v6.ttl -v\n"
+            "  validate_rdf_shacl --root schemas/entities --all-entities "
+            "--shapes standards/rdf/healthdcat-ap"
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument(
-        "metadata",
-        nargs="+",
+        "--root",
         type=Path,
-        help="Metadata files or directories to validate (JSON with 'schema' and 'data' keys).",
+        default=DEFAULT_ROOT,
+        help=f"Entity schema root (default: {DEFAULT_ROOT})",
+    )
+    selection = parser.add_mutually_exclusive_group(required=True)
+    selection.add_argument(
+        "--entity",
+        help="Validate one entity by directory name, e.g. 'dataset'.",
+    )
+    selection.add_argument(
+        "--all-entities",
+        action="store_true",
+        help="Validate every entity directory under --root.",
     )
     parser.add_argument(
         "--shapes",
@@ -383,46 +504,59 @@ def make_arg_parser() -> argparse.ArgumentParser:
         help="SHACL shape files or directories (TTL, RDF/XML, JSON-LD, etc.).",
     )
     parser.add_argument(
-        "--verbosity",
-        "-v",
-        action="count",
-        default=0,
-        help="Increase log verbosity: '-v' for debug, '-vv' for all messages.",
+        "--summary-dir",
+        type=Path,
+        help=f"Optional directory where {SUMMARY_FILENAME} is written.",
+    )
+    parser.add_argument(
+        "--print-summary",
+        action="store_true",
+        default=False,
+        help="Print the full JSON summary to stdout (default: off).",
     )
     parser.add_argument(
         "--shacl-report",
         action="store_true",
-        help="Print raw pySHACL validation reports after the summary.",
+        help="Include raw pySHACL validation reports in the JSON summary.",
+    )
+    parser.add_argument(
+        "--verbosity",
+        "-v",
+        action="count",
+        default=0,
+        help="Increase log verbosity: -v for INFO, -vv for DEBUG.",
     )
     return parser
 
 
 def main(argv: Sequence[str] | None = None) -> None:
+    """Run the command-line interface and exit with the suite status."""
     parser = make_arg_parser()
     args = parser.parse_args(argv)
-
     configure_logging(args.verbosity)
 
-    summary = validate_documents(args.metadata, args.shapes)
-    
-    # Remove shacl_reports from summary for clean JSON output
-    shacl_reports = summary.pop("shacl_reports", {})
+    try:
+        summary = validate_rdf_shacl(
+            args.root,
+            args.entity,
+            args.shapes,
+            all_entities=args.all_entities,
+            include_shacl_reports=args.shacl_report,
+        )
+    except (FileNotFoundError, RuntimeError, ValueError) as exc:
+        LOGGER.error(str(exc))
+        sys.exit(2)
 
-    json.dump(summary, sys.stdout, indent=2)
-    sys.stdout.write("\n")
+    _log_results(summary)
 
-    # Print raw SHACL reports if requested
-    if args.shacl_report and shacl_reports:
-        sys.stdout.write("\n" + "="*80 + "\n")
-        sys.stdout.write("RAW pySHACL VALIDATION REPORTS\n")
-        sys.stdout.write("="*80 + "\n\n")
-        for filepath, report in shacl_reports.items():
-            sys.stdout.write(f"File: {filepath}\n")
-            sys.stdout.write("-"*80 + "\n")
-            sys.stdout.write(report)
-            sys.stdout.write("\n\n")
+    if args.summary_dir:
+        write_json_summary(summary, args.summary_dir, SUMMARY_FILENAME)
 
-    sys.exit(0 if summary["n_failed_files"] == 0 else 1)
+    if args.print_summary:
+        json.dump(summary, sys.stdout, indent=2)
+        sys.stdout.write("\n")
+
+    sys.exit(0 if summary["passed"] else 1)
 
 
 if __name__ == "__main__":

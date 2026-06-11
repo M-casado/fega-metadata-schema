@@ -94,75 +94,31 @@ jobs:
       - name: Install repo in editable mode
         run: pip install -e .
 
-      # Validate FEGA metadata against SHACL shapes
-      - name: Validate valid examples (should pass)
+      - name: Validate RDF/SHACL example suite
         run: |
-          script_path="scripts/py/validate_rdf_shacl.py"
-          shapes_path="standards/rdf/healthdcat-ap/release-6.0.0/shacl/non-public-shapes-v6.ttl"
-          data_path="schemas/entities/dataset/examples/valid"
-          
-          python $script_path "$data_path" --shapes "$shapes_path" > shacl_valid.json
-          
-          # Check that all files passed
-          n_failed=$(jq '.n_failed_files' shacl_valid.json)
-          if [ "$n_failed" -ne 0 ]; then
-            echo "FAILED: Valid examples did not pass SHACL validation"
-            cat shacl_valid.json
-            exit 1
-          fi
-          echo "All valid examples passed SHACL validation"
-
-      - name: Validate invalid examples (should fail)
-        run: |
-          script_path="scripts/py/validate_rdf_shacl.py"
-          shapes_path="standards/rdf/healthdcat-ap/release-6.0.0/shacl/non-public-shapes-v6.ttl"
-          data_path="schemas/entities/dataset/examples/invalid"
-          
-          python $script_path "$data_path" --shapes "$shapes_path" > shacl_invalid.json || true
-          
-          # Check that invalid examples failed validation (as expected)
-          n_total=$(jq '.n_total_files' shacl_invalid.json)
-          n_failed=$(jq '.n_failed_files' shacl_invalid.json)
-          
-          if [ "$n_total" -eq 0 ]; then
-            echo "No invalid examples found to test"
-            exit 0
-          fi
-          
-          if [ "$n_failed" -ne "$n_total" ]; then
-            echo "FAILED: Not all invalid examples failed validation as expected"
-            echo "Expected all $n_total to fail, but only $n_failed failed"
-            cat shacl_invalid.json
-            exit 1
-          fi
-          echo "All invalid examples failed SHACL validation (as expected)"
+          python scripts/py/validate_rdf_shacl.py \
+            --root schemas/entities \
+            --entity dataset \
+            --shapes standards/rdf/healthdcat-ap/release-6.0.0/shacl/non-public-shapes-v6.ttl \
+            --summary-dir . \
+            -v
 
       # Show validation summaries
-      - name: Show validation summaries in log
+      - name: Show validation summary in log
         if: always()
         run: |
-          echo "=== Valid Examples Validation ==="
-          if [ -f shacl_valid.json ]; then
-            jq '.' shacl_valid.json
+          echo "=== RDF/SHACL Example Suite Validation ==="
+          if [ -f shacl_summary.json ]; then
+            jq '.' shacl_summary.json
           else
-            echo "'shacl_valid.json' not found"
-          fi
-          
-          echo ""
-          echo "=== Invalid Examples Validation ==="
-          if [ -f shacl_invalid.json ]; then
-            jq '.' shacl_invalid.json
-          else
-            echo "'shacl_invalid.json' not found"
+            echo "'shacl_summary.json' not found"
           fi
 
       # Upload artifacts
-      - name: Upload validation summaries
+      - name: Upload validation summary
         if: always()
         uses: actions/upload-artifact@v5
         with:
-          name: shacl-validation-summaries
-          path: |
-            shacl_valid.json
-            shacl_invalid.json
+          name: shacl-validation-summary
+          path: shacl_summary.json
           if-no-files-found: warn

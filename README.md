@@ -53,7 +53,7 @@ node "$(npm root -g)/biovalidator/src/biovalidator.js" \
 Run **all** valid and invalid metadata JSON (e.g., [`cohort-valid-detailed-study-defined.json`](./schemas/entities/cohort/examples/valid/cohort-valid-detailed-study-defined.json)) examples under `schemas/entities`:
 
 ```bash
-python scripts/py/validate_examples.py --root schemas/entities
+python scripts/py/validate_examples.py -v
 ```
 
 The script exits with code `0` if all suites pass and `1` otherwise. No output is printed to stdout by default; add `--print-summary` to get the full JSON report:
@@ -83,7 +83,7 @@ python scripts/py/validate_examples.py --help
 Check that every valid example can be parsed into RDF (with `rdflib`) and that required JSON-LD fields (`data.@context`, `data.@type`, `schema.$ref`) are present. This step resolves all context references from local files (i.e., we are not fetching from the remote, which is what normal RDF parsing would do) and does **not** require Biovalidator.
 
 ```bash
-python scripts/py/validate_jsonld_contexts.py --root schemas/entities
+python scripts/py/validate_jsonld_contexts.py -v
 ```
 
 See more options:
@@ -100,7 +100,7 @@ It does **not** verify that every term in the document is defined in the context
 Check that every direct property declared in each entity's `schema.json` is covered its materialized JSON-LD context (`context.jsonld`) and its frame (`frame.jsonld`). The goal is to catch terms that we added to the schemas but forgot to add to the contexts and frames, which would cause them to be ignored during JSON-LD parsing and framing, respectively.
 
 ```bash
-python scripts/py/validate_jsonld_coverage.py --root schemas/entities
+python scripts/py/validate_jsonld_coverage.py -v
 ```
 
 See more options:
@@ -115,10 +115,7 @@ Confirm that every valid example can be reconstructed from both flattened JSON-L
 **Requires**: a running Biovalidator instance and a `frame.jsonld` file inside each entity directory (missing frames fail the suite).
 
 ```bash
-python scripts/py/validate_jsonld_frames.py \
-  --root schemas/entities \
-  --url http://localhost:3020/validate \
-  -v
+python scripts/py/validate_jsonld_frames.py -v
 ```
 
 Use single-file debug mode to print complete snapshots after each transformation stage to stdout. This helps figuring out how the transformations work during the tests. Normal log records remain on stderr:
@@ -126,13 +123,30 @@ Use single-file debug mode to print complete snapshots after each transformation
 ```bash
 python scripts/py/validate_jsonld_frames.py \
   --file schemas/entities/cohort/examples/valid/cohort-valid-minimal-study-defined.json \
-  --url http://localhost:3020/validate \
   -vv
 ```
 
 See more options:
 ```bash
 python scripts/py/validate_jsonld_frames.py --help
+```
+
+#### RDF/SHACL Example Suite
+
+Validate wrapped JSON-LD examples (``valid/`` and ``invalid/`` appropriately) against RDF/SHACL shapes.It does **not** require Biovalidator.
+
+The test scope (i.e., which entities we are validating in each run) is explicit, since for now we only have the HealthDCAT-AP SHACL shapes that apply to Datasets only. For example:
+
+```bash
+python scripts/py/validate_rdf_shacl.py \
+  --entity dataset \
+  --shapes standards/rdf/healthdcat-ap/release-6.0.0/shacl/non-public-shapes-v6.ttl \
+  -v
+```
+
+See more options:
+```bash
+python scripts/py/validate_rdf_shacl.py --help
 ```
 
 #### Validate One JSON Document
@@ -145,7 +159,7 @@ For one-off validation, wrap the JSON data and target schema in a document with 
     "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/cohort/schema.json"
   },
   "data": {
-    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/cohort/schema.json",
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/cohort/context.jsonld",
     "@type": "ega:cohort",
     "id": "ega:EGAC00001000001",
     "name": "Example rare disease cohort"
