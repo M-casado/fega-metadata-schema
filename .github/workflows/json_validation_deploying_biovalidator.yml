@@ -149,6 +149,7 @@ jobs:
             -v
 
       - name: Validate JSON-LD frame round-trips
+        id: validate_jsonld_frame_round_trips
         run: |
           python scripts/py/validate_jsonld_frames.py \
             --root schemas/entities \
@@ -188,7 +189,7 @@ jobs:
           if-no-files-found: warn
 
       - name: Upload frame validation summary
-        if: always()
+        if: ${{ always() && steps.validate_jsonld_frame_round_trips.outcome != 'skipped' }}
         uses: actions/upload-artifact@v5
         with:
           name: frame-validation-summary
