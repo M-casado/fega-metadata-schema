@@ -27,7 +27,8 @@
 # - Exits 1 otherwise, blocking the merge.
 # - Always uploads jsonld_summary.json as a workflow artifact.
 # ----------------------------------------------------------------------
-name: JSON-LD Context Smoke Tests
+name: |
+  [REQUIRED] JSON-LD Context Smoke Tests
 
 on:
   pull_request:

@@ -15,7 +15,8 @@
 # - Does not expand external schemas or AJV-style effective schemas.
 # - Does not require or contact Biovalidator.
 # ----------------------------------------------------------------------
-name: JSON-LD Context and Frame Coverage
+name: |
+  [REQUIRED] JSON-LD Context and Frame Coverage
 
 on:
   pull_request:
