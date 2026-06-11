@@ -14,11 +14,6 @@
 # 2. Valid examples that would fail against changes in the schemas.
 # 3. Invalid examples that unexpectedly pass validation.
 #
-# Trigger
-# -------
-# - Any PR that touches JSON files, schemas, scripts/, or workflow files.
-# - Direct pushes to `main`
-#
 # Outcome
 # -------
 # - Fails the job (and therefore blocks the merge) if:

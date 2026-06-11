@@ -21,13 +21,6 @@
 # - Does NOT require or contact Biovalidator.
 # - Invalid examples remain out of scope for this check.
 #
-# Trigger
-# -------
-# - Any PR that touches schemas, examples, standards, scripts,
-#   requirements, or this workflow file.
-# - Direct pushes to `main`.
-# - Manual workflow_dispatch.
-#
 # Outcome
 # -------
 # - Exits 0 if every valid example passes all JSON-LD checks.

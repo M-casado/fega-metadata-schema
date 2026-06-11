@@ -13,7 +13,7 @@ import json
 import logging
 import sys
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence, Set
+from typing import Any, Dict, List, Optional, Sequence
 
 import rdflib
 from rdflib.namespace import RDF
@@ -22,11 +22,24 @@ try:
     from fega_tools.io import collect_candidate_json
     from fega_tools.logging_utils import configure_logging
     from fega_tools.jsonld_utils import (
-        GITHUB_RAW_PREFIX,
         find_repo_root,
         build_id_to_path_map,
-        resolve_ref,
         materialize_context,
+    )
+    from fega_tools.validation_common import (
+        BIVALIDATOR_COUNT_KEYS as COUNT_KEYS,
+        DEFAULT_ROOT,
+        INVALID_STATUS,
+        REQUEST_ERROR_STATUS,
+        SCRIPT_ERROR_STATUS,
+        UNKNOWN_STATUS,
+        VALID_STATUS,
+        add_counts as add_validation_counts,
+        empty_counts as make_empty_counts,
+        find_entity_dirs,
+        find_example_coverage_gaps,
+        load_wrapped_example,
+        write_json_summary,
     )
 except ModuleNotFoundError as exc:
     msg = (
@@ -48,58 +61,7 @@ try:
 except ModuleNotFoundError:
     _BOLD_GREEN = _BOLD_RED = _ANSI_RESET = ""
 
-DEFAULT_ROOT = Path("schemas/entities")
 SUMMARY_FILENAME = "jsonld_summary.json"
-
-VALID_STATUS = "validation_passed"
-INVALID_STATUS = "validation_failed"
-REQUEST_ERROR_STATUS = "request_error"
-UNKNOWN_STATUS = "unknown_response"
-SCRIPT_ERROR_STATUS = "script_error"
-
-COUNT_KEYS = (
-    "total_files",
-    "completed_runs",
-    "validation_passed",
-    "validation_failed",
-    "request_errors",
-    "unknown_responses",
-    "script_errors",
-)
-
-
-# ---------------------------------------------------------------------------
-# File discovery
-# ---------------------------------------------------------------------------
-
-def find_entity_dirs(root: Path, entity: Optional[str]) -> List[Path]:
-    """Return entity directories to validate."""
-    if entity:
-        entity_dir = root / entity
-        if not entity_dir.is_dir():
-            raise FileNotFoundError(f"Entity directory not found: {entity_dir}")
-        return [entity_dir]
-
-    if not root.is_dir():
-        raise FileNotFoundError(f"Entity root not found: {root}")
-
-    return sorted(
-        path
-        for path in root.iterdir()
-        if path.is_dir() and (path / "schema.json").is_file()
-    )
-
-
-def find_coverage_gaps(entity_dirs: Sequence[Path]) -> List[Dict[str, Any]]:
-    """Report missing or empty valid example directories without failing the suite."""
-    gaps: List[Dict[str, Any]] = []
-    for entity_dir in entity_dirs:
-        valid_dir = entity_dir / "examples" / "valid"
-        if not valid_dir.is_dir():
-            gaps.append({"entity": entity_dir.name, "missing": ["valid"], "empty": []})
-        elif not collect_candidate_json([valid_dir]):
-            gaps.append({"entity": entity_dir.name, "missing": [], "empty": ["valid"]})
-    return gaps
 
 
 # ---------------------------------------------------------------------------
@@ -126,21 +88,10 @@ def validate_file_jsonld(
     """Validate one example file and return a result record."""
     result: Dict[str, Any] = {"file": str(path)}
 
-    # Step 1: Load and check wrapper structure.
     try:
-        with path.open("r", encoding="utf-8") as fh:
-            document = json.load(fh)
-    except (OSError, json.JSONDecodeError) as exc:
+        document = load_wrapped_example(path)
+    except (OSError, json.JSONDecodeError, ValueError) as exc:
         result.update({"status": SCRIPT_ERROR_STATUS, "errors": [str(exc)]})
-        return result
-
-    if not isinstance(document, dict) or not {"data", "schema"}.issubset(document):
-        result.update(
-            {
-                "status": SCRIPT_ERROR_STATUS,
-                "errors": ["Expected a JSON object with both 'data' and 'schema' keys"],
-            }
-        )
         return result
 
     data = document["data"]
@@ -222,17 +173,6 @@ def validate_file_jsonld(
 # Summarization helpers
 # ---------------------------------------------------------------------------
 
-def empty_counts() -> Dict[str, int]:
-    """Return a zero-filled counter block matching COUNT_KEYS."""
-    return {key: 0 for key in COUNT_KEYS}
-
-
-def add_counts(target: Dict[str, int], source: Dict[str, Any]) -> None:
-    """Accumulate validation counters from *source* into *target*."""
-    for key in COUNT_KEYS:
-        target[key] += source.get(key, 0)
-
-
 def category_passed(summary: Dict[str, Any]) -> bool:
     """Return True when the valid-example suite passes.
 
@@ -305,9 +245,9 @@ def summarize_totals(
     entity_summaries: Sequence[Dict[str, Any]],
 ) -> Dict[str, int]:
     """Aggregate validation counters across all entity summaries."""
-    totals = empty_counts()
+    totals = make_empty_counts(COUNT_KEYS)
     for entity_summary in entity_summaries:
-        add_counts(totals, entity_summary)
+        add_validation_counts(totals, entity_summary, COUNT_KEYS)
     return totals
 
 
@@ -339,7 +279,7 @@ def validate_jsonld_contexts(
     if not entity_dirs:
         raise FileNotFoundError(f"No entity schema directories found under {root}")
 
-    coverage_gaps = find_coverage_gaps(entity_dirs)
+    coverage_gaps = find_example_coverage_gaps(entity_dirs, ("valid",))
     for gap in coverage_gaps:
         details: List[str] = []
         if gap.get("missing"):
@@ -391,14 +331,6 @@ def _log_results(summary: Dict[str, Any]) -> None:
         LOGGER.info("Tests %spassed%s", _BOLD_GREEN, _ANSI_RESET)
     else:
         LOGGER.info("Tests %sfailed%s", _BOLD_RED, _ANSI_RESET)
-
-
-def write_summary(summary: Dict[str, Any], summary_dir: Path) -> None:
-    """Write the validation summary to *summary_dir/jsonld_summary.json*."""
-    summary_dir.mkdir(parents=True, exist_ok=True)
-    with (summary_dir / SUMMARY_FILENAME).open("w", encoding="utf-8") as fh:
-        json.dump(summary, fh, indent=2)
-        fh.write("\n")
 
 
 # ---------------------------------------------------------------------------
@@ -466,7 +398,7 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     _log_results(summary)
 
     if args.summary_dir:
-        write_summary(summary, args.summary_dir)
+        write_json_summary(summary, args.summary_dir, SUMMARY_FILENAME)
 
     if args.print_summary:
         json.dump(summary, sys.stdout, indent=2)

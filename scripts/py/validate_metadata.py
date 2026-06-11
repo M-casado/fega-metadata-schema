@@ -12,14 +12,20 @@ import json
 import logging
 import sys
 from pathlib import Path
-from typing import Any, Dict, List, Sequence, Set
+from typing import Any, Dict, List, Sequence
 
 import requests
-from requests.exceptions import ConnectionError, Timeout
 
 try:
+    from fega_tools.biovalidator import (
+        DEFAULT_VALIDATOR_URL,
+        assert_validator_reachable,
+        classify_response,
+        post_to_validator,
+    )
     from fega_tools.io import collect_candidate_json
     from fega_tools.logging_utils import configure_logging
+    from fega_tools.validation_common import load_wrapped_example
 except ModuleNotFoundError as exc:
     msg = (
         "ERROR:  The helper package 'fega_tools' is not importable.\n"
@@ -30,19 +36,6 @@ except ModuleNotFoundError as exc:
 
 logger = logging.getLogger(Path(__file__).stem)
 
-DEFAULT_VALIDATOR_URL = "http://localhost:3020/validate"
-
-# -------
-# Endpoint check
-# -------
-def assert_validator_reachable(url: str, timeout_seconds: int = 5) -> None:
-    """Abort (exit-code 2) if *url* does not respond within *timeout_seconds*."""
-    try:
-        requests.get(url, timeout=timeout_seconds)
-    except (ConnectionError, Timeout) as exc:
-        logger.error(f"Cannot reach Biovalidator endpoint '{url}': {exc}")
-        sys.exit(2)
-
 # -------
 # Discovery helpers
 # -------
@@ -51,32 +44,24 @@ def filter_metadata_files(json_files: Sequence[Path]) -> List[Path]:
     valid: List[Path] = []
     for fp in json_files:
         try:
-            with fp.open("r", encoding="utf-8") as handle:
-                obj = json.load(handle)
-            if isinstance(obj, dict) and {"data", "schema"}.issubset(obj):
-                valid.append(fp)
-            else:
-                logger.debug(f"Missing 'data'/'schema' - skipping '{fp}'")
+            load_wrapped_example(fp)
+            valid.append(fp)
         except json.JSONDecodeError as exc:
             logger.warning(f"Not valid JSON file ('{fp}'). Error: {exc}")
+        except (OSError, ValueError) as exc:
+            logger.debug(f"Skipping '{fp}': {exc}")
     return valid
-
-# -------
-# Biovalidator interaction
-# -------
-def post_to_validator(document: Dict[str, Any], url: str) -> Dict[str, Any]:
-    """Send *document* to *url* and return the parsed JSON response."""
-    headers = {"Content-Type": "application/json"}
-    response = requests.post(url, json=document, headers=headers, timeout=300)
-    response.raise_for_status()
-    return response.json()
 
 # -------
 # Core routine
 # -------
 def validate_paths(inputs: Sequence[Path], validator_url: str) -> Dict[str, Any]:
     """Validate metadata located at *inputs* and build a summary dictionary."""
-    assert_validator_reachable(validator_url)
+    try:
+        assert_validator_reachable(validator_url)
+    except RuntimeError as exc:
+        logger.error(str(exc))
+        sys.exit(2)
 
     all_json = collect_candidate_json(inputs)
     targets = filter_metadata_files(all_json)
@@ -96,8 +81,7 @@ def validate_paths(inputs: Sequence[Path], validator_url: str) -> Dict[str, Any]
 
     for fp in targets:
         logger.debug(f"Validating '{fp}'")
-        with fp.open("r", encoding="utf-8") as handle:
-            document = json.load(handle)
+        document = load_wrapped_example(fp)
 
         try:
             resp = post_to_validator(document, validator_url)
@@ -111,12 +95,12 @@ def validate_paths(inputs: Sequence[Path], validator_url: str) -> Dict[str, Any]
             errors_of_failed_files[str(fp)] = [resp]
             logger.error(f"Validation FAILED (request error) for '{fp}'")
 
-        elif isinstance(resp, list) and resp:  # non-empty list --> errors
+        elif classify_response(resp) == "validation_failed":
             failed_files.append(str(fp))
             errors_of_failed_files[str(fp)] = resp
             logger.error(f"Validation FAILED for '{fp}'")
 
-        elif isinstance(resp, list) and len(resp) == 0:
+        elif classify_response(resp) == "validation_passed":
             logger.debug(f"Validation PASSED for '{fp}'")
 
         else:

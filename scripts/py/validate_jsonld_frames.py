@@ -36,7 +36,6 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import requests
-from requests.exceptions import ConnectionError, Timeout
 
 try:
     import pyld.jsonld as jsonld
@@ -46,6 +45,12 @@ except ImportError as exc:
     ) from exc
 
 try:
+    from fega_tools.biovalidator import (
+        DEFAULT_VALIDATOR_URL,
+        assert_validator_reachable,
+        classify_response,
+        post_to_validator,
+    )
     from fega_tools.io import collect_candidate_json
     from fega_tools.logging_utils import configure_logging
     from fega_tools.jsonld_utils import (
@@ -55,6 +60,19 @@ try:
         find_repo_root,
         make_local_document_loader,
         materialize_context,
+    )
+    from fega_tools.validation_common import (
+        BIVALIDATOR_COUNT_KEYS as COUNT_KEYS,
+        DEFAULT_ROOT,
+        INVALID_STATUS,
+        REQUEST_ERROR_STATUS,
+        SCRIPT_ERROR_STATUS,
+        UNKNOWN_STATUS,
+        VALID_STATUS,
+        add_counts as add_validation_counts,
+        empty_counts as make_empty_counts,
+        find_entity_dirs,
+        write_json_summary,
     )
 except ModuleNotFoundError as exc:
     msg = (
@@ -77,26 +95,8 @@ except ModuleNotFoundError:
     _BOLD_GREEN = _BOLD_RED = _ANSI_RESET = ""
 
 
-DEFAULT_ROOT = Path("schemas/entities")
-DEFAULT_VALIDATOR_URL = "http://localhost:3020/validate"
 SUMMARY_FILENAME = "frame_summary.json"
 TOTAL_STEPS = 10
-
-VALID_STATUS = "validation_passed"
-INVALID_STATUS = "validation_failed"
-REQUEST_ERROR_STATUS = "request_error"
-UNKNOWN_STATUS = "unknown_response"
-SCRIPT_ERROR_STATUS = "script_error"
-
-COUNT_KEYS = (
-    "total_files",
-    "completed_runs",
-    "validation_passed",
-    "validation_failed",
-    "request_errors",
-    "unknown_responses",
-    "script_errors",
-)
 
 ROUTE_FLATTENED = "flattened_jsonld"
 ROUTE_RDF_GRAPH = "generated_rdf_graph"
@@ -109,32 +109,6 @@ _DROP = object()
 # ---------------------------------------------------------------------------
 # Basic IO and discovery
 # ---------------------------------------------------------------------------
-
-
-def assert_validator_reachable(url: str, timeout_seconds: int = 5) -> None:
-    """Raise RuntimeError if the Biovalidator endpoint is not reachable."""
-    try:
-        requests.get(url, timeout=timeout_seconds)
-    except (ConnectionError, Timeout, requests.RequestException) as exc:
-        raise RuntimeError(f"Cannot reach Biovalidator endpoint '{url}': {exc}") from exc
-
-
-def find_entity_dirs(root: Path, entity: Optional[str]) -> List[Path]:
-    """Return entity directories to validate."""
-    if entity:
-        entity_dir = root / entity
-        if not entity_dir.is_dir():
-            raise FileNotFoundError(f"Entity directory not found: {entity_dir}")
-        return [entity_dir]
-
-    if not root.is_dir():
-        raise FileNotFoundError(f"Entity root not found: {root}")
-
-    return sorted(
-        path
-        for path in root.iterdir()
-        if path.is_dir() and (path / "schema.json").is_file()
-    )
 
 
 def find_frame_gaps(entity_dirs: Sequence[Path]) -> List[str]:
@@ -369,27 +343,6 @@ def _summarize_nquads_difference(expected: str, actual: str) -> List[str]:
     errors.extend(f"missing: {line}" for line in missing[:10])
     errors.extend(f"extra: {line}" for line in extra[:10])
     return errors
-
-
-def _classify_validator_response(response: Any) -> str:
-    """Map a Biovalidator response body to this script's status names."""
-    if isinstance(response, list) and not response:
-        return VALID_STATUS
-    if isinstance(response, list):
-        return INVALID_STATUS
-    return UNKNOWN_STATUS
-
-
-def _post_to_validator(document: Dict[str, Any], validator_url: str) -> Any:
-    """Send one schema/data wrapper to Biovalidator and parse JSON output."""
-    response = requests.post(
-        validator_url,
-        json=document,
-        headers={"Content-Type": "application/json"},
-        timeout=300,
-    )
-    response.raise_for_status()
-    return response.json()
 
 
 def _route_failure(
@@ -818,7 +771,7 @@ def _validate_route_output(
     )
 
     try:
-        validator_response = _post_to_validator(wrapper, validator_url)
+        validator_response = post_to_validator(wrapper, validator_url)
     except requests.RequestException as exc:
         _set_route_failure(
             state,
@@ -846,7 +799,7 @@ def _validate_route_output(
         validator_response,
         route=route,
     )
-    validator_status = _classify_validator_response(validator_response)
+    validator_status = classify_response(validator_response)
     if validator_status == VALID_STATUS:
         route_state["result"] = {
             "route": route,
@@ -1158,17 +1111,6 @@ def _run_pipeline(
 # ---------------------------------------------------------------------------
 
 
-def empty_counts() -> Dict[str, int]:
-    """Create a zero-filled counter block for summaries."""
-    return {key: 0 for key in COUNT_KEYS}
-
-
-def add_counts(target: Dict[str, int], source: Dict[str, Any]) -> None:
-    """Add one summary's counters into another summary."""
-    for key in COUNT_KEYS:
-        target[key] += source.get(key, 0)
-
-
 def entity_passed(summary: Dict[str, Any]) -> bool:
     """Return whether one entity has a fully passing frame suite."""
     return (
@@ -1224,9 +1166,9 @@ def _summarize_entity_results(
 
 def summarize_totals(entity_summaries: Sequence[Dict[str, Any]]) -> Dict[str, int]:
     """Add all entity counters into one total counter block."""
-    totals = empty_counts()
+    totals = make_empty_counts(COUNT_KEYS)
     for entity_summary in entity_summaries:
-        add_counts(totals, entity_summary)
+        add_validation_counts(totals, entity_summary, COUNT_KEYS)
     return totals
 
 
@@ -1355,14 +1297,6 @@ def _log_results(summary: Dict[str, Any]) -> None:
         LOGGER.info("Tests %sfailed%s", _BOLD_RED, _ANSI_RESET)
 
 
-def write_summary(summary: Dict[str, Any], summary_dir: Path) -> None:
-    """Write the machine-readable frame summary JSON file."""
-    summary_dir.mkdir(parents=True, exist_ok=True)
-    with (summary_dir / SUMMARY_FILENAME).open("w", encoding="utf-8") as handle:
-        json.dump(summary, handle, indent=2)
-        handle.write("\n")
-
-
 # ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
@@ -1453,7 +1387,7 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
 
     _log_results(summary)
     if args.summary_dir:
-        write_summary(summary, args.summary_dir)
+        write_json_summary(summary, args.summary_dir, SUMMARY_FILENAME)
     if args.print_summary:
         json.dump(summary, sys.stdout, indent=2)
         sys.stdout.write("\n")

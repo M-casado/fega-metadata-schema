@@ -14,30 +14,10 @@ from fega_tools.jsonld_utils import (
     is_known_jsonld_key,
     materialize_context,
 )
+from fega_tools.validation_common import find_entity_dirs
 
 IGNORED_SCHEMA_PROPERTIES = {"@context", "@id", "@type"}
 LOGGER = logging.getLogger(__name__)
-
-
-def find_entity_dirs(root: Path, entity: Optional[str]) -> List[Path]:
-    """Return entity directories containing a local schema.json."""
-    if entity:
-        entity_dir = root / entity
-        if not entity_dir.is_dir():
-            raise FileNotFoundError(f"Entity directory not found: {entity_dir}")
-        if not (entity_dir / "schema.json").is_file():
-            raise FileNotFoundError(f"Entity schema not found: {entity_dir / 'schema.json'}")
-        return [entity_dir]
-
-    if not root.is_dir():
-        raise FileNotFoundError(f"Entity root not found: {root}")
-
-    return sorted(
-        path
-        for path in root.iterdir()
-        if path.is_dir() and (path / "schema.json").is_file()
-    )
-
 
 def load_json_object(path: Path) -> Dict[str, Any]:
     """Load a JSON file and require the top-level value to be an object."""
@@ -229,7 +209,7 @@ def validate_jsonld_coverage(
         repo_root = find_repo_root(root.resolve())
 
     id_to_path_map = build_id_to_path_map(repo_root)
-    entity_dirs = find_entity_dirs(root, entity)
+    entity_dirs = find_entity_dirs(root, entity, require_schema=True)
     if not entity_dirs:
         raise FileNotFoundError(f"No entity schema directories found under {root}")
     LOGGER.debug(

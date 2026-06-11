@@ -13,6 +13,10 @@ from typing import Any, Dict, Optional, Sequence
 try:
     from fega_tools.jsonld_coverage import validate_jsonld_coverage
     from fega_tools.logging_utils import configure_logging
+    from fega_tools.validation_common import (
+        DEFAULT_ROOT,
+        write_json_summary,
+    )
 except ModuleNotFoundError as exc:
     msg = (
         "ERROR: The helper package 'fega_tools' is not importable.\n"
@@ -34,16 +38,7 @@ except ModuleNotFoundError:
     _BOLD_GREEN = _BOLD_RED = _ANSI_RESET = ""
 
 
-DEFAULT_ROOT = Path("schemas/entities")
 SUMMARY_FILENAME = "jsonld_coverage_summary.json"
-
-
-def write_summary(summary: Dict[str, Any], summary_dir: Path) -> None:
-    """Write the validation summary to the artifact directory."""
-    summary_dir.mkdir(parents=True, exist_ok=True)
-    with (summary_dir / SUMMARY_FILENAME).open("w", encoding="utf-8") as handle:
-        json.dump(summary, handle, indent=2)
-        handle.write("\n")
 
 
 def _log_entity_failures(summary: Dict[str, Any]) -> None:
@@ -165,7 +160,7 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     _log_results(summary)
 
     if args.summary_dir:
-        write_summary(summary, args.summary_dir)
+        write_json_summary(summary, args.summary_dir, SUMMARY_FILENAME)
 
     if args.print_summary:
         json.dump(summary, sys.stdout, indent=2)
