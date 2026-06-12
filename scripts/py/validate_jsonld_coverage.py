@@ -41,6 +41,18 @@ except ModuleNotFoundError:
 SUMMARY_FILENAME = "jsonld_coverage_summary.json"
 
 
+def _format_term_paths(terms: Sequence[str], path_map: Dict[str, Any]) -> str:
+    """Format missing terms with schema paths for concise logs."""
+    parts = []
+    for term in terms:
+        paths = path_map.get(term)
+        if paths:
+            parts.append(f"{term} ({', '.join(paths)})")
+        else:
+            parts.append(term)
+    return ", ".join(parts)
+
+
 def _log_entity_failures(summary: Dict[str, Any]) -> None:
     """Log concise entity-level failure details."""
     for entity_result in summary.get("files", []):
@@ -51,13 +63,19 @@ def _log_entity_failures(summary: Dict[str, Any]) -> None:
             LOGGER.error(
                 "%s missing context term(s): %s",
                 entity,
-                ", ".join(entity_result["missing_context_terms"]),
+                _format_term_paths(
+                    entity_result["missing_context_terms"],
+                    entity_result.get("missing_context_term_paths", {}),
+                ),
             )
         if entity_result.get("missing_frame_keys"):
             LOGGER.error(
                 "%s missing frame key(s): %s",
                 entity,
-                ", ".join(entity_result["missing_frame_keys"]),
+                _format_term_paths(
+                    entity_result["missing_frame_keys"],
+                    entity_result.get("missing_frame_key_paths", {}),
+                ),
             )
         if entity_result.get("unknown_frame_keys"):
             LOGGER.error(

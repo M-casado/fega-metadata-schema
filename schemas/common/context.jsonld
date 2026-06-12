@@ -16,6 +16,37 @@
             "@id": "commonDefinitionsDoc:modifiers",
             "@container": "@set"
         },
+        "causeOfDeath": "commonDefinitionsDoc:causeOfDeath",
+        "evidence": {
+            "@id": "commonDefinitionsDoc:evidence",
+            "@container": "@set"
+        },
+        "excluded": "commonDefinitionsDoc:excluded",
+        "familyHistory": "commonDefinitionsDoc:familyHistory",
+        "negated": "commonDefinitionsDoc:negated",
+        "occurrence": "commonDefinitionsDoc:occurrence",
+        "onset": "commonDefinitionsDoc:onset",
+        "proportion": "commonDefinitionsDoc:proportion",
+        "referenceRange": "commonDefinitionsDoc:referenceRange",
+        "route": "commonDefinitionsDoc:route",
+        "severity": "commonDefinitionsDoc:severity",
+        "stagingSystemVersion": "commonDefinitionsDoc:stagingSystemVersion",
+        "survivalTimeInDays": "commonDefinitionsDoc:survivalTimeInDays",
+        "timeOfDeath": "commonDefinitionsDoc:timeOfDeath",
+        "tnmFindings": {
+            "@id": "commonDefinitionsDoc:tnmFindings",
+            "@container": "@set"
+        },
+        "tumorAttributes": "commonDefinitionsDoc:tumorAttributes",
+        "tumorGrade": "commonDefinitionsDoc:tumorGrade",
+        "tumorProgression": "commonDefinitionsDoc:tumorProgression",
+        "tumorSize": {
+            "@id": "commonDefinitionsDoc:tumorSize",
+            "@container": "@set"
+        },
+        "type": "commonDefinitionsDoc:type",
+        "unit": "commonDefinitionsDoc:unit",
+        "value": "commonDefinitionsDoc:value",
 
         "schemas": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/",
         "entities": "schemas:entities/",

@@ -4,7 +4,8 @@ from __future__ import annotations
 import json
 import logging
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence, Set
+from urllib.parse import urldefrag
+from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
 
 from fega_tools.jsonld_utils import (
     JSONLD_KEYWORDS,
@@ -16,7 +17,17 @@ from fega_tools.jsonld_utils import (
 )
 from fega_tools.validation_common import find_entity_dirs
 
-IGNORED_SCHEMA_PROPERTIES = {"@context", "@id", "@type"}
+IGNORED_SCHEMA_PROPERTIES = {"@context", "@id", "@type", "@graph"}
+TRAVERSAL_KEYS = (
+    "allOf",
+    "anyOf",
+    "oneOf",
+    "if",
+    "then",
+    "else",
+    "items",
+    "contains",
+)
 LOGGER = logging.getLogger(__name__)
 
 def load_json_object(path: Path) -> Dict[str, Any]:
@@ -26,6 +37,150 @@ def load_json_object(path: Path) -> Dict[str, Any]:
     if not isinstance(value, dict):
         raise ValueError(f"Expected a JSON object in {path}")
     return value
+
+
+def _json_pointer_parts(fragment: str) -> List[str]:
+    """Return decoded JSON Pointer parts from a URI fragment."""
+    if not fragment:
+        return []
+    if not fragment.startswith("/"):
+        raise ValueError(f"Unsupported non-pointer schema fragment '#{fragment}'")
+    return [
+        part.replace("~1", "/").replace("~0", "~")
+        for part in fragment.lstrip("/").split("/")
+        if part != ""
+    ]
+
+
+def _get_pointer(document: Any, parts: Sequence[str]) -> Any:
+    """Resolve a decoded JSON Pointer inside a JSON document."""
+    current = document
+    for part in parts:
+        if isinstance(current, dict):
+            current = current[part]
+        elif isinstance(current, list):
+            current = current[int(part)]
+        else:
+            raise KeyError(part)
+    return current
+
+
+def _is_fega_schema_path(path: Path, repo_root: Path) -> bool:
+    """Return whether *path* is a maintained FEGA schema in coverage scope."""
+    try:
+        rel = path.resolve().relative_to(repo_root.resolve())
+    except ValueError:
+        return False
+    rel_parts = rel.parts
+    return (
+        len(rel_parts) >= 3
+        and rel_parts[0] == "schemas"
+        and rel_parts[1] in {"common", "entities"}
+        and rel_parts[-1] == "schema.json"
+    )
+
+
+def _resolve_schema_ref(
+    ref: str,
+    current_file: Path,
+    id_to_path_map: Dict[str, Path],
+    repo_root: Path,
+) -> Optional[Tuple[Path, List[str]]]:
+    """Resolve a JSON Schema ref to an in-scope local schema target."""
+    base, fragment = urldefrag(ref)
+    if not base:
+        target_path = current_file
+    elif base in id_to_path_map:
+        target_path = id_to_path_map[base]
+    elif not base.startswith(("http://", "https://")):
+        target_path = (current_file.parent / base).resolve()
+    else:
+        return None
+
+    if not target_path.exists() or not _is_fega_schema_path(target_path, repo_root):
+        return None
+    return target_path, _json_pointer_parts(fragment)
+
+
+def _add_property_path(
+    property_paths: Dict[str, Set[str]],
+    path: str,
+    property_name: str,
+) -> None:
+    """Record a schema-facing property path."""
+    if property_name in IGNORED_SCHEMA_PROPERTIES or property_name.startswith("$"):
+        return
+    property_paths.setdefault(property_name, set()).add(path)
+
+
+def _load_schema(path: Path) -> Dict[str, Any]:
+    """Load a schema object from disk."""
+    loaded = load_json_object(path)
+    return loaded
+
+
+def collect_schema_property_paths(
+    schema: Dict[str, Any],
+    schema_path: Path,
+    id_to_path_map: Dict[str, Path],
+    repo_root: Path,
+) -> Dict[str, Set[str]]:
+    """Return FEGA-maintained schema-facing property names and JSON paths.
+
+    Traversal follows local refs under ``schemas/common`` and
+    ``schemas/entities`` and stops at standards or other external refs.
+    """
+    property_paths: Dict[str, Set[str]] = {}
+    loaded_schemas: Dict[Path, Dict[str, Any]] = {schema_path.resolve(): schema}
+    seen_refs: Set[Tuple[Path, Tuple[str, ...], str]] = set()
+
+    def schema_for(path: Path) -> Dict[str, Any]:
+        resolved = path.resolve()
+        if resolved not in loaded_schemas:
+            loaded_schemas[resolved] = _load_schema(resolved)
+        return loaded_schemas[resolved]
+
+    def visit(value: Any, current_file: Path, data_path: str) -> None:
+        if isinstance(value, list):
+            for item in value:
+                visit(item, current_file, data_path)
+            return
+        if not isinstance(value, dict):
+            return
+
+        ref = value.get("$ref")
+        if isinstance(ref, str):
+            resolved = _resolve_schema_ref(ref, current_file, id_to_path_map, repo_root)
+            if resolved is not None:
+                ref_path, pointer_parts = resolved
+                ref_key = (ref_path.resolve(), tuple(pointer_parts), data_path)
+                if ref_key not in seen_refs:
+                    seen_refs.add(ref_key)
+                    ref_schema = schema_for(ref_path)
+                    try:
+                        target = _get_pointer(ref_schema, pointer_parts)
+                    except (KeyError, IndexError, TypeError, ValueError) as exc:
+                        raise ValueError(
+                            f"Cannot resolve schema ref '{ref}' from '{current_file}': {exc}"
+                        ) from exc
+                    visit(target, ref_path.resolve(), data_path)
+
+        properties = value.get("properties")
+        if isinstance(properties, dict):
+            for property_name, property_schema in properties.items():
+                child_path = (
+                    f"{data_path}.{property_name}" if data_path else property_name
+                )
+                _add_property_path(property_paths, child_path, property_name)
+                visit(property_schema, current_file, child_path)
+
+        for key in TRAVERSAL_KEYS:
+            child = value.get(key)
+            if isinstance(child, (dict, list)):
+                visit(child, current_file, data_path)
+
+    visit(schema, schema_path.resolve(), "")
+    return property_paths
 
 
 def schema_coverage_properties(schema: Dict[str, Any]) -> List[str]:
@@ -57,10 +212,14 @@ def _empty_entity_result(entity_dir: Path) -> Dict[str, Any]:
         "context_coverage_passed": False,
         "frame_coverage_passed": False,
         "schema_properties": [],
+        "schema_property_paths": [],
+        "root_frame_properties": [],
         "context_terms": [],
         "frame_keys": [],
         "missing_context_terms": [],
+        "missing_context_term_paths": {},
         "missing_frame_keys": [],
+        "missing_frame_key_paths": {},
         "unknown_frame_keys": [],
         "context_errors": [],
         "frame_errors": [],
@@ -71,6 +230,7 @@ def _empty_entity_result(entity_dir: Path) -> Dict[str, Any]:
 def validate_entity_coverage(
     entity_dir: Path,
     id_to_path_map: Dict[str, Path],
+    repo_root: Path,
 ) -> Dict[str, Any]:
     """Validate context and frame coverage for one entity directory."""
     result = _empty_entity_result(entity_dir)
@@ -83,12 +243,39 @@ def validate_entity_coverage(
         result["script_errors"].append(f"Cannot load schema: {exc}")
         return result
 
-    schema_properties = schema_coverage_properties(schema)
+    try:
+        property_path_map = collect_schema_property_paths(
+            schema,
+            schema_path.resolve(),
+            id_to_path_map,
+            repo_root,
+        )
+    except (OSError, json.JSONDecodeError, ValueError) as exc:
+        result["script_errors"].append(f"Cannot collect schema properties: {exc}")
+        return result
+
+    schema_properties = sorted(property_path_map)
+    root_frame_properties = sorted(
+        property_name
+        for property_name, paths in property_path_map.items()
+        if any("." not in path for path in paths)
+    )
     result["schema_properties"] = schema_properties
+    result["root_frame_properties"] = root_frame_properties
+    result["schema_property_paths"] = [
+        {"property": property_name, "path": path}
+        for property_name in schema_properties
+        for path in sorted(property_path_map[property_name])
+    ]
     LOGGER.debug(
-        "Entity '%s': direct schema properties requiring coverage: %s",
+        "Entity '%s': schema properties requiring context coverage: %s",
         entity_dir.name,
         schema_properties,
+    )
+    LOGGER.debug(
+        "Entity '%s': root schema properties requiring frame coverage: %s",
+        entity_dir.name,
+        root_frame_properties,
     )
 
     terms: Set[str] = set()
@@ -115,16 +302,24 @@ def validate_entity_coverage(
         except (FileNotFoundError, ValueError, OSError, json.JSONDecodeError) as exc:
             result["context_errors"].append(f"Cannot materialize schema @context: {exc}")
 
-    result["missing_context_terms"] = [
+    result["missing_context_terms"] = sorted(
         key for key in schema_properties if key not in terms
-    ]
+    )
+    result["missing_context_term_paths"] = {
+        key: sorted(property_path_map[key])
+        for key in result["missing_context_terms"]
+    }
     result["context_coverage_passed"] = (
         not result["missing_context_terms"]
         and not result["context_errors"]
     )
 
     if not frame_path.is_file():
-        result["missing_frame_keys"] = schema_properties
+        result["missing_frame_keys"] = root_frame_properties
+        result["missing_frame_key_paths"] = {
+            key: sorted(path for path in property_path_map[key] if "." not in path)
+            for key in result["missing_frame_keys"]
+        }
         result["frame_errors"].append(f"Frame file not found: {frame_path}")
         return result
 
@@ -142,14 +337,18 @@ def validate_entity_coverage(
         frame_keys,
     )
     result["missing_frame_keys"] = [
-        key for key in schema_properties if key not in frame_keys
+        key for key in root_frame_properties if key not in frame_keys
     ]
+    result["missing_frame_key_paths"] = {
+        key: sorted(path for path in property_path_map[key] if "." not in path)
+        for key in result["missing_frame_keys"]
+    }
     if not result["context_errors"]:
-        schema_property_set = set(schema_properties)
+        root_frame_property_set = set(root_frame_properties)
         result["unknown_frame_keys"] = [
             key
             for key in frame_keys
-            if key not in schema_property_set
+            if key not in root_frame_property_set
             and not is_known_jsonld_key(key, terms, prefixes)
         ]
     result["frame_coverage_passed"] = (
@@ -219,7 +418,7 @@ def validate_jsonld_coverage(
     )
 
     entity_results = [
-        validate_entity_coverage(entity_dir, id_to_path_map)
+        validate_entity_coverage(entity_dir, id_to_path_map, repo_root)
         for entity_dir in entity_dirs
     ]
     totals = summarize_coverage(entity_results)
