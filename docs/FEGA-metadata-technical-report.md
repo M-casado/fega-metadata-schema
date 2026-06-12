@@ -543,8 +543,8 @@ config:
   layout: dagre
 ---
 flowchart TB
-    n28["<b>Biomaterial</b><p></p>"] L_BIOMATERIAL_ACTIVITIES@==> n27@{ label: "<b style=\"font-weight:\">Activities</b>" }
-    n29@{ label: "<b style=\"font-weight:\">Datafile</b>" } L_DATAFILE_ACTIVITIES@==> n27
+    n28["<b>Biomaterial</b><p></p>"] L_BIOMATERIAL_ACTIVITIES@<==> n27@{ label: "<b style=\"font-weight:\">Activities</b>" }
+    n29@{ label: "<b style=\"font-weight:\">Datafile</b>" }L_DATAFILE_ACTIVITIES@<==> n27
     n26(["<b>Administrative</b>"]) --> n28
     n25["<b>Data<br>management</b>"] --> n29
     n26 --> n27
