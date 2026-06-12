@@ -24,6 +24,7 @@ on:
       - 'schemas/**'
       - 'scripts/**'
       - 'src/**'
+      - 'pyproject.toml'
       - 'requirements.txt'
       - '.github/workflows/jsonld_coverage_check.yml'
   push:

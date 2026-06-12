@@ -41,6 +41,9 @@ on:
       - 'schemas/**'
       - 'standards/**'
       - 'scripts/**'
+      - 'src/**'
+      - 'pyproject.toml'
+      - 'requirements.txt'
       - '.github/workflows/**'
   push:
     branches: [ main ]

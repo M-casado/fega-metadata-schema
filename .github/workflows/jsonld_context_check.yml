@@ -36,6 +36,8 @@ on:
       - 'schemas/**'
       - 'standards/**'
       - 'scripts/**'
+      - 'src/**'
+      - 'pyproject.toml'
       - 'requirements.txt'
       - '.github/workflows/jsonld_context_check.yml'
   push:
