@@ -1,0 +1,344 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/datafile/schema.json",
+  "type": "object",
+  "title": "FEGA Datafile metadata schema",
+  "meta:version": "0.0.0",
+  "$async": true,
+  "description": "A resource containing data that serves as an input to, or output from, a Process. Each Datafile belongs to one or more Datasets as an access-control and packaging unit. Includes a diverse range of formats (e.g., BAM, VCF, mzML) from multiple life science domains (e.g., genomics, imaging, phenoclinical, proteomics).",
+  "@context": "./context.jsonld",
+  "unevaluatedProperties": false,
+  "required": [
+    "@id",
+    "@type",
+    "fileName",
+    "fileFormat",
+    "dataContent",
+    "checksums",
+    "isPartOf"
+  ],
+  "meta:sssomMappings": [
+    {
+      "predicate_id": "skos:broadMatch",
+      "object_id": "prov:Entity",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "object_match_field": "rdfs:comment",
+      "subject_match_field": "rdfs:comment",
+      "author_id": ["orcid:0000-0002-7747-6256"],
+      "creator_id": ["orcid:0000-0002-7747-6256"],
+      "reviewer_id": [""],
+      "confidence": 1,
+      "mapping_date": "2026-06-24"
+    },
+    {
+      "predicate_id": "skos:closeMatch",
+      "object_id": "schema:MediaObject",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "object_match_field": "rdfs:comment",
+      "subject_match_field": "rdfs:comment",
+      "author_id": ["orcid:0000-0002-7747-6256"],
+      "creator_id": ["orcid:0000-0002-7747-6256"],
+      "reviewer_id": [""],
+      "confidence": 1,
+      "mapping_date": "2026-06-24"
+    },
+    {
+      "predicate_id": "skos:relatedMatch",
+      "object_id": "dcat:Distribution",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "object_match_field": "rdfs:comment",
+      "subject_match_field": "rdfs:comment",
+      "author_id": ["orcid:0000-0002-7747-6256"],
+      "creator_id": ["orcid:0000-0002-7747-6256"],
+      "reviewer_id": [""],
+      "confidence": 1,
+      "mapping_date": "2026-06-24"
+    },
+    {
+      "predicate_id": "skos:closeMatch",
+      "object_id": "schema:DataDownload",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "object_match_field": "rdfs:comment",
+      "subject_match_field": "rdfs:comment",
+      "author_id": ["orcid:0000-0002-7747-6256"],
+      "creator_id": ["orcid:0000-0002-7747-6256"],
+      "reviewer_id": [""],
+      "confidence": 1,
+      "mapping_date": "2026-06-24"
+    },
+    {
+      "predicate_id": "skos:closeMatch",
+      "object_id": "isa:data-schema-json",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "object_match_field": "rdfs:comment",
+      "subject_match_field": "rdfs:comment",
+      "author_id": ["orcid:0000-0002-7747-6256"],
+      "creator_id": ["orcid:0000-0002-7747-6256"],
+      "reviewer_id": [""],
+      "confidence": 1,
+      "mapping_date": "2026-06-24"
+    },
+    {
+      "predicate_id": "skos:closeMatch",
+      "object_id": "edam:data_0006",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "object_match_field": "rdfs:comment",
+      "subject_match_field": "rdfs:comment",
+      "author_id": ["orcid:0000-0002-7747-6256"],
+      "creator_id": ["orcid:0000-0002-7747-6256"],
+      "reviewer_id": [""],
+      "confidence": 1,
+      "mapping_date": "2026-06-24"
+    }
+  ],
+  "allOf": [
+    {
+      "title": "Base constraints for JSON-LD",
+      "$ref": "../../../standards/json-schema/json-ld.org/FEGA.jsonld-schema.json"
+    },
+    {
+      "title": "Entity type restriction",
+      "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionDatafile"
+    }
+  ],
+  "properties": {
+    "@id": {
+      "$ref": "../../common/schema.json#/$defs/@id",
+      "examples": ["ega:EGAF00001000620"]
+    },
+    "@type": {
+      "title": "Datafile resource type",
+      "$ref": "../../common/schema.json#/$defs/@type"
+    },
+    "fileName": {
+      "title": "File name",
+      "description": "Submitted or canonical file name, including extension where relevant.",
+      "allOf": [
+        {
+          "$ref": "../../common/schema.json#/$defs/label"
+        }
+      ],
+      "examples": [
+        "case2_case2_father_Case2_F.R1.fastq.gz",
+        "case2_case2_father_Case2_F.bam"
+      ]
+    },
+    "description": {
+      "title": "Description",
+      "description": "Free-text description of the Datafile, including its biological or analytical meaning where useful.",
+      "allOf": [
+        {
+          "$ref": "../../common/schema.json#/$defs/description"
+        }
+      ]
+    },
+    "fileFormat": {
+      "$ref": "../../common/schema.json#/$defs/fileFormat"
+    },
+    "dataContent": {
+      "$ref": "../../common/schema.json#/$defs/dataContent"
+    },
+    "mediaType": {
+      "title": "Internet media type",
+      "description": "IANA media type for the file representation, where applicable.",
+      "type": "string",
+      "pattern": "^[^/\\s]+/[^/\\s]+$",
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:exactMatch",
+          "object_id": "dcat:mediaType",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:comment",
+          "subject_match_field": "rdfs:comment",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1,
+          "mapping_date": "2026-06-24"
+        },
+        {
+          "predicate_id": "skos:closeMatch",
+          "object_id": "schema:encodingFormat",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:comment",
+          "subject_match_field": "rdfs:comment",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1,
+          "mapping_date": "2026-06-24"
+        }
+      ],
+      "examples": [
+        "application/gzip",
+        "application/octet-stream"
+      ]
+    },
+    "compressionFormat": {
+      "title": "Compression format",
+      "description": "Compression format used on the file representation, preferably from IANA media types where applicable.",
+      "type": "string",
+      "pattern": "^[^/\\s]+/[^/\\s]+$",
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:exactMatch",
+          "object_id": "dcat:compressFormat",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:comment",
+          "subject_match_field": "rdfs:comment",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1,
+          "mapping_date": "2026-06-24"
+        }
+      ],
+      "examples": [
+        "application/gzip"
+      ]
+    },
+    "packagingFormat": {
+      "title": "Packaging format",
+      "description": "Packaging/container format used for the file representation, where applicable.",
+      "type": "string",
+      "pattern": "^[^/\\s]+/[^/\\s]+$",
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:exactMatch",
+          "object_id": "dcat:packageFormat",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:comment",
+          "subject_match_field": "rdfs:comment",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1,
+          "mapping_date": "2026-06-24"
+        }
+      ],
+      "examples": [
+        "application/x-tar"
+      ]
+    },
+    "checksums": {
+      "title": "Checksums",
+      "description": "One or more checksums that can be used to verify file integrity.",
+      "type": "array",
+      "items": {
+        "$ref": "../../common/schema.json#/$defs/checksum"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "contains":{
+        "$comment":"At least one checksum must be unencrypted",
+        "properties":{
+            "appliesTo":{
+              "const":"unencrypted"
+            }
+        }
+      }
+    },
+    "byteSize": {
+      "title": "Byte size",
+      "description": "Size of the Datafile in bytes.",
+      "type": "integer",
+      "minimum": 0,
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:exactMatch",
+          "object_id": "dcat:byteSize",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:comment",
+          "subject_match_field": "rdfs:comment",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1,
+          "mapping_date": "2026-06-24"
+        },
+        {
+          "predicate_id": "skos:closeMatch",
+          "object_id": "schema:contentSize",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:comment",
+          "subject_match_field": "rdfs:comment",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1,
+          "mapping_date": "2026-06-24"
+        }
+      ],
+      "examples": [1280245]
+    },
+    "isPartOf": {
+      "title": "Is part of",
+      "description": "Dataset(s) of which this datafile is a member.",
+      "allOf": [
+        {
+          "$ref": "../../common/schema.json#/$defs/isPartOf"
+        },
+        {
+          "title": "Entity type restriction",
+          "items": {
+            "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionDataset"
+          }
+        }
+      ],
+      "examples": [
+        [
+          {
+            "@id": "ega:EGAD00000000002",
+            "@type": ["ega:dataset", "dcat:Dataset"]
+          }
+        ]
+      ]
+    },
+    "sameAs": {
+      "title": "Same as",
+      "description": "Indicates a resource that is the same as this datafile.",
+      "allOf": [
+        {
+          "$ref": "../../common/schema.json#/$defs/sameAs"
+        },
+        {
+          "items": {
+            "title": "Entity type restriction",
+            "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionDatafile"
+          }
+        }
+      ]
+    },
+    "wasGeneratedBy": {
+      "title": "Was generated by",
+      "description": "Process that generated this datafile.",
+      "maxItems": 1,
+      "allOf": [
+        {
+          "$ref": "../../common/schema.json#/$defs/wasGeneratedBy"
+        },
+        {
+          "items": {
+            "title": "Entity type restriction",
+            "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionProcess"
+          }
+        }
+      ]
+    },
+    "wasUsedBy": {
+      "title": "Was used by",
+      "description": "Process(es) that used this datafile as an input.",
+      "allOf": [
+        {
+          "$ref": "../../common/schema.json#/$defs/wasUsedBy"
+        },
+        {
+          "items": {
+            "title": "Entity type restriction",
+            "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionProcess"
+          }
+        }
+      ]
+    }
+  }
+}

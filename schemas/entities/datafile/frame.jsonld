@@ -1,0 +1,37 @@
+{
+  "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/datafile/schema.json",
+  "@type": "ega:datafile",
+  "@embed": "@always",
+  "@explicit": false,
+
+  "fileName": {},
+  "description": {},
+  "fileFormat": {},
+  "dataContent": {},
+  "mediaType": {},
+  "compressionFormat": {},
+  "packagingFormat": {},
+  "checksums": {},
+  "byteSize": {},
+
+  "isPartOf": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "sameAs": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "wasGeneratedBy": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "wasUsedBy": [
+    {
+      "@embed": "@always"
+    }
+  ]
+}

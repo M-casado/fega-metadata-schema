@@ -111,7 +111,7 @@
         "label": {
             "type": "string",
             "title": "Label",
-            "description": "A human-readable name, short title, or display label for the entity (e.g. subject id, cohort title, dataset title, etc.).",
+            "description": "A human-readable name, short title, or display label for the entity (e.g. aliases, filenames, cohort titles, dataset titles, etc.).",
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
@@ -1658,6 +1658,175 @@
                 },
                 {
                     "id": "EDAM:format_2072"
+                }
+            ]
+        },
+
+        "dataContent": {
+            "type": "object",
+            "title": "Data content",
+            "description": "Term describing the biological or analytical data type represented by a Datafile. Not necessarily the same as the file format, but commonly related.",
+            "allOf": [
+                {
+                    "title": "Inherited ontologyTerm structure of term id and label",
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
+                }
+            ],
+            "properties": {
+                "id": {
+                    "title": "Ontology constraints for this specific id",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:edam"],
+                        "classes": [ "EDAM:data_0006" ],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false
+                    },
+                    "examples": [ "EDAM:data_2044", "EDAM:data_2977", "EDAM:data_0863" ]
+                },
+                "label": {
+                    "title": "Ontology constraints for this specific label",
+                    "graphRestriction":  {
+                        "ontologies" : ["obo:edam"],
+                        "classes": [ "EDAM:data_0006" ],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false,
+                        "queryFields": [ "label" ]
+                    },
+                    "examples": [ "Sequence", "Nucleic acid sequence", "Sequence alignment" ]
+                }
+            },
+            "examples": [
+                {
+                    "id": "EDAM:data_2977",
+                    "label": "Nucleic acid sequence"
+                },
+                {
+                    "id": "EDAM:data_0863",
+                    "label": "Sequence alignment"
+                }
+            ]
+        },
+
+        "checksum": {
+            "type": "object",
+            "title": "Checksum",
+            "description": "Small, fixed-size block of data derived from a larger file or message, acting as a digital fingerprint to verify its integrity. If a file is modified, corrupted, or tampered with, its checksum changes completely, flagging the error. Checksums are widely used in data transmission, storage, and security to ensure that the received or stored data matches the original.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "spdx:Checksum",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "checksum",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-06-24"
+                }
+            ],
+            "required": ["algorithm", "value", "appliesTo"],
+            "allOf": [
+                {
+                    "if": {
+                        "required": ["algorithm"],
+                        "properties": {
+                            "algorithm": {
+                                "const": "MD5"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "value": {
+                                "pattern": "^[A-Fa-f0-9]{32}$"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "required": ["algorithm"],
+                        "properties": {
+                            "algorithm": {
+                                "const": "SHA256"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "value": {
+                                "pattern": "^[A-Fa-f0-9]{64}$"
+                            }
+                        }
+                    }
+                }
+            ],
+            "properties": {
+                "algorithm": {
+                    "type": "string",
+                    "title": "Checksum algorithm",
+                    "description": "Algorithm used to compute the checksum value.",
+                    "meta:sssomMappings": [
+                        {
+                            "predicate_id": "skos:exactMatch",
+                            "object_id": "spdx:ChecksumAlgorithm",
+                            "mapping_justification": "semapv:ManualMappingCuration",
+                            "object_match_field": "rdfs:label",
+                            "subject_match_field": "rdfs:label",
+                            "match_string": "checksum algorithm",
+                            "author_id": ["orcid:0000-0002-7747-6256"],
+                            "creator_id": ["orcid:0000-0002-7747-6256"],
+                            "reviewer_id": [""],
+                            "confidence": 1.0,
+                            "mapping_date": "2026-06-24"
+                        }
+                    ],
+                    "enum": [ "MD5", "SHA256" ],
+                    "meta:enum": {
+                        "MD5": "http://spdx.org/rdf/terms#checksumAlgorithm_md5",
+                        "SHA256": "http://spdx.org/rdf/terms#checksumAlgorithm_sha256"
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "title": "Checksum value",
+                    "description": "Computed checksum value.",
+                    "pattern": "^[A-Fa-f0-9]+$",
+                    "examples": [
+                        "d41d8cd98f00b204e9800998ecf8427e",
+                        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    ]
+                },
+                "appliesTo": {
+                    "title": "Checksum target representation",
+                    "description": "The byte-level representation of the datafile to which the checksum applies.",
+                    "type": "string",
+                    "enum": [
+                        "unencrypted",
+                        "encrypted",
+                        "compressed",
+                        "packaged"
+                    ],
+                    "meta:enum": {
+                        "unencrypted": "Checksum computed on the cleartext byte stream before encryption.",
+                        "encrypted": "Checksum computed on the encrypted byte stream.",
+                        "compressed": "Checksum computed on the compressed byte stream.",
+                        "packaged": "Checksum computed on an archive or package byte stream, such as a tar file."
+                    }
+                }
+            },
+            "examples": [
+                {
+                    "algorithm": "MD5",
+                    "value": "d41d8cd98f00b204e9800998ecf8427e",
+                    "appliesTo": "unencrypted"
+                },
+                {
+                    "algorithm": "SHA256",
+                    "value": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                    "appliesTo": "encrypted"
                 }
             ]
         },

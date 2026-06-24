@@ -1,0 +1,32 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/datafile/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/datafile/schema.json",
+    "@id": "ega:EGAF00000000001",
+    "@type": "ega:datafile",
+    "fileName": "case2_case2_father_Case2_F.R1.fastq.gz",
+    "fileFormat": {
+      "id": "EDAM:format_1930",
+      "label": "FASTQ"
+    },
+    "dataContent": {
+      "id": "EDAM:data_2977",
+      "label": "Nucleic acid sequence"
+    },
+    "checksums": [
+      {
+        "algorithm": "MD5",
+        "value": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "appliesTo": "submitted"
+      }
+    ],
+    "isPartOf": [
+      {
+        "@id": "ega:EGAD00000000002",
+        "@type": "ega:dataset"
+      }
+    ]
+  }
+}

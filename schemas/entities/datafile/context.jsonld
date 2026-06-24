@@ -1,0 +1,25 @@
+{
+  "@context": [
+    "../../common/context.jsonld",
+    {
+      "entityDoc": "entities:datafile/schema.json#",
+      "properties": "@nest",
+      "fileName": "entityDoc:fileName",
+      "dataContent": "entityDoc:dataContent",
+      "mediaType": "dcat:mediaType",
+      "compressionFormat": "dcat:compressFormat",
+      "packagingFormat": "dcat:packageFormat",
+      "byteSize": {
+        "@id": "dcat:byteSize",
+        "@type": "xsd:nonNegativeInteger"
+      },
+      "checksums": {
+        "@id": "spdx:checksum",
+        "@container": "@set"
+      },
+      "algorithm": "spdx:algorithm",
+      "appliesTo": "entityDoc:appliesTo",
+      "value": "spdx:checksumValue"
+    }
+  ]
+}

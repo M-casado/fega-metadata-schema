@@ -1,0 +1,51 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/datafile/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/datafile/schema.json",
+    "@id": "ega:EGAF00000000003",
+    "@type": [
+      "ega:datafile",
+      "prov:Entity"
+    ],
+    "fileName": "case2_case2_father_Case2_F.bam",
+    "description": "Aligned sequence reads for the case2 father sample.",
+    "fileFormat": {
+      "id": "EDAM:format_2572",
+      "label": "BAM"
+    },
+    "dataContent": {
+      "id": "EDAM:data_0863",
+      "label": "Sequence alignment"
+    },
+    "mediaType": "application/octet-stream",
+    "compressionFormat": "application/gzip",
+    "byteSize": 1280245,
+    "checksums": [
+      {
+        "algorithm": "SHA256",
+        "value": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "appliesTo": "unencrypted"
+      }
+    ],
+    "isPartOf": [
+      {
+        "@id": "ega:EGAD00000000002",
+        "@type": [
+          "ega:dataset",
+          "dcat:Dataset"
+        ]
+      }
+    ],
+    "wasGeneratedBy": [
+      {
+        "@id": "ega:EGAK00000000002",
+        "@type": [
+          "ega:process",
+          "prov:Activity"
+        ]
+      }
+    ]
+  }
+}

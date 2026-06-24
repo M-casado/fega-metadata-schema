@@ -167,7 +167,17 @@
     },
 
     "sameAs": {
-      "$ref": "../../common/schema.json#/$defs/sameAs"
+      "allOf": [
+        {
+          "$ref": "../../common/schema.json#/$defs/sameAs"
+        },
+        {
+          "items": {
+            "title": "Entity type restriction",
+            "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionProtocol"
+          }
+        }
+      ]
     },
 
     "isBasedOn": {

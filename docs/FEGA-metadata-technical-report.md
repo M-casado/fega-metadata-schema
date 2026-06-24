@@ -505,7 +505,7 @@ The entities defined in the EGA v2 model are as follows. Each of them  listed he
 
 * **Process** ([prov:Activity](https://www.w3.org/TR/prov-o/#Activity)): A specific execution of a protocol or procedure, applied to specific inputs (Biomaterial or Datafile) and producing specific outputs (Biomaterial or Datafile). See [*Disambiguation*](#7411-processes-and-protocols).
 
-* **Datafile** (skos:closeMatch [dcat:Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset)): A resource containing data. Includes a diverse range of formats (e.g., BAM, VCF, mzML) from multiple life science domains (e.g., genomics, imaging, phenoclinical, proteomics). Each Datafile is a part of a Dataset, linked via `dcterms:hasPart`. See [*Disambiguation*](#7412-datasets-and-datafiles).
+* **Datafile** (skos:closeMatch [dcat:Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset)): A resource containing data that serves as an input to, or output from, a Process. Each Datafile belongs to one or more Datasets as an access-control and packaging unit. Includes a diverse range of formats (e.g., BAM, VCF, mzML) from multiple life science domains (e.g., genomics, imaging, phenoclinical, proteomics). See [*Disambiguation*](#7412-datasets-and-datafiles).
 
 * **Dataset** ([dcat:Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset)): A collection of Datafiles[^13], published or curated by a single agent, and subject to a particular policy for controlled-access, commonly making them the units of access control. See [*Disambiguation*](#7412-datasets-and-datafiles).
 
