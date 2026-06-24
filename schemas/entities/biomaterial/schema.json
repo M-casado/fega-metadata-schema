@@ -8,6 +8,20 @@
   "description": "Represents any biological material, from whole organisms (including humans) to subcellular components and macromolecules (e.g., DNA samples).",
   "@context": "./context.jsonld",
   "required": ["biomaterialType"],
+  "meta:sssomMappings": [
+    {
+            "predicate_id": "skos:broadMatch",
+            "object_id": "prov:Entity",
+            "mapping_justification": "semapv:ManualMappingCuration",
+            "object_match_field": "rdfs:comment",
+            "subject_match_field": "rdfs:comment",
+            "author_id": ["orcid:0000-0002-7747-6256"],
+            "creator_id": ["orcid:0000-0002-7747-6256"],
+            "reviewer_id": [""],
+            "confidence": 1,
+            "mapping_date": "2026-06-24"
+        }
+  ],
   "allOf": [
     {
       "title": "Base constraints for JSON-LD",
