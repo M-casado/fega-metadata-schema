@@ -241,8 +241,16 @@
     "byteSize": {
       "title": "Byte size",
       "description": "Size of the Datafile in bytes.",
-      "type": "integer",
-      "minimum": 0,
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "string",
+          "pattern": "^[0-9]+$"
+        }
+      ],
       "meta:sssomMappings": [
         {
           "predicate_id": "skos:exactMatch",
