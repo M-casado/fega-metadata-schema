@@ -49,10 +49,12 @@ pip install -r requirements.txt
 pip install -e .[dev]
 ```
 
-Some validation commands also expect an already-running [Biovalidator fork](https://github.com/M-casado/biovalidator/tree/dev) endpoint. From the repository root, start Biovalidator with the local schemas loaded:
+Some validation commands also expect an already-running [Biovalidator fork](https://github.com/M-casado/biovalidator/tree/main) endpoint. From the repository root, start Biovalidator with the local schemas loaded:
 
 ```bash
-npm install -g "github:M-casado/biovalidator#dev"
+# Optionally, uninstall any previous global Biovalidator installation
+# npm uninstall -g biovalidator
+npm install -g "github:M-casado/biovalidator#main"
 node "$(npm root -g)/biovalidator/src/biovalidator.js" \
   --port 3020 \
   --ref "./schemas/**/schema.json" \
