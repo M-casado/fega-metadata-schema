@@ -1,0 +1,6 @@
+{
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/framework/json/common/examples/basicElement-example.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "id": "BEex1",
+    "name": "Basic Element example one"
+}

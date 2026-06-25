@@ -19,8 +19,7 @@
     },
     {
       "title": "Compatibility with Beacon v2 JSON Schema",
-      "$comment": "Validation currently points to M-casado/beacon-v2/main because that fork includes Beacon JSON Schema $id values and Biovalidator-compatible internal refs; see https://github.com/ga4gh-beacon/beacon-v2/issues/206.",
-      "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/cohorts/defaultSchema.json"
+      "$ref": "../../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/cohorts/defaultSchema.json"
     }
   ],
   "properties": {

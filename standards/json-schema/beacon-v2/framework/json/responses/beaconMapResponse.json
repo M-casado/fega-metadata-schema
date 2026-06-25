@@ -1,0 +1,21 @@
+{
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/framework/json/responses/beaconMapResponse.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": true,
+    "description": "A `beaconMapResponse` provides information about the beacon instance such as the different endpoints supported by this implementation of the Beacon API. This response is aimed to allow Beacon clients such as web front ends and Beacon network aggregators to evaluate which access patterns can be implemented against individual beacons.",
+    "properties": {
+        "meta": {
+            "$ref": "./sections/beaconInformationalResponseMeta.json",
+            "description": "Information about the response that could be relevant for the Beacon client in order to interpret the results."
+        },
+        "response": {
+            "$ref": "../configuration/beaconMapSchema.json",
+            "description": "Returning the Beacon Map."
+        }
+    },
+    "required": [
+        "meta",
+        "response"
+    ],
+    "type": "object"
+}

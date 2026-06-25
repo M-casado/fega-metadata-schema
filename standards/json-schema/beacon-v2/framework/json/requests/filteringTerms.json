@@ -1,0 +1,126 @@
+{
+    "$defs": {
+        "AlphanumericFilter": {
+            "description": "Filter results based on operators and values applied to alphanumeric\nfields.",
+            "properties": {
+                "id": {
+                    "description": "Field identfier to be queried.",
+                    "example": "ageOfOnset",
+                    "type": "string"
+                },
+                "operator": {
+                    "default": "=",
+                    "description": "Defines how the value relates to the field `id`.",
+                    "enum": [
+                        "=",
+                        "<",
+                        ">",
+                        "!",
+                        ">=",
+                        "<="
+                    ],
+                    "example": ">",
+                    "type": "string"
+                },
+                "scope": {
+                    "description": "The entry type in the model to which the filter should be applied. It\nis good practice to use unanimous `id` values (e.g. `ageAtDiagnosis`\ninstead of `age`) and avoid the use of the `scope` parameter.",
+                    "examples": [
+                        "individuals"
+                    ],
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Alphanumeric search term to be used within the query which can contain wildcard characters (%) to denote any number of unknown characters.  Values can be assocatied with units if applicable.",
+                    "example": "P70Y",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "operator",
+                "value"
+            ],
+            "type": "object"
+        },
+        "CustomFilter": {
+            "description": "Filter results to include records that contain a custom term defined by this Beacon.",
+            "properties": {
+                "id": {
+                    "description": "Custom filter terms should contain a unique identifier.",
+                    "example": "demographic.ethnicity:asian",
+                    "type": "string"
+                },
+                "scope": {
+                    "description": "The entry type in the model to which the filter should be applied.",
+                    "examples": [
+                        "individuals"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "type": "object"
+        },
+        "FilteringTermInRequest": {
+            "anyOf": [
+                {
+                    "$ref": "#/$defs/OntologyFilter"
+                },
+                {
+                    "$ref": "#/$defs/AlphanumericFilter"
+                },
+                {
+                    "$ref": "#/$defs/CustomFilter"
+                }
+            ]
+        },
+        "OntologyFilter": {
+            "description": "Filter results to include records that contain a specific ontology term.",
+            "properties": {
+                "id": {
+                    "description": "Term ID to be queried, using CURIE syntax where possible.",
+                    "example": "HP:0002664",
+                    "type": "string"
+                },
+                "includeDescendantTerms": {
+                    "default": true,
+                    "description": "Define if the Beacon should implement the ontology hierarchy, thus query the descendant terms of `id`.",
+                    "type": "boolean"
+                },
+                "scope": {
+                    "description": "The entry type in the model to which the filter should be applied. For\nexample, the use of `NCIT:C4013` (Malignant Head and Neck Neoplasm) can\nw/o specified scope mean both \"match cancer samples\" or \"match individuals\"\nwith the disease\" which - in the case of individuals - could then lead\nto matching germline and cancer variants while a scope of `biosamples`\nwould limit the response to variants observed in the cancer tissue.\nNote: It is good practice to avoid ambiguous terms, _i.e._ use different\nvocabularies for different entry types.",
+                    "examples": [
+                        "biosamples"
+                    ],
+                    "type": "string"
+                },
+                "similarity": {
+                    "default": "exact",
+                    "description": "Allow the Beacon to return results which do not match the filter exactly, but do match to a certain degree of similarity. The Beacon defines the semantic similarity model implemented and how to apply the thresholds of 'high', 'medium' and 'low' similarity.",
+                    "enum": [
+                        "exact",
+                        "high",
+                        "medium",
+                        "low"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "type": "object"
+        }
+    },
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/framework/json/requests/filteringTerms.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": true,
+    "description": "Filtering terms are the main means to select subsets of records from a Beacon response. While the name implies the application to a generated response, in practice implementations may apply them at the query stage. Note: In the processing of Beacon v2.0 requests multiple filters are assumed to be chained by the logical AND operator.",
+    "items": {
+        "$ref": "#/$defs/FilteringTermInRequest"
+    },
+    "title": "Filtering Term Element",
+    "type": "array"
+}

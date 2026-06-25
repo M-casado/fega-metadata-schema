@@ -538,23 +538,19 @@
                 },
                 "onset": {
                     "title": "Compatibility with Beacon v2 JSON Schema",
-                    "$comment": "Validation currently points to M-casado/beacon-v2/main because that fork includes Beacon JSON Schema $id values and Biovalidator-compatible internal refs; see https://github.com/ga4gh-beacon/beacon-v2/issues/206.",
-                    "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/common/disease.json#/properties/ageOfOnset"
+                    "$ref": "../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/common/disease.json#/properties/ageOfOnset"
                 },
                 "familyHistory": {
                     "title": "Compatibility with Beacon v2 JSON Schema",
-                    "$comment": "Validation currently points to M-casado/beacon-v2/main because that fork includes Beacon JSON Schema $id values and Biovalidator-compatible internal refs; see https://github.com/ga4gh-beacon/beacon-v2/issues/206.",
-                    "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/common/disease.json#/properties/familyHistory"
+                    "$ref": "../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/common/disease.json#/properties/familyHistory"
                 },
                 "severity": {
                     "title": "Compatibility with Beacon v2 JSON Schema",
-                    "$comment": "Validation currently points to M-casado/beacon-v2/main because that fork includes Beacon JSON Schema $id values and Biovalidator-compatible internal refs; see https://github.com/ga4gh-beacon/beacon-v2/issues/206.",
-                    "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/common/disease.json#/properties/severity"
+                    "$ref": "../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/common/disease.json#/properties/severity"
                 },
                 "diseaseStage": {
                     "title": "Compatibility with Beacon v2 JSON Schema",
-                    "$comment": "Validation currently points to M-casado/beacon-v2/main because that fork includes Beacon JSON Schema $id values and Biovalidator-compatible internal refs; see https://github.com/ga4gh-beacon/beacon-v2/issues/206.",
-                    "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/common/disease.json#/properties/stage"
+                    "$ref": "../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/common/disease.json#/properties/stage"
                 },
                 "primarySite": {
                     "title": "Primary site",
@@ -592,8 +588,7 @@
                     "allOf": [
                         {
                             "title": "Compatibility with Beacon v2 JSON Schema",
-                            "$comment": "Validation currently points to M-casado/beacon-v2/main because that fork includes Beacon JSON Schema $id values and Biovalidator-compatible internal refs; see https://github.com/ga4gh-beacon/beacon-v2/issues/206.",
-                            "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/common/timeElement.json"
+                            "$ref": "../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/common/timeElement.json"
                         }
                     ],
                     "examples": [
@@ -1046,8 +1041,7 @@
             ],
             "allOf": [
                 {
-                    "$comment": "Validation currently points to M-casado/beacon-v2/main because that fork includes Beacon JSON Schema $id values and Biovalidator-compatible internal refs; see https://github.com/ga4gh-beacon/beacon-v2/issues/206.",
-                    "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/common/phenotypicFeature.json"
+                    "$ref": "../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/common/phenotypicFeature.json"
                 }
             ]
         },
@@ -1113,8 +1107,7 @@
                     "allOf": [
                         {
                             "title": "Compatibility with Beacon v2 JSON Schema",
-                            "$comment": "Validation currently points to M-casado/beacon-v2/main because that fork includes Beacon JSON Schema $id values and Biovalidator-compatible internal refs; see https://github.com/ga4gh-beacon/beacon-v2/issues/206.",
-                            "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/common/timeElement.json"
+                            "$ref": "../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/common/timeElement.json"
                         }
                     ],
                     "examples": [
@@ -1283,8 +1276,7 @@
                     "allOf": [
                         {
                             "title": "Compatibility with Beacon v2 JSON Schema",
-                            "$comment": "Validation currently points to M-casado/beacon-v2/main because that fork includes Beacon JSON Schema $id values and Biovalidator-compatible internal refs; see https://github.com/ga4gh-beacon/beacon-v2/issues/206.",
-                            "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/common/timeElement.json"
+                            "$ref": "../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/common/timeElement.json"
                         }
                     ],
                     "examples": [ 
@@ -1582,8 +1574,7 @@
                 },
                 "referenceRange": {
                     "title": "Compatibility with Beacon v2 JSON Schema",
-                    "$comment": "Validation currently points to M-casado/beacon-v2/main because that fork includes Beacon JSON Schema $id values and Biovalidator-compatible internal refs; see https://github.com/ga4gh-beacon/beacon-v2/issues/206.",
-                    "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/common/referenceRange.json"
+                    "$ref": "../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/common/referenceRange.json"
                 }
             }
         },

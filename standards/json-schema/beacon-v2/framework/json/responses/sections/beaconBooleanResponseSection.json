@@ -1,0 +1,14 @@
+{
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/framework/json/responses/sections/beaconBooleanResponseSection.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Boolean (true/false) response section.",
+    "properties": {
+        "exists": {
+            "$ref": "../../common/beaconCommonComponents.json#/$defs/Exists"
+        }
+    },
+    "required": [
+        "exists"
+    ],
+    "type": "object"
+}

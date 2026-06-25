@@ -1,0 +1,21 @@
+{
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/common/ageRange.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Age range definition. Provenance: GA4GH Phenopackets v2 `AgeRange`",
+    "properties": {
+        "end": {
+            "$ref": "./age.json",
+            "description": "Represents age as an ISO8601 duration (e.g., P59Y)."
+        },
+        "start": {
+            "$ref": "./age.json",
+            "description": "Represents age as an ISO8601 duration (e.g., P18Y)."
+        }
+    },
+    "required": [
+        "start",
+        "end"
+    ],
+    "title": "AgeRange",
+    "type": "object"
+}

@@ -1,0 +1,80 @@
+{
+    "$defs": {
+        "Endpoint": {
+            "properties": {
+                "endpoints": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/RelatedEndpoint"
+                    },
+                    "description": "Optional. A list describing additional endpoints implemented by this Beacon instance for that entry type. Additional details on the endpoint parameters, supported HTTP verbs, etc. could be obtained by parsing the OpenAPI definition referenced in the `openAPIEndpointsDefinition` attribute.",
+                    "minProperties": 0,
+                    "type": "object"
+                },
+                "entryType": {
+                    "description": "",
+                    "type": "string"
+                },
+                "openAPIEndpointsDefinition": {
+                    "description": "Reference to the file that includes the OpenAPI definition of the endpoints implemented in this Beacon instance. The referenced file MUST BE a valid OpenAPI definition file, as it is expected that the Beacon clients (e.g. a Beacon Network) should be able to parse it to discover additional details on the supported verbs, parameters, etc.",
+                    "type": "string"
+                },
+                "rootUrl": {
+                    "description": "The base url for this entry type. Returns a list of entries. It is added here for convenience of the Beacon clients, so they don't need to parse the OpenAPI endpoints definition to get that base endpoint. Also, in very simple Beacons, that endpoint could be the only one implemented, together with \u00b4singleEntryUrl`, in which case the whole map of endpoints is found in the current Map.",
+                    "format": "uri",
+                    "type": "string"
+                },
+                "singleEntryUrl": {
+                    "description": "Optional, but recommended. Returns only one instance of this entry, identified by an `id`. It is added here for convenience of the Beacon clients, so they don't need to parse the OpenAPI endpoints definition to get that base endpoint. Also, in very simple Beacons, that endpoint could be the only one implemented, together with \u00b4rootUrl`, in which case the whole map of endpoints is found in the current Map.",
+                    "format": "uri-template",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "entryType",
+                "rootUrl"
+            ],
+            "type": "object"
+        },
+        "RelatedEndpoint": {
+            "properties": {
+                "returnedEntryType": {
+                    "description": "Which entry type is returned by querying this endpoint. It MUST match one of the entry types defined in the Beacon configuration file (`beaconConfiguration.json`).",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "Endpoint URL",
+                    "format": "uri-template",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "url",
+                "returnedEntryType"
+            ],
+            "type": "object"
+        }
+    },
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/framework/json/configuration/beaconMapSchema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": true,
+    "description": "Map of a Beacon, its entry types and endpoints. It isconceptually similar to a website sitemap.",
+    "properties": {
+        "$schema": {
+            "$ref": "../common/beaconCommonComponents.json#/$defs/$schema"
+        },
+        "endpointSets": {
+            "additionalProperties": {
+                "$ref": "#/$defs/Endpoint"
+            },
+            "description": "List of enpoints included in this Beacon instance. This is list is meant to inform Beacon clients, e.g. a Beacon Network, about the available endpoints, it is not used to generate any automatic list, but could be used for Beacon validation purposes.",
+            "minProperties": 1,
+            "type": "object"
+        }
+    },
+    "required": [
+        "$schema",
+        "endpointSets"
+    ],
+    "title": "Beacon Map",
+    "type": "object"
+}

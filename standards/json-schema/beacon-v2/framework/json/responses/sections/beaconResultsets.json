@@ -1,0 +1,73 @@
+{
+    "$defs": {
+        "ResultsetInstance": {
+            "additionalProperties": true,
+            "properties": {
+                "countAdjustedTo": {
+                    "$ref": "../../common/beaconCommonComponents.json#/$defs/CountAdjustedTo"
+                },
+                "countPrecision": {
+                    "$ref": "../../common/beaconCommonComponents.json#/$defs/CountPrecision"
+                },
+                "exists": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "description": "id of the resultset",
+                    "example": "datasetA",
+                    "type": "string"
+                },
+                "info": {
+                    "$ref": "../../common/info.json"
+                },
+                "results": {
+                    "items": {
+                        "type": "object"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "resultsCount": {
+                    "description": "Precise or approximate number of results in this Resultset.",
+                    "type": "integer"
+                },
+                "resultsHandovers": {
+                    "$ref": "../../common/beaconCommonComponents.json#/$defs/ListOfHandovers",
+                    "description": "List of handover objects that apply to this resultset, not to the whole Beacon or to a result in particular."
+                },
+                "setType": {
+                    "default": "dataset",
+                    "description": "Entry type of resultSet. It SHOULD MATCH an entry type declared as collection in the Beacon configuration.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "setType",
+                "exists"
+            ],
+            "type": "object"
+        }
+    },
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/framework/json/responses/sections/beaconResultsets.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": true,
+    "description": "Sets of results to be returned as query response.",
+    "properties": {
+        "$schema": {
+            "$ref": "../../common/beaconCommonComponents.json#/$defs/$schema"
+        },
+        "resultSets": {
+            "items": {
+                "$ref": "#/$defs/ResultsetInstance"
+            },
+            "minItems": 0,
+            "type": "array"
+        }
+    },
+    "required": [
+        "resultSets"
+    ],
+    "title": "Beacon ResultSet",
+    "type": "object"
+}

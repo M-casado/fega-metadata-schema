@@ -1,0 +1,24 @@
+{
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/framework/json/responses/sections/beaconCountResponseSection.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Payload definition for the \"count\" response.",
+    "properties": {
+        "countAdjustedTo": {
+            "$ref": "../../common/beaconCommonComponents.json#/$defs/CountAdjustedTo"
+        },
+        "countPrecision": {
+            "$ref": "../../common/beaconCommonComponents.json#/$defs/CountPrecision"
+        },
+        "exists": {
+            "$ref": "../../common/beaconCommonComponents.json#/$defs/Exists"
+        },
+        "numTotalResults": {
+            "$ref": "../../common/beaconCommonComponents.json#/$defs/NumTotalResults"
+        }
+    },
+    "required": [
+        "exists",
+        "numTotalResults"
+    ],
+    "type": "object"
+}

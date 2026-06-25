@@ -317,8 +317,7 @@
                     },
                     {
                       "title": "Compatibility with Beacon v2 JSON Schema",
-                      "$comment": "Validation currently points to M-casado/beacon-v2/main because that fork includes Beacon JSON Schema $id values and Biovalidator-compatible internal refs; see https://github.com/ga4gh-beacon/beacon-v2/issues/206.",
-                      "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/common/commonDefinitions.json#/$defs/Sex"
+                      "$ref": "../../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/common/commonDefinitions.json#/$defs/Sex"
                     }
                   ]
                 }
@@ -365,8 +364,7 @@
               "allOf": [
                 {
                   "title": "Compatibility with Beacon v2 JSON Schema",
-                  "$comment": "Validation currently points to M-casado/beacon-v2/main because that fork includes Beacon JSON Schema $id values and Biovalidator-compatible internal refs; see https://github.com/ga4gh-beacon/beacon-v2/issues/206.",
-                  "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/common/commonDefinitions.json#/$defs/KaryotypicSex"
+                  "$ref": "../../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/common/commonDefinitions.json#/$defs/KaryotypicSex"
                 }
               ]
             }
@@ -580,7 +578,7 @@
           "meta:sssomMappings": [
             {
               "predicate_id": "skos:narrowMatch",
-              "object_id": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/biosamples/defaultSchema.json#diagnosticMarkers",
+              "object_id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/biosamples/defaultSchema.json#diagnosticMarkers",
               "mapping_justification": "semapv:ManualMappingCuration",
               "object_match_field": "rdfs:comment",
               "subject_match_field": "rdfs:comment",
@@ -606,8 +604,7 @@
           "minItems": 1,
           "uniqueItems": true,
           "items": {
-            "$comment": "Validation currently points to M-casado/beacon-v2/main because that fork includes Beacon JSON Schema $id values and Biovalidator-compatible internal refs; see https://github.com/ga4gh-beacon/beacon-v2/issues/206.",
-            "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/common/measurement.json"
+            "$ref": "../../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/common/measurement.json"
           }
         },
         
@@ -618,7 +615,7 @@
           "meta:sssomMappings": [
             {
               "predicate_id": "skos:exactMatch",
-              "object_id": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/individuals/defaultSchema.json#/properties/pedigrees",
+              "object_id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/individuals/defaultSchema.json#/properties/pedigrees",
               "mapping_justification": "semapv:LexicalMatching",
               "object_match_field": "rdfs:label",
               "subject_match_field": "rdfs:label",
@@ -646,8 +643,7 @@
           "minItems": 1,
           "uniqueItems": true,
           "items": {
-            "$comment": "Validation currently points to M-casado/beacon-v2/main because that fork includes Beacon JSON Schema $id values and Biovalidator-compatible internal refs; see https://github.com/ga4gh-beacon/beacon-v2/issues/206.",
-            "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/common/pedigree.json"
+            "$ref": "../../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/common/pedigree.json"
           }
         },
 
@@ -680,7 +676,7 @@
           "meta:sssomMappings": [
             {
               "predicate_id": "skos:exactMatch",
-              "object_id": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/individuals/defaultSchema.json#/properties/treatments",
+              "object_id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/individuals/defaultSchema.json#/properties/treatments",
               "mapping_justification": "semapv:ManualMappingCuration",
               "object_match_field": "rdfs:label",
               "subject_match_field": "rdfs:label",
@@ -709,8 +705,7 @@
           "minItems": 1,
           "uniqueItems": true,
           "items": {
-            "$comment": "Validation currently points to M-casado/beacon-v2/main because that fork includes Beacon JSON Schema $id values and Biovalidator-compatible internal refs; see https://github.com/ga4gh-beacon/beacon-v2/issues/206.",
-            "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/common/treatment.json"
+            "$ref": "../../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/common/treatment.json"
           }
         },
 
@@ -748,8 +743,7 @@
           "allOf": [
             {
               "title": "Compatibility with Beacon v2 JSON Schema",
-              "$comment": "Validation currently points to M-casado/beacon-v2/main because that fork includes Beacon JSON Schema $id values and Biovalidator-compatible internal refs; see https://github.com/ga4gh-beacon/beacon-v2/issues/206.",
-              "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/common/timeElement.json"
+              "$ref": "../../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/common/timeElement.json"
             }
           ],
           "examples": [
@@ -1017,8 +1011,7 @@
           "allOf": [
             {
               "title": "Compatibility with Beacon v2 JSON Schema",
-              "$comment": "Validation currently points to M-casado/beacon-v2/main because that fork includes Beacon JSON Schema $id values and Biovalidator-compatible internal refs; see https://github.com/ga4gh-beacon/beacon-v2/issues/206.",
-              "$ref": "https://raw.githubusercontent.com/M-casado/beacon-v2/main/models/json/beacon-v2-default-model/common/timeElement.json"
+              "$ref": "../../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/common/timeElement.json"
             }
           ],
           "examples": [

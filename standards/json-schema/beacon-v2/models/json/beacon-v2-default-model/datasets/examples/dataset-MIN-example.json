@@ -1,0 +1,6 @@
+{
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/datasets/examples/dataset-MIN-example.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "id": "ds01010101",
+    "name": "Dataset with synthetic data"
+}

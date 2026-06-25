@@ -1,0 +1,11 @@
+{
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/framework/json/responses/examples-sections/beaconResultsetEmpty-example.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "resultSets": [
+        {
+            "exists": false,
+            "id": "correctEmptyResultSet",
+            "type": "dataset"
+        }
+    ]
+}

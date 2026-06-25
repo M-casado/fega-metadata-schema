@@ -204,6 +204,8 @@ Original work in this repository is licensed under the terms of the license foun
 
 - Files in [`standards/json-schema/bioschemas/`](./standards/json-schema/bioschemas/) were adapted from BioSchemas definitions published via BioSchemas specification GitHub and the BioThings Data Discovery Engine. Except where otherwise noted on the source pages, the original content is licensed under the Creative Commons Attribution 4.0 International licence (CC BY 4.0); see [`standards/json-schema/bioschemas/LICENSE`](./standards/json-schema/bioschemas/LICENSE) for details.
 
+- Files in [`standards/json-schema/beacon-v2/`](./standards/json-schema/beacon-v2/) vendor Beacon v2 JSON Schemas from the Beacon v2 project snapshot used for FEGA validation. These files are licensed under the Creative Commons Zero v1.0 Universal licence (CC0 1.0); see [`standards/json-schema/beacon-v2/LICENSE`](./standards/json-schema/beacon-v2/LICENSE) for details.
+
 - Files in [`standards/rdf/healthdcat-ap/`](./standards/rdf/healthdcat-ap/) were adapted from HealthDCAT-AP definitions published via _healthdataeu.pages.code.europa.eu_. Except where otherwise noted on the source pages, the original content is licensed under the Creative Commons Attribution 4.0 International licence (CC BY 4.0); see [`standards/rdf/healthdcat-ap/LICENSE`](./standards/rdf/healthdcat-ap/LICENSE) for details.
 
 ## Contact

@@ -1,0 +1,9 @@
+{
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/individuals/examples/individual-MIN-example.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "id": "Ind001",
+    "sex": {
+        "id": "NCIT:C16576",
+        "label": "female"
+    }
+}

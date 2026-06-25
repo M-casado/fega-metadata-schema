@@ -1,0 +1,24 @@
+{
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/framework/json/responses/examples-fullDocuments/beaconInfo-MIN-example.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "meta": {
+        "apiVersion": "string",
+        "beaconId": "string",
+        "returnedSchemas": [
+            {
+                "entityType": "info",
+                "schema": "beacon-info-v2.0.0"
+            }
+        ]
+    },
+    "response": {
+        "apiVersion": "v0.3",
+        "environment": "dev",
+        "id": "org.ga4gh.beacon",
+        "name": "string",
+        "organization": {
+            "id": "string",
+            "name": "string"
+        }
+    }
+}

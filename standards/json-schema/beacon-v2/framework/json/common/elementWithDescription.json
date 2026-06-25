@@ -1,0 +1,21 @@
+{
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/framework/json/common/elementWithDescription.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "allOf": [
+        {
+            "$ref": "./basicElement.json"
+        },
+        {
+            "properties": {
+                "description": {
+                    "description": "A textual description for the element.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    ],
+    "description": "Definition of the basic element extended with a description.",
+    "title": "Basic Element including a description",
+    "type": "object"
+}

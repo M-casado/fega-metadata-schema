@@ -1,0 +1,75 @@
+{
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/framework/json/configuration/entryTypeDefinition.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": true,
+    "description": "Definition of an element or scope of the element, to describe each type of entry type included in a beacon. The `id` attribute is the key that should be used in other parts of the data model to allow Beacon clients to identify the different parts (e.g. endpoints, filtering terms, request parameters, etc.) that are relvant for an entry type.",
+    "properties": {
+        "$schema": {
+            "$ref": "../common/beaconCommonComponents.json#/$defs/$schema"
+        },
+        "aCollectionOf": {
+            "description": "If the entry type is a collection of other entry types, (e.g. a Dataset is a collection of Records), then this attribute must list the entry types that could be included. One collection type could be defined as included more than one entry type (e.g. a Dataset could include Individuals or Genomic Variants), in such cases the entries are alternative, meaning that a given instance of this entry type could be of only one of the types (e.g. a given Dataset contains Individuals, while another Dataset could contain Genomic Variants, but not both at once).",
+            "items": {
+                "$ref": "../common/basicElement.json"
+            },
+            "type": "array"
+        },
+        "additionallySupportedSchemas": {
+            "description": "List of additional schemas that could be used for this concept in this instance of Beacon.",
+            "items": {
+                "$ref": "../common/referenceToAnSchema.json"
+            },
+            "type": "array"
+        },
+        "defaultSchema": {
+            "$ref": "../common/referenceToAnSchema.json",
+            "description": "Description of the default schema used for this concept."
+        },
+        "description": {
+            "description": "A textual description for the element.",
+            "type": "string"
+        },
+        "id": {
+            "description": "A unique identifier of the element.",
+            "examples": [
+                "biosample",
+                "individual",
+                "dataset"
+            ],
+            "type": "string"
+        },
+        "name": {
+            "description": "A distinctive name for the element.",
+            "type": "string"
+        },
+        "nonFilteredQueriesAllowed": {
+            "$ref": "../common/beaconCommonComponents.json#/$defs/NonFilteredQueriesAllowed"
+        },
+        "ontologyTermForThisType": {
+            "$ref": "../common/ontologyTerm.json",
+            "examples": [
+                {
+                    "id": "EFO:0000542",
+                    "label": "individual"
+                },
+                {
+                    "id": "OBI:0000747",
+                    "label": "material sample"
+                }
+            ]
+        },
+        "partOfSpecification": {
+            "description": "This is label to group together entry types that are part of the same specification.",
+            "example": "Beacon v2.0",
+            "type": "string"
+        }
+    },
+    "required": [
+        "id",
+        "name",
+        "partOfSpecification",
+        "defaultSchema"
+    ],
+    "title": "",
+    "type": "object"
+}

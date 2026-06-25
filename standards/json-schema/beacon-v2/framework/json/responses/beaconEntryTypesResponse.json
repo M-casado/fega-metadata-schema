@@ -1,0 +1,21 @@
+{
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/framework/json/responses/beaconEntryTypesResponse.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": true,
+    "description": "The `beaconEntryTypesResponse` provides information about the entry types served through a beacon, including their definitions and pointers to their schemas.",
+    "properties": {
+        "meta": {
+            "$ref": "./sections/beaconInformationalResponseMeta.json",
+            "description": "Information about the response that could be relevant for the Beacon client in order to interpret the results."
+        },
+        "response": {
+            "$ref": "../configuration/entryTypesSchema.json",
+            "description": "Returning the Beacon Entry Types."
+        }
+    },
+    "required": [
+        "meta",
+        "response"
+    ],
+    "type": "object"
+}

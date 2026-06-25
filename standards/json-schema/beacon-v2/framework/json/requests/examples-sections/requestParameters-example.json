@@ -1,0 +1,14 @@
+{
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/framework/json/requests/examples-sections/requestParameters-example.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "exampleEntry": {
+        "description": "All the required fields to query any kind of variant (e.g. SNP, DUP,\netc.).",
+        "properties": {
+            "id": {
+                "description": "Id of the entry to display.",
+                "type": "string"
+            }
+        },
+        "type": "object"
+    }
+}

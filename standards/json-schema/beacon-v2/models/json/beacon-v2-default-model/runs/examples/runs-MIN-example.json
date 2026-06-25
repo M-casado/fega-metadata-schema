@@ -1,0 +1,7 @@
+{
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/runs/examples/runs-MIN-example.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "biosampleId": "008dafdd-a3d1-4801-8c0a-8714e2b58e48",
+    "id": "SRR10903401",
+    "runDate": "2021-10-18"
+}

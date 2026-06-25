@@ -1,0 +1,27 @@
+{
+    "$defs": {
+        "EntryTypes": {
+            "additionalProperties": {
+                "$ref": "./entryTypeDefinition.json",
+                "type": "object"
+            },
+            "description": "This is a dictionary of the entry types implemented in this Beacon instance.",
+            "minProperties": 1
+        }
+    },
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/framework/json/configuration/entryTypesSchema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": true,
+    "description": "Schema for the Enrty Types list.",
+    "properties": {
+        "entryTypes": {
+            "$ref": "#/$defs/EntryTypes",
+            "description": "List of entry types."
+        }
+    },
+    "required": [
+        "entryTypes"
+    ],
+    "title": "List of Entry Types schema",
+    "type": "object"
+}

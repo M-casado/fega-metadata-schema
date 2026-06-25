@@ -1,0 +1,13 @@
+{
+    "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/biosamples/examples/biosample-MIN-example.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "biosampleStatus": {
+        "id": "EFO:0009655",
+        "label": "abnormal sample"
+    },
+    "id": "sample-example-0001",
+    "sampleOriginType": {
+        "id": "UBERON:0000474",
+        "label": "female reproductive system"
+    }
+}
