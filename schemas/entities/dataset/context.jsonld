@@ -56,7 +56,7 @@
                 "@id": "healthdcatap:populationCoverage"
             },
             "relatedResource": {
-                "@id": "dct:relation",
+                "@id": "healthdcatap:relatedResource",
                 "@type": "@id",
                 "@container": "@set"
             },
@@ -67,7 +67,7 @@
                 "@id": "adms:status"
             },
             "dataUseConditions": {
-                "@id": "ega:dataUseConditions",
+                "@id": "beaconRepo:datasets/defaultSchema.json#dataUseConditions",
                 "@container": "@set"
             },
             "measurementTechnique": {

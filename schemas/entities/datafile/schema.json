@@ -7,7 +7,6 @@
   "$async": true,
   "description": "A resource containing data that serves as an input to, or output from, a Process. Each Datafile belongs to one or more Datasets as an access-control and packaging unit. Includes a diverse range of formats (e.g., BAM, VCF, mzML) from multiple life science domains (e.g., genomics, imaging, phenoclinical, proteomics).",
   "@context": "./context.jsonld",
-  "unevaluatedProperties": false,
   "required": [
     "@id",
     "@type",
