@@ -19,9 +19,9 @@
 | FEGA Canada ([Canada's Michael Smith Genome Sciences Centre](https://ror.org/0333j0897)) | Member | Grant McNair  | [0009-0006-1362-0681](https://orcid.org/0009-0006-1362-0681) | gmcnair [at] bcgsc.ca |
 | CEGA ([European Bioinformatics Institute](https://ror.org/02catss52)) | Member | Gabriele Rinck | [0000-0001-6428-3431](https://orcid.org/0000-0001-6428-3431) | rinck [at] ebi.ac.uk |
 | FEGA Portugal ([BioData.pt](https://ror.org/02q7abn51)) | Member | Miguel Cisneiros e Faria Lourenço | [0000-0002-6681-8564](https://orcid.org/0000-0002-6681-8564) | mcisneiros [at] @biodata.pt |
-| FEGA France ([University of Nantes](https://ror.org/03gnr7b55)) | Member | Alban Gaignard | [0000-0002-3597-8557](https://orcid.org/0000-0002-3597-8557) | alban.gaignard [at] univ-nantes.fr |
+| FEGA France ([Institut Français de Bioinformatique](https://ror.org/045f7pv37)) | Member | Alban Gaignard | [0000-0002-3597-8557](https://orcid.org/0000-0002-3597-8557) | alban.gaignard [at] univ-nantes.fr |
 | FEGA Greece ([Biomedical Sciences Research Center Alexander Fleming](https://ror.org/013x0ky90)) | Member | Alexandros Dimopoulos | [0000-0002-4602-2040](https://orcid.org/0000-0002-4602-2040) | dimopoulos [at] fleming.gr |
-| FEGA France ([French Institute of Health and Medical Research](https://ror.org/02vjkv261)) | Member | David Salgado | [0000-0002-5905-3591](https://orcid.org/0000-0002-5905-3591) | david.salgado [at] france-bioinformatique.fr |
+| FEGA France ([Institut Français de Bioinformatique](https://ror.org/045f7pv37)) | Member | David Salgado | [0000-0002-5905-3591](https://orcid.org/0000-0002-5905-3591) | david.salgado [at] france-bioinformatique.fr |
 | FEGA Estonia ([University of Tartu](https://ror.org/03z77qz90)) | Member | Ulvi Talas | [0000-0003-0485-089X](https://orcid.org/0000-0003-0485-089X) | ulvi.talas [at] ut.ee |
 | FEGA Spain ([Barcelona Supercomputing Center](https://ror.org/05sd8tv96)) | Member | Laura Portell Silva | [0000-0003-0390-3208](https://orcid.org/0000-0003-0390-3208) | laura.portell [at] bsc.es |
 | FEGA Poland ([University of Lodz](https://ror.org/05cq64r17)) | Member | Maciej Bisaga | [0000-0002-7040-8322](https://orcid.org/0000-0002-7040-8322) | maciej.bisaga [at] biol.uni.lodz.pl |
