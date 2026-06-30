@@ -30,21 +30,21 @@
 
 
 #### Former members
-| Node (Institution) | Role in MWG | Name  | ORCID | E-mail |
-|------|------|-------------|-------|--------|
-| FEGA Portugal ([BioData.pt](https://ror.org/02q7abn51)) | Member | Sara Sant'Ana |  |  |
-| CEGA ([Centre for Genomic Regulation](https://ror.org/03wyzt892)) | Member | Marta Huertas | [0000-0003-2665-0899](https://orcid.org/0000-0003-2665-0899) |  |
-| FEGA Germany (GHGA) ([European Molecular Biology Laboratory](https://ror.org/03mstc592)) | MWG Co-chair | Anandhi lyappan | [0000-0002-5571-4962](https://orcid.org/0000-0002-5571-4962) | anandhi.iyappan [at] embl.de |
-| FEGA Poland ([University of Lodz](https://ror.org/05cq64r17)) | Member | Błażej Marciniak | [0000-0003-1571-1473](https://orcid.org/0000-0003-1571-1473) | blazej.marciniak [at] biol.uni.lodz.pl |
+| Node (Institution) | Role in MWG | Name  | ORCID | GitHub tag | E-mail |
+|------|------|-------------|-------|------------|--------|
+| FEGA Portugal ([BioData.pt](https://ror.org/02q7abn51)) | Member | Sara Sant'Ana |  | |  |
+| CEGA ([Centre for Genomic Regulation](https://ror.org/03wyzt892)) | Member | Marta Huertas | [0000-0003-2665-0899](https://orcid.org/0000-0003-2665-0899) | [m-huertasp](https://github.com/m-huertasp) |  |
+| FEGA Germany (GHGA) ([European Molecular Biology Laboratory](https://ror.org/03mstc592)) | MWG Co-chair | Anandhi lyappan | [0000-0002-5571-4962](https://orcid.org/0000-0002-5571-4962) | [anandhi-iyappan](https://github.com/anandhi-iyappan) | anandhi.iyappan [at] embl.de |
+| FEGA Poland ([University of Lodz](https://ror.org/05cq64r17)) | Member | Błażej Marciniak | [0000-0003-1571-1473](https://orcid.org/0000-0003-1571-1473) | [blazejmarciniak](https://github.com/blazejmarciniak) | blazej.marciniak [at] biol.uni.lodz.pl |
 
 ## Repository contributors and authors
 
 | Name | GitHub tag | ORCID | Contribution to | First commit |
 |------|------------|-------|-----------------|--------------|
-| Marcos Casado Barbero | [M-casado](https://github.com/M-casado) | [0000-0002-1234-5678](https://orcid.org/0000-0002-7747-6256) | [schemas](./schemas/), [standards](./standards/), [scripts](./scripts/), [docs](./docs/), [build](./build/), [.github](.github/), [src](./src/), [Technical report](./docs/technical-report.md), root documentation | ``2024-11-13`` |
-| Anandhi Iyappan |  | [0000-0002-5571-4962](https://orcid.org/0000-0002-5571-4962) | [Technical report](./docs/technical-report.md) |  |
-| Silvia Bahena |  | [0000-0002-2734-0449](https://orcid.org/0000-0002-2734-0449) | [Technical report](./docs/technical-report.md) |  |
-| Amy Curwin |  | [0000-0003-1086-2483](https://orcid.org/0000-0003-1086-2483) | [Technical report](./docs/technical-report.md) |  |
-| Coline Thomas |  | [0000-0003-2253-1171](https://orcid.org/0000-0003-2253-1171) | [Technical report](./docs/technical-report.md) |  |
-| Jorge Oliveira |  | [0000-0001-6425-2176](https://orcid.org/0000-0001-6425-2176) | [Technical report](./docs/technical-report.md) |  |
-| Miguel Cisneiros e Faria Lourenço | | [0000-0002-6681-8564](https://orcid.org/0000-0002-6681-8564) | [Technical report](./docs/technical-report.md) |  |
+| Marcos Casado Barbero | [M-casado](https://github.com/M-casado) | [0000-0002-1234-5678](https://orcid.org/0000-0002-7747-6256) | [schemas](./schemas/), [standards](./standards/), [scripts](./scripts/), [docs](./docs/), [build](./build/), [.github](.github/), [src](./src/), [Technical report](./docs/FEGA-metadata-technical-report.md), root documentation | ``2024-11-13`` |
+| Anandhi Iyappan | [anandhi-iyappan](https://github.com/anandhi-iyappan) | [0000-0002-5571-4962](https://orcid.org/0000-0002-5571-4962) | [Technical report](./docs/FEGA-metadata-technical-report.md) |  |
+| Silvia Bahena |  | [0000-0002-2734-0449](https://orcid.org/0000-0002-2734-0449) | [Technical report](./docs/FEGA-metadata-technical-report.md) |  |
+| Amy Curwin |  | [0000-0003-1086-2483](https://orcid.org/0000-0003-1086-2483) | [Technical report](./docs/FEGA-metadata-technical-report.md) |  |
+| Coline Thomas |  | [0000-0003-2253-1171](https://orcid.org/0000-0003-2253-1171) | [Technical report](./docs/FEGA-metadata-technical-report.md) |  |
+| Jorge Oliveira |  | [0000-0001-6425-2176](https://orcid.org/0000-0001-6425-2176) | [Technical report](./docs/FEGA-metadata-technical-report.md) |  |
+| Miguel Cisneiros e Faria Lourenço | [mcisneiros](https://github.com/mcisneiros) | [0000-0002-6681-8564](https://orcid.org/0000-0002-6681-8564) | [Technical report](./docs/FEGA-metadata-technical-report.md) |  |
