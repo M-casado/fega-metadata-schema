@@ -1,4 +1,4 @@
-# FEGA Metadata Technical Report
+# EGA Metadata Technical Report
 
 ## EGA v2 model
 
@@ -85,7 +85,7 @@
 - **Figure 13.** [Comparison of differences between examples for individual B and A in EGA v2 model.](#figure-13-comparison-of-differences-between-examples-for-individual-b-and-a-in-ega-v2-model)
 - **Figure 14.** [Representation of clinical information for both individuals A and B in EGA v2 model.](#figure-14-representation-of-clinical-information-for-both-individuals-a-and-b-in-ega-v2-model)
 - **Figure 15.** [Proteomics use case representation in EGA v2 model.](#figure-15-proteomics-use-case-representation-in-ega-v2-model)
-- **Figure 16.** [Diagram of a stool-microbiome research data lifecycle into the EGA v2 Metadata Model. Datasets 1 & 2 may fit best in public archives (e.g., ENA), simplifying the example.](#figure-16-diagram-of-a-stool-microbiome-research-data-lifecycle-into-the-ega-v2-metadata-model-datasets-1-2-may-fit-best-in-public-archives-eg-ena-simplifying-the-example)
+- **Figure 16.** [Diagram of a stool-microbiome research data lifecycle into the EGA v2 metadata model. Datasets 1 & 2 may fit best in public archives (e.g., ENA), simplifying the example.](#figure-16-diagram-of-a-stool-microbiome-research-data-lifecycle-into-the-ega-v2-metadata-model-datasets-1-2-may-fit-best-in-public-archives-eg-ena-simplifying-the-example)
 - **Figure 17.** [Diagram depicting the expansion of a JSON document into JSON-LD with the addition of @context.](#figure-17-diagram-depicting-the-expansion-of-a-json-document-into-json-ld-with-the-addition-of-context)
 - **Figure 18.** [Representation of existing embedded contexts and how it improves the findability of EGA records on the web. (1) Record of a dataset in the EGA portal; (2) application/ld+json node embedded in the HTML of the record, containing context and metadata in JSON-LD format; (3) result of a query at Google Datasets, returning the EGA dataset thanks to its embedded context.](#figure-18-representation-of-existing-embedded-contexts-and-how-it-improves-the-findability-of-ega-records-on-the-web-1-record-of-a-dataset-in-the-ega-portal-2-applicationldjson-node-embedded-in-the-html-of-the-record-containing-context-and-metadata-in-json-ld-format-3-result-of-a-query-at-google-datasets-returning-the-ega-dataset-thanks-to-its-embedded-context)
 - **Figure 19.** [Summary diagram representing the submission proposal with regards to open and controlled access metadata.](#figure-19-summary-diagram-representing-the-submission-proposal-with-regards-to-open-and-controlled-access-metadata)
@@ -399,9 +399,9 @@ Our whole stack is **open-source, portable** and **scalable** (i.e., as many ser
 
 The set of JSON Schemas contains the "**rules**" and can be referenced within a metadata JSON document via its schema attribute. The "**content**" (i.e., metadata) is formatted as JSON as well and is contained within the data attribute of a JSON document. A JSON instance is declared *valid* when every assertion in the corresponding JSON Schema succeeds. For example, [the data](https://github.com/M-casado/fega-metadata-schema/blob/774392bbb4ad446f7d39226a6ce17111ac258557/data/jsonld/biomaterial-valid_1.json#L5-L66) in biomaterial-valid\_1.json is valid when it passes all constraints specified in [the same document's schema](https://github.com/M-casado/fega-metadata-schema/blob/774392bbb4ad446f7d39226a6ce17111ac258557/data/jsonld/biomaterial-valid_1.json#L2-L4).
 
-**JSON Schema specification** ([draft 2020-12](https://json-schema.org/draft/2020-12/schema)) and custom keywords from [ELIXIR Biovalidator](https://github.com/elixir-europe/biovalidator?tab=readme-ov-file#extended-keywords-for-ontology-and-taxonomy-validation) provide the groundwork for the FEGA Schemas to encode domain-specific constraints (e.g., required fields, ontology checks). For further details, refer to the [schemas' documentation](https://github.com/M-casado/fega-metadata-schema/tree/main/schemas#overview) in the GitHub repository.
+**JSON Schema specification** ([draft 2020-12](https://json-schema.org/draft/2020-12/schema)) and custom keywords from [ELIXIR Biovalidator](https://github.com/elixir-europe/biovalidator?tab=readme-ov-file#extended-keywords-for-ontology-and-taxonomy-validation) provide the groundwork for the EGA metadata schemas to encode domain-specific constraints (e.g., required fields, ontology checks). For further details, refer to the [schemas' documentation](https://github.com/M-casado/fega-metadata-schema/tree/main/schemas#overview) in the GitHub repository.
 
-The FEGA metadata schemas are built for **continuous development**. See more details at the [*Model versioning*](#79-model-versioning) section.
+The EGA metadata schemas are built for **continuous development**. See more details at the [*Model versioning*](#79-model-versioning) section.
 
 ### 6.4.1 Running validation
 
@@ -411,7 +411,7 @@ The group has created onboarding materials on this matter, including a dedicated
 
 ## 6.5 RDF and linked data
 
-In order to provide @context to the FEGA schemas and data to make them RDF-friendly, we extensively used the [JSON-LD Playground](https://json-ld.org/playground/) and JSON-LD 1.1 documentation[^8].
+In order to provide @context to the EGA metadata schemas and data to make them RDF-friendly, we extensively used the [JSON-LD Playground](https://json-ld.org/playground/) and JSON-LD 1.1 documentation[^8].
 
 ### 6.5.1 Framing
 
@@ -455,7 +455,7 @@ To gather feedback and ensure broad adoption of the metadata model, the MWG enga
 
   * ["Model mapping" form](https://forms.gle/Sw1k7SRiEG8YUpoL7) to collect inputs for the initial design of the EGA v2 metadata model.
 
-  * ["Federated EGA metadata model poster feedback" form](https://forms.gle/h5ZWsvL73djqaduw6) to gather feedback from participants of the [2024 ELIXIR All Hands meeting](https://elixir-events.eventscase.com/EN/ahm2024) in Uppsala, Sweden.
+  * ["EGA metadata model poster feedback" form](https://forms.gle/h5ZWsvL73djqaduw6) to gather feedback from participants of the [2024 ELIXIR All Hands meeting](https://elixir-events.eventscase.com/EN/ahm2024) in Uppsala, Sweden.
 
   * ["Metadata feedback" form](https://forms.gle/8JN4bGJrY5EfmY15A) during the 2024 [ELIXIR Federated Human Data](https://elixir-europe.org/communities/human-data) (FHD) [Community Day](https://elixir-europe.org/events/elixir-federated-human-data-community-day-0) in Lisbon, Portugal.
 
@@ -477,13 +477,13 @@ To gather feedback and ensure broad adoption of the metadata model, the MWG enga
 
   * [ELIXIR Federated Human Data Community Day](https://docs.google.com/presentation/d/1piiixarPwVnYqGes-RZbL9xocwb1_g8pggdrzoP3-3E/edit?usp=sharing) (Nov 2025).
 
-* A dedicated **external stakeholders meeting** in July 2024, presenting the ["Pruned FEGA Abstract Metadata Model"](https://docs.google.com/presentation/d/1EtoLU_08XaH8NOTm9_lTTZkwfMwPhPQXjk1jGxEiivA/edit#slide=id.g2eb20668969_0_0), and gathering feedback from 25 participants covering diverse projects and teams, such as [German National Cohort](https://nako.de/en/study) (NAKO), GA4GH, ENA, NBIS, Beacon, GDI and JGA.
+* A dedicated **external stakeholders meeting** in July 2024, presenting an [early pruned abstract model draft](https://docs.google.com/presentation/d/1EtoLU_08XaH8NOTm9_lTTZkwfMwPhPQXjk1jGxEiivA/edit#slide=id.g2eb20668969_0_0), and gathering feedback from 25 participants covering diverse projects and teams, such as [German National Cohort](https://nako.de/en/study) (NAKO), GA4GH, ENA, NBIS, Beacon, GDI and JGA.
 
 * Creation of the following **posters**:
 
   * ["Improving metadata compliance and interoperability at EGA with Biovalidator"](https://doi.org/10.7490/f1000research.1119417.1), presented at the [ELIXIR All Hands Meeting in June 2023](https://elixir-europe.org/events/elixir-all-hands-2023), in Dublin, Ireland.
 
-  * ["Advancing Genomic Data Interoperability: The FEGA Metadata Model"](https://doi.org/10.7490/f1000research.1119732.1), presented at the ELIXIR All Hands Meeting in June 2024, in Uppsala, Sweden.
+  * [A 2024 poster on advancing genomic data interoperability with the EGA metadata model](https://doi.org/10.7490/f1000research.1119732.1), presented at the ELIXIR All Hands Meeting in June 2024, in Uppsala, Sweden.
 
   * ["Unifying FEGA metadata: A standardized model for multimodal data"](https://doi.org/10.7490/f1000research.1120212.1), presented at the [ELIXIR All Hands Meeting in June 2025](https://elixir-events.eventscase.com/EN/ahm2025), in Thessaloniki, Greece.
 
@@ -1482,7 +1482,7 @@ Proteomics datasets, often deposited in repositories such as the [PRoteomics IDE
 
 #### 7.5.3.1 Use-case workshop
 
-In this section, we describe the Proteomics session ([Annex 3](#15-annexes)) held by the FEGA MWG and summarise its outcomes—specifically, how a **proteomics dataset containing human mass spectrometry data can be represented by the EGA v2 metadata model**. Mapping such a submission involves aligning core information (e.g., sample details, data acquisition methods) and file formats with FEGA requirements. 
+In this section, we describe the Proteomics session ([Annex 3](#15-annexes)) held by the FEGA MWG and summarise its outcomes—specifically, how a **proteomics dataset containing human mass spectrometry data can be represented by the EGA v2 metadata model**. Mapping such a submission involves aligning core information (e.g., sample details, data acquisition methods) and file formats with FEGA requirements.
 
 [PXD006482](https://www.ebi.ac.uk/pride/archive/projects/PXD006482) is the **original dataset submitted to the PRIDE** database. This dataset ("*Identification of Missing Proteins in the Phosphoproteome of Kidney Cancer*") is a phosphoproteomics study comparing kidney cancer tissue and adjacent healthy tissue, identifying 8,962 proteins (6,415 phosphoproteins) and 44,728 phosphosites (10,266 previously unreported), and verifying some "missing proteins" under the [Chromosome-Centric Human Proteome Project](https://hupo.org/c-hpp).
 
@@ -1685,7 +1685,7 @@ Conclusion and recommendations:
 
 #### 7.5.4.2 Worked example
 
-Below is a short, focused representation of the **stool-microbiome pipeline** as shown in the diagram ([Figure 16](#figure-16-diagram-of-a-stool-microbiome-research-data-lifecycle-into-the-ega-v2-metadata-model-datasets-1-2-may-fit-best-in-public-archives-eg-ena-simplifying-the-example)), following the EGA v2 model. Because the diagram contains many elements, we model only the entities required to show the main provenance chain: how samples and protocols produce files and how those files assemble into three governed datasets. This multiple dataset governance, all under the same DAC, represents the scenario where a submission would not be distributed as a single unit, but follow different policies depending on the content of the linked data files. 
+Below is a short, focused representation of the **stool-microbiome pipeline** as shown in the diagram ([Figure 16](#figure-16-diagram-of-a-stool-microbiome-research-data-lifecycle-into-the-ega-v2-metadata-model-datasets-1-2-may-fit-best-in-public-archives-eg-ena-simplifying-the-example)), following the EGA v2 model. Because the diagram contains many elements, we model only the entities required to show the main provenance chain: how samples and protocols produce files and how those files assemble into three governed datasets. This multiple dataset governance, all under the same DAC, represents the scenario where a submission would not be distributed as a single unit, but follow different policies depending on the content of the linked data files.
 
 It is important to note that, in the **absence of the sensitivity review**, multiple entities modelled in [Figure 16](#figure-16-diagram-of-a-stool-microbiome-research-data-lifecycle-into-the-ega-v2-metadata-model-datasets-1-2-may-fit-best-in-public-archives-eg-ena-simplifying-the-example) could be removed from the FEGA submission. In other words, Datasets 1 and 2 of the figure may not contain sensitive data and, therefore, be suited for public archives such as the ENA. If that were the case, the FEGA submission would only encompass entities related to Dataset 3, which would certainly contain sensitive data. We included all datasets in the figure to satisfy the goal of this session: to assess whether the microbiome submission could be structured following the EGA v2 model. With this, we know that the most complex scenario (i.e., all datasets containing sensitive data) is covered and thus properly represented.
 
@@ -2280,7 +2280,7 @@ The FEGA network will manage the EGA v2 metadata model through a three-tier stru
 
 ## 8.1 Change release flow
 
-**Continuous development** is the norm for the FEGA metadata schemas: routine improvements move through the repository like any other open-source project. When an urgent fix or a formally versioned release is required, the steps in [Table 6](#table-6-change-release-flow-step-by-step), and the minimum notice they impose, ensure every node can react in time and the governance bodies can intervene if necessary. 
+**Continuous development** is the norm for the EGA metadata schemas: routine improvements move through the repository like any other open-source project. When an urgent fix or a formally versioned release is required, the steps in [Table 6](#table-6-change-release-flow-step-by-step), and the minimum notice they impose, ensure every node can react in time and the governance bodies can intervene if necessary.
 
 This change release flow, like most of the work in this report, is but a **proposal**, still to be validated by all participating drivers (FEGA nodes, CEGA, and respective committees). Once the EGA v2 model is released and this approach is tested, it will be updated accordingly.
 
@@ -2321,7 +2321,7 @@ Further operational details (diagrams, CI scripts, release checklists…) live i
 
 # 9. Dependencies
 
-Here we list **external dependencies** of the EGA v2 model, which both enhance and constrain the technical approach. They let us reuse community infrastructure for identifiers, ontologies, and standards, while keeping the FEGA schemas lightweight and interoperable.
+Here we list **external dependencies** of the EGA v2 model, which both enhance and constrain the technical approach. They let us reuse community infrastructure for identifiers, ontologies, and standards, while keeping the EGA metadata schemas lightweight and interoperable.
 
 For what mitigation measures are in place for each dependency, refer to the [*Risks and mitigation*](#10-risks-and-mitigation) section.
 
@@ -2349,7 +2349,7 @@ For what mitigation measures are in place for each dependency, refer to the [*Ri
 
 * [**HealthDCAT-AP**](https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6). HealthDCAT Application Profile is a domain-specific (health data) metadata model designed to support the implementation of the secondary use framework under the European Health Data Space (EHDS).
 
-* [**JSON-LD**](https://github.com/json-ld/json-ld.org). Base JSON-LD structure schema ([jsonld-schema.json](https://github.com/json-ld/json-ld.org/blob/main/schemas/jsonld-schema.json)) taken and referenced in the FEGA schemas.
+* [**JSON-LD**](https://github.com/json-ld/json-ld.org). Base JSON-LD structure schema ([jsonld-schema.json](https://github.com/json-ld/json-ld.org/blob/main/schemas/jsonld-schema.json)) taken and referenced in the EGA metadata schemas.
 
 Some of these are added to the FEGA repository as static files, while others are forked and referenced. See [*Risks and Mitigation*](#10-risks-and-mitigation) for further details.
 
@@ -2419,7 +2419,7 @@ Furthermore, the FEGA use-case sessions were not isolated workshops, but recurri
 
 ## 12.3 Ontology integration and linked-data adoption
 
-Instead of relying on static, locally maintained controlled vocabularies, the model uses standardized ontologies through CURIEs and URIs, ensuring (1) alignment with field standards, and (2) syntactic validation plus selected semantic checks (e.g., ontology term validation). Linked data principles are embedded by default, making the EGA v2 metadata model suitable for federated search and semantic querying in the future. 
+Instead of relying on static, locally maintained controlled vocabularies, the model uses standardized ontologies through CURIEs and URIs, ensuring (1) alignment with field standards, and (2) syntactic validation plus selected semantic checks (e.g., ontology term validation). Linked data principles are embedded by default, making the EGA v2 metadata model suitable for federated search and semantic querying in the future.
 
 Nevertheless, the use of external ontologies comes with its own challenges, such as dependency on ontology updates, and the risk of "ontology drift". The MWG will address these challenges through automated tooling and continuous monitoring. This makes the model not only machine-readable and interoperable, but also prepared for future expansion within biomedical data ecosystems.
 
@@ -2480,7 +2480,7 @@ See specific challenges in the [*Open questions*](#14-open-questions) section.
 | *Should we use SHACL shapes instead of JSON Schemas for semantic validation, like other profiles (e.g., [DCAT-US 3\.0](https://doi-do.github.io/dcat-us/#profile-validation))?* | Given that (1) Biovalidator accepts JSON Schema as input and (2) JSON-LD is an RDF-friendly format for semantic data, we advocate for keeping JSON Schema as the current validation constraint language. In the long-term, FEGA may release additional SHACL shapes for graph-level validation, or shift to SHACL validation altogether. Thanks to JSON-LD being an RDF format with @context, the transition, if it were to occur, to SHACL would be relatively straightforward. |
 | *Should we promote Beacon-v2 to create its own @context?* | As of now, their JSON Schemas lack @context, and instead we are the ones adding it in our entities that use Beacon-v2 schemas. |
 | *Should we add more entities (e.g., Genomic Variations) from other standards and models? Are they needed by FEGA?* | There is a sweet spot between trying to model *everything* in life, and modelling not enough. The usefulness towards the goals of the model (findability, analysis, reproducibility…) would be considered. |
-| *How should we handle dependencies on other standards?* | As of now, we are directly referencing, for example, Beacon-v2 JSON Schemas in their repositories (M-casado's [fork](https://github.com/M-casado/beacon-v2/tree/biovalidator-test) for compatibility). This opens the possibility of changes done in other repositories affecting integrity within the FEGA schemas. An alternative is to store these references as static files within the repo prior to each release. |
+| *How should we handle dependencies on other standards?* | As of now, we are directly referencing, for example, Beacon-v2 JSON Schemas in their repositories (M-casado's [fork](https://github.com/M-casado/beacon-v2/tree/biovalidator-test) for compatibility). This opens the possibility of changes done in other repositories affecting integrity within the EGA metadata schemas. An alternative is to store these references as static files within the repo prior to each release. |
 | *How should we handle dependencies on ontologies?* | Controlled vocabulary terms within ontologies, like EFO, HPO or Mondo, are embedded in the JSON Schemas. This facilitates validation, but obfuscates traceability of validation when ontologies evolve over time. This could be alleviated, a priori, by freezing external resources and releasing them along the JSON Schemas. |
 | *What other standards should we reuse directly?* | This involves standards that are not simply taken for inspiration (e.g., DCAT-AP), but instead are directly embedded in the EGA v2 model (e.g., Beacon-v2). Possibilities include Beacon-v2, JSON-LD, BioSchemas, ISA-JSON, DCAT, and GDI HDM. |
 | *How to reconcile a FEGA node's relational storage database with a graph-based procedural model?* | Although the EGA v2 model is not tied to the possible implementations of it by the nodes, it would be naive to disjoin both. Thus, some trade-offs are already agreed within the model to limit the number of combinations and possible complexity of process trees that could be represented by it. For example, by using the *Protocol Collection* entity, or by creating additional "checklists" (e.g., 'if your protocol is X, I'm expecting Y and Z as an input') to impose limitations for submitters. |
