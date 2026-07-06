@@ -2,7 +2,7 @@
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/dataset/schema.json",
     "type": "object",
-    "title": "FEGA dataset metadata schema",
+    "title": "EGA dataset metadata schema",
     "meta:version": "0.0.0",
     "$async": true,
     "description": "A collection of Datafiles, published or curated by a single agent, and available for access or download in one or more representations. Datasets are subject to a particular policy for controlled-access, commonly making them the units of access distribution.",
@@ -19,7 +19,7 @@
             "reviewer_id": [""],
             "confidence": 0.8,
             "mapping_date": "2026-01-28",
-            "$comment": "A FEGA dataset is a specific type of DCAT Dataset (HealthDCAT-AP non-public), focused on controlled-access biomedical data."
+            "$comment": "An EGA dataset is a specific type of DCAT Dataset (HealthDCAT-AP non-public), focused on controlled-access biomedical data."
         },
         {
             "predicate_id": "skos:narrowMatch",
@@ -318,7 +318,7 @@
                     "reviewer_id": [""],
                     "confidence": 1.0,
                     "mapping_date": "2026-01-29",
-                    "$comment": "A Beacon 'externalUrl' is broader than the specific FEGA/healthdcatap 'documentation'."
+                    "$comment": "A Beacon 'externalUrl' is broader than the specific EGA/healthdcatap 'documentation'."
                 }
             ],
             "anyOf": [
@@ -564,7 +564,7 @@
                     "reviewer_id": [""],
                     "confidence": 1.0,
                     "mapping_date": "2026-01-29",
-                    "$comment": "A Beacon 'externalUrl' can be represented through the generic FEGA/healthdcatap 'relatedResource'."
+                    "$comment": "A Beacon 'externalUrl' can be represented through the generic EGA/healthdcatap 'relatedResource'."
                 },
                 {
                     "predicate_id": "skos:closeMatch",

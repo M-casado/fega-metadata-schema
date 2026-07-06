@@ -29,3 +29,5 @@ server.pid
 
 # Ignore pytest cache
 .pytest_cache/
+
+package-lock.json

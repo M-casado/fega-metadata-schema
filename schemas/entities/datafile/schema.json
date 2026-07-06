@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/datafile/schema.json",
   "type": "object",
-  "title": "FEGA Datafile metadata schema",
+  "title": "EGA Datafile metadata schema",
   "meta:version": "0.0.0",
   "$async": true,
   "description": "A resource containing data that serves as an input to, or output from, a Process. Each Datafile belongs to one or more Datasets as an access-control and packaging unit. Includes a diverse range of formats (e.g., BAM, VCF, mzML) from multiple life science domains (e.g., genomics, imaging, phenoclinical, proteomics).",

@@ -2,10 +2,10 @@
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/common/schema.json",
     "type": "object",
-    "title": "FEGA common metadata definitions",
+    "title": "EGA common metadata definitions",
     "meta:version": "0.0.0",
     "$async": true,
-    "description": "Metadata schema for common definitions inherited by other FEGA metadata schemas.",
+    "description": "Metadata schema for common definitions inherited by other EGA metadata schemas.",
     "@context": "./context.jsonld",
     "$defs": {
         "externalIdentifier": {

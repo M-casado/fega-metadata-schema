@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "fega-tools"
 version = "0.0.1"
-description = "Internal helper library for FEGA metadata tooling"
+description = "Internal helper library for EGA metadata tooling"
 requires-python = ">=3.8"
 
 [tool.setuptools.packages.find]

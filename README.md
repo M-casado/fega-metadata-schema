@@ -1,14 +1,14 @@
-# FEGA Metadata Schemas
+# EGA Metadata Schemas
 <img src="./docs/images/logos/FEGA-logo-generic.svg"
      alt="Federated EGA logo"
      width="300"
      align="right" />
 
-Machine-readable definitions of the **Federated European Genome-phenome Archive (FEGA)** metadata model, together with examples, JSON-LD resources, validation utilities, and documentation.
+Machine-readable definitions of the **European Genome-phenome Archive (EGA) metadata model**, together with examples, JSON-LD resources, validation utilities, and documentation.
 
 The resources in this repository help you to:
 
-* **Validate** metadata against the EGA Metadata model locally.
+* **Validate** metadata against the EGA metadata model locally.
 * **Integrate** EGA-compatible metadata into your own pipelines.
 * **Explore** the structure, relationships, and linked-data semantics of the EGA metadata model.
 
@@ -20,7 +20,7 @@ The resources in this repository help you to:
 
 | What | Where |
 |------|-------|
-| **FEGA Metadata Technical Report** | [`docs/FEGA-metadata-technical-report.md`](./docs/FEGA-metadata-technical-report.md) |
+| **EGA Metadata Technical Report** | [`docs/FEGA-metadata-technical-report.md`](./docs/FEGA-metadata-technical-report.md) |
 | **Schema release process** | [`docs/releases/README.md`](./docs/releases/README.md) |
 | **Background on the FEGA project** | [About FEGA](https://ega-archive.org/about/projects-and-funders/federated-ega/) |
 | **FEGA onboarding guide** | [FEGA-Onboarding](https://ega-archive.github.io/FEGA-onboarding/) |

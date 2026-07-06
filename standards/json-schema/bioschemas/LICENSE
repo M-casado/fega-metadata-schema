@@ -8,7 +8,7 @@ Attribution (TASL):
 - Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
 - Accessed: 22 Aug 2025
 
-Changes by the FEGA metadata schema team (see [``AUTHORS.md``](../../AUTHORS.md)): aligned fields to FEGA conventions and converted draft-07-style single-schema array ``items`` (i.e., ``[]``) into draft 2020-12-compatible homogeneous ``items`` schemas (i.e., ``{}``). Reuse does not imply endorsement by the original authors, BioSchemas, or BioThings.
+Changes by the EGA metadata schema team (see [``AUTHORS.md``](../../AUTHORS.md)): aligned fields to EGA metadata model conventions and converted draft-07-style single-schema array ``items`` (i.e., ``[]``) into draft 2020-12-compatible homogeneous ``items`` schemas (i.e., ``{}``). Reuse does not imply endorsement by the original authors, BioSchemas, or BioThings.
 
 ## Citations
 Cano MA, Acosta N, Rodolpho ER, Tsueng G, Zhou X, Xin J, Hughes LD, Mullen JL, Su AI, Wu C. Data Discovery Engine: a project for authoring, extending, and using metadata schemas to improve FAIRness of biomedical data. BMC Bioinformatics. 2023 Apr 20;24(1):159. doi:10.1186/s12859-023-05258-4.

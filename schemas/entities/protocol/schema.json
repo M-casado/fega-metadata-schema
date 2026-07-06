@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/protocol/schema.json",
   "type": "object",
-  "title": "FEGA protocol metadata schema",
+  "title": "EGA protocol metadata schema",
   "meta:version": "0.0.0",
   "$async": true,
   "description": "Detailed plan of instructions on how a procedure is done. For example, sample preparation, sequencing or feature extraction techniques.",
@@ -20,7 +20,7 @@
       "reviewer_id": [""],
       "confidence": 1.0,
       "mapping_date": "2026-03-12",
-      "$comment": "A HealthDCAT-AP (release 6) 'dct:provenance' property of a Dataset captures in an rather vague way the information that FEGA.protocol.json is intended to contain. Thus, the former can be produced by aggregating the protocols used to obtain datafiles included in a dataset."
+      "$comment": "A HealthDCAT-AP (release 6) 'dct:provenance' property of a Dataset captures in an rather vague way the information that the EGA protocol metadata schema is intended to contain. Thus, the former can be produced by aggregating the protocols used to obtain datafiles included in a dataset."
     }
   ],
   "allOf": [

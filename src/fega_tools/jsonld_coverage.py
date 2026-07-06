@@ -1,4 +1,4 @@
-"""JSON-LD context and frame coverage helpers for FEGA schemas."""
+"""JSON-LD context and frame coverage helpers for EGA metadata schemas."""
 from __future__ import annotations
 
 import json
@@ -66,7 +66,7 @@ def _get_pointer(document: Any, parts: Sequence[str]) -> Any:
 
 
 def _is_fega_schema_path(path: Path, repo_root: Path) -> bool:
-    """Return whether *path* is a maintained FEGA schema in coverage scope."""
+    """Return whether *path* is a maintained EGA metadata schema in coverage scope."""
     try:
         rel = path.resolve().relative_to(repo_root.resolve())
     except ValueError:

@@ -3,7 +3,7 @@ message: "If you use or build on this work, please cite it as below. The FEGA MW
 title: "EGA Metadata Schemas"
 version: 2.0.0
 type: software
-abstract: "Machine-readable definitions of the European Genome-phenome Archive (EGA) and its Federation (FEGA) metadata model, together with examples, validation utilities, and documentation."
+abstract: "Machine-readable definitions of the European Genome-phenome Archive (EGA) metadata model, together with examples, validation utilities, and documentation."
 license: MIT
 repository-code: "https://github.com/EGA-archive/fega-metadata-schema"
 url: "https://github.com/EGA-archive/fega-metadata-schema"

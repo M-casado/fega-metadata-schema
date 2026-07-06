@@ -2,7 +2,7 @@
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/process/schema.json",
     "type": "object",
-    "title": "FEGA process metadata schema",
+    "title": "EGA process metadata schema",
     "meta:version": "0.0.0",
     "$async": true,
     "description": "A specific execution of a protocol or procedure, applied to specific inputs (Biomaterial or Datafile) and producing specific outputs (Biomaterial or Datafile).",
@@ -31,7 +31,7 @@
             "reviewer_id": [""],
             "confidence": 0.9,
             "mapping_date": "2025-08-27",
-            "$comment": "A Beacon 'obtentionProcedure' can be represented through the generic FEGA process."
+            "$comment": "A Beacon 'obtentionProcedure' can be represented through the generic EGA process."
         },
         {
             "predicate_id": "skos:narrowMatch",
@@ -44,7 +44,7 @@
             "reviewer_id": [""],
             "confidence": 0.9,
             "mapping_date": "2025-08-27",
-            "$comment": "A Beacon 'sampleProcessing' can be represented through the generic FEGA process."
+            "$comment": "A Beacon 'sampleProcessing' can be represented through the generic EGA process."
         },
         {
             "predicate_id": "skos:narrowMatch",
@@ -57,7 +57,7 @@
             "reviewer_id": [""],
             "confidence": 0.7,
             "mapping_date": "2025-08-27",
-            "$comment": "The sample processing in a Phenopacket is in part a process, but the Phenopacket's definition of it has no details the actual process, just the ontology of how the sample was processed. Sort of like the protocol collection in FEGA, combined with the process."
+            "$comment": "The sample processing in a Phenopacket is in part a process, but the Phenopacket's definition of it has no details the actual process, just the ontology of how the sample was processed. Sort of like the protocol collection in the EGA metadata model, combined with the process."
         },
         {
             "predicate_id": "skos:narrowMatch",
@@ -70,7 +70,7 @@
             "reviewer_id": [""],
             "confidence": 0.8,
             "mapping_date": "2025-08-27",
-            "$comment": "A Beacon 'analysis' represented in FEGA is split both into a process and a protocol"
+            "$comment": "A Beacon 'analysis' represented in the EGA metadata model is split both into a process and a protocol"
         },
         {
             "predicate_id": "skos:narrowMatch",
@@ -83,7 +83,7 @@
             "reviewer_id": [""],
             "confidence": 0.8,
             "mapping_date": "2025-08-27",
-            "$comment": "A Beacon 'run' represented in FEGA is split both into a process and a protocol"
+            "$comment": "A Beacon 'run' represented in the EGA metadata model is split both into a process and a protocol"
         }
     ],
     "allOf": [
@@ -116,7 +116,7 @@
         "@id": {
           "$ref": "../../common/schema.json#/$defs/@id",
           "examples": ["ega:EGAK00001000620"],
-          "$comment": "Example to be updated when FEGA identifiers (EGAK...) are finalized for new entity types."
+          "$comment": "Example to be updated when EGA identifiers (EGAK...) are finalized for new entity types."
         },
         "title": {
             "$ref": "../../common/schema.json#/$defs/label"

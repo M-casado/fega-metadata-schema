@@ -1,8 +1,8 @@
 # Contributing to **fega-metadata-schema**
 
-Thank you for your interest in improving the FEGA metadata model!  We welcome pull-requests and issue reports from **FEGA nodes, downstream integrators, and the wider community**.  This document explains the conventions and workflow we follow in this repository.
+Thank you for your interest in improving the EGA metadata model!  We welcome pull-requests and issue reports from **FEGA nodes, downstream integrators, and the wider community**.  This document explains the conventions and workflow we follow in this repository.
 
-> **Scope** – This repo contains JSON Schemas, JSON-LD contexts/frames, examples, validation utilities and documentation *specific to the Federated EGA metadata model*.  Issues relating to other FEGA software (portal, download client, etc.) should be opened in their respective repositories. For general inquiries, please fill the [**Need-help form**](https://ega-archive.org/need-help/).
+> **Scope** – This repo contains JSON Schemas, JSON-LD contexts/frames, examples, validation utilities and documentation *specific to the EGA metadata model*.  Issues relating to other FEGA software (portal, download client, etc.) should be opened in their respective repositories. For general inquiries, please fill the [**Need-help form**](https://ega-archive.org/need-help/).
 
 ## 1  Ways to contribute
 

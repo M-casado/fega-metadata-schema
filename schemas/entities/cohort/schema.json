@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/cohort/schema.json",
   "type": "object",
-  "title": "FEGA Cohort metadata schema",
+  "title": "EGA Cohort metadata schema",
   "meta:version": "0.0.0",
   "$async": true,
   "description": "A group of Biomaterials (e.g., individuals, biopsies) sharing specific characteristics, facilitating comparative studies and discovery.",
@@ -29,7 +29,7 @@
 
     "@type": {
       "title": "Cohort resource type",
-      "description": "The JSON-LD type for a FEGA cohort.",
+      "description": "The JSON-LD type for an EGA cohort.",
       "anyOf": [
         {
           "const": "ega:cohort"

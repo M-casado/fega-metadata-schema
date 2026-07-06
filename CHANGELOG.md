@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
-- Draft FEGA metadata schemas for the EGA entities
+- Draft EGA metadata schemas for the EGA entities.
 - Shared schema modules for common definitions validation.
 - JSON-LD contexts and frames for entity schemas, with local examples covering valid and invalid validation cases.
 - Validation tooling for JSON Schema/Biovalidator checks, JSON-LD context smoke tests, context/frame coverage, JSON-LD frame round-trip checks, and RDF/SHACL validation.

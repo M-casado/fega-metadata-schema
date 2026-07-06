@@ -197,7 +197,7 @@ def validate_file_shacl(
     shapes_graph: Any,
     id_to_path_map: Dict[str, Path],
 ) -> Dict[str, Any]:
-    """Validate one wrapped FEGA metadata file against merged SHACL shapes."""
+    """Validate one wrapped EGA metadata file against merged SHACL shapes."""
     result: Dict[str, Any] = {"file": str(path)}
 
     try:

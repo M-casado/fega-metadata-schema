@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/graph/schema.json",
   "type": "object",
-  "title": "FEGA Graph metadata schema",
+  "title": "EGA Graph metadata schema",
   "meta:version": "0.0.0",
   "$async": true,
   "description": "Metadata entity representing multiple entities in a @graph JSON-LD",

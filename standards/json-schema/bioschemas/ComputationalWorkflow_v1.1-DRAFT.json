@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/bioschemas/ComputationalWorkflow_v1.1-DRAFT.json",
   "type": "object",
-  "$comment": "Source: https://discovery.biothings.io/api/schema/bioschemasdrafts:ComputationalWorkflow/validation (accessed 2025-08-22). Licence: CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. Changes: aligned fields to FEGA conventions; converted draft-07-style single-schema array items to draft 2020-12-compatible homogeneous items.",
+  "$comment": "Source: https://discovery.biothings.io/api/schema/bioschemasdrafts:ComputationalWorkflow/validation (accessed 2025-08-22). Licence: CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. Changes: aligned fields to EGA metadata model conventions; converted draft-07-style single-schema array items to draft 2020-12-compatible homogeneous items.",
   "@context": {
     "@vocab": "https://schema.org/"
   },
@@ -880,7 +880,7 @@
         },
         {
           "$ref": "../../../schemas/common/schema.json#/$defs/relationshipArray",
-          "$comment": "#! Added on top of the BioSchemas original schema to allow for more flexibility and compatibility with the FEGA relationship arrays"
+          "$comment": "#! Added on top of the BioSchemas original schema to allow for more flexibility and compatibility with the EGA metadata model relationship arrays"
         }
       ],
       "owl:cardinality": "many"
@@ -928,7 +928,7 @@
         },
         {
           "$ref": "../../../schemas/common/schema.json#/$defs/relationshipArray",
-          "$comment": "#! Added on top of the BioSchemas original schema to allow for more flexibility and compatibility with the FEGA relationship arrays"
+          "$comment": "#! Added on top of the BioSchemas original schema to allow for more flexibility and compatibility with the EGA metadata model relationship arrays"
         }
       ],
       "owl:cardinality": "one"
@@ -1811,7 +1811,7 @@
         },
         {
           "$ref": "../../../schemas/common/schema.json#/$defs/relationshipArray",
-          "$comment": "#! Added on top of the BioSchemas original schema to allow for more flexibility and compatibility with the FEGA relationship arrays"
+          "$comment": "#! Added on top of the BioSchemas original schema to allow for more flexibility and compatibility with the EGA metadata model relationship arrays"
         }
       ],
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",

@@ -1,4 +1,4 @@
-# EGA Metadata Technical Report
+# FEGA Metadata Technical Report
 
 ## EGA v2 model
 
@@ -85,7 +85,7 @@
 - **Figure 13.** [Comparison of differences between examples for individual B and A in EGA v2 model.](#figure-13-comparison-of-differences-between-examples-for-individual-b-and-a-in-ega-v2-model)
 - **Figure 14.** [Representation of clinical information for both individuals A and B in EGA v2 model.](#figure-14-representation-of-clinical-information-for-both-individuals-a-and-b-in-ega-v2-model)
 - **Figure 15.** [Proteomics use case representation in EGA v2 model.](#figure-15-proteomics-use-case-representation-in-ega-v2-model)
-- **Figure 16.** [Diagram of a stool-microbiome research data lifecycle into the EGA v2 metadata model. Datasets 1 & 2 may fit best in public archives (e.g., ENA), simplifying the example.](#figure-16-diagram-of-a-stool-microbiome-research-data-lifecycle-into-the-ega-v2-metadata-model-datasets-1-2-may-fit-best-in-public-archives-eg-ena-simplifying-the-example)
+- **Figure 16.** [Diagram of a stool-microbiome research data lifecycle into the EGA v2 Metadata Model. Datasets 1 & 2 may fit best in public archives (e.g., ENA), simplifying the example.](#figure-16-diagram-of-a-stool-microbiome-research-data-lifecycle-into-the-ega-v2-metadata-model-datasets-1-2-may-fit-best-in-public-archives-eg-ena-simplifying-the-example)
 - **Figure 17.** [Diagram depicting the expansion of a JSON document into JSON-LD with the addition of @context.](#figure-17-diagram-depicting-the-expansion-of-a-json-document-into-json-ld-with-the-addition-of-context)
 - **Figure 18.** [Representation of existing embedded contexts and how it improves the findability of EGA records on the web. (1) Record of a dataset in the EGA portal; (2) application/ld+json node embedded in the HTML of the record, containing context and metadata in JSON-LD format; (3) result of a query at Google Datasets, returning the EGA dataset thanks to its embedded context.](#figure-18-representation-of-existing-embedded-contexts-and-how-it-improves-the-findability-of-ega-records-on-the-web-1-record-of-a-dataset-in-the-ega-portal-2-applicationldjson-node-embedded-in-the-html-of-the-record-containing-context-and-metadata-in-json-ld-format-3-result-of-a-query-at-google-datasets-returning-the-ega-dataset-thanks-to-its-embedded-context)
 - **Figure 19.** [Summary diagram representing the submission proposal with regards to open and controlled access metadata.](#figure-19-summary-diagram-representing-the-submission-proposal-with-regards-to-open-and-controlled-access-metadata)
@@ -455,7 +455,7 @@ To gather feedback and ensure broad adoption of the metadata model, the MWG enga
 
   * ["Model mapping" form](https://forms.gle/Sw1k7SRiEG8YUpoL7) to collect inputs for the initial design of the EGA v2 metadata model.
 
-  * ["EGA metadata model poster feedback" form](https://forms.gle/h5ZWsvL73djqaduw6) to gather feedback from participants of the [2024 ELIXIR All Hands meeting](https://elixir-events.eventscase.com/EN/ahm2024) in Uppsala, Sweden.
+  * ["Federated EGA metadata model poster feedback" form](https://forms.gle/h5ZWsvL73djqaduw6) to gather feedback from participants of the [2024 ELIXIR All Hands meeting](https://elixir-events.eventscase.com/EN/ahm2024) in Uppsala, Sweden.
 
   * ["Metadata feedback" form](https://forms.gle/8JN4bGJrY5EfmY15A) during the 2024 [ELIXIR Federated Human Data](https://elixir-europe.org/communities/human-data) (FHD) [Community Day](https://elixir-europe.org/events/elixir-federated-human-data-community-day-0) in Lisbon, Portugal.
 
@@ -477,13 +477,13 @@ To gather feedback and ensure broad adoption of the metadata model, the MWG enga
 
   * [ELIXIR Federated Human Data Community Day](https://docs.google.com/presentation/d/1piiixarPwVnYqGes-RZbL9xocwb1_g8pggdrzoP3-3E/edit?usp=sharing) (Nov 2025).
 
-* A dedicated **external stakeholders meeting** in July 2024, presenting an [early pruned abstract model draft](https://docs.google.com/presentation/d/1EtoLU_08XaH8NOTm9_lTTZkwfMwPhPQXjk1jGxEiivA/edit#slide=id.g2eb20668969_0_0), and gathering feedback from 25 participants covering diverse projects and teams, such as [German National Cohort](https://nako.de/en/study) (NAKO), GA4GH, ENA, NBIS, Beacon, GDI and JGA.
+* A dedicated **external stakeholders meeting** in July 2024, presenting the ["Pruned FEGA Abstract Metadata Model"](https://docs.google.com/presentation/d/1EtoLU_08XaH8NOTm9_lTTZkwfMwPhPQXjk1jGxEiivA/edit#slide=id.g2eb20668969_0_0), and gathering feedback from 25 participants covering diverse projects and teams, such as [German National Cohort](https://nako.de/en/study) (NAKO), GA4GH, ENA, NBIS, Beacon, GDI and JGA.
 
 * Creation of the following **posters**:
 
   * ["Improving metadata compliance and interoperability at EGA with Biovalidator"](https://doi.org/10.7490/f1000research.1119417.1), presented at the [ELIXIR All Hands Meeting in June 2023](https://elixir-europe.org/events/elixir-all-hands-2023), in Dublin, Ireland.
 
-  * [A 2024 poster on advancing genomic data interoperability with the EGA metadata model](https://doi.org/10.7490/f1000research.1119732.1), presented at the ELIXIR All Hands Meeting in June 2024, in Uppsala, Sweden.
+  * ["Advancing Genomic Data Interoperability: The FEGA Metadata Model"](https://doi.org/10.7490/f1000research.1119732.1), presented at the ELIXIR All Hands Meeting in June 2024, in Uppsala, Sweden.
 
   * ["Unifying FEGA metadata: A standardized model for multimodal data"](https://doi.org/10.7490/f1000research.1120212.1), presented at the [ELIXIR All Hands Meeting in June 2025](https://elixir-events.eventscase.com/EN/ahm2025), in Thessaloniki, Greece.
 
