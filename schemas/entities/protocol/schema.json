@@ -86,10 +86,6 @@
     }
   ],
   "$defs": {
-    "protocolTypeEnum": {
-      "type": "string",
-      "enum": ["ega:protocol", "prov:Plan", "bioschemastypes:ComputationalWorkflow", "bioschemastypes:LabProtocol"]
-    },
     "computingRequirements": {
       "type": "object",
       "properties": {
@@ -153,17 +149,19 @@
     },
 
     "@type": {
-      "anyOf": [
-        {
-          "$ref": "#/$defs/protocolTypeEnum"
-        },
-        {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/protocolTypeEnum"
-          }
-        }
-      ]
+        "title": "Protocol resource type",
+        "description": "The JSON-LD type for an EGA protocol.",
+        "allOf": [
+            {
+              "$comment": "We force this @type to be an array, which triggers the inherited 'relationshipItemRestrictionProtocol' validation of array. We don't let it be a string alone, because that would be ambiguous. The 'ega:protocol' type alone is just allowed for relationships pointing to an ega:protocol that may not need to be so explicit. That is not the case of the core @type of a protocol.",
+              "type": "array"
+            },
+            { "$ref": "../../common/schema.json#/$defs/@type" }
+        ],
+        "examples": [
+            ["ega:protocol", "prov:Plan", "bioschemastypes:labProtocol"],
+            ["ega:protocol", "prov:Plan", "bioschemastypes:ComputationalWorkflow"]
+        ]
     },
 
     "sameAs": {

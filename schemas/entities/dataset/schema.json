@@ -69,6 +69,18 @@
             "$ref": "../../common/schema.json#/$defs/@id"
         },
 
+        "@type": {
+            "title": "Dataset resource type",
+            "description": "The JSON-LD type for an EGA dataset.",
+            "allOf": [
+                { "$ref": "../../common/schema.json#/$defs/@type" }
+            ],
+            "examples": [
+                "ega:dataset",
+                ["ega:dataset", "dcat:Dataset"]
+            ]
+        },
+
         "id": {
             "allOf": [
                 { "$ref": "../../common/schema.json#/$defs/externalIdentifier" }
@@ -186,52 +198,7 @@
         },
         
         "alternativeTitle": {
-            "title": "Alternative titles",
-            "description": "Alternative titles for the dataset, including abbreviations, acronyms, or other synonyms.",
-            "type": ["string", "array"],
-            "meta:sssomMappings": [
-                {
-                    "predicate_id": "skos:exactMatch",
-                    "object_id": "dct:alternative",
-                    "mapping_justification": "semapv:ManualMappingCuration",
-                    "object_match_field": "rdfs:label",
-                    "subject_match_field": "rdfs:label",
-                    "author_id": ["orcid:0000-0002-7747-6256"],
-                    "creator_id": ["orcid:0000-0002-7747-6256"],
-                    "reviewer_id": [""],
-                    "confidence": 1.0,
-                    "mapping_date": "2026-03-12"
-                },
-                {
-                    "predicate_id": "skos:closeMatch",
-                    "object_id": "egav1ebi:SRA.common.xsd#ObjectType/@alias",
-                    "mapping_justification": "semapv:ManualMappingCuration",
-                    "object_match_field": "rdfs:label",
-                    "subject_match_field": "rdfs:label",
-                    "author_id": ["orcid:0000-0002-7747-6256"],
-                    "creator_id": ["orcid:0000-0002-7747-6256"],
-                    "reviewer_id": [""],
-                    "confidence": 0.8,
-                    "mapping_date": "2026-03-12"
-                }
-            ],
-            "anyOf": [
-                { "$ref": "../../common/schema.json#/$defs/label" } ,
-                {
-                    "minItems": 1,
-                    "uniqueItems": true,
-                    "items": { 
-                        "$ref": "../../common/schema.json#/$defs/label" 
-                    }
-                }
-            ],
-            "examples": [
-                "LSCC",
-                [
-                    "Longitudinal Synthetic Colorectal Cancer",
-                    "LSCC Dataset"
-                ]
-            ]
+            "$ref": "../../common/schema.json#/$defs/alternativeLabels"
         },
 
         "description": {
@@ -290,7 +257,7 @@
             ]
         },
         
-        "documentation": {
+        "documentations": {
             "title": "Documentation",
             "description": "Any resources that contain additional information about the dataset.",
             "type": ["string", "array"],
@@ -321,19 +288,14 @@
                     "$comment": "A Beacon 'externalUrl' is broader than the specific EGA/healthdcatap 'documentation'."
                 }
             ],
-            "anyOf": [
-                { "format": "uri" } ,
-                {
-                    "minItems": 1,
-                    "uniqueItems": true,
-                    "items": { 
-                        "type": "string",
-                        "format": "uri" 
-                    }
-                }
-            ],
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { 
+                "type": "string",
+                "format": "uri" 
+            },
             "examples": [
-                "https://example.org/dataset-documentation.pdf",
+                ["https://example.org/dataset-documentation.pdf"],
                 [
                     "https://example.org/dataset-guide.html",
                     "https://example.org/dataset-readme.txt"
@@ -344,52 +306,9 @@
         "landingPage": {
             "title": "Landing page",
             "description": "A web page that provides access to the Dataset, its Distributions and/or additional information. It is intended to point to a landing page at the original data provider, not to a page on a site of a third party, such as an aggregator.",
-            "type": ["string", "array"],
-            "meta:sssomMappings": [
-                {
-                    "predicate_id": "skos:exactMatch",
-                    "object_id": "dcat:landingPage",
-                    "mapping_justification": "semapv:ManualMappingCuration",
-                    "object_match_field": "rdfs:label",
-                    "subject_match_field": "rdfs:label",
-                    "author_id": ["orcid:0000-0002-7747-6256"],
-                    "creator_id": ["orcid:0000-0002-7747-6256"],
-                    "reviewer_id": [""],
-                    "confidence": 1.0,
-                    "mapping_date": "2026-01-28"
-                },
-                {
-                    "predicate_id": "skos:broadMatch",
-                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/datasets/defaultSchema.json#externalUrl",
-                    "mapping_justification": "semapv:ManualMappingCuration",
-                    "object_match_field": "rdfs:label",
-                    "subject_match_field": "rdfs:label",
-                    "author_id": ["orcid:0000-0002-7747-6256"],
-                    "creator_id": ["orcid:0000-0002-7747-6256"],
-                    "reviewer_id": [""],
-                    "confidence": 1.0,
-                    "mapping_date": "2026-01-29",
-                    "$comment": "A Beacon 'externalUrl' is broader than the specific dcat:landingPage."
-                }
-            ],
-            "anyOf": [
-                { "format": "uri" } ,
-                {
-                    "minItems": 1,
-                    "uniqueItems": true,
-                    "items": { 
-                        "type": "string",
-                        "format": "uri" 
-                    }
-                }
-            ],
-            "examples": [
-                "https://example.org/dataset-landing-page",
-                [
-                    "https://example.org/primary-landing-page",
-                    "https://example.org/mirror-landing-page"
-                ]
-            ]
+            "allOf": [
+                {"$ref": "../../common/schema.json#/$defs/landingPage"}
+            ]            
         },
 
         "isReferencedBy": {
@@ -428,10 +347,10 @@
             "format": "date-time"
         },
 
-        "otherIdentifier": {
+        "otherIdentifiers": {
             "title": "Other identifiers",
             "description": "Other identifiers of the Dataset (e.g., DOI).",
-            "type": ["string", "array"],
+            "type": ["array"],
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
@@ -470,18 +389,13 @@
                     "mapping_date": "2026-01-29"
                 }
             ],
-            "anyOf": [
-                { "$ref": "../../common/schema.json#/$defs/externalIdentifier" },
-                {
-                    "minItems": 1,
-                    "uniqueItems": true,
-                    "items": { 
-                        "$ref": "../../common/schema.json#/$defs/externalIdentifier"
-                    }
-                }
-            ],
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { 
+                "$ref": "../../common/schema.json#/$defs/externalIdentifier"
+            },
             "examples": [
-                "doi:10.5072/fega:dataset-12345",
+                ["doi:10.5072/fega:dataset-12345"],
                 [
                     "doi:10.5072/fega:dataset-12345",
                     "handle:20.500.12345/67890"
@@ -506,7 +420,7 @@
                 },
                 {
                     "predicate_id": "skos:broadMatch",
-                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/individuals/defaultSchema.json#geographicOrigin",
+                    "object_id": "beaconRepo:individuals/defaultSchema.json#geographicOrigin",
                     "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
@@ -521,13 +435,13 @@
             "examples": [
                 "Children under 12 years old with asthma treated in public hospitals in France between 2018 and 2023."
             ],
-            "$comment": "Since this property is entirely derived from HealthDCAT-AP (v6.0.0), we do not impose any validation constraints."
+            "$comment": "Since this property is entirely derived from HealthDCAT-AP (v7.0.0), we do not impose any validation constraints."
         },
              
-        "relatedResource": {
-            "title": "Related resources",
+        "relatedResources": {
+            "title": "Related resource",
             "description": "This property allows you to indicate a general link between this dataset and another resource (e.g., another dataset, document, or service). Use it when there is a connection, but none of the more specific relation properties below apply. When the relationship is known and semantically clear, use one of the more specific properties (e.g., hasPart, landingPage) instead.",
-            "type": ["string", "array"],
+            "type": ["array"],
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:closeMatch",
@@ -591,15 +505,18 @@
                     "mapping_date": "2026-03-12"
                 }
             ],
-            "anyOf": [
-                { "$ref": "../../common/schema.json#/$defs/externalIdentifier" },
-                {
-                    "minItems": 1,
-                    "uniqueItems": true,
-                    "items": { 
-                        "$ref": "../../common/schema.json#/$defs/externalIdentifier"
-                    }
-                }
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { 
+                "$ref": "../../common/schema.json#/$defs/externalIdentifier"
+            },
+            "examples": [
+                ["google.patent:US4145692"],
+                ["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7654321/"],
+                [
+                    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7654321/",
+                    "arrayexpress:E-MEXP-1712"
+                ]
             ]
         },
         
@@ -952,26 +869,7 @@
             ],
             "allOf": [
                 { "$ref": "../../common/schema.json#/$defs/hasPart" },
-                {
-                    "contains": {
-                        "required": ["@type"],
-                        "properties": {
-                            "@type": {
-                                "anyOf": [
-                                    {
-                                        "const": "ega:datafile"
-                                    },
-                                    {
-                                        "type": "array",
-                                        "contains": {
-                                            "const": "ega:datafile"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                }
+                { "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionDatafile" }
             ],
             "examples": [
                 [

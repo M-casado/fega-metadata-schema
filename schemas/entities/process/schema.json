@@ -118,6 +118,17 @@
           "examples": ["ega:EGAK00001000620"],
           "$comment": "Example to be updated when EGA identifiers (EGAK...) are finalized for new entity types."
         },
+        "@type": {
+            "title": "Process resource type",
+            "description": "The JSON-LD type for an EGA process.",
+            "allOf": [
+                { "$ref": "../../common/schema.json#/$defs/@type" }
+            ],
+            "examples": [
+                "ega:process",
+                ["ega:process", "prov:Activity"]
+            ]
+        },
         "title": {
             "$ref": "../../common/schema.json#/$defs/label"
         },

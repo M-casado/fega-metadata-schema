@@ -42,6 +42,32 @@
             "type": "string",
             "description": "The JSON-LD node identifier used as RDF subject identity and for relationship links. Must be a URI or a CURIE that can be expanded through the active JSON-LD context.",
             "examples": [ "ega:EGAC00000000001", "biosample:SAMEA112654070", "https://www.ebi.ac.uk/biosamples/samples/SAMEA112654070" ],
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "schema:identifier",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-07-07"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "dct:identifier",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-07-07"
+                }
+            ],
             "anyOf": [
                 {
                     "format": "uri"                    
@@ -83,6 +109,19 @@
                     "confidence": 0.9,
                     "mapping_date": "2025-08-29",
                     "$comment": "From https://www.w3.org/TR/turtle/ 2.4: The token 'a' in the predicate position of a Turtle triple represents the IRI http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "schema:additionalType",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "match_string": "type",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-07-07"
                 }
             ],
             "anyOf": [
@@ -96,7 +135,7 @@
                         "type": "string",
                         "minLength": 1
                     },
-                    "minItems": 1,
+                    "minItems": 2,
                     "uniqueItems": true
                 }
             ],
@@ -153,7 +192,7 @@
                 "Cardio-Study 2025",
                 "RNA-Seq Data for Subject X",
                 "Omics Cohort #42"
-              ]
+            ]
         },
 
         "description": {
@@ -236,7 +275,21 @@
         "biologicalMacromoleculeTerm": {
             "type": "object",
             "title": "Biological Macromolecule Term",
-            "meta:propertyCurie": "EFO:0004446",
+            "meta:sssomMappings": [
+                {
+                  "predicate_id": "skos:exactMatch",
+                  "object_id": "EFO:0004446",
+                  "mapping_justification": "semapv:ManualMappingCuration",
+                  "match_string": "biologicalMacromoleculeTerm",
+                  "object_match_field": "rdfs:label",
+                  "subject_match_field": "rdfs:label",
+                  "author_id": ["orcid:0000-0002-7747-6256"],
+                  "creator_id": ["orcid:0000-0002-7747-6256"],
+                  "reviewer_id": [""],
+                  "confidence": 1.0,
+                  "mapping_date": "2026-07-07"
+                }
+            ],
             "allOf": [
                 {
                     "title": "Inherited ontologyTerm structure of id and label",
@@ -254,6 +307,19 @@
                         "includeSelf": false
                     },
                     "examples": [ "CHEBI:33697", "EFO:0008479" ]
+                },
+
+                "label": {
+                    "title": "Ontology constraints for this specific label",
+                    "graphRestriction": {
+                        "ontologies": ["obo:efo"],
+                        "classes": ["EFO:0004446"],
+                        "relations": ["rdfs:subClassOf"],
+                        "direct": false,
+                        "includeSelf": false,
+                        "queryFields": [ "label" ]
+                    },
+                    "examples": [ "ribonucleic acid", "genomic DNA" ]
                 }
             }
         },
@@ -262,7 +328,21 @@
             "$comment": "#! Not in use currently, to be amended if not needed",
             "type": "object",
             "title": "Homo Sapiens Term",
-            "meta:propertyCurie": "NCBITaxon:9606",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "NCBITaxon:9606",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "match_string": "Homo Sapiens Term",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-07-07"
+                }
+            ],
             "allOf": [
                 {
                     "title": "Inherited ontologyTerm structure of id and label",
@@ -1461,7 +1541,7 @@
 
         "anatomicalEntity": {
             "title": "Anatomical entity",
-            "description": "Biological entity that is either an individual member of a biological species or constitutes the structural organization of an individual member of a biological species.",
+            "description": "Biological entity that is either an individual member of a biological species or constitutes the structural organisation of an individual member of a biological species.",
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
@@ -1852,7 +1932,7 @@
         "qualifiedAssociation": {
             "type": "object",
             "title": "Qualified association",
-            "description": "Individual association between the root entity (subject) and another entity (object). An activity association is an assignment of responsibility to an agent for an activity, indicating that the agent had a role in the activity. It further allows for a plan to be specified, which is the plan intended by the agent to achieve some goals in the context of this activity.",
+            "description": "Individual association between the root activity (subject) and an agent (object). An activity association is an assignment of responsibility to an agent for an activity, indicating that the agent had a role in the activity. It further allows for a plan to be specified, which is the plan intended by the agent to achieve some goals in the context of this activity.",
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
@@ -1870,6 +1950,9 @@
             ],
             "required": ["agent"],
             "properties": {
+                "@id": {
+                    "$ref": "../common/schema.json#/$defs/@id"
+                },
                 "@type": {
                     "anyOf": [
                         {
@@ -1895,6 +1978,89 @@
             }
         },
 
+        "qualifiedAttribution": {
+            "type": "object",
+            "title": "Qualified attribution",
+            "description": "Individual attribution between the root entity (subject) and an agent (object). Attribution is the ascribing of an entity to an agent. When an entity 'e' is attributed to agent 'ag', entity 'e' was generated by some unspecified activity that in turn was associated to agent 'ag'. Thus, this relation is useful when the activity is not known, or irrelevant.",
+            "required": ["@type", "agent", "hadRole"],
+            "properties": {
+                "@id": {
+                    "$ref": "../common/schema.json#/$defs/@id"
+                },
+                "@type": {
+                    "anyOf": [
+                        {
+                            "const": "prov:Attribution"
+                        },
+                        {
+                            "type": "array",
+                            "contains": {
+                                "const": "prov:Attribution"
+                            }
+                        }
+                    ]
+                },
+                "agent": {
+                    "$ref": "../common/schema.json#/$defs/agent"
+                },
+                "hadRole": {
+                    "$ref": "../common/schema.json#/$defs/hadRole"
+                },
+                "affiliations": {
+                    "title": "Affiliations",
+                    "type": "array",
+                    "description": "Affiliation of the agent in this specific attribution context, out of the multiple affiliations of the agent.",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                        "$ref": "../common/schema.json#/$defs/organisation"
+                    }
+                },
+                "contributions": {},
+                "order": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Display or authorship order, if relevant."
+                }
+            },
+            "examples": [
+                {
+                    "@id": "urn:uuid:123e4567-e89b-12d3-a456-426614174000",
+                    "@type": "prov:Attribution",
+                    "agent": {
+                        "@type": ["prov:Agent", "prov:Person"],
+                        "name": "Jane Doe",
+                        "givenName": "Jane",
+                        "familyName": "Doe",
+                        "email": "jane.doe@example.org",
+                        "affiliations": [
+                            {
+                                "id": "ror:02catss52",
+                                "label": "European Bioinformatics Institute"
+                            },
+                            {
+                                "id": "ror:02meqm098",
+                                "label": "National Center for Biotechnology Information"
+                            }
+                        ],
+                        "sameAs": [
+                            {
+                                "@id": "https://orcid.org/0000-0002-1584-4316"
+                            }
+                        ]
+                    },
+                    "hadRole": "author",
+                    "affiliations": [
+                        {
+                            "id": "ror:02catss52",
+                            "label": "European Bioinformatics Institute"
+                        }
+                    ],
+                    "order": 1
+                }
+            ]
+        },
+
         "agent": {
             "type": "object",
             "title": "Agent",
@@ -1914,8 +2080,9 @@
                     "mapping_date": "2025-08-27"
                 }
             ],
+            "required": ["@type"],
             "anyOf": [
-                {"required": [ "label" ]},
+                {"required": [ "name" ]},
                 {"required": [ "@id" ]}
             ],
             "properties": {
@@ -1930,7 +2097,7 @@
                                 "type": "string",
                                 "enum": [ "prov:Agent", "prov:Person", "prov:Organization", "prov:SoftwareAgent", "healthdcatap:hdab", "healthdcatap:custodian", "healthdcatap:HealthPublisherAgent" ]
                             },
-                            "minItems": 1,
+                            "minItems": 2,
                             "uniqueItems": true,
                             "contains": {
                                 "const": "prov:Agent"
@@ -1947,7 +2114,9 @@
                 "atLocation": {
                     "title": "Location",
                     "description": "Where the agent is located (e.g., research institution, country, etc.).",
-                    "$ref": "../common/schema.json#/$defs/location"
+                    "allOf": [
+                        { "$ref": "../common/schema.json#/$defs/location" }
+                    ]
                 },
                 "sameAs": {
                     "$ref": "../common/schema.json#/$defs/sameAs"
@@ -1957,12 +2126,12 @@
                 {
                     "@type": ["prov:Agent", "prov:Person"],
                     "@id": "orcid:0000-0002-7747-6256",
-                    "label": "Marcos Casado"
+                    "name": "Marcos Casado"
                 },
                 {
                     "@type": [ "prov:Agent", "prov:Organization" ],
                     "@id": "https://ror.org/02catss52",
-                    "label": "European Bioinformatics Institute (EMBL-EBI)",
+                    "name": "European Bioinformatics Institute (EMBL-EBI)",
                     "atLocation": {
                         "id": "GAZ:00004795",
                         "label": "Cambridgeshire"
@@ -1970,6 +2139,124 @@
                     "sameAs": [
                         {
                             "@id": "https://www.ebi.ac.uk/"
+                        }
+                    ]
+                }
+            ]
+        },
+
+        "person": {
+            "type": "object",
+            "title": "Person",
+            "description": "A person is an individual human being.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "prov:Person",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "person",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-07-07"
+                }
+            ],
+            "allOf": [
+                {
+                    "$ref": "../common/schema.json#/$defs/agent"
+                }
+            ],
+            "required": [ "@type", "givenName", "familyName" ],
+            "properties": {
+                "@type": {
+                    "type": "array",
+                    "contains": {
+                        "const": "prov:Person"
+                    }
+                },
+                "givenName": {
+                    "title": "Given name",
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "The given name of the person.",
+                    "examples": [
+                        "Marcos",
+                        "John",
+                        "Jane"
+                    ]
+                },
+                "familyName": {
+                    "title": "Family name",
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "The family name of the person.",
+                    "examples": [
+                        "Casado Barbero",
+                        "Doe",
+                        "Smith"
+                    ]
+                },
+                "email": {
+                    "title": "Email address",
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "The email address of the person.",
+                    "format": "email",
+                    "examples": [
+                        "john.doe@example.com"
+                    ]
+                },
+                "affiliations": {
+                    "title": "Affiliations",
+                    "type": "array",
+                    "description": "",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                        "$ref": "../common/schema.json#/$defs/organisation"
+                    }
+                },
+                "sameAs": {
+                    "title": "Same as",
+                    "description": "A reference that points to a record for the same person. Intended to contain information about other identifiers that are associated to the person (e.g., ORCID identifiers). Whether to provide ORCID ids (or similar) as '@id' or 'sameAs' depends on whether this 'person' is simply an external reference or it is an EGA record on its own, respectively.",
+                    "allOf": [
+                        {
+                            "$ref": "../common/schema.json#/$defs/sameAs"
+                        }
+                    ],
+                    "examples": [
+                        {
+                            "@id": "orcid:0000-0002-7747-6256"
+                        },
+                        {
+                            "@id": "https://www.ebi.ac.uk/people/person/marcos-casado-barbero/"
+                        }
+                    ]
+                }
+            },
+            "examples": [
+                {
+                    "@type": ["prov:Agent", "prov:Person"],
+                    "@id": "ega:person-123",
+                    "name": "Marcos Casado Barbero",
+                    "givenName": "Marcos",
+                    "familyName": "Casado Barbero",
+                    "email": "mcasado@ebi.ac.uk",
+                    "affiliations": [
+                        {
+                            "id": "https://ror.org/02catss52",
+                            "name": "European Bioinformatics Institute (EMBL-EBI)"
+                        }
+                    ],
+                    "sameAs": [
+                        {
+                            "@id": "https://orcid.org/0000-0002-7747-6256"
+                        },
+                        {
+                            "@id": "https://www.ebi.ac.uk/people/person/marcos-casado-barbero/"
                         }
                     ]
                 }
@@ -2017,6 +2304,96 @@
                     "mapping_date": "2025-08-19"
                 }
             ],
+            "anyOf": [
+                {
+                    "$comment": "#!!! This placeholder comment passes validation for ALL ids and labels, negating the ontology constraint. We may want to remove it later if we decide to enforce ontology constraints. It was added to both (1) loosen the constraints until 'Biovalidator' keyword restrictions are upgraded (related to EEH-2817), and (2) keep the original restrictions documented for future reference."
+                },
+                {
+                    "$ref": "../common/schema.json#/$defs/geographicLocation"
+                },
+                {
+                    "$ref": "../common/schema.json#/$defs/country"
+                },
+                {
+                    "$ref": "../common/schema.json#/$defs/city"
+                },
+                {
+                    "$ref": "../common/schema.json#/$defs/organisation"
+                }
+            ]
+        },
+
+        "geographicLocation": {
+            "title": "Geographic Location",
+            "description": "A geographic location, such as a region or place.",
+            "allOf": [
+                {
+                    "title": "Inherited ontologyTerm structure of term id and label",
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
+                }
+            ],
+            "$comment": "#! Need to find more ontology terms for geographic locations, as current selection is fairly limited.",
+            "properties": {
+                "id": {
+                    "title": "Ontology constraints for this specific term id",
+                    "anyOf": [
+                        {
+                            "graphRestriction": {
+                                "ontologies": [ "obo:ncit" ],
+                                "classes": [ "mesh:D005842" ],
+                                "relations": [ "rdfs:subClassOf" ],
+                                "includeSelf": false
+                            }
+                        },
+                        {
+                            "graphRestriction": {
+                                "ontologies": [ "obo:gaz" ],
+                                "classes": [ "GAZ:00000448" ],
+                                "relations": [ "rdfs:subClassOf" ],
+                                "includeSelf": false
+                            }
+                        }
+                    ]
+                },
+                "label": {
+                    "title": "Ontology constraints for this specific label",
+                    "anyOf": [
+                        {
+                            "graphRestriction": {
+                                "ontologies": [ "obo:ncit" ],
+                                "classes": [ "mesh:D005842" ],
+                                "relations": [ "rdfs:subClassOf" ],
+                                "queryFields": [ "label" ],
+                                "includeSelf": false
+                            }
+                        },
+                        {
+                            "graphRestriction": {
+                                "ontologies": [ "obo:gaz" ],
+                                "classes": [ "GAZ:00000448" ],
+                                "relations": [ "rdfs:subClassOf" ],
+                                "queryFields": [ "label" ],
+                                "includeSelf": false
+                            }
+                        }
+                    ]
+                }
+            },
+            "examples": [
+                {
+                    "id": "mesh:D060851",
+                    "label": "Gulf of Mexico"
+                },
+                {
+                    "id": "GAZ:00008171",
+                    "label": "Black Sea"
+                }
+            ]
+        },
+
+        "country": {
+            "title": "Country",
+            "description": "Wide variety of dependencies, areas of special sovereignty, uninhabited islands, and other entities in addition to the traditional countries or independent states.",
             "allOf": [
                 {
                     "title": "Inherited ontologyTerm structure of term id and label",
@@ -2025,115 +2402,97 @@
             ],
             "properties": {
                 "id": {
-                    "title": "Ontology constraints for this specific term id",
-                    "anyOf": [
-                        {
-                            "$comment": "This placeholder comment validates ALL ids, negating the ontology constraint. We may want to remove it later if we decide to enforce ontology constraints. It was added to both (1) loosen the constraints until 'Biovalidator' keyword restrictions are upgraded (related to EEH-2817), and (2) keep the original restrictions documented for future reference."
-                        },
-                        {
-                            "$comment": "Geographic Locations",
-                            "graphRestriction": {
-                                "ontologies": [ "obo:ncit" ],
-                                "classes": [ "mesh:D005842" ],
-                                "relations": [ "rdfs:subClassOf"],
-                                "includeSelf": false
-                            }
-                        },
-                        {
-                            "$comment": "Country",
-                            "graphRestriction": {
-                                "ontologies": [ "obo:ncit" ],
-                                "classes": [ "NCIT:C25464" ],
-                                "relations": [ "rdfs:subClassOf"],
-                                "includeSelf": false
-                            }
-                        },
-                        {
-                            "graphRestriction": {
-                                "ontologies": [ "obo:gaz" ],
-                                "classes": [ "GAZ:00000448" ],
-                                "relations": [ "rdfs:subClassOf"],
-                                "includeSelf": false
-                            }
-                        },
-                        {
-                            "$comment": "city",
-                            "graphRestriction": {
-                                "ontologies": [ "obo:ror" ],
-                                "classes": [ "ENVO:00000856" ],
-                                "relations": [ "rdfs:subClassOf"],
-                                "includeSelf": false
-                            }
-                        },
-                        {
-                            "$comment": "organization",
-                            "graphRestriction": {
-                                "ontologies": [ "obo:ror" ],
-                                "classes": [ "OBI:0000245" ],
-                                "relations": [ "rdfs:subClassOf"],
-                                "includeSelf": false
-                            }
-                        }
-                    ]
+                    "graphRestriction": {
+                        "ontologies": [ "obo:ncit" ],
+                        "classes": [ "NCIT:C25464" ],
+                        "relations": [ "rdfs:subClassOf"],
+                        "includeSelf": false
+                    }
                 },
                 "label": {
-                    "type": "string",
-                    "title": "Ontology constraints for this specific term label",
-                    "anyOf": [
-                        {
-                            "$comment": "This placeholder comment validates ALL labels, negating the ontology constraint. We may want to remove it later if we decide to enforce ontology constraints. It was added to both (1) loosen the constraints until 'Biovalidator' keyword restrictions are upgraded (related to EEH-2817), and (2) keep the original restrictions documented for future reference."
-                        },{
-                            "$comment": "Geographic Locations",
-                            "graphRestriction": {
-                                "ontologies": [ "obo:ncit" ],
-                                "classes": [ "mesh:D005842" ],
-                                "relations": [ "rdfs:subClassOf"],
-                                "queryFields": [ "label" ],
-                                "includeSelf": false
-                            }
-                        },
-                        {
-                            "$comment": "Country",
-                            "graphRestriction": {
-                                "ontologies": [ "obo:ncit" ],
-                                "classes": [ "NCIT:C25464" ],
-                                "relations": [ "rdfs:subClassOf" ],
-                                "queryFields": [ "label" ],
-                                "includeSelf": false
-                            }
-                        },
-                        {
-                            "graphRestriction": {
-                                "ontologies": [ "obo:gaz" ],
-                                "classes": [ "GAZ:00000448" ],
-                                "relations": [ "rdfs:subClassOf" ],
-                                "queryFields": [ "label" ],
-                                "includeSelf": false
-                            }
-                        },
-                        {
-                            "$comment": "city",
-                            "graphRestriction": {
-                                "ontologies": [ "obo:ror" ],
-                                "classes": [ "ENVO:00000856" ],
-                                "relations": [ "rdfs:subClassOf"],
-                                "queryFields": [ "label" ],
-                                "includeSelf": false
-                            }
-                        },
-                        {
-                            "$comment": "organization",
-                            "graphRestriction": {
-                                "ontologies": [ "obo:ror" ],
-                                "classes": [ "OBI:0000245" ],
-                                "relations": [ "rdfs:subClassOf"],
-                                "queryFields": [ "label" ],
-                                "includeSelf": false
-                            }
-                        }
-                    ]
+                    "graphRestriction": {
+                        "ontologies": [ "obo:ncit" ],
+                        "classes": [ "NCIT:C25464" ],
+                        "relations": [ "rdfs:subClassOf"],
+                        "queryFields": [ "label" ],
+                        "includeSelf": false
+                    }
                 }
-            }
+            },
+            "examples": [
+                {
+                    "id": "NCIT:C17152",
+                    "label": "Spain"
+                },
+                {
+                    "id": "NCIT:C17233",
+                    "label": "United Kingdom"
+                }
+            ]
+        },
+
+        "city": {
+            "title": "City",
+            "description": "Incorporated populated place: a city is a large human settlement, typically characterized by a high population density, extensive infrastructure, and a concentration of economic, cultural, and social activities.",
+            "allOf": [
+                {
+                    "title": "Inherited ontologyTerm structure of term id and label",
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
+                }
+            ],
+            "$comment": "#!!! As of now we don't impose ontology validations for cities, as there isn't a single parental term that we could use in OLS. If Biovalidator is upgraded to understand semantic relationships beyond graphRestriction, or GAZ gets indexed appropriately, we may be able to add ontology constraints in the future.",
+            "examples": [
+                {
+                    "id": "GAZ:00003320",
+                    "label": "Madrid"
+                },
+                {
+                    "id": "GAZ:00004832",
+                    "label": "Cambridge"
+                }
+            ]
+        },
+
+        "organisation": {
+            "title": "Organisation",
+            "description": "An entity that can bear roles, has members, and has a set of organization rules. Members of organizations are either organizations themselves or individual people. Members can bear specific organization member roles that are determined in the organization rules. The organization rules also determine how decisions are made on behalf of the organization by the organization members.",
+            "allOf": [
+                {
+                    "title": "Inherited ontologyTerm structure of id and label",
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
+                }
+            ],
+            "properties": {
+                "id": {
+                    "title": "Ontology constraints for this specific id",
+                    "graphRestriction": {
+                        "ontologies": [ "obo:ror" ],
+                        "classes": [ "OBI:0000245" ],
+                        "relations": [ "rdfs:subClassOf"],
+                        "includeSelf": false
+                    }
+                },
+                "label": {
+                    "title": "Ontology constraints for this specific label",
+                    "graphRestriction":  {
+                        "ontologies": [ "obo:ror" ],
+                        "classes": [ "OBI:0000245" ],
+                        "relations": [ "rdfs:subClassOf"],
+                        "includeSelf": false,
+                        "queryFields": [ "label" ]
+                    }
+                }
+            },
+            "examples": [
+                {
+                    "id": "ror:02catss52",
+                    "label": "European Bioinformatics Institute"
+                },
+                {
+                    "id": "ror:02meqm098",
+                    "label": "National Center for Biotechnology Information"
+                }
+            ]
         },
 
         "dataUsePermission": {
@@ -2342,11 +2701,181 @@
             "$comment": "For future definition and use within Protocols/processes/studies. To take inspiration from schema:PropertyValue and schema:StatisticalVariable"
         },
 
+        "alternativeLabels": {
+            "title": "Alternative labels",
+            "description": "Alternative labels or titles of an entity, including abbreviations, acronyms, or other synonyms.",
+            "type": ["string", "array"],
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:alternative",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-03-12"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "egav1ebi:SRA.common.xsd#ObjectType/@alias",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-03-12"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "schema:alternateName",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-03-12"
+                }
+            ],
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { 
+                "$ref": "../../common/schema.json#/$defs/label" 
+            },
+            "examples": [
+                ["LSCC"],
+                [
+                    "Longitudinal Synthetic Colorectal Cancer",
+                    "LSCC Study"
+                ]
+            ]
+        },
+
+        "keywords": {
+            "title": "Keywords",
+            "description": "Keywords or tags associated with an entity, used for categorization or search purposes.",
+            "type": ["string", "array"],
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "schema:keywords",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-03-12"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "dct:subject",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-03-12"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "dcat:keyword",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-03-12"
+                }
+            ],
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { 
+                "type": "string",
+                "minLength": 1
+            },
+            "examples": [
+                ["Physiological measures"],
+                [
+                    "Occupational psychology",
+                    "Dietary glucose intake"
+                ]
+            ]
+        },
+
+        "landingPage": {
+            "title": "Landing page",
+            "description": "A web page that provides access to the entity and/or additional information. It is intended to point to a landing page at the original data provider, not to a page on a site of a third party, such as an aggregator.",
+            "type": ["string", "array"],
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dcat:landingPage",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-28"
+                },
+                {
+                    "predicate_id": "skos:broadMatch",
+                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/datasets/defaultSchema.json#externalUrl",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-01-29",
+                    "$comment": "A Beacon 'externalUrl' is broader than the specific dcat:landingPage."
+                }
+            ],
+            "anyOf": [
+                { 
+                    "type": "string",
+                    "format": "uri" 
+                },
+                {
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": { 
+                        "type": "string",
+                        "format": "uri" 
+                    }
+                }
+            ],            
+            "examples": [
+                "https://example.org/dataset-landing-page",
+                [
+                    "https://example.org/primary-landing-page",
+                    "https://example.org/mirror-landing-page"
+                ]
+            ]
+        },
+
         "relationshipItemRestrictionBiomaterial": {
             "type": "object",
             "title": "Relationship item restriction: Biomaterial",
             "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'biomaterial'.",
             "properties": {
+                "@id": {
+                    "$ref": "../common/schema.json#/$defs/egaStableIdentifierBiomaterial"
+                },
                 "@type": {
                     "anyOf": [
                         {
@@ -2357,7 +2886,7 @@
                             "contains": {
                                 "const": "ega:biomaterial"
                             },
-                            "minItems": 1,
+                            "minItems": 2,
                             "uniqueItems": true
                         }
                     ]
@@ -2371,6 +2900,9 @@
             "title": "Relationship item restriction: Study",
             "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'study'.",
             "properties": {
+                "@id": {
+                    "$ref": "../common/schema.json#/$defs/egaStableIdentifierStudy"
+                },
                 "@type": {
                     "anyOf": [
                         {
@@ -2394,7 +2926,7 @@
                             "uniqueItems": true
                         }
                     ]
-                }
+                }                
             },
             "required": ["@type"]
         },
@@ -2404,6 +2936,9 @@
             "title": "Relationship item restriction: Process",
             "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'process'.",
             "properties": {
+                "@id": {
+                    "$ref": "../common/schema.json#/$defs/egaStableIdentifierProcess"
+                },
                 "@type": {
                     "anyOf": [
                         {
@@ -2437,6 +2972,9 @@
             "title": "Relationship item restriction: Protocol",
             "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'protocol'.",
             "properties": {
+                "@id": {
+                    "$ref": "../common/schema.json#/$defs/egaStableIdentifierProtocol"
+                },
                 "@type": {
                     "anyOf": [
                         {
@@ -2456,7 +2994,19 @@
                                     }
                                 }
                             ],
-                            "minItems": 2,
+                            "anyOf": [
+                                {
+                                    "contains": {
+                                        "const": "bioschemastypes:ComputationalWorkflow"
+                                    }
+                                },
+                                {
+                                    "contains": {
+                                        "const": "bioschemastypes:LabProtocol"
+                                    }
+                                }
+                            ],
+                            "minItems": 3,
                             "uniqueItems": true
                         }
                     ]
@@ -2470,6 +3020,9 @@
             "title": "Relationship item restriction: Protocol Collection",
             "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'protocolCollection'.",
             "properties": {
+                "@id": {
+                    "$ref": "../common/schema.json#/$defs/egaStableIdentifierProtocolCollection"
+                },
                 "@type": {
                     "anyOf": [
                         {
@@ -2508,6 +3061,9 @@
             "title": "Relationship item restriction: Cohort",
             "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'cohort'.",
             "properties": {
+                "@id": {
+                    "$ref": "../common/schema.json#/$defs/egaStableIdentifierCohort"
+                },
                 "@type": {
                     "anyOf": [
                         {
@@ -2541,6 +3097,9 @@
             "title": "Relationship item restriction: Datafile",
             "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'datafile'.",
             "properties": {
+                "@id": {
+                    "$ref": "../common/schema.json#/$defs/egaStableIdentifierDatafile"
+                },
                 "@type": {
                     "anyOf": [
                         {
@@ -2551,7 +3110,7 @@
                             "contains": {
                                 "const": "ega:datafile"
                             },
-                            "minItems": 1,
+                            "minItems": 2,
                             "uniqueItems": true
                         }
                     ]
@@ -2565,6 +3124,9 @@
             "title": "Relationship item restriction: Dataset",
             "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be of @type 'dataset'.",
             "properties": {
+                "@id": {
+                    "$ref": "../common/schema.json#/$defs/egaStableIdentifierDataset"
+                },
                 "@type": {
                     "anyOf": [
                         {
@@ -2855,6 +3417,18 @@
                     "reviewer_id": [""],
                     "confidence": 1.0,
                     "mapping_date": "2025-07-17"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "prov:hadMember",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-07-07"
                 }
             ]
         },
@@ -2988,6 +3562,206 @@
             ],
             "allOf": [
                 { "$ref": "../common/schema.json#/$defs/relationshipArray" }
+            ]
+        },
+
+        "egaStableIdentifierCurie": {
+            "title": "Stable identifier for an EGA entity",
+            "description": "A stable identifier for an EGA entity",
+            "pattern": "^ega:EGA[A-Z][0-9]{11}$",
+            "examples": [
+                "ega:EGAS00000000001",
+                "ega:EGAC00001000002",
+                "ega:EGAP00000000001",
+                "ega:EGAN00001000002",
+                "ega:EGAD00000000001",
+                "ega:EGAB00001000002",
+                "ega:EGAF00000000001",
+                "ega:EGAA00001000002",
+                "ega:EGAT00000000001",
+                "ega:EGAL00001000002",
+                "ega:EGAH00000000001"
+            ]
+        },
+        
+        "egaStableIdentifierStudy": {
+            "title": "Stable identifier for an EGA study",
+            "description": "A stable identifier for an EGA study",
+            "allOf": [
+                { "$ref": "../common/schema.json#/$defs/egaStableIdentifierCurie" },
+                {
+                    "pattern": "^ega:EGAS"
+                }
+            ],
+            "examples": [
+                "ega:EGAS00000000001",
+                "ega:EGAS00001000002"
+            ]
+        },
+
+        "egaStableIdentifierDAC": {
+            "title": "Stable identifier for an EGA DAC",
+            "description": "A stable identifier for an EGA DAC",
+            "allOf": [
+                { "$ref": "../common/schema.json#/$defs/egaStableIdentifierCurie" },
+                {
+                    "pattern": "^ega:EGAC"
+                }
+            ],
+            "examples": [
+                "ega:EGAC00000000001",
+                "ega:EGAC00001000002"
+            ]
+        },
+
+        "egaStableIdentifierPolicy": {
+            "title": "Stable identifier for an EGA policy",
+            "description": "A stable identifier for an EGA policy",
+            "allOf": [
+                { "$ref": "../common/schema.json#/$defs/egaStableIdentifierCurie" },
+                {
+                    "pattern": "^ega:EGAP"
+                }
+            ],
+            "examples": [
+                "ega:EGAP00000000001",
+                "ega:EGAP00001000002"
+            ]
+        },
+
+        
+        "egaStableIdentifierBiomaterial": {
+            "title": "Stable identifier for an EGA biomaterial",
+            "description": "A stable identifier for an EGA biomaterial",
+            "allOf": [
+                { "$ref": "../common/schema.json#/$defs/egaStableIdentifierCurie" },
+                {
+                    "pattern": "^ega:EGAN"
+                }
+            ],
+            "examples": [
+                "ega:EGAN00000000001",
+                "ega:EGAN00001000002"
+            ]
+        },
+       
+        "egaStableIdentifierDataset": {
+            "title": "Stable identifier for an EGA dataset",
+            "description": "A stable identifier for an EGA dataset",
+            "allOf": [
+                { "$ref": "../common/schema.json#/$defs/egaStableIdentifierCurie" },
+                {
+                    "pattern": "^ega:EGAD"
+                }
+            ],
+            "examples": [
+                "ega:EGAD00000000001",
+                "ega:EGAD00001000002"
+            ]
+        },
+
+        "egaStableIdentifierSubmission": {
+            "title": "Stable identifier for an EGA submission",
+            "description": "A stable identifier for an EGA submission",
+            "allOf": [
+                { "$ref": "../common/schema.json#/$defs/egaStableIdentifierCurie" },
+                {
+                    "pattern": "^ega:EGAB"
+                }
+            ],
+            "examples": [
+                "ega:EGAB00000000001",
+                "ega:EGAB00001000002"
+            ]
+        },
+
+        "egaStableIdentifierDatafile": {
+            "title": "Stable identifier for an EGA datafile",
+            "description": "A stable identifier for an EGA datafile",
+            "allOf": [
+                { "$ref": "../common/schema.json#/$defs/egaStableIdentifierCurie" },
+                {
+                    "pattern": "^ega:EGAF"
+                }
+            ],
+            "examples": [
+                "ega:EGAF00000000001",
+                "ega:EGAF00001000002"
+            ]
+        },
+
+        "egaStableIdentifierProcess": {
+            "title": "Stable identifier for an EGA process",
+            "description": "A stable identifier for an EGA process",
+            "allOf": [
+                { "$ref": "../common/schema.json#/$defs/egaStableIdentifierCurie" },
+                {
+                    "pattern": "^ega:EGAA"
+                }
+            ],
+            "examples": [
+                "ega:EGAA00000000001",
+                "ega:EGAA00001000002"
+            ]
+        },
+
+        "egaStableIdentifierProtocol": {
+            "title": "Stable identifier for an EGA protocol",
+            "description": "A stable identifier for an EGA protocol",
+            "allOf": [
+                { "$ref": "../common/schema.json#/$defs/egaStableIdentifierCurie" },
+                {
+                    "pattern": "^ega:EGAT"
+                }
+            ],
+            "examples": [
+                "ega:EGAT00000000001",
+                "ega:EGAT00001000002"
+            ]
+        },
+
+        "egaStableIdentifierProtocolCollection": {
+            "title": "Stable identifier for an EGA protocol collection",
+            "description": "A stable identifier for an EGA protocol collection",
+            "allOf": [
+                { "$ref": "../common/schema.json#/$defs/egaStableIdentifierCurie" },
+                {
+                    "pattern": "^ega:EGAL"
+                }
+            ],
+            "examples": [
+                "ega:EGAL00000000001",
+                "ega:EGAL00001000002"
+            ]
+        },
+
+        "egaStableIdentifierCohort": {
+            "title": "Stable identifier for an EGA cohort",
+            "description": "A stable identifier for an EGA cohort",
+            "allOf": [
+                { "$ref": "../common/schema.json#/$defs/egaStableIdentifierCurie" },
+                {
+                    "pattern": "^ega:EGAH"
+                }
+            ],
+            "examples": [
+                "ega:EGAH00000000001",
+                "ega:EGAH00001000002"
+            ]
+        },
+
+        "egaStableIdentifierProject": {
+            "title": "Stable identifier for an EGA project",
+            "description": "A stable identifier for an EGA project",
+            "allOf": [
+                { "$ref": "../common/schema.json#/$defs/egaStableIdentifierCurie" },
+                {
+                    "pattern": "^ega:EGAJ"
+                }
+            ],
+            "examples": [
+                "ega:EGAJ00000000001",
+                "ega:EGAJ00001000002"
             ]
         }
     }

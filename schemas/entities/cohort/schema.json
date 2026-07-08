@@ -6,7 +6,7 @@
   "meta:version": "0.0.0",
   "$async": true,
   "description": "A group of Biomaterials (e.g., individuals, biopsies) sharing specific characteristics, facilitating comparative studies and discovery.",
-  "$comment": "@Context for Beacon's entities is unfinished. Just a draft of the root properties for now. Ideally they'll have the context of their schemas embedded in them, so we can reference. Not quite there yet though.",
+  "$comment": "We need to review that Cohorts can contain high-level (non granular) coverage of the biomaterials: populationCoverage, spatialCoverage and temporalCoverage. @Context for Beacon's entities is unfinished. Just a draft of the root properties for now. Ideally they'll have the context of their schemas embedded in them, so we can reference. Not quite there yet though.",
   "@context": "./context.jsonld",
   "allOf": [
     {
@@ -30,27 +30,8 @@
     "@type": {
       "title": "Cohort resource type",
       "description": "The JSON-LD type for an EGA cohort.",
-      "anyOf": [
-        {
-          "const": "ega:cohort"
-        },
-        {
-          "type": "array",
-          "allOf": [
-            {
-              "contains": {
-                "const": "ega:cohort"
-              }
-            },
-            {
-              "contains": {
-                "const": "prov:Collection"
-              }
-            }
-          ],
-          "minItems": 2,
-          "uniqueItems": true
-        }
+      "allOf": [
+        { "$ref": "../../common/schema.json#/$defs/@type" }
       ],
       "examples": [
         "ega:cohort",
