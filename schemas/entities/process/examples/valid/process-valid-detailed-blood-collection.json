@@ -4,7 +4,7 @@
   },
   "data": {
     "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/process/schema.json",
-    "@id": "ega:EGAK00000000001",
+    "@id": "ega:EGAA00000000001",
     "@type": [
       "ega:process",
       "prov:Activity"
@@ -12,7 +12,7 @@
     "title": "Peripheral blood collection (venipuncture) - subject PT-0001",
     "description": "Whole blood collected by venipuncture into a K2EDTA lavender-top tube from subject PT-0001 for downstream WGS. Subject fasted 8h prior to draw.",
     "hadProtocolCollection": {
-      "@id": "ega:EGAW00000000001",
+      "@id": "ega:EGAL00000000001",
       "@type": [
         "ega:protocolCollection",
         "prov:Collection",
@@ -33,7 +33,7 @@
           "prov:Agent",
           "prov:Person"
         ],
-        "label": "Jane Doe"
+        "name": "Jane Doe"
       },
       {
         "@type": [
@@ -41,7 +41,7 @@
           "prov:Organization"
         ],
         "@id": "https://ror.org/055vbxf86",
-        "label": "Addenbrooke's Hospital"
+        "name": "Addenbrooke's Hospital"
       }
     ],
     "qualifiedAssociation": [
@@ -52,12 +52,12 @@
             "prov:Agent",
             "prov:Person"
           ],
-          "label": "Jane Doe"
+          "name": "Jane Doe"
         },
         "hadRole": [
           {
-            "@id": "https://credit.niso.org/contributor-roles/supervision/",
-            "label": "Supervision"
+            "id": "CREDIT:00000010",
+            "label": "supervision role"
           }
         ]
       },
@@ -68,17 +68,17 @@
             "prov:Organization"
           ],
           "@id": "https://ror.org/055vbxf86",
-          "label": "Addenbrooke's Hospital"
+          "name": "Addenbrooke's Hospital"
         },
         "hadRole": [
           {
-            "@id": "https://credit.niso.org/contributor-roles/resources/",
-            "label": "Resources"
+            "id": "CREDIT:00000008",
+            "label": "resources role"
           }
         ],
         "hadPlan": [
           {
-            "@id": "ega:EGAK00001000621",
+            "@id": "ega:EGAT00001000621",
             "@type": "ega:protocol",
             "label": "Provision of patient samples"
           }
@@ -98,9 +98,7 @@
     "generated": [
       {
         "@id": "biosample:SAMEA12345678",
-        "@type": [
-          "ega:biomaterial"
-        ],
+        "@type": "ega:biomaterial",
         "label": "Whole blood (EDTA), PT-0001"
       }
     ],

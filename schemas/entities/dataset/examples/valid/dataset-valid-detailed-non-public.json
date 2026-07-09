@@ -41,7 +41,7 @@
     "hasPolicy": "ega:EGAP00001000001",
     "sameAs": [
       {
-        "@id": "https://example.org/catalogue/datasets/EGAD00000000001",
+        "@id": "ega:EGAD00000000001",
         "@type": "ega:dataset"
       }
     ],
@@ -93,9 +93,7 @@
       },
       {
         "@id": "ega:EGAF00001000002",
-        "@type": [
-          "ega:datafile"
-        ]
+        "@type": "ega:datafile"
       }
     ],
     "dcat:distribution": [

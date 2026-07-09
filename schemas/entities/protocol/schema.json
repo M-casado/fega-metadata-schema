@@ -159,7 +159,7 @@
             { "$ref": "../../common/schema.json#/$defs/@type" }
         ],
         "examples": [
-            ["ega:protocol", "prov:Plan", "bioschemastypes:labProtocol"],
+            ["ega:protocol", "prov:Plan", "bioschemastypes:LabProtocol"],
             ["ega:protocol", "prov:Plan", "bioschemastypes:ComputationalWorkflow"]
         ]
     },

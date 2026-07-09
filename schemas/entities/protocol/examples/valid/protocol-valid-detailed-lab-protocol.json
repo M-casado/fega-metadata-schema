@@ -4,7 +4,7 @@
   },
   "data": {
     "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/protocol/schema.json",
-    "@id": "ega:EGAL00000000001",
+    "@id": "ega:EGAT00000000001",
     "@type": [
       "ega:protocol",
       "prov:Plan",

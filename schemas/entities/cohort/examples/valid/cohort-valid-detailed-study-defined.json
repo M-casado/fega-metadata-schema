@@ -95,11 +95,11 @@
     ],
     "sameAs": [
       {
-        "@id": "ega:EGAC00000000002",
+        "@id": "ega:EGAH00000000002",
         "@type": "ega:cohort"
       },
       {
-        "@id": "ega:EGAC00000000003",
+        "@id": "ega:EGAH00000000003",
         "@type": "ega:cohort"
       }
     ],

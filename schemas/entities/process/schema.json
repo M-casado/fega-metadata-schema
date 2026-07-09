@@ -115,8 +115,8 @@
     "properties": {
         "@id": {
           "$ref": "../../common/schema.json#/$defs/@id",
-          "examples": ["ega:EGAK00001000620"],
-          "$comment": "Example to be updated when EGA identifiers (EGAK...) are finalized for new entity types."
+          "examples": ["ega:EGAA00001000620"],
+          "$comment": "Example to be updated if EGA identifiers are amended for new entity types."
         },
         "@type": {
             "title": "Process resource type",
@@ -144,14 +144,12 @@
                 },
                 {
                     "title": "Entity type restriction",
-                    "items": {
-                        "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionProtocolCollection"
-                    }
+                    "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionProtocolCollection"
                 }
             ],
             "examples": [
                 {
-                    "@id": "ega:EGAW00000000001",
+                    "@id": "ega:EGAL00000000001",
                     "@type": "ega:protocolCollection",
                     "label": "DNA extraction protocol collection"
                 }
@@ -173,12 +171,12 @@
                     "agent": {
                         "@id": "urn:uuid:person-jane-doe",
                         "@type": [ "prov:Agent", "prov:Person" ],
-                        "label": "Jane Doe"
+                        "name": "Jane Doe"
                     },
                     "hadRole": [
                         {
-                            "@id": "https://credit.niso.org/contributor-roles/supervision/",
-                            "label": "Supervision"
+                            "id": "CREDIT:00000010",
+                            "label": "supervision role"
                         }
                     ]
                 },
@@ -186,17 +184,17 @@
                     "agent": {
                         "@type": [ "prov:Agent", "prov:Organization" ],
                         "@id": "https://ror.org/055vbxf86",
-                        "label": "Addenbrooke's Hospital"
+                        "name": "Addenbrooke's Hospital"
                     },
                     "hadRole": [
                         {
-                            "@id": "https://credit.niso.org/contributor-roles/resources/",
-                            "label": "Resources"
+                            "id": "CREDIT:00000008",
+                            "label": "resources role"
                         }
                     ],
                     "hadPlan": [
                         {
-                            "@id": "ega:EGAK00001000621",
+                            "@id": "ega:EGAT00001000621",
                             "@type": "ega:protocol",
                             "label": "Provision of patient samples"
                         }
@@ -299,7 +297,7 @@
             "examples": [
                 {
                     "@id": "biosample:SAMEA12345678",
-                    "@type": [ "ega:biomaterial" ],
+                    "@type": "ega:biomaterial",
                     "label": "Whole blood (EDTA), PT-0001"
                 }
             ]
@@ -307,7 +305,7 @@
         "wasAssociatedWith": {
             "title": "Association to agents",
             "description": "Array of relationships pointing to agents (object) associated with this process (subject). The association is to be interpreted broadly: the agent can be associated in multiple ways (e.g., modification, execution...) with the process. It is relevant to note that this array contains associations to agents, and not directly the details (e.g., each agents' role) of the association. Those details are expected to be found in the 'qualifiedAssociation' property. Therefore, for each 'agent' item in wasAssociatedWith, there should be a corresponding 'qualifiedAssociation' item with the same agent and the relevant details of the association.",
-            "$comment": "Downstream validation shall check that the @ids of these agents correspond to the @ids of the agents in qualifiedAssociation.",
+            "$comment": "Downstream validation shall check that the @ids of these agents correspond to the @ids of the agents in qualifiedAssociation. In the end we may choose to get rid of wasAssociatedWith and entirely depend on qualifiedAssociation",
             "allOf": [
                 { "$ref": "../../common/schema.json#/$defs/wasAssociatedWith" }
             ]

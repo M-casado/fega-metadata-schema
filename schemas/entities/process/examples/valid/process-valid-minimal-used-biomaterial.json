@@ -10,7 +10,8 @@
     ],
     "title": "DNA extraction run",
     "hadProtocolCollection": {
-      "@id": "ega:EGAW00000000001"
+      "@id": "ega:EGAL00000000001",
+      "@type": "ega:protocolCollection"
     },
     "used": [
       {

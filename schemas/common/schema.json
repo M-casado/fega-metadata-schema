@@ -140,10 +140,10 @@
                 }
             ],
             "examples": [
-                "cohort", "biomaterial", "process", "xsd:integer",
-                [ "biomaterial", "prov:Person" ],
+                "ega:cohort", "ega:biomaterial", "ega:process", "xsd:integer",
+                [ "ega:biomaterial", "prov:Person" ],
                 [ "prov:Person", "prov:Agent" ],
-                [ "protocol", "prov:Plan", "bioschemastypes:ComputationalWorkflow" ]
+                [ "ega:protocol", "prov:Plan", "bioschemastypes:ComputationalWorkflow" ]
             ]
         },
 
@@ -1988,6 +1988,7 @@
                     "$ref": "../common/schema.json#/$defs/@id"
                 },
                 "@type": {
+                    "description": "JSON-LD type for a qualified attribution.",
                     "anyOf": [
                         {
                             "const": "prov:Attribution"
@@ -1998,6 +1999,10 @@
                                 "const": "prov:Attribution"
                             }
                         }
+                    ],
+                    "examples": [
+                        "prov:Attribution",
+                        ["prov:Attribution"]
                     ]
                 },
                 "agent": {
@@ -2014,13 +2019,21 @@
                     "uniqueItems": true,
                     "items": {
                         "$ref": "../common/schema.json#/$defs/organisation"
-                    }
+                    },
+                    "examples": [
+                        [
+                            {
+                                "id": "ror:02catss52",
+                                "label": "European Bioinformatics Institute"
+                            }
+                        ]
+                    ]
                 },
-                "contributions": {},
                 "order": {
                     "type": "integer",
                     "minimum": 1,
-                    "description": "Display or authorship order, if relevant."
+                    "description": "Display or authorship order, if relevant.",
+                    "examples": [1, 2]
                 }
             },
             "examples": [
@@ -2049,7 +2062,16 @@
                             }
                         ]
                     },
-                    "hadRole": "author",
+                    "hadRole": [
+                        {
+                            "id": "CREDIT:00000013",
+                            "label": "writing original draft role"
+                        },
+                        {
+                            "id": "CREDIT:00000005",
+                            "label": "investigation role"
+                        }
+                    ],
                     "affiliations": [
                         {
                             "id": "ror:02catss52",
@@ -2173,9 +2195,13 @@
             "properties": {
                 "@type": {
                     "type": "array",
+                    "description": "JSON-LD types for the person.",
                     "contains": {
                         "const": "prov:Person"
-                    }
+                    },
+                    "examples": [
+                        ["prov:Agent", "prov:Person"]
+                    ]
                 },
                 "givenName": {
                     "title": "Given name",
@@ -2212,12 +2238,20 @@
                 "affiliations": {
                     "title": "Affiliations",
                     "type": "array",
-                    "description": "",
+                    "description": "Organisations with which the person is affiliated.",
                     "minItems": 1,
                     "uniqueItems": true,
                     "items": {
                         "$ref": "../common/schema.json#/$defs/organisation"
-                    }
+                    },
+                    "examples": [
+                        [
+                            {
+                                "id": "ror:02catss52",
+                                "label": "European Bioinformatics Institute"
+                            }
+                        ]
+                    ]
                 },
                 "sameAs": {
                     "title": "Same as",
@@ -2247,8 +2281,8 @@
                     "email": "mcasado@ebi.ac.uk",
                     "affiliations": [
                         {
-                            "id": "https://ror.org/02catss52",
-                            "name": "European Bioinformatics Institute (EMBL-EBI)"
+                            "id": "ror:02catss52",
+                            "label": "European Bioinformatics Institute (EMBL-EBI)"
                         }
                     ],
                     "sameAs": [
@@ -2264,8 +2298,62 @@
         },
 
         "hadRole": {
-            "$ref": "../common/schema.json#/$defs/relationshipArray",
-            "description": "Array of relationships pointing to roles (object) that were played by the agent (subject) in the context of a process (i.e., the prov:activity)."
+            "title": "Had role",
+            "type": "array",
+            "description": "Roles or contribution roles played by the agent in the context of the qualified association or attribution.",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "allOf": [
+                    {
+                        "title": "Inherited ontologyTerm structure of id and label",
+                        "$ref": "../common/schema.json#/$defs/ontologyTerm"
+                    }
+                ],
+                "properties": {
+                    "id": {
+                        "title": "Ontology constraints for this specific id",
+                        "graphRestriction": {
+                            "ontologies": ["obo:cro"],
+                            "classes": ["CRO:0000000"],
+                            "relations": ["rdfs:subClassOf"],
+                            "direct": false,
+                            "includeSelf": false
+                        },
+                        "examples": [ "CREDIT:00000013", "CRO:0000101", "CRO:0000055", "CREDIT:00000005" ]
+                    },
+                    "label": {
+                        "title": "Ontology constraints for this specific label",
+                        "graphRestriction": {
+                            "ontologies": ["obo:cro"],
+                            "classes": ["CRO:0000000"],
+                            "relations": ["rdfs:subClassOf"],
+                            "direct": false,
+                            "includeSelf": false,
+                            "queryFields": [ "label" ]
+                        },
+                        "examples": [ "writing original draft role", "peer review role", "study design role", "investigation role" ]
+                    }
+                }
+            },
+            "examples": [
+                [
+                    {
+                        "id": "CREDIT:00000013",
+                        "label": "writing original draft role"
+                    },
+                    {
+                        "id": "CREDIT:00000005",
+                        "label": "investigation role"
+                    }
+                ],
+                [
+                    {
+                        "id": "CRO:0000055",
+                        "label": "study design role"
+                    }
+                ]
+            ]
         },
 
         "hadPlan": {
@@ -2353,6 +2441,10 @@
                                 "includeSelf": false
                             }
                         }
+                    ],
+                    "examples": [
+                        "mesh:D060851",
+                        "GAZ:00008171"
                     ]
                 },
                 "label": {
@@ -2376,6 +2468,10 @@
                                 "includeSelf": false
                             }
                         }
+                    ],
+                    "examples": [
+                        "Gulf of Mexico",
+                        "Black Sea"
                     ]
                 }
             },
@@ -2407,7 +2503,11 @@
                         "classes": [ "NCIT:C25464" ],
                         "relations": [ "rdfs:subClassOf"],
                         "includeSelf": false
-                    }
+                    },
+                    "examples": [
+                        "NCIT:C17152",
+                        "NCIT:C17233"
+                    ]
                 },
                 "label": {
                     "graphRestriction": {
@@ -2416,7 +2516,11 @@
                         "relations": [ "rdfs:subClassOf"],
                         "queryFields": [ "label" ],
                         "includeSelf": false
-                    }
+                    },
+                    "examples": [
+                        "Spain",
+                        "United Kingdom"
+                    ]
                 }
             },
             "examples": [
@@ -2470,7 +2574,11 @@
                         "classes": [ "OBI:0000245" ],
                         "relations": [ "rdfs:subClassOf"],
                         "includeSelf": false
-                    }
+                    },
+                    "examples": [
+                        "ror:02catss52",
+                        "ror:02meqm098"
+                    ]
                 },
                 "label": {
                     "title": "Ontology constraints for this specific label",
@@ -2480,7 +2588,11 @@
                         "relations": [ "rdfs:subClassOf"],
                         "includeSelf": false,
                         "queryFields": [ "label" ]
-                    }
+                    },
+                    "examples": [
+                        "European Bioinformatics Institute",
+                        "National Center for Biotechnology Information"
+                    ]
                 }
             },
             "examples": [
@@ -2704,7 +2816,7 @@
         "alternativeLabels": {
             "title": "Alternative labels",
             "description": "Alternative labels or titles of an entity, including abbreviations, acronyms, or other synonyms.",
-            "type": ["string", "array"],
+            "type": ["array"],
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
@@ -2746,7 +2858,7 @@
             "minItems": 1,
             "uniqueItems": true,
             "items": { 
-                "$ref": "../../common/schema.json#/$defs/label" 
+                "$ref": "../common/schema.json#/$defs/label" 
             },
             "examples": [
                 ["LSCC"],
@@ -2868,6 +2980,17 @@
             ]
         },
 
+        "egaType": {
+            "type": "string",
+            "title": "EGA entity type",
+            "description": "An EGA-specific JSON-LD type CURIE.",
+            "pattern": "^ega:",
+            "examples": [
+                "ega:dataset",
+                "ega:protocol"
+            ]
+        },
+
         "relationshipItemRestrictionBiomaterial": {
             "type": "object",
             "title": "Relationship item restriction: Biomaterial",
@@ -2883,9 +3006,20 @@
                         },
                         {
                             "type": "array",
-                            "contains": {
-                                "const": "ega:biomaterial"
-                            },
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "const": "ega:biomaterial"
+                                    }
+                                },
+                                {
+                                    "title": "An EGA entity can only have one 'ega:...' type",
+                                    "contains": {
+                                        "$ref": "../common/schema.json#/$defs/egaType"
+                                    },
+                                    "maxContains": 1
+                                }
+                            ],
                             "minItems": 2,
                             "uniqueItems": true
                         }
@@ -2920,6 +3054,13 @@
                                     "contains": {
                                         "const": "schema:ResearchProject"
                                     }
+                                },
+                                {
+                                    "title": "An EGA entity can only have one 'ega:...' type",
+                                    "contains": {
+                                        "$ref": "../common/schema.json#/$defs/egaType"
+                                    },
+                                    "maxContains": 1
                                 }
                             ],
                             "minItems": 2,
@@ -2956,6 +3097,13 @@
                                     "contains": {
                                         "const": "prov:Activity"
                                     }
+                                },
+                                {
+                                    "title": "An EGA entity can only have one 'ega:...' type",
+                                    "contains": {
+                                        "$ref": "../common/schema.json#/$defs/egaType"
+                                    },
+                                    "maxContains": 1
                                 }
                             ],
                             "minItems": 2,
@@ -2992,6 +3140,13 @@
                                     "contains": {
                                         "const": "prov:Plan"
                                     }
+                                },
+                                {
+                                    "title": "An EGA entity can only have one 'ega:...' type",
+                                    "contains": {
+                                        "$ref": "../common/schema.json#/$defs/egaType"
+                                    },
+                                    "maxContains": 1
                                 }
                             ],
                             "anyOf": [
@@ -3045,6 +3200,13 @@
                                     "contains": {
                                         "const": "prov:Plan"
                                     }
+                                },
+                                {
+                                    "title": "An EGA entity can only have one 'ega:...' type",
+                                    "contains": {
+                                        "$ref": "../common/schema.json#/$defs/egaType"
+                                    },
+                                    "maxContains": 1
                                 }
                             ],
                             "minItems": 3,
@@ -3081,6 +3243,13 @@
                                     "contains": {
                                         "const": "prov:Collection"
                                     }
+                                },
+                                {
+                                    "title": "An EGA entity can only have one 'ega:...' type",
+                                    "contains": {
+                                        "$ref": "../common/schema.json#/$defs/egaType"
+                                    },
+                                    "maxContains": 1
                                 }
                             ],
                             "minItems": 2,
@@ -3107,9 +3276,20 @@
                         },
                         {
                             "type": "array",
-                            "contains": {
-                                "const": "ega:datafile"
-                            },
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "const": "ega:datafile"
+                                    }
+                                },
+                                {
+                                    "title": "An EGA entity can only have one 'ega:...' type",
+                                    "contains": {
+                                        "$ref": "../common/schema.json#/$defs/egaType"
+                                    },
+                                    "maxContains": 1
+                                }
+                            ],
                             "minItems": 2,
                             "uniqueItems": true
                         }
@@ -3144,6 +3324,13 @@
                                     "contains": {
                                         "const": "dcat:Dataset"
                                     }
+                                },
+                                {
+                                    "title": "An EGA entity can only have one 'ega:...' type",
+                                    "contains": {
+                                        "$ref": "../common/schema.json#/$defs/egaType"
+                                    },
+                                    "maxContains": 1
                                 }
                             ],
                             "minItems": 2,
@@ -3568,6 +3755,7 @@
         "egaStableIdentifierCurie": {
             "title": "Stable identifier for an EGA entity",
             "description": "A stable identifier for an EGA entity",
+            "type": "string",
             "pattern": "^ega:EGA[A-Z][0-9]{11}$",
             "examples": [
                 "ega:EGAS00000000001",

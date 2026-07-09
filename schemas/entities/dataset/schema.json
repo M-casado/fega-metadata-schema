@@ -257,10 +257,10 @@
             ]
         },
         
-        "documentations": {
+        "documentation": {
             "title": "Documentation",
             "description": "Any resources that contain additional information about the dataset.",
-            "type": ["string", "array"],
+            "type": "array",
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
@@ -347,8 +347,8 @@
             "format": "date-time"
         },
 
-        "otherIdentifiers": {
-            "title": "Other identifiers",
+        "otherIdentifier": {
+            "title": "Other identifier",
             "description": "Other identifiers of the Dataset (e.g., DOI).",
             "type": ["array"],
             "meta:sssomMappings": [
@@ -438,7 +438,7 @@
             "$comment": "Since this property is entirely derived from HealthDCAT-AP (v7.0.0), we do not impose any validation constraints."
         },
              
-        "relatedResources": {
+        "relatedResource": {
             "title": "Related resource",
             "description": "This property allows you to indicate a general link between this dataset and another resource (e.g., another dataset, document, or service). Use it when there is a connection, but none of the more specific relation properties below apply. When the relationship is known and semantically clear, use one of the more specific properties (e.g., hasPart, landingPage) instead.",
             "type": ["array"],
@@ -869,7 +869,11 @@
             ],
             "allOf": [
                 { "$ref": "../../common/schema.json#/$defs/hasPart" },
-                { "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionDatafile" }
+                {
+                    "items": {
+                        "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionDatafile"
+                    }
+                }
             ],
             "examples": [
                 [
@@ -882,10 +886,12 @@
                         "@type": "ega:datafile"
                     }
                 ],
-                {
-                    "@id": "ega:EGAF00001000003",
-                    "@type": "ega:datafile"
-                }
+                [
+                    {
+                        "@id": "ega:EGAF00001000003",
+                        "@type": "ega:datafile"
+                    }
+                ]
             ]
         },
         
