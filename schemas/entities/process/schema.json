@@ -204,6 +204,7 @@
             "$comment": "Downstream validation shall check that the @ids of these agents correspond to the @ids of the agents in wasAssociatedWith."
         },
         "startedAtTime": {
+            "title": "Started at time",
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
@@ -235,6 +236,7 @@
             "$comment": "Time sanity cannot be checked (i.e., startedAtTime < endedAtTime) natively in JSON Schema. We would either need to use downstream validation (e.g., SHACL) or AJV custom keywords."
         },
         "endedAtTime": {
+            "title": "Ended at time",
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",

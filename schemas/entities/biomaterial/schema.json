@@ -1069,15 +1069,7 @@
         "samplingProcedure": {"$comment": "#! Decide whether to add the procedure here as a readOnly, or stick with it being part of the 'process' that generated this biomaterial."},
         
         "sameAs": {
-          "allOf": [
-            { "$ref": "../../common/schema.json#/$defs/sameAs" },
-            {
-              "title": "Entity type restriction",
-              "items": {
-                "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionBiomaterial"
-              }
-            }
-          ]
+          "$ref": "../../common/schema.json#/$defs/sameAs"
         },
         
         "wasDerivedFrom": {

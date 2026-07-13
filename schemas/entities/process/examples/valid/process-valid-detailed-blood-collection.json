@@ -97,7 +97,7 @@
     ],
     "generated": [
       {
-        "@id": "biosample:SAMEA12345678",
+        "@id": "ega:EGAN00090000002",
         "@type": "ega:biomaterial",
         "label": "Whole blood (EDTA), PT-0001"
       }

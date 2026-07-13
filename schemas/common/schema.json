@@ -1929,6 +1929,140 @@
             ]
         },
 
+        "modificationDate": {
+            "title": "Modification date",
+            "description": "The most recent date on which the resource was changed or modified in the archive (e.g., EGA).",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:modified",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-07-09"
+                }
+            ],
+            "allOf": [{"$ref": "../common/schema.json#/$defs/dateTime"}]
+        },
+
+        "submissionDate": {
+            "title": "Submission date",
+            "description": "The date on which the resource metadata was submitted to the archive (e.g., EGA).",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:dateSubmitted",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-07-09"
+                }
+            ],
+            "allOf": [{"$ref": "../common/schema.json#/$defs/dateTime"}]
+        },
+
+        "releaseDate": {
+            "title": "Release date",
+            "description": "The date on which the resource was formally released or issued at the archive (e.g., EGA).",
+            "type": "string",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dct:issued",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-07-09"
+                }
+            ],
+            "allOf": [{"$ref": "../common/schema.json#/$defs/dateTime"}]
+        },
+
+        "version": {
+            "title": "Version",
+            "description": "The version indicator, name, or identifier of a resource.",
+            "type": "string",
+            "minLength": 1,
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "dcat:version",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-07-09"
+                }
+            ],
+            "examples": [
+                "1",
+                "1.0.3",
+                "v2.1.0",
+                "2026-01-30.2"
+            ]
+        },
+
+        "status": {
+            "type": "string",
+            "title": "Resource status",
+            "description": "The latest stage of the resource lifecycle in a particular context (e.g., submission, archival, release, distribution, preservation).",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "adms:status",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-07-09"
+                }
+            ],
+            "anyOf": [
+                {
+                    "title": "HealthDCAT-AP distribution status CV list",
+                    "enum": ["OP_DATPRO", "WITHDRAWN", "COMPLETED", "DEPRECATED", "DEVELOP" ],
+                    "meta:enum": {
+                        "OP_DATPRO": "http://publications.europa.eu/resource/authority/distribution-status/OP_DATPRO",
+                        "WITHDRAWN": "http://publications.europa.eu/resource/authority/distribution-status/WITHDRAWN",
+                        "COMPLETED": "http://publications.europa.eu/resource/authority/distribution-status/COMPLETED",
+                        "DEPRECATED": "http://publications.europa.eu/resource/authority/distribution-status/DEPRECATED",
+                        "DEVELOP": "http://publications.europa.eu/resource/authority/distribution-status/DEVELOP"
+                    }
+                },
+                {
+                    "title": "EGA SP API status CV list",
+                    "enum": [ "open", "waiting_approval", "waiting_deprecation_approval", "not released", "released", "deprecated" ],
+                    "meta:enum": {
+                        "open": "New submission or existing resource that has been modified.",
+                        "waiting_approval": "Submission has been finalised and it is waiting to be accepted by HD for release.",
+                        "waiting_deprecation_approval": "Resource is waiting for approval to be deprecated.",
+                        "not released": "Submission is not yet released.",
+                        "released": "Resource has been released.",
+                        "deprecated": "Resource has been deprecated."
+                    }
+                }
+            ],
+            "$comment": "#! We'll need to agree on a set of statuses for asset lifecycle, not to have a big overlap between DCAT's and EGA's internal definitions. Furthermore, we need to converge status terms as much as possible with regards to the contexts, to avoid using an endless list of very similar statuses."
+        },
+
         "qualifiedAssociation": {
             "type": "object",
             "title": "Qualified association",
@@ -2737,8 +2871,9 @@
                     }
                 },
                 "version": {
-                    "type": "string",
-                    "description": "Version of the data use condition."
+                    "title": "DUO version",
+                    "description": "Version of the data use condition.",
+                    "allOf": [{"$ref": "../common/schema.json#/$defs/version"}]
                 }
             },
             "examples": [
