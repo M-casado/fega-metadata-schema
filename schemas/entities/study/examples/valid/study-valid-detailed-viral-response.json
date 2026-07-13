@@ -1,0 +1,152 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/study/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/study/schema.json",
+    "@id": "ega:EGAS00001000001",
+    "@type": [
+      "ega:study",
+      "schema:ResearchProject"
+    ],
+    "title": "Synthetic viral response genomics study",
+    "alternativeTitle": [
+      "SVR Genomics",
+      "Synthetic host response study"
+    ],
+    "description": "Synthetic study metadata record describing genomic and clinical observations used to investigate host response to viral respiratory infection.",
+    "keyword": [
+      "genomics",
+      "viral response"
+    ],
+    "studyDesign": [
+      {
+        "id": "EFO:0001427",
+        "label": "case control design"
+      },
+      {
+        "id": "EFO:0005692",
+        "label": "time series design"
+      }
+    ],
+    "studyObjective": "Identify host genomic factors associated with response to acute viral respiratory infection.",
+    "publications": [
+      "doi:10.1038/nature12373",
+      "pubmed:16333295"
+    ],
+    "landingPage": "https://example.org/studies/EGAS00001000001",
+    "relatedResource": [
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE1712",
+      "arrayexpress:E-MEXP-1712"
+    ],
+    "documentation": [
+      "https://example.org/studies/EGAS00001000001/protocol-summary",
+      "https://example.org/studies/EGAS00001000001/readme"
+    ],
+    "modificationDate": "2026-03-10T15:30:00Z",
+    "submissionDate": "2026-02-15T15:30:00Z",
+    "releaseDate": "2026-04-01T15:30:00Z",
+    "status": "released",
+    "version": "v1.0.0",
+    "qualifiedAttributions": [
+      {
+        "@id": "urn:uuid:11111111-2222-3333-4444-555555555555",
+        "@type": "prov:Attribution",
+        "agent": {
+          "@type": [
+            "prov:Agent",
+            "prov:Person"
+          ],
+          "name": "Jane Doe",
+          "givenName": "Jane",
+          "familyName": "Doe",
+          "email": "jane.doe@example.org",
+          "affiliations": [
+            {
+              "id": "ror:02catss52",
+              "label": "European Bioinformatics Institute"
+            }
+          ],
+          "sameAs": [
+            {
+              "@id": "https://orcid.org/0000-0002-1584-4316"
+            }
+          ]
+        },
+        "hadRole": [
+          {
+            "id": "CREDIT:00000013",
+            "label": "writing original draft role"
+          },
+          {
+            "id": "CRO:0000055",
+            "label": "study design role"
+          }
+        ],
+        "order": 1
+      },
+      {
+        "@id": "urn:uuid:66666666-7777-8888-9999-000000000000",
+        "@type": "prov:Attribution",
+        "agent": {
+          "@type": [
+            "prov:Agent",
+            "prov:Organization"
+          ],
+          "name": "European Commission",
+          "sameAs": [
+            {
+              "@id": "https://ror.org/00k4n6c32"
+            }
+          ]
+        },
+        "hadRole": [
+          {
+            "id": "CREDIT:00000004",
+            "label": "funding acquisition role"
+          }
+        ],
+        "order": 2
+      }
+    ],
+    "hasProtocolCollection": [
+      {
+        "@id": "ega:EGAL00001000001",
+        "@type": "ega:protocolCollection"
+      },
+      {
+        "@id": "ega:EGAL00001000002",
+        "@type": [
+          "ega:protocolCollection",
+          "prov:Collection",
+          "prov:Plan"
+        ]
+      }
+    ],
+    "hasCohort": [
+      {
+        "@id": "ega:EGAH00001000001",
+        "@type": "ega:cohort"
+      }
+    ],
+    "sameAs": [
+      {
+        "@id": "ega:EGAS00001000001",
+        "@type": "ega:study"
+      }
+    ],
+    "factors": [
+      {
+        "id": "EFO:0000246",
+        "label": "age"
+      },
+      {
+        "id": "EFO:0004340",
+        "label": "treatment"
+      }
+    ],
+    "ethicsApproval": [
+      "https://example.org/ethics/approval/REC-2026-001"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/study/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/study/schema.json",
+    "@type": "ega:study",
+    "title": "Study with invalid design shape",
+    "description": "Invalid study metadata record because studyDesign must be an ontology-term object or an array of ontology-term objects.",
+    "studyDesign": "test design"
+  }
+}

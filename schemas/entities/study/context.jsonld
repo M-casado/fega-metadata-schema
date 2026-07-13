@@ -1,0 +1,108 @@
+{
+  "@context": [
+    "../../common/context.jsonld",
+    {
+      "entityDoc": "entities:study/schema.json#",
+      "properties": "@nest",
+      "title": {
+        "@id": "dct:title"
+      },
+      "alternativeTitle": {
+        "@id": "dct:alternative",
+        "@container": "@set"
+      },
+      "description": {
+        "@id": "dct:description"
+      },
+      "keyword": {
+        "@id": "schema:keywords",
+        "@container": "@set"
+      },
+      "studyDesign": {
+        "@id": "entityDoc:studyDesign",
+        "@container": "@set"
+      },
+      "studyObjective": {
+        "@id": "entityDoc:studyObjective"
+      },
+      "publications": {
+        "@id": "schema:citation",
+        "@type": "@id",
+        "@container": "@set"
+      },
+      "landingPage": {
+        "@id": "dcat:landingPage",
+        "@type": "@id",
+        "@container": "@set"
+      },
+      "relatedResource": {
+        "@id": "healthdcatap:relatedResource",
+        "@type": "@id",
+        "@container": "@set"
+      },
+      "documentation": {
+        "@id": "foaf:page",
+        "@type": "@id",
+        "@container": "@set"
+      },
+      "modificationDate": {
+        "@id": "dct:modified",
+        "@type": "xsd:dateTime"
+      },
+      "submissionDate": {
+        "@id": "dct:dateSubmitted",
+        "@type": "xsd:dateTime"
+      },
+      "releaseDate": {
+        "@id": "dct:issued",
+        "@type": "xsd:dateTime"
+      },
+      "status": {
+        "@id": "adms:status"
+      },
+      "version": {
+        "@id": "dcat:version"
+      },
+      "qualifiedAttributions": {
+        "@id": "prov:qualifiedAttribution",
+        "@container": "@set"
+      },
+      "agent": {
+        "@id": "prov:agent"
+      },
+      "hadRole": {
+        "@id": "prov:hadRole",
+        "@container": "@set"
+      },
+      "affiliations": {
+        "@id": "schema:affiliation",
+        "@container": "@set"
+      },
+      "atLocation": {
+        "@id": "prov:atLocation"
+      },
+      "order": {
+        "@id": "entityDoc:order"
+      },
+      "hasCohort": {
+        "@id": "entityDoc:hasCohort",
+        "@type": "@id",
+        "@container": "@set"
+      },
+      "hasProtocolCollection": {
+        "@id": "entityDoc:hasProtocolCollection",
+        "@type": "@id",
+        "@container": "@set"
+      },
+      "factors": {
+        "@id": "entityDoc:factors",
+        "@container": "@set"
+      },
+      "ethicsApproval": {
+        "@id": "entityDoc:ethicsApproval",
+        "@type": "@id",
+        "@container": "@set"
+      }
+    }
+  ]
+}

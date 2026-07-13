@@ -1,0 +1,44 @@
+{
+  "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/study/schema.json",
+  "@type": ["ega:study", "schema:ResearchProject"],
+  "@embed": "@always",
+  "@explicit": false,
+
+  "title": {},
+  "alternativeTitle": {},
+  "description": {},
+  "keyword": {},
+  "studyDesign": {},
+  "studyObjective": {},
+  "publications": {},
+  "landingPage": {},
+  "relatedResource": {},
+  "documentation": {},
+  "modificationDate": {},
+  "submissionDate": {},
+  "releaseDate": {},
+  "status": {},
+  "version": {},
+  "qualifiedAttributions": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "hasCohort": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "hasProtocolCollection": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "sameAs": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "factors": {},
+  "ethicsApproval": {}
+}

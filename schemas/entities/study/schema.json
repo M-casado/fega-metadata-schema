@@ -7,7 +7,12 @@
     "$async": true,
     "description": "Compilation of Protocol Collections (e.g., examinations, analyses or critical inspections) applied to investigate a particular topic within the context of a given Project.",
     "@context": "./context.jsonld",
-    "required": [],
+    "required": [
+        "@type",
+        "title",
+        "description",
+        "studyDesign"
+    ],
     "allOf": [
         {
             "title": "Base constraints for JSON-LD",
@@ -20,6 +25,9 @@
     ],
     "properties": {
         "@id": {
+            "allOf": [
+                { "$ref": "../../common/schema.json#/$defs/@id" }
+            ],
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:closeMatch",
@@ -46,6 +54,10 @@
                     "mapping_date": "2026-07-07",
                     "$comment": "The only difference is that this @id is a CURIE or a URI, while the common Study's accession is just the string identifier."
                 }
+            ],
+            "examples": [
+                "ega:EGAS00000000001",
+                "ega:EGAS00001000002"
             ]
         },
         "@type": {
@@ -56,10 +68,13 @@
             ],
             "examples": [
                 "ega:study",
-                ["ega:study"]
+                [ "ega:study", "schema:ResearchProject" ]
             ]
         },
         "title": {
+            "allOf": [
+                { "$ref": "../../common/schema.json#/$defs/label" }
+            ],
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
@@ -86,14 +101,18 @@
                     "mapping_date": "2026-07-07",
                     "$comment": "The only difference is that this @id is a CURIE or a URI, while the common Study's accession is just the string identifier."
                 }
+            ],
+            "examples": [
+                "Synthetic viral response genomics study",
+                "Longitudinal cancer genomics study"
             ]
         },
         "alternativeTitle": {
             "$ref": "../../common/schema.json#/$defs/alternativeLabels"
         },
         "description": {
-            "allOf": [ 
-                { "$ref": "../../common/schema.json#/$defs/description" } 
+            "allOf": [
+                { "$ref": "../../common/schema.json#/$defs/description" }
             ],
             "meta:sssomMappings": [
                 {
@@ -133,6 +152,10 @@
                     "confidence": 1.0,
                     "mapping_date": "2026-07-07"
                 }
+            ],
+            "examples": [
+                "Study investigating host genomic factors associated with response to viral respiratory infection.",
+                "Study describing longitudinal genomic and clinical observations across a synthetic cancer cohort."
             ]
         },
         "keyword": {
@@ -142,7 +165,6 @@
         "studyDesign": {
             "title": "Study Design",
             "description": "Study design components of the study, which describe the method of investigating particular types of research questions or solving particular types of problems.",
-            "type": ["string", "array"],
             "anyOf": [
                 {
                     "$ref": "#/$defs/studyDesign"
@@ -155,6 +177,22 @@
                         "$ref": "#/$defs/studyDesign"
                     }
                 }
+            ],
+            "examples": [
+                {
+                    "id": "EFO:0001427",
+                    "label": "case control design"
+                },
+                [
+                    {
+                        "id": "EFO:0001427",
+                        "label": "case control design"
+                    },
+                    {
+                        "id": "EFO:0005692",
+                        "label": "time series design"
+                    }
+                ]
             ]
         },
         "studyObjective": {
@@ -214,7 +252,7 @@
             ],
             "minItems": 1,
             "uniqueItems": true,
-            "items": { 
+            "items": {
                 "$ref": "../../common/schema.json#/$defs/externalIdentifier"
             },
             "examples": [
@@ -230,7 +268,14 @@
             "title": "Landing page",
             "description": "A web page that provides access to the Study and/or additional information. It is intended to point to a landing page at the original data provider, not to a page on a site of a third party, such as an aggregator.",
             "allOf": [
-                {"$ref": "../../common/schema.json#/$defs/landingPage"}
+                { "$ref": "../../common/schema.json#/$defs/landingPage" }
+            ],
+            "examples": [
+                "https://example.org/studies/EGAS00000000001",
+                [
+                    "https://example.org/studies/EGAS00000000001",
+                    "https://example.org/studies/viral-response"
+                ]
             ]
         },
         "relatedResource": {
@@ -300,13 +345,21 @@
                     "mapping_date": "2026-07-07"
                 }
             ],
-            "minItems": 1,
-            "uniqueItems": true,
-            "items": { 
-                "$ref": "../../common/schema.json#/$defs/externalIdentifier"
-            },
+            "anyOf": [
+                {
+                    "$ref": "../../common/schema.json#/$defs/externalIdentifier"
+                },
+                {
+                    "type": "array",
+                    "minItems": 2,
+                    "uniqueItems": true,
+                    "items": {
+                        "$ref": "../../common/schema.json#/$defs/externalIdentifier"
+                    }
+                }
+            ],
             "examples": [
-                ["google.patent:US4145692"],
+                "google.patent:US4145692",
                 [
                     "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE1712",
                     "arrayexpress:E-MEXP-1712"
@@ -332,13 +385,17 @@
                 }
             ],
             "anyOf": [
-                { "format": "uri" } ,
                 {
+                    "type": "string",
+                    "format": "uri"
+                },
+                {
+                    "type": "array",
                     "minItems": 2,
                     "uniqueItems": true,
-                    "items": { 
+                    "items": {
                         "type": "string",
-                        "format": "uri" 
+                        "format": "uri"
                     }
                 }
             ],
@@ -350,14 +407,37 @@
                 ]
             ]
         },
-        "modificationDate": {},
-        "submissionDate": {},
-        "releaseDate": {},
-        "status": {},
-        "version": {},
+        "modificationDate": {
+            "$ref": "../../common/schema.json#/$defs/modificationDate"
+        },
+        "submissionDate": {
+            "$ref": "../../common/schema.json#/$defs/submissionDate"
+        },
+        "releaseDate": {
+            "$ref": "../../common/schema.json#/$defs/releaseDate"
+        },
+        "status": {
+            "$ref": "../../common/schema.json#/$defs/status"
+        },
+        "version": {
+            "$ref": "../../common/schema.json#/$defs/version"
+        },
         "qualifiedAttributions": {
             "title": "Qualified attributions",
+            "type": "array",
             "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:exactMatch",
+                    "object_id": "prov:qualifiedAttribution",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-07-09"
+                },
                 {
                     "predicate_id": "skos:narrowMatch",
                     "object_id": "isa:study-schema-json.people",
@@ -394,14 +474,16 @@
                                 }
                             ]
                         },
-                        "hadRole": "author",
-                        "affiliations": [
+                        "hadRole": [
                             {
-                                "id": "ror:02catss52",
-                                "label": "European Bioinformatics Institute"
+                                "id": "CREDIT:00000013",
+                                "label": "writing original draft role"
+                            },
+                            {
+                                "id": "CRO:0000055",
+                                "label": "study design role"
                             }
                         ],
-                        "contributions": ["study design", "data curation"],
                         "order": 1
                     },
                     {
@@ -422,22 +504,30 @@
                                 }
                             ]
                         },
-                        "hadRole": "funder",
-                        "contributions": ["financial support"],
+                        "hadRole": [
+                            {
+                                "id": "CREDIT:00000004",
+                                "label": "funding acquisition role"
+                            }
+                        ],
                         "order": 2
                     }
                 ]
             ],
             "minItems": 1,
             "uniqueItems": true,
-            "items": { "$ref": "../../common/schema.json#/$defs/qualifiedAttribution"}     
+            "items": { "$ref": "../../common/schema.json#/$defs/qualifiedAttribution" }
         },
         "hasCohort": {
             "title": "Has Cohorts",
             "description": "Cohorts that are part of this study.",
             "allOf": [
                 { "$ref": "../../common/schema.json#/$defs/hasPart" },
-                { "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionCohort" }
+                {
+                    "items": {
+                        "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionCohort"
+                    }
+                }
             ],
             "examples": [
                 [
@@ -450,10 +540,12 @@
                         "@type": "ega:cohort"
                     }
                 ],
-                {
-                    "@id": "ega:EGAH00001000003",
-                    "@type": "ega:cohort"
-                }
+                [
+                    {
+                        "@id": "ega:EGAH00001000003",
+                        "@type": "ega:cohort"
+                    }
+                ]
             ],
             "$comment": "#! Note that the proper cardinality would be to follow 'study' - 'protocol collection' - 'process' - 'biomaterial' - 'cohort'. This hasCohorts is therefore just a convenience property to allow for direct linking of cohorts to studies, but it should not be the source of truth of all Study-Cohort relationships. Ideally a read-only property we fill out after submission for convenience."
         },
@@ -462,7 +554,11 @@
             "description": "Protocol collections that are part of this study.",
             "allOf": [
                 { "$ref": "../../common/schema.json#/$defs/hasPart" },
-                { "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionProtocolCollection" }
+                {
+                    "items": {
+                        "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionProtocolCollection"
+                    }
+                }
             ],
             "examples": [
                 [
@@ -475,21 +571,31 @@
                         "@type": "ega:protocolCollection"
                     }
                 ],
-                {
-                    "@id": "ega:EGAL00001000003",
-                    "@type": "ega:protocolCollection"
-                }
+                [
+                    {
+                        "@id": "ega:EGAL00001000003",
+                        "@type": "ega:protocolCollection"
+                    }
+                ]
             ]
         },
         "sameAs": {
             "allOf": [
-                {"$ref": "../../common/schema.json#/$defs/sameAs"},
+                { "$ref": "../../common/schema.json#/$defs/sameAs" },
                 {
                     "title": "Entity type restriction",
                     "items": {
                         "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionStudy"
                     }
                 }
+            ],
+            "examples": [
+                [
+                    {
+                        "@id": "ega:EGAS00001000001",
+                        "@type": "ega:study"
+                    }
+                ]
             ]
         },
         "factors": {
@@ -511,13 +617,54 @@
                     "$comment": "Semantically an exactMatch, but the structure in which the factors' ontology terms are given is slightly different."
                 }
             ],
-            "minItems": 2,
+            "minItems": 1,
             "uniqueItems": true,
-            "items": { 
-                "$ref": "../../common/schema.json#/$defs/ontologyTerm" 
-            }
+            "items": {
+                "$ref": "../../common/schema.json#/$defs/ontologyTerm"
+            },
+            "examples": [
+                [
+                    {
+                        "id": "EFO:0000246",
+                        "label": "age"
+                    },
+                    {
+                        "id": "EFO:0004340",
+                        "label": "body mass index"
+                    }
+                ],
+                [
+                    {
+                        "id": "EFO:0000399",
+                        "label": "developmental stage"
+                    }
+                ]
+            ]
         },
         "ethicsApproval": {
+            "title": "Ethics approval",
+            "description": "Reference to an ethics approval record, committee approval page, or approval document associated with the study.",
+            "type": ["string", "array"],
+            "anyOf": [
+                {
+                    "$ref": "../../common/schema.json#/$defs/externalIdentifier"
+                },
+                {
+                    "type": "array",
+                    "minItems": 2,
+                    "uniqueItems": true,
+                    "items": {
+                        "$ref": "../../common/schema.json#/$defs/externalIdentifier"
+                    }
+                }
+            ],
+            "examples": [
+                "https://example.org/ethics/approval/REC-2026-001",
+                [
+                    "https://example.org/ethics/approval/REC-2026-001",
+                    "doi:10.5072/fega.ethics-approval-001"
+                ]
+            ],
             "$comment": "#! Likely an ELSI-related property that would be best in the policy instead of the study. But here as a placeholder reminder, in case it ends up in the study"
         }
     },
@@ -567,7 +714,7 @@
                         "direct": false,
                         "includeSelf": false
                     },
-                    "examples": [ "EFO:0001427", "EFO:0005692" ]
+                    "examples": [ "EFO:0001427", "EFO:0001779" ]
                 },
 
                 "label": {
@@ -580,9 +727,19 @@
                         "includeSelf": false,
                         "queryFields": [ "label" ]
                     },
-                    "examples": [ "case control design", "transposable element identification design" ]
+                    "examples": [ "case control design", "time series design" ]
                 }
-            }
+            },
+            "examples": [
+                {
+                    "id": "EFO:0001427",
+                    "label": "case control design"
+                },
+                {
+                    "id": "EFO:0001779",
+                    "label": "time series design"
+                }
+            ]
         }
     },
     "$comment": "#! Since study is a high level entity, we may want to expose READ-only fields derived from other entities, such as 'dataTypes', 'diagnoses', 'measurementTechniques', etc. For now, in this iteration, we'll leave them as a reminder."

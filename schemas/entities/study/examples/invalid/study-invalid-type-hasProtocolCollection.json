@@ -1,0 +1,21 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/study/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/study/schema.json",
+    "@type": "ega:study",
+    "title": "Study with invalid protocol collection link",
+    "description": "Invalid study metadata record because hasProtocolCollection points to a datafile.",
+    "studyDesign": {
+      "id": "EFO:0001427",
+      "label": "case control design"
+    },
+    "hasProtocolCollection": [
+      {
+        "@id": "ega:EGAF00001000001",
+        "@type": "ega:datafile"
+      }
+    ]
+  }
+}
