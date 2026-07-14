@@ -81,6 +81,24 @@ def materialize_data_context(
     return data_copy
 
 
+def root_has_required_type(
+    jsonld_data: Dict[str, Any], required_root_type: str
+) -> bool:
+    """Return whether the top-level JSON-LD node has the required RDF type."""
+    try:
+        from pyld import jsonld
+
+        expanded = jsonld.expand(jsonld_data)
+    except Exception as exc:
+        raise ValueError(f"Failed to expand JSON-LD while checking root type: {exc}") from exc
+
+    return any(
+        required_root_type in node.get("@type", [])
+        for node in expanded
+        if isinstance(node, dict)
+    )
+
+
 def _build_violation_summary(violations: Sequence[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """Build a concise, deduplicated violation summary."""
     if not violations:
@@ -207,14 +225,7 @@ def validate_file_shacl(
         data_graph = jsonld_to_rdf_graph(jsonld_data)
         found_types = sorted(extract_types_from_graph(data_graph))
         if required_root_type:
-            from rdflib import URIRef
-            from rdflib.namespace import RDF
-
-            root_nodes = set(data_graph.subjects()) - set(data_graph.objects())
-            if not any(
-                (node, RDF.type, URIRef(required_root_type)) in data_graph
-                for node in root_nodes
-            ):
+            if not root_has_required_type(jsonld_data, required_root_type):
                 result.update(
                     {
                         "status": INVALID_STATUS,
@@ -354,6 +365,7 @@ def summarize_entity(
     id_to_path_map: Dict[str, Path],
     expected_types: Set[str],
     coverage_gaps: Sequence[Dict[str, Any]],
+    required_root_type: str | None,
 ) -> Dict[str, Any]:
     """Validate and summarize all SHACL example categories for one entity."""
     return {
@@ -366,6 +378,7 @@ def summarize_entity(
                 id_to_path_map,
                 expected_types,
                 coverage_gaps,
+                required_root_type,
             )
             for category in CATEGORIES
         },
