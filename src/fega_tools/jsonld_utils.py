@@ -213,10 +213,23 @@ def validate_context_term_mappings(
     except ImportError as exc:  # pragma: no cover - runtime dependency guard
         raise ValueError("pyld is required to validate JSON-LD term mappings") from exc
 
+    def term_definition(term: str) -> Any:
+        """Return the effective definition of a term in a materialized context."""
+        contexts = context if isinstance(context, list) else [context]
+        definition = None
+        for context_item in contexts:
+            if isinstance(context_item, dict) and term in context_item:
+                definition = context_item[term]
+        return definition
+
     errors: List[str] = []
     for term in sorted(terms):
+        definition = term_definition(term)
+        probe_value: Any = "value"
+        if isinstance(definition, dict) and "@reverse" in definition:
+            probe_value = {"@id": "https://example.org/jsonld-coverage-probe"}
         try:
-            expanded = jsonld.expand({"@context": context, term: "value"})
+            expanded = jsonld.expand({"@context": context, term: probe_value})
         except Exception as exc:  # pyld exposes several exception types
             errors.append(f"Term '{term}' cannot be expanded: {exc}")
             continue
@@ -228,6 +241,14 @@ def validate_context_term_mappings(
             for key in node
             if not key.startswith("@")
         }
+        properties.update(
+            key
+            for node in expanded
+            if isinstance(node, dict)
+            for reverse in [node.get("@reverse", {})]
+            if isinstance(reverse, dict)
+            for key in reverse
+        )
         if not properties or not all(urlparse(key).scheme for key in properties):
             errors.append(f"Term '{term}' does not expand to an absolute IRI")
     return errors

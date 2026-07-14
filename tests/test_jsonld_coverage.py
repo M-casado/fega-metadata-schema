@@ -7,7 +7,10 @@ from fega_tools.jsonld_coverage import (
     collect_schema_property_paths,
     validate_jsonld_coverage,
 )
-from fega_tools.jsonld_utils import build_id_to_path_map
+from fega_tools.jsonld_utils import (
+    build_id_to_path_map,
+    validate_context_term_mappings,
+)
 
 
 def _write_json(path: Path, value: object) -> None:
@@ -184,3 +187,18 @@ def test_known_external_frame_keys_are_allowed(tmp_path: Path) -> None:
     assert result["missing_context_terms"] == []
     assert result["missing_frame_keys"] == []
     assert result["unknown_frame_keys"] == []
+
+
+def test_reverse_context_terms_expand_as_relationships() -> None:
+    """Reverse properties must be probed with node values, not literals."""
+    context = {
+        "used": "http://www.w3.org/ns/prov#used",
+        "wasUsedBy": {"@reverse": "used", "@container": "@set"},
+        "wasInformedBy": "http://www.w3.org/ns/prov#wasInformedBy",
+        "informs": {"@reverse": "wasInformedBy", "@container": "@set"},
+    }
+
+    assert validate_context_term_mappings(
+        context,
+        {"used", "wasUsedBy", "wasInformedBy", "informs"},
+    ) == []
