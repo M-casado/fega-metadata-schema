@@ -14,6 +14,7 @@ from fega_tools.jsonld_utils import (
     find_repo_root,
     is_known_jsonld_key,
     materialize_context,
+    validate_context_term_mappings,
 )
 from fega_tools.validation_common import find_entity_dirs
 
@@ -309,6 +310,10 @@ def validate_entity_coverage(
         key: sorted(property_path_map[key])
         for key in result["missing_context_terms"]
     }
+    if not result["context_errors"]:
+        result["context_errors"].extend(
+            validate_context_term_mappings(materialized_context, set(schema_properties))
+        )
     result["context_coverage_passed"] = (
         not result["missing_context_terms"]
         and not result["context_errors"]

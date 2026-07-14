@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 from typing import Any, Dict, FrozenSet, List, Set, Tuple
+from urllib.parse import urlparse
 
 GITHUB_RAW_PREFIX = "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/"
 
@@ -194,6 +195,42 @@ def context_terms_and_prefixes(context: Any) -> Tuple[Set[str], Set[str]]:
 
     visit(context)
     return terms, prefixes
+
+
+def validate_context_term_mappings(
+    context: Any,
+    terms: Set[str],
+) -> List[str]:
+    """Check that schema-facing context terms expand to absolute IRIs.
+
+    A term being present in a context is not sufficient: JSON-LD silently
+    drops terms mapped to null and rejects or leaves malformed compact IRIs
+    unresolved.  Expand each maintained term independently so coverage checks
+    verify the mapping that downstream RDF consumers will actually use.
+    """
+    try:
+        from pyld import jsonld
+    except ImportError as exc:  # pragma: no cover - runtime dependency guard
+        raise ValueError("pyld is required to validate JSON-LD term mappings") from exc
+
+    errors: List[str] = []
+    for term in sorted(terms):
+        try:
+            expanded = jsonld.expand({"@context": context, term: "value"})
+        except Exception as exc:  # pyld exposes several exception types
+            errors.append(f"Term '{term}' cannot be expanded: {exc}")
+            continue
+
+        properties = {
+            key
+            for node in expanded
+            if isinstance(node, dict)
+            for key in node
+            if not key.startswith("@")
+        }
+        if not properties or not all(urlparse(key).scheme for key in properties):
+            errors.append(f"Term '{term}' does not expand to an absolute IRI")
+    return errors
 
 
 def walk_object_keys(value: Any, path: str = "") -> List[Tuple[str, str]]:
