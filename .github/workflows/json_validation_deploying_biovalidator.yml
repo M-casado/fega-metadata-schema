@@ -86,10 +86,10 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install Biovalidator (M-casado dev branch)
+      - name: Install Biovalidator (M-casado main branch)
         run: |
-          # Pull the code directly from my (M-casado) fork's dev branch.
-          npm install -g "github:M-casado/biovalidator#dev"
+          # Use the EGA maintained 'main' branch of M-casado's fork.
+          npm install -g "github:M-casado/biovalidator#main"
           # Consider auditing the issues if there are lots:
           # npm audit fix
 

@@ -95,6 +95,7 @@ def category_passed(summary: Dict[str, Any], expectation: str) -> bool:
         and summary["request_errors"] == 0
         and summary["unknown_responses"] == 0
         and summary["script_errors"] == 0
+        and not summary.get("coverage_gaps")
     )
 
     if expectation == "valid":
@@ -192,7 +193,7 @@ def summarize_entity(
 def summarize_totals(entity_summaries: Sequence[Dict[str, Any]]) -> Dict[str, Any]:
     """Aggregate validation counters across all entities and categories."""
     category_totals: Dict[str, Dict[str, Any]] = {
-        category: {"expectation": category, **make_empty_counts(COUNT_KEYS)}
+        category: {"expectation": category, "coverage_gaps": [], **make_empty_counts(COUNT_KEYS)}
         for category in CATEGORIES
     }
     totals = make_empty_counts(COUNT_KEYS)
@@ -202,6 +203,9 @@ def summarize_totals(entity_summaries: Sequence[Dict[str, Any]]) -> Dict[str, An
             category_summary = entity_summary["categories"][category]
             add_validation_counts(category_totals[category], category_summary, COUNT_KEYS)
             add_validation_counts(totals, category_summary, COUNT_KEYS)
+            category_totals[category]["coverage_gaps"].extend(
+                category_summary.get("coverage_gaps", [])
+            )
 
     for category in CATEGORIES:
         category_totals[category]["passed"] = category_passed(
