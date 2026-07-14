@@ -165,24 +165,13 @@
         "studyDesign": {
             "title": "Study Design",
             "description": "Study design components of the study, which describe the method of investigating particular types of research questions or solving particular types of problems.",
-            "anyOf": [
-                {
-                    "$ref": "#/$defs/studyDesign"
-                },
-                {
-                    "type": "array",
-                    "minItems": 2,
-                    "uniqueItems": true,
-                    "items": {
-                        "$ref": "#/$defs/studyDesign"
-                    }
-                }
-            ],
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "$ref": "#/$defs/studyDesign"
+            },
             "examples": [
-                {
-                    "id": "EFO:0001427",
-                    "label": "case control design"
-                },
                 [
                     {
                         "id": "EFO:0001427",
@@ -580,14 +569,9 @@
             ]
         },
         "sameAs": {
+            "title": "Same as",
             "allOf": [
-                { "$ref": "../../common/schema.json#/$defs/sameAs" },
-                {
-                    "title": "Entity type restriction",
-                    "items": {
-                        "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionStudy"
-                    }
-                }
+                { "$ref": "../../common/schema.json#/$defs/sameAs" }
             ],
             "examples": [
                 [

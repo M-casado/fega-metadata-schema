@@ -131,7 +131,7 @@
     ],
     "sameAs": [
       {
-        "@id": "ega:EGAS00001000001",
+        "@id": "ega:EGAS00002000001",
         "@type": "ega:study"
       }
     ],

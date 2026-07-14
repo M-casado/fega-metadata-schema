@@ -41,7 +41,7 @@
     "hasPolicy": "ega:EGAP00001000001",
     "sameAs": [
       {
-        "@id": "ega:EGAD00000000001",
+        "@id": "ega:EGAD00020000001",
         "@type": "ega:dataset"
       }
     ],

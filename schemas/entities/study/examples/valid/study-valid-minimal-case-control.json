@@ -7,9 +7,11 @@
     "@type": "ega:study",
     "title": "Minimal case-control genomics study",
     "description": "Minimal study metadata record for a case-control genomics investigation.",
-    "studyDesign": {
-      "id": "EFO:0001427",
-      "label": "case control design"
-    }
+    "studyDesign": [
+      {
+        "id": "EFO:0001427",
+        "label": "case control design"
+      }
+    ]
   }
 }

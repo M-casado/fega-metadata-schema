@@ -868,13 +868,7 @@
             "title": "Same as",
             "description": "Indicates a resource that is the same as this dataset.",
             "allOf": [
-                { "$ref": "../../common/schema.json#/$defs/sameAs" },
-                {
-                    "items": {
-                        "title": "Entity type restriction",
-                        "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionDataset"
-                    }
-                }
+                { "$ref": "../../common/schema.json#/$defs/sameAs" }
             ]
         }
     },

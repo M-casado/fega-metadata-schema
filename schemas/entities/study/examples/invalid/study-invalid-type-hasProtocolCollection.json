@@ -7,10 +7,12 @@
     "@type": "ega:study",
     "title": "Study with invalid protocol collection link",
     "description": "Invalid study metadata record because hasProtocolCollection points to a datafile.",
-    "studyDesign": {
-      "id": "EFO:0001427",
-      "label": "case control design"
-    },
+    "studyDesign": [
+      {
+        "id": "EFO:0001427",
+        "label": "case control design"
+      }
+    ],
     "hasProtocolCollection": [
       {
         "@id": "ega:EGAF00001000001",

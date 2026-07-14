@@ -47,6 +47,9 @@
         "type": "commonDefinitionsDoc:type",
         "unit": "commonDefinitionsDoc:unit",
         "value": "commonDefinitionsDoc:value",
+        "givenName": "schema:givenName",
+        "familyName": "schema:familyName",
+        "email": "schema:email",
 
         "schemas": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/",
         "entities": "schemas:entities/",

@@ -37,13 +37,11 @@
       },
       "relatedResource": {
         "@id": "healthdcatap:relatedResource",
-        "@type": "@id",
-        "@container": "@set"
+        "@type": "@id"
       },
       "documentation": {
         "@id": "foaf:page",
-        "@type": "@id",
-        "@container": "@set"
+        "@type": "@id"
       },
       "modificationDate": {
         "@id": "dct:modified",
@@ -100,8 +98,7 @@
       },
       "ethicsApproval": {
         "@id": "entityDoc:ethicsApproval",
-        "@type": "@id",
-        "@container": "@set"
+        "@type": "@id"
       }
     }
   ]
