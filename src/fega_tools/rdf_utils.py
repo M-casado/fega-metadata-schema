@@ -159,12 +159,14 @@ def extract_violations_from_graph(results_graph: Graph) -> List[Dict[str, Any]]:
     Returns:
         A list of dictionaries, each describing a violation.
     """
-    from rdflib import Namespace, Literal
+    from rdflib import Literal, Namespace, RDF
     
     SH = Namespace("http://www.w3.org/ns/shacl#")
     violations = []
     
-    for result in results_graph.subjects(predicate=None):  # Get all result nodes
+    for result in results_graph.subjects(
+        predicate=RDF.type, object=SH.ValidationResult
+    ):
         # Extract violation details
         violation_info = {}
         

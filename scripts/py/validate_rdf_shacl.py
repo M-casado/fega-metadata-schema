@@ -196,6 +196,7 @@ def validate_file_shacl(
     path: Path,
     shapes_graph: Any,
     id_to_path_map: Dict[str, Path],
+    required_root_type: str | None = None,
 ) -> Dict[str, Any]:
     """Validate one wrapped EGA metadata file against merged SHACL shapes."""
     result: Dict[str, Any] = {"file": str(path)}
@@ -205,6 +206,28 @@ def validate_file_shacl(
         jsonld_data = materialize_data_context(document["data"], path, id_to_path_map)
         data_graph = jsonld_to_rdf_graph(jsonld_data)
         found_types = sorted(extract_types_from_graph(data_graph))
+        if required_root_type:
+            from rdflib import URIRef
+            from rdflib.namespace import RDF
+
+            root_nodes = set(data_graph.subjects()) - set(data_graph.objects())
+            if not any(
+                (node, RDF.type, URIRef(required_root_type)) in data_graph
+                for node in root_nodes
+            ):
+                result.update(
+                    {
+                        "status": INVALID_STATUS,
+                        "conforms": False,
+                        "types": found_types,
+                        "n_violations": 0,
+                        "violation_summary": [],
+                        "errors": [
+                            f"Required root RDF type not found: {required_root_type}"
+                        ],
+                    }
+                )
+                return result
         conforms, report_text, report_dict = validate_against_shacl(
             data_graph=data_graph,
             shapes_graph=shapes_graph,
@@ -252,6 +275,7 @@ def category_passed(summary: Dict[str, Any], expectation: str) -> bool:
     common_ok = (
         summary["completed_runs"] == total_files
         and summary["script_errors"] == 0
+        and not summary.get("coverage_gaps")
     )
 
     if expectation == "valid":
@@ -275,6 +299,7 @@ def summarize_category(
     id_to_path_map: Dict[str, Path],
     expected_types: Set[str],
     coverage_gaps: Sequence[Dict[str, Any]],
+    required_root_type: str | None,
 ) -> Dict[str, Any]:
     """Validate one entity's examples for one category and summarize results."""
     category_dir = entity_dir / "examples" / category
@@ -283,7 +308,9 @@ def summarize_category(
     results = []
 
     for path in files:
-        result = validate_file_shacl(path, shapes_graph, id_to_path_map)
+        result = validate_file_shacl(
+            path, shapes_graph, id_to_path_map, required_root_type
+        )
         results.append(result)
         outcome = "passed" if result["status"] == expected_status else "failed"
         LOGGER.debug("Validated '%s' [expected: %s] -> %s", path.name, category, outcome)
@@ -348,7 +375,7 @@ def summarize_entity(
 def summarize_totals(entity_summaries: Sequence[Dict[str, Any]]) -> Dict[str, Any]:
     """Aggregate validation counters across all entities and categories."""
     category_totals: Dict[str, Dict[str, Any]] = {
-        category: {"expectation": category, **make_empty_counts(COUNT_KEYS)}
+        category: {"expectation": category, "coverage_gaps": [], **make_empty_counts(COUNT_KEYS)}
         for category in CATEGORIES
     }
     totals = make_empty_counts(COUNT_KEYS)
@@ -358,6 +385,9 @@ def summarize_totals(entity_summaries: Sequence[Dict[str, Any]]) -> Dict[str, An
             category_summary = entity_summary["categories"][category]
             add_validation_counts(category_totals[category], category_summary, COUNT_KEYS)
             add_validation_counts(totals, category_summary, COUNT_KEYS)
+            category_totals[category]["coverage_gaps"].extend(
+                category_summary.get("coverage_gaps", [])
+            )
 
     for category in CATEGORIES:
         category_totals[category]["passed"] = category_passed(
@@ -375,6 +405,7 @@ def validate_rdf_shacl(
     *,
     all_entities: bool = False,
     include_shacl_reports: bool = False,
+    required_root_type: str | None = None,
 ) -> Dict[str, Any]:
     """Validate valid and invalid FEGA examples against RDF/SHACL shapes."""
     entity_dirs = find_entity_dirs(
@@ -406,6 +437,7 @@ def validate_rdf_shacl(
             id_to_path_map,
             expected_types,
             coverage_gaps,
+            required_root_type,
         )
         for entity_dir in entity_dirs
     ]
@@ -520,6 +552,10 @@ def make_arg_parser() -> argparse.ArgumentParser:
         help="Include raw pySHACL validation reports in the JSON summary.",
     )
     parser.add_argument(
+        "--required-root-type",
+        help="Require a root RDF node with this type IRI before SHACL conformance.",
+    )
+    parser.add_argument(
         "--verbosity",
         "-v",
         action="count",
@@ -542,6 +578,7 @@ def main(argv: Sequence[str] | None = None) -> None:
             args.shapes,
             all_entities=args.all_entities,
             include_shacl_reports=args.shacl_report,
+            required_root_type=args.required_root_type,
         )
     except (FileNotFoundError, RuntimeError, ValueError) as exc:
         LOGGER.error(str(exc))

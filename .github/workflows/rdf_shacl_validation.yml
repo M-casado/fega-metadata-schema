@@ -103,6 +103,7 @@ jobs:
             --root schemas/entities \
             --entity dataset \
             --shapes standards/rdf/healthdcat-ap/release-6.0.0/shacl/non-public-shapes-v6.ttl \
+            --required-root-type http://www.w3.org/ns/dcat#Dataset \
             --summary-dir . \
             -v
 
