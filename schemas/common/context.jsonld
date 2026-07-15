@@ -1,6 +1,6 @@
 {
     "@context": {
-        "id": "schema:identifier",
+        "id": "@id",
         "label": "rdfs:label",
         "name": "schema:name",
         "description": "schema:description",
