@@ -111,7 +111,7 @@
         { "required": ["used", "informs"] },
         { "required": ["wasInformedBy", "generated"] }
     ],
-    "required": [ "title", "hadProtocolCollection" ],
+    "required": [ "@id", "title", "hadProtocolCollection" ],
     "properties": {
         "@id": {
           "$ref": "../../common/schema.json#/$defs/@id",

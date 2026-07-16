@@ -4,6 +4,7 @@
   },
   "data": {
     "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/cohort/schema.json",
+    "@id": "ega:EGAH00000000001",
     "@type": "ega:cohort",
     "id": "ega:EGAH00000000001",
     "name": "Barcelona adult genomics cohort",

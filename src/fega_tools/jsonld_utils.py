@@ -225,6 +225,19 @@ def validate_context_term_mappings(
     errors: List[str] = []
     for term in sorted(terms):
         definition = term_definition(term)
+        keyword_alias = None
+        if isinstance(definition, str) and definition in JSONLD_KEYWORDS:
+            keyword_alias = definition
+        elif isinstance(definition, dict):
+            candidate = definition.get("@id")
+            if isinstance(candidate, str) and candidate in JSONLD_KEYWORDS:
+                keyword_alias = candidate
+        if keyword_alias is not None:
+            errors.append(
+                f"Term '{term}' aliases JSON-LD keyword '{keyword_alias}' "
+                "and cannot represent a schema property"
+            )
+            continue
         probe_value: Any = "value"
         if isinstance(definition, dict) and "@reverse" in definition:
             probe_value = {"@id": "https://example.org/jsonld-coverage-probe"}

@@ -8,6 +8,7 @@
   "description": "A group of Biomaterials (e.g., individuals, biopsies) sharing specific characteristics, facilitating comparative studies and discovery.",
   "$comment": "We need to review that Cohorts can contain high-level (non granular) coverage of the biomaterials: populationCoverage, spatialCoverage and temporalCoverage. @Context for Beacon's entities is unfinished. Just a draft of the root properties for now. Ideally they'll have the context of their schemas embedded in them, so we can reference. Not quite there yet though.",
   "@context": "./context.jsonld",
+  "required": ["@id"],
   "allOf": [
     {
       "title": "Base constraints for JSON-LD",
@@ -20,7 +21,7 @@
     {
       "title": "Compatibility with Beacon v2 JSON Schema",
       "$ref": "../../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/cohorts/defaultSchema.json",
-      "$comment": "#! In the future we should remove the requirement of the root 'id', as we are using the object identifier naming of '@id', more RDF-native. (1) We can remove this 'cohort as a whole' reference to Beacon's model, and add individual property references -- Tried it, but Biovalidator would not be able to insert 'async' true to all nested refs, which would require a code change; (2) leave both 'id' and '@id' at root; (3) replace the EGA's '@id' naming with 'id', and instead just depend on the existing 'id' -> '@id' alias in the context.json file for RDF expansion."
+      "$comment": "#! Beacon compatibility requires the root 'id', while EGA JSON-LD requires '@id'. They have distinct semantics: 'id' is the Beacon/domain identifier property and '@id' is the RDF node identity."
     }
   ],
   "properties": {

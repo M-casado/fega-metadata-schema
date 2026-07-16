@@ -13,6 +13,9 @@ from fega_tools.jsonld_utils import (
 )
 
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
+
 def _write_json(path: Path, value: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value), encoding="utf-8")
@@ -202,3 +205,13 @@ def test_reverse_context_terms_expand_as_relationships() -> None:
         context,
         {"used", "wasUsedBy", "wasInformedBy", "informs"},
     ) == []
+
+
+def test_keyword_alias_cannot_cover_a_schema_property() -> None:
+    """A schema property needs an RDF predicate, not an alias for a keyword."""
+    assert validate_context_term_mappings(
+        {"id": "@id"},
+        {"id"},
+    ) == [
+        "Term 'id' aliases JSON-LD keyword '@id' and cannot represent a schema property"
+    ]

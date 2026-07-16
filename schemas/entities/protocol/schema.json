@@ -7,6 +7,7 @@
   "$async": true,
   "description": "Detailed plan of instructions on how a procedure is done. For example, sample preparation, sequencing or feature extraction techniques.",
   "@context": "./context.jsonld",
+  "required": ["@id"],
   "$comment": "Protocol parameters may be added in the future to compare expected parameters from the protocol with values provided by an executed process. Candidate models include the process parameters array, schema:StatisticalVariable, and schema:PropertyValue.",
   "meta:sssomMappings": [
     {

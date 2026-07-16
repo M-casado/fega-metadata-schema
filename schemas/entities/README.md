@@ -21,6 +21,10 @@ Inside the [``standards``](../../standards/) directory, we maintain validation c
 
 Importantly, every schema here is also a **JSON-LD context carrier**. At the top level of each schema, `@context` is provided (or referenced) so that any JSON conforming to the schema can be directly interpreted as JSON-LD. This means if you take a metadata JSON that validates against these schemas, you can add ` "@context": "<schema-URL>"` (if not already present) and turn it into RDF linked data with minimal effort. The contexts map our JSON terms (keys and certain values) to unique URIs (e.g., from ontologies). For example, a field `label` would not be a plain 'string', but instead be mapped to ``http://www.w3.org/2000/01/rdf-schema#label``, allowing RDF to recognize it as a standard concept. This strategy ensures that **EGA metadata is not a silo** – it can be connected with other data representations (e.g., a catalog using DCAT, or a phenopacket, etc.) through shared vocabularies.
 
+#### Identifier conventions
+
+`@id` is the JSON-LD identifier of a metadata node and is required for every root EGA entity. It must be a URI or a CURIE resolvable by the active context. Plain `id` is a distinct domain identifier property (i.e., not an alias for `@id`). We retain `id` for external-model compatibility (Beacon-v2) and for identifier-and-label structures such as ontology terms. A record can therefore contain both fields without ambiguity. JSON Schema's `$id` identifies a schema document and is unrelated to either instance-level property.
+
 We maintain a dedicated **namespace** for EGA identifiers ([``ega``](https://registry.identifiers.org/registry/ega)) to use in the contexts. FEGA accessions (such as study IDs, dataset IDs, etc.) will be resolvable CURIEs. For instance, `ega:EGAD00010001911` would expand to ``https://ega-archive.org/datasets/EGAD00010001911``. This reflects our commitment to **FAIR data principles**, especially **Interoperability** and **Reusability**, by making identifiers globally unambiguous and machine-resolvable.
 
 ### Current Status of Schemas

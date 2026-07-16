@@ -8,6 +8,7 @@
     "description": "Compilation of Protocol Collections (e.g., examinations, analyses or critical inspections) applied to investigate a particular topic within the context of a given Project.",
     "@context": "./context.jsonld",
     "required": [
+        "@id",
         "@type",
         "title",
         "description",

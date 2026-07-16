@@ -277,10 +277,29 @@ def _value_as_strings(value: Any) -> List[str]:
     return []
 
 
+def _expand_node_identifier(value: str, context: Any) -> Optional[str]:
+    """Expand a compact or absolute JSON-LD node identifier to an absolute IRI."""
+    try:
+        expanded = jsonld.expand(
+            {
+                "@context": context,
+                "@id": value,
+                "https://example.org/jsonld-frame-probe": "probe",
+            }
+        )
+    except Exception:  # noqa: BLE001 - PyLD exposes several exception types
+        return None
+    for node in expanded:
+        if isinstance(node, dict) and isinstance(node.get("@id"), str):
+            return node["@id"]
+    return None
+
+
 def _select_primary_entity(
     framed: Dict[str, Any],
     original_id: Optional[str],
     original_types: Sequence[str],
+    context: Any,
 ) -> Tuple[Optional[Dict[str, Any]], Optional[str]]:
     """Pick the one framed entity that matches the original @id or type."""
     candidates = _extract_candidates(framed)
@@ -288,10 +307,19 @@ def _select_primary_entity(
         return None, "Framed output did not contain any candidate entities"
 
     if original_id:
+        original_expanded_id = _expand_node_identifier(original_id, context)
+        if original_expanded_id is None:
+            return None, f"Could not expand original @id '{original_id}'"
         matches = [
             item
             for item in candidates
-            if original_id in _value_as_strings(item.get("@id"))
+            if original_expanded_id
+            in {
+                expanded_id
+                for candidate_id in _value_as_strings(item.get("@id"))
+                for expanded_id in [_expand_node_identifier(candidate_id, context)]
+                if expanded_id is not None
+            }
         ]
         if len(matches) == 1:
             return matches[0], None
@@ -660,6 +688,7 @@ def _frame_route(
         framed,
         state["original_id"],
         state["original_types"],
+        state["inline_context"],
     )
     if primary is None:
         _set_route_failure(

@@ -252,7 +252,7 @@
                 "id": {
                     "type": "string",
                     "title": "ID of the term",
-                    "description": "The identifier of an ontology term must be in CURIE format (check property 'curieGeneralPattern'). Whether a specific term is valid or not according to an ontology hierarchy is checked at each specific id using ontology validation keywords (e.g. 'graphRestriction').",
+                    "description": "The identifier of an ontology term must be in CURIE format (check property 'curieGeneralPattern'). In JSON-LD this is an identifier property of the term node, not the node's '@id'. Whether a specific term is valid or not according to an ontology hierarchy is checked at each specific id using ontology validation keywords (e.g. 'graphRestriction').",
                     "minLength": 1,
                     "allOf": [
                         {

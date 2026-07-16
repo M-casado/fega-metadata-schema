@@ -57,6 +57,7 @@
         }
     ],
     "required": [
+        "@id",
         "@type",
         "title",
         "description",

@@ -4,6 +4,7 @@
   },
   "data": {
     "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/process/schema.json",
+    "@id": "ega:EGAA00000000002",
     "@type": [
       "ega:process",
       "prov:Activity"
