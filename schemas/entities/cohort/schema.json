@@ -19,7 +19,8 @@
     },
     {
       "title": "Compatibility with Beacon v2 JSON Schema",
-      "$ref": "../../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/cohorts/defaultSchema.json"
+      "$ref": "../../../standards/json-schema/beacon-v2/models/json/beacon-v2-default-model/cohorts/defaultSchema.json",
+      "$comment": "#! In the future we should remove the requirement of the root 'id', as we are using the object identifier naming of '@id', more RDF-native. (1) We can remove this 'cohort as a whole' reference to Beacon's model, and add individual property references -- Tried it, but Biovalidator would not be able to insert 'async' true to all nested refs, which would require a code change; (2) leave both 'id' and '@id' at root; (3) replace the EGA's '@id' naming with 'id', and instead just depend on the existing 'id' -> '@id' alias in the context.json file for RDF expansion."
     }
   ],
   "properties": {
