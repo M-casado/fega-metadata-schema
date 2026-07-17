@@ -7,7 +7,7 @@
   "$async": true,
   "description": "Represents any biological material, from whole organisms (including humans) to subcellular components and macromolecules (e.g., DNA samples).",
   "@context": "./context.jsonld",
-  "required": ["@id", "biomaterialType"],
+  "required": ["@id", "@type"],
   "meta:sssomMappings": [
     {
             "predicate_id": "skos:broadMatch",
@@ -35,106 +35,94 @@
     }
   ],
   "$defs": {
+    "biomaterialCategory": {
+      "type": "string",
+      "title": "Canonical biomaterial category",
+      "description": "Ontology class that states what the biomaterial is. It is carried as one member of the resource's JSON-LD @type array, producing an rdf:type assertion (e.g., 'this biomaterial is of type '').",
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:broadMatch",
+          "object_id": "BFO:0000040",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:comment",
+          "subject_match_field": "rdfs:comment",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1.0,
+          "mapping_date": "2025-04-15"
+        },
+        {
+          "predicate_id": "skos:closeMatch",
+          "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/biosample.html#sample-type",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:comment",
+          "subject_match_field": "rdfs:comment",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 0.9,
+          "mapping_date": "2025-05-02"
+        },
+        {
+          "predicate_id": "skos:closeMatch",
+          "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.Sample.Biospecimen_Type",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:comment",
+          "subject_match_field": "rdfs:comment",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 0.9,
+          "mapping_date": "2025-05-02",
+          "comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object."
+        }
+      ],
+      "enum": [
+        "BTO:0002690",
+        "EFO:0004446",
+        "BTO:0000214",
+        "COB:0000022",
+        "EFO:0000635",
+        "EFO:0000663",
+        "BTO:0001384"
+      ],
+      "meta:enum": {
+        "BTO:0002690": "biofilm",
+        "EFO:0004446": "biological macromolecule",
+        "BTO:0000214": "cell culture",
+        "COB:0000022": "organism",
+        "EFO:0000635": "organism part",
+        "EFO:0000663": "pool",
+        "BTO:0001384": "tissue culture"
+      },
+      "examples": [
+        "COB:0000022",
+        "BTO:0002690"
+      ]
+    },
+
     "commonBiomaterialDefs": {
       "type": "object",
       "title": "Common Biomaterial definitions",
       "description": "Common biomaterial definitions that every Biomaterial **can** (but not necessarily *must*) inherit. These are later constrained for each type of biomaterial at their respective checklists (e.g., 'dateOfBirth' is not expected to be given for a tissue culture)",
       "properties": {
-        "biomaterialType": {
-          "type": "object",
-          "title": "Biomaterial type",
-          "$comment": "#! likely to be changed as a '@type' property in the future, similar to the array of @types in protocols, so that we can use the '@type' in the JSON-LD context, rather than hidden in a bespoke property",
-          "meta:sssomMappings": [
-            {
-              "predicate_id": "skos:broadMatch",
-              "object_id": "BFO:0000040",
-              "mapping_justification": "semapv:ManualMappingCuration",
-              "object_match_field": "rdfs:comment",
-              "subject_match_field": "rdfs:comment",
-              "author_id": ["orcid:0000-0002-7747-6256"],
-              "creator_id": ["orcid:0000-0002-7747-6256"],
-              "reviewer_id": [""],
-              "confidence": 1.0,
-              "mapping_date": "2025-04-15"
-            },
-            {
-              "predicate_id": "skos:closeMatch",
-              "object_id": "https://phenopacket-schema.readthedocs.io/en/latest/biosample.html#sample-type",
-              "mapping_justification": "semapv:ManualMappingCuration",
-              "object_match_field": "rdfs:comment",
-              "subject_match_field": "rdfs:comment",
-              "author_id": ["orcid:0000-0002-7747-6256"],
-              "creator_id": ["orcid:0000-0002-7747-6256"],
-              "reviewer_id": [""],
-              "confidence": 0.9,
-              "mapping_date": "2025-05-02"
-            },
-            {
-              "predicate_id": "skos:closeMatch",
-              "object_id": "v1.0_HarmonisedMinimalDatamodel_dataset_20250317.Sample.Biospecimen_Type",
-              "mapping_justification": "semapv:ManualMappingCuration",
-              "object_match_field": "rdfs:comment",
-              "subject_match_field": "rdfs:comment",
-              "author_id": ["orcid:0000-0002-7747-6256"],
-              "creator_id": ["orcid:0000-0002-7747-6256"],
-              "reviewer_id": [""],
-              "confidence": 0.9,
-              "mapping_date": "2025-05-02",
-              "comment": "GDI Harmonised Minimal Data Model v1.0 has not been submitted publicly yet. Hence the lack of a proper URI for the object."
-            }
-          ],
-          "description": "The type of biomaterial.",
-          "required": ["id", "label"],
+        "@type": {
+          "title": "Biomaterial resource types",
           "allOf": [
+            { "$ref": "../../common/schema.json#/$defs/@type" },
             {
-              "title": "Inherited ontologyTerm structure of term id and label",
-              "$ref": "../../common/schema.json#/$defs/ontologyTerm"
+              "title": "Biomaterial type restriction",
+              "description": "A biomaterial cannot be of multiple biomaterial types (e.g., a tissue culture and an organism part at the same time.",
+              "$comment": "#! Depending on how we end up encoding the biomaterial types, this restriction may be lifted, and the constraints of each type may be applied in conjuction. For example, if we were to consider a biomaterial 'tissue culture' both that type and of 'organism' type, the constraints of both would apply.",
+              "contains": { "$ref": "#/$defs/biomaterialCategory" },
+              "minContains": 1,
+              "maxContains": 1
             }
           ],
-          "properties": {
-            "id": {
-              "title": "Ontology constraints for this specific term id",
-              "graphRestriction": {
-                "ontologies": ["obo:efo"],
-                "classes": ["BFO:0000040"],
-                "relations": ["rdfs:subClassOf"],
-                "$comment": "It would be best to have the 'direct' keyword back to Biovalidator, and add it here as 'direct': true. This makes the constraint more restrictive, allowing only IDs that are direct children of BFO:0000040, rather than allowing 'anything' below it. Either we add that, or eventually a 'enum' with the specific ontology IDs we want, which kind of defeats the purpose of having the ontology keyword.",
-                "includeSelf": false
-              },
-              "examples": [ "COB:0000022", "BTO:0002690" ]
-            },
-            "label": {
-              "type": "string",
-              "title": "Term label",
-              "description": "Human-readable label for the term, corresponding to the term id.",
-              "enum": [
-                "biofilm",
-                "biological macromolecule",
-                "cell culture",
-                "organism",
-                "organism part",
-                "pool",
-                "tissue culture"
-              ],
-              "allOf": [
-                {
-                  "graphRestriction": {
-                    "$comment": "This statement keeps our 'enum' always aligned with the ontology labels. It may be better to just keep the enum. Up for discussion.",
-                    "ontologies": [ "obo:efo" ],
-                    "classes": [ "BFO:0000040" ],
-                    "relations": ["rdfs:subClassOf"],
-                    "queryFields": [ "label" ],
-                    "includeSelf": false
-                  }
-                }
-              ]
-            }
-          },
           "examples": [
-            {
-              "id": "COB:0000022",
-              "label": "organism"
-            }
+            ["ega:biomaterial", "prov:Entity", "COB:0000022"],
+            ["ega:biomaterial", "prov:Entity", "EFO:0000635", "prov:Person"]
           ]
         },
 
@@ -661,7 +649,7 @@
         "diagnoses": {
           "type": "array",
           "title": "Diagnoses",
-          "description": "List of diagnoses (and their associated metadata) attributed to the Biomaterial. The scope of the diagnosis is set by the 'biomaterialType'. For example, if in an 'organism' type of Biomaterial, diagnoses are Clinical Diagnoses; if in a 'organism part', then they are Pathological Diagnoses.",
+          "description": "List of diagnoses (and their associated metadata) attributed to the Biomaterial. The scope of the diagnosis is set by the biomaterial category in '@type'. For example, if typed as an 'organism', diagnoses are Clinical Diagnoses; if typed as an 'organism part', then they are Pathological Diagnoses.",
           "minItems": 1,
           "uniqueItems": true,
           "items": {
@@ -1118,13 +1106,11 @@
         { "$ref": "#/$defs/commonBiomaterialDefs" },
         {
           "if": {
-            "required": ["biomaterialType"],
+            "required": ["@type"],
             "properties": {
-              "biomaterialType": {
-                "required": ["label"],
-                "properties": {
-                  "label": { "const": "organism" }
-                }
+              "@type": {
+                "type": "array",
+                "contains": { "const": "COB:0000022" }
               }
             }
           },
@@ -1150,13 +1136,11 @@
         { "$ref": "#/$defs/commonBiomaterialDefs" },
         {
           "if": {
-            "required": [ "biomaterialType" ],
+            "required": ["@type"],
             "properties": {
-              "biomaterialType": {
-                "required": [ "label" ],
-                "properties": {
-                  "label": { "const": "organism part" }
-                }
+              "@type": {
+                "type": "array",
+                "contains": { "const": "EFO:0000635" }
               }
             }
           },

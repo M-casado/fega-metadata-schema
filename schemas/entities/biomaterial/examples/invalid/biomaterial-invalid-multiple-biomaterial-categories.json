@@ -3,17 +3,13 @@
     "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/biomaterial/schema.json"
   },
   "data": {
-    "@type": ["ega:biomaterial", "prov:Entity", "COB:0000022"],
-    "label": "SUBJECT-0004 - Which CANNOT have a samplingSource property, given the fact that it's an organism itself",
+    "@type": ["ega:biomaterial", "prov:Entity", "COB:0000022", "EFO:0000635"],
+    "label": "SUBJECT-0006",
     "sex": {
       "phenotypicSex": {
         "id": "PATO:0000383",
         "label": "female"
       }
-    },
-    "samplingSource": {
-      "id": "UBERON:0000178",
-      "label": "blood"
     }
   }
 }

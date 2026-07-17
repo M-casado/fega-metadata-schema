@@ -4,7 +4,6 @@
     {
       "entityDoc": "entities:biomaterial/schema.json#",
       "properties": "@nest",
-      "biomaterialType": "entityDoc:biomaterialType",
       "sex": "entityDoc:sex",
       "gender": "entityDoc:gender",
       "phenotypicSex": "entityDoc:phenotypicSex",

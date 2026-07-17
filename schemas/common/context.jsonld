@@ -94,6 +94,11 @@
 
         "efo": "identifiers:efo:",
         "pato": "identifiers:PATO:",
+        "BTO": "identifiers:BTO",
+        "COB": {
+            "@id": "http://purl.obolibrary.org/obo/COB_",
+            "@prefix": true
+        },
 
         "egav1crg": "https://submission.ega-archive.org/api/spec/#/schemas/",
         "egav1ebi": "https://github.com/enasequence/webin-xml/master/src/main/resources/uk/ac/ebi/ena/sra/schema/",
