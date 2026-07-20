@@ -1,0 +1,18 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/protocolCollection/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/protocolCollection/schema.json",
+    "@id": "ega:EGAT00000000006",
+    "@type": ["ega:protocolCollection", "prov:Collection", "prov:Plan"],
+    "title": "Protocol collection with an invalid identifier",
+    "version": "1.0.0",
+    "hadMember": [
+      {
+        "@id": "ega:EGAT00000000006",
+        "@type": "ega:protocol"
+      }
+    ]
+  }
+}

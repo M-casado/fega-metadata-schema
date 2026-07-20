@@ -1,0 +1,17 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/protocolCollection/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/protocolCollection/schema.json",
+    "@type": ["ega:protocolCollection", "prov:Collection", "prov:Plan"],
+    "title": "Protocol collection without an identifier",
+    "version": "1.0.0",
+    "hadMember": [
+      {
+        "@id": "ega:EGAT00000000008",
+        "@type": "ega:protocol"
+      }
+    ]
+  }
+}

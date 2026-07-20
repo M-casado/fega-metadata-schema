@@ -1,0 +1,22 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/protocolCollection/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/protocolCollection/schema.json",
+    "@id": "ega:EGAL00000000004",
+    "@type": ["ega:protocolCollection", "prov:Collection", "prov:Plan"],
+    "title": "Protocol collection with duplicate members",
+    "version": "1.0.0",
+    "hadMember": [
+      {
+        "@id": "ega:EGAT00000000004",
+        "@type": "ega:protocol"
+      },
+      {
+        "@id": "ega:EGAT00000000004",
+        "@type": "ega:protocol"
+      }
+    ]
+  }
+}

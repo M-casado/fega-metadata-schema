@@ -1,0 +1,42 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/protocolCollection/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/protocolCollection/schema.json",
+    "@id": "ega:EGAL00000000002",
+    "@type": ["prov:Plan", "ega:protocolCollection", "prov:Collection"],
+    "title": "Whole-genome sequencing preparation and analysis plan",
+    "description": "Composite plan covering library preparation and computational whole-genome sequencing analysis.",
+    "version": "2.1.0",
+    "hadMember": [
+      {
+        "@id": "ega:EGAT00000000002",
+        "@type": ["ega:protocol", "prov:Plan", "bioschemastypes:LabProtocol"],
+        "label": "Whole-genome sequencing library preparation"
+      },
+      {
+        "@id": "ega:EGAT00000000003",
+        "@type": ["ega:protocol", "prov:Plan", "bioschemastypes:ComputationalWorkflow"],
+        "label": "Whole-genome sequencing analysis workflow"
+      }
+    ],
+    "isPartOf": [
+      {
+        "@id": "ega:EGAS00000000001",
+        "@type": "ega:study",
+        "label": "Synthetic whole-genome sequencing study"
+      }
+    ],
+    "sameAs": [
+      {
+        "@id": "https://example.org/protocol-collections/wgs-plan-2.1.0"
+      }
+    ],
+    "isBasedOn": [
+      {
+        "@id": "https://example.org/protocol-collections/wgs-plan-2.0.0"
+      }
+    ]
+  }
+}
