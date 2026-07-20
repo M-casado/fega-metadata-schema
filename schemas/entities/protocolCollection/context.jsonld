@@ -1,0 +1,26 @@
+{
+  "@context": [
+    "../../common/context.jsonld",
+    {
+      "entityDoc": "entities:protocolCollection/schema.json#",
+      "properties": "@nest",
+      "title": {
+        "@id": "dct:title"
+      },
+      "description": {
+        "@id": "dct:description"
+      },
+      "version": {
+        "@id": "dcat:version"
+      },
+      "hadMember": {
+        "@id": "prov:hadMember",
+        "@container": "@set"
+      },
+      "isBasedOn": {
+        "@id": "schema:isBasedOn",
+        "@container": "@set"
+      }
+    }
+  ]
+}

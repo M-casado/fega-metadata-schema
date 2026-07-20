@@ -1,0 +1,30 @@
+{
+  "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/protocolCollection/schema.json",
+  "@type": ["ega:protocolCollection", "prov:Collection", "prov:Plan"],
+  "@embed": "@always",
+  "@explicit": false,
+
+  "title": {},
+  "description": {},
+  "version": {},
+  "hadMember": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "isPartOf": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "sameAs": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "isBasedOn": [
+    {
+      "@embed": "@always"
+    }
+  ]
+}
