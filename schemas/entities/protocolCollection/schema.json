@@ -47,7 +47,11 @@
   ],
   "properties": {
     "@id": {
-      "$ref": "../../common/schema.json#/$defs/egaStableIdentifierProtocolCollection"
+      "$ref": "../../common/schema.json#/$defs/egaStableIdentifierProtocolCollection",
+      "examples": [
+        "ega:EGAL00000000001",
+        "ega:EGAL00001000002"
+      ]
     },
     "@type": {
       "title": "Protocol collection resource type",
@@ -56,6 +60,9 @@
         {
           "$ref": "../../common/schema.json#/$defs/@type"
         }
+      ],
+      "examples": [
+        ["ega:protocolCollection", "prov:Collection", "prov:Plan"]
       ]
     },
     "title": {
@@ -63,6 +70,10 @@
         {
           "$ref": "../../common/schema.json#/$defs/label"
         }
+      ],
+      "examples": [
+        "DNA extraction plan",
+        "Whole-genome sequencing preparation and analysis plan"
       ]
     },
     "description": {
@@ -70,10 +81,17 @@
         {
           "$ref": "../../common/schema.json#/$defs/description"
         }
+      ],
+      "examples": [
+        "Composite plan covering library preparation and computational whole-genome sequencing analysis."
       ]
     },
     "version": {
-      "$ref": "../../common/schema.json#/$defs/version"
+      "$ref": "../../common/schema.json#/$defs/version",
+      "examples": [
+        "1.0.0",
+        "2.1.0"
+      ]
     },
     "hadMember": {
       "$comment": "Membership is unordered and does not imply protocol execution order.",
@@ -87,6 +105,20 @@
             "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionProtocol"
           }
         }
+      ],
+      "examples": [
+        [
+          {
+            "@id": "ega:EGAT00000000001",
+            "@type": "ega:protocol",
+            "label": "Blood DNA extraction"
+          },
+          {
+            "@id": "ega:EGAT00000000002",
+            "@type": "ega:protocol",
+            "label": "Whole-genome sequencing library preparation"
+          }
+        ]
       ]
     },
     "isPartOf": {
@@ -100,13 +132,36 @@
             "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionStudy"
           }
         }
+      ],
+      "examples": [
+        [
+          {
+            "@id": "ega:EGAS00000000001",
+            "@type": "ega:study",
+            "label": "Synthetic whole-genome sequencing study"
+          }
+        ]
       ]
     },
     "sameAs": {
-      "$ref": "../../common/schema.json#/$defs/sameAs"
+      "$ref": "../../common/schema.json#/$defs/sameAs",
+      "examples": [
+        [
+          {
+            "@id": "https://example.org/protocol-collections/wgs-plan-2.1.0"
+          }
+        ]
+      ]
     },
     "isBasedOn": {
-      "$ref": "../../common/schema.json#/$defs/isBasedOn"
+      "$ref": "../../common/schema.json#/$defs/isBasedOn",
+      "examples": [
+        [
+          {
+            "@id": "https://example.org/protocol-collections/wgs-plan-2.0.0"
+          }
+        ]
+      ]
     }
   }
 }
