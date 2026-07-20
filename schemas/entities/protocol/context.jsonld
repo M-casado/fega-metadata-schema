@@ -53,6 +53,10 @@
         "@id": "schema:isBasedOn",
         "@container": "@set"
       },
+      "parameterSpecifications": {
+        "@id": "entityDoc:parameterSpecifications",
+        "@container": "@set"
+      },
       "inputFormat": {
         "@id": "entityDoc:inputFormat",
         "@container": "@set"

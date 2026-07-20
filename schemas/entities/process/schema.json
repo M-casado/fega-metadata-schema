@@ -331,7 +331,7 @@
         "parameters": {
             "type": "array",
             "title": "Process Parameters",
-            "description": "Parameters used in the process. These can include settings, configurations, or any other relevant details that define how the process was carried out.",
+            "description": "Execution-time values for parameter specifications declared by the Protocols applied in this process (as per hadProtocolCollection). Biomaterial and Datafile inputs remain in used/generated and are not parameter values.",
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
@@ -363,7 +363,7 @@
             "minItems": 1,
             "uniqueItems": true,
             "items": {
-                "$ref": "../../../standards/json-schema/isa/process_parameter_value_schema.json"
+                "$ref": "../../common/schema.json#/$defs/processParameterValue"
             }
         }
     }

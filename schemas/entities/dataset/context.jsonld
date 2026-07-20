@@ -78,6 +78,9 @@
                 "@id": "schema:variableMeasured",
                 "@container": "@set"
             },
+            "value": {
+                "@id": "schema:value"
+            },
             "hasCodingSystem": {
                 "@id": "entityDoc:hasCodingSystem",
                 "@container": "@set"

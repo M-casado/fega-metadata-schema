@@ -704,7 +704,7 @@
                         "type": "string",
                         "format": "uri"
                     },
-                    { "$ref": "../../../standards/json-schema/isa/process_parameter_value_schema.json" }
+                    { "$ref": "../../common/schema.json#/$defs/processParameterValue" }
                 ]
             },
             "$comment": "Similar to measurementTechnique, it's best to infer this information, as opposed to having it be a user-defined property. Furthermore, this property tends to be more related to the Study than the dataset, at least in ISA and other standards."

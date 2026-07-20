@@ -2944,8 +2944,355 @@
             }
         },
 
-        "parameter": {
-            "$comment": "For future definition and use within Protocols/processes/studies. To take inspiration from schema:PropertyValue and schema:StatisticalVariable"
+        "parameterScalarValue": {
+            "title": "Protocol parameter scalar value",
+            "description": "A literal or ontology-backed value supplied as a protocol default or recorded during a process execution.",
+            "anyOf": [
+                {
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
+                },
+                {
+                    "type": "string",
+                    "minLength": 1
+                },
+                {
+                    "type": "number"
+                },
+                {
+                    "type": "boolean"
+                }
+            ]
+        },
+
+        "parameterValue": {
+            "title": "Protocol parameter value",
+            "description": "One protocol parameter value or a non-empty set of values. Linked EGA entities (e.g., a biomaterial used as an input of a process) are not parameter values.",
+            "anyOf": [
+                {
+                    "$ref": "../common/schema.json#/$defs/parameterScalarValue"
+                },
+                {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                        "$ref": "../common/schema.json#/$defs/parameterScalarValue"
+                    }
+                }
+            ]
+        },
+
+        "unitTerm": {
+            "title": "Unit Ontology term",
+            "description": "A unit restricted to descendants of the Unit Ontology root.",
+            "allOf": [
+                {
+                    "$ref": "../common/schema.json#/$defs/ontologyTerm"
+                }
+            ],
+            "properties": {
+                "id": {
+                    "graphRestriction": {
+                        "ontologies": ["obo:uo"],
+                        "classes": ["http://purl.obolibrary.org/obo/UO_0000000"],
+                        "relations": ["rdfs:subClassOf"],
+                        "includeSelf": false
+                    },
+                    "examples": ["UO:0000017", "UO:0000027"]
+                },
+                "label": {
+                    "graphRestriction": {
+                        "ontologies": ["obo:uo"],
+                        "classes": ["http://purl.obolibrary.org/obo/UO_0000000"],
+                        "relations": ["rdfs:subClassOf"],
+                        "queryFields": ["label"],
+                        "includeSelf": false
+                    },
+                    "examples": ["micrometer", "degree Celsius"]
+                }
+            }
+        },
+
+        "protocolParameter": {
+            "type": "object",
+            "title": "Protocol parameter specification",
+            "description": "An addressable parameter declaration embedded in a Protocol. It follows the ISA distinction between a protocol-level parameter declaration and a process-level parameter value, while using standards-based RDF types rather than defining an EGA entity class.",
+            "meta:sssomMappings": [
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "isa:protocol-parameter-schema-json",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:label",
+                    "subject_match_field": "rdfs:label",
+                    "match_string": "ProtocolParameter",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 1.0,
+                    "mapping_date": "2026-07-20"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "bioschemastypes:FormalParameter",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 0.8,
+                    "mapping_date": "2026-07-20"
+                },
+                {
+                    "predicate_id": "skos:closeMatch",
+                    "object_id": "p-plan:Variable",
+                    "mapping_justification": "semapv:ManualMappingCuration",
+                    "object_match_field": "rdfs:comment",
+                    "subject_match_field": "rdfs:comment",
+                    "author_id": ["orcid:0000-0002-7747-6256"],
+                    "creator_id": ["orcid:0000-0002-7747-6256"],
+                    "reviewer_id": [""],
+                    "confidence": 0.8,
+                    "mapping_date": "2026-07-20"
+                }
+            ],
+            "required": ["@id", "@type", "label"],
+            "allOf": [
+                {
+                    "if": {
+                        "required": ["defaultValue"],
+                        "properties": {
+                            "defaultValue": {
+                                "anyOf": [
+                                    {"type": "number"},
+                                    {
+                                        "type": "array",
+                                        "contains": {"type": "number"}
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "then": {
+                        "required": ["unit"]
+                    }
+                }
+            ],
+            "properties": {
+                "@id": {
+                    "allOf": [
+                        {"$ref": "../common/schema.json#/$defs/@id"}
+                    ],
+                    "title": "Parameter identifier",
+                    "description": "The unique identifier for this protocol parameter specification.",
+                    "examples": [
+                        "ega:EGAT00000000001#section-thickness"
+                    ]
+                },
+                "@type": {
+                    "title": "Parameter types",
+                    "description": "The RDF types used to identify this object as a protocol parameter specification.",
+                    "type": "array",
+                    "minItems": 2,
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "allOf": [
+                        {"contains": {"const": "bioschemastypes:FormalParameter"}},
+                        {"contains": {"const": "p-plan:Variable"}}
+                    ],
+                    "examples": [
+                        [
+                            "bioschemastypes:FormalParameter",
+                            "p-plan:Variable"
+                        ]
+                    ]
+                },
+                "label": {
+                    "allOf": [
+                        {"$ref": "../common/schema.json#/$defs/label"}
+                    ],
+                    "title": "Parameter label",
+                    "description": "A short human-readable label for the parameter.",
+                    "examples": [
+                        "section thickness"
+                    ]
+                },
+                "category": {
+                    "title": "Parameter category",
+                    "description": "An optional ontology term identifying the semantic category of the parameter. No common ontology root is imposed.",
+                    "allOf": [
+                        {"$ref": "../common/schema.json#/$defs/ontologyTerm"}
+                    ],
+                    "examples": [
+                        {
+                            "id": "CHEBI:33510",
+                            "label": "material property"
+                        }
+                    ]
+                },
+                "description": {
+                    "title": "Parameter description",
+                    "description": "A more detailed description of the protocol parameter.",
+                    "allOf": [
+                        {"$ref": "../common/schema.json#/$defs/description"}
+                    ],
+                    "examples": [
+                        "The thickness of the cut section measured in micrometers."
+                    ]
+                },
+                "datatype": {
+                    "title": "Parameter datatype",
+                    "description": "The expected datatype as an absolute IRI or CURIE, for example xsd:decimal.",
+                    "type": "string",
+                    "anyOf": [
+                        {"format": "uri"},
+                        {"$ref": "../common/schema.json#/$defs/curieGeneralPattern"}
+                    ],
+                    "examples": [
+                        "xsd:decimal",
+                        "http://www.w3.org/2001/XMLSchema#decimal",
+                        "EDAM:data_1047"
+                    ]
+                },
+                "unit": {
+                    "title": "Parameter unit",
+                    "description": "The measurement unit associated with the parameter value.",
+                    "allOf": [
+                        {"$ref": "../common/schema.json#/$defs/unitTerm"}
+                    ],
+                    "examples": [
+                        {
+                            "id": "UO:0000017",
+                            "label": "micrometer"
+                        },
+                        {
+                            "id": "UO:0000010",
+                            "label": "second"
+                        }
+                    ]
+                },
+                "defaultValue": {
+                    "title": "Default value",
+                    "description": "A default value for this parameter when none is provided at execution time.",
+                    "allOf": [
+                        {"$ref": "../common/schema.json#/$defs/parameterValue"}
+                    ],
+                    "examples": [
+                        10,
+                        [11, 0.6, 20]
+                    ]
+                },
+                "valueRequired": {
+                    "title": "Value is required",
+                    "description": "Indicates whether this parameter must be supplied by the user or execution environment.",
+                    "type": "boolean",
+                    "examples": [ true ]
+                },
+                "multipleValues": {
+                    "title": "Multiple values",
+                    "description": "Indicates whether the parameter may accept multiple values.",
+                    "type": "boolean",
+                    "examples": [ false ]
+                }
+            },
+            "examples": [
+                {
+                    "@id": "ega:EGAT00000000001#section-thickness",
+                    "@type": ["bioschemastypes:FormalParameter", "p-plan:Variable"],
+                    "label": "section thickness",
+                    "datatype": "xsd:decimal",
+                    "unit": {"id": "UO:0000017", "label": "micrometer"},
+                    "valueRequired": true,
+                    "multipleValues": false
+                }
+            ]
+        },
+
+        "processParameterValue": {
+            "type": "object",
+            "title": "Process parameter value",
+            "description": "An execution-time parameter value embedded in a Process. parameterReference links to the corresponding declaration in a Protocol.",
+            "$comment": "Note that with plain JSON Schema we can't verify that the declaration (the ref. through the @id) belongs to a Protocol in the Process protocol collection. In other words, that the @id referenced to identify this parameter corresponds to the actual protocol (or protocols) that were applied during this process (through their protocolCollection).",
+            "required": ["parameterReference", "value"],
+            "allOf": [
+                {
+                    "if": {
+                        "required": ["value"],
+                        "properties": {
+                            "value": {
+                                "anyOf": [
+                                    {"type": "number"},
+                                    {
+                                        "type": "array",
+                                        "contains": {"type": "number"}
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "then": {
+                        "required": ["unit"]
+                    }
+                }
+            ],
+            "properties": {
+                "parameterReference": {
+                    "type": "object",
+                    "title": "Parameter specification reference",
+                    "description": "An @id-only link to the parameter specification declared by a Protocol (i.e., its corresponding 'protocolParameter').",
+                    "required": ["@id"],
+                    "properties": {
+                        "@id": {
+                            "$ref": "../common/schema.json#/$defs/@id"
+                        }
+                    },
+                    "meta:sssomMappings": [
+                        {
+                            "predicate_id": "skos:relatedMatch",
+                            "object_id": "schema:exampleOfWork",
+                            "mapping_justification": "semapv:ManualMappingCuration",
+                            "object_match_field": "rdfs:comment",
+                            "subject_match_field": "rdfs:comment",
+                            "author_id": ["orcid:0000-0002-7747-6256"],
+                            "creator_id": ["orcid:0000-0002-7747-6256"],
+                            "reviewer_id": [""],
+                            "confidence": 0.8,
+                            "mapping_date": "2026-07-20",
+                            "$comment": "In a way, a processParameterValue is a 'example/instance/realization/derivation of' a protocolParameter. Not so sure about how to frame creativeWork for a parameter though."
+                        }
+                    ]
+                },
+                "value": {
+                    "$ref": "../common/schema.json#/$defs/parameterValue",
+                    "meta:sssomMappings": [
+                        {
+                            "predicate_id": "skos:exactMatch",
+                            "object_id": "schema:value",
+                            "mapping_justification": "semapv:ManualMappingCuration",
+                            "object_match_field": "rdfs:label",
+                            "subject_match_field": "rdfs:label",
+                            "author_id": ["orcid:0000-0002-7747-6256"],
+                            "creator_id": ["orcid:0000-0002-7747-6256"],
+                            "reviewer_id": [""],
+                            "confidence": 1.0,
+                            "mapping_date": "2026-07-20"
+                        }
+                    ]
+                },
+                "unit": {
+                    "$ref": "../common/schema.json#/$defs/unitTerm"
+                }
+            },
+            "examples": [
+                {
+                    "parameterReference": {"@id": "ega:EGAT00000000001#section-thickness"},
+                    "value": 10,
+                    "unit": {"id": "UO:0000017", "label": "micrometer"}
+                }
+            ]
         },
 
         "alternativeLabels": {

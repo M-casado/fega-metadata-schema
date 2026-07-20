@@ -25,6 +25,11 @@
     }
   ],
   "isBasedOn": {},
+  "parameterSpecifications": [
+    {
+      "@embed": "@always"
+    }
+  ],
   "inputFormat": {},
   "intendedUse": {},
   "ethicalLegalSocial": {},

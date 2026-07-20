@@ -104,44 +104,33 @@
     ],
     "parameters": [
       {
-        "category": {
-          "@type": "ProtocolParameter",
-          "parameterName": {
-            "id": "UBERON:0001062",
-            "label": "anatomical entity"
-          }
-        },
-        "value": {
-          "id": "UBERON:0001414",
-          "label": "median basilic vein"
-        }
-      },
-      {
-        "category": {
-          "@type": "ProtocolParameter",
-          "parameterName": {
-            "id": "OBI:0003653",
-            "label": "fasting"
-          }
-        },
-        "value": 8,
-        "unit": {
-          "id": "UO:0000032",
-          "label": "hour"
-        }
-      },
-      {
-        "category": {
-          "@type": "ProtocolParameter",
-          "parameterName": {
-            "id": "SNOMED:241736004",
-            "label": "Manual tourniquet application (procedure)"
-          }
+        "parameterReference": {
+          "@id": "ega:EGAT00000000001#trizol-to-blood-ratio"
         },
         "value": 1,
         "unit": {
-          "id": "UO:0000031",
-          "label": "minute"
+          "id": "UO:0010006",
+          "label": "ratio"
+        }
+      },
+      {
+        "parameterReference": {
+          "@id": "ega:EGAT00000000001#sample-volume"
+        },
+        "value": 150,
+        "unit": {
+          "id": "UO:0000101",
+          "label": "microliter"
+        }
+      },
+      {
+        "parameterReference": {
+          "@id": "ega:EGAT00000000001#centrifugation-speed"
+        },
+        "value": 266,
+        "unit": {
+          "id": "UO:0000079",
+          "label": "radian per second"
         }
       }
     ]

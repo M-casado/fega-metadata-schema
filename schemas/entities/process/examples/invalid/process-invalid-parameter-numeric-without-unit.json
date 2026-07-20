@@ -1,0 +1,27 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/process/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/process/schema.json",
+    "@id": "ega:EGAA00000000902",
+    "@type": ["ega:process", "prov:Activity"],
+    "title": "Numeric process parameter without a unit",
+    "hadProtocolCollection": {
+      "@id": "ega:EGAL00000000003",
+      "@type": "ega:protocolCollection"
+    },
+    "used": [
+      {"@id": "ega:EGAN00090000901", "@type": "ega:biomaterial"}
+    ],
+    "generated": [
+      {"@id": "ega:EGAN00090000902", "@type": "ega:biomaterial"}
+    ],
+    "parameters": [
+      {
+        "parameterReference": {"@id": "ega:EGAT00000000001#section-thickness"},
+        "value": 10
+      }
+    ]
+  }
+}

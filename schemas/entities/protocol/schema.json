@@ -8,7 +8,7 @@
   "description": "Detailed plan of instructions on how a procedure is done. For example, sample preparation, sequencing or feature extraction techniques.",
   "@context": "./context.jsonld",
   "required": ["@id"],
-  "$comment": "Protocol parameters may be added in the future to compare expected parameters from the protocol with values provided by an executed process. Candidate models include the process parameters array, schema:StatisticalVariable, and schema:PropertyValue.",
+  "$comment": "Protocol parameter specifications are addressable embedded objects, not top-level EGA entities. JSON Schema cannot verify cross-document membership between Process parameter references and Protocols in a referenced Protocol Collection; FEGA currently assumes that integrity and may add downstream graph validation in the future.",
   "meta:sssomMappings": [
     {
       "predicate_id": "skos:broadMatch",
@@ -63,7 +63,7 @@
       },
       "then": {
         "$comment": "These BioSchemas files were fetched from BioSchemas API. See https://github.com/EGA-archive/fega-metadata-schema/issues/6 for more details.",
-        "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/bioschemas/ComputationalWorkflow_v1.1-DRAFT.json"
+        "$ref": "../../../standards/json-schema/bioschemas/ComputationalWorkflow_v1.1-DRAFT.json"
       }
     },
     {
@@ -82,7 +82,7 @@
       },
       "then": {
         "$comment": "These BioSchemas files were fetched from BioSchemas API. See https://github.com/EGA-archive/fega-metadata-schema/issues/6 for more details.",
-        "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/bioschemas/LabProtocol_v0.8-DRAFT.json"
+        "$ref": "../../../standards/json-schema/bioschemas/LabProtocol_v0.8-DRAFT.json"
       }
     }
   ],
@@ -198,8 +198,19 @@
       ]
     },
 
+    "parameterSpecifications": {
+      "type": "array",
+      "title": "Parameter specifications",
+      "description": "Referenceable parameter declarations for values that may be supplied when this Protocol is executed.",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "../../common/schema.json#/$defs/protocolParameter"
+      }
+    },
+
     "version": {
-      "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/standards/json-schema/bioschemas/ComputationalWorkflow_v1.1-DRAFT.json#/properties/version"
+      "$ref": "../../../standards/json-schema/bioschemas/ComputationalWorkflow_v1.1-DRAFT.json#/properties/version"
     }
   }
 }

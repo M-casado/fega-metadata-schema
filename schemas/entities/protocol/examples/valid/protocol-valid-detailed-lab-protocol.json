@@ -139,6 +139,58 @@
         "@id": "https://doi.org/10.1016/j.xpro.2023.102387",
         "@type": "schema:Article"
       }
+    ],
+    "parameterSpecifications": [
+      {
+        "@id": "ega:EGAT00000000001#sample-volume",
+        "@type": [
+          "bioschemastypes:FormalParameter",
+          "p-plan:Variable"
+        ],
+        "label": "blood sample volume",
+        "description": "Volume of whole blood used per extraction (typical 100-200 µl).",
+        "datatype": "xsd:decimal",
+        "unit": {
+          "id": "UO:0000101",
+          "label": "microliter"
+        },
+        "defaultValue": 100,
+        "valueRequired": true,
+        "multipleValues": false
+      },
+      {
+        "@id": "ega:EGAT00000000001#trizol-to-blood-ratio",
+        "@type": [
+          "bioschemastypes:FormalParameter",
+          "p-plan:Variable"
+        ],
+        "label": "TRIzol to blood ratio",
+        "description": "Volume ratio of TRIzol reagent to blood (recommended 1:1).",
+        "datatype": "xsd:decimal",
+        "unit": {
+          "id": "UO:0010006",
+          "label": "ratio"
+        },
+        "valueRequired": true,
+        "multipleValues": false
+      },
+      {
+        "@id": "ega:EGAT00000000001#centrifugation-speed",
+        "@type": [
+          "bioschemastypes:FormalParameter",
+          "p-plan:Variable"
+        ],
+        "label": "centrifugation speed",
+        "description": "Centrifugation speed used for phase separation (g-force).",
+        "datatype": "xsd:decimal",
+        "unit": {
+          "id": "UO:0000079",
+          "label": "radian per second"
+        },
+        "defaultValue": 250,
+        "valueRequired": true,
+        "multipleValues": false
+      }
     ]
   }
 }

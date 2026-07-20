@@ -36,11 +36,10 @@
         "@id": "prov:hadPlan",
         "@container": "@set"
       },
-      "category": "entityDoc:category",
-      "ProtocolParameter": "http://example.org/base/ProtocolParameter",
-      "parameterName": "entityDoc:parameterName",
-      "value": "entityDoc:value",
-      "unit": "entityDoc:unit"
+      "parameterReference": {
+        "@id": "commonDefinitionsDoc:parameterReference"
+      },
+      "value": "schema:value"
     }
   ]
 }

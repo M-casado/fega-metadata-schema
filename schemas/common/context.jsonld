@@ -45,8 +45,19 @@
             "@container": "@set"
         },
         "type": "commonDefinitionsDoc:type",
+        "category": "commonDefinitionsDoc:category",
+        "datatype": {
+            "@id": "commonDefinitionsDoc:datatype",
+            "@type": "@id"
+        },
         "unit": "commonDefinitionsDoc:unit",
         "value": "commonDefinitionsDoc:value",
+        "defaultValue": "schema:defaultValue",
+        "valueRequired": "schema:valueRequired",
+        "multipleValues": "schema:multipleValues",
+        "parameterReference": {
+            "@id": "commonDefinitionsDoc:parameterReference"
+        },
         "givenName": "schema:givenName",
         "familyName": "schema:familyName",
         "email": "schema:email",
@@ -73,6 +84,7 @@
         "skos": "http://www.w3.org/2004/02/skos/core#",
         "schema": "http://schema.org/",
         "bioschemastypes": "https://discovery.biothings.io/ns/bioschemas/bioschemas:",
+        "p-plan": "http://purl.org/net/p-plan#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "beaconRepo": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/",

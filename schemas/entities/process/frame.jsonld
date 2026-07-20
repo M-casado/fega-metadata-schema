@@ -11,7 +11,14 @@
   "endedAtTime": {},
   "atLocation": {},
   "qualifiedAssociation": {},
-  "parameters": {},
+  "parameters": [
+    {
+      "@embed": "@always",
+      "parameterReference": {
+        "@embed": "@never"
+      }
+    }
+  ],
   "wasInformedBy": [
     {
       "@embed": "@always"
