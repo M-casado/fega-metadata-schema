@@ -1,0 +1,37 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/DAC/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/DAC/schema.json",
+    "@id": "ega:EGAD00000000001",
+    "@type": [
+      "ega:DAC",
+      "org:Organization"
+    ],
+    "title": "DAC with a dataset accession",
+    "description": "Invalid because a DAC must use an EGAC stable identifier.",
+    "status": "released",
+    "contactPoint": [
+      {
+        "@type": "cv:ContactPoint",
+        "email": "dac@example.org"
+      }
+    ],
+    "components": [
+      {
+        "@type": "org:Membership",
+        "agent": {
+          "@type": [
+            "prov:Agent",
+            "prov:Person"
+          ],
+          "name": "Jane Doe"
+        },
+        "roles": [
+          "main_contact", "administrator"
+        ]
+      }
+    ]
+  }
+}

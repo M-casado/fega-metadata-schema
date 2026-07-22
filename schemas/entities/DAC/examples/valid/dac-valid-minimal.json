@@ -1,0 +1,38 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/DAC/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/DAC/schema.json",
+    "@id": "ega:EGAC00000000001",
+    "@type": "ega:DAC",
+    "title": "Example Genomics Data Access Committee",
+    "description": "Committee responsible for reviewing controlled-access requests for the Example Genomics programme.",
+    "status": "released",
+    "contactPoint": [
+      {
+        "@id": "ega:EGAC00000000001#contact-point-1",
+        "@type": "cv:ContactPoint",
+        "email": "dac@example.org"
+      }
+    ],
+    "components": [
+      {
+        "@id": "ega:EGAC00000000001#membership-1",
+        "@type": "org:Membership",
+        "agent": {
+          "@id": "ega:EGAC00000000001#person-1",
+          "@type": [
+            "prov:Agent",
+            "prov:Person"
+          ],
+          "name": "Jane Doe",
+          "email": "jane.doe@example.org"
+        },
+        "roles": [
+          "main_contact", "administrator"
+        ]
+      }
+    ]
+  }
+}

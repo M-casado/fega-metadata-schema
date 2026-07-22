@@ -3823,6 +3823,82 @@
             },
             "required": ["@type"]
         },
+
+        "relationshipItemRestrictionDAC": {
+            "type": "object",
+            "title": "Relationship item restriction: DAC",
+            "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be an EGA Data Access Committee (DAC).",
+            "properties": {
+                "@id": {
+                    "$ref": "../common/schema.json#/$defs/egaStableIdentifierDAC"
+                },
+                "@type": {
+                    "anyOf": [
+                        {
+                            "const": "ega:DAC"
+                        },
+                        {
+                            "type": "array",
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "const": "ega:DAC"
+                                    }
+                                },
+                                {
+                                    "title": "An EGA entity can only have one 'ega:...' type",
+                                    "contains": {
+                                        "$ref": "../common/schema.json#/$defs/egaType"
+                                    },
+                                    "maxContains": 1
+                                }
+                            ],
+                            "minItems": 2,
+                            "uniqueItems": true
+                        }
+                    ]
+                }
+            },
+            "required": ["@type"]
+        },
+
+        "relationshipItemRestrictionPolicy": {
+            "type": "object",
+            "title": "Relationship item restriction: Policy",
+            "description": "This entity is expected to be referenced where needed, as it contains the basic restriction for a relationship item to be an EGA Policy.",
+            "properties": {
+                "@id": {
+                    "$ref": "../common/schema.json#/$defs/egaStableIdentifierPolicy"
+                },
+                "@type": {
+                    "anyOf": [
+                        {
+                            "const": "ega:policy"
+                        },
+                        {
+                            "type": "array",
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "const": "ega:policy"
+                                    }
+                                },
+                                {
+                                    "title": "An EGA entity can only have one 'ega:...' type",
+                                    "contains": {
+                                        "$ref": "../common/schema.json#/$defs/egaType"
+                                    },
+                                    "maxContains": 1
+                                }
+                            ],
+                            "minItems": 2,
+                            "uniqueItems": true
+                        }
+                    ]
+                }
+            },
+            "required": ["@type"]
+        },
         
         "sameAs": {
             "$ref": "../common/schema.json#/$defs/relationshipArray",      

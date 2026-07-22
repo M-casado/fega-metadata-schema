@@ -1,0 +1,848 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/DAC/schema.json",
+  "type": "object",
+  "title": "EGA Data Access Committee metadata schema",
+  "meta:version": "0.0.0",
+  "$async": true,
+  "description": "Metadata for an EGA Data Access Committee (DAC), the body managing data access requests, overseeing the approval process for data usage in accordance with its defined Policy.",
+  "$comment": "#! Instead of EGA stable IDs, the embedded memberships, agents and contact points use JSON-LD identifiers only, including fragment identifiers rooted at the DAC URI (e.g., ega:EGAC00000000001#contact-point-1).",
+  "@context": "./context.jsonld",
+  "required": [
+    "@id",
+    "@type",
+    "title",
+    "description",
+    "status",
+    "contactPoint",
+    "components"
+  ],
+  "meta:sssomMappings": [
+    {
+      "predicate_id": "skos:broadMatch",
+      "object_id": "prov:Organization",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "object_match_field": "rdfs:label",
+      "subject_match_field": "rdfs:label",
+      "match_string": "DAC",
+      "author_id": ["orcid:0000-0002-7747-6256"],
+      "creator_id": ["orcid:0000-0002-7747-6256"],
+      "reviewer_id": [""],
+      "confidence": 1.0,
+      "mapping_date": "2026-07-21"
+    },
+    {
+      "predicate_id": "skos:closeMatch",
+      "object_id": "foaf:Group",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "object_match_field": "rdfs:label",
+      "subject_match_field": "rdfs:label",
+      "match_string": "DAC",
+      "author_id": ["orcid:0000-0002-7747-6256"],
+      "creator_id": ["orcid:0000-0002-7747-6256"],
+      "reviewer_id": [""],
+      "confidence": 1.0,
+      "mapping_date": "2026-07-21"
+    }
+  ],
+  "allOf": [
+    {
+      "title": "Base constraints for JSON-LD",
+      "$ref": "../../../standards/json-schema/json-ld.org/FEGA.jsonld-schema.json"
+    },
+    {
+      "title": "Entity type restriction",
+      "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionDAC"
+    }
+  ],
+  "properties": {
+    "@id": {
+      "$ref": "../../common/schema.json#/$defs/@id",
+      "examples": [
+        "ega:EGAC00000000001",
+        "ega:EGAC00001000002"
+      ]
+    },
+
+    "@type": {
+      "title": "DAC resource type",
+      "description": "JSON-LD types for an EGA DAC.",
+      "allOf": [
+        {
+          "$ref": "../../common/schema.json#/$defs/@type"
+        }
+      ],
+      "examples": [
+        [
+          "ega:DAC",
+          "org:Organization"
+        ],
+        [
+          "ega:DAC",
+          "org:Organization",
+          "prov:Organization",
+          "foaf:Group"
+        ]
+      ]
+    },
+
+    "title": {
+      "title": "DAC title",
+      "description": "A human-readable name for the Data Access Committee.",
+      "allOf": [
+        {
+          "$ref": "../../common/schema.json#/$defs/label"
+        }
+      ],
+      "examples": [
+        "MyStartUp Genomics Data Access Committee",
+        "Northern Health Research DAC"
+      ]
+    },
+
+    "description": {
+      "title": "DAC description",
+      "description": "A brief description of the DAC remit and data-access responsibilities.",
+      "allOf": [
+        {
+          "$ref": "../../common/schema.json#/$defs/description"
+        }
+      ],
+      "examples": [
+        "Committee responsible for reviewing and deciding controlled-access requests for the MyStartUp Genomics programme.",
+        "Institutional committee overseeing data-access decisions for approved secondary-use studies."
+      ]
+    },
+
+    "status": {
+      "type": "string",
+      "title": "DAC status",
+      "description": "The lifecycle status of the DAC record.",
+      "enum": [
+        "draft",
+        "submitted",
+        "frozen",
+        "released",
+        "withdrawn"
+      ],
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:closeMatch",
+          "object_id": "adms:status",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:label",
+          "subject_match_field": "rdfs:label",
+          "match_string": "status",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1.0,
+          "mapping_date": "2026-07-21"
+        }
+      ]
+    },
+
+    "contactPoint": {
+      "type": "array",
+      "title": "Contact points",
+      "description": "Shared or institutional contact information for enquiries addressed to the DAC.",
+      "minItems": 1,
+      "uniqueItems": true,
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:closeMatch",
+          "object_id": "dcat:contactPoint",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:label",
+          "subject_match_field": "rdfs:label",
+          "match_string": "contactPoint",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1.0,
+          "mapping_date": "2026-07-21"
+        },
+        {
+          "predicate_id": "skos:closeMatch",
+          "object_id": "schema:contactPoint",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:label",
+          "subject_match_field": "rdfs:label",
+          "match_string": "contactPoint",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1.0,
+          "mapping_date": "2026-07-21"
+        }
+      ],
+      "items": {
+        "$ref": "#/$defs/contactPoint"
+      },
+      "examples": [
+        [
+          {
+            "@id": "ega:EGAC00000000001#contact-point-1",
+            "@type": "cv:ContactPoint",
+            "email": "dac@example.org"
+          }
+        ],
+        [
+          {
+            "@type": ["cv:ContactPoint", "vcard:Kind"],
+            "email": "access@example.org",
+            "contactPage": "https://example.org/contact/data-access"
+          }
+        ]
+      ]
+    },
+
+    "components": {
+      "type": "array",
+      "title": "DAC components",
+      "description": "Memberships that identify the people, organisations and other agents participating in the DAC.",
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:closeMatch",
+          "object_id": "org:Membership",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:label",
+          "subject_match_field": "rdfs:label",
+          "match_string": "components",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1.0,
+          "mapping_date": "2026-07-21"
+        }
+      ],
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/component"
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": ["roles"],
+            "properties": {
+              "roles": {
+                "type": "array",
+                "contains": {
+                  "const": "main_contact"
+                }
+              }
+            }
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": ["roles"],
+            "properties": {
+              "roles": {
+                "type": "array",
+                "contains": {
+                  "const": "administrator"
+                }
+              }
+            }
+          },
+          "minContains": 1
+        }
+      ],
+      "examples": [
+        [
+          {
+            "@id": "ega:EGAC00000000001#membership-1",
+            "@type": "org:Membership",
+            "agent": {
+              "@type": ["prov:Agent", "prov:Person"],
+              "name": "Jane Doe"
+            },
+            "roles": ["main_contact", "administrator"]
+          },
+          {
+            "@type": "org:Membership",
+            "agent": {
+              "@type": ["prov:Agent", "prov:Organization"],
+              "name": "Example University"
+            },
+            "roles": ["administrator"]
+          }
+        ]
+      ]
+    },
+
+    "governs": {
+      "type": "array",
+      "title": "Governs Policies",
+      "description": "EGA Policy entities governed by the DAC.",
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:closeMatch",
+          "object_id": "odrl:hasPolicy",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:label",
+          "subject_match_field": "rdfs:label",
+          "match_string": "governs",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1.0,
+          "mapping_date": "2026-07-21"
+        }
+      ],
+      "allOf": [
+        {
+          "$ref": "../../common/schema.json#/$defs/relationshipArray"
+        },
+        {
+          "items": {
+            "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionPolicy"
+          }
+        }
+      ],
+      "examples": [
+        [
+          {
+            "@id": "ega:EGAP00000000001",
+            "@type": "ega:policy"
+          }
+        ],
+        [
+          {
+            "@id": "ega:EGAP00000000001",
+            "@type": "ega:policy"
+          },
+          {
+            "@id": "ega:EGAP00000000002",
+            "@type": "ega:policy"
+          }
+        ]
+      ]
+    },
+
+    "jurisdiction": {
+      "type": "array",
+      "title": "Jurisdiction",
+      "description": "Jurisdictions or territories in which the DAC or its authority operates.",
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:exactMatch",
+          "object_id": "dpv:hasJurisdiction",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:label",
+          "subject_match_field": "rdfs:label",
+          "match_string": "jurisdiction",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1.0,
+          "mapping_date": "2026-07-21"
+        }
+      ],
+      "allOf": [
+        {
+          "$ref": "../../common/schema.json#/$defs/relationshipArray"
+        }
+      ],
+      "examples": [
+        [
+          {
+            "@id": "http://publications.europa.eu/resource/authority/country/GBR",
+            "label": "United Kingdom",
+            "@type": "dpv:hasJurisdiction"
+          },
+          {
+            "@id": "http://publications.europa.eu/resource/authority/country/DEU"
+          }
+        ],
+        [
+          {
+            "@id": "http://publications.europa.eu/resource/authority/country/DEU",
+            "label": "Germany",
+            "@type": "dpv:hasJurisdiction"
+          }
+        ]
+      ]
+    },
+
+    "applicableLegislation": {
+      "type": "array",
+      "title": "Applicable legislation",
+      "description": "Legal instruments under which the DAC operates.",
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:exactMatch",
+          "object_id": "dcatap:applicableLegislation",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:label",
+          "subject_match_field": "rdfs:label",
+          "match_string": "applicableLegislation",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1.0,
+          "mapping_date": "2026-07-21"
+        }
+      ],
+      "allOf": [
+        {
+          "$ref": "../../common/schema.json#/$defs/relationshipArray"
+        }
+      ],
+      "examples": [
+        [
+          {
+            "@id": "http://data.europa.eu/eli/reg/2016/679/2016-05-04",
+            "label": "General Data Protection Regulation",
+            "@type": "dcatap:applicableLegislation"
+          }
+        ],
+        [
+          {
+            "@id": "http://data.europa.eu/eli/reg/2022/868/oj",
+            "label": "Data Governance Act"
+          }
+        ]
+      ]
+    },
+
+    "sameAs": {
+      "title": "Same as",
+      "description": "External or equivalent identifiers for the DAC.",
+      "allOf": [
+        {
+          "$ref": "../../common/schema.json#/$defs/sameAs"
+        }
+      ],
+      "examples": [
+        [
+          {
+            "@id": "https://example.org/dacs/example-genomics-dac"
+          }
+        ],
+        [
+          {
+            "@id": "https://registry.example.org/committees/example-genomics-dac"
+          }
+        ]
+      ]
+    }
+  },
+  
+  "$defs": {
+    "contactPoint": {
+      "type": "object",
+      "title": "DAC contact point",
+      "description": "A contact point for DAC enquiries. Email is the principal contact method for a DAC.",
+      "required": ["@type", "email"],
+      "properties": {
+        "@id": {
+          "$ref": "../../common/schema.json#/$defs/@id",
+          "examples": [
+            "ega:EGAC00000000001#contact-point-1",
+            "https://example.org/contact-points/example-dac"
+          ]
+        },
+        "@type": {
+          "anyOf": [
+            {
+              "const": "cv:ContactPoint"
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "uniqueItems": true,
+              "contains": {
+                "const": "cv:ContactPoint"
+              }
+            }
+          ],
+          "examples": [
+            "cv:ContactPoint",
+            ["cv:ContactPoint", "vcard:Kind"]
+          ]
+        },
+        "email": {
+          "type": "string",
+          "title": "Contact email",
+          "description": "An email address for DAC enquiries.",
+          "format": "email",
+          "examples": [
+            "dac@example.org",
+            "data-access@example.org"
+          ]
+        },
+        "telephone": {
+          "type": "string",
+          "title": "Contact telephone number",
+          "description": "A telephone number for DAC enquiries in E.164 format.",
+          "pattern": "^\\+[1-9][0-9]{1,14}$",
+          "examples": [
+            "+442012345678",
+            "+15551234567"
+          ]
+        },
+        "contactPage": {
+          "title": "Contact page",
+          "description": "An optional web page with further DAC contact information.",
+          "allOf": [
+            {
+              "$ref": "../../common/schema.json#/$defs/externalIdentifier"
+            }
+          ],
+          "examples": [
+            "https://example.org/contact/data-access",
+            "https://example.org/dac/help"
+          ]
+        }
+      },
+      "examples": [
+        {
+          "@id": "ega:EGAC00000000001#contact-point-1",
+          "@type": "cv:ContactPoint",
+          "email": "dac@example.org",
+          "telephone": "+442012345678"
+        },
+        {
+          "@type": ["cv:ContactPoint", "vcard:Kind"],
+          "email": "access@example.org",
+          "contactPage": "https://example.org/contact/data-access"
+        }
+      ]
+    },
+
+    "component": {
+      "type": "object",
+      "title": "DAC component membership",
+      "description": "A membership that relates an agent to the DAC and states the roles that agent performs.",
+      "required": ["@type", "agent", "roles"],
+      "properties": {
+        "@id": {
+          "$ref": "../../common/schema.json#/$defs/@id",
+          "examples": [
+            "ega:EGAC00000000001#membership-1",
+            "urn:uuid:bd08aa08-47ac-412d-b978-68660c23928e"
+          ]
+        },
+        "@type": {
+          "anyOf": [
+            {
+              "const": "org:Membership"
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "uniqueItems": true,
+              "contains": {
+                "const": "org:Membership"
+              }
+            }
+          ],
+          "examples": [
+            "org:Membership",
+            ["org:Membership", "prov:Association"]
+          ]
+        },
+        "agent": {
+          "title": "Component agent",
+          "description": "The participating person, organisation or other agent.",
+          "$ref": "#/$defs/componentAgent",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:closeMatch",
+              "object_id": "org:member",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2026-07-21"
+            },
+            {
+              "predicate_id": "skos:closeMatch",
+              "object_id": "schema:member",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:comment",
+              "subject_match_field": "rdfs:comment",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2026-07-21"
+            }
+          ],
+          "examples": [
+            {
+              "@type": ["prov:Agent", "prov:Person"],
+              "name": "Jane Doe"
+            },
+            {
+              "@type": ["prov:Agent", "prov:Organization"],
+              "name": "Example University"
+            }
+          ]
+        },
+        "agentType": {
+          "title": "Agent classification",
+          "description": "An optional concept classifying the nature of the agent, for example an EHDS Health Data Access Body. Structural classes belong in '@type'.",
+          "allOf": [
+            {
+              "$ref": "../../common/schema.json#/$defs/externalIdentifier"
+            }
+          ],
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "dct:type",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "match_string": "agentType",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2026-07-21"
+            }
+          ],
+          "examples": [
+            "eu-ehds:HealthDataAccessBody",
+            "https://w3id.org/dpv/legal/eu/ehds#HealthDataHolder"
+          ]
+        },
+        "roles": {
+          "type": "array",
+          "title": "DAC roles",
+          "description": "Roles the agent performs in the DAC membership.",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "administrator",
+              "member",
+              "reviewer",
+              "approver",
+              "main_contact"
+            ],
+            "examples": [
+              "administrator",
+              "main_contact"
+            ]
+          },
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "org:role",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "match_string": "roles",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2026-07-21"
+            }
+          ],
+          "examples": [
+            ["main_contact"],
+            ["administrator", "approver"]
+          ]
+        }
+      },
+      "examples": [
+        {
+          "@id": "ega:EGAC00000000001#membership-1",
+          "@type": "org:Membership",
+          "agent": {
+            "@type": ["prov:Agent", "prov:Person"],
+            "name": "Jane Doe"
+          },
+          "roles": ["main_contact", "administrator"]
+        },
+        {
+          "@type": "org:Membership",
+          "agent": {
+            "@type": ["prov:Agent", "prov:Organization"],
+            "name": "Example University"
+          },
+          "agentType": "eu-ehds:HealthDataAccessBody",
+          "roles": ["administrator"]
+        }
+      ]
+    },
+
+    "componentAgent": {
+      "type": "object",
+      "title": "DAC component agent",
+      "description": "A named participant in a DAC membership.",
+      "allOf": [
+        {
+          "$ref": "../../common/schema.json#/$defs/agent"
+        }
+      ],
+      "required": ["@type", "name"],
+      "properties": {
+        "@id": {
+          "$ref": "../../common/schema.json#/$defs/@id",
+          "examples": [
+            "orcid:0000-0002-1584-4316",
+            "ega:EGAC00000000001#person-1"
+          ]
+        },
+        "@type": {
+          "allOf": [
+            {
+              "$ref": "../../common/schema.json#/$defs/@type"
+            }
+          ],
+          "examples": [
+            ["prov:Agent", "prov:Person"],
+            ["prov:Agent", "prov:Organization"]
+          ]
+        },
+        "name": {
+          "title": "Component agent name",
+          "description": "The name of the participating person or organisation.",
+          "allOf": [
+            {
+              "$ref": "../../common/schema.json#/$defs/label"
+            }
+          ],
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "foaf:name",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "match_string": "name",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2026-07-21"
+            }
+          ],
+          "examples": [
+            "Jane Doe",
+            "Example University Health Data Access Body"
+          ]
+        },
+        "email": {
+          "type": "string",
+          "title": "Component agent email",
+          "description": "An email address for the participating agent, where appropriate.",
+          "format": "email",
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:closeMatch",
+              "object_id": "schema:email",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "match_string": "email",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2026-07-21"
+            }
+          ],
+          "examples": [
+            "jane.doe@example.org",
+            "data-access@example.org"
+          ]
+        },
+        "affiliations": {
+          "type": "array",
+          "title": "Affiliations",
+          "description": "ROR organisations with which the participating agent is affiliated.",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "../../common/schema.json#/$defs/organisation"
+          },
+          "meta:sssomMappings": [
+            {
+              "predicate_id": "skos:exactMatch",
+              "object_id": "schema:affiliation",
+              "mapping_justification": "semapv:ManualMappingCuration",
+              "object_match_field": "rdfs:label",
+              "subject_match_field": "rdfs:label",
+              "match_string": "affiliations",
+              "author_id": ["orcid:0000-0002-7747-6256"],
+              "creator_id": ["orcid:0000-0002-7747-6256"],
+              "reviewer_id": [""],
+              "confidence": 1.0,
+              "mapping_date": "2026-07-21"
+            }
+          ],
+          "examples": [
+            [
+              {
+                "id": "ror:02catss52",
+                "label": "European Bioinformatics Institute"
+              }
+            ],
+            [
+              {
+                "id": "ror:00k4n6c32",
+                "label": "European Commission"
+              }
+            ]
+          ]
+        },
+        "sameAs": {
+          "title": "Same as",
+          "description": "External identifiers or resources representing the same component agent.",
+          "allOf": [
+            {
+              "$ref": "../../common/schema.json#/$defs/sameAs"
+            }
+          ],
+          "examples": [
+            [
+              {
+                "@id": "https://orcid.org/0000-0002-1584-4316"
+              }
+            ],
+            [
+              {
+                "@id": "https://ror.org/02catss52"
+              }
+            ]
+          ]
+        }
+      },
+      "examples": [
+        {
+          "@id": "orcid:0000-0002-1584-4316",
+          "@type": ["prov:Agent", "prov:Person"],
+          "name": "Jane Doe",
+          "email": "jane.doe@example.org",
+          "affiliations": [
+            {
+              "id": "ror:02catss52",
+              "label": "European Bioinformatics Institute"
+            }
+          ]
+        },
+        {
+          "@id": "https://ror.org/02catss52",
+          "@type": ["prov:Agent", "prov:Organization"],
+          "name": "European Bioinformatics Institute",
+          "email": "data-access@example.org"
+        }
+      ]
+    }
+  }
+}

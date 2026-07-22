@@ -1,0 +1,59 @@
+{
+  "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/DAC/schema.json",
+  "@type": ["ega:DAC", "org:Organization"],
+  "@embed": "@always",
+  "@explicit": false,
+
+  "title": {},
+  "description": {},
+  "status": {},
+  "contactPoint": [
+    {
+      "@embed": "@always",
+      "email": {},
+      "contactPage": {}
+    }
+  ],
+  "components": [
+    {
+      "@embed": "@always",
+      "agent": {
+        "@embed": "@always",
+        "name": {},
+        "email": {},
+        "affiliations": [
+          {
+            "@embed": "@always"
+          }
+        ],
+        "sameAs": [
+          {
+            "@embed": "@always"
+          }
+        ]
+      },
+      "agentType": {},
+      "roles": {}
+    }
+  ],
+  "governs": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "jurisdiction": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "applicableLegislation": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "sameAs": [
+    {
+      "@embed": "@always"
+    }
+  ]
+}

@@ -98,6 +98,8 @@
         "isa": "https://isa-specs.readthedocs.io/en/latest/isajson.html#",
         "edam": "http://edamontology.org/",
         "spdx": "http://spdx.org/rdf/terms#",
+        "org": "http://www.w3.org/ns/org#",
+        "eu-ehds": "https://w3id.org/dpv/legal/eu/ehds#",
 
 
         "dcat": "http://www.w3.org/ns/dcat#",

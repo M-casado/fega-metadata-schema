@@ -1,0 +1,37 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/DAC/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/DAC/schema.json",
+    "@id": "ega:EGAC00000000003",
+    "@type": [
+      "ega:DAC",
+      "org:Organization"
+    ],
+    "title": "DAC without a contact email",
+    "description": "Invalid because every DAC contact point must provide an email address.",
+    "status": "released",
+    "contactPoint": [
+      {
+        "@type": "cv:ContactPoint",
+        "contactPage": "https://example.org/contact"
+      }
+    ],
+    "components": [
+      {
+        "@type": "org:Membership",
+        "agent": {
+          "@type": [
+            "prov:Agent",
+            "prov:Person"
+          ],
+          "name": "Jane Doe"
+        },
+        "roles": [
+          "main_contact", "administrator"
+        ]
+      }
+    ]
+  }
+}

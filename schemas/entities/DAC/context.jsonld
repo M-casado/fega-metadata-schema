@@ -1,0 +1,86 @@
+{
+  "@context": [
+    "../../common/context.jsonld",
+    {
+      "entityDoc": "entities:DAC/schema.json#",
+      "properties": "@nest",
+      "org": "http://www.w3.org/ns/org#",
+      "eli": "http://data.europa.eu/eli/ontology#",
+      "eu-ehds": "https://w3id.org/dpv/legal/eu/ehds#",
+      "title": {
+        "@id": "dct:title"
+      },
+      "description": {
+        "@id": "dct:description"
+      },
+      "status": {
+        "@id": "adms:status",
+        "@type": "@vocab"
+      },
+      "pending_validation": "entityDoc:status/pending-validation",
+      "active": "entityDoc:status/active",
+      "deprecated": "entityDoc:status/deprecated",
+      "contactPoint": {
+        "@id": "dcat:contactPoint",
+        "@container": "@set",
+        "@context": {
+          "email": "cv:email",
+          "contactPage": {
+            "@id": "cv:contactPage",
+            "@type": "@id"
+          }
+        }
+      },
+      "contactPage": {
+        "@id": "cv:contactPage",
+        "@type": "@id"
+      },
+      "components": {
+        "@reverse": "org:organization",
+        "@container": "@set"
+      },
+      "agent": {
+        "@id": "org:member"
+      },
+      "name": {
+        "@id": "foaf:name"
+      },
+      "email": {
+        "@id": "schema:email"
+      },
+      "atLocation": {
+        "@id": "prov:atLocation"
+      },
+      "affiliations": {
+        "@id": "schema:affiliation",
+        "@container": "@set"
+      },
+      "agentType": {
+        "@id": "dct:type",
+        "@type": "@id"
+      },
+      "roles": {
+        "@id": "org:role",
+        "@type": "@vocab",
+        "@container": "@set"
+      },
+      "administrator": "entityDoc:roles/administrator",
+      "member": "entityDoc:roles/member",
+      "reviewer": "entityDoc:roles/reviewer",
+      "approver": "entityDoc:roles/approver",
+      "main_contact": "entityDoc:roles/main-contact",
+      "governs": {
+        "@id": "odrl:hasPolicy",
+        "@container": "@set"
+      },
+      "jurisdiction": {
+        "@id": "dpv:hasJurisdiction",
+        "@container": "@set"
+      },
+      "applicableLegislation": {
+        "@id": "dcatap:applicableLegislation",
+        "@container": "@set"
+      }
+    }
+  ]
+}

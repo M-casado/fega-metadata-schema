@@ -1,0 +1,108 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/DAC/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/DAC/schema.json",
+    "@id": "ega:EGAC00000000002",
+    "@type": [
+      "ega:DAC",
+      "org:Organization",
+      "prov:Organization",
+      "foaf:Group"
+    ],
+    "title": "Northern Health Research Data Access Committee",
+    "description": "Institutional committee that evaluates requests for controlled access to northern health research datasets and records decisions under the associated EGA Policies.",
+    "status": "released",
+    "contactPoint": [
+      {
+        "@id": "ega:EGAC00000000002#contact-point-1",
+        "@type": [
+          "cv:ContactPoint",
+          "vcard:Kind"
+        ],
+        "email": "northern-dac@example.org",
+        "contactPage": "https://example.org/dac/northern-health/contact"
+      }
+    ],
+    "components": [
+      {
+        "@id": "ega:EGAC00000000002#membership-1",
+        "@type": "org:Membership",
+        "agent": {
+          "@id": "orcid:0000-0002-1584-4316",
+          "@type": [
+            "prov:Agent",
+            "prov:Person"
+          ],
+          "name": "Jane Doe",
+          "email": "jane.doe@example.org",
+          "sameAs": [
+            {
+              "@id": "https://orcid.org/0000-0002-1584-4316"
+            }
+          ]
+        },
+        "roles": [
+          "main_contact",
+          "reviewer"
+        ]
+      },
+      {
+        "@id": "ega:EGAC00000000002#membership-2",
+        "@type": "org:Membership",
+        "agent": {
+          "@id": "https://ror.org/02catss52",
+          "@type": [
+            "prov:Agent",
+            "prov:Organization"
+          ],
+          "name": "Example University Health Data Access Body",
+          "email": "access-body@example.org",
+          "telephone": "+442012345678",
+          "sameAs": [
+            {
+              "@id": "https://example.org/organisations/example-university-hdab"
+            }
+          ]
+        },
+        "agentType": "eu-ehds:HealthDataAccessBody",
+        "roles": [
+          "administrator",
+          "approver"
+        ]
+      }
+    ],
+    "governs": [
+      {
+        "@id": "ega:EGAP00000000001",
+        "@type": "ega:policy"
+      },
+      {
+        "@id": "ega:EGAP00000000002",
+        "@type": "ega:policy"
+      }
+    ],
+    "jurisdiction": [
+      {
+        "@id": "http://publications.europa.eu/resource/authority/country/GBR",
+        "label": "United Kingdom"
+      }
+    ],
+    "applicableLegislation": [
+      {
+        "@id": "http://data.europa.eu/eli/reg/2016/679/2016-05-04",
+        "label": "General Data Protection Regulation"
+      },
+      {
+        "@id": "http://data.europa.eu/eli/reg/2022/868/oj",
+        "label": "Data Governance Act"
+      }
+    ],
+    "sameAs": [
+      {
+        "@id": "https://registry.example.org/dacs/northern-health-research"
+      }
+    ]
+  }
+}
