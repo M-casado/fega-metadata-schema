@@ -61,6 +61,8 @@
         "givenName": "schema:givenName",
         "familyName": "schema:familyName",
         "email": "schema:email",
+        "telephone": "schema:telephone",
+        "status": "adms:status",
 
         "schemas": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/",
         "entities": "schemas:entities/",

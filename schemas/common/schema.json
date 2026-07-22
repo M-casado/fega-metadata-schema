@@ -2037,30 +2037,59 @@
             ],
             "anyOf": [
                 {
-                    "title": "HealthDCAT-AP distribution status CV list",
-                    "enum": ["OP_DATPRO", "WITHDRAWN", "COMPLETED", "DEPRECATED", "DEVELOP" ],
-                    "meta:enum": {
-                        "OP_DATPRO": "http://publications.europa.eu/resource/authority/distribution-status/OP_DATPRO",
-                        "WITHDRAWN": "http://publications.europa.eu/resource/authority/distribution-status/WITHDRAWN",
-                        "COMPLETED": "http://publications.europa.eu/resource/authority/distribution-status/COMPLETED",
-                        "DEPRECATED": "http://publications.europa.eu/resource/authority/distribution-status/DEPRECATED",
-                        "DEVELOP": "http://publications.europa.eu/resource/authority/distribution-status/DEVELOP"
-                    }
+                    "$ref": "../common/schema.json#/$defs/statusHealthDCAT-AP"
                 },
                 {
-                    "title": "EGA SP API status CV list",
-                    "enum": [ "open", "waiting_approval", "waiting_deprecation_approval", "not released", "released", "deprecated" ],
-                    "meta:enum": {
-                        "open": "New submission or existing resource that has been modified.",
-                        "waiting_approval": "Submission has been finalised and it is waiting to be accepted by HD for release.",
-                        "waiting_deprecation_approval": "Resource is waiting for approval to be deprecated.",
-                        "not released": "Submission is not yet released.",
-                        "released": "Resource has been released.",
-                        "deprecated": "Resource has been deprecated."
-                    }
-                }
+                    "$ref": "../common/schema.json#/$defs/statusSubmitterPortalAPI"
+                },
+                {
+                    "$ref": "../common/schema.json#/$defs/statusSubmissionLifeCycle"
+                }                
             ],
             "$comment": "#! We'll need to agree on a set of statuses for asset lifecycle, not to have a big overlap between DCAT's and EGA's internal definitions. Furthermore, we need to converge status terms as much as possible with regards to the contexts, to avoid using an endless list of very similar statuses."
+        },
+
+        "statusHealthDCAT-AP": {
+            "title": "HealthDCAT-AP distribution status CV list",
+            "enum": ["OP_DATPRO", "WITHDRAWN", "COMPLETED", "DEPRECATED", "DEVELOP" ],
+            "meta:enum": {
+                "OP_DATPRO": "http://publications.europa.eu/resource/authority/distribution-status/OP_DATPRO",
+                "WITHDRAWN": "http://publications.europa.eu/resource/authority/distribution-status/WITHDRAWN",
+                "COMPLETED": "http://publications.europa.eu/resource/authority/distribution-status/COMPLETED",
+                "DEPRECATED": "http://publications.europa.eu/resource/authority/distribution-status/DEPRECATED",
+                "DEVELOP": "http://publications.europa.eu/resource/authority/distribution-status/DEVELOP"
+            }
+        },
+
+        "statusSubmitterPortalAPI": {
+            "title": "EGA SP API status CV list",
+            "enum": [ "open", "waiting_approval", "waiting_deprecation_approval", "not released", "released", "deprecated" ],
+            "meta:enum": {
+                "open": "New submission or existing resource that has been modified.",
+                "waiting_approval": "Submission has been finalised and it is waiting to be accepted by HD for release.",
+                "waiting_deprecation_approval": "Resource is waiting for approval to be deprecated.",
+                "not released": "Submission is not yet released.",
+                "released": "Resource has been released.",
+                "deprecated": "Resource has been deprecated."
+            }
+        },
+
+        "statusSubmissionLifeCycle": {
+            "title": "EGA Submission life-cycle entity statuses",
+            "enum": [
+                "draft",
+                "submitted",
+                "frozen",
+                "released",
+                "withdrawn"
+            ],
+            "meta:enum": {
+                "draft": "Entry is being prepared but not yet submitted.",
+                "submitted": "Submission has been made and awaits release.",
+                "frozen": "Submission content is locked and cannot be changed.",
+                "released": "Submission has been accepted and is available.",
+                "withdrawn": "Submission has been retracted and is no longer active."
+            }
         },
 
         "qualifiedAssociation": {

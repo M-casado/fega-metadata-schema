@@ -13,18 +13,12 @@
       "description": {
         "@id": "dct:description"
       },
-      "status": {
-        "@id": "adms:status",
-        "@type": "@vocab"
-      },
-      "pending_validation": "entityDoc:status/pending-validation",
-      "active": "entityDoc:status/active",
-      "deprecated": "entityDoc:status/deprecated",
       "contactPoint": {
         "@id": "dcat:contactPoint",
         "@container": "@set",
         "@context": {
           "email": "cv:email",
+          "telephone": "cv:telephone",
           "contactPage": {
             "@id": "cv:contactPage",
             "@type": "@id"
@@ -44,9 +38,6 @@
       },
       "name": {
         "@id": "foaf:name"
-      },
-      "email": {
-        "@id": "schema:email"
       },
       "atLocation": {
         "@id": "prov:atLocation"

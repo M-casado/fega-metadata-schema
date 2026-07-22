@@ -115,16 +115,8 @@
     },
 
     "status": {
-      "type": "string",
       "title": "DAC status",
       "description": "The lifecycle status of the DAC record.",
-      "enum": [
-        "draft",
-        "submitted",
-        "frozen",
-        "released",
-        "withdrawn"
-      ],
       "meta:sssomMappings": [
         {
           "predicate_id": "skos:closeMatch",
@@ -138,6 +130,11 @@
           "reviewer_id": [""],
           "confidence": 1.0,
           "mapping_date": "2026-07-21"
+        }
+      ],
+      "allOf": [
+        {
+          "$ref": "../../common/schema.json#/$defs/statusSubmissionLifeCycle"
         }
       ]
     },
