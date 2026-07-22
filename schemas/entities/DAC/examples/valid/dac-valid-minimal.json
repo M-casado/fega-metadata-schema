@@ -11,17 +11,14 @@
     "status": "released",
     "contactPoint": [
       {
-        "@id": "ega:EGAC00000000001#contact-point-1",
         "@type": "cv:ContactPoint",
         "email": "dac@example.org"
       }
     ],
     "components": [
       {
-        "@id": "ega:EGAC00000000001#membership-1",
         "@type": "org:Membership",
         "agent": {
-          "@id": "ega:EGAC00000000001#person-1",
           "@type": [
             "prov:Agent",
             "prov:Person"
