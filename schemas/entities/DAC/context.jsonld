@@ -61,7 +61,7 @@
       "approver": "entityDoc:roles/approver",
       "main_contact": "entityDoc:roles/main-contact",
       "governs": {
-        "@id": "odrl:hasPolicy",
+        "@id": "entityDoc:governs",
         "@container": "@set"
       },
       "jurisdiction": {

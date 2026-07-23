@@ -395,6 +395,58 @@
             ]
         },
 
+        "periodOfTime": {
+            "type": "object",
+            "title": "Period of time",
+            "description": "An interval with an optional beginning and/or end, represented using the DCAT Period of Time date properties.",
+            "anyOf": [
+                { "required": ["startDate"] },
+                { "required": ["endDate"] }
+            ],
+            "properties": {
+                "@id": {
+                    "$ref": "../common/schema.json#/$defs/@id"
+                },
+                "@type": {
+                    "allOf": [
+                        {
+                            "$ref": "../common/schema.json#/$defs/@type"
+                        },
+                        {
+                            "anyOf": [
+                                {
+                                    "const": "dct:PeriodOfTime"
+                                },
+                                {
+                                    "type": "array",
+                                    "contains": {
+                                        "const": "dct:PeriodOfTime"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "startDate": {
+                    "$ref": "../common/schema.json#/$defs/dateTime"
+                },
+                "endDate": {
+                    "$ref": "../common/schema.json#/$defs/dateTime"
+                }
+            },
+            "examples": [
+                {
+                    "@type": "dct:PeriodOfTime",
+                    "startDate": "2026-01-01T00:00:00Z",
+                    "endDate": "2028-12-31T23:59:59Z"
+                },
+                {
+                    "startDate": "2026-01-01T00:00:00Z",
+                    "endDate": "2028-12-31T23:59:59Z"
+                }
+            ]
+        },
+
         "HL7NullFlavor": {
             "title": "HL7 Null Flavor",
             "description": "Captures why a value is missing, unknown, or inapplicable, per a subset of the HL7 Null Flavor codes. See more details at 'https://build.fhir.org/ig/HL7/UTG/CodeSystem-v3-NullFlavor.html'.",
@@ -2773,7 +2825,7 @@
         "dataUsePermission": {
             "title": "Data Use Permission",
             "description": "Indicates consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used.",
-            "meta:SSSOMappings": [
+            "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
                     "object_id": "DUO:0000001",
@@ -2821,7 +2873,7 @@
 
         "dataUseModifier": {
             "title": "Data Use Modifier",
-            "meta:SSSOMappings": [
+            "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
                     "object_id": "DUO:0000017",
@@ -2871,7 +2923,7 @@
             "title": "Data Use Condition",
             "description": "Object denoting a single data use permission and the data use modifiers that apply to it.",
             "type": "object",
-            "meta:SSSOMappings": [
+            "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:exactMatch",
                     "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/common/dataUseConditions.json#$defs/DUODataUse",
@@ -3910,6 +3962,11 @@
                                 {
                                     "contains": {
                                         "const": "ega:policy"
+                                    }
+                                },
+                                {
+                                    "contains": {
+                                        "const": "dct:Policy"
                                     }
                                 },
                                 {

@@ -1,0 +1,66 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/policy/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/policy/schema.json",
+    "@id": "ega:EGAP00001000001",
+    "@type": [
+      "ega:policy",
+      "dct:Policy",
+      "prov:Entity"
+    ],
+    "title": "Northern Health Research Controlled-Access Policy",
+    "description": "Data Access Agreement and use conditions for secondary research on the Northern Health Research programme datasets.",
+    "status": "released",
+    "governedBy": [
+      {
+        "@id": "ega:EGAC00000000002",
+        "@type": ["ega:DAC", "org:Organization"]
+      }
+    ],
+    "policyDocument": "https://example.org/policies/northern-health-research-v2.pdf",
+    "dataUseConditions": [
+      {
+        "id": "DUO:0000042",
+        "label": "general research use",
+        "modifiers": [
+          {
+            "id": "DUO:0000043",
+            "label": "clinical care use"
+          },
+          {
+            "id": "DUO:0000046",
+            "label": "non-commercial use only"
+          }
+        ],
+        "version": "2021-02-23"
+      }
+    ],
+    "relatedResource": [
+      "https://example.org/data-access-agreements/northern-health-research",
+      "doi:10.1234/northern-health-policy"
+    ],
+    "version": "2",
+    "validityPeriod": {
+      "@type": "dct:PeriodOfTime",
+      "startDate": "2026-01-01T00:00:00Z",
+      "endDate": "2028-12-31T23:59:59Z"
+    },
+    "appliesTo": [
+      {
+        "@id": "ega:EGAD00000000001",
+        "@type": ["ega:dataset", "dcat:Dataset"]
+      },
+      {
+        "@id": "ega:EGAD00000000002",
+        "@type": ["ega:dataset", "dcat:Dataset"]
+      }
+    ],
+    "sameAs": [
+      {
+        "@id": "https://registry.example.org/policies/northern-health-research-v2"
+      }
+    ]
+  }
+}

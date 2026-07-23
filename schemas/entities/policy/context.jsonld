@@ -1,0 +1,60 @@
+{
+  "@context": [
+    "../../common/context.jsonld",
+    {
+      "entityDoc": "entities:policy/schema.json#",
+      "dacDoc": "entities:DAC/schema.json#",
+      "properties": "@nest",
+      "@version": 1.1,
+      "@vocab": "entityDoc:",
+      "text": null,
+      "title": {
+        "@id": "dct:title"
+      },
+      "description": {
+        "@id": "dct:description"
+      },
+      "status": {
+        "@id": "adms:status"
+      },
+      "governedBy": {
+        "@reverse": "dacDoc:governs",
+        "@container": "@set"
+      },
+      "policyText": {
+        "@id": "schema:text"
+      },
+      "policyDocument": {
+        "@id": "foaf:page",
+        "@type": "@id"
+      },
+      "dataUseConditions": {
+        "@id": "entityDoc:dataUseConditions",
+        "@container": "@set"
+      },
+      "relatedResource": {
+        "@id": "dct:relation",
+        "@type": "@id",
+        "@container": "@set"
+      },
+      "version": {
+        "@id": "dcat:version"
+      },
+      "validityPeriod": {
+        "@id": "entityDoc:validityPeriod"
+      },
+      "startDate": {
+        "@id": "dcat:startDate",
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+      },
+      "endDate": {
+        "@id": "dcat:endDate",
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+      },
+      "appliesTo": {
+        "@reverse": "dct:rights",
+        "@container": "@set"
+      }
+    }
+  ]
+}

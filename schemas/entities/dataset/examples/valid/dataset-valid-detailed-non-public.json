@@ -57,23 +57,6 @@
     ],
     "version": "v1.0.0",
     "status": "COMPLETED",
-    "dataUseConditions": [
-      {
-        "id": "DUO:0000042",
-        "label": "general research use",
-        "modifiers": [
-          {
-            "id": "DUO:0000043",
-            "label": "clinical care use"
-          },
-          {
-            "id": "DUO:0000046",
-            "label": "non-commercial use only"
-          }
-        ],
-        "version": "1.0"
-      }
-    ],
     "measurementTechnique": [
       {
         "id": "EFO:0004507",

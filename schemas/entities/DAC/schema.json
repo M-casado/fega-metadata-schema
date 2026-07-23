@@ -279,17 +279,30 @@
       "description": "EGA Policy entities governed by the DAC.",
       "meta:sssomMappings": [
         {
-          "predicate_id": "skos:closeMatch",
-          "object_id": "odrl:hasPolicy",
+          "predicate_id": "skos:relatedMatch",
+          "object_id": "prov:wasAttributedTo",
           "mapping_justification": "semapv:ManualMappingCuration",
-          "object_match_field": "rdfs:label",
-          "subject_match_field": "rdfs:label",
+          "object_match_field": "rdfs:comment",
+          "subject_match_field": "rdfs:comment",
           "match_string": "governs",
           "author_id": ["orcid:0000-0002-7747-6256"],
           "creator_id": ["orcid:0000-0002-7747-6256"],
           "reviewer_id": [""],
           "confidence": 1.0,
-          "mapping_date": "2026-07-21"
+          "mapping_date": "2026-07-22"
+        },
+        {
+          "predicate_id": "skos:relatedMatch",
+          "object_id": "dct:creator",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:comment",
+          "subject_match_field": "rdfs:comment",
+          "match_string": "governs",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1.0,
+          "mapping_date": "2026-07-22"
         }
       ],
       "allOf": [

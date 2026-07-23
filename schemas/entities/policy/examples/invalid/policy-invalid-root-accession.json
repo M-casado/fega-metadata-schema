@@ -1,0 +1,20 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/policy/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/policy/schema.json",
+    "@id": "ega:EGAC00000000001",
+    "@type": ["ega:policy", "dct:Policy"],
+    "title": "Example Genomics Data Access Policy",
+    "description": "Terms governing controlled access to the Example Genomics dataset.",
+    "status": "released",
+    "governedBy": [
+      {
+        "@id": "ega:EGAC00000000001",
+        "@type": "ega:DAC"
+      }
+    ],
+    "policyText": "Use of the dataset is limited to the approved research purpose. Users must protect confidentiality, must not attempt re-identification, and must report suspected misuse to the governing DAC."
+  }
+}

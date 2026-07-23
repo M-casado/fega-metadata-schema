@@ -41,7 +41,7 @@
                 "@container": "@set"
             },
             "hasPolicy": {
-                "@id": "dct:hasPolicy",
+                "@id": "dct:rights",
                 "@type": "@id"
             },
             "releaseDate": {
@@ -65,10 +65,6 @@
             },
             "status": {
                 "@id": "adms:status"
-            },
-            "dataUseConditions": {
-                "@id": "beaconRepo:datasets/defaultSchema.json#dataUseConditions",
-                "@container": "@set"
             },
             "measurementTechnique": {
                 "@id": "schema:measurementTechnique",

@@ -1,0 +1,20 @@
+{
+  "schema": {
+    "$ref": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/policy/schema.json"
+  },
+  "data": {
+    "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/policy/schema.json",
+    "@id": "ega:EGAP00000000001",
+    "@type": ["ega:policy", "dct:Policy"],
+    "title": "Example Genomics Data Access Policy",
+    "description": "Terms governing controlled access to the Example Genomics dataset.",
+    "status": "released",
+    "governedBy": [
+      {
+        "@id": "ega:EGAC00000000001",
+        "@type": "ega:DAC"
+      }
+    ],
+    "policyText": ""
+  }
+}

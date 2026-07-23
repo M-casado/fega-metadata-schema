@@ -460,7 +460,7 @@
                 },
                 {
                     "predicate_id": "skos:closeMatch",
-                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/datasets/defaultSchema.json#externalUrl",
+                    "object_id": "beaconRepo:datasets/defaultSchema.json#externalUrl",
                     "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
@@ -607,31 +607,6 @@
                     "mapping_date": "2026-01-29"
                 }
             ]
-        },
-
-        "dataUseConditions": {
-            "title": "Data Use Conditions",
-            "description": "Data use conditions that apply to this dataset.",
-            "type": "array",
-            "meta:sssomMappings": [
-                {
-                    "predicate_id": "skos:exactMatch",
-                    "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/datasets/defaultSchema.json#dataUseConditions",
-                    "mapping_justification": "semapv:ManualMappingCuration",
-                    "object_match_field": "rdfs:label",
-                    "subject_match_field": "rdfs:label",
-                    "author_id": ["orcid:0000-0002-7747-6256"],
-                    "creator_id": ["orcid:0000-0002-7747-6256"],
-                    "reviewer_id": [""],
-                    "confidence": 1.0,
-                    "mapping_date": "2026-01-29"
-                }
-            ],
-            "minItems": 1,
-            "uniqueItems": true,
-            "items": {
-                "$ref": "../../common/schema.json#/$defs/dataUseCondition"
-            }
         },
 
         "measurementTechnique": {
@@ -824,7 +799,7 @@
             "meta:sssomMappings": [
                 {
                     "predicate_id": "skos:closeMatch",
-                    "object_id": "odrl:hasPolicy",
+                    "object_id": "dct:rights",
                     "mapping_justification": "semapv:ManualMappingCuration",
                     "object_match_field": "rdfs:label",
                     "subject_match_field": "rdfs:label",
@@ -832,7 +807,8 @@
                     "creator_id": ["orcid:0000-0002-7747-6256"],
                     "reviewer_id": [""],
                     "confidence": 1.0,
-                    "mapping_date": "2026-01-30"
+                    "mapping_date": "2026-07-22",
+                    "$comment": "#! The EGA hasPolicy JSON property is represented as dct:rights because the Policy is a human-readable rights statement, not an ODRL policy expression."
                 },
                 {
                     "predicate_id": "skos:closeMatch",

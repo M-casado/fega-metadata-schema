@@ -1,0 +1,43 @@
+{
+  "@context": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/policy/schema.json",
+  "@type": ["ega:policy", "dct:Policy", "dct:RightsStatement"],
+  "@embed": "@always",
+  "@explicit": false,
+  "title": {},
+  "description": {},
+  "status": {},
+  "governedBy": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "policyText": {},
+  "policyDocument": {},
+  "dataUseConditions": [
+    {
+      "@embed": "@always",
+      "modifiers": [
+        {
+          "@embed": "@always"
+        }
+      ]
+    }
+  ],
+  "relatedResource": {},
+  "version": {},
+  "validityPeriod": {
+    "@embed": "@always",
+    "startDate": {},
+    "endDate": {}
+  },
+  "appliesTo": [
+    {
+      "@embed": "@always"
+    }
+  ],
+  "sameAs": [
+    {
+      "@embed": "@always"
+    }
+  ]
+}

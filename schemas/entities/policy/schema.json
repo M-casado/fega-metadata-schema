@@ -1,0 +1,426 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/policy/schema.json",
+  "type": "object",
+  "title": "EGA policy metadata schema",
+  "meta:version": "0.0.0",
+  "$async": true,
+  "description": "Data access policy, governing how data is processed, protected, and shared.",
+  "@context": "./context.jsonld",
+  "meta:sssomMappings": [
+    {
+      "predicate_id": "skos:broadMatch",
+      "object_id": "dct:Policy",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "object_match_field": "rdfs:comment",
+      "subject_match_field": "rdfs:comment",
+      "author_id": ["orcid:0000-0002-7747-6256"],
+      "creator_id": ["orcid:0000-0002-7747-6256"],
+      "reviewer_id": [""],
+      "confidence": 1.0,
+      "mapping_date": "2026-07-22",
+      "$comment": "An EGA policy is a specialised DCMI Policy describing controlled-access data-use terms."
+    },
+    {
+      "predicate_id": "skos:exactMatch",
+      "object_id": "egav1crg:Policy",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "object_match_field": "rdfs:label",
+      "subject_match_field": "rdfs:label",
+      "author_id": ["orcid:0000-0002-7747-6256"],
+      "creator_id": ["orcid:0000-0002-7747-6256"],
+      "reviewer_id": [""],
+      "confidence": 1.0,
+      "mapping_date": "2026-07-22"
+    },
+    {
+      "predicate_id": "skos:exactMatch",
+      "object_id": "egav1ebi:Policy",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "object_match_field": "rdfs:label",
+      "subject_match_field": "rdfs:label",
+      "author_id": ["orcid:0000-0002-7747-6256"],
+      "creator_id": ["orcid:0000-0002-7747-6256"],
+      "reviewer_id": [""],
+      "confidence": 1.0,
+      "mapping_date": "2026-07-22"
+    }
+  ],
+  "allOf": [
+    {
+      "title": "Base constraints for JSON-LD",
+      "$ref": "../../../standards/json-schema/json-ld.org/FEGA.jsonld-schema.json"
+    },
+    {
+      "title": "Policy identifier restriction",
+      "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionPolicy"
+    }
+  ],
+  "required": [ "@id", "@type", "title", "description", "status", "governedBy" ],
+  "anyOf": [
+    { "required": ["policyText"] },
+    { "required": ["policyDocument"] }
+  ],
+  "properties": {
+    "@id": {
+      "$ref": "../../common/schema.json#/$defs/@id",
+      "examples": [
+        "ega:EGAP00000000001",
+        "ega:EGAP00001000002"
+      ]
+    },
+
+    "@type": {
+      "title": "Policy resource type",
+      "description": "JSON-LD types for an EGA Policy.",
+      "allOf": [
+        {
+          "$ref": "../../common/schema.json#/$defs/@type"
+        }
+      ],
+      "examples": [
+        ["ega:policy", "dct:Policy"],
+        ["ega:policy", "dct:Policy", "prov:Entity"]
+      ]
+    },
+
+    "title": {
+      "title": "Policy title",
+      "description": "A human-readable name for the policy.",
+      "allOf": [
+        { "$ref": "../../common/schema.json#/$defs/label" }
+      ],
+      "examples": ["Example Genomics Data Access Policy"]
+    },
+
+    "description": {
+      "title": "Policy description",
+      "description": "A short summary of the policy and the data-access scope to which it applies.",
+      "allOf": [
+        { "$ref": "../../common/schema.json#/$defs/description" }
+      ],
+      "examples": [
+        "This policy governs access to cancer genomics data for academic research purposes only. Researchers must be affiliated with an accredited institution and agree to maintain data confidentiality.",
+        "Data access is restricted to approved studies in rare genetic diseases. Commercial use is prohibited. Researchers must obtain explicit approval from the DAC for any secondary analyses."
+      ]
+    },
+
+    "status": {
+      "title": "Policy status",
+      "description": "The EGA metadata-record lifecycle status of the policy. This is distinct from the policy's effective validity period.",
+      "allOf": [
+        { "$ref": "../../common/schema.json#/$defs/statusSubmissionLifeCycle" }
+      ],
+      "examples": [
+        "draft",
+        "released"
+      ]
+    },
+
+    "governedBy": {
+      "title": "Governing DAC",
+      "description": "The single EGA Data Access Committee (DAC) responsible for governing this policy.",
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:relatedMatch",
+          "object_id": "https://raw.githubusercontent.com/M-casado/fega-metadata-schema/main/schemas/entities/DAC/schema.json#governs",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:label",
+          "subject_match_field": "rdfs:label",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1.0,
+          "mapping_date": "2026-07-22",
+          "comment": "The mapping relation is 'reverse': 'governs' is the reverse of 'governedBy'."
+        }
+      ],
+      "allOf": [
+        { "$ref": "../../common/schema.json#/$defs/relationshipArray" },
+        { 
+          "$comment": "#! For now we are defining each policy governed exclusively by one DAC, but if this is to change in the future with joint-DACs, or HDABs from the EHDS, we can simply modify the maximum here.",
+          "maxItems": 1
+        },
+        {
+          "items": {
+            "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionDAC"
+          }
+        }
+      ],
+      "examples": [
+        [
+          {
+            "@id": "ega:EGAC00000000001",
+            "@type": "ega:DAC"
+          }
+        ]
+      ]
+    },
+
+    "policyText": {
+      "title": "Policy text",
+      "description": "The human-readable terms and conditions of the data-access policy.",
+      "type": "string",
+      "minLength": 1,
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:closeMatch",
+          "object_id": "dct:RightsStatement",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:comment",
+          "subject_match_field": "rdfs:comment",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1.0,
+          "mapping_date": "2026-07-22"
+        }
+      ],
+      "examples": [
+        "Use of the dataset is limited to the approved research purpose ... . Users must protect confidentiality, must not attempt re-identification, and must report suspected misuse to the governing DAC."
+      ]
+    },
+
+    "policyDocument": {
+      "title": "Policy document",
+      "description": "An absolute URI identifying an external document that contains the policy terms or an equivalent representation of them.",
+      "type": "string",
+      "format": "uri",
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:closeMatch",
+          "object_id": "dct:RightsStatement",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:comment",
+          "subject_match_field": "rdfs:comment",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1.0,
+          "mapping_date": "2026-07-22"
+        },
+        {
+          "predicate_id": "skos:closeMatch",
+          "object_id": "foaf:page",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:label",
+          "subject_match_field": "rdfs:label",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1.0,
+          "mapping_date": "2026-07-22"
+        }
+      ],
+      "examples": [
+        "https://www.sanger.ac.uk/wp-content/uploads/WSI-Data-Sharing-Policy.pdf",
+        "https://example.org/policies/genomics-access-policy-v2.pdf"
+      ]
+    },
+
+    "dataUseConditions": {
+      "title": "Policy data use conditions",
+      "description": "DUO permissions and their modifiers that semantically annotate the terms and conditions of this policy.",
+      "type": "array",
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:closeMatch",
+          "object_id": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/v2.1.1/models/json/beacon-v2-default-model/datasets/defaultSchema.json#dataUseConditions",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:label",
+          "subject_match_field": "rdfs:label",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1.0,
+          "mapping_date": "2026-07-22",
+          "$comment": "The authoritative owner is the EGA Policy entity; the Beacon mapping describes the DUO data shape only."
+        }
+      ],
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "../../common/schema.json#/$defs/dataUseCondition"
+      },
+      "examples": [
+        [
+          {
+            "id": "DUO:0000042",
+            "label": "general research use",
+            "version": "2021-02-23"
+          }
+        ],
+        [
+          {
+            "id": "DUO:0000007",
+            "label": "disease specific research",
+            "modifiers": [
+              {
+                "id": "DUO:0000021",
+                "label": "ethics approval required"
+              },
+              {
+                "id": "DUO:0000028",
+                "label": "institution specific restriction"
+              }
+            ],
+            "version": "2021-02-23"
+          }
+        ],
+        [
+          {
+            "id": "DUO:0000011",
+            "label": "population origins or ancestry research only",
+            "version": "2021-02-23"
+          },
+          {
+            "id": "DUO:0000007",
+            "label": "disease specific research",
+            "modifiers": [
+              {
+                "id": "DUO:0000046",
+                "label": "non-commercial use only"
+              },
+              {
+                "id": "DUO:0000028",
+                "label": "institution specific restriction"
+              }
+            ],
+            "version": "2021-02-23"
+          }
+        ]
+      ]
+    },
+
+    "relatedResource": {
+      "title": "Related resource",
+      "description": "A resource related to this policy when no more specific relationship applies.",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "../../common/schema.json#/$defs/externalIdentifier"
+      },
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:exactMatch",
+          "object_id": "dct:relation",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:label",
+          "subject_match_field": "rdfs:label",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1.0,
+          "mapping_date": "2026-07-22"
+        },
+        {
+            "predicate_id": "skos:relatedMatch",
+            "object_id": "healthdcatap:relatedResource",
+            "mapping_justification": "semapv:ManualMappingCuration",
+            "object_match_field": "rdfs:label",
+            "subject_match_field": "rdfs:label",
+            "author_id": ["orcid:0000-0002-7747-6256"],
+            "creator_id": ["orcid:0000-0002-7747-6256"],
+            "reviewer_id": [""],
+            "confidence": 1.0,
+            "mapping_date": "2026-07-22"
+        },
+        {
+            "predicate_id": "skos:closeMatch",
+            "object_id": "schema:citation",
+            "mapping_justification": "semapv:ManualMappingCuration",
+            "object_match_field": "rdfs:label",
+            "subject_match_field": "rdfs:label",
+            "author_id": ["orcid:0000-0002-7747-6256"],
+            "creator_id": ["orcid:0000-0002-7747-6256"],
+            "reviewer_id": [""],
+            "confidence": 1.0,
+            "mapping_date": "2026-07-22"
+        },
+        {
+            "predicate_id": "skos:closeMatch",
+            "object_id": "egav1ebi:EGA.dataset.xsd#DatasetType/DATASET_LINKS",
+            "mapping_justification": "semapv:ManualMappingCuration",
+            "object_match_field": "rdfs:label",
+            "subject_match_field": "rdfs:label",
+            "author_id": ["orcid:0000-0002-7747-6256"],
+            "creator_id": ["orcid:0000-0002-7747-6256"],
+            "reviewer_id": [""],
+            "confidence": 1.0,
+            "mapping_date": "2026-07-22"
+        }
+      ]
+    },
+
+    "version": {
+      "title": "Policy version",
+      "description": "The version indicator for this Policy entity.",
+      "$comment": "Includes changes to any property of it, so if (e.g.) the policy text changes, it justifies a different version of the policy altogether.",
+      "allOf": [
+        { "$ref": "../../common/schema.json#/$defs/version" }
+      ]
+    },
+
+    "validityPeriod": {
+      "title": "Policy validity period",
+      "description": "The optional period during which the policy is effective. At least one boundary (i.e., start or end) must be supplied.",
+      "allOf": [
+        {
+          "$ref": "../../common/schema.json#/$defs/periodOfTime"
+        }
+      ],
+      "examples": [
+        {
+          "@type": "dct:PeriodOfTime",
+          "startDate": "2026-01-01T00:00:00Z",
+          "endDate": "2028-12-31T23:59:59Z"
+        }
+      ]
+    },
+
+    "appliesTo": {
+      "title": "Applicable datasets",
+      "description": "Datasets governed by this policy.",
+      "meta:sssomMappings": [
+        {
+          "predicate_id": "skos:relatedMatch",
+          "object_id": "dct:rights",
+          "mapping_justification": "semapv:ManualMappingCuration",
+          "object_match_field": "rdfs:comment",
+          "subject_match_field": "rdfs:comment",
+          "author_id": ["orcid:0000-0002-7747-6256"],
+          "creator_id": ["orcid:0000-0002-7747-6256"],
+          "reviewer_id": [""],
+          "confidence": 1.0,
+          "mapping_date": "2026-07-22",
+          "comment": "The mapping relation is 'reverse': 'appliesTo' is the reverse of 'dct:rights'."
+        }
+      ],
+      "allOf": [
+        { "$ref": "../../common/schema.json#/$defs/relationshipArray" },
+        {
+          "items": {
+            "$ref": "../../common/schema.json#/$defs/relationshipItemRestrictionDataset"
+          }
+        }
+      ],
+      "examples": [
+        [
+          {
+            "@id": "ega:EGAD00000000001",
+            "@type": ["ega:dataset", "dcat:Dataset"]
+          }
+        ]
+      ]
+    },
+
+    "sameAs": {
+      "title": "Same as",
+      "description": "External identifiers or resources representing the same policy.",
+      "allOf": [
+        { "$ref": "../../common/schema.json#/$defs/sameAs" }
+      ]
+    }
+  }
+}
